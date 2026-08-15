@@ -1,0 +1,47 @@
+[project]
+name = "consultor-juridico"
+version = "0.1.0"
+description = "Mecanismo CLI-first de consulta jurídica da Constituição Federal de 1988 e ADCT"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "typer>=0.12.0",
+    "rich>=13.7.0",
+    "pydantic>=2.7.0",
+    "pydantic-settings>=2.2.0",
+    "sqlalchemy>=2.0.30",
+    "alembic>=1.13.0",
+    "pgvector>=0.2.5",
+    "psycopg[binary]>=3.1.18",
+    "httpx>=0.27.0",
+    "beautifulsoup4>=4.12.3",
+    "lxml>=5.2.0",
+]
+
+[project.scripts]
+consultor-juridico = "consultor_juridico.cli.main:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/consultor_juridico"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.2.0",
+    "ruff>=0.4.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = []

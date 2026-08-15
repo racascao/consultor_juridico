@@ -65,3 +65,5 @@ Ela deve ser adaptada, não copiada literalmente.
 - Evidence Builder, Evidence Validator e Citation Validator são componentes explícitos da arquitetura.
 - Toda resposta deve possuir cadeia `claim → evidence → legal_element → legal_version → source_document → official_source`.
 - Se a cadeia não puder ser validada, a resposta não é apresentada como fundamentada.
+- Todas as dependências Python devem ser isoladas no ambiente virtual `.venv` do projeto. Nenhuma dependência Python deve ser instalada globalmente no sistema operacional do desenvolvedor.
+
