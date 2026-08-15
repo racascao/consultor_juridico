@@ -45,6 +45,7 @@
 
 ## Fase 4 — Parsing estrutural
 
+- [x] Migration `004_frozen_parsing_model` e integridade do schema de parsing
 - [ ] Inspeção estrutural do HTML real
 - [ ] Parser determinístico
 - [ ] Preâmbulo, títulos, capítulos e seções

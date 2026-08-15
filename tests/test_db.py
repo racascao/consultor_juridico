@@ -20,6 +20,7 @@ from consultor_juridico.models import (
     LegalAct,
     LegalElement,
     LegalVersion,
+    ParsingRun,
     Source,
     SourceDocument,
 )
@@ -83,19 +84,44 @@ def _create_legal_chain(
     db_session.add(legal_act)
     db_session.flush()
 
+    parsing_run = ParsingRun(
+        source_document_id=source_doc.id,
+        parser_name="test_parser",
+        parser_version=suffix,
+    )
+    db_session.add(parsing_run)
+    db_session.flush()
+
     legal_version = LegalVersion(
         legal_act_id=legal_act.id,
         source_document_id=source_doc.id,
+        parsing_run_id=parsing_run.id,
         version_label=f"Compilada 2026 {suffix}",
     )
     db_session.add(legal_version)
     db_session.flush()
 
+    root = LegalElement(
+        legal_version_id=legal_version.id,
+        element_type="DOCUMENT_ROOT",
+        document_order=1,
+        raw_text="Constituição Federal de 1988",
+        normalized_text="Constituição Federal de 1988",
+        text_status="CURRENT",
+        source_locator={"block_index": 0},
+    )
+    db_session.add(root)
+    db_session.flush()
+
     elem = LegalElement(
         legal_version_id=legal_version.id,
-        element_type="ARTIGO",
+        parent_id=root.id,
+        element_type="ARTICLE",
         number_label="Art. 5º",
-        raw_text="Art. 5º Todos são iguais perante a lei...",
+        document_order=2,
+        raw_text="Art. 5º",
+        normalized_text="Art. 5º",
+        source_locator={"block_index": 1},
         path=f"/art-5-{suffix}",
     )
     db_session.add(elem)
@@ -136,7 +162,7 @@ def test_alembic_migration_and_rollback():
         )
     if document_count:
         status = check_db_status()
-        assert status["alembic_version"] == "003_ingestion_raw_storage"
+        assert status["alembic_version"] == "004_frozen_parsing_model"
         return
 
     # Downgrade to base
@@ -150,7 +176,7 @@ def test_alembic_migration_and_rollback():
     status_up = check_db_status()
     assert status_up["connected"] is True
     assert "sources" in status_up["tables"]
-    assert status_up["alembic_version"] == "003_ingestion_raw_storage"
+    assert status_up["alembic_version"] == "004_frozen_parsing_model"
 
 
 def test_source_base_url_is_unique(db_session: Session):
@@ -227,12 +253,23 @@ def test_foreign_key_integrity_invalid_source(db_session: Session):
 def test_legal_element_parent_child_hierarchy(db_session: Session):
     """Testa o auto-referenciamento em LegalElement (parent -> child) e navegação."""
     *_, legal_version, _, _ = _create_legal_chain(db_session, "hier")
+    root = db_session.scalar(
+        select(LegalElement).where(
+            LegalElement.legal_version_id == legal_version.id,
+            LegalElement.element_type == "DOCUMENT_ROOT",
+        )
+    )
+    assert root is not None
 
     art5 = LegalElement(
         legal_version_id=legal_version.id,
-        element_type="ARTIGO",
+        parent_id=root.id,
+        element_type="ARTICLE",
         number_label="Art. 5º",
-        raw_text="Art. 5º Todos são iguais perante a lei...",
+        document_order=3,
+        raw_text="Art. 5º",
+        normalized_text="Art. 5º",
+        source_locator={"block_index": 2},
         path="/art-5",
     )
     db_session.add(art5)
@@ -243,7 +280,10 @@ def test_legal_element_parent_child_hierarchy(db_session: Session):
         parent_id=art5.id,
         element_type="INCISO",
         number_label="I",
+        document_order=4,
         raw_text="I - homens e mulheres são iguais em direitos e obrigações...",
+        normalized_text="I - homens e mulheres são iguais em direitos e obrigações...",
+        source_locator={"block_index": 3},
         path="/art-5/inc-1",
     )
     db_session.add(inc1)
@@ -262,13 +302,18 @@ def test_legal_element_parent_child_hierarchy(db_session: Session):
 
 def test_legal_element_no_self_parent_constraint(db_session: Session):
     """Testa a CheckConstraint que impede um LegalElement de ser pai de si mesmo."""
+    *_, legal_version, _, _ = _create_legal_chain(db_session, "self_parent")
     elem_id = uuid.uuid4()
     elem = LegalElement(
         id=elem_id,
-        legal_version_id=uuid.uuid4(),
+        legal_version_id=legal_version.id,
         parent_id=elem_id,  # Autoreferência inválida
-        element_type="ARTIGO",
-        raw_text="Artigo inválido",
+        element_type="ARTICLE",
+        number_label="Art. 99",
+        document_order=3,
+        raw_text="Art. 99",
+        normalized_text="Art. 99",
+        source_locator={"block_index": 2},
     )
     db_session.add(elem)
     with pytest.raises(IntegrityError):
@@ -282,19 +327,26 @@ def test_legal_element_no_self_parent_constraint(db_session: Session):
 
 def test_chunk_legal_element_many_to_many(db_session: Session):
     """Testa o relacionamento N:N entre Chunk e LegalElement via ChunkLegalElement."""
-    *_, legal_version, _, _ = _create_legal_chain(db_session, "chunk_nn")
+    *_, legal_version, existing_elem, _ = _create_legal_chain(db_session, "chunk_nn")
 
     elem1 = LegalElement(
         legal_version_id=legal_version.id,
-        element_type="ARTIGO",
-        number_label="Art. 1º",
-        raw_text="Art. 1º",
+        parent_id=existing_elem.id,
+        element_type="CAPUT",
+        document_order=3,
+        raw_text="A República Federativa do Brasil...",
+        normalized_text="A República Federativa do Brasil...",
+        source_locator={"block_index": 2},
     )
     elem2 = LegalElement(
         legal_version_id=legal_version.id,
+        parent_id=existing_elem.id,
         element_type="INCISO",
         number_label="I",
+        document_order=4,
         raw_text="I - soberania",
+        normalized_text="I - soberania",
+        source_locator={"block_index": 3},
     )
     db_session.add_all([elem1, elem2])
     db_session.flush()
@@ -486,9 +538,13 @@ def test_claim_citation_evidence_relationship(db_session: Session):
 
     elem2 = LegalElement(
         legal_version_id=legal_version.id,
+        parent_id=elem1.id,
         element_type="INCISO",
         number_label="LVI",
+        document_order=3,
         raw_text="Provas ilícitas",
+        normalized_text="Provas ilícitas",
+        source_locator={"block_index": 2},
     )
     db_session.add(elem2)
     db_session.flush()

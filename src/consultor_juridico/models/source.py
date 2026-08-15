@@ -20,6 +20,7 @@ from consultor_juridico.db.base import Base
 
 if TYPE_CHECKING:
     from consultor_juridico.models.legal import LegalVersion
+    from consultor_juridico.models.parsing import ParsingRun
 
 
 class Source(Base):
@@ -77,5 +78,13 @@ class SourceDocument(Base):
 
     source: Mapped["Source"] = relationship("Source", back_populates="documents")
     legal_versions: Mapped[list["LegalVersion"]] = relationship(
-        "LegalVersion", back_populates="source_document"
+        "LegalVersion",
+        back_populates="source_document",
+        foreign_keys="LegalVersion.source_document_id",
+        overlaps="legal_versions,parsing_run,source_document",
+    )
+    parsing_runs: Mapped[list["ParsingRun"]] = relationship(
+        "ParsingRun",
+        back_populates="source_document",
+        overlaps="legal_versions,parsing_run,source_document",
     )
