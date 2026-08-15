@@ -29,5 +29,33 @@ class Settings(BaseSettings):
     ollama_base_url: str = Field(default="http://ollama:11434", alias="OLLAMA_BASE_URL")
     ollama_model: str = Field(default="llama3.2", alias="OLLAMA_MODEL")
 
+    # Aquisição documental HTTP
+    ingestion_connect_timeout: float = Field(
+        default=10.0, alias="INGESTION_CONNECT_TIMEOUT"
+    )
+    ingestion_read_timeout: float = Field(default=30.0, alias="INGESTION_READ_TIMEOUT")
+    ingestion_write_timeout: float = Field(
+        default=10.0, alias="INGESTION_WRITE_TIMEOUT"
+    )
+    ingestion_pool_timeout: float = Field(default=10.0, alias="INGESTION_POOL_TIMEOUT")
+    ingestion_max_attempts: int = Field(default=3, alias="INGESTION_MAX_ATTEMPTS")
+    ingestion_backoff_seconds: float = Field(
+        default=0.5, alias="INGESTION_BACKOFF_SECONDS"
+    )
+    ingestion_retry_after_max_seconds: float = Field(
+        default=5.0, alias="INGESTION_RETRY_AFTER_MAX_SECONDS"
+    )
+    ingestion_min_bytes: int = Field(default=1024, alias="INGESTION_MIN_BYTES")
+    ingestion_max_bytes: int = Field(
+        default=10 * 1024 * 1024, alias="INGESTION_MAX_BYTES"
+    )
+    planalto_user_agent: str = Field(
+        default=(
+            "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+            "Chrome/151 Safari/537.36"
+        ),
+        alias="PLANALTO_USER_AGENT",
+    )
+
 
 settings = Settings()

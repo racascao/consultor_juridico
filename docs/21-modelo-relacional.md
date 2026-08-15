@@ -30,7 +30,7 @@ O objetivo do modelo é garantir a rastreabilidade estrita da informação jurí
   │ PK id        │          │ PK id            │          │ PK id            │
   │    name      │          │ FK source_id     │          │ FK legal_act_id  │
   │    base_url  │          │    url_source    │          │ FK source_doc_id │
-  └──────────────┘          │    raw_content   │          │    version_label │
+  └──────────────┘          │    raw_bytes     │          │    version_label │
                             │    hash_sha256   │          └────────┬─────────┘
                             └──────────────────┘                   │
                                                                    │ 1
@@ -116,7 +116,7 @@ O objetivo do modelo é garantir a rastreabilidade estrita da informação jurí
 - **Finalidade**: Armazena o documento bruto (HTML integral) exatamente como baixado da fonte oficial, sem alterações, junto com seu hash SHA-256 para imutabilidade e auditoria.
 - **PK**: `id` (`UUID`)
 - **FKs**: `source_id` $\rightarrow$ `Source.id` (`ON DELETE RESTRICT`) — *Impede a remoção de fontes que possuam documentos associados.*
-- **Atributos**: `url_source` (`TEXT`), `raw_content` (`TEXT`), `content_hash_sha256` (`VARCHAR(64)`), `fetched_at` (`TIMESTAMPTZ`), `http_headers` (`JSONB`), `metadata` (`JSONB`)
+- **Atributos**: `url_source` (`TEXT`), `raw_bytes` (`BYTEA`), `content_hash_sha256` (`VARCHAR(64)`), `fetched_at` (`TIMESTAMPTZ`), `http_headers` (`JSONB`), `metadata` (`JSONB`)
 - **Cardinalidade**: `N SourceDocument` $\rightarrow$ `1 Source`, `1 SourceDocument` $\rightarrow$ `N LegalVersion`
 
 ### 4.3. `LegalAct`
@@ -220,8 +220,8 @@ O modelo aplica restrições físicas de banco de dados para evitar estados inco
 1. **Garantia de Documento Inexistente / Fonte Órfã**:
    - `SourceDocument.source_id` é `NOT NULL` com `ON DELETE RESTRICT`. Impede registros de documentos com fontes inexistentes.
 2. **Unicidade de Hash na Fonte (`SourceDocument`)**:
-   - `CONSTRAINT uq_source_doc_hash UNIQUE (content_hash_sha256)`
-   - Garantia de idempotência e ausência de documentos duplicados.
+   - `CONSTRAINT uq_source_documents_source_hash UNIQUE (source_id, content_hash_sha256)`
+   - Garante idempotência na mesma fonte e preserva proveniências distintas.
 3. **Integridade Estrutural de `LegalElement`**:
    - `CONSTRAINT chk_legal_element_no_self_parent CHECK (parent_id <> id)` (impede que um elemento seja pai de si mesmo).
 4. **Isolamento de Embeddings por Provedor/Modelo/Versão**:
@@ -243,7 +243,7 @@ O modelo aplica restrições físicas de banco de dados para evitar estados inco
 
 1. **Índices Primários e Únicos (B-Tree)**:
    - Chaves Primárias (`UUID`) em todas as tabelas.
-   - `idx_source_doc_hash` ON `SourceDocument(content_hash_sha256)`
+   - `uq_source_documents_source_hash` ON `SourceDocument(source_id, content_hash_sha256)` UNIQUE
    - `idx_legal_act_short_name` ON `LegalAct(short_name)` UNIQUE
 
 2. **Índices de Chaves Estrangeiras e Hierarquia (B-Tree)**:

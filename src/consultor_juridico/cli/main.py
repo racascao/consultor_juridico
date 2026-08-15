@@ -4,6 +4,7 @@ import typer
 from rich.console import Console
 
 from consultor_juridico import __version__
+from consultor_juridico.ingestion import get_ingestion_status, run_planalto_ingestion
 from consultor_juridico.services import db_service
 
 app = typer.Typer(
@@ -65,12 +66,47 @@ def db_status() -> None:
 def ingest_constitution() -> None:
     """Executa a ingestão da CF/88 e ADCT a partir da fonte oficial."""
     console.print("[yellow]Iniciando ingestão da CF/88 e ADCT...[/yellow]")
+    try:
+        result = run_planalto_ingestion()
+    except Exception as exc:
+        console.print(f"[bold red]Falha na ingestão:[/bold red] {exc}")
+        raise typer.Exit(code=1) from exc
+
+    console.print(f"Resultado: [bold cyan]{result.outcome.value}[/bold cyan]")
+    console.print(f"Documento: {result.document_id}")
+    console.print(f"URL solicitada: {result.download.requested_url}")
+    console.print(f"URL final: {result.download.final_url}")
+    console.print(f"Status HTTP: {result.download.status_code}")
+    received_bytes = (
+        len(result.download.canonical_bytes)
+        if result.download.canonical_bytes is not None
+        else 0
+    )
+    console.print(f"Bytes recebidos: {received_bytes}")
+    console.print(f"SHA-256: {result.sha256}")
 
 
 @ingest_app.command(name="status")
 def ingest_status() -> None:
     """Exibe o status das ingestões registradas."""
-    console.print("[cyan]Status das Ingestões: Nenhuma ingestão pendente.[/cyan]")
+    try:
+        documents = get_ingestion_status()
+    except Exception as exc:
+        console.print(f"[bold red]Falha ao consultar ingestões:[/bold red] {exc}")
+        raise typer.Exit(code=1) from exc
+
+    if not documents:
+        console.print("[cyan]Status das Ingestões: Nenhuma captura registrada.[/cyan]")
+        return
+
+    console.print(f"[bold green]Capturas registradas: {len(documents)}[/bold green]")
+    for document in documents:
+        console.print(
+            f"- {document['id']} | {document['source']} | "
+            f"{document['sha256']} | {document['received_bytes']} bytes | "
+            f"{document['fetched_at']}"
+        )
+        console.print(f"  URL: {document['url_source']}")
 
 
 @document_app.command(name="list")

@@ -24,9 +24,7 @@ class LegalAct(Base):
         UUID(as_uuid=True), primary_key=True, default=uuid.uuid4
     )
     title: Mapped[str] = mapped_column(String(255), nullable=False)
-    short_name: Mapped[str] = mapped_column(
-        String(50), unique=True, nullable=False
-    )
+    short_name: Mapped[str] = mapped_column(String(50), unique=True, nullable=False)
     act_type: Mapped[str] = mapped_column(String(50), nullable=False)
     official_number: Mapped[str | None] = mapped_column(String(50), nullable=True)
     enactment_date: Mapped[date | None] = mapped_column(Date, nullable=True)

@@ -4,6 +4,7 @@ import uuid
 
 import pytest
 from alembic import command
+from sqlalchemy import func, select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
@@ -68,7 +69,7 @@ def _create_legal_chain(
     source_doc = SourceDocument(
         source_id=source.id,
         url_source=f"http://planalto.gov.br/cf88_{suffix}.htm",
-        raw_content=f"<html>CF88 {suffix}</html>",
+        raw_bytes=f"<html>CF88 {suffix}</html>".encode(),
         content_hash_sha256=f"hash_cf88_{suffix}",
     )
     db_session.add(source_doc)
@@ -126,8 +127,17 @@ def test_db_connection_and_status():
 
 
 def test_alembic_migration_and_rollback():
-    """Testa se o ciclo downgrade/upgrade é reproduzível (001 e 002)."""
+    """Testa o ciclo apenas em banco vazio e nunca desmonta capturas reais."""
     config = get_alembic_config()
+
+    with SessionLocal() as session:
+        document_count = session.scalar(
+            select(func.count()).select_from(SourceDocument)
+        )
+    if document_count:
+        status = check_db_status()
+        assert status["alembic_version"] == "003_ingestion_raw_storage"
+        return
 
     # Downgrade to base
     command.downgrade(config, "base")
@@ -140,8 +150,55 @@ def test_alembic_migration_and_rollback():
     status_up = check_db_status()
     assert status_up["connected"] is True
     assert "sources" in status_up["tables"]
-    # Confirmar que a migration 002 também foi aplicada verificando a versão
-    assert status_up["alembic_version"] == "002_schema_corrections"
+    assert status_up["alembic_version"] == "003_ingestion_raw_storage"
+
+
+def test_source_base_url_is_unique(db_session: Session):
+    """A base_url identifica fisicamente uma Source."""
+    db_session.add_all(
+        [
+            Source(name="Planalto A", base_url="https://www.planalto.gov.br"),
+            Source(name="Planalto B", base_url="https://www.planalto.gov.br"),
+        ]
+    )
+    with pytest.raises(IntegrityError):
+        db_session.commit()
+
+
+def test_source_document_hash_is_unique_per_source(db_session: Session):
+    """O mesmo hash pode existir em fontes distintas, mas não na mesma fonte."""
+    source_a = Source(name="Fonte A", base_url="https://a.example")
+    source_b = Source(name="Fonte B", base_url="https://b.example")
+    db_session.add_all([source_a, source_b])
+    db_session.flush()
+
+    db_session.add_all(
+        [
+            SourceDocument(
+                source_id=source_a.id,
+                url_source="https://a.example/doc",
+                raw_bytes=b"\x00\xffpayload",
+                content_hash_sha256="same-hash",
+            ),
+            SourceDocument(
+                source_id=source_b.id,
+                url_source="https://b.example/doc",
+                raw_bytes=b"\x00\xffpayload",
+                content_hash_sha256="same-hash",
+            ),
+        ]
+    )
+    db_session.commit()
+
+    duplicate = SourceDocument(
+        source_id=source_a.id,
+        url_source="https://a.example/other",
+        raw_bytes=b"\x00\xffpayload",
+        content_hash_sha256="same-hash",
+    )
+    db_session.add(duplicate)
+    with pytest.raises(IntegrityError):
+        db_session.commit()
 
 
 # ---------------------------------------------------------------------------
@@ -154,7 +211,7 @@ def test_foreign_key_integrity_invalid_source(db_session: Session):
     invalid_doc = SourceDocument(
         source_id=uuid.uuid4(),
         url_source="http://invalid.com",
-        raw_content="<html></html>",
+        raw_bytes=b"<html></html>",
         content_hash_sha256="fakehash123",
     )
     db_session.add(invalid_doc)
@@ -549,7 +606,7 @@ def test_citation_cross_evidence_set_rejected(db_session: Session):
     cross_citation = Citation(
         claim_id=claim.id,
         evidence_item_id=ev_item_from_a.id,  # pertence ao Set A
-        evidence_set_id=ev_set_b.id,          # mas registra Set B → INVÁLIDO
+        evidence_set_id=ev_set_b.id,  # mas registra Set B → INVÁLIDO
     )
     db_session.add(cross_citation)
 

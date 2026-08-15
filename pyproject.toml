@@ -37,6 +37,9 @@ dev = [
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]
+markers = [
+    "planalto_integration: integração opt-in com o site oficial do Planalto",
+]
 
 [tool.ruff]
 line-length = 88

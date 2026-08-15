@@ -1,8 +1,12 @@
 """Testes para os comandos da CLI."""
 
+import uuid
+from types import SimpleNamespace
+
 from typer.testing import CliRunner
 
 from consultor_juridico import __version__
+from consultor_juridico.ingestion.types import IngestionOutcome
 
 
 def test_cli_version(cli_runner: CliRunner, cli_app):
@@ -19,11 +23,38 @@ def test_cli_db_status(cli_runner: CliRunner, cli_app):
     assert "Status do Banco de Dados" in result.stdout
 
 
-def test_cli_ingest_status(cli_runner: CliRunner, cli_app):
+def test_cli_ingest_status(cli_runner: CliRunner, cli_app, monkeypatch):
     """Testa se o subcomando `ingest status` executa sem erros."""
+    monkeypatch.setattr("consultor_juridico.cli.main.get_ingestion_status", lambda: [])
     result = cli_runner.invoke(cli_app, ["ingest", "status"])
     assert result.exit_code == 0
     assert "Status das Ingestões" in result.stdout
+
+
+def test_cli_ingest_constitution_delegates_to_service(
+    cli_runner: CliRunner, cli_app, monkeypatch
+):
+    """A CLI apresenta o resultado produzido pelo serviço de aplicação."""
+    download = SimpleNamespace(
+        requested_url="https://example.test/doc",
+        final_url="https://example.test/final",
+        status_code=200,
+        canonical_bytes=b"payload",
+    )
+    result_value = SimpleNamespace(
+        outcome=IngestionOutcome.CREATED,
+        document_id=uuid.uuid4(),
+        sha256="a" * 64,
+        download=download,
+    )
+    monkeypatch.setattr(
+        "consultor_juridico.cli.main.run_planalto_ingestion", lambda: result_value
+    )
+
+    result = cli_runner.invoke(cli_app, ["ingest", "constitution"])
+    assert result.exit_code == 0
+    assert "CREATED" in result.stdout
+    assert "a" * 64 in result.stdout
 
 
 def test_cli_document_list(cli_runner: CliRunner, cli_app):

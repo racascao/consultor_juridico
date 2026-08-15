@@ -2,144 +2,84 @@
 
 ## Fase 0 — Fundação
 
-- [ ] Criar repositório
-- [ ] Criar `pyproject.toml`
-- [ ] Configurar uv
-- [ ] Configurar Ruff
-- [ ] Criar `.env.example`
-- [ ] Criar `.gitignore`
-- [ ] Criar estrutura `src/`
-- [ ] Criar estrutura `tests/`
+- [x] Estrutura do repositório, `src/` e `tests/`
+- [x] `pyproject.toml`, uv, Ruff e ambiente `.venv`
+- [x] Configuração inicial e CLI raiz
 
 ## Fase 1 — Docker
 
-- [ ] Criar Dockerfile
-- [ ] Criar docker-compose.yml
-- [ ] Configurar app
-- [ ] Configurar PostgreSQL
-- [ ] Configurar pgvector
-- [ ] Configurar Ollama
-- [ ] Configurar volumes
-- [ ] Configurar healthcheck
-- [ ] Validar build
-- [ ] Validar startup
+- [x] Dockerfile e Docker Compose
+- [x] PostgreSQL + pgvector
+- [x] Ollama
+- [x] Volumes, healthchecks e startup
 
-## Fase 2 — Banco
+## Fase 2A — Modelagem
 
-- [ ] SQLAlchemy
-- [ ] Alembic
-- [ ] Source
-- [ ] Document
-- [ ] LegalAct
-- [ ] LegalVersion
-- [ ] LegalElement
-- [ ] Chunk
-- [ ] Embedding
-- [ ] LegalRelationship
-- [ ] Migration inicial
-- [ ] Validar migration limpa
-- [ ] Validar rollback
+- [x] Modelo relacional e vetorial
+- [x] Cadeia de rastreabilidade jurídica
+- [x] Evidence Set, Evidence Item, Claim e Citation
+- [x] Suporte a múltiplos embeddings por Chunk
 
-## Fase 3 — CLI
+## Fase 2B — SQLAlchemy/Alembic
 
-- [ ] Comando raiz
-- [ ] `db migrate`
-- [ ] `db status`
-- [ ] `ingest constitution`
-- [ ] `ingest status`
-- [ ] `document list`
-- [ ] `document show`
-- [ ] `search`
-- [ ] `consult`
-- [ ] `embedding`
-- [ ] `evaluate`
-- [ ] `version`
+- [x] Modelos SQLAlchemy
+- [x] Alembic
+- [x] `001_initial_schema`
+- [x] `002_schema_corrections`
+- [x] Auditoria de constraints, FKs e migrations
+- [x] Validação de upgrade e rollback
 
-## Fase 4 — Domínio jurídico
+## Fase 3 — Ingestão e Raw Storage
 
-- [ ] Tipos de elementos
-- [ ] Árvore jurídica
-- [ ] Identificação
-- [ ] Versionamento
-- [ ] Testes
+- [x] URL oficial da CF/88 e ADCT
+- [x] Adapter Planalto
+- [x] Downloader HTTP
+- [x] Timeouts, redirects, retries e backoff
+- [x] SHA-256 sobre bytes canônicos
+- [x] Raw storage em `BYTEA`
+- [x] Idempotência por `(source_id, content_hash_sha256)`
+- [x] Metadados HTTP
+- [x] CLI `ingest constitution` e `ingest status`
+- [x] Testes unitários
+- [x] Validação de integração real com o Planalto (`200 → 304`)
 
-## Fase 5 — Ingestão
+## Fase 4 — Parsing estrutural
 
-- [ ] Confirmar URL oficial
-- [ ] Adapter Planalto
-- [ ] Downloader
-- [ ] Timeout
-- [ ] Retry
-- [ ] Hash
-- [ ] Raw storage
-- [ ] Idempotência
-- [ ] Metadados
-- [ ] Testes
-
-## Fase 6 — Parsing
-
-- [ ] Inspecionar HTML real
-- [ ] Parser
-- [ ] Preâmbulo
-- [ ] Títulos
-- [ ] Capítulos
-- [ ] Seções
-- [ ] Artigos
-- [ ] Parágrafos
-- [ ] Incisos
-- [ ] Alíneas
+- [ ] Inspeção estrutural do HTML real
+- [ ] Parser determinístico
+- [ ] Preâmbulo, títulos, capítulos e seções
+- [ ] Artigos, parágrafos, incisos, alíneas e itens
 - [ ] ADCT
-- [ ] Normalizador
-- [ ] Fixtures
+- [ ] Normalização e fixtures
+- [ ] Versionamento jurídico
 
-## Fase 7 — Indexação
+## Fase 5 — Indexação/Retrieval
 
 - [ ] Chunking jurídico
 - [ ] Full-text search
-- [ ] Escolher embeddings
-- [ ] Registrar ADR
-- [ ] Provider de embeddings
-- [ ] Persistir embeddings
-- [ ] Índice vetorial
-- [ ] Busca semântica
-- [ ] Busca híbrida
-- [ ] Reranking
+- [ ] Escolha e registro do modelo de embeddings
+- [ ] Persistência e índice vetorial
+- [ ] Busca lexical, semântica e híbrida
+- [ ] RRF e reranking
 
-## Fase 8 — RAG
+## Fase 6 — Evidence/RAG/Citation Validation
 
-- [ ] ConsultationService
-- [ ] Evidence Set
-- [ ] Prompt
+- [ ] Evidence Builder
+- [ ] Evidence Validator
+- [ ] Consultation Service
 - [ ] Provider Ollama
-- [ ] Geração
-- [ ] Citações
-- [ ] Resposta sem evidência
-- [ ] Teste ponta a ponta
+- [ ] Geração fundamentada
+- [ ] Claims e citations
+- [ ] Citation Validator
+- [ ] Resposta por insuficiência de evidência
 
-## Fase 9 — Avaliação
+## Fase 7 — Avaliação e aceite
 
-- [ ] Dataset inicial
-- [ ] 50–100 perguntas
-- [ ] Classificação
-- [ ] Fontes esperadas
-- [ ] Recall@K
-- [ ] Precision@K
-- [ ] MRR
-- [ ] Source Recall
-- [ ] Avaliação de citações
-- [ ] Fidelidade
-- [ ] Alucinação
-- [ ] Baseline
-
-## Fase 10 — Aceite
-
-- [ ] Testes
-- [ ] Lint
-- [ ] Benchmark
+- [ ] Dataset de avaliação
+- [ ] Métricas de retrieval e citações
+- [ ] Fidelidade e alucinação
+- [ ] Benchmark e baseline
+- [ ] Testes ponta a ponta
 - [ ] Docker limpo
-- [ ] Ingestão completa
-- [ ] Consultas
-- [ ] Citações
-- [ ] Documentação
-- [ ] ADRs
+- [ ] Documentação e ADRs finais
 - [ ] MVP 1 concluído

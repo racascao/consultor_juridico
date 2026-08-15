@@ -82,6 +82,20 @@ uv run pytest
 uv run ruff check .
 ```
 
+## Ingestão documental
+
+A Fase 3 captura a CF/88 e o ADCT como um único documento físico oficial, sem
+parsing ou decoding textual:
+
+```bash
+uv run consultor-juridico ingest constitution
+uv run consultor-juridico ingest status
+```
+
+Os bytes canônicos são armazenados em PostgreSQL `BYTEA` e identificados por
+SHA-256 dentro da fonte. Consulte `docs/30-ingestao-planalto.md` para a política
+HTTP, idempotência e execução da integração real opt-in.
+
 ## Docker
 
 O ambiente completo do sistema é containerizado via Docker Compose:
