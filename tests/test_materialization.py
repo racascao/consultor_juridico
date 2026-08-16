@@ -14,6 +14,9 @@ from sqlalchemy.orm import Session
 
 from consultor_juridico.db.session import get_database_url
 from consultor_juridico.models import (
+    Chunk,
+    ChunkLegalElement,
+    Embedding,
     LegalAct,
     LegalElement,
     LegalProvision,
@@ -26,6 +29,7 @@ from consultor_juridico.parsing.materialization import (
     ParsingOutcome,
     materialize_constitution,
 )
+from consultor_juridico.retrieval import IndexingOutcome, build_search_index
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 ALEMBIC = Path(sys.executable).with_name("alembic")
@@ -145,4 +149,68 @@ def test_tx2_failure_rolls_back_all_derived_rows_and_retry_succeeds(database_url
         assert retry.outcome == ParsingOutcome.CREATED
         assert retry.parsing_run_id == run.id
         assert _count(session, LegalVersion) == 2
+    engine.dispose()
+
+
+class _FakeEmbeddingProvider:
+    def embed(self, texts):
+        return tuple(
+            (float(index + 1), 0.5, -0.25) for index, _text in enumerate(texts)
+        )
+
+
+def test_indexing_is_auditable_and_idempotent(database_url):
+    engine = create_engine(database_url)
+    with Session(engine) as session:
+        document = _document(session)
+        materialize_constitution(session, document.id)
+        first = build_search_index(
+            session,
+            _FakeEmbeddingProvider(),
+            model_name="fake-embedding",
+            batch_size=4,
+        )
+        assert first.outcome == IndexingOutcome.CREATED
+        assert first.chunks == first.embeddings > 0
+        assert first.dimensions == 3
+        assert _count(session, Chunk) == first.chunks
+        assert _count(session, ChunkLegalElement) == first.chunks
+        assert _count(session, Embedding) == first.chunks
+        assert (
+            session.scalar(
+                select(func.count())
+                .select_from(Chunk)
+                .where(Chunk.tsv_content.is_(None))
+            )
+            == 0
+        )
+
+        second = build_search_index(
+            session,
+            _FakeEmbeddingProvider(),
+            model_name="fake-embedding",
+        )
+        assert second.outcome == IndexingOutcome.ALREADY_INDEXED
+        assert _count(session, Chunk) == first.chunks
+    engine.dispose()
+
+
+def test_indexing_provider_failure_rolls_back_chunks_and_embeddings(database_url):
+    class FailingProvider:
+        def embed(self, _texts):
+            raise RuntimeError("falha vetorial injetada")
+
+    engine = create_engine(database_url)
+    with Session(engine) as session:
+        document = _document(session)
+        materialize_constitution(session, document.id)
+        with pytest.raises(RuntimeError, match="falha vetorial injetada"):
+            build_search_index(
+                session,
+                FailingProvider(),
+                model_name="fake-embedding",
+            )
+        assert _count(session, Chunk) == 0
+        assert _count(session, ChunkLegalElement) == 0
+        assert _count(session, Embedding) == 0
     engine.dispose()

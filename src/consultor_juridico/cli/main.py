@@ -2,13 +2,22 @@
 
 import typer
 from rich.console import Console
-from sqlalchemy import select
+from sqlalchemy import func, select
 
 from consultor_juridico import __version__
+from consultor_juridico.config import settings
 from consultor_juridico.db.session import SessionLocal
 from consultor_juridico.ingestion import get_ingestion_status, run_planalto_ingestion
-from consultor_juridico.models import SourceDocument
+from consultor_juridico.models import Chunk, Embedding, SourceDocument
 from consultor_juridico.parsing import materialization_status, materialize_constitution
+from consultor_juridico.retrieval import (
+    OllamaEmbeddingProvider,
+    RetrievalFilters,
+    build_search_index,
+    hybrid_search,
+    lexical_search,
+    vector_search,
+)
 from consultor_juridico.services import db_service
 
 app = typer.Typer(
@@ -21,11 +30,15 @@ db_app = typer.Typer(help="Gerenciamento de banco de dados e migrations.")
 ingest_app = typer.Typer(help="Comandos de ingestão de documentos oficiais.")
 document_app = typer.Typer(help="Visualização de documentos jurídicos.")
 parse_app = typer.Typer(help="Parsing e materialização constitucional.")
+index_app = typer.Typer(help="Chunking, FTS e embeddings locais.")
+retrieval_app = typer.Typer(help="Diagnóstico de retrieval jurídico.")
 
 app.add_typer(db_app, name="db")
 app.add_typer(ingest_app, name="ingest")
 app.add_typer(document_app, name="document")
 app.add_typer(parse_app, name="parse")
+app.add_typer(index_app, name="index")
+app.add_typer(retrieval_app, name="retrieval")
 
 console = Console()
 
@@ -152,6 +165,104 @@ def parse_status_command() -> None:
         console.print(f"{key}={value}")
 
 
+def _embedding_provider() -> OllamaEmbeddingProvider:
+    return OllamaEmbeddingProvider(
+        settings.ollama_base_url,
+        settings.embedding_model,
+        settings.embedding_timeout,
+    )
+
+
+@index_app.command(name="build")
+def index_build_command() -> None:
+    """Materializa chunks, FTS e embeddings do snapshot jurídico ativo."""
+    try:
+        with SessionLocal() as session:
+            result = build_search_index(
+                session,
+                _embedding_provider(),
+                model_name=settings.embedding_model,
+                batch_size=settings.embedding_batch_size,
+            )
+    except Exception as exc:
+        console.print(f"[bold red]Falha na indexação:[/bold red] {exc}")
+        raise typer.Exit(code=1) from exc
+    console.print(f"Resultado: [bold cyan]{result.outcome.value}[/bold cyan]")
+    console.print(f"Chunks: {result.chunks}")
+    console.print(f"Embeddings: {result.embeddings}")
+    console.print(f"Dimensões: {result.dimensions}")
+    console.print(
+        f"Modelo: {result.provider_name}/{result.model_name}/{result.model_version}"
+    )
+
+
+@index_app.command(name="status")
+def index_status_command() -> None:
+    """Exibe contagens do índice jurídico persistido."""
+    with SessionLocal() as session:
+        chunks = int(session.scalar(select(func.count()).select_from(Chunk)) or 0)
+        embeddings = int(
+            session.scalar(select(func.count()).select_from(Embedding)) or 0
+        )
+        dimensions = session.scalar(select(Embedding.dimensions).limit(1))
+    console.print(f"chunks={chunks}")
+    console.print(f"embeddings={embeddings}")
+    console.print(f"dimensions={dimensions or 0}")
+
+
+@retrieval_app.command(name="search")
+def retrieval_search_command(
+    query: str,
+    mode: str = typer.Option("hybrid", help="lexical, vector ou hybrid"),
+    limit: int = typer.Option(10, min=1, max=100),
+    act: str | None = typer.Option(None, help="CF/88 ou ADCT"),
+    element_types: str | None = typer.Option(
+        None, help="Tipos separados por vírgula, ex.: CAPUT,PARAGRAPH"
+    ),
+) -> None:
+    """Executa retrieval diagnóstico sem criar EvidenceSet ou resposta jurídica."""
+    selected_types = tuple(
+        value.strip().upper()
+        for value in (element_types or "").split(",")
+        if value.strip()
+    )
+    filters = RetrievalFilters(act=act, element_types=selected_types)
+    with SessionLocal() as session:
+        if mode == "lexical":
+            candidates = lexical_search(session, query, limit=limit, filters=filters)
+        elif mode == "vector":
+            candidates = vector_search(
+                session,
+                query,
+                _embedding_provider(),
+                model_name=settings.embedding_model,
+                limit=limit,
+                filters=filters,
+            )
+        elif mode == "hybrid":
+            candidates = hybrid_search(
+                session,
+                query,
+                _embedding_provider(),
+                model_name=settings.embedding_model,
+                limit=limit,
+                filters=filters,
+            )
+        else:
+            raise typer.BadParameter("mode deve ser lexical, vector ou hybrid")
+    for position, item in enumerate(candidates, start=1):
+        console.print(
+            f"{position}. {item.legal_act} {item.element_type} "
+            f"{item.number_label or ''} | chunk={item.chunk_id}"
+        )
+        console.print(
+            f"   lexical_rank={item.lexical_rank} vector_rank={item.vector_rank} "
+            f"rrf={item.rrf_score}"
+        )
+        console.print(f"   identity={item.identity_key}")
+        console.print(f"   {item.chunk_text[:240]}")
+
+
 @document_app.command(name="list")
 def document_list() -> None:
     """Lista documentos jurídicos armazenados."""
@@ -174,12 +285,6 @@ def search(query: str) -> None:
 def consult(question: str) -> None:
     """Executa consulta jurídica com respostas fundamentadas."""
     console.print(f"[bold green]Consultando:[/bold green] {question}")
-
-
-@app.command()
-def embedding() -> None:
-    """Gerencia ou gera embeddings para a legislação."""
-    console.print("[cyan]Comando de embeddings.[/cyan]")
 
 
 @app.command()

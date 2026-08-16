@@ -40,6 +40,7 @@ pythonpath = ["src"]
 markers = [
     "planalto_integration: integração opt-in com o site oficial do Planalto",
     "parsing_integration: regressão opt-in e somente leitura da captura persistida",
+    "retrieval_integration: avaliação opt-in do índice jurídico local",
 ]
 
 [tool.ruff]

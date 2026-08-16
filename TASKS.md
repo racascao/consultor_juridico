@@ -71,12 +71,14 @@
 
 ## Fase 5 — Indexação/Retrieval
 
-- [ ] Chunking jurídico
-- [ ] Full-text search
-- [ ] Escolha e registro do modelo de embeddings
-- [ ] Persistência e índice vetorial
-- [ ] Busca lexical, semântica e híbrida
-- [ ] RRF e reranking
+- [x] Chunking jurídico `legal_occurrence_current_v1`
+- [x] Full-text search PostgreSQL em português
+- [x] Modelo local `ollama/nomic-embed-text` registrado
+- [x] Persistência pgvector com 768 dimensões
+- [x] Busca lexical, semântica e híbrida
+- [x] RRF auditável e filtros jurídicos
+- [x] CLI e avaliação básica de retrieval
+- [ ] HNSW e reranking adicional após benchmark
 
 ## Fase 6 — Evidence/RAG/Citation Validation
 

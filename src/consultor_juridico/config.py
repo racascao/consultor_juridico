@@ -28,6 +28,9 @@ class Settings(BaseSettings):
     # Ollama LLM Runtime
     ollama_base_url: str = Field(default="http://ollama:11434", alias="OLLAMA_BASE_URL")
     ollama_model: str = Field(default="llama3.2", alias="OLLAMA_MODEL")
+    embedding_model: str = Field(default="nomic-embed-text", alias="EMBEDDING_MODEL")
+    embedding_timeout: float = Field(default=120.0, alias="EMBEDDING_TIMEOUT")
+    embedding_batch_size: int = Field(default=32, alias="EMBEDDING_BATCH_SIZE")
 
     # Aquisição documental HTTP
     ingestion_connect_timeout: float = Field(

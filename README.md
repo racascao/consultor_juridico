@@ -487,19 +487,20 @@ O desenvolvimento do projeto segue uma estratégia incremental, com checkpoints 
 
 ### Indexação e recuperação
 
-- [ ] **Fase 5 — Chunking e Retrieval**
-  - [ ] Estratégia de chunking
-  - [ ] `Chunk ↔ LegalElement`
-  - [ ] FTS PostgreSQL
-  - [ ] Modelo de embeddings
-  - [ ] Geração local de embeddings
-  - [ ] pgvector
-  - [ ] Benchmark de índice vetorial
-  - [ ] LexicalRetriever
-  - [ ] SemanticRetriever
-  - [ ] Reciprocal Rank Fusion (RRF)
-  - [ ] Reranking
-  - [ ] RetrievalCandidate
+- [x] **Fase 5 — Chunking e Retrieval**
+  - [x] Estratégia `legal_occurrence_current_v1`
+  - [x] `Chunk ↔ LegalElement`
+  - [x] FTS PostgreSQL em português
+  - [x] `ollama/nomic-embed-text`, 768 dimensões
+  - [x] Geração local e idempotente de embeddings
+  - [x] Busca por cosseno com pgvector
+  - [x] LexicalRetriever
+  - [x] SemanticRetriever
+  - [x] Reciprocal Rank Fusion (RRF)
+  - [x] Ranking auditável em `RetrievalCandidate`
+  - [x] Filtros por ato e tipo jurídico
+  - [x] CLI diagnóstica e avaliação básica 5/5 no top-10
+  - [ ] HNSW/reranker neural, condicionados a benchmark futuro
 
 ### Evidências e RAG
 
