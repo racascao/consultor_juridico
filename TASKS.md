@@ -46,13 +46,28 @@
 ## Fase 4 — Parsing estrutural
 
 - [x] Migration `004_frozen_parsing_model` e integridade do schema de parsing
-- [ ] Inspeção estrutural do HTML real
-- [ ] Parser determinístico
-- [ ] Preâmbulo, títulos, capítulos e seções
-- [ ] Artigos, parágrafos, incisos, alíneas e itens
-- [ ] ADCT
-- [ ] Normalização e fixtures
-- [ ] Versionamento jurídico
+- [x] Fase 4B.1 — Decoder e DOM íntegro
+- [x] Fase 4B.2 — Segmentação CF/ADCT e blocos documentais
+- [x] Fase 4B.3 — Parser jurídico estrutural em memória
+- [x] Fase 4B.3.1 — Auditoria estrutural pré-materialização
+- [x] Fase 4B.3.2 — Correção dos blockers estruturais e revalidação
+- [x] Gate reauditado: `BLOCKED_FOR_MATERIALIZATION` (`SCHEMA_MODEL_GAP`)
+- [x] Fase 4B.3.3 — Modelagem de identidade normativa e redações históricas
+- [x] Decisão proposta: `LegalProvision` identifica; `LegalElement` é ocorrência
+- [x] Fase 4B.3.3.1 — Consistência física pré-Migration 005
+- [x] `LegalElement.legal_act_id` e FKs compostas congelados
+- [x] Migration 005 — `005_normative_identity_occurrences`
+- [x] Fase 4B.3.4 — adaptação do parser e reauditoria
+- [x] Gate 4B.4: `APPROVED_FOR_MATERIALIZATION`
+- [x] Inspeção estrutural do HTML real
+- [x] Parser determinístico em memória
+- [x] Preâmbulo, títulos, capítulos e seções em memória
+- [x] Artigos, parágrafos, incisos, alíneas e itens em memória
+- [x] ADCT em árvore independente em memória
+- [x] Normalização conservadora e golden fixtures
+- [x] Fase 4B.4 / Fase 4C — Materialização transacional
+- [x] Identidade normativa e ocorrências versionadas
+- [x] Idempotência e rollback transacional validados
 
 ## Fase 5 — Indexação/Retrieval
 

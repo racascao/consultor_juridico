@@ -19,6 +19,7 @@ from consultor_juridico.models import (
     EvidenceSet,
     LegalAct,
     LegalElement,
+    LegalProvision,
     LegalVersion,
     ParsingRun,
     Source,
@@ -101,8 +102,18 @@ def _create_legal_chain(
     db_session.add(legal_version)
     db_session.flush()
 
+    root_provision = LegalProvision(
+        legal_act_id=legal_act.id,
+        element_type="DOCUMENT_ROOT",
+        identity_key=f"root:{suffix}",
+    )
+    db_session.add(root_provision)
+    db_session.flush()
+
     root = LegalElement(
         legal_version_id=legal_version.id,
+        legal_act_id=legal_act.id,
+        legal_provision_id=root_provision.id,
         element_type="DOCUMENT_ROOT",
         document_order=1,
         raw_text="Constituição Federal de 1988",
@@ -113,8 +124,20 @@ def _create_legal_chain(
     db_session.add(root)
     db_session.flush()
 
+    article_provision = LegalProvision(
+        legal_act_id=legal_act.id,
+        parent_id=root_provision.id,
+        element_type="ARTICLE",
+        number_label="Art. 5º",
+        identity_key=f"article:5:{suffix}",
+    )
+    db_session.add(article_provision)
+    db_session.flush()
+
     elem = LegalElement(
         legal_version_id=legal_version.id,
+        legal_act_id=legal_act.id,
+        legal_provision_id=article_provision.id,
         parent_id=root.id,
         element_type="ARTICLE",
         number_label="Art. 5º",
@@ -135,6 +158,25 @@ def _create_legal_chain(
     db_session.flush()
 
     return source, source_doc, legal_act, legal_version, elem, chunk
+
+
+def _new_provision(
+    db_session: Session,
+    legal_version: LegalVersion,
+    parent_element: LegalElement,
+    element_type: str,
+    number_label: str | None = None,
+) -> LegalProvision:
+    provision = LegalProvision(
+        legal_act_id=legal_version.legal_act_id,
+        parent_id=parent_element.legal_provision_id,
+        element_type=element_type,
+        number_label=number_label,
+        identity_key=f"test:{element_type}:{uuid.uuid4()}",
+    )
+    db_session.add(provision)
+    db_session.flush()
+    return provision
 
 
 # ---------------------------------------------------------------------------
@@ -162,7 +204,7 @@ def test_alembic_migration_and_rollback():
         )
     if document_count:
         status = check_db_status()
-        assert status["alembic_version"] == "004_frozen_parsing_model"
+        assert status["alembic_version"] == "005_normative_identity_occurrences"
         return
 
     # Downgrade to base
@@ -176,7 +218,7 @@ def test_alembic_migration_and_rollback():
     status_up = check_db_status()
     assert status_up["connected"] is True
     assert "sources" in status_up["tables"]
-    assert status_up["alembic_version"] == "004_frozen_parsing_model"
+    assert status_up["alembic_version"] == "005_normative_identity_occurrences"
 
 
 def test_source_base_url_is_unique(db_session: Session):
@@ -260,9 +302,14 @@ def test_legal_element_parent_child_hierarchy(db_session: Session):
         )
     )
     assert root is not None
+    art5_provision = _new_provision(
+        db_session, legal_version, root, "ARTICLE", "Art. 5º"
+    )
 
     art5 = LegalElement(
         legal_version_id=legal_version.id,
+        legal_act_id=legal_version.legal_act_id,
+        legal_provision_id=art5_provision.id,
         parent_id=root.id,
         element_type="ARTICLE",
         number_label="Art. 5º",
@@ -274,9 +321,12 @@ def test_legal_element_parent_child_hierarchy(db_session: Session):
     )
     db_session.add(art5)
     db_session.flush()
+    inc1_provision = _new_provision(db_session, legal_version, art5, "INCISO", "I")
 
     inc1 = LegalElement(
         legal_version_id=legal_version.id,
+        legal_act_id=legal_version.legal_act_id,
+        legal_provision_id=inc1_provision.id,
         parent_id=art5.id,
         element_type="INCISO",
         number_label="I",
@@ -303,10 +353,19 @@ def test_legal_element_parent_child_hierarchy(db_session: Session):
 def test_legal_element_no_self_parent_constraint(db_session: Session):
     """Testa a CheckConstraint que impede um LegalElement de ser pai de si mesmo."""
     *_, legal_version, _, _ = _create_legal_chain(db_session, "self_parent")
+    root = db_session.scalar(
+        select(LegalElement).where(
+            LegalElement.legal_version_id == legal_version.id,
+            LegalElement.element_type == "DOCUMENT_ROOT",
+        )
+    )
+    provision = _new_provision(db_session, legal_version, root, "ARTICLE", "Art. 99")
     elem_id = uuid.uuid4()
     elem = LegalElement(
         id=elem_id,
         legal_version_id=legal_version.id,
+        legal_act_id=legal_version.legal_act_id,
+        legal_provision_id=provision.id,
         parent_id=elem_id,  # Autoreferência inválida
         element_type="ARTICLE",
         number_label="Art. 99",
@@ -328,9 +387,15 @@ def test_legal_element_no_self_parent_constraint(db_session: Session):
 def test_chunk_legal_element_many_to_many(db_session: Session):
     """Testa o relacionamento N:N entre Chunk e LegalElement via ChunkLegalElement."""
     *_, legal_version, existing_elem, _ = _create_legal_chain(db_session, "chunk_nn")
+    caput_provision = _new_provision(db_session, legal_version, existing_elem, "CAPUT")
+    inciso_provision = _new_provision(
+        db_session, legal_version, existing_elem, "INCISO", "I"
+    )
 
     elem1 = LegalElement(
         legal_version_id=legal_version.id,
+        legal_act_id=legal_version.legal_act_id,
+        legal_provision_id=caput_provision.id,
         parent_id=existing_elem.id,
         element_type="CAPUT",
         document_order=3,
@@ -340,6 +405,8 @@ def test_chunk_legal_element_many_to_many(db_session: Session):
     )
     elem2 = LegalElement(
         legal_version_id=legal_version.id,
+        legal_act_id=legal_version.legal_act_id,
+        legal_provision_id=inciso_provision.id,
         parent_id=existing_elem.id,
         element_type="INCISO",
         number_label="I",
@@ -535,9 +602,12 @@ def test_evidence_set_and_evidence_item_snapshot(db_session: Session):
 def test_claim_citation_evidence_relationship(db_session: Session):
     """Testa a relação M:N entre Claim, Citation e EvidenceItem."""
     *_, legal_version, elem1, chunk = _create_legal_chain(db_session, "claim")
+    inciso_provision = _new_provision(db_session, legal_version, elem1, "INCISO", "LVI")
 
     elem2 = LegalElement(
         legal_version_id=legal_version.id,
+        legal_act_id=legal_version.legal_act_id,
+        legal_provision_id=inciso_provision.id,
         parent_id=elem1.id,
         element_type="INCISO",
         number_label="LVI",

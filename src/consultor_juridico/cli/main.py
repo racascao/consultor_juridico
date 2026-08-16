@@ -2,9 +2,13 @@
 
 import typer
 from rich.console import Console
+from sqlalchemy import select
 
 from consultor_juridico import __version__
+from consultor_juridico.db.session import SessionLocal
 from consultor_juridico.ingestion import get_ingestion_status, run_planalto_ingestion
+from consultor_juridico.models import SourceDocument
+from consultor_juridico.parsing import materialization_status, materialize_constitution
 from consultor_juridico.services import db_service
 
 app = typer.Typer(
@@ -16,10 +20,12 @@ app = typer.Typer(
 db_app = typer.Typer(help="Gerenciamento de banco de dados e migrations.")
 ingest_app = typer.Typer(help="Comandos de ingestão de documentos oficiais.")
 document_app = typer.Typer(help="Visualização de documentos jurídicos.")
+parse_app = typer.Typer(help="Parsing e materialização constitucional.")
 
 app.add_typer(db_app, name="db")
 app.add_typer(ingest_app, name="ingest")
 app.add_typer(document_app, name="document")
+app.add_typer(parse_app, name="parse")
 
 console = Console()
 
@@ -107,6 +113,43 @@ def ingest_status() -> None:
             f"{document['fetched_at']}"
         )
         console.print(f"  URL: {document['url_source']}")
+
+
+@parse_app.command(name="constitution")
+def parse_constitution_command(document_id: str | None = None) -> None:
+    """Audita e materializa atomicamente CF/88 e ADCT."""
+    try:
+        with SessionLocal() as session:
+            if document_id is None:
+                document = session.scalar(
+                    select(SourceDocument).order_by(SourceDocument.fetched_at.desc())
+                )
+                if document is None:
+                    raise LookupError("Nenhum SourceDocument disponível.")
+                selected_id = document.id
+            else:
+                from uuid import UUID
+
+                selected_id = UUID(document_id)
+            result = materialize_constitution(session, selected_id)
+    except Exception as exc:
+        console.print(f"[bold red]Falha no parsing:[/bold red] {exc}")
+        raise typer.Exit(code=1) from exc
+    console.print(f"Resultado: [bold cyan]{result.outcome.value}[/bold cyan]")
+    console.print(f"ParsingRun: {result.parsing_run_id}")
+    console.print(f"LegalVersions: {len(result.legal_version_ids)}")
+    console.print(f"LegalProvisions: {result.provision_count}")
+    console.print(f"LegalElements: {result.element_count}")
+    console.print(f"Audit fingerprint: {result.audit_fingerprint}")
+
+
+@parse_app.command(name="status")
+def parse_status_command() -> None:
+    """Exibe contagens e fingerprint da materialização."""
+    with SessionLocal() as session:
+        status = materialization_status(session)
+    for key, value in status.items():
+        console.print(f"{key}={value}")
 
 
 @document_app.command(name="list")

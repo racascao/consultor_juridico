@@ -13,6 +13,7 @@ from consultor_juridico.db.session import SessionLocal, engine
 from consultor_juridico.models import (
     LegalAct,
     LegalElement,
+    LegalProvision,
     LegalVersion,
     ParsingRun,
     Source,
@@ -104,9 +105,40 @@ def _version(
     return version
 
 
-def _root(session: Session, version: LegalVersion, block_index: int = 0):
+def _provision(
+    session: Session,
+    legal_act: LegalAct,
+    element_type: str,
+    identity_key: str,
+    *,
+    parent: LegalProvision | None = None,
+    number_label: str | None = None,
+) -> LegalProvision:
+    provision = LegalProvision(
+        legal_act_id=legal_act.id,
+        parent_id=parent.id if parent else None,
+        element_type=element_type,
+        number_label=number_label,
+        identity_key=identity_key,
+    )
+    session.add(provision)
+    session.flush()
+    return provision
+
+
+def _root(
+    session: Session,
+    version: LegalVersion,
+    legal_act: LegalAct,
+    block_index: int = 0,
+):
+    root_provision = _provision(
+        session, legal_act, "DOCUMENT_ROOT", f"root:{legal_act.id}"
+    )
     root = LegalElement(
         legal_version_id=version.id,
+        legal_act_id=legal_act.id,
+        legal_provision_id=root_provision.id,
         element_type="DOCUMENT_ROOT",
         document_order=1,
         raw_text="Constituição Federal de 1988",
@@ -124,13 +156,59 @@ def _chain(session: Session, suffix: str):
     parsing_run = _run(session, document, suffix)
     legal_act = _act(session, suffix)
     version = _version(session, document, parsing_run, legal_act, suffix)
-    root = _root(session, version)
+    root = _root(session, version, legal_act)
     return document, parsing_run, legal_act, version, root
 
 
-def _valid_child(version: LegalVersion, root: LegalElement, **overrides):
+def _valid_child(
+    session: Session, version: LegalVersion, root: LegalElement, **overrides
+):
+    element_type = overrides.get("element_type", "CAPUT")
+    legal_provision_id = None
+    provision_types = {
+        "PREAMBLE",
+        "TITLE",
+        "CHAPTER",
+        "SECTION",
+        "SUBSECTION",
+        "ARTICLE",
+        "CAPUT",
+        "PARAGRAPH",
+        "INCISO",
+        "ALINEA",
+        "ITEM",
+    }
+    numbered_types = {
+        "TITLE",
+        "CHAPTER",
+        "SECTION",
+        "SUBSECTION",
+        "ARTICLE",
+        "PARAGRAPH",
+        "INCISO",
+        "ALINEA",
+        "ITEM",
+    }
+    if element_type == "DOCUMENT_ROOT":
+        legal_provision_id = root.legal_provision_id
+    elif element_type in provision_types:
+        provision = _provision(
+            session,
+            version.legal_act,
+            element_type,
+            f"child:{uuid.uuid4()}",
+            parent=root.legal_provision,
+            number_label=(
+                overrides.get("number_label") or "I"
+                if element_type in numbered_types
+                else None
+            ),
+        )
+        legal_provision_id = provision.id
     values = {
         "legal_version_id": version.id,
+        "legal_act_id": version.legal_act_id,
+        "legal_provision_id": legal_provision_id,
         "parent_id": root.id,
         "element_type": "CAPUT",
         "document_order": 2,
@@ -290,7 +368,7 @@ def test_multiple_inactive_versions_per_legal_act_are_allowed(db_session: Sessio
 
 def test_legal_element_parent_and_children_relationship(db_session: Session):
     *_, version, root = _chain(db_session, "tree")
-    child = _valid_child(version, root)
+    child = _valid_child(db_session, version, root)
     db_session.add(child)
     db_session.flush()
     assert child.parent.id == root.id
@@ -306,9 +384,11 @@ def test_legal_element_rejects_parent_from_other_version(db_session: Session):
     version_b = _version(
         db_session, document, parsing_run, _act(db_session, "cross-b"), "b"
     )
-    root_a = _root(db_session, version_a, 0)
-    _root(db_session, version_b, 1)
-    db_session.add(_valid_child(version_b, root_a))
+    root_a = _root(db_session, version_a, version_a.legal_act, 0)
+    root_b = _root(db_session, version_b, version_b.legal_act, 1)
+    child = _valid_child(db_session, version_b, root_b)
+    child.parent_id = root_a.id
+    db_session.add(child)
     with pytest.raises(IntegrityError):
         db_session.flush()
 
@@ -317,8 +397,10 @@ def test_legal_element_rejects_duplicate_document_order(db_session: Session):
     *_, version, root = _chain(db_session, "order-duplicate")
     db_session.add_all(
         [
-            _valid_child(version, root),
-            _valid_child(version, root, raw_text="Outro", normalized_text="Outro"),
+            _valid_child(db_session, version, root),
+            _valid_child(
+                db_session, version, root, raw_text="Outro", normalized_text="Outro"
+            ),
         ]
     )
     with pytest.raises(IntegrityError):
@@ -327,7 +409,7 @@ def test_legal_element_rejects_duplicate_document_order(db_session: Session):
 
 def test_legal_element_rejects_non_positive_document_order(db_session: Session):
     *_, version, root = _chain(db_session, "order-positive")
-    db_session.add(_valid_child(version, root, document_order=0))
+    db_session.add(_valid_child(db_session, version, root, document_order=0))
     with pytest.raises(IntegrityError):
         db_session.flush()
 
@@ -337,6 +419,8 @@ def test_legal_element_rejects_second_root(db_session: Session):
     db_session.add(
         LegalElement(
             legal_version_id=version.id,
+            legal_act_id=version.legal_act_id,
+            legal_provision_id=uuid.uuid4(),
             element_type="DOCUMENT_ROOT",
             document_order=1,
             raw_text="ADCT",
@@ -360,7 +444,9 @@ def test_legal_element_rejects_second_root(db_session: Session):
 )
 def test_legal_element_rejects_invalid_root_shape(db_session: Session, overrides: dict):
     *_, version, root = _chain(db_session, f"root-shape-{uuid.uuid4()}")
-    candidate = _valid_child(version, root, **({"document_order": 3} | overrides))
+    candidate = _valid_child(
+        db_session, version, root, **({"document_order": 3} | overrides)
+    )
     db_session.add(candidate)
     with pytest.raises(IntegrityError):
         db_session.flush()
@@ -378,7 +464,7 @@ def test_legal_element_rejects_invalid_taxonomy(
     db_session: Session, field: str, value: str
 ):
     *_, version, root = _chain(db_session, f"taxonomy-{field}")
-    db_session.add(_valid_child(version, root, **{field: value}))
+    db_session.add(_valid_child(db_session, version, root, **{field: value}))
     with pytest.raises(IntegrityError):
         db_session.flush()
 
@@ -404,7 +490,7 @@ def test_legal_element_rejects_incompatible_role_status_or_note(
     db_session: Session, overrides: dict
 ):
     *_, version, root = _chain(db_session, f"role-{uuid.uuid4()}")
-    db_session.add(_valid_child(version, root, **overrides))
+    db_session.add(_valid_child(db_session, version, root, **overrides))
     with pytest.raises(IntegrityError):
         db_session.flush()
 
@@ -418,7 +504,7 @@ def test_legal_element_rejects_incompatible_role_status_or_note(
 )
 def test_legal_element_rejects_empty_text(db_session: Session, field: str, value: str):
     *_, version, root = _chain(db_session, f"empty-{field}")
-    db_session.add(_valid_child(version, root, **{field: value}))
+    db_session.add(_valid_child(db_session, version, root, **{field: value}))
     with pytest.raises(IntegrityError):
         db_session.flush()
 
@@ -428,14 +514,16 @@ def test_legal_element_rejects_invalid_source_locator(
     db_session: Session, source_locator
 ):
     *_, version, root = _chain(db_session, f"locator-{uuid.uuid4()}")
-    db_session.add(_valid_child(version, root, source_locator=source_locator))
+    db_session.add(
+        _valid_child(db_session, version, root, source_locator=source_locator)
+    )
     with pytest.raises(IntegrityError):
         db_session.flush()
 
 
 def test_legal_element_rejects_non_object_parser_metadata(db_session: Session):
     *_, version, root = _chain(db_session, "parser-metadata")
-    db_session.add(_valid_child(version, root, parser_metadata=[]))
+    db_session.add(_valid_child(db_session, version, root, parser_metadata=[]))
     with pytest.raises(IntegrityError):
         db_session.flush()
 
@@ -457,7 +545,9 @@ def test_legal_element_rejects_non_object_parser_metadata(db_session: Session):
 def test_numbered_legal_elements_require_label(db_session: Session, element_type: str):
     *_, version, root = _chain(db_session, f"label-{element_type}")
     db_session.add(
-        _valid_child(version, root, element_type=element_type, number_label=None)
+        _valid_child(
+            db_session, version, root, element_type=element_type, number_label=None
+        )
     )
     with pytest.raises(IntegrityError):
         db_session.flush()
@@ -466,6 +556,7 @@ def test_numbered_legal_elements_require_label(db_session: Session, element_type
 def test_note_with_editorial_role_is_valid(db_session: Session):
     *_, version, root = _chain(db_session, "valid-note")
     note = _valid_child(
+        db_session,
         version,
         root,
         element_type="NOTE",
@@ -476,3 +567,171 @@ def test_note_with_editorial_role_is_valid(db_session: Session):
     db_session.add(note)
     db_session.flush()
     assert db_session.scalar(select(LegalElement).where(LegalElement.id == note.id))
+
+
+def test_legal_provision_relationships(db_session: Session):
+    *_, legal_act, version, root = _chain(db_session, "provision-relationships")
+    child = _valid_child(db_session, version, root)
+    db_session.add(child)
+    db_session.flush()
+
+    assert root.legal_provision in legal_act.provisions
+    assert child.legal_provision.parent == root.legal_provision
+    assert child.legal_provision in root.legal_provision.children
+    assert child in child.legal_provision.occurrences
+
+
+def test_legal_provision_identity_is_unique_per_act(db_session: Session):
+    legal_act = _act(db_session, "provision-key")
+    _provision(db_session, legal_act, "DOCUMENT_ROOT", "cf88")
+    db_session.add(
+        LegalProvision(
+            legal_act_id=legal_act.id,
+            element_type="DOCUMENT_ROOT",
+            identity_key="cf88",
+        )
+    )
+    with pytest.raises(IntegrityError):
+        db_session.flush()
+
+
+def test_same_provision_identity_is_allowed_in_different_acts(db_session: Session):
+    first = _act(db_session, "provision-key-a")
+    second = _act(db_session, "provision-key-b")
+    _provision(db_session, first, "DOCUMENT_ROOT", "root")
+    other = _provision(db_session, second, "DOCUMENT_ROOT", "root")
+    assert other.legal_act_id == second.id
+
+
+def test_legal_provision_rejects_parent_from_other_act(db_session: Session):
+    first = _act(db_session, "provision-parent-a")
+    second = _act(db_session, "provision-parent-b")
+    root = _provision(db_session, first, "DOCUMENT_ROOT", "root-a")
+    db_session.add(
+        LegalProvision(
+            legal_act_id=second.id,
+            parent_id=root.id,
+            element_type="CAPUT",
+            identity_key="invalid-parent",
+        )
+    )
+    with pytest.raises(IntegrityError):
+        db_session.flush()
+
+
+@pytest.mark.parametrize(
+    "overrides",
+    [
+        {"element_type": "NOTE", "identity_key": "note"},
+        {"element_type": "UNKNOWN", "identity_key": "unknown"},
+        {"element_type": "ARTICLE", "identity_key": "article", "number_label": None},
+        {"element_type": "CAPUT", "identity_key": "   "},
+    ],
+)
+def test_legal_provision_rejects_invalid_shape(db_session: Session, overrides: dict):
+    legal_act = _act(db_session, f"provision-shape-{uuid.uuid4()}")
+    root = _provision(db_session, legal_act, "DOCUMENT_ROOT", "root")
+    values = {
+        "legal_act_id": legal_act.id,
+        "parent_id": root.id,
+        "element_type": "CAPUT",
+        "identity_key": "caput",
+    }
+    values.update(overrides)
+    db_session.add(LegalProvision(**values))
+    with pytest.raises(IntegrityError):
+        db_session.flush()
+
+
+def test_occurrence_rejects_provision_from_other_act(db_session: Session):
+    *_, version, root = _chain(db_session, "occurrence-cross-act")
+    other_act = _act(db_session, "occurrence-other-act")
+    other_root = _provision(db_session, other_act, "DOCUMENT_ROOT", "other-root")
+    other_caput = _provision(
+        db_session, other_act, "CAPUT", "other-caput", parent=other_root
+    )
+    candidate = _valid_child(db_session, version, root)
+    candidate.legal_provision_id = other_caput.id
+    db_session.add(candidate)
+    with pytest.raises(IntegrityError):
+        db_session.flush()
+
+
+def test_occurrence_rejects_provision_of_other_type(db_session: Session):
+    *_, version, root = _chain(db_session, "occurrence-type")
+    candidate = _valid_child(db_session, version, root)
+    candidate.legal_provision_id = root.legal_provision_id
+    db_session.add(candidate)
+    with pytest.raises(IntegrityError):
+        db_session.flush()
+
+
+def test_normative_occurrence_requires_provision(db_session: Session):
+    *_, version, root = _chain(db_session, "occurrence-presence")
+    candidate = _valid_child(db_session, version, root)
+    candidate.legal_provision_id = None
+    db_session.add(candidate)
+    with pytest.raises(IntegrityError):
+        db_session.flush()
+
+
+def test_note_rejects_provision(db_session: Session):
+    *_, version, root = _chain(db_session, "note-provision")
+    note = _valid_child(
+        db_session,
+        version,
+        root,
+        element_type="NOTE",
+        content_role="EDITORIAL_NOTE",
+        text_status="NOT_APPLICABLE",
+    )
+    note.legal_provision_id = root.legal_provision_id
+    db_session.add(note)
+    with pytest.raises(IntegrityError):
+        db_session.flush()
+
+
+def test_only_one_current_occurrence_per_version_provision(db_session: Session):
+    *_, version, root = _chain(db_session, "current-occurrence")
+    first = _valid_child(db_session, version, root, text_status="CURRENT")
+    db_session.add(first)
+    db_session.flush()
+    duplicate = LegalElement(
+        legal_version_id=version.id,
+        legal_act_id=version.legal_act_id,
+        legal_provision_id=first.legal_provision_id,
+        parent_id=root.id,
+        element_type="CAPUT",
+        document_order=3,
+        raw_text="Nova ocorrência corrente",
+        normalized_text="Nova ocorrência corrente",
+        text_status="CURRENT",
+        source_locator={"block_index": 2},
+    )
+    db_session.add(duplicate)
+    with pytest.raises(IntegrityError):
+        db_session.flush()
+
+
+def test_multiple_historical_occurrences_per_provision_are_allowed(
+    db_session: Session,
+):
+    *_, version, root = _chain(db_session, "historical-occurrences")
+    first = _valid_child(db_session, version, root, text_status="HISTORICAL")
+    db_session.add(first)
+    db_session.flush()
+    second = LegalElement(
+        legal_version_id=version.id,
+        legal_act_id=version.legal_act_id,
+        legal_provision_id=first.legal_provision_id,
+        parent_id=root.id,
+        element_type="CAPUT",
+        document_order=3,
+        raw_text="Redação histórica anterior",
+        normalized_text="Redação histórica anterior",
+        text_status="HISTORICAL",
+        source_locator={"block_index": 2},
+    )
+    db_session.add(second)
+    db_session.flush()
+    assert second.legal_provision_id == first.legal_provision_id

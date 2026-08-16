@@ -39,6 +39,7 @@ testpaths = ["tests"]
 pythonpath = ["src"]
 markers = [
     "planalto_integration: integração opt-in com o site oficial do Planalto",
+    "parsing_integration: regressão opt-in e somente leitura da captura persistida",
 ]
 
 [tool.ruff]

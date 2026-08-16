@@ -1,4 +1,4 @@
-"""Entidades jurídicas (LegalAct, LegalVersion e LegalElement)."""
+"""Entidades jurídicas e suas identidades normativas."""
 
 import uuid
 from datetime import date, datetime
@@ -50,6 +50,121 @@ class LegalAct(Base):
 
     versions: Mapped[list["LegalVersion"]] = relationship(
         "LegalVersion", back_populates="legal_act"
+    )
+    provisions: Mapped[list["LegalProvision"]] = relationship(
+        "LegalProvision", back_populates="legal_act"
+    )
+
+
+class LegalProvision(Base):
+    """Identidade normativa estável de um dispositivo dentro de um ato."""
+
+    __tablename__ = "legal_provisions"
+
+    id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), primary_key=True, default=uuid.uuid4
+    )
+    legal_act_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), nullable=False)
+    parent_id: Mapped[uuid.UUID | None] = mapped_column(
+        UUID(as_uuid=True), nullable=True
+    )
+    element_type: Mapped[str] = mapped_column(String(50), nullable=False)
+    number_label: Mapped[str | None] = mapped_column(String(100), nullable=True)
+    identity_key: Mapped[str] = mapped_column(String(1000), nullable=False)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), nullable=False
+    )
+
+    legal_act: Mapped["LegalAct"] = relationship(
+        "LegalAct", back_populates="provisions"
+    )
+    parent: Mapped["LegalProvision | None"] = relationship(
+        "LegalProvision",
+        remote_side=[id, legal_act_id],
+        foreign_keys=[parent_id, legal_act_id],
+        back_populates="children",
+        overlaps="legal_act,provisions",
+    )
+    children: Mapped[list["LegalProvision"]] = relationship(
+        "LegalProvision",
+        foreign_keys=[parent_id, legal_act_id],
+        back_populates="parent",
+        overlaps="legal_act,provisions",
+    )
+    occurrences: Mapped[list["LegalElement"]] = relationship(
+        "LegalElement",
+        primaryjoin=(
+            "and_(LegalProvision.id == LegalElement.legal_provision_id, "
+            "LegalProvision.legal_act_id == LegalElement.legal_act_id, "
+            "LegalProvision.element_type == LegalElement.element_type)"
+        ),
+        foreign_keys=(
+            "[LegalElement.legal_provision_id, LegalElement.legal_act_id, "
+            "LegalElement.element_type]"
+        ),
+        back_populates="legal_provision",
+        overlaps="legal_act,provisions",
+    )
+
+    __table_args__ = (
+        ForeignKeyConstraint(
+            ["legal_act_id"],
+            ["legal_acts.id"],
+            name="fk_legal_provisions_legal_act_id_legal_acts",
+            ondelete="RESTRICT",
+            onupdate="NO ACTION",
+        ),
+        UniqueConstraint(
+            "legal_act_id",
+            "identity_key",
+            name="uq_legal_provisions_act_identity_key",
+        ),
+        UniqueConstraint("id", "legal_act_id", name="uq_legal_provisions_id_legal_act"),
+        UniqueConstraint(
+            "id",
+            "legal_act_id",
+            "element_type",
+            name="uq_legal_provisions_id_legal_act_type",
+        ),
+        ForeignKeyConstraint(
+            ["parent_id", "legal_act_id"],
+            ["legal_provisions.id", "legal_provisions.legal_act_id"],
+            name="fk_legal_provisions_parent_act",
+            ondelete="RESTRICT",
+            onupdate="NO ACTION",
+        ),
+        CheckConstraint(
+            "parent_id IS NULL OR parent_id <> id",
+            name=conv("ck_legal_provisions_no_self_parent"),
+        ),
+        CheckConstraint(
+            "element_type IN ('DOCUMENT_ROOT', 'PREAMBLE', 'TITLE', 'CHAPTER', "
+            "'SECTION', 'SUBSECTION', 'ARTICLE', 'CAPUT', 'PARAGRAPH', 'INCISO', "
+            "'ALINEA', 'ITEM')",
+            name=conv("ck_legal_provisions_element_type"),
+        ),
+        CheckConstraint(
+            "btrim(identity_key) <> ''",
+            name=conv("ck_legal_provisions_identity_key_nonempty"),
+        ),
+        CheckConstraint(
+            "(element_type = 'DOCUMENT_ROOT' AND parent_id IS NULL) OR "
+            "(element_type <> 'DOCUMENT_ROOT' AND parent_id IS NOT NULL)",
+            name=conv("ck_legal_provisions_root_shape"),
+        ),
+        CheckConstraint(
+            "element_type NOT IN ('TITLE', 'CHAPTER', 'SECTION', 'SUBSECTION', "
+            "'ARTICLE', 'PARAGRAPH', 'INCISO', 'ALINEA', 'ITEM') OR "
+            "(number_label IS NOT NULL AND btrim(number_label) <> '')",
+            name=conv("ck_legal_provisions_number_label"),
+        ),
+        Index(
+            "uq_legal_provisions_one_root_per_act",
+            "legal_act_id",
+            unique=True,
+            postgresql_where=text("element_type = 'DOCUMENT_ROOT'"),
+        ),
+        Index("ix_legal_provisions_parent_act", "parent_id", "legal_act_id"),
     )
 
 
@@ -103,13 +218,17 @@ class LegalVersion(Base):
         overlaps="legal_versions,source_document",
     )
     elements: Mapped[list["LegalElement"]] = relationship(
-        "LegalElement", back_populates="legal_version", cascade="all, delete-orphan"
+        "LegalElement",
+        back_populates="legal_version",
+        cascade="all, delete-orphan",
+        overlaps="occurrences",
     )
     chunks: Mapped[list["Chunk"]] = relationship(
         "Chunk", back_populates="legal_version", cascade="all, delete-orphan"
     )
 
     __table_args__ = (
+        UniqueConstraint("id", "legal_act_id", name="uq_legal_versions_id_legal_act"),
         ForeignKeyConstraint(
             ["parsing_run_id", "source_document_id"],
             ["parsing_runs.id", "parsing_runs.source_document_id"],
@@ -145,9 +264,11 @@ class LegalElement(Base):
         UUID(as_uuid=True), primary_key=True, default=uuid.uuid4
     )
     legal_version_id: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True),
-        ForeignKey("legal_versions.id", ondelete="CASCADE"),
-        nullable=False,
+        UUID(as_uuid=True), nullable=False
+    )
+    legal_act_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), nullable=False)
+    legal_provision_id: Mapped[uuid.UUID | None] = mapped_column(
+        UUID(as_uuid=True), nullable=True
     )
     parent_id: Mapped[uuid.UUID | None] = mapped_column(
         UUID(as_uuid=True), nullable=True
@@ -174,7 +295,25 @@ class LegalElement(Base):
     )
 
     legal_version: Mapped["LegalVersion"] = relationship(
-        "LegalVersion", back_populates="elements", overlaps="children,parent"
+        "LegalVersion",
+        back_populates="elements",
+        primaryjoin=(
+            "and_(LegalElement.legal_version_id == LegalVersion.id, "
+            "LegalElement.legal_act_id == LegalVersion.legal_act_id)"
+        ),
+        foreign_keys=[legal_version_id, legal_act_id],
+        overlaps="children,parent,legal_provision,occurrences",
+    )
+    legal_provision: Mapped["LegalProvision | None"] = relationship(
+        "LegalProvision",
+        primaryjoin=(
+            "and_(LegalElement.legal_provision_id == LegalProvision.id, "
+            "LegalElement.legal_act_id == LegalProvision.legal_act_id, "
+            "LegalElement.element_type == LegalProvision.element_type)"
+        ),
+        foreign_keys=[legal_provision_id, legal_act_id, element_type],
+        back_populates="occurrences",
+        overlaps="legal_version,elements",
     )
     parent: Mapped["LegalElement | None"] = relationship(
         "LegalElement",
@@ -197,6 +336,24 @@ class LegalElement(Base):
     )
 
     __table_args__ = (
+        ForeignKeyConstraint(
+            ["legal_version_id", "legal_act_id"],
+            ["legal_versions.id", "legal_versions.legal_act_id"],
+            name="fk_legal_elements_version_act",
+            ondelete="CASCADE",
+            onupdate="NO ACTION",
+        ),
+        ForeignKeyConstraint(
+            ["legal_provision_id", "legal_act_id", "element_type"],
+            [
+                "legal_provisions.id",
+                "legal_provisions.legal_act_id",
+                "legal_provisions.element_type",
+            ],
+            name="fk_legal_elements_provision_act_type",
+            ondelete="RESTRICT",
+            onupdate="NO ACTION",
+        ),
         UniqueConstraint(
             "legal_version_id",
             "document_order",
@@ -213,6 +370,11 @@ class LegalElement(Base):
             name="fk_legal_elements_parent_version_composite",
             ondelete="CASCADE",
             onupdate="NO ACTION",
+        ),
+        CheckConstraint(
+            "(element_type = 'NOTE' AND legal_provision_id IS NULL) OR "
+            "(element_type <> 'NOTE' AND legal_provision_id IS NOT NULL)",
+            name=conv("ck_legal_elements_provision_presence"),
         ),
         CheckConstraint(
             "parent_id <> id", name=conv("ck_legal_elements_no_self_parent")
@@ -283,5 +445,16 @@ class LegalElement(Base):
             "legal_version_id",
             unique=True,
             postgresql_where=text("element_type = 'DOCUMENT_ROOT'"),
+        ),
+        Index("ix_legal_elements_legal_provision_id", "legal_provision_id"),
+        Index(
+            "uq_legal_elements_one_current_per_version_provision",
+            "legal_version_id",
+            "legal_provision_id",
+            unique=True,
+            postgresql_where=text(
+                "text_status = 'CURRENT' AND content_role = 'NORMATIVE' "
+                "AND legal_provision_id IS NOT NULL"
+            ),
         ),
     )

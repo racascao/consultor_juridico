@@ -1,0 +1,137 @@
+"""Decoding e carregamento determinístico do documento constitucional."""
+
+from consultor_juridico.parsing.audit import (
+    article_audit_projection,
+    audit_parsed_constitution,
+)
+from consultor_juridico.parsing.audit_types import (
+    ActAudit,
+    ArticleDuplicateKind,
+    AuditFinding,
+    AuditSeverity,
+    MaterializationGate,
+    StructuralAuditReport,
+    UnclassifiedBlockKind,
+)
+from consultor_juridico.parsing.blocks import (
+    BlockProjection,
+    DocumentBlock,
+    DocumentLink,
+    block_projection_fingerprint,
+    enumerate_document_blocks,
+    normalize_text_for_matching,
+)
+from consultor_juridico.parsing.decoder import (
+    PLANALTO_CONSTITUTION_ENCODING,
+    decode_raw_document,
+    decode_source_document,
+)
+from consultor_juridico.parsing.dom import build_dom
+from consultor_juridico.parsing.errors import (
+    AmbiguousDocumentSentinelError,
+    DocumentCoverageError,
+    DocumentSegmentationError,
+    InvalidDocumentOrderError,
+    LegalElementClassificationError,
+    LegalHierarchyError,
+    LegalStructureParsingError,
+    LegalStructureValidationError,
+    MissingDocumentSentinelError,
+    SourceDocumentDecodingError,
+    SourceDocumentIntegrityError,
+)
+from consultor_juridico.parsing.legal_parser import (
+    normalize_legal_text,
+    parse_constitution,
+    parsed_act_metrics,
+    validate_parsed_act,
+)
+from consultor_juridico.parsing.legal_types import (
+    BlockCoverage,
+    ContentRole,
+    CoverageDisposition,
+    CoverageReport,
+    ElementType,
+    IgnoredBlockReason,
+    ParsedConstitution,
+    ParsedLegalAct,
+    ParsedLegalElement,
+    ParsedLegalProvision,
+    TextStatus,
+)
+from consultor_juridico.parsing.materialization import (
+    MaterializationGateError,
+    MaterializationResult,
+    ParsingInProgressError,
+    ParsingOutcome,
+    materialization_status,
+    materialize_constitution,
+)
+from consultor_juridico.parsing.segmentation import (
+    ConstitutionDocumentSegments,
+    segment_constitution_document,
+)
+from consultor_juridico.parsing.types import (
+    DecodedSourceDocument,
+    DomDocument,
+    DomMetrics,
+)
+
+__all__ = [
+    "ActAudit",
+    "ArticleDuplicateKind",
+    "AuditFinding",
+    "AuditSeverity",
+    "PLANALTO_CONSTITUTION_ENCODING",
+    "AmbiguousDocumentSentinelError",
+    "BlockProjection",
+    "ConstitutionDocumentSegments",
+    "DecodedSourceDocument",
+    "DomDocument",
+    "DomMetrics",
+    "DocumentBlock",
+    "DocumentLink",
+    "DocumentSegmentationError",
+    "DocumentCoverageError",
+    "ElementType",
+    "TextStatus",
+    "ContentRole",
+    "CoverageDisposition",
+    "IgnoredBlockReason",
+    "BlockCoverage",
+    "CoverageReport",
+    "ParsedConstitution",
+    "ParsedLegalAct",
+    "ParsedLegalElement",
+    "ParsedLegalProvision",
+    "ParsingInProgressError",
+    "ParsingOutcome",
+    "LegalElementClassificationError",
+    "LegalHierarchyError",
+    "LegalStructureParsingError",
+    "LegalStructureValidationError",
+    "MaterializationGate",
+    "MaterializationGateError",
+    "MaterializationResult",
+    "InvalidDocumentOrderError",
+    "MissingDocumentSentinelError",
+    "SourceDocumentDecodingError",
+    "SourceDocumentIntegrityError",
+    "StructuralAuditReport",
+    "UnclassifiedBlockKind",
+    "article_audit_projection",
+    "audit_parsed_constitution",
+    "build_dom",
+    "block_projection_fingerprint",
+    "decode_raw_document",
+    "decode_source_document",
+    "enumerate_document_blocks",
+    "normalize_text_for_matching",
+    "segment_constitution_document",
+    "normalize_legal_text",
+    "materialization_status",
+    "materialize_constitution",
+    "parse_constitution",
+    "parsed_act_metrics",
+    "validate_parsed_act",
+]

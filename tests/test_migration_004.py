@@ -141,18 +141,18 @@ def test_migration_004_upgrade_downgrade_upgrade_cycle(disposable_database_url):
     _run_alembic(disposable_database_url, "upgrade", "003_ingestion_raw_storage")
     assert _version(disposable_database_url) == "003_ingestion_raw_storage"
 
-    _run_alembic(disposable_database_url, "upgrade", "head")
+    _run_alembic(disposable_database_url, "upgrade", "004_frozen_parsing_model")
     assert _version(disposable_database_url) == "004_frozen_parsing_model"
 
     _run_alembic(disposable_database_url, "downgrade", "003_ingestion_raw_storage")
     assert _version(disposable_database_url) == "003_ingestion_raw_storage"
 
-    _run_alembic(disposable_database_url, "upgrade", "head")
+    _run_alembic(disposable_database_url, "upgrade", "004_frozen_parsing_model")
     assert _version(disposable_database_url) == "004_frozen_parsing_model"
 
 
 def test_migration_004_schema_names(disposable_database_url):
-    _run_alembic(disposable_database_url, "upgrade", "head")
+    _run_alembic(disposable_database_url, "upgrade", "004_frozen_parsing_model")
     engine = create_engine(disposable_database_url)
     try:
         inspector = inspect(engine)
@@ -241,7 +241,7 @@ def test_migration_004_upgrade_guard_rejects_legacy_data(
 def test_migration_004_downgrade_guard_rejects_derived_data(
     disposable_database_url, derived_level: str
 ):
-    _run_alembic(disposable_database_url, "upgrade", "head")
+    _run_alembic(disposable_database_url, "upgrade", "004_frozen_parsing_model")
     engine = create_engine(disposable_database_url)
     try:
         with engine.begin() as connection:
