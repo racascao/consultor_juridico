@@ -6,6 +6,12 @@ from types import SimpleNamespace
 from typer.testing import CliRunner
 
 from consultor_juridico import __version__
+from consultor_juridico.consultation.types import (
+    CitationReference,
+    ConsultationOutcome,
+    ConsultationResult,
+    GeneratedClaim,
+)
 from consultor_juridico.ingestion.types import IngestionOutcome
 from consultor_juridico.parsing.materialization import ParsingOutcome
 
@@ -121,8 +127,29 @@ def test_cli_search(cli_runner: CliRunner, cli_app):
     assert "Buscando por" in result.stdout
 
 
-def test_cli_consult(cli_runner: CliRunner, cli_app):
+def test_cli_consult(cli_runner: CliRunner, cli_app, monkeypatch):
     """Testa o comando `consult`."""
+    evidence_set_id = uuid.uuid4()
+    value = ConsultationResult(
+        ConsultationOutcome.ANSWERED,
+        evidence_set_id,
+        "A manifestação do pensamento é livre.",
+        (GeneratedClaim("C1", "A manifestação é livre.", ("EV001",)),),
+        (
+            CitationReference(
+                "C1",
+                "EV001",
+                "CF/88, INCISO IV",
+                "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+            ),
+        ),
+    )
+    monkeypatch.setattr("consultor_juridico.cli.main.SessionLocal", _SessionContext)
+    monkeypatch.setattr(
+        "consultor_juridico.cli.main.run_consultation", lambda *_args, **_kwargs: value
+    )
     result = cli_runner.invoke(cli_app, ["consult", "Quais os direitos fundamentais?"])
     assert result.exit_code == 0
-    assert "Consultando" in result.stdout
+    assert "ANSWERED" in result.stdout
+    assert str(evidence_set_id) in result.stdout
+    assert "EV001" in result.stdout

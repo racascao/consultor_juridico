@@ -41,6 +41,7 @@ markers = [
     "planalto_integration: integração opt-in com o site oficial do Planalto",
     "parsing_integration: regressão opt-in e somente leitura da captura persistida",
     "retrieval_integration: avaliação opt-in do índice jurídico local",
+    "consultation_integration: consulta jurídica local opt-in com Ollama e PostgreSQL",
 ]
 
 [tool.ruff]

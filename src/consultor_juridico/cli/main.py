@@ -6,6 +6,7 @@ from sqlalchemy import func, select
 
 from consultor_juridico import __version__
 from consultor_juridico.config import settings
+from consultor_juridico.consultation import OllamaLegalGenerator, run_consultation
 from consultor_juridico.db.session import SessionLocal
 from consultor_juridico.ingestion import get_ingestion_status, run_planalto_ingestion
 from consultor_juridico.models import Chunk, Embedding, SourceDocument
@@ -282,9 +283,58 @@ def search(query: str) -> None:
 
 
 @app.command()
-def consult(question: str) -> None:
+def consult(
+    question: str,
+    limit: int = typer.Option(None, min=1, max=20, help="Quantidade de evidências."),
+    act: str | None = typer.Option(None, help="Restringe a CF/88 ou ADCT."),
+) -> None:
     """Executa consulta jurídica com respostas fundamentadas."""
-    console.print(f"[bold green]Consultando:[/bold green] {question}")
+    top_k = limit or settings.consultation_top_k
+    provider = _embedding_provider()
+    generator = OllamaLegalGenerator(
+        settings.ollama_base_url,
+        settings.ollama_model,
+        settings.consultation_timeout,
+        settings.consultation_max_tokens,
+    )
+    try:
+        with SessionLocal() as session:
+            result = run_consultation(
+                session,
+                question,
+                retriever=lambda value: hybrid_search(
+                    session,
+                    value,
+                    provider,
+                    model_name=settings.embedding_model,
+                    limit=top_k,
+                    filters=RetrievalFilters(act=act),
+                ),
+                generator=generator,
+                model_name=settings.ollama_model,
+                max_generation_attempts=settings.consultation_max_attempts,
+            )
+    except Exception as exc:
+        console.print(f"[bold red]Falha na consulta:[/bold red] {exc}")
+        raise typer.Exit(code=1) from exc
+    console.print(f"Resultado: [bold cyan]{result.outcome.value}[/bold cyan]")
+    console.print(f"EvidenceSet: {result.evidence_set_id}")
+    console.print(result.answer)
+    if result.claims:
+        console.print("[bold]Afirmações e citações validadas:[/bold]")
+        for claim in result.claims:
+            console.print(
+                f"- {claim.claim_code}: {claim.text} "
+                f"[{', '.join(claim.evidence_codes)}]"
+            )
+        console.print("[bold]Fontes oficiais:[/bold]")
+        for citation in result.citations:
+            console.print(
+                f"- [{citation.evidence_code}] {citation.citation_label}\n"
+                f"  {citation.source_url}"
+            )
+    if result.validation_errors:
+        console.print("[yellow]A resposta gerada foi recusada pela validação.[/yellow]")
 
 
 @app.command()

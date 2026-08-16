@@ -82,14 +82,14 @@
 
 ## Fase 6 — Evidence/RAG/Citation Validation
 
-- [ ] Evidence Builder
-- [ ] Evidence Validator
-- [ ] Consultation Service
-- [ ] Provider Ollama
-- [ ] Geração fundamentada
-- [ ] Claims e citations
-- [ ] Citation Validator
-- [ ] Resposta por insuficiência de evidência
+- [x] Evidence Builder
+- [x] Evidence Validator
+- [x] Consultation Service
+- [x] Provider Ollama
+- [x] Geração fundamentada
+- [x] Claims e citations
+- [x] Citation Validator
+- [x] Resposta por insuficiência de evidência
 
 ## Fase 7 — Avaliação e aceite
 

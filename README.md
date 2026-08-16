@@ -1,644 +1,1899 @@
 # Consultor Jurídico
 
-Mecanismo de consulta jurídica baseado em legislação oficial, versionada, rastreável e com respostas fundamentadas em fontes primárias.
+> RAG jurídico local, auditável e orientado a fontes primárias para consulta da legislação brasileira.
 
-## MVP 1
+![Status](https://img.shields.io/badge/status-MVP%201%20em%20desenvolvimento-orange)
+![Python](https://img.shields.io/badge/Python-3.13%2B-3776AB?logo=python&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?logo=postgresql&logoColor=white)
+![pgvector](https://img.shields.io/badge/pgvector-enabled-4169E1)
+![Ollama](https://img.shields.io/badge/Ollama-local-000000)
+![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)
+![Interface](https://img.shields.io/badge/interface-CLI-4C1)
 
-Corpus:
+O **Consultor Jurídico** é um projeto open-source para consulta jurídica baseada em legislação oficial, versionada, rastreável e verificável. O objetivo é construir um sistema RAG no qual a IA possa **interpretar evidências**, mas nunca substituir a fonte jurídica oficial como autoridade.
 
-- Constituição Federal de 1988;
-- ADCT;
-- fonte oficial do Planalto.
+No MVP 1, o corpus é restrito à **Constituição Federal de 1988 (CF/88)** e ao **Ato das Disposições Constitucionais Transitórias (ADCT)**, capturados diretamente do Portal do Planalto.
 
-Interface:
+> [!IMPORTANT]
+> O projeto prioriza **proveniência, determinismo, integridade documental e validação de evidências**. Uma resposta só deve ser considerada confiável quando puder ser rastreada até o texto oficial que a fundamenta.
 
-- CLI;
-- sem Frontend;
-- sem API HTTP.
+> [!NOTE]
+> Este projeto é uma ferramenta de pesquisa e engenharia de informação jurídica. Ele não substitui aconselhamento jurídico profissional.
 
-## Arquitetura
+---
+
+## Sumário
+
+- [Visão geral](#visão-geral)
+- [Estado atual do MVP](#estado-atual-do-mvp)
+- [Princípios de arquitetura](#princípios-de-arquitetura)
+- [Arquitetura de alto nível](#arquitetura-de-alto-nível)
+- [Pipeline documental](#pipeline-documental)
+- [Pipeline de consulta jurídica](#pipeline-de-consulta-jurídica)
+- [Cadeia de rastreabilidade](#cadeia-de-rastreabilidade)
+- [Modelagem do banco de dados](#modelagem-do-banco-de-dados)
+- [Retrieval híbrido](#retrieval-híbrido)
+- [Quick start](#quick-start)
+- [Comandos principais](#comandos-principais)
+- [Desenvolvimento local](#desenvolvimento-local)
+- [Testes e qualidade](#testes-e-qualidade)
+- [Roadmap](#roadmap)
+- [Estrutura do projeto](#estrutura-do-projeto)
+- [Documentação](#documentação)
+- [Contribuindo](#contribuindo)
+- [Escopo e limitações](#escopo-e-limitações)
+
+---
+
+## Visão geral
+
+O sistema foi projetado para responder a uma pergunta simples de engenharia:
+
+> **Como permitir que um modelo de linguagem auxilie uma consulta jurídica sem transformar o próprio modelo em fonte de verdade?**
+
+A resposta arquitetural é separar responsabilidades.
+
+O LLM não lê diretamente “toda a Constituição” e não decide sozinho quais dispositivos são relevantes. Antes da geração, o sistema:
+
+1. captura e preserva a fonte oficial;
+2. valida a integridade dos bytes;
+3. transforma o documento em uma estrutura jurídica determinística;
+4. separa identidade normativa de ocorrência documental;
+5. materializa o corpus no PostgreSQL;
+6. gera chunks rastreáveis;
+7. executa busca lexical e vetorial;
+8. seleciona evidências;
+9. entrega apenas essas evidências ao modelo;
+10. valida claims e citações antes de considerar uma resposta fundamentada.
+
+A interface do MVP é **CLI-first**. Não há frontend nem API HTTP nesta etapa.
+
+### Corpus do MVP 1
+
+| Item | Escopo |
+|---|---|
+| Fonte oficial | Portal do Planalto |
+| Atos jurídicos | CF/88 e ADCT |
+| Captura | HTML oficial preservado byte a byte |
+| Interface | CLI |
+| Banco | PostgreSQL 16 + pgvector |
+| IA local | Ollama |
+| Embeddings | `nomic-embed-text`, 768 dimensões |
+| Busca | PostgreSQL FTS + pgvector + RRF |
+| Frontend | Fora do escopo do MVP 1 |
+| API HTTP | Fora do escopo do MVP 1 |
+
+---
+
+## Estado atual do MVP
+
+A infraestrutura documental, estrutural e de retrieval já está implementada.
+
+### Corpus materializado
 
 ```text
-Usuário
-  |
-  v
-CLI
-  |
-  v
-Application Services
-  |
-  +--> Ingestion
-  +--> Legal Domain
-  +--> Retrieval
-  +--> LLM
-  |
-  +--> PostgreSQL + pgvector
-  |
-  +--> Ollama
+sources             = 1
+source_documents    = 1
+parsing_runs        = 1
+legal_acts          = 2
+legal_versions      = 2
+legal_provisions    = 4096
+legal_elements      = 6775
+chunks              = 3389
+embeddings          = 3389
 ```
 
-O pipeline documental implementado até a Fase 4C é:
+Distribuição jurídica materializada:
+
+| Ato | LegalVersions | LegalProvisions | LegalElements |
+|---|---:|---:|---:|
+| CF/88 | 1 | 3.133 | 5.063 |
+| ADCT | 1 | 963 | 1.712 |
+
+A captura oficial atualmente preservada possui:
 
 ```text
+bytes:
+1839482
+
+SHA-256:
+25b6934ef228df40d0f5d35e225f6f7160b98f32dd2de328ad9fed9d97496a3d
+```
+
+### Retrieval atual
+
+A Fase 5 implementou:
+
+- chunking jurídico determinístico `legal_occurrence_current_v1`;
+- 3.389 chunks;
+- PostgreSQL FTS em português;
+- 3.389 embeddings locais;
+- `ollama/nomic-embed-text/latest`;
+- 768 dimensões;
+- busca vetorial por distância de cosseno;
+- busca híbrida com Reciprocal Rank Fusion (RRF);
+- filtros por ato e tipo jurídico;
+- idempotência de indexação;
+- CLI de diagnóstico.
+
+A avaliação diagnóstica inicial obteve **5/5 dispositivos esperados no top-10 híbrido**. Essa medição é um smoke test, não a avaliação final do sistema.
+
+### Próximo marco
+
+A próxima fase implementa a camada que transforma retrieval em resposta fundamentada:
+
+```text
+EvidenceSet
+→ EvidenceItems
+→ Prompt grounded
+→ LLM local
+→ Claims
+→ Citations
+→ Citation Validation
+→ Resposta validada
+```
+
+---
+
+## Princípios de arquitetura
+
+### 1. A fonte oficial é a autoridade
+
+O sistema preserva o documento oficial antes de qualquer parsing, normalização ou interpretação.
+
+```text
+Portal do Planalto
+        ↓
+SourceDocument.raw_bytes
+```
+
+Os bytes são armazenados sem canonicalização e protegidos por SHA-256.
+
+### 2. O LLM não é fonte de verdade
+
+O modelo pode interpretar evidências recuperadas, mas não pode substituir a legislação oficial.
+
+```text
+legislação oficial
+        ↓
+evidência
+        ↓
+LLM
+```
+
+Nunca:
+
+```text
+LLM
+ ↓
+"verdade jurídica"
+```
+
+### 3. Captura, parsing e versão jurídica são conceitos distintos
+
+```text
+SourceDocument
+≠
+ParsingRun
+≠
+LegalVersion
+```
+
+Uma nova versão do parser não significa que a fonte oficial mudou.
+
+### 4. Identidade normativa e ocorrência documental são separadas
+
+```text
+LegalProvision
+= identidade normativa estável
+
+LegalElement
+= ocorrência documental/versionada
+```
+
+Essa separação permite representar múltiplas redações históricas do mesmo dispositivo sem criar identidades jurídicas duplicadas.
+
+### 5. Incerteza não é apagada
+
+Quando a fonte não fornece informação suficiente para uma classificação segura, o sistema pode preservar:
+
+```text
+UNRESOLVED
+```
+
+em vez de inferir silenciosamente um estado jurídico.
+
+### 6. Invariantes simples pertencem ao banco
+
+FKs, UNIQUEs e CHECKs protegem regras relacionais estáveis.
+
+Regras que exigem interpretação histórica, comparação de árvores ou semântica permanecem na aplicação e na auditoria.
+
+### 7. Tudo que fundamenta uma resposta precisa ser rastreável
+
+A arquitetura é orientada à cadeia:
+
+```text
+Claim
+→ Citation
+→ EvidenceItem
+→ Chunk
+→ LegalElement
+→ LegalProvision
+→ LegalVersion
+→ ParsingRun
+→ SourceDocument
+→ Source
+```
+
+---
+
+## Arquitetura de alto nível
+
+```text
+┌───────────────────────────────────────────────────────────────┐
+│                           Usuário                             │
+└───────────────────────────────┬───────────────────────────────┘
+                                │
+                                ▼
+┌───────────────────────────────────────────────────────────────┐
+│                              CLI                              │
+└───────────────────────────────┬───────────────────────────────┘
+                                │
+                                ▼
+┌───────────────────────────────────────────────────────────────┐
+│                    Application Services                       │
+│                                                               │
+│   Ingestion   Parsing   Materialization   Retrieval   RAG     │
+└───────────┬───────────┬───────────┬─────────────┬─────────────┘
+            │           │           │             │
+            ▼           ▼           ▼             ▼
+      ┌──────────┐  ┌───────────────────────┐  ┌───────────┐
+      │ Planalto │  │ PostgreSQL + pgvector │  │  Ollama   │
+      └──────────┘  └───────────────────────┘  └───────────┘
+```
+
+O PostgreSQL armazena tanto o corpus jurídico estruturado quanto os dados derivados de retrieval e, futuramente, de evidence/citation.
+
+O Ollama é usado localmente. Na Fase 5, ele fornece embeddings; na Fase 6, passa a fornecer também o modelo generativo local.
+
+---
+
+## Pipeline documental
+
+Antes de existir retrieval ou LLM, o sistema precisa transformar o documento oficial em uma representação jurídica auditável.
+
+```text
+Portal do Planalto
+        ↓
 Raw SourceDocument
-      ↓
-Integrity + Decoder
-      ↓
-DOM
-      ↓
+        ↓
+SHA-256 / integridade
+        ↓
+Decoder Windows-1252
+        ↓
+DOM íntegro
+        ↓
 DocumentBlock
-      ↓
-CF/ADCT Segmentation
-      ↓
-In-memory Legal Structure Parser
-      ↓
-Structural Pre-Materialization Audit
-      ↓
+        ↓
+Segmentação CF/88 + ADCT
+        ↓
+Parser jurídico em memória
+        ↓
+LegalProvision + LegalElement
+        ↓
+Auditoria estrutural
+        ↓
 Materialization Gate
-      ↓
-Transactional PostgreSQL Materialization
+        ↓
+Materialização transacional
+        ↓
+PostgreSQL
 ```
 
-O parser produz árvores imutáveis e auditáveis em memória, reconcilia cada
-ocorrência normativa com `LegalProvision` e somente materializa após aprovação
-do gate estrutural.
+### Captura oficial
 
-A Fase 4B.3.2 corrigiu deterministicamente os 62 blocos numerados antes perdidos
-(alíneas com whitespace variante, incisos sem hífen/alfanuméricos e `SEÇÃO V-A`).
-O `SCHEMA_MODEL_GAP` foi resolvido pelo modelo identidade/ocorrência: redações
-históricas compartilham identidade normativa sem perder texto, ordem ou
-proveniência. A reauditoria da captura real encerrou com zero blockers.
+A captura da CF/88 e ADCT é preservada como um único `SourceDocument` físico.
 
-A Fase 4C adaptou o parser, reconciliou `identity_key`, atualizou a auditoria e
-materializou CF/88 + ADCT atomicamente. A segunda execução retorna
-`ALREADY_PARSED`, sem duplicar versões, provisions ou occurrences.
+O HTML é armazenado em `BYTEA`, e o hash SHA-256 é calculado sobre exatamente os bytes persistidos.
 
-A Migration `005_normative_identity_occurrences` implementou a integridade física
-de mesmo ato: `LegalElement.legal_act_id` é uma redundância controlada, protegida
-por FKs compostas para `LegalVersion` e `LegalProvision`. O banco associa cada
-ocorrência normativa à identidade do mesmo ato e tipo.
+A ingestão também utiliza `ETag` e `Last-Modified` para conditional GET, permitindo o fluxo:
 
 ```text
-LegalAct
-├── LegalProvision identity tree
-└── LegalVersion
-    └── LegalElement occurrence tree
-        └── references LegalProvision
+200 CREATED
+    ↓
+304 ALREADY_KNOWN
 ```
 
-O Alembic usa `VARCHAR(64)` em `alembic_version.version_num` desde a Migration
-005, pois seu revision ID possui 34 caracteres. A ampliação é monotônica e
-permanece após downgrade para 004.
+sem criar capturas desnecessárias.
 
-## Modelagem do banco de dados
+### Parsing determinístico
 
-O banco é o núcleo de rastreabilidade do sistema. A modelagem separa deliberadamente captura documental, processamento técnico, estrutura jurídica, indexação, evidência e resposta, evitando que uma única entidade acumule responsabilidades incompatíveis.
+O parser transforma a estrutura documental em elementos jurídicos:
+
+```text
+DOCUMENT_ROOT
+PREAMBLE
+TITLE
+CHAPTER
+SECTION
+SUBSECTION
+ARTICLE
+CAPUT
+PARAGRAPH
+INCISO
+ALINEA
+ITEM
+NOTE
+```
+
+Cada elemento preserva ordem, proveniência e metadata factual suficiente para auditoria.
+
+### Identidade normativa
+
+A fonte oficial contém múltiplas redações históricas de certos dispositivos.
+
+Em vez de transformar cada redação em uma identidade diferente:
+
+```text
+Art. 6 histórico A  → identidade A
+Art. 6 histórico B  → identidade B
+Art. 6 atual        → identidade C
+```
+
+o modelo usa:
+
+```text
+LegalProvision Art. 6
+        ▲
+        ├── LegalElement HISTORICAL
+        ├── LegalElement HISTORICAL
+        └── LegalElement CURRENT
+```
+
+A identidade normativa permanece estável; as ocorrências documentais preservam as diferentes redações.
+
+### Materialização transacional
+
+A persistência segue um modelo transacional:
+
+```text
+TX1
+→ ParsingRun RUNNING
+→ commit
+
+parse + audit em memória
+
+TX2
+→ LegalAct
+→ LegalProvision
+→ LegalVersion
+→ LegalElement
+→ ativação das versões
+→ ParsingRun COMPLETED
+→ commit
+```
+
+Em caso de falha:
+
+```text
+TX2 rollback
+    ↓
+TX3
+→ ParsingRun FAILED
+→ commit
+```
+
+CF/88 e ADCT são ativados conjuntamente. A materialização não aceita um estado em que apenas um dos atos tenha sido persistido com sucesso.
+
+---
+
+# Pipeline de consulta jurídica
+
+O pipeline abaixo está implementado até a validação final da Fase 6. O modelo
+local recebe exclusivamente o snapshot de evidências recuperadas; Claims só são
+persistidas quando todas as Citations passam pela validação determinística.
+
+```text
+User Query
+    ↓
+Retrieval
+    ↓
+EvidenceSet
+    ↓
+EvidenceItems
+    ↓
+Prompt grounded
+    ↓
+LLM local
+    ↓
+Claims
+    ↓
+Citations
+    ↓
+Citation Validation
+    ↓
+Resposta validada
+```
+
+O desenho pode ser entendido como uma sequência de filtros. A pergunta começa ampla, o sistema localiza trechos relevantes da legislação, congela as evidências utilizadas, entrega apenas essas evidências ao modelo local, transforma a saída em afirmações verificáveis e valida se cada afirmação está realmente sustentada.
+
+---
+
+## User Query
+
+`User Query` é a pergunta enviada pelo usuário.
+
+Exemplo:
+
+```text
+O que a Constituição estabelece sobre a liberdade de manifestação do pensamento?
+```
+
+Nesse ponto, a pergunta ainda não está associada a um dispositivo específico.
+
+O sistema não deve enviá-la imediatamente ao modelo de linguagem. Primeiro precisa identificar quais partes da CF/88 ou do ADCT podem sustentar uma resposta.
+
+Essa decisão evita que o modelo:
+
+- responda a partir de memória interna;
+- misture versões da legislação;
+- cite dispositivos inexistentes;
+- use normas fora do corpus do MVP.
+
+---
+
+## Retrieval
+
+`Retrieval` é a etapa que procura os trechos jurídicos potencialmente relevantes.
+
+O sistema implementa três modos.
+
+### Busca lexical
+
+A busca lexical usa PostgreSQL Full-Text Search:
+
+```text
+to_tsvector('portuguese', chunk_text)
++
+websearch_to_tsquery('portuguese', query)
++
+ts_rank_cd(...)
+```
+
+Ela funciona especialmente bem quando a consulta contém termos próximos aos usados pela Constituição.
+
+### Busca vetorial
+
+A busca vetorial representa consulta e chunks matematicamente por embeddings.
+
+```text
+query
+  ↓
+search_query: ...
+  ↓
+embedding 768D
+
+chunk
+  ↓
+search_document: ...
+  ↓
+embedding 768D
+```
+
+A similaridade atual é calculada por distância de cosseno.
+
+### Busca híbrida
+
+O modo padrão combina lexical e vetorial por Reciprocal Rank Fusion:
+
+```text
+RRF score = Σ 1 / (60 + rank)
+```
+
+Isso evita combinar diretamente scores com escalas incompatíveis.
+
+### Escopo jurídico padrão
+
+O retrieval não pesquisa indiscriminadamente todo conteúdo persistido.
+
+O índice padrão é formado por ocorrências:
+
+```text
+LegalVersion ativa
++
+text_status = CURRENT
++
+content_role = NORMATIVE
+```
+
+Logo, redações históricas, dispositivos revogados, conteúdo `UNRESOLVED` e notas editoriais não entram silenciosamente como fundamento da consulta comum.
+
+---
+
+## EvidenceSet
+
+`EvidenceSet` representa o conjunto fechado de evidências selecionadas para uma execução específica.
+
+Conceitualmente:
+
+```text
+User Query
+    ↓
+Retrieval
+    ↓
+E1
+E2
+E3
+E4
+E5
+    ↓
+EvidenceSet
+```
+
+O conjunto registra informações como:
+
+- consulta original;
+- estratégia de retrieval;
+- quantidade de evidências;
+- metadata da execução;
+- status de validação.
+
+Duas execuções da mesma pergunta podem produzir EvidenceSets diferentes se o corpus, índice, embedding ou configuração tiverem mudado.
+
+Por isso, `EvidenceSet` representa **uma execução auditável**, e não apenas uma pergunta abstrata.
+
+---
+
+## EvidenceItems
+
+Cada evidência selecionada é representada por um `EvidenceItem`.
+
+```text
+EvidenceSet
+├── E1 → CF/88, art. 5º, IV
+├── E2 → CF/88, art. 220
+└── E3 → outro dispositivo recuperado
+```
+
+O EvidenceItem mantém referências para o material jurídico de origem e guarda um `text_snapshot`.
+
+### Por que existe um snapshot?
+
+O snapshot responde:
+
+> **Qual texto exatamente foi apresentado ao modelo nesta execução?**
+
+Isso é essencial porque, no futuro:
+
+- a legislação pode ter nova captura;
+- uma nova LegalVersion pode ser ativada;
+- chunks podem ser reconstruídos;
+- embeddings podem ser trocados.
+
+Mesmo assim, uma resposta histórica precisa continuar auditável.
+
+---
+
+## Prompt grounded
+
+Depois que as evidências são selecionadas, o sistema constrói um prompt ancorado nelas.
+
+Em vez de perguntar:
+
+```text
+O que você sabe sobre liberdade de expressão?
+```
+
+o sistema trabalha conceitualmente com:
+
+```text
+Pergunta:
+O que a Constituição estabelece sobre liberdade de expressão?
+
+Evidência E1:
+[CF/88, art. 5º, IV]
+...
+
+Evidência E2:
+[CF/88, art. 220]
+...
+
+Instruções:
+- responda somente com base nas evidências;
+- não use conhecimento externo;
+- não invente dispositivos;
+- associe cada afirmação às evidências;
+- declare insuficiência quando o corpus não sustentar a resposta.
+```
+
+O modelo deixa de ser consultado como “memória jurídica” e passa a atuar como **interpretador de um conjunto fechado de evidências**.
+
+---
+
+## LLM local
+
+O LLM é executado localmente via Ollama.
+
+Na arquitetura-alvo, recebe:
+
+```text
+User Query
++
+EvidenceItems
++
+instruções de grounding
+```
+
+e produz saída estruturada, por exemplo:
+
+```json
+{
+  "answer": "A Constituição assegura...",
+  "claims": [
+    {
+      "claim_code": "C1",
+      "text": "A manifestação do pensamento é livre, sendo vedado o anonimato.",
+      "evidence_codes": ["E1"]
+    }
+  ],
+  "insufficient_evidence": false
+}
+```
+
+O modelo não deve produzir a fonte jurídica como autoridade livre.
+
+Ele apenas declara quais códigos de evidência sustentariam cada claim:
+
+```text
+C1 → E1
+```
+
+A aplicação resolve `E1` para a referência jurídica real.
+
+---
+
+## Claims
+
+Um `Claim` representa uma afirmação verificável.
+
+Exemplo:
+
+```text
+A manifestação do pensamento é livre, sendo vedado o anonimato.
+```
+
+A resposta completa pode conter vários Claims:
+
+```text
+Resposta
+├── Claim C1
+├── Claim C2
+└── Claim C3
+```
+
+Isso permite validar cada proposição individualmente.
+
+Uma resposta pode conter uma primeira afirmação corretamente fundamentada e uma segunda extrapolada. Se toda a saída fosse tratada como uma única unidade, detectar esse problema seria muito mais difícil.
+
+---
+
+## Citations
+
+`Citation` é a relação persistida entre um Claim e um EvidenceItem.
+
+```text
+Claim C1
+   ↓
+Citation
+   ↓
+EvidenceItem E1
+```
+
+Uma afirmação pode ter várias citações:
+
+```text
+Claim C2
+├── Citation → E2
+└── Citation → E3
+```
+
+O label apresentado ao usuário deve ser derivado do domínio:
+
+```text
+E1
+→ LegalElement
+→ LegalProvision
+→ CF/88, art. 5º, IV
+```
+
+e não inventado pelo LLM.
+
+Assim, o modelo pode dizer:
+
+```text
+C1 usa E1
+```
+
+e a aplicação monta:
+
+```text
+[CF/88, art. 5º, IV]
+```
+
+---
+
+## Citation Validation
+
+Pedir ao LLM que informe evidências não basta. É necessário verificar se as citações são válidas e suficientes.
+
+A arquitetura prevê validação em várias dimensões.
+
+### Validade referencial
+
+O código de evidência realmente existe?
+
+### Consistência do EvidenceSet
+
+A evidência pertence ao mesmo conjunto da consulta?
+
+O PostgreSQL já possui integridade composta para impedir fisicamente que uma Citation declare pertencer a um EvidenceSet enquanto referencia uma evidência de outro.
+
+### Status jurídico
+
+A evidência continua compatível com o escopo da consulta padrão?
+
+```text
+CURRENT
++
+NORMATIVE
++
+LegalVersion ativa
+```
+
+### Suporte semântico
+
+O conteúdo da evidência realmente sustenta o Claim?
+
+Ter palavras em comum não é suficiente.
+
+### Completude
+
+Existe afirmação jurídica relevante sem citação?
+
+Se existir, a resposta ainda não está completamente fundamentada.
+
+### Extrapolação
+
+A evidência sustenta apenas parte da afirmação?
+
+Nesse caso, o sistema deve identificar suporte parcial, reformular ou rejeitar o Claim.
+
+---
+
+## Resposta validada
+
+Somente após a validação a resposta pode ser apresentada como fundamentada.
+
+```text
+LLM gera resposta candidata
+        ↓
+Claims
+        ↓
+Citations
+        ↓
+Citation Validation
+        ↓
+apenas Claims suportados permanecem
+        ↓
+Resposta validada
+```
+
+Se o corpus não fornecer evidência suficiente, o comportamento correto é se abster.
+
+Exemplo conceitual:
+
+```text
+Não encontrei evidência suficiente na Constituição Federal e no ADCT
+para responder com segurança a essa parte da consulta.
+```
+
+O sistema não deve completar lacunas usando conhecimento geral do modelo.
+
+Para uma descrição ainda mais detalhada desse fluxo, consulte:
+
+[`docs/55-arquitetura-consulta-rastreabilidade.md`](docs/55-arquitetura-consulta-rastreabilidade.md)
+
+---
+
+# Cadeia de rastreabilidade
+
+Além do pipeline de execução, existe uma cadeia de custódia que explica de onde veio cada afirmação:
+
+```text
+Claim
+→ Citation
+→ EvidenceItem
+→ Chunk
+→ LegalElement
+→ LegalProvision
+→ LegalVersion
+→ ParsingRun
+→ SourceDocument
+→ Source
+```
+
+Cada entidade resolve uma pergunta diferente.
+
+| Entidade | Pergunta que responde |
+|---|---|
+| `Claim` | O que o sistema afirmou? |
+| `Citation` | Qual evidência foi usada para sustentar a afirmação? |
+| `EvidenceItem` | Qual texto exato foi entregue como evidência? |
+| `Chunk` | Qual unidade foi recuperada pelo mecanismo de busca? |
+| `LegalElement` | Qual ocorrência documental concreta originou o trecho? |
+| `LegalProvision` | Qual é a identidade normativa estável do dispositivo? |
+| `LegalVersion` | Em qual snapshot jurídico do ato essa ocorrência existe? |
+| `ParsingRun` | Qual parser e versão produziram esse snapshot? |
+| `SourceDocument` | Qual captura física oficial foi processada? |
+| `Source` | De qual fonte institucional veio o documento? |
+
+---
+
+## Claim
+
+`Claim` é uma afirmação jurídica produzida pelo sistema.
+
+Exemplo:
+
+```text
+A educação é direito de todos e dever do Estado e da família.
+```
+
+O Claim não é a evidência. É aquilo que o sistema pretende afirmar ao usuário.
+
+Sua existência permite validar a resposta em unidades semânticas menores.
+
+---
+
+## Citation
+
+`Citation` liga um Claim a um EvidenceItem.
+
+Ela responde:
+
+> Qual evidência sustenta esta afirmação?
+
+A Citation não é apenas texto decorativo no fim da resposta. É uma relação persistida no banco e protegida por integridade referencial.
+
+---
+
+## EvidenceItem
+
+`EvidenceItem` representa a evidência concreta usada naquela execução.
+
+Ele contém:
+
+- EvidenceSet;
+- Chunk de origem;
+- LegalElement relacionado;
+- código de evidência;
+- label jurídico;
+- snapshot textual;
+- metadata de validação.
+
+O EvidenceItem é a ponte entre retrieval e geração.
+
+---
+
+## Chunk
+
+`Chunk` é a unidade usada pelo mecanismo de busca.
+
+A estrutura jurídica é hierárquica:
+
+```text
+ARTICLE
+├── CAPUT
+├── PARAGRAPH
+│   ├── INCISO
+│   └── INCISO
+└── ...
+```
+
+O retrieval precisa de unidades menores e pesquisáveis sem perder rastreabilidade.
+
+Na estratégia atual, `ARTICLE` funciona como container e não duplica o texto do `CAPUT`. Os chunks são derivados das ocorrências normativas correntes.
+
+O chunk não é autoridade jurídica por si só. Ele aponta para os LegalElements que o originaram.
+
+---
+
+## LegalElement
+
+`LegalElement` representa uma ocorrência documental concreta dentro de uma `LegalVersion`.
+
+Exemplos:
+
+```text
+ARTICLE
+CAPUT
+PARAGRAPH
+INCISO
+ALINEA
+ITEM
+SECTION
+NOTE
+```
+
+Ele contém atributos ligados à ocorrência:
+
+- texto;
+- ordem documental;
+- status;
+- papel do conteúdo;
+- provenance;
+- locator;
+- metadata do parser.
+
+Um mesmo dispositivo pode ter múltiplas ocorrências históricas.
+
+Por isso, `LegalElement` não é a identidade abstrata do dispositivo.
+
+---
+
+## LegalProvision
+
+`LegalProvision` representa a identidade normativa estável.
+
+Exemplo:
+
+```text
+LegalProvision Art. 6º
+        ▲
+        ├── LegalElement HISTORICAL
+        ├── LegalElement HISTORICAL
+        └── LegalElement CURRENT
+```
+
+A diferença pode ser resumida assim:
+
+```text
+LegalProvision
+= qual dispositivo é
+
+LegalElement
+= como esse dispositivo aparece naquela versão documental
+```
+
+Essa separação evita duplicar identidades jurídicas quando a fonte apresenta redações anteriores.
+
+---
+
+## LegalVersion
+
+`LegalVersion` representa um snapshot jurídico estruturado de um ato.
+
+CF/88 e ADCT são LegalActs distintos, embora possam derivar do mesmo SourceDocument físico.
+
+Para uma captura:
+
+```text
+SourceDocument
+├── LegalVersion CF/88
+└── LegalVersion ADCT
+```
+
+Uma LegalVersion contém sua árvore de occurrences e referencia o ParsingRun que a produziu.
+
+Somente uma versão por LegalAct fica ativa para consulta padrão.
+
+---
+
+## ParsingRun
+
+`ParsingRun` representa uma execução lógica do parser.
+
+Sua identidade considera:
+
+```text
+SourceDocument
++
+parser_name
++
+parser_version
+```
+
+Estados:
+
+```text
+RUNNING
+COMPLETED
+FAILED
+```
+
+Isso permite distinguir:
+
+```text
+a fonte mudou
+```
+
+de:
+
+```text
+o parser mudou
+```
+
+A mesma captura pode ser reprocessada por outra versão do parser sem significar que houve nova publicação oficial.
+
+---
+
+## SourceDocument
+
+`SourceDocument` representa a captura física do documento oficial.
+
+Ele preserva:
+
+```text
+raw_bytes
+content_hash_sha256
+HTTP metadata
+timestamp de captura
+```
+
+Seu papel é permitir provar que o sistema estruturou determinado conjunto de bytes provenientes da fonte oficial.
+
+`SourceDocument` não é uma versão jurídica.
+
+É a evidência documental bruta.
+
+---
+
+## Source
+
+`Source` representa a origem institucional.
+
+No MVP 1:
+
+```text
+Source
+= Portal do Planalto
+```
+
+No futuro, novas fontes oficiais podem ser adicionadas sem alterar o significado das demais entidades.
+
+---
+
+## Exemplo completo de rastreabilidade
+
+Considere:
+
+```text
+O que a Constituição estabelece sobre o direito à educação?
+```
+
+O retrieval pode encontrar o conteúdo do art. 205.
+
+```text
+User Query
+        ↓
+Retrieval
+        ↓
+Chunk do art. 205
+        ↓
+EvidenceItem E1
+        ↓
+LLM
+        ↓
+Claim C1
+        ↓
+Citation C1 → E1
+        ↓
+Citation Validation
+        ↓
+Resposta validada
+```
+
+Para auditar a origem:
+
+```text
+Claim C1
+    ↓
+Citation
+    ↓
+EvidenceItem E1
+    ↓
+Chunk
+    ↓
+LegalElement
+    ↓
+LegalProvision do art. 205
+    ↓
+LegalVersion da CF/88
+    ↓
+ParsingRun
+    ↓
+SourceDocument
+    ↓
+Source = Portal do Planalto
+```
+
+A arquitetura permite, portanto, partir de uma afirmação exibida ao usuário e chegar até a captura oficial que originou o trecho.
+
+---
+
+# Modelagem do banco de dados
+
+O PostgreSQL é o núcleo da rastreabilidade do sistema.
+
+A modelagem separa:
+
+```text
+captura documental
+processamento técnico
+identidade jurídica
+ocorrência documental
+indexação
+evidência
+resposta
+```
 
 ![Modelo ERD](docs/consultor_juridico_erd.png)
 
-A cadeia principal de custódia é:
+## Entidades principais
 
-Source
-  ↓
-SourceDocument
-  ↓
-ParsingRun
-      ↓
-LegalVersion
-      ↓
-LegalElement occurrence
-      ↓
-LegalProvision identity
-  ↓
-Chunk
-  ↓
-EvidenceItem
-  ↓
-Citation
-  ↓
-Claim
+### `Source`
 
-### Fonte e captura física
+Origem institucional da legislação.
 
-Source representa a origem oficial. SourceDocument representa uma captura física obtida dessa fonte. O HTML é armazenado em raw_bytes (BYTEA) sem canonicalização, e content_hash_sha256 é calculado sobre exatamente os mesmos bytes persistidos. Assim, a captura permanece auditável e pode ser comprovada criptograficamente.
+### `SourceDocument`
 
-A unicidade por (source_id, content_hash_sha256) é uma proteção adicional de idempotência. ETag e Last-Modified permanecem como metadados da aquisição HTTP e servem ao conditional GET; o SHA-256 tem uma função diferente: provar a integridade dos bytes armazenados.
+Captura física e imutável do documento oficial.
 
-### ParsingRun: captura não é parsing
+### `ParsingRun`
 
-ParsingRun separa o documento físico do processo técnico que o interpreta. Sua identidade lógica é (source_document_id, parser_name, parser_version).
+Execução versionada do parser.
 
-Isso permite saber qual parser processou uma captura, em qual versão e com qual resultado (RUNNING, COMPLETED ou FAILED). A separação também impede confundir uma mudança do parser com uma mudança real da fonte oficial.
+### `LegalAct`
 
-### LegalAct e LegalVersion
+Identidade do ato jurídico, como CF/88 ou ADCT.
 
-LegalAct representa a identidade abstrata de uma norma. CF/88 e ADCT são tratados como atos jurídicos distintos, embora sejam obtidos da mesma captura física.
+### `LegalVersion`
 
-LegalVersion representa a versão jurídica derivada de uma captura por uma determinada ParsingRun.
+Snapshot estruturado de um LegalAct produzido a partir de uma captura.
 
-O schema mantém source_document_id e parsing_run_id de forma intencional. Uma FK composta garante que uma LegalVersion não possa apontar para um SourceDocument diferente daquele processado pelo seu ParsingRun.
+### `LegalProvision`
 
-A unicidade (parsing_run_id, legal_act_id) impede duplicação do mesmo ato dentro do mesmo processamento. Um índice único parcial garante no máximo uma versão ativa para consulta por LegalAct.
+Identidade normativa estável.
 
-### LegalElement: árvore jurídica versionada
+### `LegalElement`
 
-LegalElement materializa a estrutura normativa dentro de uma LegalVersion.
+Ocorrência documental/versionada de uma identidade normativa.
 
-A taxonomia congelada no schema 004 inclui:
+### `Chunk`
 
-DOCUMENT_ROOT, PREAMBLE, TITLE, CHAPTER, SECTION, SUBSECTION, ARTICLE, CAPUT, PARAGRAPH, INCISO, ALINEA, ITEM e NOTE.
+Unidade derivada utilizada em FTS e retrieval vetorial.
 
-parent_id representa a hierarquia. Uma FK composta com legal_version_id impede que um elemento tenha como pai um elemento de outra versão.
+### `ChunkLegalElement`
 
-document_order representa a ordem global e determinística dos elementos dentro da versão. Hierarquia e ordem são conceitos independentes: parent_id informa quem contém quem; document_order informa em que ordem documental os elementos aparecem.
+Relação auditável entre um chunk e os elementos jurídicos que o originaram.
 
-source_locator registra proveniência factual, como o block_index do HTML de origem. parser_metadata registra decisões técnicas do parser, como estrutura sintética, links preservados ou cobertura de strike.
+### `Embedding`
 
-### Status do texto e papel do conteúdo
+Representação vetorial de um chunk, isolada por provider/model/version/dimensão.
 
-O modelo separa duas dimensões.
+### `EvidenceSet`
 
-text_status:
+Conjunto fechado de evidências de uma consulta.
 
-- CURRENT
+### `EvidenceItem`
 
-- HISTORICAL
+Snapshot da evidência entregue ao modelo.
 
-- REVOKED
+### `Claim`
 
-- UNRESOLVED
+Afirmação jurídica verificável.
 
-- NOT_APPLICABLE
+### `Citation`
 
-content_role:
+Relação entre uma afirmação e uma evidência.
 
-- NORMATIVE
+## Integridade física
 
-- AMENDMENT_NOTE
+O schema protege, entre outras, as seguintes regras:
 
-- REFERENCE_NOTE
+- `SourceDocument` sempre aponta para uma Source válida;
+- `LegalVersion` e `ParsingRun` referenciam a mesma captura;
+- pai e filho de `LegalElement` pertencem à mesma LegalVersion;
+- `LegalElement`, `LegalVersion` e `LegalProvision` pertencem ao mesmo LegalAct;
+- tipo da occurrence coincide com tipo da identidade;
+- NOTE não possui LegalProvision;
+- occurrence normativa exige LegalProvision;
+- só existe uma LegalVersion ativa por LegalAct;
+- só existe uma occurrence `CURRENT + NORMATIVE` por version/provision;
+- Citation e EvidenceItem pertencem ao mesmo EvidenceSet;
+- embeddings permanecem isolados por modelo.
 
-- EDITORIAL_NOTE
+---
 
-Uma redação normativa histórica, por exemplo, pode ser HISTORICAL + NORMATIVE, enquanto uma nota editorial recebe papel não normativo e NOT_APPLICABLE.
+# Retrieval híbrido
 
-A existência de UNRESOLVED é deliberada: quando a fonte não permite determinar com segurança o status, o sistema registra a incerteza em vez de inferir vigência.
+A indexação atual produz 3.389 chunks jurídicos.
 
-### Chunk e relação N com LegalElement
-
-Chunk é a unidade futura de retrieval e pertence a uma LegalVersion.
-
-A tabela ChunkLegalElement implementa uma relação N entre chunks e elementos jurídicos. Isso evita congelar a regra simplista “um artigo = um chunk” e permite que um chunk agregue contexto mantendo rastreabilidade para os dispositivos que o originaram.
-
-### FTS e embeddings
-
-Chunk.tsv_content suporta Full-Text Search do PostgreSQL com índice GIN.
-
-Embedding armazena vetores e identifica explicitamente provider_name, model_name, model_version e dimensions. Assim, múltiplos modelos podem ser comparados para o mesmo chunk sem misturar silenciosamente espaços vetoriais diferentes.
-
-A constraint de dimensão garante coerência entre a dimensão declarada e a dimensão física do vetor.
-
-### EvidenceSet e EvidenceItem
-
-EvidenceSet representa o conjunto fechado de evidências selecionadas para uma consulta. Registra a pergunta, estratégia de retrieval, estado de validação e metadados do processo.
-
-EvidenceItem liga uma evidência ao Chunk e ao LegalElement e guarda text_snapshot, isto é, a cópia exata do texto que foi entregue ao LLM.
-
-Esse snapshot é essencial para reprodutibilidade: mesmo que legislação, parser ou índice evoluam, continua sendo possível saber qual texto fundamentou uma resposta passada.
-
-### Claim e Citation
-
-Claim representa uma afirmação produzida pela camada de geração.
-
-Citation liga essa afirmação a um EvidenceItem.
-
-A integridade entre Citation, EvidenceItem e EvidenceSet é protegida por FK composta. O banco rejeita uma citação que declare pertencer ao conjunto B enquanto referencia uma evidência pertencente ao conjunto A.
-
-Isso faz com que parte importante da validação de citações seja garantida fisicamente pelo PostgreSQL.
-
-### Cadeia de custódia
-
-O objetivo final do modelo é permitir a navegação:
-
-Claim
-  ↓
-Citation
-  ↓
-EvidenceItem
-  ↓
-Chunk
-  ↓
-LegalElement
-  ↓
-LegalVersion
-  ↓
-SourceDocument
-  ↓
-Source
-
-Assim, o LLM nunca é a fonte de verdade. Cada afirmação fundamentada poderá ser rastreada até o fragmento jurídico, a captura física e a fonte oficial.
-
-### Por que há tantas constraints físicas?
-
-O projeto prefere colocar no banco as invariantes que são simples, estáveis e relacionais. Entre elas:
-
-documento não pode apontar para fonte inexistente;
-
-LegalVersion e ParsingRun devem referenciar a mesma captura;
-
-pai e filho devem pertencer à mesma LegalVersion;
-
-document_order não pode se repetir na mesma versão;
-
-só pode existir uma versão ativa por LegalAct;
-
-só pode existir um DOCUMENT_ROOT por versão;
-
-taxonomias e combinações role/status são verificadas;
-
-dimensão declarada do embedding deve corresponder ao vetor;
-
-Citation e EvidenceItem devem pertencer ao mesmo EvidenceSet.
-
-Regras que exigem interpretação temporal ou contextual permanecem na aplicação em vez de serem escondidas em triggers.
-
-## Roadmap
-
-O desenvolvimento do projeto segue uma estratégia incremental, com checkpoints de arquitetura, implementação, testes e auditoria antes do avanço para a próxima etapa.
-
-### Fundação e infraestrutura
-
-- [x] **Fase 0 — Fundação do projeto**
-  - [x] Estrutura `src/` e `tests/`
-  - [x] `pyproject.toml`
-  - [x] `uv.lock`
-  - [x] Ambiente isolado em `.venv`
-  - [x] CLI com Typer + Rich
-  - [x] Configuração com Pydantic Settings
-  - [x] Ruff
-  - [x] Pytest
-  - [x] Política de zero dependências Python globais
-
-- [x] **Fase 1 — Docker e infraestrutura local**
-  - [x] Dockerfile
-  - [x] Docker Compose
-  - [x] PostgreSQL 16
-  - [x] pgvector
-  - [x] Ollama
-  - [x] Healthchecks
-  - [x] Volumes persistentes
-  - [x] Execução da CLI em container
-
-### Modelo de dados e rastreabilidade
-
-- [x] **Fase 2A — Modelagem relacional**
-  - [x] `Source`
-  - [x] `SourceDocument`
-  - [x] `LegalAct`
-  - [x] `LegalVersion`
-  - [x] `LegalElement`
-  - [x] `Chunk`
-  - [x] `Embedding`
-  - [x] `EvidenceSet`
-  - [x] `EvidenceItem`
-  - [x] `Claim`
-  - [x] `Citation`
-  - [x] Cadeia de rastreabilidade jurídica
-
-- [x] **Fase 2B — SQLAlchemy, Alembic e PostgreSQL**
-  - [x] Modelos ORM
-  - [x] Migration `001_initial_schema`
-  - [x] Migration `002_schema_corrections`
-  - [x] Integridade de chaves estrangeiras
-  - [x] FTS com PostgreSQL
-  - [x] suporte a `pgvector`
-  - [x] Integridade `Citation → EvidenceItem → EvidenceSet`
-  - [x] Auditoria do schema
-  - [x] Testes de upgrade/downgrade
-  - [x] Validação em Docker
-
-### Ingestão da fonte oficial
-
-- [x] **Fase 3 — Ingestão e Raw Storage**
-  - [x] Adapter do Portal do Planalto
-  - [x] Download HTTP com `httpx`
-  - [x] User-Agent configurável
-  - [x] Timeouts, retries e backoff
-  - [x] Preservação byte a byte em `BYTEA`
-  - [x] SHA-256 da captura
-  - [x] Migration `003_ingestion_raw_storage`
-  - [x] `ETag`
-  - [x] `Last-Modified`
-  - [x] Conditional GET
-  - [x] Fluxo real `200 CREATED → 304 ALREADY_KNOWN`
-  - [x] Idempotência
-  - [x] Teste real contra o Planalto
-  - [x] CF/88 + ADCT preservados como uma única captura física
-  - [x] Separação entre captura documental e versão jurídica
-
-### Parsing constitucional
-
-- [x] **Fase 4A — Investigação estrutural do HTML**
-  - [x] Análise da captura real
-  - [x] Identificação de encoding `Windows-1252`
-  - [x] Inventário estrutural do DOM
-  - [x] Análise de CF/88 e ADCT
-  - [x] Identificação de redações históricas
-  - [x] Identificação de conteúdo riscado
-  - [x] Análise de notas e referências
-  - [x] Definição inicial das golden fixtures
-
-- [x] **Fase 4A.1 — Congelamento do modelo de parsing**
-  - [x] CF/88 e ADCT como `LegalAct` distintos
-  - [x] CAPUT explícito
-  - [x] `document_order`
-  - [x] `text_status`
-  - [x] `content_role`
-  - [x] `ParsingRun`
-  - [x] Estratégia de reparse
-  - [x] Estratégia transacional
-  - [x] Proveniência do parsing
-
-- [x] **Fase 4A.2 — Revisão de consistência pré-migration**
-  - [x] Cardinalidades finais
-  - [x] FKs compostas
-  - [x] Máquina de estados de `ParsingRun`
-  - [x] Fronteiras transacionais TX1/TX2/TX3
-  - [x] Taxonomia jurídica `INCISO / ALINEA / ITEM`
-  - [x] Semântica de ARTICLE/CAPUT
-  - [x] Política de downgrade
-
-- [x] **Migration 004 — Frozen Parsing Model**
-  - [x] Tabela `parsing_runs`
-  - [x] Alterações em `legal_versions`
-  - [x] Alterações em `legal_elements`
-  - [x] `document_order`
-  - [x] `text_status`
-  - [x] `content_role`
-  - [x] `source_locator`
-  - [x] `parser_metadata`
-  - [x] Integridade pai-filho na mesma `LegalVersion`
-  - [x] Índice de versão ativa
-  - [x] Ciclo `003 → 004 → 003 → 004`
-  - [x] Validação Docker
-
-- [x] **Fase 4B.1 — Decoder e DOM íntegro**
-  - [x] Validação SHA-256 antes do decoding
-  - [x] Decoding estrito `Windows-1252`
-  - [x] BeautifulSoup + `html.parser`
-  - [x] Preservação do conteúdo após `</html>` prematuro
-  - [x] Métricas estruturais do DOM
-  - [x] Teste de regressão da captura real
-  - [x] Determinismo do pipeline
-
-- [x] **Fase 4B.2 — Segmentação CF/ADCT e blocos documentais**
-  - [x] `DocumentBlock`
-  - [x] `block_index` determinístico
-  - [x] Preservação de anchors e links
-  - [x] Marcação factual de `<strike>`
-  - [x] Segmentação em:
-    - [x] `leading`
-    - [x] CF/88
-    - [x] transição
-    - [x] ADCT
-    - [x] `trailing`
-  - [x] Rejeição da falsa ocorrência de ADCT no menu
-  - [x] Preservação do Art. 250 na CF
-  - [x] Preservação do Art. 138 no ADCT
-  - [x] Fingerprint diagnóstico da projeção
-  - [x] Integração real somente leitura
-
-- [x] **Fase 4B.3 — Parser jurídico estrutural em memória**
-  - [x] Golden fixtures estruturais
-  - [x] `DOCUMENT_ROOT`
-  - [x] `PREAMBLE`
-  - [x] `TITLE`
-  - [x] `CHAPTER`
-  - [x] `SECTION`
-  - [x] `SUBSECTION`
-  - [x] `ARTICLE`
-  - [x] `CAPUT`
-  - [x] `PARAGRAPH`
-  - [x] `INCISO`
-  - [x] `ALINEA`
-  - [x] `ITEM`
-  - [x] `NOTE`
-  - [x] `text_status`
-  - [x] `content_role`
-  - [x] Proveniência por bloco
-  - [x] Auditoria de cobertura documental
-
-- [x] **Fase 4B.3.1 — Auditoria estrutural pré-materialização**
-  - [x] Auditoria de ARTICLE/CAPUT, ordem, hierarquia e proveniência
-  - [x] Auditoria de histórico, revogação, strike, notas e cobertura
-  - [x] Diagnóstico dos 66 blocos não classificados
-  - [x] Findings tipados e fingerprint determinístico
-  - [x] Gate para 4B.4: `BLOCKED_FOR_MATERIALIZATION`
-
-- [x] **Fase 4B.3.2 — Correção dos blockers estruturais e revalidação**
-  - [x] Reconhecimento dos padrões numerados perdidos
-  - [x] Diagnóstico de strike ancestral
-  - [x] Reauditoria determinística
-  - [x] Gate 4B.4: `BLOCKED_FOR_MATERIALIZATION` (`SCHEMA_MODEL_GAP`)
-
-- [x] **Fase 4B.3.3 — Modelagem de identidade normativa e redações históricas**
-  - [x] Separação `LegalProvision` (identidade) / `LegalElement` (ocorrência)
-  - [x] Especificação da Migration 005
-  - [x] Gate 4B.4 permanece bloqueado
-
-- [x] **Fase 4B.3.3.1 — Consistência física pré-Migration 005**
-  - [x] `LegalElement.legal_act_id` como redundância controlada
-  - [x] FKs compostas de versão/ato e provision/ato/tipo
-  - [x] Gate 4B.4 bloqueado até Migration 005 + Fase 4B.3.4
-
-- [x] **Migration 005 — identidade normativa e ocorrências**
-  - [x] Tabela `legal_provisions` e árvore de identidades
-  - [x] FKs compostas de mesmo ato e tipo
-  - [x] Ciclo isolado `004 → 005 → 004 → 005`
-  - [x] Alembic `version_num` ampliado monotonicamente para `VARCHAR(64)`
-
-- [x] **Fase 4B.3.4 — adaptação do parser e reauditoria**
-
-- [x] **Fase 4C — parser final, identidade normativa e materialização**
-  - [x] `identity_key` determinística e reconciliação de `LegalProvision`
-  - [x] Gate real `APPROVED_FOR_MATERIALIZATION` sem blockers
-  - [x] Materialização transacional CF/88 + ADCT
-  - [x] Rollback e retry validados em PostgreSQL descartável
-  - [x] Idempotência `ALREADY_PARSED`
-
-- [x] **Fase 4B.4 — Materialização transacional**
-  - [x] `ParsingRun`
-  - [x] LegalAct CF/88
-  - [x] LegalAct ADCT
-  - [x] LegalVersions e LegalElements
-  - [x] TX1 / TX2 / TX3
-  - [x] Idempotência `ALREADY_PARSED`
-  - [x] Retry de ParsingRun FAILED
-  - [x] Ativação conjunta CF/ADCT
-
-- [x] **Fase 4B.5 / Fase 4C — Parsing integral e auditoria**
-  - [x] Parsing da captura constitucional completa
-  - [x] Validação de invariantes
-  - [x] Auditoria de cobertura
-  - [x] Auditoria de texto histórico/revogado
-  - [x] Auditoria de notas editoriais
-  - [x] Auditoria CF/ADCT
-  - [x] Reprocessamento determinístico
-
-### Indexação e recuperação
-
-- [x] **Fase 5 — Chunking e Retrieval**
-  - [x] Estratégia `legal_occurrence_current_v1`
-  - [x] `Chunk ↔ LegalElement`
-  - [x] FTS PostgreSQL em português
-  - [x] `ollama/nomic-embed-text`, 768 dimensões
-  - [x] Geração local e idempotente de embeddings
-  - [x] Busca por cosseno com pgvector
-  - [x] LexicalRetriever
-  - [x] SemanticRetriever
-  - [x] Reciprocal Rank Fusion (RRF)
-  - [x] Ranking auditável em `RetrievalCandidate`
-  - [x] Filtros por ato e tipo jurídico
-  - [x] CLI diagnóstica e avaliação básica 5/5 no top-10
-  - [ ] HNSW/reranker neural, condicionados a benchmark futuro
-
-### Evidências e RAG
-
-- [ ] **Fase 6 — Evidence Engine, LLM e Citation Validation**
-  - [ ] `EvidenceBuilder`
-  - [ ] `EvidenceValidator`
-  - [ ] `EvidenceSet`
-  - [ ] `EvidenceItem`
-  - [ ] Snapshot das evidências
-  - [ ] Integração com Ollama
-  - [ ] Saída estruturada do LLM
-  - [ ] Claims
-  - [ ] Citations
-  - [ ] `CitationValidator`
-  - [ ] Regeneração controlada
-  - [ ] Fallback por evidência insuficiente
-  - [ ] Comando CLI `consult`
-
-### Avaliação e aceite
-
-- [ ] **Fase 7 — Avaliação e validação final**
-  - [ ] Dataset jurídico de avaliação
-  - [ ] Métricas de retrieval
-  - [ ] Métricas de grounding
-  - [ ] Validação de evidências
-  - [ ] Validação de citações
-  - [ ] Testes contra perguntas conhecidas
-  - [ ] Benchmark de modelos locais
-  - [ ] Benchmark de embeddings
-  - [ ] Validação CPU-only
-  - [ ] Testes em ambiente Docker limpo
-  - [ ] Critérios finais de aceite do MVP1
-
-### Evoluções posteriores ao MVP1
-
-- [ ] Leis Ordinárias
-- [ ] Leis Complementares
-- [ ] Emendas Constitucionais como corpus próprio
-- [ ] Decretos
-- [ ] Relacionamentos entre normas
-- [ ] Histórico legislativo ampliado
-- [ ] Expansão do corpus jurídico
-
-
-## Setup & Isolamento de Ambiente (.venv)
-
-> [!IMPORTANT]
-> **Invariante:** O `uv` é a ferramenta de gerenciamento do projeto. Ele gerencia o arquivo `pyproject.toml`, gera o `uv.lock` e instala as dependências no ambiente virtual `.venv` na raiz do projeto. Nenhuma dependência Python é instalada globalmente no sistema operacional do desenvolvedor.
-
-Fluxo conceitual do ambiente:
+Distribuição:
 
 ```text
-uv (gerenciador de projeto)
-  │
-  ▼
-pyproject.toml + uv.lock
-  │
-  ▼
-.venv/ (ambiente virtual local do projeto)
-  │
-  ▼
-Dependências isoladas do projeto (Typer, Rich, SQLAlchemy, pytest, ruff, etc.)
+CF/88: 2699
+ADCT:   690
+Total: 3389
 ```
 
-### 1. Criar e Sincronizar o Ambiente do Projeto
+## Estratégia de chunking
 
-Para configurar e instalar todas as dependências no ambiente virtual `.venv`:
+```text
+legal_occurrence_current_v1
+```
+
+São indexadas apenas occurrences:
+
+```text
+LegalVersion ativa
++
+CURRENT
++
+NORMATIVE
+```
+
+Tipos indexados:
+
+```text
+PREAMBLE
+TITLE
+CHAPTER
+SECTION
+SUBSECTION
+CAPUT
+PARAGRAPH
+INCISO
+ALINEA
+ITEM
+```
+
+`ARTICLE` é container estrutural e não duplica o texto já representado pelo `CAPUT`.
+
+## FTS
+
+Todos os chunks possuem:
+
+```sql
+to_tsvector('portuguese', chunk_text)
+```
+
+A busca lexical usa:
+
+```sql
+websearch_to_tsquery('portuguese', query)
+ts_rank_cd(...)
+```
+
+## Embeddings
+
+```text
+provider:   ollama
+model:      nomic-embed-text
+version:    latest
+dimensions: 768
+```
+
+Documentos:
+
+```text
+search_document: ...
+```
+
+Consultas:
+
+```text
+search_query: ...
+```
+
+## Busca vetorial
+
+A implementação atual usa distância de cosseno e scan exato.
+
+HNSW não é requisito atual. Sua adoção fica condicionada a benchmark posterior.
+
+## Reciprocal Rank Fusion
+
+O híbrido combina lexical e vetor:
+
+```text
+score = Σ 1 / (60 + rank)
+```
+
+O mesmo chunk aparece uma única vez no ranking final.
+
+---
+
+# Quick start
+
+## Pré-requisitos
+
+- Git;
+- Docker + Docker Compose;
+- `uv`;
+- Python 3.13+ para execução local fora do container.
+
+> [!IMPORTANT]
+> O projeto usa `uv` e `.venv`. Não instale dependências Python globalmente para executar o projeto.
+
+## 1. Clone o repositório
 
 ```bash
-# Cria o .venv (caso não exista) e sincroniza as dependências declaradas no pyproject.toml / uv.lock
+git clone <URL-DO-REPOSITORIO>
+cd consultor_juridico
+```
+
+Substitua `<URL-DO-REPOSITORIO>` pela URL pública quando o repositório estiver disponível.
+
+## 2. Sincronize o ambiente Python
+
+```bash
 uv sync
 ```
 
-### 2. Execução de Comandos, Linters e Testes
+Fluxo:
 
-```bash
-# Ativar o ambiente virtual (opcional)
-source .venv/bin/activate
-
-# Executar a CLI localmente
-uv run consultor-juridico --help
-
-# Executar testes unitários
-uv run pytest
-
-# Executar linter
-uv run ruff check .
+```text
+uv
+ ↓
+pyproject.toml + uv.lock
+ ↓
+.venv
+ ↓
+dependências isoladas
 ```
 
-## Ingestão documental
+## 3. Configure o ambiente
 
-A Fase 3 captura a CF/88 e o ADCT como um único documento físico oficial, sem
-parsing ou decoding textual:
+```bash
+cp .env.example .env
+```
+
+Revise as variáveis conforme necessário.
+
+## 4. Suba a infraestrutura
+
+```bash
+docker compose up --build -d
+docker compose ps
+```
+
+Portas padrão no host:
+
+| Serviço | Container | Host |
+|---|---:|---:|
+| PostgreSQL | `5432` | `5433` |
+| Ollama | `11434` | `11435` |
+
+## 5. Verifique o banco
+
+```bash
+docker compose run --rm app db status
+```
+
+## 6. Capture a Constituição
+
+```bash
+docker compose run --rm app ingest constitution
+```
+
+Status:
+
+```bash
+docker compose run --rm app ingest status
+```
+
+## 7. Faça parsing e materialização
+
+```bash
+docker compose run --rm app parse constitution
+```
+
+Status:
+
+```bash
+docker compose run --rm app parse status
+```
+
+## 8. Construa os índices
+
+```bash
+docker compose run --rm app index build
+```
+
+Status:
+
+```bash
+docker compose run --rm app index status
+```
+
+## 9. Teste o retrieval
+
+```bash
+docker compose run --rm app retrieval search \
+  "manifestação do pensamento" \
+  --mode hybrid
+```
+
+Exemplo com filtros:
+
+```bash
+docker compose run --rm app retrieval search \
+  "manifestação do pensamento" \
+  --mode hybrid \
+  --act CF/88 \
+  --element-types INCISO,CAPUT
+```
+
+## 10. Execute uma consulta fundamentada
+
+```bash
+docker compose run --rm app consult \
+  "O que a Constituição diz sobre a manifestação do pensamento?"
+```
+
+A saída inclui o `EvidenceSet`, Claims, códigos de evidência, identidade do
+dispositivo e URL oficial. Perguntas sem suporte no corpus resultam em
+`ABSTAINED`, sem criação de Claims ou Citations.
+
+---
+
+# Comandos principais
+
+## Banco
+
+```bash
+uv run consultor-juridico db status
+uv run consultor-juridico db migrate
+```
+
+## Ingestão
 
 ```bash
 uv run consultor-juridico ingest constitution
 uv run consultor-juridico ingest status
 ```
 
-Os bytes canônicos são armazenados em PostgreSQL `BYTEA` e identificados por
-SHA-256 dentro da fonte. Consulte `docs/30-ingestao-planalto.md` para a política
-HTTP, idempotência e execução da integração real opt-in.
-
-## Docker
-
-O ambiente completo do sistema é containerizado via Docker Compose:
+## Parsing
 
 ```bash
-docker compose up --build -d
-docker compose ps
-docker compose run --rm app version
+uv run consultor-juridico parse constitution
+uv run consultor-juridico parse status
 ```
 
-> **Configuração de Portas no Host:**
-> - Comunicação interna entre containers: `db:5432` e `ollama:11434`.
-> - Mapeamento de portas externas no Host (configuráveis no `docker-compose.yml` para evitar conflito com serviços locais):
->   - PostgreSQL: `5433:5432` (Acesso host: `localhost:5433`)
->   - Ollama: `11435:11434` (Acesso host: `localhost:11435`)
+## Indexação
 
-## Stack
+```bash
+uv run consultor-juridico index build
+uv run consultor-juridico index status
+```
 
-- Python 3.13+
-- uv
-- Typer
-- Rich
-- Pydantic Settings
-- SQLAlchemy
-- PostgreSQL
-- pgvector
-- Alembic
-- httpx
-- BeautifulSoup
-- lxml
-- pytest
-- Ruff
-- Ollama
-- Docker Compose
+## Retrieval
 
-## Documentação
+```bash
+uv run consultor-juridico retrieval search \
+  "direito à educação" \
+  --mode lexical
+```
 
-Consulte `AGENTS.md`, `TASKS.md` e a pasta `docs/`.
+```bash
+uv run consultor-juridico retrieval search \
+  "direito à educação" \
+  --mode vector
+```
+
+```bash
+uv run consultor-juridico retrieval search \
+  "direito à educação" \
+  --mode hybrid
+```
+
+Filtros disponíveis incluem ato, tipos jurídicos e limite de resultados.
+
+---
+
+# Desenvolvimento local
+
+## Ambiente
+
+O `uv` é a ferramenta de gerenciamento do projeto.
+
+```text
+uv
+ │
+ ▼
+pyproject.toml + uv.lock
+ │
+ ▼
+.venv/
+ │
+ ▼
+dependências do projeto
+```
+
+Não instale pacotes com `pip` global.
+
+## Sincronização
+
+```bash
+uv sync
+```
+
+## Ativação opcional
+
+```bash
+source .venv/bin/activate
+```
+
+Os comandos também podem ser executados diretamente com `uv run`.
+
+---
+
+# Testes e qualidade
+
+## Testes
+
+```bash
+uv run pytest
+```
+
+## Formatação
+
+```bash
+uv run ruff format .
+```
+
+## Lint
+
+```bash
+uv run ruff check .
+```
+
+## Verificação de diff
+
+```bash
+git diff --check
+```
+
+## Integrações opt-in
+
+Parsing real:
+
+```bash
+RUN_PARSING_INTEGRATION=1 \
+uv run pytest -m parsing_integration -vv -s
+```
+
+Retrieval real:
+
+```bash
+RUN_RETRIEVAL_INTEGRATION=1 \
+OLLAMA_BASE_URL=http://localhost:11435 \
+uv run pytest -m retrieval_integration -q
+```
+
+Os testes unitários não devem depender de acesso externo ao Planalto.
+
+---
+
+# Roadmap
+
+O roadmap público é deliberadamente compacto. O histórico detalhado das decisões arquiteturais permanece na pasta `docs/`.
+
+## Concluído
+
+- [x] **Fundação e infraestrutura**
+  - Python + `uv` + `.venv`
+  - CLI
+  - Docker Compose
+  - PostgreSQL + pgvector
+  - Ollama
+  - Ruff + pytest
+
+- [x] **Modelagem e migrations**
+  - modelo relacional
+  - SQLAlchemy
+  - Alembic
+  - constraints de rastreabilidade
+  - `LegalProvision`
+  - identidade normativa vs occurrence
+
+- [x] **Ingestão oficial**
+  - Portal do Planalto
+  - preservação byte a byte
+  - SHA-256
+  - `ETag`
+  - `Last-Modified`
+  - conditional GET
+  - idempotência
+
+- [x] **Parsing e materialização**
+  - decoder
+  - DOM
+  - segmentação CF/ADCT
+  - parser estrutural
+  - redações históricas
+  - auditoria
+  - materialização transacional
+  - idempotência e rollback
+
+- [x] **Fase 5 — Indexação e retrieval híbrido**
+  - chunking jurídico
+  - FTS PostgreSQL
+  - embeddings locais
+  - busca vetorial
+  - RRF
+  - CLI de diagnóstico
+  - avaliação inicial
+
+## Concluído
+
+- [x] **Fase 6 — Evidence + LLM local + Citation Validation**
+  - EvidenceSet
+  - EvidenceItems
+  - snapshots
+  - prompt grounded
+  - saída estruturada do LLM
+  - Claims
+  - Citations
+  - Citation Validator
+  - abstenção por evidência insuficiente
+  - CLI `consult`
+
+## Em andamento / próximo
+
+- [ ] **Fase 7 — Avaliação e hardening**
+  - dataset jurídico ampliado
+  - métricas de retrieval
+  - grounding
+  - citation precision
+  - evidence recall
+  - testes fora de escopo
+  - benchmark de modelos locais
+  - benchmark de embeddings
+  - validação CPU-only
+  - ambiente Docker limpo
+  - critérios finais de aceite
+
+## Pós-MVP 1
+
+- [ ] Leis Ordinárias
+- [ ] Leis Complementares
+- [ ] Emendas Constitucionais como corpus próprio
+- [ ] Decretos
+- [ ] relacionamentos entre normas
+- [ ] histórico legislativo ampliado
+- [ ] expansão do corpus jurídico
+
+---
+
+# Estrutura do projeto
+
+Visão simplificada:
+
+```text
+consultor_juridico/
+├── docs/
+│   ├── arquitetura e ADRs
+│   ├── parsing
+│   ├── migrations
+│   ├── retrieval
+│   └── auditorias
+├── src/
+│   └── consultor_juridico/
+│       ├── cli/
+│       ├── db/
+│       ├── models/
+│       ├── parsing/
+│       ├── retrieval/
+│       └── services/
+├── tests/
+│   ├── integration/
+│   └── ...
+├── docker-compose.yml
+├── Dockerfile
+├── pyproject.toml
+├── uv.lock
+├── README.md
+├── TASKS.md
+└── AGENTS.md
+```
+
+A organização pode evoluir à medida que Evidence/Citation e geração forem implementados, preservando separação entre domínio, infraestrutura e aplicação.
+
+---
+
+# Stack
+
+| Camada | Tecnologia |
+|---|---|
+| Linguagem | Python 3.13+ |
+| Gerenciamento | `uv` |
+| CLI | Typer + Rich |
+| Configuração | Pydantic Settings |
+| ORM | SQLAlchemy 2 |
+| Migrations | Alembic |
+| Banco | PostgreSQL 16 |
+| Vetores | pgvector |
+| HTTP | httpx |
+| HTML | BeautifulSoup + `html.parser` |
+| Parser auxiliar | lxml |
+| Embeddings | Ollama + `nomic-embed-text` |
+| Geração local | Ollama + `llama3.2` |
+| Testes | pytest |
+| Lint/format | Ruff |
+| Containers | Docker Compose |
+
+---
+
+# Documentação
+
+A pasta `docs/` registra decisões arquiteturais, auditorias e implementações relevantes.
+
+Pontos de entrada recomendados:
+
+- [`AGENTS.md`](AGENTS.md) — regras operacionais do projeto;
+- [`TASKS.md`](TASKS.md) — acompanhamento de implementação;
+- [`docs/21-modelo-relacional.md`](docs/21-modelo-relacional.md) — modelo relacional;
+- [`docs/48-modelo-identidade-redacoes-historicas.md`](docs/48-modelo-identidade-redacoes-historicas.md) — identidade normativa e occurrences;
+- [`docs/49-adr-identidade-normativa-redacoes.md`](docs/49-adr-identidade-normativa-redacoes.md) — ADR da decisão;
+- [`docs/50-consistencia-fisica-identidade-normativa.md`](docs/50-consistencia-fisica-identidade-normativa.md) — integridade física;
+- [`docs/51-implementacao-migration-005.md`](docs/51-implementacao-migration-005.md) — implementação da migration 005;
+- [`docs/52-fase-4c-parser-materializacao.md`](docs/52-fase-4c-parser-materializacao.md) — parsing final e materialização;
+- [`docs/53-fase-5-retrieval-hibrido.md`](docs/53-fase-5-retrieval-hibrido.md) — indexação e retrieval;
+- [`docs/54-fase-6-evidence-citation.md`](docs/54-fase-6-evidence-citation.md) — Evidence, geração local e Citation Validation;
+- [`docs/53-fase-5-retrieval-hibrido.md`](docs/53-fase-5-retrieval-hibrido.md) — chunking e retrieval;
+- [`docs/55-arquitetura-consulta-rastreabilidade.md`](docs/55-arquitetura-consulta-rastreabilidade.md) — explicação detalhada do pipeline de consulta e cadeia de custódia.
+
+---
+
+# Contribuindo
+
+Contribuições são bem-vindas.
+
+Antes de propor mudanças, considere os princípios que definem o projeto:
+
+1. **fontes primárias primeiro** — legislação deve vir de fonte oficial;
+2. **não destruir proveniência** — normalizações não podem apagar o documento original;
+3. **parsing determinístico** — a mesma entrada e versão do parser devem produzir a mesma estrutura;
+4. **histórico não é current** — redações anteriores não podem vazar silenciosamente para consultas atuais;
+5. **LLM não é autoridade** — conhecimento interno do modelo não substitui EvidenceItems;
+6. **citações precisam ser rastreáveis** — nenhuma referência jurídica deve depender apenas da memória do modelo;
+7. **constraints importantes devem ser testadas em PostgreSQL real**;
+8. **dependências Python permanecem isoladas via `uv` e `.venv`**.
+
+Fluxo recomendado:
+
+```text
+issue / discussão
+    ↓
+branch de trabalho
+    ↓
+implementação
+    ↓
+ruff + pytest
+    ↓
+documentação
+    ↓
+pull request
+```
+
+Mudanças que afetem identidade normativa, provenance, migrations ou Citation Validation devem explicar claramente o impacto arquitetural.
+
+---
+
+# Escopo e limitações
+
+O projeto ainda está em desenvolvimento.
+
+### O que já existe
+
+- captura oficial;
+- parsing completo;
+- modelagem de redações históricas;
+- materialização;
+- FTS;
+- embeddings locais;
+- retrieval híbrido.
+
+### O que ainda não deve ser considerado pronto
+
+- resposta jurídica generativa final;
+- Evidence runtime completo;
+- Claims/Citations runtime completo;
+- Citation Validation em produção;
+- avaliação jurídica ampla;
+- leis fora de CF/88 + ADCT.
+
+### Retrieval vetorial
+
+A busca vetorial atual usa scan exato por cosseno.
+
+HNSW permanece uma otimização futura condicionada a benchmark.
+
+### Token count
+
+O campo `token_count` atual usa aproximação simples e não deve ser interpretado como contagem exata de tokens do futuro modelo generativo.
+
+### Avaliação
+
+O conjunto atual de queries é diagnóstico. A avaliação robusta de grounding, citation precision, evidence recall e perguntas fora de escopo pertence à Fase 7.
+
+---
+
+## Filosofia do projeto
+
+Um RAG simples pode ser resumido como:
+
+```text
+pergunta
+↓
+busca
+↓
+LLM
+↓
+resposta
+```
+
+Para um domínio jurídico, isso é insuficiente.
+
+O `consultor_juridico` acrescenta:
+
+```text
+fonte oficial
+↓
+integridade
+↓
+estrutura jurídica
+↓
+identidade normativa
+↓
+retrieval
+↓
+evidência congelada
+↓
+claims
+↓
+citações
+↓
+validação
+↓
+resposta
+```
+
+O objetivo não é eliminar a possibilidade de erro de um modelo de linguagem.
+
+O objetivo é impedir que um erro do modelo seja automaticamente promovido a **verdade jurídica não auditável**.
+
+> **A IA pode interpretar a evidência; a autoridade permanece na fonte oficial.**

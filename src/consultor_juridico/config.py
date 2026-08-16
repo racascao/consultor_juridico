@@ -31,6 +31,10 @@ class Settings(BaseSettings):
     embedding_model: str = Field(default="nomic-embed-text", alias="EMBEDDING_MODEL")
     embedding_timeout: float = Field(default=120.0, alias="EMBEDDING_TIMEOUT")
     embedding_batch_size: int = Field(default=32, alias="EMBEDDING_BATCH_SIZE")
+    consultation_timeout: float = Field(default=180.0, alias="CONSULTATION_TIMEOUT")
+    consultation_max_tokens: int = Field(default=800, alias="CONSULTATION_MAX_TOKENS")
+    consultation_top_k: int = Field(default=8, alias="CONSULTATION_TOP_K")
+    consultation_max_attempts: int = Field(default=2, alias="CONSULTATION_MAX_ATTEMPTS")
 
     # Aquisição documental HTTP
     ingestion_connect_timeout: float = Field(
