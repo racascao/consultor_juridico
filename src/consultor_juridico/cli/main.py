@@ -103,6 +103,7 @@ def db_status() -> None:
 
 
 @ingest_app.command(name="constitution")
+@ingest_app.command(name="constituicao")
 def ingest_constitution() -> None:
     """Executa a ingestão da CF/88 e ADCT a partir da fonte oficial."""
     console.print("[yellow]Iniciando ingestão da CF/88 e ADCT...[/yellow]")
@@ -150,6 +151,7 @@ def ingest_status() -> None:
 
 
 @parse_app.command(name="constitution")
+@parse_app.command(name="constituicao")
 def parse_constitution_command(document_id: str | None = None) -> None:
     """Audita e materializa atomicamente CF/88 e ADCT."""
     try:
@@ -610,6 +612,25 @@ def eval_all_command(
         category=None,
         output=None,
     )
+
+
+@app.callback(invoke_without_command=True)
+def main_callback(ctx: typer.Context) -> None:
+    """Entrypoint principal do Consultor Jurídico."""
+    if ctx.invoked_subcommand is None:
+        import sys
+
+        is_tty = sys.stdin.isatty() and sys.stdout.isatty()
+        force_interactive = isinstance(ctx.obj, dict) and ctx.obj.get(
+            "force_interactive"
+        )
+        if is_tty or force_interactive:
+            from consultor_juridico.cli.interactive.app import run_interactive_cli
+
+            run_interactive_cli()
+        else:
+            console.print(ctx.get_help())
+            raise typer.Exit()
 
 
 if __name__ == "__main__":

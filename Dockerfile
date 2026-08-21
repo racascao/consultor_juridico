@@ -28,6 +28,6 @@ COPY evaluation/ ./evaluation/
 # Instala a aplicação no ambiente do container
 RUN uv sync --frozen
 
-# Entrypoint e comando padrão
-ENTRYPOINT ["consultor-juridico"]
-CMD ["--help"]
+# Sem ENTRYPOINT fixo: `docker compose run --rm app bash` abre o shell;
+# o comando padrão inicia a CLI (menu interativo em TTY).
+CMD ["consultor-juridico"]

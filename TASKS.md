@@ -113,3 +113,16 @@
   - amostra direta 7.2: 0/3 respondidas; false abstention ainda é blocker
   - `llama3.2` benchmark: unsafe acceptance 0, recall SUPPORTED 0,750
 - [ ] MVP 1 concluído
+
+## Fase 8 — CLI Interativa
+
+- [x] Menu Rich em TTY / help em non-TTY (`main_callback`)
+- [x] `SystemReadiness` sem efeitos colaterais (DB, Alembic, Ollama, modelos, índice)
+- [x] `run_bootstrap` idempotente com `BootstrapEvent` (db, models, ingest, parse, index)
+- [x] `Dockerfile` sem `ENTRYPOINT` fixo, `CMD ["consultor-juridico"]`
+- [x] Telas: consulta (`run_consultation` + `hybrid_search`), pesquisa, estado, diagnóstico, sobre, sair
+- [x] `Ctrl+C` / `EOFError` com saída limpa
+- [x] Aliases `ingest constituicao` e `parse constituicao`
+- [x] `tests/test_interactive.py` com 33 casos (readiness, bootstrap, interação, aliases)
+- [x] Validação `docker compose build` / `run --rm app bash` / `consultor-juridico`
+- [x] `docs/59-fase-8-cli-interativa.md`

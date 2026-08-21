@@ -94,6 +94,13 @@ respostas inseguras nos nove casos de abstenção. O gate continua
 abstentions em uma amostra adicional de três perguntas diretas. A validação
 semântica permanece fail-closed; o resultado não implica segurança absoluta.
 
+A Fase 8 concluiu a **CLI interativa**: `consultor-juridico` sem argumentos
+abre menu Rich em TTY (consulta, pesquisa, estado, diagnóstico, sobre, sair),
+exibe `help` em non-TTY, trata `Ctrl+C`/`EOF` sem traceback e oferece aliases
+`constituicao` para `ingest` e `parse`. O container padrão agora usa
+`CMD ["consultor-juridico"]` sem `ENTRYPOINT` fixo, permitindo
+`docker compose run --rm app bash`.
+
 ### Corpus materializado
 
 ```text
@@ -1728,9 +1735,18 @@ O roadmap público é deliberadamente compacto. O histórico detalhado das decis
   - ambiente Docker limpo
   - critérios finais de aceite
 
-## Pós-MVP 1
+## Concluído
 
-- [ ] **Fase 8 — Menu interativo CLI** (não iniciada)
+- [x] **Fase 8 — CLI Interativa**
+  - menu Rich em TTY, help em non-TTY
+  - readiness e bootstrap idempotente (DB, Ollama, ingest, parse, index)
+  - telas: consulta, pesquisa, estado, diagnóstico, sobre, sair
+  - `Ctrl+C`/`EOF` com saída limpa
+  - aliases `ingest constituicao` e `parse constituicao`
+  - Dockerfile `CMD ["consultor-juridico"]` sem `ENTRYPOINT` fixo
+  - 33 testes unitários em `tests/test_interactive.py`
+
+## Pós-MVP 1
 
 - [ ] Leis Ordinárias
 - [ ] Leis Complementares
@@ -1817,8 +1833,9 @@ Pontos de entrada recomendados:
 - [`docs/52-fase-4c-parser-materializacao.md`](docs/52-fase-4c-parser-materializacao.md) — parsing final e materialização;
 - [`docs/53-fase-5-retrieval-hibrido.md`](docs/53-fase-5-retrieval-hibrido.md) — indexação e retrieval;
 - [`docs/54-fase-6-evidence-citation.md`](docs/54-fase-6-evidence-citation.md) — Evidence, geração local e Citation Validation;
-- [`docs/53-fase-5-retrieval-hibrido.md`](docs/53-fase-5-retrieval-hibrido.md) — chunking e retrieval;
-- [`docs/55-arquitetura-consulta-rastreabilidade.md`](docs/55-arquitetura-consulta-rastreabilidade.md) — explicação detalhada do pipeline de consulta e cadeia de custódia.
+- [`docs/55-arquitetura-consulta-rastreabilidade.md`](docs/55-arquitetura-consulta-rastreabilidade.md) — explicação detalhada do pipeline de consulta e cadeia de custódia;
+- [`docs/58-fase-7-2-fechamento-gate-mvp1.md`](docs/58-fase-7-2-fechamento-gate-mvp1.md) — fechamento do gate 7.2;
+- [`docs/59-fase-8-cli-interativa.md`](docs/59-fase-8-cli-interativa.md) — CLI interativa, readiness e bootstrap.
 
 ---
 
