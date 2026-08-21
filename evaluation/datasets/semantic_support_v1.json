@@ -1,0 +1,25 @@
+{
+  "version": "semantic-support-v1",
+  "cases": [
+    {"id":"literal-powers","claim":"São Poderes da União o Legislativo, o Executivo e o Judiciário.","evidence":["São Poderes da União, independentes e harmônicos entre si, o Legislativo, o Executivo e o Judiciário."],"expected":"SUPPORTED","category":"literal"},
+    {"id":"paraphrase-powers","claim":"Legislativo, Executivo e Judiciário são poderes independentes e harmônicos da União.","evidence":["São Poderes da União, independentes e harmônicos entre si, o Legislativo, o Executivo e o Judiciário."],"expected":"SUPPORTED","category":"paraphrase"},
+    {"id":"literal-health","claim":"A saúde é direito de todos e dever do Estado.","evidence":["A saúde é direito de todos e dever do Estado."],"expected":"SUPPORTED","category":"literal"},
+    {"id":"paraphrase-expression","claim":"A manifestação do pensamento é livre, mas o anonimato é vedado.","evidence":["é livre a manifestação do pensamento, sendo vedado o anonimato;"],"expected":"SUPPORTED","category":"paraphrase"},
+    {"id":"simple-inference","claim":"O Estado tem o dever constitucional de garantir a saúde.","evidence":["A saúde é direito de todos e dever do Estado, garantido mediante políticas sociais e econômicas."],"expected":"SUPPORTED","category":"direct_inference"},
+    {"id":"multi-evidence","claim":"A educação é direito de todos e o ensino deve observar igualdade de acesso.","evidence":["A educação, direito de todos e dever do Estado e da família.","O ensino será ministrado com base no princípio de igualdade de condições para o acesso e permanência na escola."],"expected":"SUPPORTED","category":"multi_evidence"},
+    {"id":"equivalent-quantifier","claim":"Todas as pessoas são iguais perante a lei.","evidence":["Todos são iguais perante a lei, sem distinção de qualquer natureza."],"expected":"SUPPORTED","category":"paraphrase"},
+    {"id":"faithful-environment","claim":"Todos têm direito ao meio ambiente ecologicamente equilibrado.","evidence":["Todos têm direito ao meio ambiente ecologicamente equilibrado, bem de uso comum do povo."],"expected":"SUPPORTED","category":"paraphrase"},
+    {"id":"broader-health","claim":"A saúde e toda assistência médica privada são gratuitas para todos.","evidence":["A saúde é direito de todos e dever do Estado."],"expected":"PARTIALLY_SUPPORTED","category":"broader_claim"},
+    {"id":"extra-detail-vote","claim":"O voto é direto, secreto e obrigatoriamente eletrônico.","evidence":["pelo sufrágio universal e pelo voto direto e secreto, com valor igual para todos"],"expected":"PARTIALLY_SUPPORTED","category":"invented_detail"},
+    {"id":"partial-education","claim":"A educação é direito de todos e deve ser oferecida exclusivamente pelo Estado.","evidence":["A educação, direito de todos e dever do Estado e da família."],"expected":"PARTIALLY_SUPPORTED","category":"broader_claim"},
+    {"id":"partial-expression","claim":"A manifestação é livre e nunca pode sofrer qualquer restrição constitucional.","evidence":["é livre a manifestação do pensamento, sendo vedado o anonimato;"],"expected":"PARTIALLY_SUPPORTED","category":"absolute_quantifier"},
+    {"id":"partial-environment","claim":"Todos têm direito ao ambiente equilibrado e nenhuma atividade econômica pode afetá-lo.","evidence":["Todos têm direito ao meio ambiente ecologicamente equilibrado."],"expected":"PARTIALLY_SUPPORTED","category":"absolute_quantifier"},
+    {"id":"partial-two-facts","claim":"O Legislativo é Poder da União e seus membros têm mandato vitalício.","evidence":["São Poderes da União o Legislativo, o Executivo e o Judiciário."],"expected":"PARTIALLY_SUPPORTED","category":"invented_detail"},
+    {"id":"unrelated-python","claim":"Uma lista Python pode ser ordenada com sorted().","evidence":["Todos são iguais perante a lei."],"expected":"UNSUPPORTED","category":"unrelated"},
+    {"id":"unrelated-football","claim":"A seleção venceu a Copa do Mundo.","evidence":["A saúde é direito de todos e dever do Estado."],"expected":"UNSUPPORTED","category":"unrelated"},
+    {"id":"contradiction-health","claim":"A saúde não é dever do Estado.","evidence":["A saúde é direito de todos e dever do Estado."],"expected":"UNSUPPORTED","category":"contradiction"},
+    {"id":"contradiction-expression","claim":"A Constituição proíbe toda manifestação do pensamento.","evidence":["é livre a manifestação do pensamento, sendo vedado o anonimato;"],"expected":"UNSUPPORTED","category":"contradiction"},
+    {"id":"plausible-absent","claim":"A Constituição fixa em dez dias o prazo para verbas rescisórias.","evidence":["São direitos dos trabalhadores urbanos e rurais, além de outros que visem à melhoria de sua condição social."],"expected":"UNSUPPORTED","category":"plausible_absent"},
+    {"id":"absolute-criticism","claim":"Toda crítica política é crime.","evidence":["é livre a manifestação do pensamento, sendo vedado o anonimato;"],"expected":"UNSUPPORTED","category":"contradiction"}
+  ]
+}

@@ -93,11 +93,23 @@
 
 ## Fase 7 — Avaliação e aceite
 
-- [ ] Dataset de avaliação
-- [ ] Métricas de retrieval e citações
-- [ ] Fidelidade e alucinação
-- [ ] Benchmark e baseline
-- [ ] Testes ponta a ponta
-- [ ] Docker limpo
-- [ ] Documentação e ADRs finais
+- [x] Dataset de avaliação `mvp1-v1` (30 casos)
+- [x] Métricas de retrieval e citações
+- [x] Avaliação inicial de fidelidade, grounding e abstenção
+- [x] Benchmark e comparação lexical/vector/hybrid
+- [x] Testes adversariais determinísticos
+- [x] Documentação da avaliação
+- [ ] Gate: `MVP1_QUALITY_BLOCKED`
+- [x] 7.0 — baseline e diagnóstico
+- [x] 7.1 — hardening de abstenção, evidence selection e suporte semântico
+- [x] 7.2 — retrieval final e validação semântica comparativa
+- [x] Unsafe answers = 0 nos nove casos de abstenção do dataset
+- [x] Unsafe claims delivered = 0 nos testes adversariais
+- [x] Hybrid Hit@10 >= 0,90 (atual: 0,905)
+  - promoção contextual de CAPUT, sem hardcode por caso
+  - segurança de abstenção preservada
+- [ ] Gate generativo/semântico
+  - integração respondível de saúde passa
+  - amostra direta 7.2: 0/3 respondidas; false abstention ainda é blocker
+  - `llama3.2` benchmark: unsafe acceptance 0, recall SUPPORTED 0,750
 - [ ] MVP 1 concluído

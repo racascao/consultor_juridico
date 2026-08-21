@@ -9,6 +9,7 @@ from consultor_juridico.config import settings
 from consultor_juridico.consultation import (
     ConsultationOutcome,
     OllamaLegalGenerator,
+    OllamaSemanticSupportValidator,
     run_consultation,
 )
 from consultor_juridico.db.session import SessionLocal
@@ -38,6 +39,11 @@ def test_local_consultation_persists_a_valid_traceability_chain():
         settings.consultation_timeout,
         settings.consultation_max_tokens,
     )
+    semantic_validator = OllamaSemanticSupportValidator(
+        settings.ollama_base_url,
+        settings.ollama_model,
+        settings.consultation_timeout,
+    )
     with SessionLocal() as session:
         result = run_consultation(
             session,
@@ -52,6 +58,7 @@ def test_local_consultation_persists_a_valid_traceability_chain():
             ),
             generator=generator,
             model_name=settings.ollama_model,
+            semantic_validator=semantic_validator,
         )
         assert result.outcome is ConsultationOutcome.ANSWERED
         evidence_set = session.get(EvidenceSet, result.evidence_set_id)

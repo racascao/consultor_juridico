@@ -87,7 +87,12 @@ A interface do MVP é **CLI-first**. Não há frontend nem API HTTP nesta etapa.
 
 ## Estado atual do MVP
 
-A infraestrutura documental, estrutural e de retrieval já está implementada.
+A infraestrutura documental, estrutural, de retrieval e consulta fundamentada
+está implementada. A Fase 7.2 elevou o Hybrid Hit@10 a 0,905 e preservou zero
+respostas inseguras nos nove casos de abstenção. O gate continua
+**`MVP1_QUALITY_BLOCKED`** porque o `llama3.2` ainda produziu três false
+abstentions em uma amostra adicional de três perguntas diretas. A validação
+semântica permanece fail-closed; o resultado não implica segurança absoluta.
 
 ### Corpus materializado
 
@@ -128,10 +133,18 @@ A Fase 5 implementou:
 - 3.389 chunks;
 - PostgreSQL FTS em português;
 - 3.389 embeddings locais;
+
+A avaliação `mvp1-v1` (30 casos) mede 21 perguntas respondíveis e nove de
+abstenção. Na Fase 7.2, Hybrid Hit@10 = 0,905, MRR = 0,627 e Recall@10 = 0,881.
+Os nove casos fora/insuficientes foram recusados sem resposta insegura. A
+seleção usa em média 2,67 EvidenceItems, sem duplicação por provision. Os
+resultados e limitações estão em
+[`docs/58-fase-7-2-fechamento-gate-mvp1.md`](docs/58-fase-7-2-fechamento-gate-mvp1.md).
 - `ollama/nomic-embed-text/latest`;
 - 768 dimensões;
 - busca vetorial por distância de cosseno;
 - busca híbrida com Reciprocal Rank Fusion (RRF);
+- promoção contextual auditável de CAPUT já recuperado por um componente;
 - filtros por ato e tipo jurídico;
 - idempotência de indexação;
 - CLI de diagnóstico.
@@ -417,7 +430,11 @@ persistidas quando todas as Citations passam pela validação determinística.
 ```text
 User Query
     ↓
-Retrieval
+    Hybrid Retrieval
+    ↓
+    Evidence Selection
+    ↓
+    Evidence Sufficiency Gate
     ↓
 EvidenceSet
     ↓
@@ -431,12 +448,20 @@ Claims
     ↓
 Citations
     ↓
-Citation Validation
+    Structural Citation Validation
     ↓
-Resposta validada
+    Semantic Support Validation
+    ↓
+    Resposta validada / Abstenção
 ```
 
 O desenho pode ser entendido como uma sequência de filtros. A pergunta começa ampla, o sistema localiza trechos relevantes da legislação, congela as evidências utilizadas, entrega apenas essas evidências ao modelo local, transforma a saída em afirmações verificáveis e valida se cada afirmação está realmente sustentada.
+
+O gerador local é configurado por `OLLAMA_MODEL`. O juiz semântico pode usar
+`SEMANTIC_JUDGE_MODEL`; quando a variável não é definida, utiliza o mesmo
+modelo do gerador. No ambiente avaliado ambos usam `llama3.2`, pois nenhum
+Granite estava instalado. Erro técnico, contrato inválido, suporte parcial ou
+ausente resultam em abstenção.
 
 ---
 
@@ -1289,10 +1314,11 @@ Todos os chunks possuem:
 to_tsvector('portuguese', chunk_text)
 ```
 
-A busca lexical usa:
+A busca lexical extrai tokens Unicode da pergunta, monta uma disjunção segura e
+usa:
 
 ```sql
-websearch_to_tsquery('portuguese', query)
+websearch_to_tsquery('portuguese', token_1 OR token_2 OR ...)
 ts_rank_cd(...)
 ```
 
@@ -1603,6 +1629,19 @@ OLLAMA_BASE_URL=http://localhost:11435 \
 uv run pytest -m retrieval_integration -q
 ```
 
+Avaliação reproduzível:
+
+```bash
+consultor-juridico eval retrieval \
+  --output evaluation/results/retrieval.json
+consultor-juridico eval quality \
+  --output evaluation/results/mvp1_v1_quality_7_2.json
+consultor-juridico eval semantic-judge \
+  --output evaluation/results/semantic_judge_7_2.json
+consultor-juridico eval consultation --case-limit 5
+consultor-juridico eval all --consultation-limit 5
+```
+
 Os testes unitários não devem depender de acesso externo ao Planalto.
 
 ---
@@ -1673,20 +1712,25 @@ O roadmap público é deliberadamente compacto. O histórico detalhado das decis
 
 ## Em andamento / próximo
 
-- [ ] **Fase 7 — Avaliação e hardening**
-  - dataset jurídico ampliado
-  - métricas de retrieval
-  - grounding
-  - citation precision
-  - evidence recall
-  - testes fora de escopo
-  - benchmark de modelos locais
-  - benchmark de embeddings
-  - validação CPU-only
+- [~] **Fase 7 — Avaliação e hardening — `MVP1_QUALITY_BLOCKED`**
+  - [x] 7.0 — baseline e diagnóstico
+  - [x] 7.1 — correção de segurança e rodada de retrieval
+  - [x] 7.2 — retrieval final e validação semântica comparativa
+  - [x] dataset versionado com 30 casos
+  - [x] métricas lexical, vector e hybrid
+  - [x] testes determinísticos de Citation Validation
+  - [x] amostra de grounding e abstenção
+  - [x] zero respostas indevidas nos nove casos de abstenção
+  - [x] zero claims inseguras entregues nos testes adversariais
+  - [x] Hybrid Hit@10 >= 0,90 (atual: 0,905)
+  - [ ] false abstention generativo/semântico em nível aceitável
+  - [ ] benchmark CPU-only confiável
   - ambiente Docker limpo
   - critérios finais de aceite
 
 ## Pós-MVP 1
+
+- [ ] **Fase 8 — Menu interativo CLI** (não iniciada)
 
 - [ ] Leis Ordinárias
 - [ ] Leis Complementares
@@ -1848,7 +1892,10 @@ O campo `token_count` atual usa aproximação simples e não deve ser interpreta
 
 ### Avaliação
 
-O conjunto atual de queries é diagnóstico. A avaliação robusta de grounding, citation precision, evidence recall e perguntas fora de escopo pertence à Fase 7.
+O dataset inicial `mvp1-v1` é versionado e auditável, mas ainda pequeno. A
+avaliação identificou retrieval abaixo do threshold, latência generativa alta e
+uma resposta indevida fora do corpus. O resultado correto é gate bloqueado, não
+uma declaração prematura de conclusão do MVP1.
 
 ---
 

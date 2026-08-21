@@ -1,0 +1,217 @@
+{
+  "accuracy": 0.45,
+  "cases": 20,
+  "dataset_version": "semantic-support-v1",
+  "false_abstention_potential": 5,
+  "generated_at": "2026-08-16T23:12:02.655756+00:00",
+  "invalid_contracts": 0,
+  "latency_mean_seconds": 10.929809785749422,
+  "latency_p50_seconds": 9.415178989500419,
+  "latency_p95_observed_seconds": 17.105032834999292,
+  "model": "llama3.2",
+  "results": [
+    {
+      "actual": "PARTIALLY_SUPPORTED",
+      "case_id": "literal-powers",
+      "category": "literal",
+      "correct": false,
+      "expected": "SUPPORTED",
+      "latency_seconds": 21.954060207997827,
+      "reason": "A evidência EV001 afirma que os Poderes da União são independentes e harmônicos entre si, o que inclui o Legislativo, o Executivo e o Judiciário.",
+      "technical_error": null
+    },
+    {
+      "actual": "PARTIALLY_SUPPORTED",
+      "case_id": "paraphrase-powers",
+      "category": "paraphrase",
+      "correct": false,
+      "expected": "SUPPORTED",
+      "latency_seconds": 14.509922208999342,
+      "reason": "A evidência EV001 afirma que os Poderes da União são independentes e harmônicos, mas não especifica que sejam 'da União'.",
+      "technical_error": null
+    },
+    {
+      "actual": "SUPPORTED",
+      "case_id": "literal-health",
+      "category": "literal",
+      "correct": true,
+      "expected": "SUPPORTED",
+      "latency_seconds": 11.3430589769996,
+      "reason": "A claim é fielmente parafraseada pela evidência citada.",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "paraphrase-expression",
+      "category": "paraphrase",
+      "correct": false,
+      "expected": "SUPPORTED",
+      "latency_seconds": 8.379801371000212,
+      "reason": "Contradição",
+      "technical_error": null
+    },
+    {
+      "actual": "PARTIALLY_SUPPORTED",
+      "case_id": "simple-inference",
+      "category": "direct_inference",
+      "correct": false,
+      "expected": "SUPPORTED",
+      "latency_seconds": 16.923407014000986,
+      "reason": "A claim C1 é parcialmente sustentada pela evidência EV001, que afirma que a saúde é um direito e um dever do Estado, mas não especifica explicitamente que o Estado tem o dever constitucional de garantir a saúde.",
+      "technical_error": null
+    },
+    {
+      "actual": "PARTIALLY_SUPPORTED",
+      "case_id": "multi-evidence",
+      "category": "multi_evidence",
+      "correct": false,
+      "expected": "SUPPORTED",
+      "latency_seconds": 17.105032834999292,
+      "reason": "A claim C1 é parcialmente sustentada pelas evidências EV001 e EV002, que afirmam que a educação é direito de todos e que o ensino deve observar igualdade de acesso.",
+      "technical_error": null
+    },
+    {
+      "actual": "SUPPORTED",
+      "case_id": "equivalent-quantifier",
+      "category": "paraphrase",
+      "correct": true,
+      "expected": "SUPPORTED",
+      "latency_seconds": 11.648585237999214,
+      "reason": "A claim é fielmente parafraseada pela evidência citada.",
+      "technical_error": null
+    },
+    {
+      "actual": "SUPPORTED",
+      "case_id": "faithful-environment",
+      "category": "paraphrase",
+      "correct": true,
+      "expected": "SUPPORTED",
+      "latency_seconds": 10.99747687299896,
+      "reason": "A claim é fielmente parafraseada pela evidência citada.",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "broader-health",
+      "category": "broader_claim",
+      "correct": false,
+      "expected": "PARTIALLY_SUPPORTED",
+      "latency_seconds": 7.952172608998808,
+      "reason": "Falta de detalhes sobre assistência médica privada",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "extra-detail-vote",
+      "category": "invented_detail",
+      "correct": false,
+      "expected": "PARTIALLY_SUPPORTED",
+      "latency_seconds": 8.41091265599971,
+      "reason": "Falta de detalhes sobre o aspecto eletrônico do voto",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "partial-education",
+      "category": "broader_claim",
+      "correct": false,
+      "expected": "PARTIALLY_SUPPORTED",
+      "latency_seconds": 8.952429034001398,
+      "reason": "A claim afirmada não é integralmente fielmente parafraseada pela evidência citada.",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "partial-expression",
+      "category": "absolute_quantifier",
+      "correct": false,
+      "expected": "PARTIALLY_SUPPORTED",
+      "latency_seconds": 13.452399788999173,
+      "reason": "A claim afirma que a manifestação é livre e nunca pode sofrer qualquer restrição constitucional, mas a evidência EV001 afirma apenas que a manifestação do pensamento é livre, mas com restrição ao anonimato.",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "partial-environment",
+      "category": "absolute_quantifier",
+      "correct": false,
+      "expected": "PARTIALLY_SUPPORTED",
+      "latency_seconds": 12.91953389199989,
+      "reason": "A atividade econômica pode afetar o ambiente, mas a evidência apenas afirma o direito ao meio ambiente ecologicamente equilibrado, sem abordar a relação com a atividade econômica.",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "partial-two-facts",
+      "category": "invented_detail",
+      "correct": false,
+      "expected": "PARTIALLY_SUPPORTED",
+      "latency_seconds": 7.522684922998451,
+      "reason": "Falta de detalhes sobre mandato",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "unrelated-python",
+      "category": "unrelated",
+      "correct": true,
+      "expected": "UNSUPPORTED",
+      "latency_seconds": 7.558449333999306,
+      "reason": "Falta de evidência específica para suporte",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "unrelated-football",
+      "category": "unrelated",
+      "correct": true,
+      "expected": "UNSUPPORTED",
+      "latency_seconds": 7.953356660000281,
+      "reason": "Falta de relação lógica entre a evidência e a claim",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "contradiction-health",
+      "category": "contradiction",
+      "correct": true,
+      "expected": "UNSUPPORTED",
+      "latency_seconds": 6.889534393998474,
+      "reason": "Contradição",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "contradiction-expression",
+      "category": "contradiction",
+      "correct": true,
+      "expected": "UNSUPPORTED",
+      "latency_seconds": 6.762564377000672,
+      "reason": "Contradição",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "plausible-absent",
+      "category": "plausible_absent",
+      "correct": true,
+      "expected": "UNSUPPORTED",
+      "latency_seconds": 7.48288437699739,
+      "reason": "Falta de evidência específica",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "absolute-criticism",
+      "category": "contradiction",
+      "correct": true,
+      "expected": "UNSUPPORTED",
+      "latency_seconds": 9.87792894499944,
+      "reason": "A evidência [EV001] afirma que é livre a manifestação do pensamento, mas não afirma que toda crítica política é crime.",
+      "technical_error": null
+    }
+  ],
+  "supported_precision": 1.0,
+  "supported_recall": 0.375,
+  "unsafe_acceptance": 0
+}

@@ -47,6 +47,7 @@ services:
       - DATABASE_URL=postgresql+psycopg://consultor:consultor_pass@db:5432/consultor_juridico
       - OLLAMA_BASE_URL=http://ollama:11434
       - OLLAMA_MODEL=llama3.2
+      - SEMANTIC_JUDGE_MODEL=
       - EMBEDDING_MODEL=nomic-embed-text
       - EMBEDDING_TIMEOUT=120
       - EMBEDDING_BATCH_SIZE=32
@@ -54,6 +55,7 @@ services:
       - CONSULTATION_MAX_TOKENS=800
       - CONSULTATION_TOP_K=8
       - CONSULTATION_MAX_ATTEMPTS=2
+      - CONSULTATION_EVIDENCE_LIMIT=3
     depends_on:
       db:
         condition: service_healthy

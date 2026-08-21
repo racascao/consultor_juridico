@@ -1,5 +1,6 @@
 """Retrievers lexical, vetorial e híbrido com ranking auditável."""
 
+import re
 from dataclasses import replace
 
 from sqlalchemy import func, select
@@ -19,7 +20,9 @@ from consultor_juridico.retrieval.indexing import MODEL_VERSION, PROVIDER_NAME
 from consultor_juridico.retrieval.types import RetrievalCandidate, RetrievalFilters
 
 RRF_K = 60
+CONTEXT_CAPUT_MAX_COMPONENT_RANK = 30
 DEFAULT_FILTERS = RetrievalFilters()
+WORD_RE = re.compile(r"[^\W\d_]{3,}", re.UNICODE)
 
 
 def lexical_search(
@@ -29,7 +32,7 @@ def lexical_search(
     limit: int = 20,
     filters: RetrievalFilters = DEFAULT_FILTERS,
 ) -> tuple[RetrievalCandidate, ...]:
-    tsquery = func.websearch_to_tsquery("portuguese", query)
+    tsquery = func.websearch_to_tsquery("portuguese", lexical_query_text(query))
     score = func.ts_rank_cd(Chunk.tsv_content, tsquery).label("score")
     statement = (
         _candidate_select(score)
@@ -41,6 +44,12 @@ def lexical_search(
         _candidate(row, lexical_rank=rank, lexical_score=float(row.score))
         for rank, row in enumerate(session.execute(statement), start=1)
     )
+
+
+def lexical_query_text(query: str) -> str:
+    """Converte linguagem natural em disjunção lexical conservadora para recall."""
+    tokens = tuple(dict.fromkeys(WORD_RE.findall(query.casefold())))
+    return " OR ".join(tokens) if tokens else query
 
 
 def vector_search(
@@ -80,7 +89,7 @@ def hybrid_search(
     *,
     model_name: str,
     limit: int = 10,
-    candidate_limit: int = 50,
+    candidate_limit: int = 200,
     filters: RetrievalFilters = DEFAULT_FILTERS,
 ) -> tuple[RetrievalCandidate, ...]:
     lexical = lexical_search(session, query, limit=candidate_limit, filters=filters)
@@ -92,7 +101,48 @@ def hybrid_search(
         limit=candidate_limit,
         filters=filters,
     )
-    return reciprocal_rank_fusion(lexical, vector, limit=limit)
+    fused = reciprocal_rank_fusion(lexical, vector, limit=len(lexical) + len(vector))
+    return contextual_caput_rerank(fused, limit=limit)
+
+
+def contextual_caput_rerank(
+    candidates: tuple[RetrievalCandidate, ...], *, limit: int
+) -> tuple[RetrievalCandidate, ...]:
+    """Promove o CAPUT quando um descendente forte revela o artigo relevante."""
+    if limit < 1:
+        return ()
+    by_identity = {item.identity_key: item for item in candidates}
+    scores = {item.identity_key: float(item.rrf_score or 0) for item in candidates}
+    seeds = candidates[:limit]
+    for seed in seeds:
+        caput_key = _article_caput_identity(seed.identity_key)
+        caput = by_identity.get(caput_key) if caput_key else None
+        if caput is None or caput.identity_key == seed.identity_key:
+            continue
+        component_rank = min(caput.lexical_rank or 10**9, caput.vector_rank or 10**9)
+        if component_rank > CONTEXT_CAPUT_MAX_COMPONENT_RANK:
+            continue
+        scores[caput.identity_key] = max(
+            scores[caput.identity_key], scores[seed.identity_key] * 0.999
+        )
+    ranked = sorted(
+        candidates,
+        key=lambda item: (-scores[item.identity_key], str(item.chunk_id)),
+    )[:limit]
+    return tuple(
+        replace(item, contextual_score=scores[item.identity_key]) for item in ranked
+    )
+
+
+def _article_caput_identity(identity_key: str) -> str | None:
+    parts = identity_key.split("/")
+    article_index = next(
+        (index for index, value in enumerate(parts) if value.startswith("ARTICLE:")),
+        None,
+    )
+    if article_index is None:
+        return None
+    return "/".join((*parts[: article_index + 1], "CAPUT:@caput"))
 
 
 def reciprocal_rank_fusion(

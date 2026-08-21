@@ -23,6 +23,7 @@ RUN uv sync --frozen --no-install-project
 
 # Copia o código-fonte
 COPY src/ ./src/
+COPY evaluation/ ./evaluation/
 
 # Instala a aplicação no ambiente do container
 RUN uv sync --frozen

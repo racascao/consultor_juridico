@@ -87,6 +87,7 @@ def build_evidence_set(
                 "vector_rank": candidate.vector_rank,
                 "vector_score": candidate.vector_score,
                 "rrf_score": candidate.rrf_score,
+                "contextual_score": candidate.contextual_score,
             },
         )
         session.add(item)

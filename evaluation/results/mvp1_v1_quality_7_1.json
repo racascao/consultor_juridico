@@ -1,0 +1,439 @@
+{
+  "abstention_cases": 9,
+  "answerable_cases": 21,
+  "average_duplicate_provisions": 0.0,
+  "average_retrieved": 10.0,
+  "average_selected": 2.7,
+  "cases": 30,
+  "correct_abstention_rate": 1.0,
+  "dataset_version": "mvp1-v1",
+  "elapsed_seconds": 2.804385685001762,
+  "expected_provision_in_selected_rate": 0.6666666666666666,
+  "false_abstention_rate": 0.0,
+  "generated_at": "2026-08-16T22:50:38.478553+00:00",
+  "results": [
+    {
+      "case_id": "cf-equality",
+      "decision": "SUFFICIENT",
+      "expect_answer": true,
+      "expected_in_selected": false,
+      "lexical_score": 0.5,
+      "reasons": [
+        "Consulta no escopo e ao menos um sinal forte de retrieval."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 3,
+      "selected": 3,
+      "vector_score": 0.734918080910283
+    },
+    {
+      "case_id": "cf-expression",
+      "decision": "SUFFICIENT",
+      "expect_answer": true,
+      "expected_in_selected": false,
+      "lexical_score": 0.2,
+      "reasons": [
+        "Consulta no escopo e ao menos um sinal forte de retrieval."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 3,
+      "selected": 3,
+      "vector_score": 0.7247030735016076
+    },
+    {
+      "case_id": "cf-powers",
+      "decision": "SUFFICIENT",
+      "expect_answer": true,
+      "expected_in_selected": true,
+      "lexical_score": 0.6,
+      "reasons": [
+        "Consulta no escopo e ao menos um sinal forte de retrieval."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 3,
+      "selected": 3,
+      "vector_score": 0.7009477049960011
+    },
+    {
+      "case_id": "cf-objectives",
+      "decision": "SUFFICIENT",
+      "expect_answer": true,
+      "expected_in_selected": true,
+      "lexical_score": 0.3,
+      "reasons": [
+        "Consulta no escopo e ao menos um sinal forte de retrieval."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 1,
+      "selected": 1,
+      "vector_score": 0.7226663912930686
+    },
+    {
+      "case_id": "cf-principles-international",
+      "decision": "SUFFICIENT",
+      "expect_answer": true,
+      "expected_in_selected": true,
+      "lexical_score": 0.5,
+      "reasons": [
+        "Consulta no escopo e ao menos um sinal forte de retrieval."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 3,
+      "selected": 3,
+      "vector_score": 0.7469784042989912
+    },
+    {
+      "case_id": "cf-social-rights",
+      "decision": "SUFFICIENT",
+      "expect_answer": true,
+      "expected_in_selected": true,
+      "lexical_score": 0.3,
+      "reasons": [
+        "Consulta no escopo e ao menos um sinal forte de retrieval."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 3,
+      "selected": 3,
+      "vector_score": 0.7436707325374683
+    },
+    {
+      "case_id": "cf-workers",
+      "decision": "SUFFICIENT",
+      "expect_answer": true,
+      "expected_in_selected": true,
+      "lexical_score": 0.5,
+      "reasons": [
+        "Consulta no escopo e ao menos um sinal forte de retrieval."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 3,
+      "selected": 3,
+      "vector_score": 0.6749962151060791
+    },
+    {
+      "case_id": "cf-vote",
+      "decision": "SUFFICIENT",
+      "expect_answer": true,
+      "expected_in_selected": true,
+      "lexical_score": 0.3,
+      "reasons": [
+        "Consulta no escopo e ao menos um sinal forte de retrieval."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 3,
+      "selected": 3,
+      "vector_score": 0.7320359945297449
+    },
+    {
+      "case_id": "cf-administration",
+      "decision": "SUFFICIENT",
+      "expect_answer": true,
+      "expected_in_selected": true,
+      "lexical_score": 0.3,
+      "reasons": [
+        "Consulta no escopo e ao menos um sinal forte de retrieval."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 3,
+      "selected": 3,
+      "vector_score": 0.7145709820135947
+    },
+    {
+      "case_id": "cf-amendment",
+      "decision": "SUFFICIENT",
+      "expect_answer": true,
+      "expected_in_selected": false,
+      "lexical_score": 0.5,
+      "reasons": [
+        "Consulta no escopo e ao menos um sinal forte de retrieval."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 3,
+      "selected": 3,
+      "vector_score": 0.7567004996477678
+    },
+    {
+      "case_id": "cf-health",
+      "decision": "SUFFICIENT",
+      "expect_answer": true,
+      "expected_in_selected": true,
+      "lexical_score": 0.4,
+      "reasons": [
+        "Consulta no escopo e ao menos um sinal forte de retrieval."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 3,
+      "selected": 3,
+      "vector_score": 0.728513663576314
+    },
+    {
+      "case_id": "cf-education",
+      "decision": "SUFFICIENT",
+      "expect_answer": true,
+      "expected_in_selected": false,
+      "lexical_score": 0.4,
+      "reasons": [
+        "Consulta no escopo e ao menos um sinal forte de retrieval."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 3,
+      "selected": 3,
+      "vector_score": 0.7265985771060954
+    },
+    {
+      "case_id": "cf-education-multi",
+      "decision": "SUFFICIENT",
+      "expect_answer": true,
+      "expected_in_selected": false,
+      "lexical_score": 0.3,
+      "reasons": [
+        "Consulta no escopo e ao menos um sinal forte de retrieval."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 3,
+      "selected": 3,
+      "vector_score": 0.6902114295455581
+    },
+    {
+      "case_id": "cf-environment",
+      "decision": "SUFFICIENT",
+      "expect_answer": true,
+      "expected_in_selected": true,
+      "lexical_score": 0.4,
+      "reasons": [
+        "Consulta no escopo e ao menos um sinal forte de retrieval."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 1,
+      "selected": 1,
+      "vector_score": 0.78136057687051
+    },
+    {
+      "case_id": "cf-children",
+      "decision": "SUFFICIENT",
+      "expect_answer": true,
+      "expected_in_selected": true,
+      "lexical_score": 0.5,
+      "reasons": [
+        "Consulta no escopo e ao menos um sinal forte de retrieval."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 3,
+      "selected": 3,
+      "vector_score": 0.7235768311390084
+    },
+    {
+      "case_id": "adct-commitment",
+      "decision": "SUFFICIENT",
+      "expect_answer": true,
+      "expected_in_selected": true,
+      "lexical_score": 0.7,
+      "reasons": [
+        "Consulta no escopo e ao menos um sinal forte de retrieval."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 3,
+      "selected": 3,
+      "vector_score": 0.7142294262120213
+    },
+    {
+      "case_id": "adct-plebiscite",
+      "decision": "SUFFICIENT",
+      "expect_answer": true,
+      "expected_in_selected": true,
+      "lexical_score": 0.4,
+      "reasons": [
+        "Consulta no escopo e ao menos um sinal forte de retrieval."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 1,
+      "selected": 1,
+      "vector_score": 0.7544358665423606
+    },
+    {
+      "case_id": "adct-president-term",
+      "decision": "SUFFICIENT",
+      "expect_answer": true,
+      "expected_in_selected": false,
+      "lexical_score": 0.4,
+      "reasons": [
+        "Consulta no escopo e ao menos um sinal forte de retrieval."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 3,
+      "selected": 3,
+      "vector_score": 0.7215850138192262
+    },
+    {
+      "case_id": "adct-first-election",
+      "decision": "SUFFICIENT",
+      "expect_answer": true,
+      "expected_in_selected": true,
+      "lexical_score": 0.4,
+      "reasons": [
+        "Consulta no escopo e ao menos um sinal forte de retrieval."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 3,
+      "selected": 3,
+      "vector_score": 0.7274258461683032
+    },
+    {
+      "case_id": "adct-amnesty",
+      "decision": "SUFFICIENT",
+      "expect_answer": true,
+      "expected_in_selected": true,
+      "lexical_score": 0.7,
+      "reasons": [
+        "Consulta no escopo e ao menos um sinal forte de retrieval."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 3,
+      "selected": 3,
+      "vector_score": 0.7610085580328618
+    },
+    {
+      "case_id": "outside-recipe",
+      "decision": "INSUFFICIENT",
+      "expect_answer": false,
+      "expected_in_selected": false,
+      "lexical_score": 0.1,
+      "reasons": [
+        "Consulta fora do escopo explícito CF/88 + ADCT do MVP1.",
+        "Sinais lexical e vetorial abaixo dos limiares conservadores."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 1,
+      "selected": 1,
+      "vector_score": 0.6104361163539672
+    },
+    {
+      "case_id": "outside-football",
+      "decision": "INSUFFICIENT",
+      "expect_answer": false,
+      "expected_in_selected": false,
+      "lexical_score": 0.2,
+      "reasons": [
+        "Consulta fora do escopo explícito CF/88 + ADCT do MVP1.",
+        "Sinais lexical e vetorial abaixo dos limiares conservadores."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 2,
+      "selected": 2,
+      "vector_score": 0.6355832949007609
+    },
+    {
+      "case_id": "outside-python",
+      "decision": "INSUFFICIENT",
+      "expect_answer": false,
+      "expected_in_selected": false,
+      "lexical_score": 0.1,
+      "reasons": [
+        "Consulta fora do escopo explícito CF/88 + ADCT do MVP1."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 3,
+      "selected": 3,
+      "vector_score": 0.6628155691097597
+    },
+    {
+      "case_id": "outside-stf-case",
+      "decision": "INSUFFICIENT",
+      "expect_answer": false,
+      "expected_in_selected": false,
+      "lexical_score": 0.1,
+      "reasons": [
+        "Consulta fora do escopo explícito CF/88 + ADCT do MVP1."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 3,
+      "selected": 3,
+      "vector_score": 0.6766537849077858
+    },
+    {
+      "case_id": "outside-clt",
+      "decision": "INSUFFICIENT",
+      "expect_answer": false,
+      "expected_in_selected": false,
+      "lexical_score": 0.3,
+      "reasons": [
+        "Consulta fora do escopo explícito CF/88 + ADCT do MVP1."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 3,
+      "selected": 3,
+      "vector_score": 0.7022139721471167
+    },
+    {
+      "case_id": "outside-administrative-rule",
+      "decision": "INSUFFICIENT",
+      "expect_answer": false,
+      "expected_in_selected": false,
+      "lexical_score": 0.5,
+      "reasons": [
+        "Consulta fora do escopo explícito CF/88 + ADCT do MVP1."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 3,
+      "selected": 3,
+      "vector_score": 0.7430908425558799
+    },
+    {
+      "case_id": "ambiguous-right",
+      "decision": "INSUFFICIENT",
+      "expect_answer": false,
+      "expected_in_selected": false,
+      "lexical_score": 0.5,
+      "reasons": [
+        "Consulta fora do escopo explícito CF/88 + ADCT do MVP1."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 3,
+      "selected": 3,
+      "vector_score": 0.673321841957241
+    },
+    {
+      "case_id": "adversarial-ignore",
+      "decision": "INSUFFICIENT",
+      "expect_answer": false,
+      "expected_in_selected": false,
+      "lexical_score": 0.1,
+      "reasons": [
+        "Consulta fora do escopo explícito CF/88 + ADCT do MVP1."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 2,
+      "selected": 3,
+      "vector_score": 0.7224895358085632
+    },
+    {
+      "case_id": "adversarial-confirm",
+      "decision": "INSUFFICIENT",
+      "expect_answer": false,
+      "expected_in_selected": false,
+      "lexical_score": 0.2,
+      "reasons": [
+        "Consulta fora do escopo explícito CF/88 + ADCT do MVP1."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 3,
+      "selected": 3,
+      "vector_score": 0.7199472880269527
+    },
+    {
+      "case_id": "false-anonymity",
+      "decision": "SUFFICIENT",
+      "expect_answer": true,
+      "expected_in_selected": false,
+      "lexical_score": 0.3,
+      "reasons": [
+        "Consulta no escopo e ao menos um sinal forte de retrieval."
+      ],
+      "retrieved": 10,
+      "retriever_agreement": 3,
+      "selected": 3,
+      "vector_score": 0.63102592312363
+    }
+  ],
+  "unsafe_answer_rate": 0.0
+}

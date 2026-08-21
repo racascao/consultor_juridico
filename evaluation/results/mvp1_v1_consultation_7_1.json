@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "case_id": "outside-recipe",
+      "category": "outside_corpus",
+      "citations": 0,
+      "claims": 0,
+      "elapsed_seconds": 0.232896969999274,
+      "expected_answer": false,
+      "outcome": "ABSTAINED",
+      "validation_errors": []
+    },
+    {
+      "case_id": "outside-football",
+      "category": "outside_corpus",
+      "citations": 0,
+      "claims": 0,
+      "elapsed_seconds": 0.16072744700068142,
+      "expected_answer": false,
+      "outcome": "ABSTAINED",
+      "validation_errors": []
+    },
+    {
+      "case_id": "outside-python",
+      "category": "outside_corpus",
+      "citations": 0,
+      "claims": 0,
+      "elapsed_seconds": 0.14469119099885575,
+      "expected_answer": false,
+      "outcome": "ABSTAINED",
+      "validation_errors": []
+    }
+  ],
+  "dataset_version": "mvp1-v1",
+  "decision_metrics": {
+    "cases": 3,
+    "correct_decision_rate": 1.0,
+    "expected_abstain_abstained": 3,
+    "expected_abstain_responded": 0,
+    "expected_answer_abstained": 0,
+    "expected_answer_responded": 0
+  },
+  "generated_at": "2026-08-16T22:34:59.227679+00:00",
+  "model": "llama3.2",
+  "provider": "ollama"
+}

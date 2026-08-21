@@ -33,6 +33,7 @@ class RetrievalCandidate:
     vector_rank: int | None = None
     vector_score: float | None = None
     rrf_score: float | None = None
+    contextual_score: float | None = None
 
 
 @dataclass(frozen=True, slots=True)

@@ -7,6 +7,7 @@ from consultor_juridico.retrieval.embeddings import (
 )
 from consultor_juridico.retrieval.indexing import build_search_index
 from consultor_juridico.retrieval.search import (
+    contextual_caput_rerank,
     hybrid_search,
     lexical_search,
     reciprocal_rank_fusion,
@@ -30,6 +31,7 @@ __all__ = [
     "build_chunk_drafts",
     "build_search_index",
     "hybrid_search",
+    "contextual_caput_rerank",
     "lexical_search",
     "reciprocal_rank_fusion",
     "vector_search",

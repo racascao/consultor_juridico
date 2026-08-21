@@ -1,0 +1,48 @@
+{
+  "cases": [
+    {
+      "case_id": "outside-recipe",
+      "category": "outside_corpus",
+      "citations": 0,
+      "claims": 0,
+      "elapsed_seconds": 46.34267899000042,
+      "expected_answer": false,
+      "outcome": "ABSTAINED",
+      "validation_errors": [
+        "Resposta fundamentada sem claims."
+      ]
+    },
+    {
+      "case_id": "outside-football",
+      "category": "outside_corpus",
+      "citations": 0,
+      "claims": 0,
+      "elapsed_seconds": 54.407664155998646,
+      "expected_answer": false,
+      "outcome": "ABSTAINED",
+      "validation_errors": [
+        "Resposta abstida não pode conter claims."
+      ]
+    },
+    {
+      "case_id": "outside-python",
+      "category": "outside_corpus",
+      "citations": 8,
+      "claims": 1,
+      "elapsed_seconds": 101.18946682200112,
+      "expected_answer": false,
+      "outcome": "ANSWERED",
+      "validation_errors": []
+    }
+  ],
+  "dataset_version": "mvp1-v1",
+  "decision_metrics": {
+    "cases": 3,
+    "correct_decision_rate": 0.6666666666666666,
+    "expected_abstain_abstained": 2,
+    "expected_abstain_responded": 1,
+    "expected_answer_abstained": 0,
+    "expected_answer_responded": 0
+  },
+  "model": "llama3.2"
+}

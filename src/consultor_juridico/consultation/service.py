@@ -8,6 +8,9 @@ from sqlalchemy.orm import Session
 from consultor_juridico.consultation.errors import LLMResponseError
 from consultor_juridico.consultation.evidence import build_evidence_set
 from consultor_juridico.consultation.llm import OllamaLegalGenerator
+from consultor_juridico.consultation.selection import select_evidence_candidates
+from consultor_juridico.consultation.semantic import SemanticSupportValidator
+from consultor_juridico.consultation.sufficiency import assess_evidence_sufficiency
 from consultor_juridico.consultation.types import (
     CitationReference,
     ConsultationOutcome,
@@ -33,22 +36,47 @@ def run_consultation(
     retriever: Retriever,
     generator: OllamaLegalGenerator,
     model_name: str,
+    semantic_validator: SemanticSupportValidator,
     max_generation_attempts: int = 2,
+    evidence_limit: int = 3,
 ) -> ConsultationResult:
     if not question.strip():
         raise ValueError("A pergunta não pode ser vazia.")
-    candidates = retriever(question)
+    retrieved = retriever(question)
+    candidates = select_evidence_candidates(
+        retrieved, limit=evidence_limit, question=question
+    )
+    sufficiency = assess_evidence_sufficiency(question, candidates)
     evidence_set = build_evidence_set(
         session,
         question,
         candidates,
-        retrieval_metadata={"candidate_count": len(candidates), "model": model_name},
+        retrieval_metadata={
+            "retrieved_candidate_count": len(retrieved),
+            "selected_candidate_count": len(candidates),
+            "removed_by_selection": len(retrieved) - len(candidates),
+            "model": model_name,
+            "sufficiency": {
+                "decision": sufficiency.decision.value,
+                "reasons": list(sufficiency.reasons),
+                "lexical_score": sufficiency.lexical_score,
+                "vector_score": sufficiency.vector_score,
+                "retriever_agreement": sufficiency.retriever_agreement,
+            },
+        },
     )
+    if not sufficiency.is_sufficient:
+        evidence_set.validation_status = "INSUFFICIENT_EVIDENCE"
     session.commit()
     session.refresh(evidence_set)
-    if not evidence_set.items:
+    if not sufficiency.is_sufficient or not evidence_set.items:
         return ConsultationResult(
-            ConsultationOutcome.ABSTAINED, evidence_set.id, ABSTENTION, (), ()
+            ConsultationOutcome.ABSTAINED,
+            evidence_set.id,
+            ABSTENTION,
+            (),
+            (),
+            sufficiency=sufficiency,
         )
 
     errors: tuple[str, ...] = ()
@@ -77,10 +105,21 @@ def run_consultation(
                     response.answer or ABSTENTION,
                     (),
                     (),
+                    sufficiency=sufficiency,
                 )
-            return _persist_valid_response(
-                session, evidence_set, response, model_name, _attempt + 1
-            )
+            semantic = semantic_validator.validate(response, tuple(evidence_set.items))
+            if semantic.is_valid:
+                return _persist_valid_response(
+                    session,
+                    evidence_set,
+                    response,
+                    model_name,
+                    _attempt + 1,
+                    sufficiency,
+                    semantic,
+                )
+            errors = semantic.errors
+            continue
         errors = report.errors
 
     evidence_set.validation_status = "VALIDATION_FAILED"
@@ -97,6 +136,7 @@ def run_consultation(
         (),
         (),
         errors,
+        sufficiency,
     )
 
 
@@ -106,6 +146,8 @@ def _persist_valid_response(
     response: GeneratedResponse,
     model_name: str,
     attempts: int,
+    sufficiency,
+    semantic_support,
 ) -> ConsultationResult:
     items = {item.evidence_code: item for item in evidence_set.items}
     citation_pairs = []
@@ -145,6 +187,15 @@ def _persist_valid_response(
         "answer_sha256": hashlib.sha256(final_answer.encode()).hexdigest(),
         "llm_model": model_name,
         "generation_attempts": attempts,
+        "semantic_support": [
+            {
+                "claim_code": item.claim_code,
+                "status": item.status.value,
+                "evidence_codes": list(item.evidence_codes),
+                "reason": item.reason,
+            }
+            for item in semantic_support.claims
+        ],
     }
     session.commit()
     return ConsultationResult(
@@ -153,4 +204,6 @@ def _persist_valid_response(
         final_answer,
         response.claims,
         tuple(citation_pairs),
+        sufficiency=sufficiency,
+        semantic_support=semantic_support,
     )

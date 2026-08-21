@@ -1,0 +1,1379 @@
+{
+  "dataset_version": "mvp1-v1",
+  "embedding_dimensions": 768,
+  "embedding_model": "nomic-embed-text",
+  "generated_at": "2026-08-16T22:34:06.961004+00:00",
+  "modes": {
+    "hybrid": {
+      "cases": 21,
+      "elapsed_seconds": 1.9613627450016793,
+      "hit_at_1": 0.5238095238095238,
+      "hit_at_10": 0.8095238095238095,
+      "hit_at_3": 0.6666666666666666,
+      "hit_at_5": 0.7142857142857143,
+      "mode": "hybrid",
+      "mrr": 0.6025132275132276,
+      "recall_at_10": 0.7857142857142857,
+      "results": [
+        {
+          "case_id": "cf-equality",
+          "category": "direct",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:VI/CHAPTER:II/SECTION:II/ARTICLE:165/PARAGRAPH:2",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXIV",
+            "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:I/ARTICLE:146-A/CAPUT:@caput",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/INCISO:XXI",
+            "CF88/@root/TITLE:VI/CHAPTER:II/SECTION:II/ARTICLE:165/PARAGRAPH:19",
+            "CF88/@root/TITLE:III/CHAPTER:IV/ARTICLE:29/INCISO:VI",
+            "ADCT/@root/ARTICLE:107-A/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:72/INCISO:III",
+            "ADCT/@root/ARTICLE:34/PARAGRAPH:8",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:I/ARTICLE:100/PARAGRAPH:15"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.0
+        },
+        {
+          "case_id": "cf-expression",
+          "category": "paraphrase",
+          "expected_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:V/ARTICLE:220/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IV"
+          ],
+          "ranked_provisions": [
+            "ADCT/@root/ARTICLE:4/PARAGRAPH:1",
+            "ADCT/@root/ARTICLE:20/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/PARAGRAPH:2",
+            "ADCT/@root/ARTICLE:11/PARAGRAPH:ÚNICO",
+            "CF88/@root/PREAMBLE:@preamble",
+            "ADCT/@root/ARTICLE:9/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:22/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:10/PARAGRAPH:3",
+            "ADCT/@root/ARTICLE:64/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:17/CAPUT:@caput"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.0
+        },
+        {
+          "case_id": "cf-powers",
+          "category": "lexical",
+          "expected_provisions": [
+            "CF88/@root/TITLE:I/ARTICLE:2/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:I/ARTICLE:2/CAPUT:@caput",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/INCISO:XI",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:I/ARTICLE:93/INCISO:IX",
+            "ADCT/@root/ARTICLE:81/PARAGRAPH:2",
+            "ADCT/@root/ARTICLE:41/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XVI",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/INCISO:XII",
+            "ADCT/@root/ARTICLE:116/PARAGRAPH:12/INCISO:VIII",
+            "CF88/@root/TITLE:VI/CHAPTER:II/SECTION:II/ARTICLE:165/PARAGRAPH:5/INCISO:I",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:III/ARTICLE:85/INCISO:II"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "cf-objectives",
+          "category": "direct",
+          "expected_provisions": [
+            "CF88/@root/TITLE:I/ARTICLE:3/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:I/ARTICLE:3/CAPUT:@caput",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:II/ARTICLE:102/INCISO:I/ALINEA:B",
+            "CF88/@root/TITLE:V/CHAPTER:I/SECTION:I/ARTICLE:136/CAPUT:@caput",
+            "CF88/@root/TITLE:IV/CHAPTER:IV/SECTION:I/ARTICLE:128/PARAGRAPH:1",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:II/ARTICLE:84/PARAGRAPH:ÚNICO",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:61/CAPUT:@caput",
+            "CF88/@root/TITLE:I/ARTICLE:1/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:5",
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:6",
+            "ADCT/@root/ARTICLE:14/PARAGRAPH:3"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "cf-principles-international",
+          "category": "direct",
+          "expected_provisions": [
+            "CF88/@root/TITLE:I/ARTICLE:4/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:I/ARTICLE:4/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/PARAGRAPH:2",
+            "CF88/@root/PREAMBLE:@preamble",
+            "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:I",
+            "CF88/@root/TITLE:II/CHAPTER:III/ARTICLE:12/INCISO:II/ALINEA:B",
+            "CF88/@root/TITLE:II/CHAPTER:III/ARTICLE:12/INCISO:I/ALINEA:C",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/PARAGRAPH:4",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:IV/ARTICLE:109/PARAGRAPH:5",
+            "ADCT/@root/ARTICLE:116/PARAGRAPH:5",
+            "ADCT/@root/ARTICLE:95/CAPUT:@caput"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "cf-social-rights",
+          "category": "direct",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:6/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/PREAMBLE:@preamble",
+            "ADCT/@root/ARTICLE:9/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:6/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:II/SECTION:II/ARTICLE:196/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:43/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:20/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/PARAGRAPH:2",
+            "ADCT/@root/ARTICLE:4/PARAGRAPH:1",
+            "CF88/@root/TITLE:II/CHAPTER:III/ARTICLE:12/PARAGRAPH:1",
+            "ADCT/@root/ARTICLE:100/CAPUT:@caput"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 0.3333333333333333
+        },
+        {
+          "case_id": "cf-workers",
+          "category": "direct",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:7/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:7/INCISO:XXIX",
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:7/CAPUT:@caput",
+            "CF88/@root/TITLE:IX/ARTICLE:243/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:10/PARAGRAPH:3",
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:7/PARAGRAPH:ÚNICO",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:V/ARTICLE:112/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:9/CAPUT:@caput",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/PARAGRAPH:6",
+            "CF88/@root/TITLE:V/CHAPTER:III/ARTICLE:144/PARAGRAPH:10/INCISO:I",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:V/ARTICLE:114/INCISO:I"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 0.5
+        },
+        {
+          "case_id": "cf-vote",
+          "category": "paraphrase",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/PARAGRAPH:3",
+            "CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:3/INCISO:I",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:2",
+            "CF88/@root/PREAMBLE:@preamble",
+            "CF88/@root/TITLE:I/ARTICLE:1/PARAGRAPH:ÚNICO",
+            "ADCT/@root/ARTICLE:5/PARAGRAPH:5-P",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:I/ARTICLE:98/INCISO:II",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:V/ARTICLE:53/PARAGRAPH:2",
+            "ADCT/@root/ARTICLE:39/PARAGRAPH:ÚNICO"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "cf-administration",
+          "category": "lexical",
+          "expected_provisions": [
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:29/CAPUT:@caput",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:IX/ARTICLE:71/INCISO:II",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/PARAGRAPH:1",
+            "CF88/@root/TITLE:VI/CHAPTER:II/SECTION:II/ARTICLE:167/INCISO:XIV",
+            "CF88/@root/TITLE:IV/CHAPTER:IV/SECTION:I/ARTICLE:127/PARAGRAPH:2",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/PARAGRAPH:16",
+            "ADCT/@root/ARTICLE:17/PARAGRAPH:2",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/INCISO:XI",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/PARAGRAPH:4"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "cf-amendment",
+          "category": "direct",
+          "expected_provisions": [
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "ADCT/@root/ARTICLE:63/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:39/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:34/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:11/PARAGRAPH:ÚNICO",
+            "ADCT/@root/ARTICLE:11/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:101/PARAGRAPH:5",
+            "CF88/@root/TITLE:IX/ARTICLE:246/CAPUT:@caput",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:1",
+            "ADCT/@root/ARTICLE:97/PARAGRAPH:9/INCISO:II",
+            "ADCT/@root/ARTICLE:4/PARAGRAPH:1"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.0
+        },
+        {
+          "case_id": "cf-health",
+          "category": "paraphrase",
+          "expected_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:II/SECTION:II/ARTICLE:196/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:II/SECTION:II/ARTICLE:196/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:77/PARAGRAPH:3",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:205/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:VI/ARTICLE:225/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:20/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:9/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:II/SECTION:II/ARTICLE:197/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:6/CAPUT:@caput",
+            "CF88/@root/TITLE:V/CHAPTER:III/ARTICLE:144/CAPUT:@caput"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "cf-education",
+          "category": "direct",
+          "expected_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:205/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:214/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:76/PARAGRAPH:5",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:212-A/INCISO:XV",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:212-A/CAPUT:@caput",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:5",
+            "CF88/@root/TITLE:VI/CHAPTER:II/SECTION:II/ARTICLE:166/PARAGRAPH:19",
+            "ADCT/@root/ARTICLE:76/PARAGRAPH:2",
+            "ADCT/@root/ARTICLE:138/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:92-B/PARAGRAPH:6",
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:6/CAPUT:@caput"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.0
+        },
+        {
+          "case_id": "cf-education-multi",
+          "category": "multi_provision",
+          "expected_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:205/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:206/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:212-A/INCISO:XV",
+            "CF88/@root/TITLE:VIII/CHAPTER:VI/ARTICLE:225/PARAGRAPH:1/INCISO:VI",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:214/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:205/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:212/PARAGRAPH:6",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/PARAGRAPH:1",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:211/PARAGRAPH:1",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:212/PARAGRAPH:3",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:208/INCISO:VII",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:212/PARAGRAPH:5"
+          ],
+          "recall_at_10": 0.5,
+          "reciprocal_rank": 0.25
+        },
+        {
+          "case_id": "cf-environment",
+          "category": "paraphrase",
+          "expected_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:VI/ARTICLE:225/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:VI/ARTICLE:225/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:9/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+            "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:24/INCISO:VIII",
+            "ADCT/@root/ARTICLE:53/INCISO:II",
+            "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V/ARTICLE:156/INCISO:II",
+            "CF88/@root/TITLE:VII/CHAPTER:I/ARTICLE:170/INCISO:VI",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIV/ALINEA:A",
+            "CF88/@root/TITLE:V/CHAPTER:III/ARTICLE:144/PARAGRAPH:10/INCISO:I",
+            "CF88/@root/PREAMBLE:@preamble"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "cf-children",
+          "category": "direct",
+          "expected_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/PARAGRAPH:7",
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:9/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/PARAGRAPH:3/INCISO:VII",
+            "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/PARAGRAPH:1",
+            "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V/ARTICLE:156/PARAGRAPH:2/INCISO:I",
+            "ADCT/@root/ARTICLE:8/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:30/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/PARAGRAPH:3/INCISO:VI",
+            "ADCT/@root/ARTICLE:9/CAPUT:@caput"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "adct-commitment",
+          "category": "adct",
+          "expected_provisions": [
+            "ADCT/@root/ARTICLE:1/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "ADCT/@root/ARTICLE:4/PARAGRAPH:1",
+            "ADCT/@root/ARTICLE:10/PARAGRAPH:3",
+            "ADCT/@root/ARTICLE:1/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:33/CAPUT:@caput",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:78/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:11/PARAGRAPH:ÚNICO",
+            "ADCT/@root/ARTICLE:39/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:43/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:34/CAPUT:@caput",
+            "CF88/@root/TITLE:IX/ARTICLE:246/CAPUT:@caput"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 0.3333333333333333
+        },
+        {
+          "case_id": "adct-plebiscite",
+          "category": "adct",
+          "expected_provisions": [
+            "ADCT/@root/ARTICLE:2/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "ADCT/@root/ARTICLE:2/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:72/INCISO:V",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:61/PARAGRAPH:2",
+            "CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:8",
+            "ADCT/@root/ARTICLE:25/PARAGRAPH:1/INCISO:I",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXVI",
+            "ADCT/@root/ARTICLE:25/PARAGRAPH:2",
+            "CF88/@root/TITLE:VII/CHAPTER:I/ARTICLE:173/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:13",
+            "CF88/@root/TITLE:III/CHAPTER:IV/ARTICLE:29/INCISO:II"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "adct-president-term",
+          "category": "adct",
+          "expected_provisions": [
+            "ADCT/@root/ARTICLE:4/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "ADCT/@root/ARTICLE:5/PARAGRAPH:5-P",
+            "ADCT/@root/ARTICLE:4/PARAGRAPH:4",
+            "ADCT/@root/ARTICLE:13/PARAGRAPH:4",
+            "ADCT/@root/ARTICLE:4/PARAGRAPH:3",
+            "ADCT/@root/ARTICLE:5/PARAGRAPH:3",
+            "ADCT/@root/ARTICLE:35/PARAGRAPH:2/INCISO:I",
+            "ADCT/@root/ARTICLE:4/PARAGRAPH:1",
+            "ADCT/@root/ARTICLE:4/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:8/PARAGRAPH:5",
+            "ADCT/@root/ARTICLE:8/PARAGRAPH:4"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 0.125
+        },
+        {
+          "case_id": "adct-first-election",
+          "category": "adct",
+          "expected_provisions": [
+            "ADCT/@root/ARTICLE:4/PARAGRAPH:1"
+          ],
+          "ranked_provisions": [
+            "ADCT/@root/ARTICLE:4/PARAGRAPH:1",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/CAPUT:@caput",
+            "CF88/@root/TITLE:III/CHAPTER:III/ARTICLE:28/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:14/PARAGRAPH:3",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:66/PARAGRAPH:7",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/PARAGRAPH:3",
+            "CF88/@root/TITLE:IX/ARTICLE:235/INCISO:VII",
+            "CF88/@root/TITLE:IX/ARTICLE:246/CAPUT:@caput",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VI/ARTICLE:57/PARAGRAPH:4",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:81/PARAGRAPH:1"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "adct-amnesty",
+          "category": "adct",
+          "expected_provisions": [
+            "ADCT/@root/ARTICLE:9/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "ADCT/@root/ARTICLE:9/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:8/PARAGRAPH:2",
+            "ADCT/@root/ARTICLE:76-B/PARAGRAPH:2",
+            "ADCT/@root/ARTICLE:19/PARAGRAPH:2",
+            "ADCT/@root/ARTICLE:8/PARAGRAPH:5",
+            "ADCT/@root/ARTICLE:8/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:81/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:47/PARAGRAPH:1",
+            "ADCT/@root/ARTICLE:75/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:13/PARAGRAPH:3/INCISO:IV"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "false-anonymity",
+          "category": "false_premise",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IV"
+          ],
+          "ranked_provisions": [
+            "ADCT/@root/ARTICLE:8/PARAGRAPH:5",
+            "ADCT/@root/ARTICLE:9/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:V/ARTICLE:220/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:19/PARAGRAPH:2",
+            "ADCT/@root/ARTICLE:8/PARAGRAPH:2",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXXIII",
+            "ADCT/@root/ARTICLE:6/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:97/PARAGRAPH:18",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IV",
+            "ADCT/@root/ARTICLE:63/PARAGRAPH:ÚNICO"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 0.1111111111111111
+        }
+      ]
+    },
+    "lexical": {
+      "cases": 21,
+      "elapsed_seconds": 0.18779854099921067,
+      "hit_at_1": 0.47619047619047616,
+      "hit_at_10": 0.6666666666666666,
+      "hit_at_3": 0.5714285714285714,
+      "hit_at_5": 0.6666666666666666,
+      "mode": "lexical",
+      "mrr": 0.5476190476190477,
+      "recall_at_10": 0.6666666666666666,
+      "results": [
+        {
+          "case_id": "cf-equality",
+          "category": "direct",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "ADCT/@root/ARTICLE:34/PARAGRAPH:9",
+            "ADCT/@root/ARTICLE:82/PARAGRAPH:1",
+            "ADCT/@root/ARTICLE:56/CAPUT:@caput",
+            "CF88/@root/TITLE:VI/CHAPTER:II/SECTION:II/ARTICLE:165/PARAGRAPH:2",
+            "ADCT/@root/ARTICLE:11/PARAGRAPH:ÚNICO",
+            "CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:1",
+            "ADCT/@root/ARTICLE:72/INCISO:III",
+            "ADCT/@root/ARTICLE:72/INCISO:V",
+            "CF88/@root/TITLE:III/CHAPTER:IV/ARTICLE:29/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:97/CAPUT:@caput"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.0
+        },
+        {
+          "case_id": "cf-expression",
+          "category": "paraphrase",
+          "expected_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:V/ARTICLE:220/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IV"
+          ],
+          "ranked_provisions": [
+            "ADCT/@root/ARTICLE:11/PARAGRAPH:ÚNICO",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/PARAGRAPH:2",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/PARAGRAPH:6",
+            "CF88/@root/TITLE:IV/CHAPTER:IV/SECTION:IV/ARTICLE:134/CAPUT:@caput",
+            "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V/ARTICLE:156/PARAGRAPH:2/INCISO:I",
+            "CF88/@root/PREAMBLE:@preamble",
+            "ADCT/@root/ARTICLE:4/PARAGRAPH:1",
+            "ADCT/@root/ARTICLE:8/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:I",
+            "ADCT/@root/ARTICLE:9/CAPUT:@caput"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.0
+        },
+        {
+          "case_id": "cf-powers",
+          "category": "lexical",
+          "expected_provisions": [
+            "CF88/@root/TITLE:I/ARTICLE:2/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/INCISO:XI",
+            "CF88/@root/TITLE:I/ARTICLE:2/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:63/CAPUT:@caput",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/INCISO:XII",
+            "ADCT/@root/ARTICLE:39/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:41/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:81/PARAGRAPH:2",
+            "CF88/@root/TITLE:III/CHAPTER:VI/ARTICLE:36/INCISO:I",
+            "ADCT/@root/ARTICLE:97/PARAGRAPH:9/INCISO:II",
+            "ADCT/@root/ARTICLE:116/PARAGRAPH:12/INCISO:VI/ALINEA:D"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 0.5
+        },
+        {
+          "case_id": "cf-objectives",
+          "category": "direct",
+          "expected_provisions": [
+            "CF88/@root/TITLE:I/ARTICLE:3/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:I/ARTICLE:3/CAPUT:@caput",
+            "CF88/@root/TITLE:I/ARTICLE:1/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:97/PARAGRAPH:9/INCISO:II",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:61/CAPUT:@caput",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:II/ARTICLE:84/PARAGRAPH:ÚNICO",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:V/SUBSECTION:I/ARTICLE:89/CAPUT:@caput",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:I/ARTICLE:93/INCISO:IX",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:II/ARTICLE:102/INCISO:I/ALINEA:B",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:II/ARTICLE:102/INCISO:I/ALINEA:D",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:II/ARTICLE:103-A/PARAGRAPH:1"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "cf-principles-international",
+          "category": "direct",
+          "expected_provisions": [
+            "CF88/@root/TITLE:I/ARTICLE:4/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:I/ARTICLE:4/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/PARAGRAPH:2",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:IV/ARTICLE:109/PARAGRAPH:5",
+            "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:I",
+            "CF88/@root/TITLE:III/CHAPTER:III/ARTICLE:25/CAPUT:@caput",
+            "CF88/@root/TITLE:III/CHAPTER:IV/ARTICLE:29/CAPUT:@caput",
+            "CF88/@root/TITLE:III/CHAPTER:V/SECTION:I/ARTICLE:32/CAPUT:@caput",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:62/PARAGRAPH:11",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:II/ARTICLE:216-A/PARAGRAPH:1",
+            "CF88/@root/PREAMBLE:@preamble"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "cf-social-rights",
+          "category": "direct",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:6/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/PREAMBLE:@preamble",
+            "ADCT/@root/ARTICLE:9/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:11/PARAGRAPH:ÚNICO",
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:6/CAPUT:@caput",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/PARAGRAPH:6",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:IV/ARTICLE:109/PARAGRAPH:5",
+            "CF88/@root/TITLE:IV/CHAPTER:IV/SECTION:IV/ARTICLE:134/CAPUT:@caput",
+            "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V/ARTICLE:156/PARAGRAPH:2/INCISO:I",
+            "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V-A/ARTICLE:156-A/PARAGRAPH:1/INCISO:VIII",
+            "ADCT/@root/ARTICLE:4/PARAGRAPH:1"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 0.25
+        },
+        {
+          "case_id": "cf-workers",
+          "category": "direct",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:7/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:7/INCISO:XXIX",
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:7/PARAGRAPH:ÚNICO",
+            "CF88/@root/TITLE:IX/ARTICLE:243/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:7/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:10/PARAGRAPH:3",
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:7/INCISO:XXXIV",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/PARAGRAPH:6",
+            "ADCT/@root/ARTICLE:130/PARAGRAPH:3/INCISO:I",
+            "ADCT/@root/ARTICLE:130/PARAGRAPH:3/INCISO:II",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:V"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 0.25
+        },
+        {
+          "case_id": "cf-vote",
+          "category": "paraphrase",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput",
+            "CF88/@root/TITLE:I/ARTICLE:1/PARAGRAPH:ÚNICO",
+            "ADCT/@root/ARTICLE:5/PARAGRAPH:5-P",
+            "ADCT/@root/ARTICLE:8/PARAGRAPH:2",
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:8/INCISO:VII",
+            "CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:3/INCISO:I",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:2",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/PARAGRAPH:3",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:I/ARTICLE:98/INCISO:II",
+            "CF88/@root/PREAMBLE:@preamble"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "cf-administration",
+          "category": "lexical",
+          "expected_provisions": [
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:IX/ARTICLE:71/INCISO:II",
+            "ADCT/@root/ARTICLE:18/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:19/CAPUT:@caput",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/INCISO:XI",
+            "ADCT/@root/ARTICLE:103/PARAGRAPH:ÚNICO",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:II/ARTICLE:48/INCISO:IX",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:61/PARAGRAPH:1/INCISO:II/ALINEA:D",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:IX/ARTICLE:70/PARAGRAPH:ÚNICO",
+            "CF88/@root/TITLE:VI/CHAPTER:II/SECTION:II/ARTICLE:165/PARAGRAPH:2",
+            "ADCT/@root/ARTICLE:29/CAPUT:@caput"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.0
+        },
+        {
+          "case_id": "cf-amendment",
+          "category": "direct",
+          "expected_provisions": [
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "ADCT/@root/ARTICLE:63/CAPUT:@caput",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/INCISO:XI",
+            "ADCT/@root/ARTICLE:33/CAPUT:@caput",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/INCISO:XII",
+            "ADCT/@root/ARTICLE:97/CAPUT:@caput",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:II/ARTICLE:103-B/PARAGRAPH:4/INCISO:III",
+            "CF88/@root/TITLE:VI/CHAPTER:II/SECTION:II/ARTICLE:166/PARAGRAPH:17",
+            "CF88/@root/TITLE:VI/CHAPTER:II/SECTION:II/ARTICLE:167-A/PARAGRAPH:1",
+            "CF88/@root/TITLE:VI/CHAPTER:II/SECTION:II/ARTICLE:167-C/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:11/CAPUT:@caput"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.0
+        },
+        {
+          "case_id": "cf-health",
+          "category": "paraphrase",
+          "expected_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:II/SECTION:II/ARTICLE:196/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "ADCT/@root/ARTICLE:137/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:II/SECTION:II/ARTICLE:196/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:6/PARAGRAPH:1",
+            "CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:8",
+            "ADCT/@root/ARTICLE:77/PARAGRAPH:3",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/PARAGRAPH:6",
+            "ADCT/@root/ARTICLE:102/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:116/PARAGRAPH:12/INCISO:VI/ALINEA:E",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:I/ARTICLE:93/INCISO:IX"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 0.5
+        },
+        {
+          "case_id": "cf-education",
+          "category": "direct",
+          "expected_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:205/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:212-A/INCISO:XV",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:214/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:138/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:III/ARTICLE:12/PARAGRAPH:4-S/INCISO:I",
+            "ADCT/@root/ARTICLE:71/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:76/PARAGRAPH:5",
+            "ADCT/@root/ARTICLE:79/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:92-B/PARAGRAPH:2",
+            "ADCT/@root/ARTICLE:92-B/PARAGRAPH:6",
+            "ADCT/@root/ARTICLE:97/CAPUT:@caput"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.0
+        },
+        {
+          "case_id": "cf-education-multi",
+          "category": "multi_provision",
+          "expected_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:205/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:206/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:211/PARAGRAPH:1",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:212/PARAGRAPH:6",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:212-A/INCISO:XV",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:214/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:VI/ARTICLE:225/PARAGRAPH:1/INCISO:VI",
+            "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:24/INCISO:IX",
+            "CF88/@root/TITLE:III/CHAPTER:IV/ARTICLE:30/INCISO:VI",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/PARAGRAPH:1",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:5",
+            "CF88/@root/TITLE:VIII/CHAPTER:II/SECTION:III/ARTICLE:201/PARAGRAPH:8"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.0
+        },
+        {
+          "case_id": "cf-environment",
+          "category": "paraphrase",
+          "expected_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:VI/ARTICLE:225/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:VI/ARTICLE:225/CAPUT:@caput",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/PARAGRAPH:6",
+            "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V/ARTICLE:156/PARAGRAPH:2/INCISO:I",
+            "ADCT/@root/ARTICLE:9/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIV/ALINEA:A",
+            "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:24/INCISO:VIII",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:62/PARAGRAPH:1/INCISO:I/ALINEA:A",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:IV/ARTICLE:109/PARAGRAPH:5",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:VIII/ARTICLE:125/PARAGRAPH:5",
+            "CF88/@root/TITLE:IV/CHAPTER:IV/SECTION:IV/ARTICLE:134/CAPUT:@caput"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "cf-children",
+          "category": "direct",
+          "expected_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/PARAGRAPH:6",
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:9/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:8",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:IV/ARTICLE:109/PARAGRAPH:5",
+            "CF88/@root/TITLE:V/CHAPTER:II/ARTICLE:142/PARAGRAPH:3/INCISO:I",
+            "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V/ARTICLE:156/PARAGRAPH:2/INCISO:I",
+            "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/PARAGRAPH:7",
+            "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput",
+            "CF88/@root/PREAMBLE:@preamble"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "adct-commitment",
+          "category": "adct",
+          "expected_provisions": [
+            "ADCT/@root/ARTICLE:1/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "ADCT/@root/ARTICLE:1/CAPUT:@caput",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:78/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:4/PARAGRAPH:1",
+            "ADCT/@root/ARTICLE:11/PARAGRAPH:ÚNICO",
+            "ADCT/@root/ARTICLE:33/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:34/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:135/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:3/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:5/PARAGRAPH:1",
+            "ADCT/@root/ARTICLE:10/PARAGRAPH:3"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "adct-plebiscite",
+          "category": "adct",
+          "expected_provisions": [
+            "ADCT/@root/ARTICLE:2/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "ADCT/@root/ARTICLE:2/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:8",
+            "ADCT/@root/ARTICLE:8/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:54/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:72/INCISO:V",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:61/PARAGRAPH:2",
+            "ADCT/@root/ARTICLE:10/INCISO:I",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXVI",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIX",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLIII"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "adct-president-term",
+          "category": "adct",
+          "expected_provisions": [
+            "ADCT/@root/ARTICLE:4/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "ADCT/@root/ARTICLE:4/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:4/PARAGRAPH:3",
+            "ADCT/@root/ARTICLE:4/PARAGRAPH:4",
+            "ADCT/@root/ARTICLE:5/PARAGRAPH:5-P",
+            "ADCT/@root/ARTICLE:13/PARAGRAPH:4",
+            "ADCT/@root/ARTICLE:35/PARAGRAPH:2/INCISO:I",
+            "ADCT/@root/ARTICLE:2/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:5/PARAGRAPH:3",
+            "ADCT/@root/ARTICLE:8/PARAGRAPH:4",
+            "ADCT/@root/ARTICLE:10/INCISO:II/ALINEA:A"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "adct-first-election",
+          "category": "adct",
+          "expected_provisions": [
+            "ADCT/@root/ARTICLE:4/PARAGRAPH:1"
+          ],
+          "ranked_provisions": [
+            "ADCT/@root/ARTICLE:4/PARAGRAPH:1",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/CAPUT:@caput",
+            "CF88/@root/TITLE:IX/ARTICLE:235/INCISO:VII",
+            "ADCT/@root/ARTICLE:10/PARAGRAPH:3",
+            "ADCT/@root/ARTICLE:35/PARAGRAPH:2/INCISO:I",
+            "CF88/@root/TITLE:III/CHAPTER:III/ARTICLE:28/CAPUT:@caput",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VI/ARTICLE:57/PARAGRAPH:4",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/PARAGRAPH:3",
+            "ADCT/@root/ARTICLE:3/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:5/PARAGRAPH:1"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "adct-amnesty",
+          "category": "adct",
+          "expected_provisions": [
+            "ADCT/@root/ARTICLE:9/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "ADCT/@root/ARTICLE:9/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:8/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:8/PARAGRAPH:2",
+            "ADCT/@root/ARTICLE:8/PARAGRAPH:5",
+            "ADCT/@root/ARTICLE:76-B/PARAGRAPH:2",
+            "ADCT/@root/ARTICLE:131/PARAGRAPH:6",
+            "ADCT/@root/ARTICLE:133/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:47/PARAGRAPH:1",
+            "ADCT/@root/ARTICLE:56/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:72/INCISO:V"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "false-anonymity",
+          "category": "false_premise",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IV"
+          ],
+          "ranked_provisions": [
+            "ADCT/@root/ARTICLE:8/PARAGRAPH:5",
+            "ADCT/@root/ARTICLE:27/PARAGRAPH:7",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/INCISO:XI",
+            "CF88/@root/TITLE:VI/CHAPTER:II/SECTION:II/ARTICLE:166-A/PARAGRAPH:1",
+            "CF88/@root/TITLE:VI/CHAPTER:II/SECTION:II/ARTICLE:167-A/PARAGRAPH:6",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:212-A/INCISO:VI",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:212-A/INCISO:XI",
+            "CF88/@root/TITLE:VIII/CHAPTER:V/ARTICLE:220/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:V/ARTICLE:220/PARAGRAPH:2",
+            "ADCT/@root/ARTICLE:6/CAPUT:@caput"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.0
+        }
+      ]
+    },
+    "vector": {
+      "cases": 21,
+      "elapsed_seconds": 1.653487823998148,
+      "hit_at_1": 0.47619047619047616,
+      "hit_at_10": 0.6666666666666666,
+      "hit_at_3": 0.5714285714285714,
+      "hit_at_5": 0.6190476190476191,
+      "mode": "vector",
+      "mrr": 0.5436507936507936,
+      "recall_at_10": 0.6428571428571429,
+      "results": [
+        {
+          "case_id": "cf-equality",
+          "category": "direct",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXIV",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/INCISO:XXI",
+            "CF88/@root/TITLE:VII/CHAPTER:I/ARTICLE:173/PARAGRAPH:5",
+            "CF88/@root/TITLE:VI/CHAPTER:II/SECTION:I/ARTICLE:163/PARAGRAPH:ÚNICO",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:19",
+            "CF88/@root/TITLE:VIII/CHAPTER:II/SECTION:III/ARTICLE:201/PARAGRAPH:12",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:IV/ARTICLE:107/PARAGRAPH:1",
+            "CF88/@root/TITLE:VI/CHAPTER:II/SECTION:II/ARTICLE:165/PARAGRAPH:2",
+            "CF88/@root/TITLE:VIII/CHAPTER:II/SECTION:III/ARTICLE:202/PARAGRAPH:6",
+            "CF88/@root/TITLE:III/CHAPTER:IV/ARTICLE:29/INCISO:VI"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.0
+        },
+        {
+          "case_id": "cf-expression",
+          "category": "paraphrase",
+          "expected_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:V/ARTICLE:220/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IV"
+          ],
+          "ranked_provisions": [
+            "ADCT/@root/ARTICLE:20/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:4/PARAGRAPH:1",
+            "CF88/@root/TITLE:VI/CHAPTER:II/SECTION:II/ARTICLE:167-D/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:10/PARAGRAPH:3",
+            "ADCT/@root/ARTICLE:76/PARAGRAPH:5",
+            "ADCT/@root/ARTICLE:54/PARAGRAPH:3",
+            "CF88/@root/TITLE:VII/CHAPTER:I/ARTICLE:173/CAPUT:@caput",
+            "CF88/@root/TITLE:VII/CHAPTER:I/ARTICLE:175/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:39/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:119/PARAGRAPH:ÚNICO"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.0
+        },
+        {
+          "case_id": "cf-powers",
+          "category": "lexical",
+          "expected_provisions": [
+            "CF88/@root/TITLE:I/ARTICLE:2/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:I/ARTICLE:2/CAPUT:@caput",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:I/ARTICLE:100/PARAGRAPH:21",
+            "ADCT/@root/ARTICLE:116/PARAGRAPH:12/INCISO:VIII",
+            "ADCT/@root/ARTICLE:9/CAPUT:@caput",
+            "CF88/@root/TITLE:VII/CHAPTER:I/ARTICLE:170/PARAGRAPH:ÚNICO",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:I/ARTICLE:93/INCISO:IX",
+            "ADCT/@root/ARTICLE:53/INCISO:II",
+            "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:20/INCISO:III",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/INCISO:XI",
+            "ADCT/@root/ARTICLE:76-A/PARAGRAPH:ÚNICO/INCISO:V"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "cf-objectives",
+          "category": "direct",
+          "expected_provisions": [
+            "CF88/@root/TITLE:I/ARTICLE:3/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:66/PARAGRAPH:1",
+            "CF88/@root/TITLE:I/ARTICLE:3/CAPUT:@caput",
+            "CF88/@root/TITLE:V/CHAPTER:I/SECTION:I/ARTICLE:136/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:5",
+            "CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:9",
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:6",
+            "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:I/ARTICLE:149/PARAGRAPH:1",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:II/ARTICLE:102/INCISO:I/ALINEA:B",
+            "CF88/@root/TITLE:VI/CHAPTER:II/SECTION:II/ARTICLE:167/INCISO:XIV",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:I/ARTICLE:100/PARAGRAPH:21"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 0.5
+        },
+        {
+          "case_id": "cf-principles-international",
+          "category": "direct",
+          "expected_provisions": [
+            "CF88/@root/TITLE:I/ARTICLE:4/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:I/ARTICLE:4/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:III/ARTICLE:12/INCISO:II/ALINEA:B",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/PARAGRAPH:2",
+            "CF88/@root/TITLE:II/CHAPTER:III/ARTICLE:12/INCISO:I/ALINEA:C",
+            "CF88/@root/PREAMBLE:@preamble",
+            "ADCT/@root/ARTICLE:116/PARAGRAPH:5",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXI",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/PARAGRAPH:4",
+            "CF88/@root/TITLE:II/CHAPTER:III/ARTICLE:12/PARAGRAPH:1",
+            "CF88/@root/TITLE:V/CHAPTER:II/ARTICLE:142/PARAGRAPH:3/INCISO:I"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "cf-social-rights",
+          "category": "direct",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:6/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:VII/CHAPTER:I/ARTICLE:173/CAPUT:@caput",
+            "CF88/@root/PREAMBLE:@preamble",
+            "CF88/@root/TITLE:VI/CHAPTER:II/SECTION:II/ARTICLE:167-D/CAPUT:@caput",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:6",
+            "ADCT/@root/ARTICLE:92-B/PARAGRAPH:6",
+            "ADCT/@root/ARTICLE:92-B/PARAGRAPH:2",
+            "CF88/@root/TITLE:VIII/CHAPTER:II/SECTION:III/ARTICLE:202/PARAGRAPH:4",
+            "CF88/@root/TITLE:VIII/CHAPTER:II/SECTION:II/ARTICLE:196/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:9/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:II/SECTION:III/ARTICLE:201/PARAGRAPH:9"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.0
+        },
+        {
+          "case_id": "cf-workers",
+          "category": "direct",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:7/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:7/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:7/INCISO:XXIX",
+            "CF88/@root/TITLE:VIII/CHAPTER:II/SECTION:III/ARTICLE:201/PARAGRAPH:12",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:V/ARTICLE:115/PARAGRAPH:1",
+            "CF88/@root/TITLE:VII/CHAPTER:II/ARTICLE:182/CAPUT:@caput",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:V/ARTICLE:114/INCISO:I",
+            "ADCT/@root/ARTICLE:10/PARAGRAPH:3",
+            "CF88/@root/TITLE:IX/ARTICLE:243/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:II/SECTION:II/ARTICLE:196/CAPUT:@caput",
+            "CF88/@root/TITLE:VII/CHAPTER:II/ARTICLE:183/CAPUT:@caput"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "cf-vote",
+          "category": "paraphrase",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/PARAGRAPH:3",
+            "ADCT/@root/ARTICLE:87/PARAGRAPH:ÚNICO",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:66/PARAGRAPH:4",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:V/ARTICLE:53/PARAGRAPH:2",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:76/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:3/INCISO:I",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:I/ARTICLE:93/INCISO:XI",
+            "ADCT/@root/ARTICLE:116/PARAGRAPH:7",
+            "ADCT/@root/ARTICLE:53/INCISO:V"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "cf-administration",
+          "category": "lexical",
+          "expected_provisions": [
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:VI/CHAPTER:II/SECTION:II/ARTICLE:167/INCISO:XIV",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/CAPUT:@caput",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/PARAGRAPH:4",
+            "ADCT/@root/ARTICLE:116/PARAGRAPH:12/INCISO:VI/ALINEA:F",
+            "ADCT/@root/ARTICLE:29/PARAGRAPH:5",
+            "ADCT/@root/ARTICLE:29/PARAGRAPH:2",
+            "CF88/@root/TITLE:IV/CHAPTER:IV/SECTION:I/ARTICLE:127/PARAGRAPH:2",
+            "CF88/@root/TITLE:VII/CHAPTER:I/ARTICLE:175/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:29/PARAGRAPH:3",
+            "ADCT/@root/ARTICLE:17/PARAGRAPH:2"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 0.5
+        },
+        {
+          "case_id": "cf-amendment",
+          "category": "direct",
+          "expected_provisions": [
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:VI/CHAPTER:II/SECTION:II/ARTICLE:167-D/CAPUT:@caput",
+            "CF88/@root/TITLE:VI/CHAPTER:II/SECTION:II/ARTICLE:166/PARAGRAPH:9",
+            "ADCT/@root/ARTICLE:54/PARAGRAPH:3",
+            "ADCT/@root/ARTICLE:39/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:34/CAPUT:@caput",
+            "CF88/@root/TITLE:IX/ARTICLE:246/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:63/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:92-B/PARAGRAPH:6",
+            "ADCT/@root/ARTICLE:4/PARAGRAPH:1",
+            "ADCT/@root/ARTICLE:104/PARAGRAPH:ÚNICO"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.0
+        },
+        {
+          "case_id": "cf-health",
+          "category": "paraphrase",
+          "expected_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:II/SECTION:II/ARTICLE:196/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:II/SECTION:II/ARTICLE:196/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:20/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:205/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:VI/ARTICLE:225/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:6/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:9/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:9/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:77/PARAGRAPH:3",
+            "CF88/@root/TITLE:IX/ARTICLE:243/PARAGRAPH:ÚNICO",
+            "ADCT/@root/ARTICLE:55/CAPUT:@caput"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "cf-education",
+          "category": "direct",
+          "expected_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:205/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:211/PARAGRAPH:4",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:214/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:212-A/CAPUT:@caput",
+            "CF88/@root/TITLE:IX/ARTICLE:242/CAPUT:@caput",
+            "CF88/@root/TITLE:VI/CHAPTER:II/SECTION:II/ARTICLE:167-A/PARAGRAPH:5/INCISO:I",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:205/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:212/PARAGRAPH:3",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:211/PARAGRAPH:7",
+            "CF88/@root/TITLE:VI/CHAPTER:II/SECTION:II/ARTICLE:167-A/INCISO:I",
+            "ADCT/@root/ARTICLE:76/PARAGRAPH:2"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 0.16666666666666666
+        },
+        {
+          "case_id": "cf-education-multi",
+          "category": "multi_provision",
+          "expected_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:205/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:206/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:212-A/INCISO:XV",
+            "CF88/@root/TITLE:VIII/CHAPTER:VI/ARTICLE:225/PARAGRAPH:1/INCISO:VI",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:212-A/PARAGRAPH:2",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:205/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:206/INCISO:V",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:214/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:212/PARAGRAPH:3",
+            "CF88/@root/TITLE:V/CHAPTER:III/ARTICLE:144/PARAGRAPH:10/INCISO:I",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:212-A/INCISO:XIV",
+            "ADCT/@root/ARTICLE:105/PARAGRAPH:1"
+          ],
+          "recall_at_10": 0.5,
+          "reciprocal_rank": 0.25
+        },
+        {
+          "case_id": "cf-environment",
+          "category": "paraphrase",
+          "expected_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:VI/ARTICLE:225/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:VI/ARTICLE:225/CAPUT:@caput",
+            "CF88/@root/TITLE:IX/ARTICLE:243/PARAGRAPH:ÚNICO",
+            "ADCT/@root/ARTICLE:92-B/PARAGRAPH:6",
+            "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:20/INCISO:III",
+            "CF88/@root/TITLE:VII/CHAPTER:I/ARTICLE:170/INCISO:VI",
+            "ADCT/@root/ARTICLE:92-B/PARAGRAPH:2",
+            "ADCT/@root/ARTICLE:8/PARAGRAPH:3",
+            "CF88/@root/TITLE:V/CHAPTER:III/ARTICLE:144/PARAGRAPH:10/INCISO:I",
+            "ADCT/@root/ARTICLE:53/INCISO:II",
+            "ADCT/@root/ARTICLE:81/CAPUT:@caput"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "cf-children",
+          "category": "direct",
+          "expected_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/PARAGRAPH:7",
+            "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/PARAGRAPH:3/INCISO:VII",
+            "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/PARAGRAPH:1",
+            "ADCT/@root/ARTICLE:97/PARAGRAPH:8/INCISO:III",
+            "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/PARAGRAPH:1/INCISO:II",
+            "CF88/@root/TITLE:IX/ARTICLE:242/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:6/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:41/PARAGRAPH:2",
+            "ADCT/@root/ARTICLE:13/PARAGRAPH:6"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "adct-commitment",
+          "category": "adct",
+          "expected_provisions": [
+            "ADCT/@root/ARTICLE:1/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "ADCT/@root/ARTICLE:10/PARAGRAPH:3",
+            "ADCT/@root/ARTICLE:115/PARAGRAPH:2",
+            "ADCT/@root/ARTICLE:4/PARAGRAPH:1",
+            "ADCT/@root/ARTICLE:58/PARAGRAPH:ÚNICO",
+            "ADCT/@root/ARTICLE:34/PARAGRAPH:8",
+            "CF88/@root/TITLE:IX/ARTICLE:246/CAPUT:@caput",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:I/ARTICLE:100/PARAGRAPH:14",
+            "ADCT/@root/ARTICLE:39/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:43/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:54/PARAGRAPH:3"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.0
+        },
+        {
+          "case_id": "adct-plebiscite",
+          "category": "adct",
+          "expected_provisions": [
+            "ADCT/@root/ARTICLE:2/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "ADCT/@root/ARTICLE:2/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:5/PARAGRAPH:1",
+            "ADCT/@root/ARTICLE:13/PARAGRAPH:3",
+            "ADCT/@root/ARTICLE:13/PARAGRAPH:5",
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:12",
+            "ADCT/@root/ARTICLE:5/PARAGRAPH:5-P",
+            "ADCT/@root/ARTICLE:34/PARAGRAPH:12",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:I/ARTICLE:100/PARAGRAPH:5",
+            "CF88/@root/TITLE:VII/CHAPTER:II/ARTICLE:182/PARAGRAPH:4/INCISO:III",
+            "ADCT/@root/ARTICLE:72/INCISO:V"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "adct-president-term",
+          "category": "adct",
+          "expected_provisions": [
+            "ADCT/@root/ARTICLE:4/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "ADCT/@root/ARTICLE:5/PARAGRAPH:5-P",
+            "CF88/@root/TITLE:III/CHAPTER:III/ARTICLE:28/CAPUT:@caput",
+            "CF88/@root/TITLE:III/CHAPTER:III/ARTICLE:27/PARAGRAPH:1",
+            "ADCT/@root/ARTICLE:97/PARAGRAPH:18",
+            "CF88/@root/TITLE:III/CHAPTER:IV/ARTICLE:29/INCISO:II",
+            "ADCT/@root/ARTICLE:4/PARAGRAPH:4",
+            "CF88/@root/TITLE:III/CHAPTER:III/ARTICLE:28/PARAGRAPH:1",
+            "ADCT/@root/ARTICLE:5/PARAGRAPH:3",
+            "ADCT/@root/ARTICLE:29/PARAGRAPH:1",
+            "ADCT/@root/ARTICLE:13/PARAGRAPH:4"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.0
+        },
+        {
+          "case_id": "adct-first-election",
+          "category": "adct",
+          "expected_provisions": [
+            "ADCT/@root/ARTICLE:4/PARAGRAPH:1"
+          ],
+          "ranked_provisions": [
+            "ADCT/@root/ARTICLE:4/PARAGRAPH:1",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/CAPUT:@caput",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:66/PARAGRAPH:7",
+            "CF88/@root/TITLE:VII/CHAPTER:II/ARTICLE:182/PARAGRAPH:4/INCISO:III",
+            "CF88/@root/TITLE:IX/ARTICLE:246/CAPUT:@caput",
+            "CF88/@root/TITLE:VI/CHAPTER:II/SECTION:II/ARTICLE:166/PARAGRAPH:5",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/PARAGRAPH:14",
+            "CF88/@root/TITLE:IX/ARTICLE:239/PARAGRAPH:3",
+            "CF88/@root/TITLE:V/CHAPTER:II/ARTICLE:142/PARAGRAPH:3/INCISO:I",
+            "CF88/@root/TITLE:III/CHAPTER:IV/ARTICLE:29/INCISO:I"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "adct-amnesty",
+          "category": "adct",
+          "expected_provisions": [
+            "ADCT/@root/ARTICLE:9/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "ADCT/@root/ARTICLE:9/CAPUT:@caput",
+            "CF88/@root/TITLE:VII/CHAPTER:III/ARTICLE:187/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:8/PARAGRAPH:2",
+            "ADCT/@root/ARTICLE:81/CAPUT:@caput",
+            "CF88/@root/TITLE:VII/CHAPTER:II/ARTICLE:182/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:43/CAPUT:@caput",
+            "CF88/@root/TITLE:VII/CHAPTER:I/ARTICLE:173/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:84/CAPUT:@caput",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:I/ARTICLE:93/INCISO:X",
+            "ADCT/@root/ARTICLE:85/INCISO:I/ALINEA:C"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "false-anonymity",
+          "category": "false_premise",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IV"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXXIII",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:11-A",
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:9",
+            "ADCT/@root/ARTICLE:79/PARAGRAPH:ÚNICO",
+            "ADCT/@root/ARTICLE:8/PARAGRAPH:5",
+            "CF88/@root/TITLE:VII/CHAPTER:III/ARTICLE:187/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:63/PARAGRAPH:ÚNICO",
+            "ADCT/@root/ARTICLE:115/PARAGRAPH:2",
+            "ADCT/@root/ARTICLE:116/PARAGRAPH:1",
+            "ADCT/@root/ARTICLE:9/CAPUT:@caput"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.0
+        }
+      ]
+    }
+  },
+  "provider": "ollama",
+  "rrf_k": 60,
+  "top_k": 10
+}

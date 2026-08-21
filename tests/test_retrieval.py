@@ -1,6 +1,7 @@
 """Testes unitários do ranking híbrido e provedor de embeddings."""
 
 import uuid
+from dataclasses import replace
 
 import httpx
 import pytest
@@ -9,7 +10,11 @@ from consultor_juridico.retrieval.embeddings import (
     EmbeddingProviderError,
     OllamaEmbeddingProvider,
 )
-from consultor_juridico.retrieval.search import reciprocal_rank_fusion
+from consultor_juridico.retrieval.search import (
+    contextual_caput_rerank,
+    lexical_query_text,
+    reciprocal_rank_fusion,
+)
 from consultor_juridico.retrieval.types import RetrievalCandidate
 
 
@@ -66,3 +71,53 @@ def test_ollama_provider_rejects_incompatible_response(monkeypatch):
     provider = OllamaEmbeddingProvider("http://ollama:11434", "model", 10)
     with pytest.raises(EmbeddingProviderError, match="incompatível"):
         provider.embed(["a"])
+
+
+def test_lexical_query_uses_or_without_injecting_tsquery_syntax():
+    assert lexical_query_text("Quais são os poderes da União?") == (
+        "quais OR são OR poderes OR união"
+    )
+    assert lexical_query_text("art. 5º, igualdade") == "art OR igualdade"
+
+
+def test_contextual_rerank_promotes_caput_from_strong_article_descendant():
+    unrelated = _candidate("100", lexical=1, vector=1)
+    descendant = replace(
+        _candidate("5-desc", lexical=2, vector=2),
+        identity_key="CF88/@root/ARTICLE:5/INCISO:XXIV",
+    )
+    caput = replace(
+        _candidate("5", lexical=21),
+        identity_key="CF88/@root/ARTICLE:5/CAPUT:@caput",
+    )
+    intervening = _candidate("200", lexical=3, vector=3)
+    candidates = tuple(
+        replace(item, rrf_score=0.03 - index / 1000)
+        for index, item in enumerate((unrelated, descendant, intervening, caput))
+    )
+    ranked = contextual_caput_rerank(candidates, limit=4)
+    assert (
+        next(
+            index
+            for index, item in enumerate(ranked)
+            if item.identity_key == caput.identity_key
+        )
+        < 3
+    )
+    assert ranked[1].contextual_score is not None
+
+
+def test_contextual_rerank_does_not_promote_weak_or_unrelated_caput():
+    descendant = replace(
+        _candidate("60-desc", lexical=1, vector=1),
+        identity_key="CF88/@root/ARTICLE:60/PARAGRAPH:1",
+    )
+    weak_caput = replace(
+        _candidate("60", lexical=31),
+        identity_key="CF88/@root/ARTICLE:60/CAPUT:@caput",
+    )
+    candidates = (
+        replace(descendant, rrf_score=0.03),
+        replace(weak_caput, rrf_score=0.01),
+    )
+    assert contextual_caput_rerank(candidates, limit=2)[1].contextual_score == 0.01

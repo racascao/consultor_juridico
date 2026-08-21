@@ -1,6 +1,7 @@
 """Geração estruturada e local via Ollama."""
 
 import json
+from copy import deepcopy
 from typing import Any
 
 import httpx
@@ -12,31 +13,39 @@ from consultor_juridico.models import EvidenceItem
 SYSTEM_PROMPT = """Você é um consultor da Constituição Federal de 1988 e do ADCT.
 Use EXCLUSIVAMENTE as evidências fornecidas. Não use conhecimento externo.
 Cada afirmação factual deve citar ao menos um evidence_id existente.
+Produza somente claims atômicas necessárias para responder à pergunta.
+Não duplique, parafraseie repetidamente nem acrescente detalhes não expressos.
+Ignore evidências que não respondam diretamente à pergunta; a presença de uma
+evidência no contexto não autoriza criar uma claim sobre ela.
+Em perguntas simples, use uma única claim curta e fiel ao texto da evidência.
 Se as evidências não bastarem, responda com abstain=true e claims vazias.
 Responda somente no JSON solicitado, em português, sem markdown."""
 
 RESPONSE_SCHEMA: dict[str, Any] = {
     "type": "object",
     "properties": {
-        "answer": {"type": "string"},
+        "answer": {"type": "string", "maxLength": 1000},
         "abstain": {"type": "boolean"},
         "claims": {
             "type": "array",
+            "maxItems": 4,
             "items": {
                 "type": "object",
                 "properties": {
                     "id": {"type": "string"},
-                    "text": {"type": "string"},
+                    "text": {"type": "string", "maxLength": 500},
                     "evidence_ids": {
                         "type": "array",
                         "items": {"type": "string"},
                     },
                 },
                 "required": ["id", "text", "evidence_ids"],
+                "additionalProperties": False,
             },
         },
     },
     "required": ["answer", "abstain", "claims"],
+    "additionalProperties": False,
 }
 
 
@@ -63,7 +72,7 @@ class OllamaLegalGenerator:
                 json={
                     "model": self.model,
                     "stream": False,
-                    "format": RESPONSE_SCHEMA,
+                    "format": response_schema(evidence_items),
                     "messages": [
                         {"role": "system", "content": SYSTEM_PROMPT},
                         {"role": "user", "content": prompt},
@@ -77,7 +86,18 @@ class OllamaLegalGenerator:
             payload = json.loads(content)
         except (httpx.HTTPError, KeyError, TypeError, ValueError) as exc:
             raise LLMResponseError(f"Resposta inválida do Ollama: {exc}") from exc
+
         return parse_generated_response(payload)
+
+
+def response_schema(evidence_items: tuple[EvidenceItem, ...]) -> dict[str, Any]:
+    """Restringe citações aos códigos realmente autorizados no snapshot."""
+    schema = deepcopy(RESPONSE_SCHEMA)
+    evidence_ids = schema["properties"]["claims"]["items"]["properties"][
+        "evidence_ids"
+    ]["items"]
+    evidence_ids["enum"] = [item.evidence_code for item in evidence_items]
+    return schema
 
 
 def build_evidence_prompt(

@@ -1,0 +1,28 @@
+{
+  "cases": [
+    {
+      "case_id": "cf-powers",
+      "category": "lexical",
+      "citations": 0,
+      "claims": 0,
+      "elapsed_seconds": 127.98573081500217,
+      "expected_answer": true,
+      "outcome": "ABSTAINED",
+      "validation_errors": [
+        "Claim C1: PARTIALLY_SUPPORTED (Claim afirmado é parcialmente sustentado pela evidência, pois afirma que os Poderes da União são independentes e harmônicos, mas não especifica como isso é alcançado.)"
+      ]
+    }
+  ],
+  "dataset_version": "mvp1-v1",
+  "decision_metrics": {
+    "cases": 1,
+    "correct_decision_rate": 0.0,
+    "expected_abstain_abstained": 0,
+    "expected_abstain_responded": 0,
+    "expected_answer_abstained": 1,
+    "expected_answer_responded": 0
+  },
+  "generated_at": "2026-08-16T22:53:09.722695+00:00",
+  "model": "llama3.2",
+  "provider": "ollama"
+}

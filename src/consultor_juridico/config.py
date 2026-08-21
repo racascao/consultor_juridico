@@ -28,6 +28,7 @@ class Settings(BaseSettings):
     # Ollama LLM Runtime
     ollama_base_url: str = Field(default="http://ollama:11434", alias="OLLAMA_BASE_URL")
     ollama_model: str = Field(default="llama3.2", alias="OLLAMA_MODEL")
+    semantic_judge_model: str | None = Field(default=None, alias="SEMANTIC_JUDGE_MODEL")
     embedding_model: str = Field(default="nomic-embed-text", alias="EMBEDDING_MODEL")
     embedding_timeout: float = Field(default=120.0, alias="EMBEDDING_TIMEOUT")
     embedding_batch_size: int = Field(default=32, alias="EMBEDDING_BATCH_SIZE")
@@ -35,6 +36,9 @@ class Settings(BaseSettings):
     consultation_max_tokens: int = Field(default=800, alias="CONSULTATION_MAX_TOKENS")
     consultation_top_k: int = Field(default=8, alias="CONSULTATION_TOP_K")
     consultation_max_attempts: int = Field(default=2, alias="CONSULTATION_MAX_ATTEMPTS")
+    consultation_evidence_limit: int = Field(
+        default=3, alias="CONSULTATION_EVIDENCE_LIMIT"
+    )
 
     # Aquisição documental HTTP
     ingestion_connect_timeout: float = Field(
