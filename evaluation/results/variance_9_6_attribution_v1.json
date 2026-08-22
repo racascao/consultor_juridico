@@ -1,0 +1,1118 @@
+{
+  "diagnostic": "phase_9_5_generator_judge_variance",
+  "created_at": "2026-08-22T21:46:04.487258+00:00",
+  "dataset_version": "real-world-short-v1",
+  "case_ids": [
+    "rw-pena-morte",
+    "rw-prisao-perpetua",
+    "rw-voto-obrigatorio"
+  ],
+  "repetitions": 5,
+  "generator_model": "granite4.1:3b",
+  "semantic_judge_model": "granite4.1:3b",
+  "embedding_model": "nomic-embed-text",
+  "controls": {
+    "temperature": 0,
+    "retrieval_runs_per_case": 1,
+    "evidence_frozen_per_case": true,
+    "retrieval_changed": false,
+    "dataset_changed": false,
+    "thresholds_changed": false,
+    "experiment": "attribution_v1"
+  },
+  "cases": [
+    {
+      "case_id": "rw-pena-morte",
+      "question": "pena de morte",
+      "evidence_snapshot_sha256": "f3b413fd1c0527d2dfc50bee9bdde50cd03524b03a771a5cfdab5e9f6119a5a4",
+      "evidence": [
+        {
+          "evidence_code": "EV001",
+          "citation_label": "CF/88, PARAGRAPH 7 (identidade: CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:7)",
+          "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+          "text_snapshot": "CF/88 | CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:7\nObservado o disposto no § 2º do art. 201, quando se tratar da única fonte de renda formal auferida pelo dependente, o benefício de pensão por morte será concedido nos termos de lei do respectivo ente federativo, a qual tratará de forma diferenciada a hipótese de morte dos servidores de que trata o § 4º-B decorrente de agressão sofrida no exercício ou em razão da função. (Redação dada pela Emenda Constitucional nº 103, de 2019)",
+          "validation_metadata": {
+            "legal_act": "CF/88",
+            "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+            "legal_provision_id": "a50ccdcb-846e-4178-bfd1-f0c2636ac2cb",
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:7",
+            "text_status": "CURRENT",
+            "content_role": "NORMATIVE",
+            "lexical_rank": 1,
+            "lexical_score": 0.20000000298023224,
+            "vector_rank": 3,
+            "vector_score": 0.5735828368166858,
+            "rrf_score": 0.0822664584959667,
+            "contextual_score": 0.0822664584959667,
+            "parent_context": null
+          }
+        },
+        {
+          "evidence_code": "EV002",
+          "citation_label": "CF/88, INCISO XLV (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLV)",
+          "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+          "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLV\nnenhuma pena passará da pessoa do condenado, podendo a obrigação de reparar o dano e a decretação do perdimento de bens ser, nos termos da lei, estendidas aos sucessores e contra eles executadas, até o limite do valor do patrimônio transferido;",
+          "validation_metadata": {
+            "legal_act": "CF/88",
+            "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+            "legal_provision_id": "1027c38b-04d9-49d2-96fb-e1e61caeb50a",
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLV",
+            "text_status": "CURRENT",
+            "content_role": "NORMATIVE",
+            "lexical_rank": 6,
+            "lexical_score": 0.10000000149011612,
+            "vector_rank": 53,
+            "vector_score": 0.543346112173367,
+            "rrf_score": 0.061501072673639044,
+            "contextual_score": 0.061501072673639044,
+            "parent_context": "Art. 5º"
+          }
+        },
+        {
+          "evidence_code": "EV003",
+          "citation_label": "CF/88, INCISO XXXIII (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIII)",
+          "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+          "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIII\ntodos têm direito a receber dos órgãos públicos informações de seu interesse particular, ou de interesse coletivo ou geral, que serão prestadas no prazo da lei, sob pena de responsabilidade, ressalvadas aquelas cujo sigilo seja imprescindível à segurança da sociedade e do Estado;",
+          "validation_metadata": {
+            "legal_act": "CF/88",
+            "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+            "legal_provision_id": "9bc54c3f-6078-447e-b6e7-675498882ae2",
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIII",
+            "text_status": "CURRENT",
+            "content_role": "NORMATIVE",
+            "lexical_rank": 3,
+            "lexical_score": 0.10000000149011612,
+            "vector_rank": null,
+            "vector_score": null,
+            "rrf_score": 0.06087301587301587,
+            "contextual_score": 0.06087301587301587,
+            "parent_context": "Art. 5º"
+          }
+        },
+        {
+          "evidence_code": "EV004",
+          "citation_label": "CF/88, INCISO XXXIX (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIX)",
+          "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+          "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIX\nnão há crime sem lei anterior que o defina, nem pena sem prévia cominação legal;",
+          "validation_metadata": {
+            "legal_act": "CF/88",
+            "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+            "legal_provision_id": "b42ec62e-e9f0-4eb0-b094-677f80e07109",
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIX",
+            "text_status": "CURRENT",
+            "content_role": "NORMATIVE",
+            "lexical_rank": 4,
+            "lexical_score": 0.10000000149011612,
+            "vector_rank": null,
+            "vector_score": null,
+            "rrf_score": 0.058125,
+            "contextual_score": 0.058125,
+            "parent_context": "Art. 5º"
+          }
+        },
+        {
+          "evidence_code": "EV005",
+          "citation_label": "CF/88, INCISO XLII (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII)",
+          "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+          "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII\na prática do racismo constitui crime inafiançável e imprescritível, sujeito à pena de reclusão, nos termos da lei;",
+          "validation_metadata": {
+            "legal_act": "CF/88",
+            "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+            "legal_provision_id": "496a6b3f-20e2-46fc-8a92-3380a87a88d8",
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII",
+            "text_status": "CURRENT",
+            "content_role": "NORMATIVE",
+            "lexical_rank": 5,
+            "lexical_score": 0.10000000149011612,
+            "vector_rank": null,
+            "vector_score": null,
+            "rrf_score": 0.055384615384615386,
+            "contextual_score": 0.055384615384615386,
+            "parent_context": "Art. 5º"
+          }
+        },
+        {
+          "evidence_code": "EV006",
+          "citation_label": "CF/88, INCISO XLVI (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI)",
+          "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+          "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI\na lei regulará a individualização da pena e adotará, entre outras, as seguintes:",
+          "validation_metadata": {
+            "legal_act": "CF/88",
+            "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+            "legal_provision_id": "9c80b264-9bf7-4741-8fc8-b7b07c912184",
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI",
+            "text_status": "CURRENT",
+            "content_role": "NORMATIVE",
+            "lexical_rank": 7,
+            "lexical_score": 0.10000000149011612,
+            "vector_rank": null,
+            "vector_score": null,
+            "rrf_score": 0.04992537313432836,
+            "contextual_score": 0.04992537313432836,
+            "parent_context": "Art. 5º"
+          }
+        },
+        {
+          "evidence_code": "EV007",
+          "citation_label": "CF/88, ALINEA a (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A)",
+          "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+          "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A\nde morte, salvo em caso de guerra declarada, nos termos do art. 84, XIX;",
+          "validation_metadata": {
+            "legal_act": "CF/88",
+            "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+            "legal_provision_id": "84b12b71-0371-4e65-aea5-2a789765ffdf",
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A",
+            "text_status": "CURRENT",
+            "content_role": "NORMATIVE",
+            "lexical_rank": 9,
+            "lexical_score": 0.10000000149011612,
+            "vector_rank": 181,
+            "vector_score": 0.5297316138816662,
+            "rrf_score": 0.04864213121654941,
+            "contextual_score": 0.04864213121654941,
+            "parent_context": "não haverá penas:"
+          }
+        },
+        {
+          "evidence_code": "EV008",
+          "citation_label": "ADCT, INCISO III (identidade: ADCT/@root/ARTICLE:53/INCISO:III)",
+          "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+          "text_snapshot": "ADCT | ADCT/@root/ARTICLE:53/INCISO:III\nem caso de morte, pensão à viúva ou companheira ou dependente, de forma proporcional, de valor igual à do inciso anterior;",
+          "validation_metadata": {
+            "legal_act": "ADCT",
+            "legal_version_id": "102aa27f-b1e8-40d8-ae98-ed12606aab45",
+            "legal_provision_id": "5055dcf0-671a-4bdc-851c-5e18c6f0539f",
+            "identity_key": "ADCT/@root/ARTICLE:53/INCISO:III",
+            "text_status": "CURRENT",
+            "content_role": "NORMATIVE",
+            "lexical_rank": 13,
+            "lexical_score": 0.10000000149011612,
+            "vector_rank": 17,
+            "vector_score": 0.5584862011766639,
+            "rrf_score": 0.04668564312399929,
+            "contextual_score": 0.04668564312399929,
+            "parent_context": "Art. 53."
+          }
+        }
+      ],
+      "generator_variance": {
+        "runs": [
+          {
+            "elapsed_seconds": 24.37185125299999,
+            "raw_http_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-22T21:45:02.305054031Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 24366486389,
+              "load_duration": 3127198410,
+              "prompt_eval_count": 1233,
+              "prompt_eval_duration": 18514973000,
+              "eval_count": 26,
+              "eval_duration": 2717310000
+            },
+            "raw_content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}",
+            "payload": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "parsed": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "signature": "ABSTAINED"
+          },
+          {
+            "elapsed_seconds": 2.8883002139999974,
+            "raw_http_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-22T21:45:05.193993384Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 2879552797,
+              "load_duration": 78590346,
+              "prompt_eval_count": 1233,
+              "prompt_eval_duration": 108384000,
+              "eval_count": 26,
+              "eval_duration": 2684942000
+            },
+            "raw_content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}",
+            "payload": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "parsed": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "signature": "ABSTAINED"
+          },
+          {
+            "elapsed_seconds": 2.9256808319999834,
+            "raw_http_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-22T21:45:08.1200455Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 2921734769,
+              "load_duration": 74056712,
+              "prompt_eval_count": 1233,
+              "prompt_eval_duration": 105410000,
+              "eval_count": 26,
+              "eval_duration": 2735719000
+            },
+            "raw_content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}",
+            "payload": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "parsed": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "signature": "ABSTAINED"
+          },
+          {
+            "elapsed_seconds": 2.912545875999996,
+            "raw_http_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-22T21:45:11.03229337Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 2907251848,
+              "load_duration": 79619668,
+              "prompt_eval_count": 1233,
+              "prompt_eval_duration": 105762000,
+              "eval_count": 26,
+              "eval_duration": 2715107000
+            },
+            "raw_content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}",
+            "payload": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "parsed": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "signature": "ABSTAINED"
+          },
+          {
+            "elapsed_seconds": 2.9235752889999844,
+            "raw_http_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-22T21:45:13.95563783Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 2919106405,
+              "load_duration": 78528416,
+              "prompt_eval_count": 1233,
+              "prompt_eval_duration": 99752000,
+              "eval_count": 26,
+              "eval_duration": 2732753000
+            },
+            "raw_content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}",
+            "payload": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "parsed": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "signature": "ABSTAINED"
+          }
+        ],
+        "distribution": {
+          "ABSTAINED": 5
+        },
+        "unique_claim_citation_signatures": 1,
+        "pairwise_flip_rate": 0.0
+      },
+      "judge_variance": {
+        "canonical_response": null,
+        "runs": [],
+        "distribution": {},
+        "pairwise_flip_rate": 0.0
+      },
+      "combined_variance": {
+        "runs": [
+          {
+            "generator_signature": "ABSTAINED",
+            "judge": null,
+            "outcome": "ABSTAINED_BY_GENERATOR"
+          },
+          {
+            "generator_signature": "ABSTAINED",
+            "judge": null,
+            "outcome": "ABSTAINED_BY_GENERATOR"
+          },
+          {
+            "generator_signature": "ABSTAINED",
+            "judge": null,
+            "outcome": "ABSTAINED_BY_GENERATOR"
+          },
+          {
+            "generator_signature": "ABSTAINED",
+            "judge": null,
+            "outcome": "ABSTAINED_BY_GENERATOR"
+          },
+          {
+            "generator_signature": "ABSTAINED",
+            "judge": null,
+            "outcome": "ABSTAINED_BY_GENERATOR"
+          }
+        ],
+        "distribution": {
+          "ABSTAINED_BY_GENERATOR": 5
+        },
+        "pairwise_flip_rate": 0.0
+      }
+    },
+    {
+      "case_id": "rw-prisao-perpetua",
+      "question": "prisão perpétua",
+      "evidence_snapshot_sha256": "de051a3b99e92ce566951a939ac5b7d3bc3e284cc3cc9e9260dea22799388946",
+      "evidence": [
+        {
+          "evidence_code": "EV001",
+          "citation_label": "CF/88, INCISO LXII (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXII)",
+          "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+          "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXII\na prisão de qualquer pessoa e o local onde se encontre serão comunicados imediatamente ao juiz competente e à família do preso ou à pessoa por ele indicada;",
+          "validation_metadata": {
+            "legal_act": "CF/88",
+            "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+            "legal_provision_id": "d311a2ab-c25e-49d8-a221-304fcb3190a1",
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXII",
+            "text_status": "CURRENT",
+            "content_role": "NORMATIVE",
+            "lexical_rank": 2,
+            "lexical_score": 0.10000000149011612,
+            "vector_rank": 53,
+            "vector_score": 0.5972379330113395,
+            "rrf_score": 0.07247858978018841,
+            "contextual_score": 0.07247858978018841,
+            "parent_context": "Art. 5º"
+          }
+        },
+        {
+          "evidence_code": "EV002",
+          "citation_label": "CF/88, ALINEA b (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B)",
+          "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+          "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B\nde caráter perpétuo;",
+          "validation_metadata": {
+            "legal_act": "CF/88",
+            "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+            "legal_provision_id": "37643249-d227-4714-a72e-4d82a05e628e",
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B",
+            "text_status": "CURRENT",
+            "content_role": "NORMATIVE",
+            "lexical_rank": 1,
+            "lexical_score": 0.10000000149011612,
+            "vector_rank": null,
+            "vector_score": null,
+            "rrf_score": 0.06639344262295083,
+            "contextual_score": 0.06639344262295083,
+            "parent_context": "não haverá penas:"
+          }
+        },
+        {
+          "evidence_code": "EV003",
+          "citation_label": "CF/88, INCISO LXV (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXV)",
+          "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+          "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXV\na prisão ilegal será imediatamente relaxada pela autoridade judiciária;",
+          "validation_metadata": {
+            "legal_act": "CF/88",
+            "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+            "legal_provision_id": "498183be-7f61-43a9-ac9d-0be1fcd6f668",
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXV",
+            "text_status": "CURRENT",
+            "content_role": "NORMATIVE",
+            "lexical_rank": 4,
+            "lexical_score": 0.10000000149011612,
+            "vector_rank": 121,
+            "vector_score": 0.5909112678351226,
+            "rrf_score": 0.06364986187845303,
+            "contextual_score": 0.06364986187845303,
+            "parent_context": "Art. 5º"
+          }
+        },
+        {
+          "evidence_code": "EV004",
+          "citation_label": "CF/88, INCISO LXVII (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVII)",
+          "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+          "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVII\nnão haverá prisão civil por dívida, salvo a do responsável pelo inadimplemento voluntário e inescusável de obrigação alimentícia e a do depositário infiel;",
+          "validation_metadata": {
+            "legal_act": "CF/88",
+            "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+            "legal_provision_id": "ba5d6546-0e32-42ad-b0ae-9b4195f30990",
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVII",
+            "text_status": "CURRENT",
+            "content_role": "NORMATIVE",
+            "lexical_rank": 6,
+            "lexical_score": 0.10000000149011612,
+            "vector_rank": 31,
+            "vector_score": 0.6012567640100077,
+            "rrf_score": 0.06364052614052615,
+            "contextual_score": 0.06364052614052615,
+            "parent_context": "Art. 5º"
+          }
+        },
+        {
+          "evidence_code": "EV005",
+          "citation_label": "CF/88, INCISO LXIV (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXIV)",
+          "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+          "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXIV\no preso tem direito à identificação dos responsáveis por sua prisão ou por seu interrogatório policial;",
+          "validation_metadata": {
+            "legal_act": "CF/88",
+            "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+            "legal_provision_id": "d2ae88ff-4f14-459f-897c-2f79505bab46",
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXIV",
+            "text_status": "CURRENT",
+            "content_role": "NORMATIVE",
+            "lexical_rank": 3,
+            "lexical_score": 0.10000000149011612,
+            "vector_rank": null,
+            "vector_score": null,
+            "rrf_score": 0.06087301587301587,
+            "contextual_score": 0.06087301587301587,
+            "parent_context": "Art. 5º"
+          }
+        },
+        {
+          "evidence_code": "EV006",
+          "citation_label": "CF/88, PARAGRAPH 2 (identidade: CF88/@root/TITLE:IV/CHAPTER:I/SECTION:V/ARTICLE:53/PARAGRAPH:2)",
+          "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+          "text_snapshot": "CF/88 | CF88/@root/TITLE:IV/CHAPTER:I/SECTION:V/ARTICLE:53/PARAGRAPH:2\nDesde a expedição do diploma, os membros do Congresso Nacional não poderão ser presos, salvo em flagrante de crime inafiançável. Nesse caso, os autos serão remetidos dentro de vinte e quatro horas à Casa respectiva, para que, pelo voto da maioria de seus membros, resolva sobre a prisão.",
+          "validation_metadata": {
+            "legal_act": "CF/88",
+            "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+            "legal_provision_id": "eaf11d18-becc-47f3-86ec-371d8571aa71",
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:V/ARTICLE:53/PARAGRAPH:2",
+            "text_status": "CURRENT",
+            "content_role": "NORMATIVE",
+            "lexical_rank": 7,
+            "lexical_score": 0.10000000149011612,
+            "vector_rank": 50,
+            "vector_score": 0.5982503890991381,
+            "rrf_score": 0.05901628222523745,
+            "contextual_score": 0.05901628222523745,
+            "parent_context": null
+          }
+        },
+        {
+          "evidence_code": "EV007",
+          "citation_label": "CF/88, INCISO LXVI (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI)",
+          "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+          "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI\nninguém será levado à prisão ou nela mantido, quando a lei admitir a liberdade provisória, com ou sem fiança;",
+          "validation_metadata": {
+            "legal_act": "CF/88",
+            "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+            "legal_provision_id": "8559a2b2-0a25-459e-a032-08227081b1b4",
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI",
+            "text_status": "CURRENT",
+            "content_role": "NORMATIVE",
+            "lexical_rank": 5,
+            "lexical_score": 0.10000000149011612,
+            "vector_rank": null,
+            "vector_score": null,
+            "rrf_score": 0.055384615384615386,
+            "contextual_score": 0.055384615384615386,
+            "parent_context": "Art. 5º"
+          }
+        },
+        {
+          "evidence_code": "EV008",
+          "citation_label": "CF/88, INCISO I (identidade: CF88/@root/TITLE:V/CHAPTER:I/SECTION:I/ARTICLE:136/PARAGRAPH:3/INCISO:I)",
+          "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+          "text_snapshot": "CF/88 | CF88/@root/TITLE:V/CHAPTER:I/SECTION:I/ARTICLE:136/PARAGRAPH:3/INCISO:I\na prisão por crime contra o Estado, determinada pelo executor da medida, será por este comunicada imediatamente ao juiz competente, que a relaxará, se não for legal, facultado ao preso requerer exame de corpo de delito à autoridade policial;",
+          "validation_metadata": {
+            "legal_act": "CF/88",
+            "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+            "legal_provision_id": "3ff77195-bc37-4686-a664-ab14ad13e2eb",
+            "identity_key": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:I/ARTICLE:136/PARAGRAPH:3/INCISO:I",
+            "text_status": "CURRENT",
+            "content_role": "NORMATIVE",
+            "lexical_rank": 9,
+            "lexical_score": 0.10000000149011612,
+            "vector_rank": 101,
+            "vector_score": 0.5926197060800328,
+            "rrf_score": 0.050703933747412014,
+            "contextual_score": 0.050703933747412014,
+            "parent_context": "Na vigência do estado de defesa:"
+          }
+        },
+        {
+          "evidence_code": "EV009",
+          "citation_label": "CF/88, PARAGRAPH 3 (identidade: CF88/@root/TITLE:IV/CHAPTER:II/SECTION:III/ARTICLE:86/PARAGRAPH:3)",
+          "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+          "text_snapshot": "CF/88 | CF88/@root/TITLE:IV/CHAPTER:II/SECTION:III/ARTICLE:86/PARAGRAPH:3\nEnquanto não sobrevier sentença condenatória, nas infrações comuns, o Presidente da República não estará sujeito a prisão.",
+          "validation_metadata": {
+            "legal_act": "CF/88",
+            "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+            "legal_provision_id": "b8575344-e6d2-48c6-a16c-2425cc22a20e",
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:III/ARTICLE:86/PARAGRAPH:3",
+            "text_status": "CURRENT",
+            "content_role": "NORMATIVE",
+            "lexical_rank": 8,
+            "lexical_score": 0.10000000149011612,
+            "vector_rank": null,
+            "vector_score": null,
+            "rrf_score": 0.04720588235294118,
+            "contextual_score": 0.04720588235294118,
+            "parent_context": null
+          }
+        },
+        {
+          "evidence_code": "EV010",
+          "citation_label": "CF/88, INCISO III (identidade: CF88/@root/TITLE:V/CHAPTER:I/SECTION:I/ARTICLE:136/PARAGRAPH:3/INCISO:III)",
+          "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+          "text_snapshot": "CF/88 | CF88/@root/TITLE:V/CHAPTER:I/SECTION:I/ARTICLE:136/PARAGRAPH:3/INCISO:III\na prisão ou detenção de qualquer pessoa não poderá ser superior a dez dias, salvo quando autorizada pelo Poder Judiciário;",
+          "validation_metadata": {
+            "legal_act": "CF/88",
+            "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+            "legal_provision_id": "e43fd844-6852-472c-938d-f8bf3d70ad33",
+            "identity_key": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:I/ARTICLE:136/PARAGRAPH:3/INCISO:III",
+            "text_status": "CURRENT",
+            "content_role": "NORMATIVE",
+            "lexical_rank": 10,
+            "lexical_score": 0.10000000149011612,
+            "vector_rank": null,
+            "vector_score": null,
+            "rrf_score": 0.04178571428571429,
+            "contextual_score": 0.04178571428571429,
+            "parent_context": "Na vigência do estado de defesa:"
+          }
+        }
+      ],
+      "generator_variance": {
+        "runs": [
+          {
+            "elapsed_seconds": 19.078424211999987,
+            "raw_http_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-22T21:45:33.238235105Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 19073186375,
+              "load_duration": 69620277,
+              "prompt_eval_count": 1356,
+              "prompt_eval_duration": 16189700000,
+              "eval_count": 26,
+              "eval_duration": 2742943000
+            },
+            "raw_content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}",
+            "payload": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "parsed": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "signature": "ABSTAINED"
+          },
+          {
+            "elapsed_seconds": 2.968963916999968,
+            "raw_http_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-22T21:45:36.207321738Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 2958276387,
+              "load_duration": 84322431,
+              "prompt_eval_count": 1356,
+              "prompt_eval_duration": 106561000,
+              "eval_count": 26,
+              "eval_duration": 2754378000
+            },
+            "raw_content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}",
+            "payload": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "parsed": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "signature": "ABSTAINED"
+          },
+          {
+            "elapsed_seconds": 2.970220247000043,
+            "raw_http_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-22T21:45:39.177960528Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 2960719229,
+              "load_duration": 77419504,
+              "prompt_eval_count": 1356,
+              "prompt_eval_duration": 107463000,
+              "eval_count": 26,
+              "eval_duration": 2766333000
+            },
+            "raw_content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}",
+            "payload": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "parsed": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "signature": "ABSTAINED"
+          },
+          {
+            "elapsed_seconds": 2.9806401410000376,
+            "raw_http_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-22T21:45:42.159496837Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 2971520143,
+              "load_duration": 81998190,
+              "prompt_eval_count": 1356,
+              "prompt_eval_duration": 101331000,
+              "eval_count": 26,
+              "eval_duration": 2776146000
+            },
+            "raw_content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}",
+            "payload": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "parsed": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "signature": "ABSTAINED"
+          },
+          {
+            "elapsed_seconds": 2.9798352220000197,
+            "raw_http_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-22T21:45:45.139028503Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 2976003885,
+              "load_duration": 81582290,
+              "prompt_eval_count": 1356,
+              "prompt_eval_duration": 106189000,
+              "eval_count": 26,
+              "eval_duration": 2779253000
+            },
+            "raw_content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}",
+            "payload": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "parsed": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "signature": "ABSTAINED"
+          }
+        ],
+        "distribution": {
+          "ABSTAINED": 5
+        },
+        "unique_claim_citation_signatures": 1,
+        "pairwise_flip_rate": 0.0
+      },
+      "judge_variance": {
+        "canonical_response": null,
+        "runs": [],
+        "distribution": {},
+        "pairwise_flip_rate": 0.0
+      },
+      "combined_variance": {
+        "runs": [
+          {
+            "generator_signature": "ABSTAINED",
+            "judge": null,
+            "outcome": "ABSTAINED_BY_GENERATOR"
+          },
+          {
+            "generator_signature": "ABSTAINED",
+            "judge": null,
+            "outcome": "ABSTAINED_BY_GENERATOR"
+          },
+          {
+            "generator_signature": "ABSTAINED",
+            "judge": null,
+            "outcome": "ABSTAINED_BY_GENERATOR"
+          },
+          {
+            "generator_signature": "ABSTAINED",
+            "judge": null,
+            "outcome": "ABSTAINED_BY_GENERATOR"
+          },
+          {
+            "generator_signature": "ABSTAINED",
+            "judge": null,
+            "outcome": "ABSTAINED_BY_GENERATOR"
+          }
+        ],
+        "distribution": {
+          "ABSTAINED_BY_GENERATOR": 5
+        },
+        "pairwise_flip_rate": 0.0
+      }
+    },
+    {
+      "case_id": "rw-voto-obrigatorio",
+      "question": "voto obrigatório",
+      "evidence_snapshot_sha256": "9131d72102c9fde0793a0ea622201eaa60e935a4f11e6b98ba488bb93a7eaee4",
+      "evidence": [
+        {
+          "evidence_code": "EV001",
+          "citation_label": "CF/88, INCISO VII (identidade: CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:8/INCISO:VII)",
+          "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+          "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:8/INCISO:VII\no aposentado filiado tem direito a votar e ser votado nas organizações sindicais;",
+          "validation_metadata": {
+            "legal_act": "CF/88",
+            "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+            "legal_provision_id": "0ca938f5-adf2-4b8f-9443-13eb64fea2f3",
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:8/INCISO:VII",
+            "text_status": "CURRENT",
+            "content_role": "NORMATIVE",
+            "lexical_rank": 1,
+            "lexical_score": 0.20000000298023224,
+            "vector_rank": 12,
+            "vector_score": 0.6384694170495924,
+            "rrf_score": 0.08028233151183971,
+            "contextual_score": 0.08028233151183971,
+            "parent_context": "Art. 8º"
+          }
+        },
+        {
+          "evidence_code": "EV002",
+          "citation_label": "ADCT, CAPUT (identidade: ADCT/@root/ARTICLE:3/CAPUT:@caput)",
+          "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+          "text_snapshot": "ADCT | ADCT/@root/ARTICLE:3/CAPUT:@caput\n. A revisão constitucional será realizada após cinco anos, contados da promulgação da Constituição, pelo voto da maioria absoluta dos membros do Congresso Nacional, em sessão unicameral.",
+          "validation_metadata": {
+            "legal_act": "ADCT",
+            "legal_version_id": "102aa27f-b1e8-40d8-ae98-ed12606aab45",
+            "legal_provision_id": "0b5606ae-7c0b-488d-ac30-c8c13163a7a7",
+            "identity_key": "ADCT/@root/ARTICLE:3/CAPUT:@caput",
+            "text_status": "CURRENT",
+            "content_role": "NORMATIVE",
+            "lexical_rank": 5,
+            "lexical_score": 0.10000000149011612,
+            "vector_rank": null,
+            "vector_score": null,
+            "rrf_score": 0.055384615384615386,
+            "contextual_score": 0.055384615384615386,
+            "parent_context": null
+          }
+        },
+        {
+          "evidence_code": "EV003",
+          "citation_label": "CF/88, CAPUT (identidade: CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput)",
+          "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+          "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput\nA soberania popular será exercida pelo sufrágio universal e pelo voto direto e secreto, com valor igual para todos, e, nos termos da lei, mediante:",
+          "validation_metadata": {
+            "legal_act": "CF/88",
+            "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+            "legal_provision_id": "ea4bbcfa-cf10-4033-9fda-8666fa383647",
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput",
+            "text_status": "CURRENT",
+            "content_role": "NORMATIVE",
+            "lexical_rank": 10,
+            "lexical_score": 0.10000000149011612,
+            "vector_rank": 75,
+            "vector_score": 0.6159417352815305,
+            "rrf_score": 0.0491931216931217,
+            "contextual_score": 0.0491931216931217,
+            "parent_context": null
+          }
+        },
+        {
+          "evidence_code": "EV004",
+          "citation_label": "CF/88, INCISO I (identidade: CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I)",
+          "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+          "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I\nobrigatórios para os maiores de dezoito anos;",
+          "validation_metadata": {
+            "legal_act": "CF/88",
+            "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+            "legal_provision_id": "99a39bb3-1969-4acf-8acd-fbd35fe45737",
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I",
+            "text_status": "CURRENT",
+            "content_role": "NORMATIVE",
+            "lexical_rank": 12,
+            "lexical_score": 0.10000000149011612,
+            "vector_rank": 20,
+            "vector_score": 0.6349948266151753,
+            "rrf_score": 0.048888888888888885,
+            "contextual_score": 0.048888888888888885,
+            "parent_context": "O alistamento eleitoral e o voto são:"
+          }
+        }
+      ],
+      "generator_variance": {
+        "runs": [
+          {
+            "elapsed_seconds": 8.407267335000029,
+            "raw_http_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-22T21:45:53.684400249Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 8403164807,
+              "load_duration": 83967424,
+              "prompt_eval_count": 684,
+              "prompt_eval_duration": 5690101000,
+              "eval_count": 26,
+              "eval_duration": 2556229000
+            },
+            "raw_content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}",
+            "payload": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "parsed": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "signature": "ABSTAINED"
+          },
+          {
+            "elapsed_seconds": 2.7154716289999783,
+            "raw_http_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-22T21:45:56.39955745Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 2711405584,
+              "load_duration": 88429801,
+              "prompt_eval_count": 684,
+              "prompt_eval_duration": 94779000,
+              "eval_count": 26,
+              "eval_duration": 2523299000
+            },
+            "raw_content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}",
+            "payload": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "parsed": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "signature": "ABSTAINED"
+          },
+          {
+            "elapsed_seconds": 2.7110727589999897,
+            "raw_http_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-22T21:45:59.110787662Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 2702441011,
+              "load_duration": 82626653,
+              "prompt_eval_count": 684,
+              "prompt_eval_duration": 99505000,
+              "eval_count": 26,
+              "eval_duration": 2515148000
+            },
+            "raw_content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}",
+            "payload": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "parsed": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "signature": "ABSTAINED"
+          },
+          {
+            "elapsed_seconds": 2.6932132690000117,
+            "raw_http_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-22T21:46:01.80407412Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 2684995788,
+              "load_duration": 75548898,
+              "prompt_eval_count": 684,
+              "prompt_eval_duration": 100348000,
+              "eval_count": 26,
+              "eval_duration": 2501754000
+            },
+            "raw_content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}",
+            "payload": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "parsed": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "signature": "ABSTAINED"
+          },
+          {
+            "elapsed_seconds": 2.682088184999998,
+            "raw_http_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-22T21:46:04.486588074Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 2676219735,
+              "load_duration": 78844964,
+              "prompt_eval_count": 684,
+              "prompt_eval_duration": 99580000,
+              "eval_count": 26,
+              "eval_duration": 2492713000
+            },
+            "raw_content": "{\n  \"answer\": \"abstain=true\",\n  \"abstain\": true,\n  \"claims\": []\n}",
+            "payload": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "parsed": {
+              "answer": "abstain=true",
+              "abstain": true,
+              "claims": []
+            },
+            "signature": "ABSTAINED"
+          }
+        ],
+        "distribution": {
+          "ABSTAINED": 5
+        },
+        "unique_claim_citation_signatures": 1,
+        "pairwise_flip_rate": 0.0
+      },
+      "judge_variance": {
+        "canonical_response": null,
+        "runs": [],
+        "distribution": {},
+        "pairwise_flip_rate": 0.0
+      },
+      "combined_variance": {
+        "runs": [
+          {
+            "generator_signature": "ABSTAINED",
+            "judge": null,
+            "outcome": "ABSTAINED_BY_GENERATOR"
+          },
+          {
+            "generator_signature": "ABSTAINED",
+            "judge": null,
+            "outcome": "ABSTAINED_BY_GENERATOR"
+          },
+          {
+            "generator_signature": "ABSTAINED",
+            "judge": null,
+            "outcome": "ABSTAINED_BY_GENERATOR"
+          },
+          {
+            "generator_signature": "ABSTAINED",
+            "judge": null,
+            "outcome": "ABSTAINED_BY_GENERATOR"
+          },
+          {
+            "generator_signature": "ABSTAINED",
+            "judge": null,
+            "outcome": "ABSTAINED_BY_GENERATOR"
+          }
+        ],
+        "distribution": {
+          "ABSTAINED_BY_GENERATOR": 5
+        },
+        "pairwise_flip_rate": 0.0
+      }
+    }
+  ],
+  "elapsed_seconds": 87.39119935
+}

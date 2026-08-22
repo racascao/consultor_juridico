@@ -120,7 +120,11 @@ def test_check_readiness_detects_models_and_index(monkeypatch):
     response = MagicMock()
     response.status_code = 200
     response.json.return_value = {
-        "models": [{"name": "llama3.2:latest"}, {"name": "nomic-embed-text:latest"}]
+        "models": [
+            {"name": "llama3.2:latest"},
+            {"name": "granite4.1:3b"},
+            {"name": "nomic-embed-text:latest"},
+        ]
     }
     monkeypatch.setattr(
         "consultor_juridico.cli.interactive.readiness.httpx.get",
@@ -655,7 +659,11 @@ def test_check_readiness_handles_session_exception(monkeypatch):
     response = MagicMock()
     response.status_code = 200
     response.json.return_value = {
-        "models": [{"name": "llama3.2:latest"}, {"name": "nomic-embed-text:latest"}]
+        "models": [
+            {"name": "llama3.2:latest"},
+            {"name": "granite4.1:3b"},
+            {"name": "nomic-embed-text:latest"},
+        ]
     }
     monkeypatch.setattr(
         "consultor_juridico.cli.interactive.readiness.httpx.get",

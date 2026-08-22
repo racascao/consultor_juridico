@@ -89,10 +89,16 @@ A interface do MVP é **CLI-first**. Não há frontend nem API HTTP nesta etapa.
 
 A infraestrutura documental, estrutural, de retrieval e consulta fundamentada
 está implementada. A Fase 7.2 elevou o Hybrid Hit@10 a 0,905 e preservou zero
-respostas inseguras nos nove casos de abstenção. O gate continua
-**`MVP1_QUALITY_BLOCKED`** porque o `llama3.2` ainda produziu três false
-abstentions em uma amostra adicional de três perguntas diretas. A validação
-semântica permanece fail-closed; o resultado não implica segurança absoluta.
+respostas inseguras nos nove casos de abstenção, mas permaneceu
+`MVP1_QUALITY_BLOCKED` por três false abstentions do `llama3.2` como
+gerador e juiz.
+
+A Fase 7.3 fechou o gate por **benchmark de modelos locais**: troca isolada
+do juiz semântico para **`granite4.1:3b`** (gerador permanece `llama3.2`)
+elevou o recall SUPPORTED de 0,750 → 1,000, manteve `unsafe acceptance = 0` e
+resolveu a amostra de regressão de 0/3 → **3/3 respondidas** sem respostas
+inseguras. O gate é agora **`MVP1_QUALITY_APPROVED`**. Detalhes em
+`docs/60-fase-7-3-quality-gate-final.md` (e `docs/61-fase-7-3` se renumerado).
 
 A Fase 8 concluiu a **CLI interativa**: `consultor-juridico` sem argumentos
 abre menu Rich em TTY (consulta, pesquisa, estado, diagnóstico, sobre, sair),
@@ -100,6 +106,25 @@ exibe `help` em non-TTY, trata `Ctrl+C`/`EOF` sem traceback e oferece aliases
 `constituicao` para `ingest` e `parse`. O container padrão agora usa
 `CMD ["consultor-juridico"]` sem `ENTRYPOINT` fixo, permitindo
 `docker compose run --rm app bash`.
+
+A Fase 9 criou o dataset `real-world-short-v1` (11 consultas curtas: pena de
+morte, prisão perpétua, liberdade religiosa, racismo, extradição, direito à
+vida, liberdade de expressão, idade para ser presidente, voto obrigatório,
+estado de sítio, aborto). Hybrid Hit@10 foi de 0,700 → **0,800** (Hit@1 0,300,
+MRR 0,405) com correção geral em `search.py:34-105` (phrase boost + boost
+lexical para queries ≤3 tokens), sem hardcode por caso e sem regressão em
+`mvp1-v1` (0,905).
+
+A Fase 9.1 mediu o pipeline completo no `real-world-short-v1` com
+`llama3.2` + `granite4.1:3b`:
+`correct_answers 2/10`, `correct_abstentions 1/1` (aborto),
+`false_abstentions 8`, `unsafe 0`, `retrieval_hit 0,800`. Gate
+`REAL_WORLD_RELEASE_BLOCKED` (requer ≥9/10), mas `MVP1_QUALITY_APPROVED`
+permanece (0,905, unsafe 0). Diagnóstico aponta gargalo em
+**evidence selection/sufficiency** (4) > retrieval (2) > generator (2).
+Logging hardening: `engine.echo=False` por padrão, `--verbose/-v` habilita SQL.
+Detalhes em `docs/61-fase-9-hardening-retrieval.md` e
+`docs/62-fase-9-1-gate-real-world.md`.
 
 ### Corpus materializado
 
@@ -143,10 +168,12 @@ A Fase 5 implementou:
 
 A avaliação `mvp1-v1` (30 casos) mede 21 perguntas respondíveis e nove de
 abstenção. Na Fase 7.2, Hybrid Hit@10 = 0,905, MRR = 0,627 e Recall@10 = 0,881.
-Os nove casos fora/insuficientes foram recusados sem resposta insegura. A
-seleção usa em média 2,67 EvidenceItems, sem duplicação por provision. Os
-resultados e limitações estão em
-[`docs/58-fase-7-2-fechamento-gate-mvp1.md`](docs/58-fase-7-2-fechamento-gate-mvp1.md).
+Na Fase 7.3, o juiz `granite4.1:3b` manteve Hit@10 = 0,905, elevou recall
+SUPPORTED a 1,000 e respondeu 3/3 da amostra de regressão. Os nove casos
+fora/insuficientes seguem recusados sem resposta insegura. A seleção usa em
+média 2,67 EvidenceItems, sem duplicação por provision. Resultados em
+[`docs/58-fase-7-2-fechamento-gate-mvp1.md`](docs/58-fase-7-2-fechamento-gate-mvp1.md)
+e [`docs/60-fase-7-3-quality-gate-final.md`](docs/60-fase-7-3-quality-gate-final.md).
 - `ollama/nomic-embed-text/latest`;
 - 768 dimensões;
 - busca vetorial por distância de cosseno;
@@ -464,11 +491,11 @@ Citations
 
 O desenho pode ser entendido como uma sequência de filtros. A pergunta começa ampla, o sistema localiza trechos relevantes da legislação, congela as evidências utilizadas, entrega apenas essas evidências ao modelo local, transforma a saída em afirmações verificáveis e valida se cada afirmação está realmente sustentada.
 
-O gerador local é configurado por `OLLAMA_MODEL`. O juiz semântico pode usar
-`SEMANTIC_JUDGE_MODEL`; quando a variável não é definida, utiliza o mesmo
-modelo do gerador. No ambiente avaliado ambos usam `llama3.2`, pois nenhum
-Granite estava instalado. Erro técnico, contrato inválido, suporte parcial ou
-ausente resultam em abstenção.
+O gerador local é configurado por `OLLAMA_MODEL` (`llama3.2` por padrão).
+O juiz semântico usa `SEMANTIC_JUDGE_MODEL` — na configuração validada da
+Fase 7.3, `granite4.1:3b`; quando a variável não é definida, utiliza o mesmo
+modelo do gerador. Erro técnico, contrato inválido, suporte parcial ou
+ausente resultam em abstenção (fail-closed).
 
 ---
 
@@ -1717,23 +1744,24 @@ O roadmap público é deliberadamente compacto. O histórico detalhado das decis
   - abstenção por evidência insuficiente
   - CLI `consult`
 
-## Em andamento / próximo
+## Concluído
 
-- [~] **Fase 7 — Avaliação e hardening — `MVP1_QUALITY_BLOCKED`**
+- [x] **Fase 7 — Avaliação e Quality Gate — `MVP1_QUALITY_APPROVED`**
   - [x] 7.0 — baseline e diagnóstico
   - [x] 7.1 — correção de segurança e rodada de retrieval
   - [x] 7.2 — retrieval final e validação semântica comparativa
-  - [x] dataset versionado com 30 casos
-  - [x] métricas lexical, vector e hybrid
+  - [x] 7.3 — fechamento generativo/semântico com benchmark de modelos
+  - [x] dataset versionado com 30 casos (mvp1-v1) + 20 casos semantic-support-v1
+  - [x] métricas lexical, vector e hybrid (Hybrid Hit@10 = 0,905, MRR 0,627)
   - [x] testes determinísticos de Citation Validation
-  - [x] amostra de grounding e abstenção
+  - [x] amostra de grounding e abstenção (3/3 respondidas, 0 unsafe)
   - [x] zero respostas indevidas nos nove casos de abstenção
   - [x] zero claims inseguras entregues nos testes adversariais
   - [x] Hybrid Hit@10 >= 0,90 (atual: 0,905)
-  - [ ] false abstention generativo/semântico em nível aceitável
-  - [ ] benchmark CPU-only confiável
-  - ambiente Docker limpo
-  - critérios finais de aceite
+  - [x] false abstention resolvido via juiz `granite4.1:3b` (recall 1,000, unsafe 0)
+  - [x] benchmark CPU-only: Semantic Judge ~11s média, Consultation ~45s (B)
+  - [x] ambiente Docker limpo (PostgreSQL healthy, Ollama healthy, Alembic 005)
+  - [x] critérios finais de aceite — **MVP1 QUALITY APPROVED**
 
 ## Concluído
 
@@ -1745,6 +1773,40 @@ O roadmap público é deliberadamente compacto. O histórico detalhado das decis
   - aliases `ingest constituicao` e `parse constituicao`
   - Dockerfile `CMD ["consultor-juridico"]` sem `ENTRYPOINT` fixo
   - 33 testes unitários em `tests/test_interactive.py`
+
+- [x] **Fase 9 — Hardening Real-World**
+  - diagnóstico pena de morte (split inciso/alínea), 10 queries curtas
+  - dataset `real-world-short-v1` (11 casos, 10 respondíveis)
+  - Hit@10 0,700→0,800 (phrase boost + lexical boost ≤3 tokens, sem hardcode)
+  - `mvp1-v1` 0,905 preservado
+
+- [~] **Fase 9.1 — Gate End-to-End Real-World — `REAL_WORLD_RELEASE_BLOCKED`**
+  - pipeline completo 11 casos: 2/10 correct_answers, 1/1 aborto, 0 unsafe, hit 0,800
+  - matriz: RETRIEVAL_MISS 2, SELECTION_MISS 4, SUFFICIENCY 3, GENERATOR 2
+  - logging hardening: `engine.echo=False`, `--verbose` habilita SQL
+  - `eval real-world` + `real_world_short_e2e_9_1.json`
+
+- [x] **Fase 9.2 — Evidence Selection + Sufficiency — `EVIDENCE_PIPELINE_GATE: APPROVED`**
+  - 4/4 alvo (pena, prisão, liberdade expressão, voto) passam sel+suff (antes 0/4)
+  - selection: normalize acentos + prefixo 6, limite 10 para ≤3 tokens
+  - sufficiency: thresholds 0,15/0,60 para ≤3 tokens (aborto permanece INSUFFICIENT)
+  - `mvp1` 0,905, `aborto` 1/1, 9/9 históricos 1,000, unsafe 0
+  - `REAL_WORLD_RELEASE_BLOCKED` persiste (2 retrieval + 4 generator)
+
+- [x] **Fase 9.3 — Generator Hardening — `GENERATOR_GATE: APPROVED`**
+  - prompt v2: evidências pré-selecionadas, paráfrase/síntese permitidas, abstain só sem combinação
+  - `llama3.2` 2/10 → `granite4.1:3b` **8/10** (pena, prisão, liberdade religiosa, direito vida, liberdade expressão, voto, extradição, racismo)
+  - `GENERATOR_GATE` 4/4 alvo corrigidos (≥75%), `aborto` 1/1, unsafe 0, `mvp1` 0.905
+  - `REAL_WORLD_RELEASE_BLOCKED` persiste (2 retrieval: idade, estado)
+  - `granite4.1:3b` adotado como gerador + juiz
+
+- [x] **Fase 9.6 — Evidence Attribution — `EVIDENCE_ATTRIBUTION_GATE: BLOCKED`**
+  - diagnóstico repetido 5× em pena, prisão perpétua e voto obrigatório
+  - evidências congeladas, respostas brutas do gerador e juiz preservadas
+  - dois experimentos de prompt controlados; nenhum adotado em produção
+  - attribution agregada 9/15 (60%); voto obrigatório 0/5
+  - retrieval, dataset, thresholds, embeddings e semantic judge inalterados
+  - detalhes em `docs/67-fase-9-6-evidence-attribution.md`
 
 ## Pós-MVP 1
 
@@ -1810,7 +1872,7 @@ A organização pode evoluir à medida que Evidence/Citation e geração forem i
 | HTML | BeautifulSoup + `html.parser` |
 | Parser auxiliar | lxml |
 | Embeddings | Ollama + `nomic-embed-text` |
-| Geração local | Ollama + `llama3.2` |
+| Geração local | Ollama + `llama3.2` (geração) + `granite4.1:3b` (juiz semântico) |
 | Testes | pytest |
 | Lint/format | Ruff |
 | Containers | Docker Compose |
@@ -1835,7 +1897,12 @@ Pontos de entrada recomendados:
 - [`docs/54-fase-6-evidence-citation.md`](docs/54-fase-6-evidence-citation.md) — Evidence, geração local e Citation Validation;
 - [`docs/55-arquitetura-consulta-rastreabilidade.md`](docs/55-arquitetura-consulta-rastreabilidade.md) — explicação detalhada do pipeline de consulta e cadeia de custódia;
 - [`docs/58-fase-7-2-fechamento-gate-mvp1.md`](docs/58-fase-7-2-fechamento-gate-mvp1.md) — fechamento do gate 7.2;
-- [`docs/59-fase-8-cli-interativa.md`](docs/59-fase-8-cli-interativa.md) — CLI interativa, readiness e bootstrap.
+- [`docs/60-fase-7-3-quality-gate-final.md`](docs/60-fase-7-3-quality-gate-final.md) — benchmark Granite vs Llama e aprovação do quality gate;
+- [`docs/59-fase-8-cli-interativa.md`](docs/59-fase-8-cli-interativa.md) — CLI interativa, readiness e bootstrap;
+- [`docs/61-fase-9-hardening-retrieval.md`](docs/61-fase-9-hardening-retrieval.md) — diagnóstico pena de morte e hardening real-world;
+- [`docs/62-fase-9-1-gate-real-world.md`](docs/62-fase-9-1-gate-real-world.md) — gate end-to-end real-world, logging hardening;
+- [`docs/63-fase-9-2-evidence-pipeline-hardening.md`](docs/63-fase-9-2-evidence-pipeline-hardening.md) — selection/sufficiency hardening, 4/4 alvo;
+- [`docs/64-fase-9-3-generator-hardening.md`](docs/64-fase-9-3-generator-hardening.md) — generator hardening, 2→8/10 com granite.
 
 ---
 

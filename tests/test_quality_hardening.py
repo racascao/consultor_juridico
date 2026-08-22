@@ -45,8 +45,12 @@ def _candidate(
     )
 
 
-def _evidence(code: str, text: str):
-    return SimpleNamespace(evidence_code=code, text_snapshot=text)
+def _evidence(code: str, text: str, *, parent_context: str | None = None):
+    return SimpleNamespace(
+        evidence_code=code,
+        text_snapshot=text,
+        validation_metadata={"parent_context": parent_context},
+    )
 
 
 def _semantic_value(status: str, evidence_code: str = "EV001"):
@@ -131,6 +135,25 @@ def test_semantic_prompt_contains_only_claim_and_its_evidence():
     assert "CLAIM C1" in prompt
     assert "EV001" in prompt
     assert "PERGUNTA" not in prompt
+
+
+def test_semantic_prompt_preserves_structural_parent_context():
+    response = GeneratedResponse(
+        "",
+        (GeneratedClaim("C1", "Não haverá pena perpétua.", ("EV001",)),),
+    )
+    prompt = build_semantic_support_prompt(
+        response,
+        (
+            _evidence(
+                "EV001",
+                "de caráter perpétuo;",
+                parent_context="não haverá penas:",
+            ),
+        ),
+    )
+    assert "[EV001] de caráter perpétuo;" in prompt
+    assert "Contexto estrutural: não haverá penas:" in prompt
 
 
 def test_semantic_validator_accepts_supported_claim():

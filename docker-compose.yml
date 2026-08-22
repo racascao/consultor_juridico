@@ -46,8 +46,8 @@ services:
       - POSTGRES_PORT=5432
       - DATABASE_URL=postgresql+psycopg://consultor:consultor_pass@db:5432/consultor_juridico
       - OLLAMA_BASE_URL=http://ollama:11434
-      - OLLAMA_MODEL=llama3.2
-      - SEMANTIC_JUDGE_MODEL=
+      - OLLAMA_MODEL=granite4.1:3b
+      - SEMANTIC_JUDGE_MODEL=granite4.1:3b
       - EMBEDDING_MODEL=nomic-embed-text
       - EMBEDDING_TIMEOUT=120
       - EMBEDDING_BATCH_SIZE=32

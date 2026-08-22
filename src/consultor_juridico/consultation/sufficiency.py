@@ -26,8 +26,8 @@ def assess_evidence_sufficiency(
     question: str,
     candidates: tuple[RetrievalCandidate, ...],
     *,
-    min_vector_score: float = 0.64,
-    min_lexical_score: float = 0.3,
+    min_vector_score: float = 0.60,
+    min_lexical_score: float = 0.15,
 ) -> SufficiencyReport:
     """Combina escopo explícito e força observável do retrieval."""
     lexical = max((item.lexical_score or 0.0 for item in candidates), default=0.0)

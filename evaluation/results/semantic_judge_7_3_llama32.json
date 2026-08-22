@@ -1,0 +1,217 @@
+{
+  "accuracy": 0.7,
+  "cases": 20,
+  "dataset_version": "semantic-support-v1",
+  "false_abstention_potential": 2,
+  "generated_at": "2026-08-21T20:49:28.486207+00:00",
+  "invalid_contracts": 0,
+  "latency_mean_seconds": 8.77546223724985,
+  "latency_p50_seconds": 8.249933557998702,
+  "latency_p95_observed_seconds": 13.486854877000951,
+  "model": "llama3.2",
+  "results": [
+    {
+      "actual": "PARTIALLY_SUPPORTED",
+      "case_id": "literal-powers",
+      "category": "literal",
+      "correct": false,
+      "expected": "SUPPORTED",
+      "latency_seconds": 16.740910726999573,
+      "reason": "A evidência afirma que os Poderes da União são independentes e harmônicos, o que inclui o Legislativo, o Executivo e o Judiciário.",
+      "technical_error": null
+    },
+    {
+      "actual": "SUPPORTED",
+      "case_id": "paraphrase-powers",
+      "category": "paraphrase",
+      "correct": true,
+      "expected": "SUPPORTED",
+      "latency_seconds": 9.097990559001119,
+      "reason": "A evidência EV001 afirma que os Poderes da União são independentes e harmônicos, o que é integralmente afirmado na claim C1.",
+      "technical_error": null
+    },
+    {
+      "actual": "SUPPORTED",
+      "case_id": "literal-health",
+      "category": "literal",
+      "correct": true,
+      "expected": "SUPPORTED",
+      "latency_seconds": 7.145402755999385,
+      "reason": "A afirmação é fielmente parafraseada pela evidência",
+      "technical_error": null
+    },
+    {
+      "actual": "PARTIALLY_SUPPORTED",
+      "case_id": "paraphrase-expression",
+      "category": "paraphrase",
+      "correct": false,
+      "expected": "SUPPORTED",
+      "latency_seconds": 9.182354103999387,
+      "reason": "A evidência [EV001] afirma que a manifestação do pensamento é livre, mas o anonimato é vedado, o que é materialmente sustentado pela claim.",
+      "technical_error": null
+    },
+    {
+      "actual": "SUPPORTED",
+      "case_id": "simple-inference",
+      "category": "direct_inference",
+      "correct": true,
+      "expected": "SUPPORTED",
+      "latency_seconds": 10.291670576998513,
+      "reason": "A afirmação material 'O Estado tem o dever constitucional de garantir a saúde' está sustentada pela evidência 'A saúde é direito de todos e dever do Estado, garantido mediante políticas sociais e econômicas.'",
+      "technical_error": null
+    },
+    {
+      "actual": "SUPPORTED",
+      "case_id": "multi-evidence",
+      "category": "multi_evidence",
+      "correct": true,
+      "expected": "SUPPORTED",
+      "latency_seconds": 13.486854877000951,
+      "reason": "A afirmação 'A educação é direito de todos e o ensino deve observar igualdade de acesso' está integralmente sustentada pela evidência [EV001] e parcialmente sustentada pela evidência [EV002] que afirma o ensino será ministrado com base no princípio de igualdade de condições para o acesso e permanência na escola.",
+      "technical_error": null
+    },
+    {
+      "actual": "SUPPORTED",
+      "case_id": "equivalent-quantifier",
+      "category": "paraphrase",
+      "correct": true,
+      "expected": "SUPPORTED",
+      "latency_seconds": 9.361277541000163,
+      "reason": "A afirmação material 'Todos são iguais perante a lei' está integralmente afirmada pela evidência 'Todos são iguais perante a lei, sem distinção de qualquer natureza'.",
+      "technical_error": null
+    },
+    {
+      "actual": "SUPPORTED",
+      "case_id": "faithful-environment",
+      "category": "paraphrase",
+      "correct": true,
+      "expected": "SUPPORTED",
+      "latency_seconds": 7.061570900999868,
+      "reason": "A evidência cita a mesma afirmação material da claim",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "broader-health",
+      "category": "broader_claim",
+      "correct": false,
+      "expected": "PARTIALLY_SUPPORTED",
+      "latency_seconds": 8.599066978998962,
+      "reason": "A claim acrescenta uma afirmação material não sustentada: 'toda assistência médica privada' não está sustentada pela evidência.",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "extra-detail-vote",
+      "category": "invented_detail",
+      "correct": false,
+      "expected": "PARTIALLY_SUPPORTED",
+      "latency_seconds": 7.968549269000505,
+      "reason": "A claim adiciona 'obrigatoriamente eletrônico' que não está sustentado pela evidência.",
+      "technical_error": null
+    },
+    {
+      "actual": "PARTIALLY_SUPPORTED",
+      "case_id": "partial-education",
+      "category": "broader_claim",
+      "correct": true,
+      "expected": "PARTIALLY_SUPPORTED",
+      "latency_seconds": 8.054441132000647,
+      "reason": "A afirmação 'deve ser oferecida exclusivamente pelo Estado' não está sustentada pela evidência.",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "partial-expression",
+      "category": "absolute_quantifier",
+      "correct": false,
+      "expected": "PARTIALLY_SUPPORTED",
+      "latency_seconds": 8.300337110998953,
+      "reason": "A claim acrescenta uma restrição constitucional (anonimato) que não está sustentada pela evidência.",
+      "technical_error": null
+    },
+    {
+      "actual": "PARTIALLY_SUPPORTED",
+      "case_id": "partial-environment",
+      "category": "absolute_quantifier",
+      "correct": true,
+      "expected": "PARTIALLY_SUPPORTED",
+      "latency_seconds": 8.445388000000094,
+      "reason": "A afirmação 'nenhuma atividade econômica pode afetá-lo' não está sustentada pela evidência",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "partial-two-facts",
+      "category": "invented_detail",
+      "correct": false,
+      "expected": "PARTIALLY_SUPPORTED",
+      "latency_seconds": 7.696270387001277,
+      "reason": "Contradiz a afirmação de que o Legislativo é Poder da União",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "unrelated-python",
+      "category": "unrelated",
+      "correct": true,
+      "expected": "UNSUPPORTED",
+      "latency_seconds": 8.428734310999062,
+      "reason": "Evidência aponta para igualdade de todos perante a lei, que é um princípio fundamental que permite a ordenação de listas.",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "unrelated-football",
+      "category": "unrelated",
+      "correct": true,
+      "expected": "UNSUPPORTED",
+      "latency_seconds": 7.475850969000021,
+      "reason": "A evidência EV001 não relaciona-se à seleção venceu a Copa do Mundo.",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "contradiction-health",
+      "category": "contradiction",
+      "correct": true,
+      "expected": "UNSUPPORTED",
+      "latency_seconds": 6.343746687000021,
+      "reason": "Contradiz a evidência",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "contradiction-expression",
+      "category": "contradiction",
+      "correct": true,
+      "expected": "UNSUPPORTED",
+      "latency_seconds": 6.362237654000637,
+      "reason": "Contradiz a claim",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "plausible-absent",
+      "category": "plausible_absent",
+      "correct": true,
+      "expected": "UNSUPPORTED",
+      "latency_seconds": 8.19953000499845,
+      "reason": "A evidência apenas menciona direitos dos trabalhadores, mas não especifica o prazo para verbas rescisórias.",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "absolute-criticism",
+      "category": "contradiction",
+      "correct": true,
+      "expected": "UNSUPPORTED",
+      "latency_seconds": 7.267060198999388,
+      "reason": "A evidência não sustenta a afirmação de que toda crítica política é crime.",
+      "technical_error": null
+    }
+  ],
+  "supported_precision": 1.0,
+  "supported_recall": 0.75,
+  "unsafe_acceptance": 0
+}

@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "case_id": "cf-equality",
+      "category": "direct",
+      "citations": 1,
+      "claims": 1,
+      "elapsed_seconds": 29.837860625000758,
+      "expected_answer": true,
+      "outcome": "ANSWERED",
+      "validation_errors": []
+    },
+    {
+      "case_id": "cf-objectives",
+      "category": "direct",
+      "citations": 1,
+      "claims": 1,
+      "elapsed_seconds": 41.5059862220005,
+      "expected_answer": true,
+      "outcome": "ANSWERED",
+      "validation_errors": []
+    },
+    {
+      "case_id": "cf-principles-international",
+      "category": "direct",
+      "citations": 3,
+      "claims": 1,
+      "elapsed_seconds": 61.932845860999805,
+      "expected_answer": true,
+      "outcome": "ANSWERED",
+      "validation_errors": []
+    }
+  ],
+  "dataset_version": "mvp1-v1",
+  "decision_metrics": {
+    "cases": 3,
+    "correct_decision_rate": 1.0,
+    "expected_abstain_abstained": 0,
+    "expected_abstain_responded": 0,
+    "expected_answer_abstained": 0,
+    "expected_answer_responded": 3
+  },
+  "generated_at": "2026-08-21T20:57:54.946593+00:00",
+  "model": "llama3.2",
+  "provider": "ollama"
+}

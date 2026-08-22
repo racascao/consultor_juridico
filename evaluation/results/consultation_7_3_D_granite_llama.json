@@ -1,0 +1,52 @@
+{
+  "cases": [
+    {
+      "case_id": "cf-equality",
+      "category": "direct",
+      "citations": 0,
+      "claims": 0,
+      "elapsed_seconds": 76.11952674499844,
+      "expected_answer": true,
+      "outcome": "ABSTAINED",
+      "validation_errors": [
+        "Claim C1: PARTIALLY_SUPPORTED (Claim sustentada pela evidência)",
+        "Claim C2: PARTIALLY_SUPPORTED (Claim sustentada pela evidência)"
+      ]
+    },
+    {
+      "case_id": "cf-objectives",
+      "category": "direct",
+      "citations": 0,
+      "claims": 0,
+      "elapsed_seconds": 75.46734701999958,
+      "expected_answer": true,
+      "outcome": "ABSTAINED",
+      "validation_errors": [
+        "Claim C1: PARTIALLY_SUPPORTED (A evidência cita os objetivos fundamentais da República, mas não explicita todos os objetivos.)",
+        "Claim C2: UNSUPPORTED (A evidência não cita explicitamente todos os objetivos fundamentais da República, apenas os mencionados na Constituição.)"
+      ]
+    },
+    {
+      "case_id": "cf-principles-international",
+      "category": "direct",
+      "citations": 2,
+      "claims": 2,
+      "elapsed_seconds": 44.34919010699741,
+      "expected_answer": true,
+      "outcome": "ANSWERED",
+      "validation_errors": []
+    }
+  ],
+  "dataset_version": "mvp1-v1",
+  "decision_metrics": {
+    "cases": 3,
+    "correct_decision_rate": 0.3333333333333333,
+    "expected_abstain_abstained": 0,
+    "expected_abstain_responded": 0,
+    "expected_answer_abstained": 2,
+    "expected_answer_responded": 1
+  },
+  "generated_at": "2026-08-21T21:04:12.324626+00:00",
+  "model": "granite4.1:3b",
+  "provider": "ollama"
+}

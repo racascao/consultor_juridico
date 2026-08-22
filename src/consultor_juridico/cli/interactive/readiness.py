@@ -27,6 +27,7 @@ class SystemReadiness:
     source_ready: bool
     parsing_ready: bool
     index_ready: bool
+    semantic_judge_model_ready: bool = True
 
     @property
     def is_ready(self) -> bool:
@@ -36,6 +37,7 @@ class SystemReadiness:
             and self.ollama_connected
             and self.llm_model_ready
             and self.embedding_model_ready
+            and self.semantic_judge_model_ready
             and self.source_ready
             and self.parsing_ready
             and self.index_ready
@@ -93,6 +95,17 @@ def check_readiness() -> SystemReadiness:
             m == emb_name or m.split(":")[0] == emb_name.split(":")[0]
             for m in ollama_models
         )
+        # Verifica juiz semântico quando configurado de forma independente
+        judge_name = settings.semantic_judge_model
+        if judge_name and judge_name != llm_name:
+            semantic_judge_model_ready = any(
+                m == judge_name or m.split(":")[0] == judge_name.split(":")[0]
+                for m in ollama_models
+            )
+        else:
+            semantic_judge_model_ready = llm_model_ready
+    else:
+        semantic_judge_model_ready = False
 
     # 3. Dados (Ingestão, Parsing, Indexação)
     source_ready = False
@@ -162,4 +175,5 @@ def check_readiness() -> SystemReadiness:
         source_ready=source_ready,
         parsing_ready=parsing_ready,
         index_ready=index_ready,
+        semantic_judge_model_ready=semantic_judge_model_ready,
     )

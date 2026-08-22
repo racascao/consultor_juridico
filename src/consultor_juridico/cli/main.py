@@ -614,9 +614,81 @@ def eval_all_command(
     )
 
 
+@eval_app.command(name="real-world")
+def eval_real_world_command(
+    dataset: Annotated[Path, typer.Option(exists=True)] = Path(
+        "evaluation/datasets/real_world_short_v1.json"
+    ),
+    output: Annotated[
+        Path | None, typer.Option(help="Relatório JSON opcional.")
+    ] = None,
+    model: str | None = typer.Option(
+        None, help="Modelo gerador (default OLLAMA_MODEL)"
+    ),
+    semantic_judge_model: str | None = typer.Option(
+        None, help="Modelo juiz (default SEMANTIC_JUDGE_MODEL)"
+    ),
+    case_limit: int | None = typer.Option(None, min=1, help="Limita número de casos"),
+) -> None:
+    """Avaliação end-to-end para dataset real-world-short."""
+    from consultor_juridico.evaluation.real_world import evaluate_real_world
+
+    version, cases = load_dataset(dataset)
+    if case_limit is not None:
+        cases = cases[:case_limit]
+    provider = _embedding_provider()
+    gen_model = model or settings.ollama_model
+    judge_model = semantic_judge_model or settings.semantic_judge_model or gen_model
+    generator = OllamaLegalGenerator(
+        settings.ollama_base_url,
+        gen_model,
+        settings.consultation_timeout,
+        settings.consultation_max_tokens,
+    )
+    validator = OllamaSemanticSupportValidator(
+        settings.ollama_base_url, judge_model, settings.consultation_timeout
+    )
+    payload = evaluate_real_world(
+        cases, provider, generator, validator, gen_model, settings.embedding_model
+    )
+    payload.update(
+        {
+            "generated_at": datetime.now(UTC).isoformat(),
+            "dataset_version": version,
+            "generator_model": gen_model,
+            "semantic_judge_model": judge_model,
+            "embedding_model": settings.embedding_model,
+            "embedding_dimensions": 768,
+        }
+    )
+    # Gate
+    total_resp = payload["cases"] - sum(1 for c in cases if not c.expect_answer)
+    correct = payload["correct_answers"]
+    unsafe = payload["unsafe_answers"]
+    correct_abst = payload["correct_abstentions"]
+    # Aborto is the only expect_answer false in real_world (1 case)
+    console.print(
+        f"real-world: correct_answers={correct}/{total_resp} "
+        f"correct_abstentions={correct_abst} unsafe={unsafe} "
+        f"retrieval_hit={payload['retrieval_hit_rate']:.3f}"
+    )
+    if output:
+        write_json_report(output, payload)
+        console.print(f"Relatório: {output}")
+
+
 @app.callback(invoke_without_command=True)
-def main_callback(ctx: typer.Context) -> None:
+def main_callback(
+    ctx: typer.Context,
+    verbose: Annotated[
+        bool, typer.Option("--verbose", "-v", help="Exibe logs SQL e payloads técnicos")
+    ] = False,
+) -> None:
     """Entrypoint principal do Consultor Jurídico."""
+    if verbose:
+        from consultor_juridico.db.session import set_verbose
+
+        set_verbose(True)
     if ctx.invoked_subcommand is None:
         import sys
 

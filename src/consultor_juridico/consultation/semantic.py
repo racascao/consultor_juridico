@@ -137,7 +137,12 @@ def build_semantic_support_prompt(
         for code in claim.evidence_codes:
             item = evidence.get(code)
             if item is not None:
-                cited.append(f"[{code}] {item.text_snapshot}")
+                metadata = getattr(item, "validation_metadata", None) or {}
+                parent_context = metadata.get("parent_context")
+                context = (
+                    f"\nContexto estrutural: {parent_context}" if parent_context else ""
+                )
+                cited.append(f"[{code}] {item.text_snapshot}{context}")
         blocks.append(
             f"CLAIM {claim.claim_code}: {claim.text}\nEVIDÊNCIAS CITADAS:\n"
             + "\n".join(cited)

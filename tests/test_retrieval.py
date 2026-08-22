@@ -75,9 +75,15 @@ def test_ollama_provider_rejects_incompatible_response(monkeypatch):
 
 def test_lexical_query_uses_or_without_injecting_tsquery_syntax():
     assert lexical_query_text("Quais são os poderes da União?") == (
-        "quais OR são OR poderes OR união"
+        "são OR poderes OR união"
     )
     assert lexical_query_text("art. 5º, igualdade") == "art OR igualdade"
+
+
+def test_lexical_query_filters_interrogative_stopwords_for_short_queries():
+    # Interrogativos adicionam ruído lexical sem contribuir para ranking
+    assert "quais" not in lexical_query_text("Quais direitos sociais existem?")
+    assert lexical_query_text("idade presidente") == "idade OR presidente"
 
 
 def test_contextual_rerank_promotes_caput_from_strong_article_descendant():

@@ -1,0 +1,217 @@
+{
+  "accuracy": 0.8,
+  "cases": 20,
+  "dataset_version": "semantic-support-v1",
+  "false_abstention_potential": 0,
+  "generated_at": "2026-08-22T02:50:48.687988+00:00",
+  "invalid_contracts": 0,
+  "latency_mean_seconds": 10.564616139799728,
+  "latency_p50_seconds": 10.11525664400142,
+  "latency_p95_observed_seconds": 12.631831687998783,
+  "model": "granite4.1:3b",
+  "results": [
+    {
+      "actual": "SUPPORTED",
+      "case_id": "literal-powers",
+      "category": "literal",
+      "correct": true,
+      "expected": "SUPPORTED",
+      "latency_seconds": 19.7957283609976,
+      "reason": "A evidência EV001 afirma que os Poderes da União são independentes e harmônicos entre si, especificamente mencionando o Legislativo, o Executivo e o Judiciário, o que diretamente sustenta a claim C1.",
+      "technical_error": null
+    },
+    {
+      "actual": "SUPPORTED",
+      "case_id": "paraphrase-powers",
+      "category": "paraphrase",
+      "correct": true,
+      "expected": "SUPPORTED",
+      "latency_seconds": 9.997397666000325,
+      "reason": "A evidência citada afirma diretamente que o Legislativo, o Executivo e o Judiciário são poderes independentes e harmônicos da União, sustentando completamente a claim C1.",
+      "technical_error": null
+    },
+    {
+      "actual": "SUPPORTED",
+      "case_id": "literal-health",
+      "category": "literal",
+      "correct": true,
+      "expected": "SUPPORTED",
+      "latency_seconds": 8.73263148100159,
+      "reason": "A evidência EV001 afirma diretamente que 'A saúde é direito de todos e dever do Estado.', o que integra completamente a afirmação da claim C1.",
+      "technical_error": null
+    },
+    {
+      "actual": "SUPPORTED",
+      "case_id": "paraphrase-expression",
+      "category": "paraphrase",
+      "correct": true,
+      "expected": "SUPPORTED",
+      "latency_seconds": 9.104210290999617,
+      "reason": "A evidência citada afirma que a manifestação do pensamento é livre e que o anonimato é vedado, o que integralmente apoia a afirmação da claim C1.",
+      "technical_error": null
+    },
+    {
+      "actual": "SUPPORTED",
+      "case_id": "simple-inference",
+      "category": "direct_inference",
+      "correct": true,
+      "expected": "SUPPORTED",
+      "latency_seconds": 10.609831862002466,
+      "reason": "A evidência EV001 afirma que a saúde é um direito de todos e um dever do Estado, garantido mediante políticas sociais e econômicas, o que integralmente apoia a afirmação de que o Estado tem o dever constitucional de garantir a saúde.",
+      "technical_error": null
+    },
+    {
+      "actual": "SUPPORTED",
+      "case_id": "multi-evidence",
+      "category": "multi_evidence",
+      "correct": true,
+      "expected": "SUPPORTED",
+      "latency_seconds": 10.828851017999114,
+      "reason": "Ambas as evidências citadas afirmam que a educação é um direito de todos e que o ensino deve ser realizado de forma a garantir acesso igualitário e condições iguais para todos os alunos.",
+      "technical_error": null
+    },
+    {
+      "actual": "SUPPORTED",
+      "case_id": "equivalent-quantifier",
+      "category": "paraphrase",
+      "correct": true,
+      "expected": "SUPPORTED",
+      "latency_seconds": 9.240858599998319,
+      "reason": "A evidência citada afirma diretamente que 'Todos são iguais perante a lei, sem distinção de qualquer natureza.', o que sustenta completamente a afirmação material da claim C1.",
+      "technical_error": null
+    },
+    {
+      "actual": "SUPPORTED",
+      "case_id": "faithful-environment",
+      "category": "paraphrase",
+      "correct": true,
+      "expected": "SUPPORTED",
+      "latency_seconds": 9.171878347999154,
+      "reason": "A evidência citada afirma diretamente que 'Todos têm direito ao meio ambiente ecologicamente equilibrado', o que é uma afirmação integral e sustentada pela claim.",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "broader-health",
+      "category": "broader_claim",
+      "correct": false,
+      "expected": "PARTIALLY_SUPPORTED",
+      "latency_seconds": 11.135692959000153,
+      "reason": "A evidência afirma que a saúde é um direito de todos e dever do Estado, mas não menciona o custo ou a natureza gratuita da assistência médica privada. Portanto, contradiz a afirmação de que a saúde e toda assistência médica privada são gratuitas para todos.",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "extra-detail-vote",
+      "category": "invented_detail",
+      "correct": false,
+      "expected": "PARTIALLY_SUPPORTED",
+      "latency_seconds": 10.230230559001939,
+      "reason": "A evidência fornecida afirma que o voto é direto e secreto com sufrágio universal, mas não menciona que o voto é obrigatoriamente eletrônico. Portanto, a claim completa é contradita pela evidência.",
+      "technical_error": null
+    },
+    {
+      "actual": "PARTIALLY_SUPPORTED",
+      "case_id": "partial-education",
+      "category": "broader_claim",
+      "correct": true,
+      "expected": "PARTIALLY_SUPPORTED",
+      "latency_seconds": 10.444461279999814,
+      "reason": "A evidência afirma que a educação é um direito de todos e um dever do Estado e da família, o que sustenta parcialmente a afirmação de que a educação deve ser oferecida pelo Estado, mas não necessariamente exclusivamente pelo Estado.",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "partial-expression",
+      "category": "absolute_quantifier",
+      "correct": false,
+      "expected": "PARTIALLY_SUPPORTED",
+      "latency_seconds": 12.631831687998783,
+      "reason": "A evidência menciona que a manifestação é livre, mas também afirma que o anonimato é vedado, o que implica restrições. Além disso, não há evidência de que a manifestação não pode sofrer restrições constitucionais, contradizendo a afirmação de que é completamente livre e não sujeita a qualquer restrição constitucional.",
+      "technical_error": null
+    },
+    {
+      "actual": "PARTIALLY_SUPPORTED",
+      "case_id": "partial-environment",
+      "category": "absolute_quantifier",
+      "correct": true,
+      "expected": "PARTIALLY_SUPPORTED",
+      "latency_seconds": 10.4659012359989,
+      "reason": "A evidência especifica que 'Todos têm direito ao meio ambiente ecologicamente equilibrado', o que apoia parcialmente a ideia de direito ao ambiente equilibrado, mas não afirma ou impede atividades econômicas.",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "partial-two-facts",
+      "category": "invented_detail",
+      "correct": false,
+      "expected": "PARTIALLY_SUPPORTED",
+      "latency_seconds": 12.15335475000029,
+      "reason": "A evidência fornecida (EV001) afirma que os poderes da União incluem o Legislativo, o Executivo e o Judiciário, mas não aborda o mandato vitalício dos membros do Legislativo. Portanto, a claim C1 não é materialmente sustentada pela evidência citada.",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "unrelated-python",
+      "category": "unrelated",
+      "correct": true,
+      "expected": "UNSUPPORTED",
+      "latency_seconds": 9.192787749998388,
+      "reason": "A frase 'Todos são iguais perante a lei' não está relacionada à ordenação de listas em Python e não fornece suporte para a afirmação de que uma lista Python pode ser ordenada com sorted().",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "unrelated-football",
+      "category": "unrelated",
+      "correct": true,
+      "expected": "UNSUPPORTED",
+      "latency_seconds": 10.0002827290009,
+      "reason": "As evidências citadas não abordam nada sobre a seleção vencendo a Copa do Mundo. Elas referem-se à saúde como direito e dever do Estado, o que não está relacionado à afirmação sobre o sucesso da seleção em competições desportivas.",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "contradiction-health",
+      "category": "contradiction",
+      "correct": true,
+      "expected": "UNSUPPORTED",
+      "latency_seconds": 8.702293610997003,
+      "reason": "A evidência citada afirma que a saúde é um direito de todos e dever do Estado, o que contradiz diretamente a claim que a saúde não é dever do Estado.",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "contradiction-expression",
+      "category": "contradiction",
+      "correct": true,
+      "expected": "UNSUPPORTED",
+      "latency_seconds": 8.906760070000018,
+      "reason": "A evidência afirma que a Constituição permite a manifestação livre do pensamento, o que contradiz a claim que a Constituição proíbe toda manifestação do pensamento.",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "plausible-absent",
+      "category": "plausible_absent",
+      "correct": true,
+      "expected": "UNSUPPORTED",
+      "latency_seconds": 8.863457207000465,
+      "reason": "A evidência fornecida discute direitos dos trabalhadores urbanos e rurais, mas não aborda o prazo para verbas rescisórias nem a Constituição.",
+      "technical_error": null
+    },
+    {
+      "actual": "UNSUPPORTED",
+      "case_id": "absolute-criticism",
+      "category": "contradiction",
+      "correct": true,
+      "expected": "UNSUPPORTED",
+      "latency_seconds": 11.083881329999713,
+      "reason": "A evidência fornecida afirma que é livre a manifestação do pensamento e que é vedado o anonimato, mas não aborda diretamente a natureza de uma crítica política sendo considerada crime. Portanto, não há suporte material para a afirmação de que toda crítica política é crime.",
+      "technical_error": null
+    }
+  ],
+  "supported_precision": 1.0,
+  "supported_recall": 1.0,
+  "unsafe_acceptance": 0
+}

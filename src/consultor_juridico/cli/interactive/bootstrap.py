@@ -131,6 +131,32 @@ def run_bootstrap() -> Generator[BootstrapEvent]:
             )
             return
 
+    # Juiz semântico independente quando configurado
+    judge_name = settings.semantic_judge_model
+    if judge_name and judge_name != settings.ollama_model:
+        # Reavalia readiness após possíveis pulls anteriores
+        judge_ready = check_readiness().semantic_judge_model_ready
+        if not judge_ready:
+            yield BootstrapEvent(
+                "models",
+                "running",
+                f"Baixando juiz semântico '{judge_name}'...",
+            )
+            try:
+                pull_ollama_model(judge_name)
+                yield BootstrapEvent(
+                    "models",
+                    "success",
+                    f"Juiz semântico '{judge_name}' baixado com sucesso.",
+                )
+            except Exception as exc:
+                yield BootstrapEvent(
+                    "models",
+                    "failed",
+                    f"Falha ao baixar juiz semântico '{judge_name}': {exc}",
+                )
+                return
+
     # 6. Ingestão
     if not readiness.source_ready:
         yield BootstrapEvent(

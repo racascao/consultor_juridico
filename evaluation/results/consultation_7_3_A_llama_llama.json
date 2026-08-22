@@ -1,0 +1,50 @@
+{
+  "cases": [
+    {
+      "case_id": "cf-equality",
+      "category": "direct",
+      "citations": 0,
+      "claims": 0,
+      "elapsed_seconds": 39.76275967100082,
+      "expected_answer": true,
+      "outcome": "ABSTAINED",
+      "validation_errors": []
+    },
+    {
+      "case_id": "cf-objectives",
+      "category": "direct",
+      "citations": 0,
+      "claims": 0,
+      "elapsed_seconds": 35.967719414000385,
+      "expected_answer": true,
+      "outcome": "ABSTAINED",
+      "validation_errors": [
+        "Claim C1: PARTIALLY_SUPPORTED (O núcleo da claim é sustentado pela evidência, mas outras afirmações não são.)"
+      ]
+    },
+    {
+      "case_id": "cf-principles-international",
+      "category": "direct",
+      "citations": 0,
+      "claims": 0,
+      "elapsed_seconds": 54.60864878800203,
+      "expected_answer": true,
+      "outcome": "ABSTAINED",
+      "validation_errors": [
+        "Claim C1: PARTIALLY_SUPPORTED (Claim C1 é materialmente sustentada pelas evidências EV001, EV002 e EV003.)"
+      ]
+    }
+  ],
+  "dataset_version": "mvp1-v1",
+  "decision_metrics": {
+    "cases": 3,
+    "correct_decision_rate": 0.0,
+    "expected_abstain_abstained": 0,
+    "expected_abstain_responded": 0,
+    "expected_answer_abstained": 3,
+    "expected_answer_responded": 0
+  },
+  "generated_at": "2026-08-21T20:55:39.259917+00:00",
+  "model": "llama3.2",
+  "provider": "ollama"
+}

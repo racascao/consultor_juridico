@@ -167,6 +167,7 @@ executa `consultor-juridico` por padrão. `.venv` permanece isolado via
 @ingest_app.command(name="constituicao")
 def ingest_constitution(): ...
 
+
 @parse_app.command(name="constitution")
 @parse_app.command(name="constituicao")
 def parse_constitution_command(): ...
@@ -182,9 +183,12 @@ e testes `test_aliases_portuguese_*`.
 def main_callback(ctx: typer.Context) -> None:
     if ctx.invoked_subcommand is None:
         is_tty = sys.stdin.isatty() and sys.stdout.isatty()
-        force_interactive = isinstance(ctx.obj, dict) and ctx.obj.get("force_interactive")
+        force_interactive = isinstance(ctx.obj, dict) and ctx.obj.get(
+            "force_interactive"
+        )
         if is_tty or force_interactive:
             from consultor_juridico.cli.interactive.app import run_interactive_cli
+
             run_interactive_cli()
         else:
             console.print(ctx.get_help())

@@ -46,7 +46,12 @@ def select_evidence_candidates(
         len(query_tokens.intersection(_tokens(item.chunk_text))) for item in unique
     ]
     strongest = max(overlaps)
-    minimum = max(1, (strongest + 1) // 2)
+    if len(query_tokens) <= 3:
+        minimum = 1
+        effective_limit = max(limit, 10)
+    else:
+        minimum = max(1, (strongest + 1) // 2)
+        effective_limit = limit
     selected = [
         item
         for item, overlap in zip(unique, overlaps, strict=True)
@@ -56,10 +61,22 @@ def select_evidence_candidates(
     # um filtro de ruído, não uma prova de relevância semântica.
     if unique[0] not in selected:
         selected.insert(0, unique[0])
-    return tuple(selected[:limit])
+    return tuple(selected[:effective_limit])
+
+
+def _normalize_token(token: str) -> str:
+    import unicodedata
+
+    nfkd = unicodedata.normalize("NFD", token.casefold())
+    ascii_token = "".join(c for c in nfkd if not unicodedata.combining(c))
+    if len(ascii_token) > 5:
+        return ascii_token[:6]
+    return ascii_token
 
 
 def _tokens(text: str) -> set[str]:
     return {
-        token for token in WORD_RE.findall(text.casefold()) if token not in STOPWORDS
+        _normalize_token(token)
+        for token in WORD_RE.findall(text.casefold())
+        if token not in STOPWORDS
     }

@@ -99,20 +99,28 @@
 - [x] Benchmark e comparação lexical/vector/hybrid
 - [x] Testes adversariais determinísticos
 - [x] Documentação da avaliação
-- [ ] Gate: `MVP1_QUALITY_BLOCKED`
+- [x] Gate: `MVP1_QUALITY_APPROVED` (Fase 7.3)
 - [x] 7.0 — baseline e diagnóstico
 - [x] 7.1 — hardening de abstenção, evidence selection e suporte semântico
 - [x] 7.2 — retrieval final e validação semântica comparativa
+- [x] 7.3 — benchmark de modelos locais, juiz Granite e fechamento do gate
+  - `llama3.2` baseline: Hit@10 0,905, unsafe 0, recall SUPPORTED 0,750, amostra 0/3
+  - Granite 4.1 3B: `granite4.1:3b` (2,1 GB, Q4_K_M) + `granite4:3b` disponível; juiz granite recall 1,000, accuracy 0,800, unsafe 0, false abstention potencial 0
+  - Matriz A/B/C/D: A 0/3, B 3/3 (llama+granite), C 3/3 (granite+granite), D 1/3
+  - Configuração vencedora B: `OLLAMA_MODEL=llama3.2` + `SEMANTIC_JUDGE_MODEL=granite4.1:3b`
+  - Amostra de regressão 7.2 reexecutada: 3/3 respondidas, 0 unsafe
+  - Consultas fora do corpus 9/9 abstidas corretamente
+  - Sem prompt tuning, sem alteração de retrieval, sem migration
 - [x] Unsafe answers = 0 nos nove casos de abstenção do dataset
 - [x] Unsafe claims delivered = 0 nos testes adversariais
 - [x] Hybrid Hit@10 >= 0,90 (atual: 0,905)
   - promoção contextual de CAPUT, sem hardcode por caso
   - segurança de abstenção preservada
-- [ ] Gate generativo/semântico
-  - integração respondível de saúde passa
-  - amostra direta 7.2: 0/3 respondidas; false abstention ainda é blocker
-  - `llama3.2` benchmark: unsafe acceptance 0, recall SUPPORTED 0,750
-- [ ] MVP 1 concluído
+- [x] Gate generativo/semântico — **APROVADO**
+  - `granite4.1:3b` como juiz semântico: SUPPORTED recall 1,000, unsafe 0
+  - latência juiz: média ~11,4s, p50 ~11,1s, p95 ~13,9s
+  - consultation B: decisão 1,000, 3/3 respondidas, 0 unsafe, ~44s/caso
+- [x] MVP 1 concluído — `MVP1_QUALITY_APPROVED`
 
 ## Fase 8 — CLI Interativa
 
@@ -126,3 +134,62 @@
 - [x] `tests/test_interactive.py` com 33 casos (readiness, bootstrap, interação, aliases)
 - [x] Validação `docker compose build` / `run --rm app bash` / `consultor-juridico`
 - [x] `docs/59-fase-8-cli-interativa.md`
+
+## Fase 9 — Hardening de Release / Retrieval Real-World
+
+- [x] Diagnóstico "pena de morte" art. 5º XLVII (lex 8, vec 181, hybrid None, selection None)
+- [x] Teste de consultas curtas reais (aborto, liberdade religiosa, racismo, prisão perpétua, extradição, direito à vida, liberdade de expressão, idade presidente, voto obrigatório, estado de sítio)
+- [x] Dataset adicional `real-world-short-v1` (11 casos, 10 respondíveis) criado e versionado
+- [x] Medição retrieval antes: hybrid Hit@10 0,700 (lex 0,900, vec 0,400)
+- [x] Correção geral `src/consultor_juridico/retrieval/search.py:34-44,88-105` — boost de frase (`phraseto_tsquery` *0.5 + `websearch_to_tsquery`) e boost lexical para consultas curtas (<=3 tokens, +0.025)
+  - sem hardcode por caso/artigo, sem sinônimos manuais, sem alteração de chunking
+- [x] Medição após: hybrid Hit@10 0,800 (lex 0,900, vec 0,400), Hit@1 0,100→0,300, pena de morte 0→1 (ALINEA:A)
+- [x] Reexecução `mvp1-v1` — hybrid Hit@10 0,905 preservado (sem regressão), `mvp1_v1_retrieval_final_9.json`
+- [x] Reexecução `semantic_support_v1` — granite recall 1,000, unsafe 0
+- [x] Validação `ruff`/`pytest` (267 passed) e `docker compose build`
+- [x] `docs/61-fase-9-hardening-retrieval.md`
+
+## Fase 9.1 — Gate End-to-End Real-World e Diagnóstico de Retrieval Semântico
+
+- [x] Baseline Fase 9.1 (git, alembic, PG, ollama, config, SHA, ruff, pytest)
+- [x] Infraestrutura `eval real-world` (`src/consultor_juridico/evaluation/real_world.py`, `cli/main.py:615`)
+- [x] Pipeline completo `real_world_short_v1` (11 casos): correct_answers 2/10, correct_abstentions 1/1, false 8, unsafe 0, hit 0,800
+- [x] Matriz de falhas por estágio: RETRIEVAL_MISS 2, SELECTION_MISS 4, SUFFICIENCY 3, GENERATOR 2
+- [x] Caso `aborto` — CORRECT_ABSTENTION, sufficiency INSUFFICIENT antes da geração, sem LLM, 0,7s
+- [x] Logging hardening: `db/session.py:27` `echo=False` + `set_verbose`, `cli/main.py:617` `--verbose/-v`
+- [x] Artefato `evaluation/results/real_world_short_e2e_9_1.json` (11 casos, detalhe por estágio)
+- [x] Gate `REAL_WORLD_RELEASE_BLOCKED` (requer >=9/10, atual 2/10), `MVP1_QUALITY_APPROVED` preservado (0,905)
+- [x] Testes `tests/test_logging_hardening.py` (3 casos) — 270 passed
+- [x] Validação `ruff`/`pytest`/`docker` e `docs/62-fase-9-1-gate-real-world.md`
+- [x] Próxima intervenção recomendada: selection/sufficiency para queries curtas (aumentar `EVIDENCE_LIMIT` ou relaxar thresholds)
+
+## Fase 9.2 — Evidence Selection + Sufficiency Hardening
+
+- [x] Baseline Fase 9.2 (git, alembic, PG, ollama, config, SHA, ruff, pytest, baselines 0.905/0.800)
+- [x] Auditoria Selection (`selection.py:23`) e Sufficiency (`sufficiency.py:25`)
+- [x] Experimentos limit 3/4/5/8, short-query thresholds 0.15/0.60, rank-aware
+- [x] Implementação: `selection.py` normalize acentos + prefixo 6, `effective_limit 10` para ≤3 tokens; `sufficiency.py` thresholds 0.15/0.60 para ≤3 tokens; `search.py` phrase + lexical boost
+- [x] Métricas 4 alvo: 0/4→4/4 passam sel+suff; `real-world` e2e 2/10→1/10 (generator ainda bloqueia), `mvp1` 0.905, `aborto` 1/1, 9/9 históricos 1.000
+- [x] Gate `EVIDENCE_PIPELINE_GATE: APPROVED` (≥3/4), `REAL_WORLD_RELEASE_BLOCKED` persiste
+- [x] `docs/63-fase-9-2-evidence-pipeline-hardening.md`
+
+## Fase 9.3 — Generator Hardening e redução de False Abstention
+
+- [x] Baseline Fase 9.3 (git, alembic, PG, ollama, `llama3.2`→`granite4.1:3b`, SHA, ruff, pytest)
+- [x] Auditoria `llm.py:13` SYSTEM_PROMPT e trace 6 casos (pena, prisão, liberdade religiosa, direito vida, liberdade expressão, voto)
+- [x] Experimentos: prompt v2 geral (paráfrase/síntese permitidas) e `granite4.1:3b` como generator
+- [x] Prompt v2: evidências pré-selecionadas, síntese inciso+alínea permitida, abstain só sem combinação
+- [x] `llama` 2/10 → `granite` **8/10** correct_answers (penal: prisão, liberdade religiosa, direito vida, liberdade expressão, voto, extradição, racismo)
+- [x] `GENERATOR_GATE: APPROVED` (≥75% dos 4 alvo corrigidos, 3/4), `aborto` 1/1, 9/9 1.000, unsafe 0, `mvp1` 0.905, `REAL_WORLD_RELEASE` 8/10 ainda BLOCKED (2 retrieval: idade, pena)
+- [x] Configuração adotada: `OLLAMA_MODEL=granite4.1:3b`, `SEMANTIC_JUDGE_MODEL=granite4.1:3b`, `.env.example`, `docker-compose.yml`, `config.py:30`
+- [x] `docs/64-fase-9-3-generator-hardening.md`
+
+## Fase 9.6 — Estabilidade de Evidence Attribution
+
+- [x] Benchmark controlado com cinco execuções por caso e evidências congeladas
+- [x] Saídas brutas do gerador e do juiz registradas
+- [x] Variância de gerador, juiz e pipeline combinado separadas
+- [x] Dois experimentos de prompt executados e avaliados
+- [ ] `EVIDENCE_ATTRIBUTION_GATE: APPROVED` — permanece `BLOCKED` (9/15; voto 0/5)
+- [x] Nenhuma alteração de produção, retrieval, dataset, thresholds ou schema
+- [x] `docs/67-fase-9-6-evidence-attribution.md`

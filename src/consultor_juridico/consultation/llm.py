@@ -108,11 +108,16 @@ def build_evidence_prompt(
 ) -> str:
     blocks = []
     for item in evidence_items:
+        metadata = getattr(item, "validation_metadata", None) or {}
+        parent_ctx = ""
+        if metadata.get("parent_context"):
+            ctx = metadata["parent_context"]
+            parent_ctx = f"\nContexto estrutural: {ctx}"
         blocks.append(
             f"[{item.evidence_code}]\n"
             f"Referência: {item.citation_label}\n"
             f"Fonte oficial: {item.source_url}\n"
-            f"Texto: {item.text_snapshot}"
+            f"Texto: {item.text_snapshot}{parent_ctx}"
         )
     correction_text = ""
     if correction:

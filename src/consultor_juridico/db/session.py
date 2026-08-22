@@ -24,8 +24,13 @@ def get_database_url() -> str:
     return url
 
 
-engine = create_engine(get_database_url(), echo=settings.debug)
+engine = create_engine(get_database_url(), echo=False)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+
+def set_verbose(verbose: bool) -> None:
+    """Habilita/desabilita echo SQL apenas em modo verbose."""
+    engine.echo = verbose
 
 
 def get_db() -> Generator[Session]:
