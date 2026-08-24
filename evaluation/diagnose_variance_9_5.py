@@ -21,6 +21,8 @@ from typing import Any
 import httpx
 
 from consultor_juridico.config import settings
+from consultor_juridico.consultation.attribution import deterministically_attribute
+from consultor_juridico.consultation.errors import LLMResponseError
 from consultor_juridico.consultation.evidence import build_evidence_set
 from consultor_juridico.consultation.llm import (
     SYSTEM_PROMPT,
@@ -211,6 +213,7 @@ def _generate(
     model: str,
     *,
     attribution_experiment: str = "none",
+    deterministic_attribution: bool = False,
 ) -> dict[str, Any]:
     if attribution_experiment == "attribution_v1":
         prompt = _build_attribution_prompt(question, evidence)
@@ -232,9 +235,37 @@ def _generate(
         raw["parsed"] = None
         raw["signature"] = f"TECHNICAL_ERROR:{raw['parse_error']}"
         return raw
-    parsed = parse_generated_response(raw["payload"])
+    try:
+        parsed = parse_generated_response(raw["payload"])
+    except LLMResponseError as exc:
+        raw["parsed"] = None
+        raw["contract_error"] = str(exc)
+        raw["signature"] = f"INVALID_CONTRACT:{exc}"
+        return raw
     raw["parsed"] = _serialize_generated(parsed)
     raw["signature"] = _generator_signature(parsed)
+    if deterministic_attribution:
+        decision = deterministically_attribute(parsed, evidence)
+        deterministic_response = decision.response
+        raw["deterministic_attribution"] = {
+            "changed_claims": decision.changed_claims,
+            "abstained": decision.abstained,
+            "reasons": list(decision.reasons),
+            "parsed": _serialize_generated(deterministic_response),
+            "signature": _generator_signature(deterministic_response),
+            "payload": {
+                "answer": deterministic_response.answer,
+                "abstain": deterministic_response.abstain,
+                "claims": [
+                    {
+                        "id": claim.claim_code,
+                        "text": claim.text,
+                        "evidence_ids": list(claim.evidence_codes),
+                    }
+                    for claim in deterministic_response.claims
+                ],
+            },
+        }
     return raw
 
 
@@ -318,18 +349,24 @@ def _judge(
     return raw
 
 
-def _parsed_response(run: dict[str, Any]) -> GeneratedResponse:
-    if run["payload"] is None:
+def _parsed_response(
+    run: dict[str, Any], *, deterministic: bool = False
+) -> GeneratedResponse:
+    if run["payload"] is None or run.get("contract_error"):
         return GeneratedResponse("", (), abstain=True)
+    if deterministic and run.get("deterministic_attribution"):
+        return parse_generated_response(run["deterministic_attribution"]["payload"])
     return parse_generated_response(run["payload"])
 
 
 def _diagnose_case(
     case: Any,
     repetitions: int,
-    model: str,
+    generator_model: str,
+    judge_model: str,
     *,
     attribution_experiment: str = "none",
+    deterministic_attribution: bool = False,
 ) -> dict[str, Any]:
     evidence = _snapshot_evidence(case.question)
     evidence_payload = [asdict(item) for item in evidence]
@@ -341,15 +378,17 @@ def _diagnose_case(
         _generate(
             case.question,
             evidence,
-            model,
+            generator_model,
             attribution_experiment=attribution_experiment,
+            deterministic_attribution=deterministic_attribution,
         )
         for _ in range(repetitions)
     ]
     usable = [
         run
         for run in generator_runs
-        if not _parsed_response(run).abstain and _parsed_response(run).claims
+        if not _parsed_response(run, deterministic=deterministic_attribution).abstain
+        and _parsed_response(run, deterministic=deterministic_attribution).claims
     ]
     if not usable:
         canonical = None
@@ -360,14 +399,18 @@ def _diagnose_case(
         canonical_run = next(
             run for run in usable if run["signature"] == canonical_signature
         )
-        canonical = _parsed_response(canonical_run)
+        canonical = _parsed_response(
+            canonical_run, deterministic=deterministic_attribution
+        )
         isolated_judge_runs = [
-            _judge(canonical, evidence, model) for _ in range(repetitions)
+            _judge(canonical, evidence, judge_model) for _ in range(repetitions)
         ]
 
     combined_runs = []
     for generator_run in generator_runs:
-        generated = _parsed_response(generator_run)
+        generated = _parsed_response(
+            generator_run, deterministic=deterministic_attribution
+        )
         if generated.abstain or not generated.claims:
             combined_runs.append(
                 {
@@ -377,7 +420,7 @@ def _diagnose_case(
                 }
             )
             continue
-        judge_run = _judge(generated, evidence, model)
+        judge_run = _judge(generated, evidence, judge_model)
         combined_runs.append(
             {
                 "generator_signature": generator_run["signature"],
@@ -403,6 +446,20 @@ def _diagnose_case(
             "distribution": _distribution(generator_signatures),
             "unique_claim_citation_signatures": len(set(generator_signatures)),
             "pairwise_flip_rate": _pairwise_flip_rate(generator_signatures),
+        },
+        "deterministic_attribution": {
+            "enabled": deterministic_attribution,
+            "runs": [run.get("deterministic_attribution") for run in generator_runs],
+            "distribution": _distribution(
+                [
+                    run.get("deterministic_attribution", {}).get("signature", "NOT_RUN")
+                    for run in generator_runs
+                ]
+            ),
+            "changed_claims": sum(
+                run.get("deterministic_attribution", {}).get("changed_claims", 0)
+                for run in generator_runs
+            ),
         },
         "judge_variance": {
             "canonical_response": (
@@ -434,6 +491,7 @@ def main() -> None:
         choices=("none", "attribution_v1", "attribution_v2"),
         default="none",
     )
+    parser.add_argument("--deterministic-attribution", action="store_true")
     args = parser.parse_args()
     if args.repetitions < 2:
         parser.error("--repetitions deve ser pelo menos 2")
@@ -441,7 +499,8 @@ def main() -> None:
     version, all_cases = load_dataset(args.dataset)
     by_id = {case.id: case for case in all_cases}
     cases = tuple(by_id[case_id] for case_id in UNSTABLE_CASE_IDS)
-    model = settings.semantic_judge_model or settings.ollama_model
+    generator_model = settings.ollama_model
+    judge_model = settings.semantic_judge_model or settings.ollama_model
     started = time.perf_counter()
     results = []
     for case in cases:
@@ -450,8 +509,10 @@ def main() -> None:
             _diagnose_case(
                 case,
                 args.repetitions,
-                model,
+                generator_model,
+                judge_model,
                 attribution_experiment=args.experiment,
+                deterministic_attribution=args.deterministic_attribution,
             )
         )
     payload = {
@@ -460,8 +521,8 @@ def main() -> None:
         "dataset_version": version,
         "case_ids": list(UNSTABLE_CASE_IDS),
         "repetitions": args.repetitions,
-        "generator_model": settings.ollama_model,
-        "semantic_judge_model": model,
+        "generator_model": generator_model,
+        "semantic_judge_model": judge_model,
         "embedding_model": settings.embedding_model,
         "controls": {
             "temperature": 0,
@@ -471,6 +532,7 @@ def main() -> None:
             "dataset_changed": False,
             "thresholds_changed": False,
             "experiment": args.experiment,
+            "deterministic_attribution": args.deterministic_attribution,
         },
         "cases": results,
         "elapsed_seconds": time.perf_counter() - started,

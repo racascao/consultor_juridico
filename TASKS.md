@@ -193,3 +193,21 @@
 - [ ] `EVIDENCE_ATTRIBUTION_GATE: APPROVED` — permanece `BLOCKED` (9/15; voto 0/5)
 - [x] Nenhuma alteração de produção, retrieval, dataset, thresholds ou schema
 - [x] `docs/67-fase-9-6-evidence-attribution.md`
+
+## Fase 9.7 — Attribution determinística pós-geração
+
+- [x] Protótipo determinístico pós-geração implementado sem integração produtiva
+- [x] Fixtures sintéticas de atribuição, composição, contexto e fail-closed
+- [x] Benchmark real com cinco execuções e evidências congeladas por caso
+- [ ] `DETERMINISTIC_ATTRIBUTION_GATE: APPROVED` — permanece `BLOCKED` por unsafe semântico
+- [x] Nenhuma alteração de retrieval, selection, sufficiency, embeddings, juiz, thresholds, dataset ou schema
+- [x] `docs/69-fase-9-7-attribution-deterministica.md`
+
+## Fase 9.8 — Benchmark de capacidade dos modelos locais
+
+- [x] Baseline registrado
+- [x] Bloqueio operacional documentado
+- [ ] Executar Granite 3B, Granite 8B e Gemma 12B
+- [ ] Fechar `MODEL_CAPABILITY_GATE`
+
+Estado: `BLOCKED` — Granite 8B+8B executado; judge rejeita voto facultativo, mas generator mantém erros e false abstention.

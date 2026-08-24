@@ -1808,6 +1808,14 @@ O roadmap público é deliberadamente compacto. O histórico detalhado das decis
   - retrieval, dataset, thresholds, embeddings e semantic judge inalterados
   - detalhes em `docs/67-fase-9-6-evidence-attribution.md`
 
+- [x] **Fase 9.7 — Attribution determinística pós-geração — `DETERMINISTIC_ATTRIBUTION_GATE: BLOCKED`**
+- [ ] **Fase 9.8/9.9 — Benchmark de capacidade dos modelos locais — `MODEL_CAPABILITY_GATE: BLOCKED` (8B+8B rejeita inversões, mas não atinge o gate)**
+  - protótipo puro avaliado com evidências congeladas e cinco execuções por caso
+  - attribution: pena 4/5, prisão 4/5, voto 5/5
+  - bloqueado porque attribution correta não eliminou aceitação semântica insegura em prisão perpétua
+  - nenhuma alteração de produção, retrieval, dataset, thresholds ou schema
+  - detalhes em `docs/69-fase-9-7-attribution-deterministica.md`
+
 ## Pós-MVP 1
 
 - [ ] Leis Ordinárias

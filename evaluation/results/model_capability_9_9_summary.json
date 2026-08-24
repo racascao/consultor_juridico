@@ -1,0 +1,13 @@
+{
+  "generator_model": "granite4.1:8b",
+  "semantic_judge_model": "granite4.1:8b",
+  "cases": {
+    "rw-pena-morte": {"correct_claims": "4/5", "judge": "SUPPORTED 5/5"},
+    "rw-prisao-perpetua": {"correct_claims": "0/5", "deterministic_abstention": "5/5"},
+    "rw-voto-obrigatorio": {"correct_claims": "0/5", "judge": "UNSUPPORTED 5/5"}
+  },
+  "correct_claims": "4/15",
+  "unsafe_acceptance": 0,
+  "classification": "MODEL_IMPROVEMENT_INSUFFICIENT",
+  "artifact": "evaluation/results/model_capability_9_9_granite8b_granite8b.json"
+}
