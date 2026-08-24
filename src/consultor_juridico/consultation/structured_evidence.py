@@ -69,12 +69,12 @@ def build_structured_evidence(
         for part in ordered_ancestors
         if part.element_type in _TEXTUAL_CONTEXT_TYPES and part.text.strip()
     )
-    contextual_siblings = tuple(
-        part
-        for part in sorted(siblings, key=lambda part: part.document_order)
-        if _needs_enumeration_context(textual_ancestors, siblings)
-    )
-    parts = _deduplicate_parts((*textual_ancestors, target, *contextual_siblings))
+    # Irmãos são proposições normativas independentes. A mera proximidade ou
+    # pertença à mesma enumeração não autoriza incorporá-los à evidência.
+    # O parâmetro permanece explícito para que chamadas antigas não mudem de
+    # contrato, mas não participa da unidade sem uma regra futura aprovada.
+    _ = siblings
+    parts = _deduplicate_parts((*textual_ancestors, target))
     lines = [" > ".join(hierarchy)] if hierarchy else []
     lines.extend(part.text.strip() for part in parts if part.text.strip())
     structured_text = "\n".join(lines)
@@ -108,21 +108,10 @@ def load_structured_evidence(
         ancestors.append(cursor)
         cursor = cursor.parent
     ancestors.reverse()
-    siblings: tuple[LegalElement, ...] = ()
-    if element.parent is not None and _parent_introduces_enumeration(element.parent):
-        siblings = tuple(
-            child
-            for child in element.parent.children
-            if child.id != element.id
-            and child.element_type == element.element_type
-            and child.text_status == "CURRENT"
-            and child.content_role == "NORMATIVE"
-        )
     return build_structured_evidence(
         item,
         _part(element, "TARGET"),
         ancestors=tuple(_part(value, "ANCESTOR") for value in ancestors),
-        siblings=tuple(_part(value, "SIBLING") for value in siblings),
     )
 
 
@@ -142,18 +131,6 @@ def _part(element: LegalElement, relation: str) -> StructuredSourcePart:
 def _label(part: StructuredSourcePart) -> str:
     suffix = f" {part.number_label}" if part.number_label else ""
     return f"{part.element_type}{suffix}"
-
-
-def _parent_introduces_enumeration(parent: LegalElement) -> bool:
-    text = parent.normalized_text.strip()
-    return text.endswith(":") and 1 < len(parent.children) <= 12
-
-
-def _needs_enumeration_context(
-    ancestors: tuple[StructuredSourcePart, ...],
-    siblings: tuple[StructuredSourcePart, ...],
-) -> bool:
-    return bool(ancestors and ancestors[-1].text.strip().endswith(":") and siblings)
 
 
 def _deduplicate_parts(

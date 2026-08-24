@@ -1,0 +1,24 @@
+{
+  "phase": "10.1",
+  "structured_evidence_context_gate": "BLOCKED",
+  "sibling_pollution": "FIXED",
+  "invariants": {
+    "source_fidelity": "PASS",
+    "no_hallucination": "PASS",
+    "deterministic": "PASS",
+    "provenance_complete": "PASS"
+  },
+  "baseline_correct": 4,
+  "structured_correct": 5,
+  "baseline_false_abstentions": 6,
+  "structured_false_abstentions": 5,
+  "correct_abstention": "1/1",
+  "unsafe_answers": 0,
+  "invalid_citation_chains": 0,
+  "voto_obrigatorio_regression": "RESOLVED",
+  "liberdade_expressao_gain": "PRESERVED",
+  "quality_impact": "LOW_IMPACT",
+  "seu_direction": "PROMISING_BUT_INSUFFICIENT",
+  "production_integration": "NOT_ENABLED",
+  "recommended_next_intervention": "Mudar a estratégia para os blockers residuais por estágio, sem novo microtuning da SEU"
+}

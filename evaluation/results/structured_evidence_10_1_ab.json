@@ -1,0 +1,950 @@
+{
+  "phase": "10.1",
+  "strategy_a": "real_world_short_e2e_9_18.json",
+  "strategy_b": "StructuredEvidenceUnit",
+  "generator": "granite4.1:3b",
+  "semantic_judge": "granite4.1:3b",
+  "results": [
+    {
+      "case_id": "rw-pena-morte",
+      "question": "pena de morte",
+      "expect_answer": true,
+      "classification": "FALSE_ABSTENTION",
+      "outcome": "ABSTAINED",
+      "first_failure": "GENERATOR_ABSTENTION",
+      "invalid_contract": false,
+      "generator": {
+        "answer": "abstain=true",
+        "abstain": true,
+        "claims": []
+      },
+      "attribution": null,
+      "polarity": null,
+      "semantic": null,
+      "structured_units": [
+        {
+          "evidence_code": "EV001",
+          "source_element_ids": [
+            "84f9c67c-1909-4250-ba6b-2b3539b2f4c3"
+          ],
+          "identity_key": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:7",
+          "hierarchy": [
+            "TITLE III",
+            "CHAPTER VII",
+            "SECTION II",
+            "ARTICLE 40",
+            "PARAGRAPH 7"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:7\nObservado o disposto no § 2º do art. 201, quando se tratar da única fonte de renda formal auferida pelo dependente, o benefício de pensão por morte será concedido nos termos de lei do respectivo ente federativo, a qual tratará de forma diferenciada a hipótese de morte dos servidores de que trata o § 4º-B decorrente de agressão sofrida no exercício ou em razão da função. (Redação dada pela Emenda Constitucional nº 103, de 2019)",
+          "structured_text": "TITLE III > CHAPTER VII > SECTION II > ARTICLE 40 > PARAGRAPH 7\nObservado o disposto no § 2º do art. 201, quando se tratar da única fonte de renda formal auferida pelo dependente, o benefício de pensão por morte será concedido nos termos de lei do respectivo ente federativo, a qual tratará de forma diferenciada a hipótese de morte dos servidores de que trata o § 4º-B decorrente de agressão sofrida no exercício ou em razão da função. (Redação dada pela Emenda Constitucional nº 103, de 2019)",
+          "sha256": "864da56096b5d6a7e3faf9ffdae46e1f0833072d542aeb1a1e511a3ac554c0bd"
+        },
+        {
+          "evidence_code": "EV002",
+          "source_element_ids": [
+            "09d65e24-6023-4100-9ca0-06b7b8ae6498"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLV",
+          "hierarchy": [
+            "TITLE II",
+            "CHAPTER I",
+            "ARTICLE 5",
+            "INCISO XLV"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLV\nnenhuma pena passará da pessoa do condenado, podendo a obrigação de reparar o dano e a decretação do perdimento de bens ser, nos termos da lei, estendidas aos sucessores e contra eles executadas, até o limite do valor do patrimônio transferido;",
+          "structured_text": "TITLE II > CHAPTER I > ARTICLE 5 > INCISO XLV\nnenhuma pena passará da pessoa do condenado, podendo a obrigação de reparar o dano e a decretação do perdimento de bens ser, nos termos da lei, estendidas aos sucessores e contra eles executadas, até o limite do valor do patrimônio transferido;",
+          "sha256": "ad5b210a988440bb86e53ab7bf27b7bfc6f05866c80718a2917b2c93d52c9091"
+        },
+        {
+          "evidence_code": "EV003",
+          "source_element_ids": [
+            "b5df6bcf-0b4d-48ec-81d9-af38f7caa2c6"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIII",
+          "hierarchy": [
+            "TITLE II",
+            "CHAPTER I",
+            "ARTICLE 5",
+            "INCISO XXXIII"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIII\ntodos têm direito a receber dos órgãos públicos informações de seu interesse particular, ou de interesse coletivo ou geral, que serão prestadas no prazo da lei, sob pena de responsabilidade, ressalvadas aquelas cujo sigilo seja imprescindível à segurança da sociedade e do Estado;",
+          "structured_text": "TITLE II > CHAPTER I > ARTICLE 5 > INCISO XXXIII\ntodos têm direito a receber dos órgãos públicos informações de seu interesse particular, ou de interesse coletivo ou geral, que serão prestadas no prazo da lei, sob pena de responsabilidade, ressalvadas aquelas cujo sigilo seja imprescindível à segurança da sociedade e do Estado;",
+          "sha256": "1e5289e5f58f1fac4ff719f143f72d9006b561a7d93fc856922327d0080e0043"
+        }
+      ],
+      "elapsed_seconds": 16.452652243999182
+    },
+    {
+      "case_id": "rw-prisao-perpetua",
+      "question": "prisão perpétua",
+      "expect_answer": true,
+      "classification": "FALSE_ABSTENTION",
+      "outcome": "ABSTAINED",
+      "first_failure": "SUFFICIENCY_FALSE_NEGATIVE",
+      "invalid_contract": false,
+      "generator": null,
+      "attribution": null,
+      "polarity": null,
+      "semantic": null,
+      "structured_units": [
+        {
+          "evidence_code": "EV001",
+          "source_element_ids": [
+            "0a14fa7a-eefd-4d51-a91b-4733ca95420b"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXII",
+          "hierarchy": [
+            "TITLE II",
+            "CHAPTER I",
+            "ARTICLE 5",
+            "INCISO LXII"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXII\na prisão de qualquer pessoa e o local onde se encontre serão comunicados imediatamente ao juiz competente e à família do preso ou à pessoa por ele indicada;",
+          "structured_text": "TITLE II > CHAPTER I > ARTICLE 5 > INCISO LXII\na prisão de qualquer pessoa e o local onde se encontre serão comunicados imediatamente ao juiz competente e à família do preso ou à pessoa por ele indicada;",
+          "sha256": "3f6891a02ab8bf36454b24ab1e835dec6e8f8dcbeabe743715fc30295c37d6f7"
+        },
+        {
+          "evidence_code": "EV002",
+          "source_element_ids": [
+            "2dcc4132-3c11-4c11-9434-8678e8d323a5",
+            "46a55371-c84e-4291-913c-8d1fb449bb2c"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B",
+          "hierarchy": [
+            "TITLE II",
+            "CHAPTER I",
+            "ARTICLE 5",
+            "INCISO XLVII",
+            "ALINEA b"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B\nde caráter perpétuo;",
+          "structured_text": "TITLE II > CHAPTER I > ARTICLE 5 > INCISO XLVII > ALINEA b\nnão haverá penas:\nde caráter perpétuo;",
+          "sha256": "fb818df738d383abca395ffa672c1169d75129211eed03dd5895f9d7a915fb71"
+        },
+        {
+          "evidence_code": "EV003",
+          "source_element_ids": [
+            "ec1aa4e2-b74b-46f9-ae40-b0ed95316f92"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXV",
+          "hierarchy": [
+            "TITLE II",
+            "CHAPTER I",
+            "ARTICLE 5",
+            "INCISO LXV"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXV\na prisão ilegal será imediatamente relaxada pela autoridade judiciária;",
+          "structured_text": "TITLE II > CHAPTER I > ARTICLE 5 > INCISO LXV\na prisão ilegal será imediatamente relaxada pela autoridade judiciária;",
+          "sha256": "a59a451a6b9c51d553fde76ad1b7ea479049e76308cccb7b08aedeb00e4d04b2"
+        }
+      ],
+      "elapsed_seconds": 0.009766240000317339
+    },
+    {
+      "case_id": "rw-liberdade-religiosa",
+      "question": "liberdade religiosa",
+      "expect_answer": true,
+      "classification": "CORRECT_ANSWER",
+      "outcome": "ANSWERED",
+      "first_failure": null,
+      "invalid_contract": false,
+      "generator": {
+        "answer": "A liberdade religiosa está garantida na Constituição Federal de 1988, Artigo 5º, Inciso VI, que afirma: 'é inviolável a liberdade de consciência e de crença, sendo assegurado o livre exercício dos cultos religiosos e garantida, na forma da lei, a proteção aos locais de culto e suas liturgias;'. Este texto está enraizado no Preambulo da Constituição, que proclama valores como liberdade, segurança, bem-estar e justiça como suprimentos de uma sociedade fraterna, pluralista e sem preconceitos.",
+        "abstain": false,
+        "claims": [
+          {
+            "id": "C1",
+            "text": "A liberdade religiosa é garantida na Constituição Federal de 1988, Artigo 5º, Inciso VI.",
+            "evidence_ids": [
+              "EV001"
+            ]
+          }
+        ]
+      },
+      "attribution": {
+        "abstained": false,
+        "reasons": []
+      },
+      "polarity": [
+        {
+          "status": "CONSISTENT",
+          "reason_code": null
+        }
+      ],
+      "semantic": {
+        "valid": true,
+        "error": null,
+        "claims": [
+          {
+            "id": "C1",
+            "status": "SUPPORTED"
+          }
+        ]
+      },
+      "structured_units": [
+        {
+          "evidence_code": "EV001",
+          "source_element_ids": [
+            "d8fecb82-c4b9-4a06-bc61-0bbd73ddc0b5"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+          "hierarchy": [
+            "TITLE II",
+            "CHAPTER I",
+            "ARTICLE 5",
+            "INCISO VI"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI\né inviolável a liberdade de consciência e de crença, sendo assegurado o livre exercício dos cultos religiosos e garantida, na forma da lei, a proteção aos locais de culto e a suas liturgias;",
+          "structured_text": "TITLE II > CHAPTER I > ARTICLE 5 > INCISO VI\né inviolável a liberdade de consciência e de crença, sendo assegurado o livre exercício dos cultos religiosos e garantida, na forma da lei, a proteção aos locais de culto e a suas liturgias;",
+          "sha256": "1c30db3eed7fb31b411b9adff97e4118c5f1c548245744e6f37481ac93e85d0f"
+        },
+        {
+          "evidence_code": "EV002",
+          "source_element_ids": [
+            "fba8a790-f1ca-4df6-afee-89db9d332381"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+          "hierarchy": [
+            "TITLE II",
+            "CHAPTER I",
+            "ARTICLE 5"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput\nTodos são iguais perante a lei, sem distinção de qualquer natureza, garantindo-se aos brasileiros e aos estrangeiros residentes no País a inviolabilidade do direito à vida, à liberdade, à igualdade, à segurança e à propriedade, nos termos seguintes:",
+          "structured_text": "TITLE II > CHAPTER I > ARTICLE 5\nTodos são iguais perante a lei, sem distinção de qualquer natureza, garantindo-se aos brasileiros e aos estrangeiros residentes no País a inviolabilidade do direito à vida, à liberdade, à igualdade, à segurança e à propriedade, nos termos seguintes:",
+          "sha256": "c79ad458ea0677c8247ae738c77869f01bc052d047b086c992d9a342ba18caee"
+        },
+        {
+          "evidence_code": "EV003",
+          "source_element_ids": [
+            "38db867d-24d8-4c62-8681-aad9c2a58dcf"
+          ],
+          "identity_key": "CF88/@root/PREAMBLE:@preamble",
+          "hierarchy": [],
+          "original_snapshot": "CF/88 | CF88/@root/PREAMBLE:@preamble\nNós, representantes do povo brasileiro, reunidos em Assembléia Nacional Constituinte para instituir um Estado Democrático, destinado a assegurar o exercício dos direitos sociais e individuais, a liberdade, a segurança, o bem-estar, o desenvolvimento, a igualdade e a justiça como valores supremos de uma sociedade fraterna, pluralista e sem preconceitos, fundada na harmonia social e comprometida, na ordem interna e internacional, com a solução pacífica das controvérsias, promulgamos, sob a proteção de Deus, a seguinte CONSTITUIÇÃO DA REPÚBLICA FEDERATIVA DO BRASIL.",
+          "structured_text": "Nós, representantes do povo brasileiro, reunidos em Assembléia Nacional Constituinte para instituir um Estado Democrático, destinado a assegurar o exercício dos direitos sociais e individuais, a liberdade, a segurança, o bem-estar, o desenvolvimento, a igualdade e a justiça como valores supremos de uma sociedade fraterna, pluralista e sem preconceitos, fundada na harmonia social e comprometida, na ordem interna e internacional, com a solução pacífica das controvérsias, promulgamos, sob a proteção de Deus, a seguinte CONSTITUIÇÃO DA REPÚBLICA FEDERATIVA DO BRASIL.",
+          "sha256": "dd8da44dab05cc762c8ac3e8c1b70f0583616f5899a34ada6252108c26a780a9"
+        }
+      ],
+      "elapsed_seconds": 46.81774250599847
+    },
+    {
+      "case_id": "rw-racismo",
+      "question": "racismo",
+      "expect_answer": true,
+      "classification": "FALSE_ABSTENTION",
+      "outcome": "ABSTAINED",
+      "first_failure": "ATTRIBUTION_FAILURE",
+      "invalid_contract": false,
+      "generator": {
+        "answer": "O racismo é reconhecido como um pano de fundo repudiado pela Constituição Federal de 1988, conforme artigo 4º, inciso VIII, e proibido como crime inafiançável e imprescritível, conforme artigo 5º, inciso XLII.",
+        "abstain": false,
+        "claims": [
+          {
+            "id": "C1",
+            "text": "O racismo é repudiado pela Constituição Federal de 1988, conforme artigo 4º, inciso VIII.",
+            "evidence_ids": [
+              "EV001"
+            ]
+          },
+          {
+            "id": "C2",
+            "text": "A prática do racismo é considerada crime inafiançável e imprescritível, sujeito à pena de reclusão, de acordo com artigo 5º, inciso XLII.",
+            "evidence_ids": [
+              "EV002"
+            ]
+          }
+        ]
+      },
+      "attribution": {
+        "abstained": true,
+        "reasons": [
+          "Claim C1 sem atribuição inequívoca."
+        ]
+      },
+      "polarity": null,
+      "semantic": null,
+      "structured_units": [
+        {
+          "evidence_code": "EV001",
+          "source_element_ids": [
+            "3cb0fd3e-8840-4617-87ca-41f7a504f58e"
+          ],
+          "identity_key": "CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII",
+          "hierarchy": [
+            "TITLE I",
+            "ARTICLE 4",
+            "INCISO VIII"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII\nrepúdio ao terrorismo e ao racismo;",
+          "structured_text": "TITLE I > ARTICLE 4 > INCISO VIII\nrepúdio ao terrorismo e ao racismo;",
+          "sha256": "8ccc7eb672b184dcd4a7971d7cf65c32b22d75265449725383e61102edb1403f"
+        },
+        {
+          "evidence_code": "EV002",
+          "source_element_ids": [
+            "ff89501c-4a9e-40c1-81e1-9ba09fdd67c6"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII",
+          "hierarchy": [
+            "TITLE II",
+            "CHAPTER I",
+            "ARTICLE 5",
+            "INCISO XLII"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII\na prática do racismo constitui crime inafiançável e imprescritível, sujeito à pena de reclusão, nos termos da lei;",
+          "structured_text": "TITLE II > CHAPTER I > ARTICLE 5 > INCISO XLII\na prática do racismo constitui crime inafiançável e imprescritível, sujeito à pena de reclusão, nos termos da lei;",
+          "sha256": "26f4e135883f2b02870ab5bb582353d0020d1dd7182693c4ce059f7cc602c0d4"
+        }
+      ],
+      "elapsed_seconds": 23.350222590001067
+    },
+    {
+      "case_id": "rw-extradicao",
+      "question": "extradição",
+      "expect_answer": true,
+      "classification": "CORRECT_ANSWER",
+      "outcome": "ANSWERED",
+      "first_failure": null,
+      "invalid_contract": false,
+      "generator": {
+        "answer": "A Constituição Federal de 1988 não concede extradição para crimes políticos ou de opinião (EV001). No entanto, ela reconhece a competência para emigração e imigração, entrada, extradição e expulsão de estrangeiros (EV002). Além disso, a alinha g do Artigo 102 estabelece que o processo originariamente deve ser para extradição solicitada por Estado estrangeiro (EV003).",
+        "abstain": false,
+        "claims": [
+          {
+            "id": "C1",
+            "text": "Não será concedida extradição de estrangeiro por crime político ou de opinião (EV001).",
+            "evidence_ids": [
+              "EV001"
+            ]
+          },
+          {
+            "id": "C2",
+            "text": "A Constituição reconhece a competência para emigração e imigração, entrada, extradição e expulsão de estrangeiros (EV002).",
+            "evidence_ids": [
+              "EV002"
+            ]
+          },
+          {
+            "id": "C3",
+            "text": "O processo originariamente deve ser para extradição solicitada por Estado estrangeiro (EV003).",
+            "evidence_ids": [
+              "EV003"
+            ]
+          }
+        ]
+      },
+      "attribution": {
+        "abstained": false,
+        "reasons": []
+      },
+      "polarity": [
+        {
+          "status": "CONSISTENT",
+          "reason_code": null
+        },
+        {
+          "status": "UNRESOLVED",
+          "reason_code": "NO_POLARITY_RELATION"
+        },
+        {
+          "status": "UNRESOLVED",
+          "reason_code": "NO_POLARITY_RELATION"
+        }
+      ],
+      "semantic": {
+        "valid": true,
+        "error": null,
+        "claims": [
+          {
+            "id": "C1",
+            "status": "SUPPORTED"
+          },
+          {
+            "id": "C2",
+            "status": "SUPPORTED"
+          },
+          {
+            "id": "C3",
+            "status": "SUPPORTED"
+          }
+        ]
+      },
+      "structured_units": [
+        {
+          "evidence_code": "EV001",
+          "source_element_ids": [
+            "8dce1d92-17da-4ef8-8382-5102a4d5c271"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII",
+          "hierarchy": [
+            "TITLE II",
+            "CHAPTER I",
+            "ARTICLE 5",
+            "INCISO LII"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII\nnão será concedida extradição de estrangeiro por crime político ou de opinião;",
+          "structured_text": "TITLE II > CHAPTER I > ARTICLE 5 > INCISO LII\nnão será concedida extradição de estrangeiro por crime político ou de opinião;",
+          "sha256": "794cbb4833c044bb70b16e1eb1dba987355fc3c5f45ddd39fcc0cf9b58b5ba3b"
+        },
+        {
+          "evidence_code": "EV002",
+          "source_element_ids": [
+            "0099a820-02ef-4b68-a837-5df3015ce427"
+          ],
+          "identity_key": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:22/INCISO:XV",
+          "hierarchy": [
+            "TITLE III",
+            "CHAPTER II",
+            "ARTICLE 22",
+            "INCISO XV"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:22/INCISO:XV\nemigração e imigração, entrada, extradição e expulsão de estrangeiros;",
+          "structured_text": "TITLE III > CHAPTER II > ARTICLE 22 > INCISO XV\nemigração e imigração, entrada, extradição e expulsão de estrangeiros;",
+          "sha256": "224ef787956909a6f0d3aad7143f200128e9c38a7913578558ba0e2e9425f61d"
+        },
+        {
+          "evidence_code": "EV003",
+          "source_element_ids": [
+            "a0c327dd-be6f-422d-ab8c-49e3408091f6",
+            "7636d754-1cab-4c21-8d9a-95997d892d3a"
+          ],
+          "identity_key": "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:II/ARTICLE:102/INCISO:I/ALINEA:G",
+          "hierarchy": [
+            "TITLE IV",
+            "CHAPTER III",
+            "SECTION II",
+            "ARTICLE 102",
+            "INCISO I",
+            "ALINEA g"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:IV/CHAPTER:III/SECTION:II/ARTICLE:102/INCISO:I/ALINEA:G\na extradição solicitada por Estado estrangeiro;",
+          "structured_text": "TITLE IV > CHAPTER III > SECTION II > ARTICLE 102 > INCISO I > ALINEA g\nprocessar e julgar, originariamente:\na extradição solicitada por Estado estrangeiro;",
+          "sha256": "81f75281d4c8cd456e6c49132acdfdb2cb68304f5dadc73f086b31ce6d656cbd"
+        }
+      ],
+      "elapsed_seconds": 59.40845949700088
+    },
+    {
+      "case_id": "rw-direito-vida",
+      "question": "direito à vida",
+      "expect_answer": true,
+      "classification": "FALSE_ABSTENTION",
+      "outcome": "ABSTAINED",
+      "first_failure": "POLARITY_REJECTION",
+      "invalid_contract": false,
+      "generator": {
+        "answer": "O direito à vida é garantido pela Constituição Federal de 1988, Artigo 5º, caput, que afirma: 'Todos são iguais perante a lei, sem distinção de qualquer natureza, garantindo-se aos brasileiros e aos estrangeiros residentes no País a inviolabilidade do direito à vida, à liberdade, à igualdade, à segurança e à propriedade'. Além disso, Artigo 230, caput, reconhece o dever da família, da sociedade e do Estado de amparar as pessoas idosas, defendendo sua dignidade e bem-estar e garantindo-lhes o direito à vida. Artigo 227, caput, estabelece que é o dever da família, da sociedade e do Estado assegurar à criança, ao adolescente e ao jovem o direito à vida, entre outros direitos, com prioridade absoluta.",
+        "abstain": false,
+        "claims": [
+          {
+            "id": "C1",
+            "text": "O direito à vida é garantido pelo Artigo 5º, caput, da Constituição Federal de 1988, que afirma a inviolabilidade do direito à vida para todos os brasileiros e estrangeiros residentes no País.",
+            "evidence_ids": [
+              "EV001"
+            ]
+          },
+          {
+            "id": "C2",
+            "text": "O dever de amparar as pessoas idosas e garantir o direito à vida é estabelecido pelo Artigo 230, caput, da Constituição Federal de 1988.",
+            "evidence_ids": [
+              "EV002"
+            ]
+          },
+          {
+            "id": "C3",
+            "text": "O direito à vida é garantido à criança, ao adolescente e ao jovem, com prioridade absoluta, conforme estabelecido pelo Artigo 227, caput, da Constituição Federal de 1988.",
+            "evidence_ids": [
+              "EV003"
+            ]
+          }
+        ]
+      },
+      "attribution": {
+        "abstained": false,
+        "reasons": []
+      },
+      "polarity": [
+        {
+          "status": "CONSISTENT",
+          "reason_code": null
+        },
+        {
+          "status": "CONSISTENT",
+          "reason_code": null
+        },
+        {
+          "status": "UNRESOLVED",
+          "reason_code": "EXCEPTION_SCOPE_AMBIGUITY"
+        }
+      ],
+      "semantic": null,
+      "structured_units": [
+        {
+          "evidence_code": "EV001",
+          "source_element_ids": [
+            "fba8a790-f1ca-4df6-afee-89db9d332381"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+          "hierarchy": [
+            "TITLE II",
+            "CHAPTER I",
+            "ARTICLE 5"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput\nTodos são iguais perante a lei, sem distinção de qualquer natureza, garantindo-se aos brasileiros e aos estrangeiros residentes no País a inviolabilidade do direito à vida, à liberdade, à igualdade, à segurança e à propriedade, nos termos seguintes:",
+          "structured_text": "TITLE II > CHAPTER I > ARTICLE 5\nTodos são iguais perante a lei, sem distinção de qualquer natureza, garantindo-se aos brasileiros e aos estrangeiros residentes no País a inviolabilidade do direito à vida, à liberdade, à igualdade, à segurança e à propriedade, nos termos seguintes:",
+          "sha256": "c79ad458ea0677c8247ae738c77869f01bc052d047b086c992d9a342ba18caee"
+        },
+        {
+          "evidence_code": "EV002",
+          "source_element_ids": [
+            "c90e345c-992a-4bd4-a037-c5d15071f01a"
+          ],
+          "identity_key": "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput",
+          "hierarchy": [
+            "TITLE VIII",
+            "CHAPTER VII",
+            "ARTICLE 230"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput\nA família, a sociedade e o Estado têm o dever de amparar as pessoas idosas, assegurando sua participação na comunidade, defendendo sua dignidade e bem-estar e garantindo-lhes o direito à vida.",
+          "structured_text": "TITLE VIII > CHAPTER VII > ARTICLE 230\nA família, a sociedade e o Estado têm o dever de amparar as pessoas idosas, assegurando sua participação na comunidade, defendendo sua dignidade e bem-estar e garantindo-lhes o direito à vida.",
+          "sha256": "d04b462ce8c40cab3c8625cee6799bcdf12772d1ed865fa9b6ae04ff088b192f"
+        },
+        {
+          "evidence_code": "EV003",
+          "source_element_ids": [
+            "dcb212d9-d793-47a9-a89d-d2116fa6f2b9"
+          ],
+          "identity_key": "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput",
+          "hierarchy": [
+            "TITLE VIII",
+            "CHAPTER VII",
+            "ARTICLE 227"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput\nÉ dever da família, da sociedade e do Estado assegurar à criança, ao adolescente e ao jovem, com absoluta prioridade, o direito à vida, à saúde, à alimentação, à educação, ao lazer, à profissionalização, à cultura, à dignidade, ao respeito, à liberdade e à convivência familiar e comunitária, além de colocá-los a salvo de toda forma de negligência, discriminação, exploração, violência, crueldade e opressão.",
+          "structured_text": "TITLE VIII > CHAPTER VII > ARTICLE 227\nÉ dever da família, da sociedade e do Estado assegurar à criança, ao adolescente e ao jovem, com absoluta prioridade, o direito à vida, à saúde, à alimentação, à educação, ao lazer, à profissionalização, à cultura, à dignidade, ao respeito, à liberdade e à convivência familiar e comunitária, além de colocá-los a salvo de toda forma de negligência, discriminação, exploração, violência, crueldade e opressão.",
+          "sha256": "df6c9cb245ba34994c138c9e32e3cb0d582065ce34252928a9cc41045cd46506"
+        }
+      ],
+      "elapsed_seconds": 47.02575600899945
+    },
+    {
+      "case_id": "rw-liberdade-expressao",
+      "question": "liberdade de expressão",
+      "expect_answer": true,
+      "classification": "CORRECT_ANSWER",
+      "outcome": "ANSWERED",
+      "first_failure": null,
+      "invalid_contract": false,
+      "generator": {
+        "answer": "A liberdade de expressão está implicitamente garantida pela Constituição Federal de 1988, que afirma que todos são iguais perante a lei e garantem-se a inviolabilidade do direito à vida, à liberdade, à igualdade, à segurança e à propriedade (EV003). Embora não haja uma cláusula específica de liberdade de expressão, a liberdade de consciência e de crença (EV002) sugere que o livre exercício dos cultos religiosos e a proteção aos locais de culto implicam na liberdade de expressão, pois envolve a expressão de crenças e ideias religiosas.",
+        "abstain": false,
+        "claims": [
+          {
+            "id": "C1",
+            "text": "A liberdade de expressão é implicitamente garantida pela Constituição Federal de 1988 através da igualdade perante a lei e da garantia da inviolabilidade do direito à vida, à liberdade, à igualdade, à segurança e à propriedade (EV003).",
+            "evidence_ids": [
+              "EV003"
+            ]
+          }
+        ]
+      },
+      "attribution": {
+        "abstained": false,
+        "reasons": []
+      },
+      "polarity": [
+        {
+          "status": "CONSISTENT",
+          "reason_code": null
+        }
+      ],
+      "semantic": {
+        "valid": true,
+        "error": null,
+        "claims": [
+          {
+            "id": "C1",
+            "status": "SUPPORTED"
+          }
+        ]
+      },
+      "structured_units": [
+        {
+          "evidence_code": "EV001",
+          "source_element_ids": [
+            "38db867d-24d8-4c62-8681-aad9c2a58dcf"
+          ],
+          "identity_key": "CF88/@root/PREAMBLE:@preamble",
+          "hierarchy": [],
+          "original_snapshot": "CF/88 | CF88/@root/PREAMBLE:@preamble\nNós, representantes do povo brasileiro, reunidos em Assembléia Nacional Constituinte para instituir um Estado Democrático, destinado a assegurar o exercício dos direitos sociais e individuais, a liberdade, a segurança, o bem-estar, o desenvolvimento, a igualdade e a justiça como valores supremos de uma sociedade fraterna, pluralista e sem preconceitos, fundada na harmonia social e comprometida, na ordem interna e internacional, com a solução pacífica das controvérsias, promulgamos, sob a proteção de Deus, a seguinte CONSTITUIÇÃO DA REPÚBLICA FEDERATIVA DO BRASIL.",
+          "structured_text": "Nós, representantes do povo brasileiro, reunidos em Assembléia Nacional Constituinte para instituir um Estado Democrático, destinado a assegurar o exercício dos direitos sociais e individuais, a liberdade, a segurança, o bem-estar, o desenvolvimento, a igualdade e a justiça como valores supremos de uma sociedade fraterna, pluralista e sem preconceitos, fundada na harmonia social e comprometida, na ordem interna e internacional, com a solução pacífica das controvérsias, promulgamos, sob a proteção de Deus, a seguinte CONSTITUIÇÃO DA REPÚBLICA FEDERATIVA DO BRASIL.",
+          "sha256": "dd8da44dab05cc762c8ac3e8c1b70f0583616f5899a34ada6252108c26a780a9"
+        },
+        {
+          "evidence_code": "EV002",
+          "source_element_ids": [
+            "d8fecb82-c4b9-4a06-bc61-0bbd73ddc0b5"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+          "hierarchy": [
+            "TITLE II",
+            "CHAPTER I",
+            "ARTICLE 5",
+            "INCISO VI"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI\né inviolável a liberdade de consciência e de crença, sendo assegurado o livre exercício dos cultos religiosos e garantida, na forma da lei, a proteção aos locais de culto e a suas liturgias;",
+          "structured_text": "TITLE II > CHAPTER I > ARTICLE 5 > INCISO VI\né inviolável a liberdade de consciência e de crença, sendo assegurado o livre exercício dos cultos religiosos e garantida, na forma da lei, a proteção aos locais de culto e a suas liturgias;",
+          "sha256": "1c30db3eed7fb31b411b9adff97e4118c5f1c548245744e6f37481ac93e85d0f"
+        },
+        {
+          "evidence_code": "EV003",
+          "source_element_ids": [
+            "fba8a790-f1ca-4df6-afee-89db9d332381"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+          "hierarchy": [
+            "TITLE II",
+            "CHAPTER I",
+            "ARTICLE 5"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput\nTodos são iguais perante a lei, sem distinção de qualquer natureza, garantindo-se aos brasileiros e aos estrangeiros residentes no País a inviolabilidade do direito à vida, à liberdade, à igualdade, à segurança e à propriedade, nos termos seguintes:",
+          "structured_text": "TITLE II > CHAPTER I > ARTICLE 5\nTodos são iguais perante a lei, sem distinção de qualquer natureza, garantindo-se aos brasileiros e aos estrangeiros residentes no País a inviolabilidade do direito à vida, à liberdade, à igualdade, à segurança e à propriedade, nos termos seguintes:",
+          "sha256": "c79ad458ea0677c8247ae738c77869f01bc052d047b086c992d9a342ba18caee"
+        }
+      ],
+      "elapsed_seconds": 47.04569507300039
+    },
+    {
+      "case_id": "rw-idade-presidente",
+      "question": "idade para ser presidente",
+      "expect_answer": true,
+      "classification": "CORRECT_ANSWER",
+      "outcome": "ANSWERED",
+      "first_failure": null,
+      "invalid_contract": false,
+      "generator": {
+        "answer": "A idade mínima para ser eleito Presidente da República, conforme estabelecido na Constituição Federal de 1988, é de trinta e cinco anos.",
+        "abstain": false,
+        "claims": [
+          {
+            "id": "C1",
+            "text": "A idade mínima para o cargo de Presidente da República é de trinta e cinco anos, conforme Artigo 14, Inciso VI, Alinea a, da Constituição Federal de 1988.",
+            "evidence_ids": [
+              "EV001"
+            ]
+          }
+        ]
+      },
+      "attribution": {
+        "abstained": false,
+        "reasons": []
+      },
+      "polarity": [
+        {
+          "status": "UNRESOLVED",
+          "reason_code": "NO_POLARITY_RELATION"
+        }
+      ],
+      "semantic": {
+        "valid": true,
+        "error": null,
+        "claims": [
+          {
+            "id": "C1",
+            "status": "SUPPORTED"
+          }
+        ]
+      },
+      "structured_units": [
+        {
+          "evidence_code": "EV001",
+          "source_element_ids": [
+            "fb4f6eff-fb91-4e59-ab4c-9a96c04ffc5a",
+            "eeefbf56-cc59-4fce-8bb1-fd133669a73d",
+            "1169e503-e430-4e21-9e7f-c4265a0889fc"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A",
+          "hierarchy": [
+            "TITLE II",
+            "CHAPTER IV",
+            "ARTICLE 14",
+            "PARAGRAPH 3",
+            "INCISO VI",
+            "ALINEA a"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A\ntrinta e cinco anos para Presidente e Vice-Presidente da República e Senador;",
+          "structured_text": "TITLE II > CHAPTER IV > ARTICLE 14 > PARAGRAPH 3 > INCISO VI > ALINEA a\nSão condições de elegibilidade, na forma da lei:\na idade mínima de:\ntrinta e cinco anos para Presidente e Vice-Presidente da República e Senador;",
+          "sha256": "243058e373740da4bddcfc4432e37a911bb6ec12c96ae6b8099589ac5f3fe32a"
+        },
+        {
+          "evidence_code": "EV002",
+          "source_element_ids": [
+            "6749f688-1275-4b15-8f5f-617d52d86af3"
+          ],
+          "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:80/CAPUT:@caput",
+          "hierarchy": [
+            "TITLE IV",
+            "CHAPTER II",
+            "SECTION I",
+            "ARTICLE 80"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:80/CAPUT:@caput\nEm caso de impedimento do Presidente e do Vice-Presidente, ou vacância dos respectivos cargos, serão sucessivamente chamados ao exercício da Presidência o Presidente da Câmara dos Deputados, o do Senado Federal e o do Supremo Tribunal Federal.",
+          "structured_text": "TITLE IV > CHAPTER II > SECTION I > ARTICLE 80\nEm caso de impedimento do Presidente e do Vice-Presidente, ou vacância dos respectivos cargos, serão sucessivamente chamados ao exercício da Presidência o Presidente da Câmara dos Deputados, o do Senado Federal e o do Supremo Tribunal Federal.",
+          "sha256": "7e30591da6abe551057933e97e39a7feda1a4986ed0e3ad72e95e171a7f8e7de"
+        },
+        {
+          "evidence_code": "EV003",
+          "source_element_ids": [
+            "4e6fff28-2495-4642-90b4-9283e579ddc4",
+            "64dce94b-b35d-46c6-a430-54224ba95e9a"
+          ],
+          "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VI/ARTICLE:57/PARAGRAPH:6/INCISO:I",
+          "hierarchy": [
+            "TITLE IV",
+            "CHAPTER I",
+            "SECTION VI",
+            "ARTICLE 57",
+            "PARAGRAPH 6",
+            "INCISO I"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VI/ARTICLE:57/PARAGRAPH:6/INCISO:I\npelo Presidente do Senado Federal, em caso de decretação de estado de defesa ou de intervenção federal, de pedido de autorização para a decretação de estado de sítio e para o compromisso e a posse do Presidente e do Vice-Presidente da República;",
+          "structured_text": "TITLE IV > CHAPTER I > SECTION VI > ARTICLE 57 > PARAGRAPH 6 > INCISO I\nA convocação extraordinária do Congresso Nacional far-se-á:\npelo Presidente do Senado Federal, em caso de decretação de estado de defesa ou de intervenção federal, de pedido de autorização para a decretação de estado de sítio e para o compromisso e a posse do Presidente e do Vice-Presidente da República;",
+          "sha256": "04c1adaf8c500f365389684a1e76762ff13d3b32e4f2941e0d2f8b7ffd84439c"
+        }
+      ],
+      "elapsed_seconds": 38.28298916000131
+    },
+    {
+      "case_id": "rw-voto-obrigatorio",
+      "question": "voto obrigatório",
+      "expect_answer": true,
+      "classification": "CORRECT_ANSWER",
+      "outcome": "ANSWERED",
+      "first_failure": null,
+      "invalid_contract": false,
+      "generator": {
+        "answer": "O voto é obrigatório para os maiores de dezoito anos, conforme estabelecido no Inciso I do Artigo 14 da CF/88.",
+        "abstain": false,
+        "claims": [
+          {
+            "id": "C1",
+            "text": "O voto é obrigatório para os maiores de dezoito anos, conforme estabelecido no Inciso I do Artigo 14 da CF/88.",
+            "evidence_ids": [
+              "EV001"
+            ]
+          }
+        ]
+      },
+      "attribution": {
+        "abstained": false,
+        "reasons": []
+      },
+      "polarity": [
+        {
+          "status": "CONSISTENT",
+          "reason_code": null
+        }
+      ],
+      "semantic": {
+        "valid": true,
+        "error": null,
+        "claims": [
+          {
+            "id": "C1",
+            "status": "SUPPORTED"
+          }
+        ]
+      },
+      "structured_units": [
+        {
+          "evidence_code": "EV001",
+          "source_element_ids": [
+            "92867dee-aae4-4b0c-9a6d-f8d71991cb73",
+            "d15298b4-fd72-4cc3-b1ae-23143d6119bc"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I",
+          "hierarchy": [
+            "TITLE II",
+            "CHAPTER IV",
+            "ARTICLE 14",
+            "PARAGRAPH 1",
+            "INCISO I"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I\nobrigatórios para os maiores de dezoito anos;",
+          "structured_text": "TITLE II > CHAPTER IV > ARTICLE 14 > PARAGRAPH 1 > INCISO I\nO alistamento eleitoral e o voto são:\nobrigatórios para os maiores de dezoito anos;",
+          "sha256": "77ac19191a2344f4ebf28a0c8d4f6095cf3b7ec4054de2939f2e7a2bbcf1670b"
+        },
+        {
+          "evidence_code": "EV002",
+          "source_element_ids": [
+            "6f7782e1-2887-4df9-b461-badbf67bb5d3"
+          ],
+          "identity_key": "ADCT/@root/ARTICLE:3/CAPUT:@caput",
+          "hierarchy": [
+            "ARTICLE 3"
+          ],
+          "original_snapshot": "ADCT | ADCT/@root/ARTICLE:3/CAPUT:@caput\n. A revisão constitucional será realizada após cinco anos, contados da promulgação da Constituição, pelo voto da maioria absoluta dos membros do Congresso Nacional, em sessão unicameral.",
+          "structured_text": "ARTICLE 3\n. A revisão constitucional será realizada após cinco anos, contados da promulgação da Constituição, pelo voto da maioria absoluta dos membros do Congresso Nacional, em sessão unicameral.",
+          "sha256": "51f3b75bd415157afb9eb3db8287ac36b4b8c57f9e0fc5f37afea5e1f43dc5e2"
+        },
+        {
+          "evidence_code": "EV003",
+          "source_element_ids": [
+            "f5622231-9b02-4e2e-ba7a-dc3e5818a1bc"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput",
+          "hierarchy": [
+            "TITLE II",
+            "CHAPTER IV",
+            "ARTICLE 14"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput\nA soberania popular será exercida pelo sufrágio universal e pelo voto direto e secreto, com valor igual para todos, e, nos termos da lei, mediante:",
+          "structured_text": "TITLE II > CHAPTER IV > ARTICLE 14\nA soberania popular será exercida pelo sufrágio universal e pelo voto direto e secreto, com valor igual para todos, e, nos termos da lei, mediante:",
+          "sha256": "82ea09fcb5a3d77b65899fe18204abc3c91701a8a1625960b0ec7efc330c6987"
+        }
+      ],
+      "elapsed_seconds": 30.50837717200011
+    },
+    {
+      "case_id": "rw-estado-sitio",
+      "question": "estado de sítio",
+      "expect_answer": true,
+      "classification": "FALSE_ABSTENTION",
+      "outcome": "ABSTAINED",
+      "first_failure": "ATTRIBUTION_FAILURE",
+      "invalid_contract": false,
+      "generator": {
+        "answer": "O estado de sítio é autorizado pela Constituição Federal de 1988 através dos incisos V do Artigo 21, IX do Artigo 84 e IV do Artigo 49. Esses incisos permitem a decretulação do estado de sítio, do estado de defesa e da intervenção federal, bem como a aprovação ou suspensão dessas medidas.",
+        "abstain": false,
+        "claims": [
+          {
+            "id": "C1",
+            "text": "O estado de sítio pode ser decretado pelo poder executivo conforme o inciso V do Artigo 21 da CF/88.",
+            "evidence_ids": [
+              "EV001"
+            ]
+          },
+          {
+            "id": "C2",
+            "text": "O estado de defesa e o estado de sítio podem ser decretados pelo poder executivo conforme o inciso IX do Artigo 84 da CF/88.",
+            "evidence_ids": [
+              "EV002"
+            ]
+          },
+          {
+            "id": "C3",
+            "text": "O poder executivo pode aprovar o estado de defesa e a intervenção federal, autorizar o estado de sítio ou suspender qualquer uma dessas medidas conforme o inciso IV do Artigo 49 da CF/88.",
+            "evidence_ids": [
+              "EV003"
+            ]
+          }
+        ]
+      },
+      "attribution": {
+        "abstained": true,
+        "reasons": [
+          "Claim C1 sem atribuição inequívoca."
+        ]
+      },
+      "polarity": null,
+      "semantic": null,
+      "structured_units": [
+        {
+          "evidence_code": "EV001",
+          "source_element_ids": [
+            "3a18d4fa-8b5b-4776-9ceb-024ba908cc81"
+          ],
+          "identity_key": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V",
+          "hierarchy": [
+            "TITLE III",
+            "CHAPTER II",
+            "ARTICLE 21",
+            "INCISO V"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V\ndecretar o estado de sítio, o estado de defesa e a intervenção federal;",
+          "structured_text": "TITLE III > CHAPTER II > ARTICLE 21 > INCISO V\ndecretar o estado de sítio, o estado de defesa e a intervenção federal;",
+          "sha256": "66e3e24f08d6827492df22edda1785f3dc15427e2795f605b6d775de5c40229c"
+        },
+        {
+          "evidence_code": "EV002",
+          "source_element_ids": [
+            "29c1f8e6-8cf5-4d17-9f2d-1e589e8ce7ba"
+          ],
+          "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:II/ARTICLE:84/INCISO:IX",
+          "hierarchy": [
+            "TITLE IV",
+            "CHAPTER II",
+            "SECTION II",
+            "ARTICLE 84",
+            "INCISO IX"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:IV/CHAPTER:II/SECTION:II/ARTICLE:84/INCISO:IX\ndecretar o estado de defesa e o estado de sítio;",
+          "structured_text": "TITLE IV > CHAPTER II > SECTION II > ARTICLE 84 > INCISO IX\ndecretar o estado de defesa e o estado de sítio;",
+          "sha256": "8a2d31d3f9e75e3917a30bb509a7aa612644c28aab45651b12ffffd1db732070"
+        },
+        {
+          "evidence_code": "EV003",
+          "source_element_ids": [
+            "168a50b4-1722-464e-965f-cc6d1428b79c"
+          ],
+          "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:II/ARTICLE:49/INCISO:IV",
+          "hierarchy": [
+            "TITLE IV",
+            "CHAPTER I",
+            "SECTION II",
+            "ARTICLE 49",
+            "INCISO IV"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:IV/CHAPTER:I/SECTION:II/ARTICLE:49/INCISO:IV\naprovar o estado de defesa e a intervenção federal, autorizar o estado de sítio, ou suspender qualquer uma dessas medidas;",
+          "structured_text": "TITLE IV > CHAPTER I > SECTION II > ARTICLE 49 > INCISO IV\naprovar o estado de defesa e a intervenção federal, autorizar o estado de sítio, ou suspender qualquer uma dessas medidas;",
+          "sha256": "9c6c3f9395c9308cfadaa6808914be0ac09911cdd74fe8a8fa027aafbdff58ae"
+        }
+      ],
+      "elapsed_seconds": 38.34215661000053
+    },
+    {
+      "case_id": "rw-aborto",
+      "question": "aborto",
+      "expect_answer": false,
+      "classification": "CORRECT_ABSTENTION",
+      "outcome": "ABSTAINED",
+      "first_failure": null,
+      "invalid_contract": false,
+      "generator": null,
+      "attribution": null,
+      "polarity": null,
+      "semantic": null,
+      "structured_units": [
+        {
+          "evidence_code": "EV001",
+          "source_element_ids": [
+            "2e667169-6da2-4dbc-a02a-8a0d6ce4cce5"
+          ],
+          "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:4",
+          "hierarchy": [
+            "TITLE IV",
+            "CHAPTER I",
+            "SECTION VIII",
+            "SUBSECTION II",
+            "ARTICLE 60",
+            "PARAGRAPH 4"
+          ],
+          "original_snapshot": "CF/88 | CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:4\nNão será objeto de deliberação a proposta de emenda tendente a abolir:",
+          "structured_text": "TITLE IV > CHAPTER I > SECTION VIII > SUBSECTION II > ARTICLE 60 > PARAGRAPH 4\nNão será objeto de deliberação a proposta de emenda tendente a abolir:",
+          "sha256": "203eae3b1f302aebf492b4b6f471baf382a8cad41e579d8d042b21021b3b586c"
+        }
+      ],
+      "elapsed_seconds": 0.005008682999687153
+    }
+  ],
+  "metrics": {
+    "correct_answers": 5,
+    "false_abstentions": 5,
+    "correct_abstentions": 1,
+    "unsafe_answers": 0,
+    "invalid_contracts": 0,
+    "attribution_success": 6,
+    "polarity_rejections": 1,
+    "semantic_success": 5
+  }
+}

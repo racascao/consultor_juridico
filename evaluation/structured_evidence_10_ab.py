@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import time
+from argparse import ArgumentParser
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -43,6 +44,14 @@ def _view(item, unit):
 
 
 def main() -> None:
+    parser = ArgumentParser()
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=ROOT / "evaluation/results/structured_evidence_10_ab.json",
+    )
+    parser.add_argument("--phase", default="10")
+    args = parser.parse_args()
     baseline = json.loads(
         (ROOT / "evaluation/results/real_world_short_e2e_9_18.json").read_text()
     )
@@ -186,7 +195,7 @@ def main() -> None:
                 }
             )
     payload = {
-        "phase": "10",
+        "phase": args.phase,
         "strategy_a": "real_world_short_e2e_9_18.json",
         "strategy_b": "StructuredEvidenceUnit",
         "generator": settings.ollama_model,
@@ -220,8 +229,7 @@ def main() -> None:
             ),
         },
     }
-    path = ROOT / "evaluation/results/structured_evidence_10_ab.json"
-    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n")
+    args.output.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n")
 
 
 if __name__ == "__main__":

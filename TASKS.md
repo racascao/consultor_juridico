@@ -306,3 +306,13 @@ Estado: `BLOCKED` — Granite 8B+8B executado; judge rejeita voto facultativo, m
 - [x] A/B congelado: `4/10 → 4/10`, sem ganho líquido
 - [x] `STRUCTURED_EVIDENCE_GATE: BLOCKED`; produção não integrada
 - [x] `docs/81-fase-10-structured-evidence-unit.md`
+
+## Fase 10.1 — Refinamento determinístico do contexto da SEU
+
+- [x] Remover inclusão automática de siblings normativos
+- [x] Preservar elemento determinante e ancestrais necessários
+- [x] Regressão de voto obrigatório eliminada
+- [x] Ganho de liberdade de expressão preservado
+- [x] A/B: `4/10 → 5/10`, `LOW_IMPACT`
+- [x] `STRUCTURED_EVIDENCE_CONTEXT_GATE: BLOCKED`; produção não integrada
+- [x] `docs/82-fase-10-1-seu-context-selection.md`

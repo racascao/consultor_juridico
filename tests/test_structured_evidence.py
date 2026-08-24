@@ -50,7 +50,7 @@ def test_ancestor_negation_and_alinea_are_reconstructed_without_paraphrase():
     assert unit.hierarchy == ("ARTICLE 5", "INCISO XLVII", "ALINEA b")
 
 
-def test_enumeration_includes_siblings_in_document_order():
+def test_enumeration_excludes_independent_siblings():
     parent = part(1, "CAPUT", "O alistamento e o voto são:", 1)
     target = part(
         3, "INCISO", "obrigatórios para maiores de dezoito anos;", 3, "TARGET", "I"
@@ -59,14 +59,9 @@ def test_enumeration_includes_siblings_in_document_order():
     unit = build_structured_evidence(
         item(), target, ancestors=(parent,), siblings=(sibling,)
     )
-    assert unit.structured_text.index("obrigatórios") < unit.structured_text.index(
-        "facultativos"
-    )
-    assert unit.source_element_ids == (
-        parent.element_id,
-        target.element_id,
-        sibling.element_id,
-    )
+    assert "obrigatórios" in unit.structured_text
+    assert "facultativos" not in unit.structured_text
+    assert unit.source_element_ids == (parent.element_id, target.element_id)
 
 
 def test_exception_and_parent_context_are_preserved_factually():
