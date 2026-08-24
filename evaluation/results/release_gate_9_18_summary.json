@@ -1,0 +1,19 @@
+{
+  "phase": "9.18",
+  "baseline_9_15": {"correct_answers": "2/10", "false_abstentions": 8, "correct_abstention": "1/1", "unsafe_answers": 0},
+  "after_9_18": {"correct_answers": "4/10", "false_abstentions": 6, "correct_abstention": "1/1", "unsafe_answers": 0, "invalid_citation_chains": 0, "retrieval_hit_rate": 0.9},
+  "improved_cases": ["rw-extradicao", "rw-idade-presidente"],
+  "regressed_cases": [],
+  "failure_distribution": {
+    "EVIDENCE_SELECTION_MISS": 2,
+    "SUFFICIENCY_FALSE_NEGATIVE": 1,
+    "GENERATOR_ABSTENTION": 2,
+    "RETRIEVAL_MISS": 1
+  },
+  "no_polarity_routed_to_semantic": 0,
+  "no_polarity_supported": 0,
+  "no_polarity_rejected": 0,
+  "real_world_release_gate": "BLOCKED",
+  "dominant_blocker": "GENERATOR_ABSTENTION",
+  "recommended_next_intervention": "Diagnóstico focal do Generator Abstention, sem tuning nesta fase"
+}

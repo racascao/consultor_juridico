@@ -281,3 +281,11 @@ Estado: `BLOCKED` — Granite 8B+8B executado; judge rejeita voto facultativo, m
 - [x] Ambiguidade de exceção mantida em fail-closed
 - [x] `BOUNDARY_ROUTING_GATE: APPROVED`
 - [x] `docs/78-fase-9-17-polarity-semantic-boundary.md`
+
+## Fase 9.18 — Reavaliação Real-World pós Boundary Routing
+
+- [x] Avaliação única `real_world_short_v1` sem tuning
+- [x] Comparação 9.15 → 9.18
+- [x] `4/10` respostas corretas, `1/1` abstenção correta, `0` unsafe
+- [x] Release gate permanece bloqueado
+- [x] `docs/79-fase-9-18-real-world-reevaluation.md`
