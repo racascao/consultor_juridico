@@ -1,0 +1,990 @@
+{
+  "repetitions": 3,
+  "results": [
+    {
+      "case_id": "rw-liberdade-religiosa",
+      "strategy": "A",
+      "repetition": 1,
+      "evidence_codes": [
+        "EV001",
+        "EV002",
+        "EV003",
+        "EV004",
+        "EV005",
+        "EV006",
+        "EV007",
+        "EV008",
+        "EV009",
+        "EV010"
+      ],
+      "evidence_order": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+        "CF88/@root/PREAMBLE:@preamble",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VII",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VIII",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XVII",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI/ALINEA:A",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLI",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LIV",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI"
+      ],
+      "generator_abstain": false,
+      "claims": [
+        {
+          "id": "C1",
+          "text": "A liberdade religiosa é garantida pelo Artigo 5º, inciso VI da Constituição Federal de 1988, que protege a liberdade de consciência e de crença, bem como o livre exercício dos cultos religiosos.",
+          "evidence_ids": [
+            "EV001"
+          ]
+        },
+        {
+          "id": "C2",
+          "text": "O Artigo 5º, caput da mesma Constituição, reafirma que todos são iguais perante a lei, garantindo inviolabilidade do direito à vida, à liberdade, à igualdade, à segurança e à propriedade, o que inclui a liberdade religiosa.",
+          "evidence_ids": [
+            "EV002"
+          ]
+        }
+      ],
+      "citation_validation": true,
+      "attribution": {
+        "abstained": false,
+        "changed_claims": 1,
+        "reasons": []
+      },
+      "polarity": true,
+      "semantic": {
+        "valid": true,
+        "errors": []
+      },
+      "first_failure": null,
+      "final": "ANSWERED",
+      "latency_seconds": 103.37639817000013
+    },
+    {
+      "case_id": "rw-liberdade-religiosa",
+      "strategy": "A",
+      "repetition": 2,
+      "evidence_codes": [
+        "EV001",
+        "EV002",
+        "EV003",
+        "EV004",
+        "EV005",
+        "EV006",
+        "EV007",
+        "EV008",
+        "EV009",
+        "EV010"
+      ],
+      "evidence_order": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+        "CF88/@root/PREAMBLE:@preamble",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VII",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VIII",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XVII",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI/ALINEA:A",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLI",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LIV",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI"
+      ],
+      "generator_abstain": false,
+      "claims": [
+        {
+          "id": "C1",
+          "text": "A liberdade religiosa é garantida pelo Artigo 5º, inciso VI da Constituição Federal de 1988, que assegura o livre exercício dos cultos religiosos e a proteção aos locais de culto e suas liturgias (EV001).",
+          "evidence_ids": [
+            "EV001"
+          ]
+        },
+        {
+          "id": "C2",
+          "text": "Não é permitido a privação ou restrição da liberdade religiosa, exceto quando usada para eximir-se de obrigação legal a todos imposta e recusar-se a cumprir prestação alternativa, conforme estabelecido no inciso XLVI do Artigo 5º (EV005).",
+          "evidence_ids": [
+            "EV005"
+          ]
+        }
+      ],
+      "citation_validation": true,
+      "attribution": {
+        "abstained": false,
+        "changed_claims": 0,
+        "reasons": []
+      },
+      "polarity": true,
+      "semantic": {
+        "valid": true,
+        "errors": []
+      },
+      "first_failure": null,
+      "final": "ANSWERED",
+      "latency_seconds": 77.67949112700012
+    },
+    {
+      "case_id": "rw-liberdade-religiosa",
+      "strategy": "A",
+      "repetition": 3,
+      "evidence_codes": [
+        "EV001",
+        "EV002",
+        "EV003",
+        "EV004",
+        "EV005",
+        "EV006",
+        "EV007",
+        "EV008",
+        "EV009",
+        "EV010"
+      ],
+      "evidence_order": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+        "CF88/@root/PREAMBLE:@preamble",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VII",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VIII",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XVII",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI/ALINEA:A",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLI",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LIV",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI"
+      ],
+      "generator_abstain": false,
+      "claims": [
+        {
+          "id": "C1",
+          "text": "A liberdade religiosa é garantida pelo Artigo 5º, inciso VI da Constituição Federal de 1988, que assegura o livre exercício dos cultos religiosos e a proteção aos locais de culto e suas liturgias (EV001).",
+          "evidence_ids": [
+            "EV001"
+          ]
+        },
+        {
+          "id": "C2",
+          "text": "Não é permitido a privação ou restrição da liberdade religiosa, exceto quando usada para eximir-se de obrigação legal a todos imposta e recusar-se a cumprir prestação alternativa, conforme estabelecido no inciso XLVI do Artigo 5º (EV005).",
+          "evidence_ids": [
+            "EV005"
+          ]
+        }
+      ],
+      "citation_validation": true,
+      "attribution": {
+        "abstained": false,
+        "changed_claims": 0,
+        "reasons": []
+      },
+      "polarity": true,
+      "semantic": {
+        "valid": true,
+        "errors": []
+      },
+      "first_failure": null,
+      "final": "ANSWERED",
+      "latency_seconds": 73.91268082200008
+    },
+    {
+      "case_id": "rw-liberdade-religiosa",
+      "strategy": "B",
+      "repetition": 1,
+      "evidence_codes": [
+        "EV001",
+        "EV002",
+        "EV003"
+      ],
+      "evidence_order": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+        "CF88/@root/PREAMBLE:@preamble"
+      ],
+      "generator_abstain": false,
+      "claims": [
+        {
+          "id": "C1",
+          "text": "A liberdade de consciência e de crença é inviolável, garantindo o livre exercício dos cultos religiosos e a proteção aos locais de culto e suas liturgias, conforme estabelecido no Artigo 5º, Inciso VI da Constituição Federal de 1988 (EV001).",
+          "evidence_ids": [
+            "EV001"
+          ]
+        }
+      ],
+      "citation_validation": true,
+      "attribution": {
+        "abstained": false,
+        "changed_claims": 0,
+        "reasons": []
+      },
+      "polarity": true,
+      "semantic": {
+        "valid": true,
+        "errors": []
+      },
+      "first_failure": null,
+      "final": "ANSWERED",
+      "latency_seconds": 32.74457874799987
+    },
+    {
+      "case_id": "rw-liberdade-religiosa",
+      "strategy": "B",
+      "repetition": 2,
+      "evidence_codes": [
+        "EV001",
+        "EV002",
+        "EV003"
+      ],
+      "evidence_order": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+        "CF88/@root/PREAMBLE:@preamble"
+      ],
+      "generator_abstain": false,
+      "claims": [
+        {
+          "id": "C1",
+          "text": "A liberdade religiosa está garantida pela Constituição Federal de 1988, conforme Artigo 5º, Inciso VI, que afirma: 'é inviolável a liberdade de consciência e de crença, sendo assegurado o livre exercício dos cultos religiosos e garantida, na forma da lei, a proteção aos locais de culto e a suas liturgias;'.",
+          "evidence_ids": [
+            "EV001"
+          ]
+        }
+      ],
+      "citation_validation": true,
+      "attribution": {
+        "abstained": false,
+        "changed_claims": 0,
+        "reasons": []
+      },
+      "polarity": true,
+      "semantic": {
+        "valid": true,
+        "errors": []
+      },
+      "first_failure": null,
+      "final": "ANSWERED",
+      "latency_seconds": 33.12178677099996
+    },
+    {
+      "case_id": "rw-liberdade-religiosa",
+      "strategy": "B",
+      "repetition": 3,
+      "evidence_codes": [
+        "EV001",
+        "EV002",
+        "EV003"
+      ],
+      "evidence_order": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+        "CF88/@root/PREAMBLE:@preamble"
+      ],
+      "generator_abstain": false,
+      "claims": [
+        {
+          "id": "C1",
+          "text": "A liberdade religiosa está garantida pela Constituição Federal de 1988, conforme Artigo 5º, Inciso VI, que afirma: 'é inviolável a liberdade de consciência e de crença, sendo assegurado o livre exercício dos cultos religiosos e garantida, na forma da lei, a proteção aos locais de culto e a suas liturgias;'.",
+          "evidence_ids": [
+            "EV001"
+          ]
+        }
+      ],
+      "citation_validation": true,
+      "attribution": {
+        "abstained": false,
+        "changed_claims": 0,
+        "reasons": []
+      },
+      "polarity": true,
+      "semantic": {
+        "valid": true,
+        "errors": []
+      },
+      "first_failure": null,
+      "final": "ANSWERED",
+      "latency_seconds": 30.918774183000096
+    },
+    {
+      "case_id": "rw-direito-vida",
+      "strategy": "A",
+      "repetition": 1,
+      "evidence_codes": [
+        "EV001",
+        "EV002",
+        "EV003",
+        "EV004",
+        "EV005",
+        "EV006",
+        "EV007",
+        "EV008",
+        "EV009",
+        "EV010"
+      ],
+      "evidence_order": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+        "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput",
+        "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput",
+        "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/PARAGRAPH:6",
+        "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V/ARTICLE:156/PARAGRAPH:2/INCISO:I",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:X",
+        "ADCT/@root/ARTICLE:9/CAPUT:@caput",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIV/ALINEA:A",
+        "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:IV/ARTICLE:109/PARAGRAPH:5",
+        "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V/ARTICLE:156/INCISO:II"
+      ],
+      "generator_abstain": false,
+      "claims": [
+        {
+          "id": "C1",
+          "text": "O direito à vida é garantido pelo Artigo 5º, caput, da Constituição Federal de 1988, que afirma a inviolabilidade do direito à vida, à liberdade, à igualdade, à segurança e à propriedade para todos os cidadãos. (EV001)",
+          "evidence_ids": [
+            "EV001"
+          ]
+        },
+        {
+          "id": "C2",
+          "text": "O Artigo 227 da Constituição Federal de 1988 garante o direito à vida, à saúde, à alimentação, à educação, ao lazer, à profissionalização, à cultura, à dignidade, ao respeito, à liberdade e à convivência familiar e comunitária para crianças, adolescentes e jovens. (EV003)",
+          "evidence_ids": [
+            "EV003"
+          ]
+        }
+      ],
+      "citation_validation": true,
+      "attribution": {
+        "abstained": false,
+        "changed_claims": 0,
+        "reasons": []
+      },
+      "polarity": false,
+      "first_failure": "ATTRIBUTION_OR_POLARITY",
+      "final": "ABSTAINED",
+      "latency_seconds": 78.42841217200021
+    },
+    {
+      "case_id": "rw-direito-vida",
+      "strategy": "A",
+      "repetition": 2,
+      "evidence_codes": [
+        "EV001",
+        "EV002",
+        "EV003",
+        "EV004",
+        "EV005",
+        "EV006",
+        "EV007",
+        "EV008",
+        "EV009",
+        "EV010"
+      ],
+      "evidence_order": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+        "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput",
+        "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput",
+        "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/PARAGRAPH:6",
+        "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V/ARTICLE:156/PARAGRAPH:2/INCISO:I",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:X",
+        "ADCT/@root/ARTICLE:9/CAPUT:@caput",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIV/ALINEA:A",
+        "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:IV/ARTICLE:109/PARAGRAPH:5",
+        "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V/ARTICLE:156/INCISO:II"
+      ],
+      "generator_abstain": false,
+      "claims": [
+        {
+          "id": "C1",
+          "text": "O direito à vida é garantido pelo Artigo 5º, caput, da Constituição Federal de 1988, que afirma a inviolabilidade do direito à vida para todos os cidadãos e estrangeiros residentes no País.",
+          "evidence_ids": [
+            "EV001"
+          ]
+        },
+        {
+          "id": "C2",
+          "text": "O Artigo 227 da Constituição Federal de 1988 garante o direito à vida, juntamente com outros direitos fundamentais, para crianças, adolescentes e jovens, garantindo-lhes acesso à saúde, alimentação, educação, entre outros.",
+          "evidence_ids": [
+            "EV003"
+          ]
+        }
+      ],
+      "citation_validation": true,
+      "attribution": {
+        "abstained": true,
+        "changed_claims": 0,
+        "reasons": [
+          "Claim C2 sem atribuição inequívoca."
+        ]
+      },
+      "polarity": false,
+      "first_failure": "ATTRIBUTION_OR_POLARITY",
+      "final": "ABSTAINED",
+      "latency_seconds": 44.56607538199978
+    },
+    {
+      "case_id": "rw-direito-vida",
+      "strategy": "A",
+      "repetition": 3,
+      "evidence_codes": [
+        "EV001",
+        "EV002",
+        "EV003",
+        "EV004",
+        "EV005",
+        "EV006",
+        "EV007",
+        "EV008",
+        "EV009",
+        "EV010"
+      ],
+      "evidence_order": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+        "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput",
+        "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput",
+        "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/PARAGRAPH:6",
+        "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V/ARTICLE:156/PARAGRAPH:2/INCISO:I",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:X",
+        "ADCT/@root/ARTICLE:9/CAPUT:@caput",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIV/ALINEA:A",
+        "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:IV/ARTICLE:109/PARAGRAPH:5",
+        "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V/ARTICLE:156/INCISO:II"
+      ],
+      "generator_abstain": false,
+      "claims": [
+        {
+          "id": "C1",
+          "text": "O direito à vida é garantido pelo Artigo 5º, caput, da Constituição Federal de 1988, que afirma a inviolabilidade do direito à vida para todos os cidadãos e estrangeiros residentes no País.",
+          "evidence_ids": [
+            "EV001"
+          ]
+        },
+        {
+          "id": "C2",
+          "text": "O Artigo 227 da Constituição Federal de 1988 garante o direito à vida, juntamente com outros direitos fundamentais, para crianças, adolescentes e jovens, garantindo-lhes acesso à saúde, alimentação, educação, entre outros.",
+          "evidence_ids": [
+            "EV003"
+          ]
+        }
+      ],
+      "citation_validation": true,
+      "attribution": {
+        "abstained": true,
+        "changed_claims": 0,
+        "reasons": [
+          "Claim C2 sem atribuição inequívoca."
+        ]
+      },
+      "polarity": false,
+      "first_failure": "ATTRIBUTION_OR_POLARITY",
+      "final": "ABSTAINED",
+      "latency_seconds": 44.29986282699974
+    },
+    {
+      "case_id": "rw-direito-vida",
+      "strategy": "B",
+      "repetition": 1,
+      "evidence_codes": [
+        "EV001",
+        "EV002",
+        "EV003"
+      ],
+      "evidence_order": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+        "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput",
+        "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput"
+      ],
+      "generator_abstain": false,
+      "claims": [
+        {
+          "id": "C1",
+          "text": "O direito à vida é garantido pelo Artigo 5º da Constituição Federal de 1988.",
+          "evidence_ids": [
+            "EV001"
+          ]
+        },
+        {
+          "id": "C2",
+          "text": "O Artigo 230 da Constituição Federal de 1988 estabelece que a família, a sociedade e o Estado têm o dever de assegurar o direito à vida às pessoas idosas.",
+          "evidence_ids": [
+            "EV002"
+          ]
+        },
+        {
+          "id": "C3",
+          "text": "O Artigo 227 da Constituição Federal de 1988 reafirma que é dever da família, da sociedade e do Estado assegurar o direito à vida à criança, ao adolescente e ao jovem.",
+          "evidence_ids": [
+            "EV003"
+          ]
+        }
+      ],
+      "citation_validation": true,
+      "attribution": {
+        "abstained": false,
+        "changed_claims": 0,
+        "reasons": []
+      },
+      "polarity": false,
+      "first_failure": "ATTRIBUTION_OR_POLARITY",
+      "final": "ABSTAINED",
+      "latency_seconds": 45.58230187900017
+    },
+    {
+      "case_id": "rw-direito-vida",
+      "strategy": "B",
+      "repetition": 2,
+      "evidence_codes": [
+        "EV001",
+        "EV002",
+        "EV003"
+      ],
+      "evidence_order": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+        "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput",
+        "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput"
+      ],
+      "generator_abstain": false,
+      "claims": [
+        {
+          "id": "C1",
+          "text": "O direito à vida é garantido pelo Artigo 5º da Constituição Federal de 1988.",
+          "evidence_ids": [
+            "EV001"
+          ]
+        },
+        {
+          "id": "C2",
+          "text": "O Artigo 230 da Constituição Federal de 1988 estabelece o dever da família, da sociedade e do Estado de garantir o direito à vida às pessoas idosas.",
+          "evidence_ids": [
+            "EV002"
+          ]
+        },
+        {
+          "id": "C3",
+          "text": "O Artigo 227 da Constituição Federal de 1988 reafirma o dever de garantir o direito à vida, à saúde, à alimentação, à educação, ao lazer, à profissionalização, à cultura, à dignidade, ao respeito, à liberdade e à convivência familiar e comunitária para a criança, ao adolescente e ao jovem.",
+          "evidence_ids": [
+            "EV003"
+          ]
+        }
+      ],
+      "citation_validation": true,
+      "attribution": {
+        "abstained": false,
+        "changed_claims": 0,
+        "reasons": []
+      },
+      "polarity": false,
+      "first_failure": "ATTRIBUTION_OR_POLARITY",
+      "final": "ABSTAINED",
+      "latency_seconds": 56.79060573400011
+    },
+    {
+      "case_id": "rw-direito-vida",
+      "strategy": "B",
+      "repetition": 3,
+      "evidence_codes": [
+        "EV001",
+        "EV002",
+        "EV003"
+      ],
+      "evidence_order": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+        "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput",
+        "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput"
+      ],
+      "generator_abstain": false,
+      "claims": [
+        {
+          "id": "C1",
+          "text": "O direito à vida é garantido pelo Artigo 5º da Constituição Federal de 1988.",
+          "evidence_ids": [
+            "EV001"
+          ]
+        },
+        {
+          "id": "C2",
+          "text": "O Artigo 230 da Constituição Federal de 1988 estabelece o dever da família, da sociedade e do Estado de garantir o direito à vida às pessoas idosas.",
+          "evidence_ids": [
+            "EV002"
+          ]
+        },
+        {
+          "id": "C3",
+          "text": "O Artigo 227 da Constituição Federal de 1988 reafirma o dever de garantir o direito à vida, à saúde, à alimentação, à educação, ao lazer, à profissionalização, à cultura, à dignidade, ao respeito, à liberdade e à convivência familiar e comunitária para a criança, ao adolescente e ao jovem.",
+          "evidence_ids": [
+            "EV003"
+          ]
+        }
+      ],
+      "citation_validation": true,
+      "attribution": {
+        "abstained": false,
+        "changed_claims": 0,
+        "reasons": []
+      },
+      "polarity": false,
+      "first_failure": "ATTRIBUTION_OR_POLARITY",
+      "final": "ABSTAINED",
+      "latency_seconds": 57.16299118500001
+    },
+    {
+      "case_id": "rw-estado-sitio",
+      "strategy": "A",
+      "repetition": 1,
+      "evidence_codes": [
+        "EV001",
+        "EV002",
+        "EV003",
+        "EV004",
+        "EV005",
+        "EV006",
+        "EV007",
+        "EV008",
+        "EV009",
+        "EV010"
+      ],
+      "evidence_order": [
+        "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V",
+        "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:II/ARTICLE:84/INCISO:IX",
+        "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:II/ARTICLE:49/INCISO:IV",
+        "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:1",
+        "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VI/ARTICLE:57/PARAGRAPH:6/INCISO:I",
+        "CF88/@root/TITLE:V/CHAPTER:I",
+        "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:V/SUBSECTION:I/ARTICLE:90/INCISO:I",
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/PARAGRAPH:ÚNICO",
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/CAPUT:@caput",
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II"
+      ],
+      "generator_abstain": false,
+      "claims": [
+        {
+          "id": "C1",
+          "text": "O Poder Executivo pode declarar o estado de sítio, conforme estabelecido no Artigo 21, Inciso V, da CF/88.",
+          "evidence_ids": [
+            "EV001"
+          ]
+        },
+        {
+          "id": "C2",
+          "text": "O Estado de Defesa e o Estado de Sítio podem ser declarados pelo Poder Executivo, conforme estabelecido no Artigo 84, Inciso IX, da CF/88.",
+          "evidence_ids": [
+            "EV002"
+          ]
+        },
+        {
+          "id": "C3",
+          "text": "O Presidente da República pode aprovar o Estado de Defesa e a Intervenção Federal, autorizar o Estado de Sítio e suspender qualquer uma dessas medidas, conforme estabelecido no Artigo 49, Inciso IV, da CF/88.",
+          "evidence_ids": [
+            "EV003"
+          ]
+        },
+        {
+          "id": "C4",
+          "text": "A Constituição não pode ser emendada durante a vigência de Intervenção Federal, Estado de Defesa ou Estado de Sítio, conforme estabelecido no Artigo 60, Parágrafo 1, da CF/88.",
+          "evidence_ids": [
+            "EV004"
+          ]
+        }
+      ],
+      "citation_validation": true,
+      "attribution": {
+        "abstained": true,
+        "changed_claims": 0,
+        "reasons": [
+          "Claim C1 sem atribuição inequívoca."
+        ]
+      },
+      "polarity": false,
+      "first_failure": "ATTRIBUTION_OR_POLARITY",
+      "final": "ABSTAINED",
+      "latency_seconds": 63.03514101900009
+    },
+    {
+      "case_id": "rw-estado-sitio",
+      "strategy": "A",
+      "repetition": 2,
+      "evidence_codes": [
+        "EV001",
+        "EV002",
+        "EV003",
+        "EV004",
+        "EV005",
+        "EV006",
+        "EV007",
+        "EV008",
+        "EV009",
+        "EV010"
+      ],
+      "evidence_order": [
+        "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V",
+        "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:II/ARTICLE:84/INCISO:IX",
+        "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:II/ARTICLE:49/INCISO:IV",
+        "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:1",
+        "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VI/ARTICLE:57/PARAGRAPH:6/INCISO:I",
+        "CF88/@root/TITLE:V/CHAPTER:I",
+        "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:V/SUBSECTION:I/ARTICLE:90/INCISO:I",
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/PARAGRAPH:ÚNICO",
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/CAPUT:@caput",
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II"
+      ],
+      "generator_abstain": false,
+      "claims": [
+        {
+          "id": "C1",
+          "text": "O Poder Executivo pode declarar o estado de sítio, conforme estabelecido no Artigo 21, Inciso V, da CF/88 (EV001).",
+          "evidence_ids": [
+            "EV001"
+          ]
+        },
+        {
+          "id": "C2",
+          "text": "O Estado de Defesa e o Estado de Sítio podem ser declarados pelo Presidente da República, conforme estabelecido no Artigo 84, Inciso IX (EV002).",
+          "evidence_ids": [
+            "EV002"
+          ]
+        },
+        {
+          "id": "C3",
+          "text": "O Presidente da República pode aprovar o Estado de Defesa e a intervenção federal, autorizar o estado de sítio ou suspender qualquer uma dessas medidas, conforme estabelecido no Artigo 49, Inciso IV (EV003).",
+          "evidence_ids": [
+            "EV003"
+          ]
+        },
+        {
+          "id": "C4",
+          "text": "A Constituição não pode ser emendada durante a vigência de intervenção federal, de Estado de Defesa ou de Estado de Sítio, conforme estabelecido no Artigo 60, Parágrafo 1 (EV004).",
+          "evidence_ids": [
+            "EV004"
+          ]
+        }
+      ],
+      "citation_validation": true,
+      "attribution": {
+        "abstained": true,
+        "changed_claims": 0,
+        "reasons": [
+          "Claim C1 sem atribuição inequívoca."
+        ]
+      },
+      "polarity": false,
+      "first_failure": "ATTRIBUTION_OR_POLARITY",
+      "final": "ABSTAINED",
+      "latency_seconds": 40.889788425999996
+    },
+    {
+      "case_id": "rw-estado-sitio",
+      "strategy": "A",
+      "repetition": 3,
+      "evidence_codes": [
+        "EV001",
+        "EV002",
+        "EV003",
+        "EV004",
+        "EV005",
+        "EV006",
+        "EV007",
+        "EV008",
+        "EV009",
+        "EV010"
+      ],
+      "evidence_order": [
+        "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V",
+        "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:II/ARTICLE:84/INCISO:IX",
+        "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:II/ARTICLE:49/INCISO:IV",
+        "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:1",
+        "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VI/ARTICLE:57/PARAGRAPH:6/INCISO:I",
+        "CF88/@root/TITLE:V/CHAPTER:I",
+        "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:V/SUBSECTION:I/ARTICLE:90/INCISO:I",
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/PARAGRAPH:ÚNICO",
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/CAPUT:@caput",
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II"
+      ],
+      "generator_abstain": false,
+      "claims": [
+        {
+          "id": "C1",
+          "text": "O Poder Executivo pode declarar o estado de sítio, conforme estabelecido no Artigo 21, Inciso V, da CF/88 (EV001).",
+          "evidence_ids": [
+            "EV001"
+          ]
+        },
+        {
+          "id": "C2",
+          "text": "O Estado de Defesa e o Estado de Sítio podem ser declarados pelo Presidente da República, conforme estabelecido no Artigo 84, Inciso IX (EV002).",
+          "evidence_ids": [
+            "EV002"
+          ]
+        },
+        {
+          "id": "C3",
+          "text": "O Presidente da República pode aprovar o Estado de Defesa e a intervenção federal, autorizar o estado de sítio ou suspender qualquer uma dessas medidas, conforme estabelecido no Artigo 49, Inciso IV (EV003).",
+          "evidence_ids": [
+            "EV003"
+          ]
+        },
+        {
+          "id": "C4",
+          "text": "A Constituição não pode ser emendada durante a vigência de intervenção federal, de Estado de Defesa ou de Estado de Sítio, conforme estabelecido no Artigo 60, Parágrafo 1 (EV004).",
+          "evidence_ids": [
+            "EV004"
+          ]
+        }
+      ],
+      "citation_validation": true,
+      "attribution": {
+        "abstained": true,
+        "changed_claims": 0,
+        "reasons": [
+          "Claim C1 sem atribuição inequívoca."
+        ]
+      },
+      "polarity": false,
+      "first_failure": "ATTRIBUTION_OR_POLARITY",
+      "final": "ABSTAINED",
+      "latency_seconds": 40.82799293700009
+    },
+    {
+      "case_id": "rw-estado-sitio",
+      "strategy": "B",
+      "repetition": 1,
+      "evidence_codes": [
+        "EV001",
+        "EV002",
+        "EV003"
+      ],
+      "evidence_order": [
+        "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V",
+        "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:II/ARTICLE:84/INCISO:IX",
+        "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:II/ARTICLE:49/INCISO:IV"
+      ],
+      "generator_abstain": false,
+      "claims": [
+        {
+          "id": "C1",
+          "text": "O Poder Executivo pode declarar o estado de sítio, conforme estabelecido no Artigo 21, Inciso V, da CF/88.",
+          "evidence_ids": [
+            "EV001"
+          ]
+        },
+        {
+          "id": "C2",
+          "text": "Também é possível declarar o estado de defesa e o estado de sítio, conforme o Artigo 84, Inciso IX, da CF/88.",
+          "evidence_ids": [
+            "EV002"
+          ]
+        },
+        {
+          "id": "C3",
+          "text": "A aprovação, suspensão ou autorização do estado de defesa e intervenção federal, ou do estado de sítio, está sujeita à aprovação do Congresso Nacional, conforme o Artigo 49, Inciso IV, da CF/88.",
+          "evidence_ids": [
+            "EV003"
+          ]
+        }
+      ],
+      "citation_validation": true,
+      "attribution": {
+        "abstained": true,
+        "changed_claims": 0,
+        "reasons": [
+          "Claim C1 sem atribuição inequívoca."
+        ]
+      },
+      "polarity": false,
+      "first_failure": "ATTRIBUTION_OR_POLARITY",
+      "final": "ABSTAINED",
+      "latency_seconds": 27.67196141500017
+    },
+    {
+      "case_id": "rw-estado-sitio",
+      "strategy": "B",
+      "repetition": 2,
+      "evidence_codes": [
+        "EV001",
+        "EV002",
+        "EV003"
+      ],
+      "evidence_order": [
+        "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V",
+        "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:II/ARTICLE:84/INCISO:IX",
+        "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:II/ARTICLE:49/INCISO:IV"
+      ],
+      "generator_abstain": false,
+      "claims": [
+        {
+          "id": "C1",
+          "text": "O Poder Executivo pode decretar o estado de sítio, conforme estabelecido no Artigo 21, Inciso V, da CF/88.",
+          "evidence_ids": [
+            "EV001"
+          ]
+        },
+        {
+          "id": "C2",
+          "text": "Também é possível decretar o estado de defesa e o estado de sítio, conforme o Artigo 84, Inciso IX, da CF/88.",
+          "evidence_ids": [
+            "EV002"
+          ]
+        },
+        {
+          "id": "C3",
+          "text": "O Congresso Nacional tem autoridade para aprovar o estado de defesa e a intervenção federal, autorizar o estado de sítio ou suspender qualquer uma dessas medidas, conforme o Artigo 49, Inciso IV, da CF/88.",
+          "evidence_ids": [
+            "EV003"
+          ]
+        }
+      ],
+      "citation_validation": true,
+      "attribution": {
+        "abstained": true,
+        "changed_claims": 0,
+        "reasons": [
+          "Claim C1 sem atribuição inequívoca."
+        ]
+      },
+      "polarity": false,
+      "first_failure": "ATTRIBUTION_OR_POLARITY",
+      "final": "ABSTAINED",
+      "latency_seconds": 26.99459709699977
+    },
+    {
+      "case_id": "rw-estado-sitio",
+      "strategy": "B",
+      "repetition": 3,
+      "evidence_codes": [
+        "EV001",
+        "EV002",
+        "EV003"
+      ],
+      "evidence_order": [
+        "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V",
+        "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:II/ARTICLE:84/INCISO:IX",
+        "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:II/ARTICLE:49/INCISO:IV"
+      ],
+      "generator_abstain": false,
+      "claims": [
+        {
+          "id": "C1",
+          "text": "O Poder Executivo pode decretar o estado de sítio, conforme estabelecido no Artigo 21, Inciso V, da CF/88.",
+          "evidence_ids": [
+            "EV001"
+          ]
+        },
+        {
+          "id": "C2",
+          "text": "Também é possível decretar o estado de defesa e o estado de sítio, conforme o Artigo 84, Inciso IX, da CF/88.",
+          "evidence_ids": [
+            "EV002"
+          ]
+        },
+        {
+          "id": "C3",
+          "text": "O Congresso Nacional tem autoridade para aprovar o estado de defesa e a intervenção federal, autorizar o estado de sítio ou suspender qualquer uma dessas medidas, conforme o Artigo 49, Inciso IV, da CF/88.",
+          "evidence_ids": [
+            "EV003"
+          ]
+        }
+      ],
+      "citation_validation": true,
+      "attribution": {
+        "abstained": true,
+        "changed_claims": 0,
+        "reasons": [
+          "Claim C1 sem atribuição inequívoca."
+        ]
+      },
+      "polarity": false,
+      "first_failure": "ATTRIBUTION_OR_POLARITY",
+      "final": "ABSTAINED",
+      "latency_seconds": 27.040281350999976
+    }
+  ]
+}

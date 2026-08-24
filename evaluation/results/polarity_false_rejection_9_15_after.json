@@ -1,0 +1,9 @@
+{
+  "frozen_executions": 18,
+  "legitimate_consistent": "6/18 executions (liberdade religiosa A/B)",
+  "unresolved_fail_closed": "12/18 executions (direito à vida and estado de sítio)",
+  "contradicted_legitimate_claims": 0,
+  "known_inversions_rejected": "covered by existing polarity tests",
+  "semantic_reached": "6/18",
+  "unsafe_acceptance": 0
+}

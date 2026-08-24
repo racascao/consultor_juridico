@@ -1,0 +1,15 @@
+{
+  "phase": "9.17",
+  "analyzed_executions": 12,
+  "group_a_no_polarity_relation": 6,
+  "group_b_exception_scope_ambiguity": 6,
+  "group_a_routed_to_semantic": 6,
+  "group_a_semantic_unsafe_acceptance": 0,
+  "group_a_semantic_technical_errors": 0,
+  "group_b_routed_to_semantic": 0,
+  "controls_preserved": true,
+  "boundary_routing_gate": "APPROVED",
+  "production_policy": "UNRESOLVED + NO_POLARITY_RELATION -> Semantic; demais UNRESOLVED -> fail-closed",
+  "mvp1_hybrid_hit_at_10": 0.9047619048,
+  "real_world_hybrid_hit_at_10": 0.9
+}

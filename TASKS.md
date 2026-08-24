@@ -239,3 +239,45 @@ Estado: `BLOCKED` — Granite 8B+8B executado; judge rejeita voto facultativo, m
 - [x] Real-world Hybrid Hit@10: `0,800 → 0,900`; MVP1 Hit@10 preservado: `0,905`
 - [x] Testes sintéticos para consulta curta, contexto pai, ruído, deduplicação e determinismo
 - [x] `docs/73-fase-9-12-retrieval-selection-hardening.md`
+
+## Fase 9.13 — Diagnóstico da Regressão E2E e Estabilidade do EvidenceSet
+
+- [x] Comparação dos artefatos E2E 9.11 × 9.12
+- [x] Identificação dos casos regressivos e primeiro estágio divergente
+- [x] Diagnóstico de diluição/ordenação e interação com suficiência
+- [ ] Repetições A/B com EvidenceSets históricos completos — inconclusivo por ausência de snapshots
+- [x] `docs/74-fase-9-13-diagnostico-regressao-e2e.md`
+
+## Fase 9.14 — EvidenceSet Snapshotting e Experimento Causal A/B
+
+- [x] Instrumentação diagnóstica de snapshot A/B sem persistência
+- [x] Snapshots dos cinco casos regressivos exportados
+- [x] Repetições downstream reduzidas (3× A e 3× B nos três casos prioritários)
+- [ ] Expansão para cinco repetições por caso — não necessária após rejeição uniforme pelo guard
+- [x] `docs/75-fase-9-14-evidenceset-causal.md`
+
+## Fase 9.15 — Polarity Guard False-Rejection Hardening
+
+- [x] Diagnóstico das regras que bloquearam as 18 claims congeladas
+- [x] Reconhecimento geral de sinais afirmativos normativos
+- [x] Remoção de `sem` como falso indicador universal de negação
+- [x] Testes positivos, inversões regressivas e casos `UNRESOLVED`
+- [x] Reexecução congelada A/B
+- [x] Reavaliação única `real_world_short_v1`: `2/10`, `0` unsafe
+- [x] `docs/76-fase-9-15-polarity-false-rejection.md`
+
+## Fase 9.16 — Diagnóstico de UNRESOLVED no Polarity Guard
+
+- [x] Análise das 12 ocorrências congeladas
+- [x] Separação entre exceção omitida e ausência de polaridade aplicável
+- [x] Modelo de três estados mantido
+- [x] Métricas MVP1/real-world verificadas
+- [x] `docs/77-fase-9-16-polarity-unresolved.md`
+
+## Fase 9.17 — Boundary Polarity → Semantic Validation
+
+- [x] Reason codes determinísticos para `UNRESOLVED`
+- [x] Roteamento restrito de `NO_POLARITY_RELATION` ao Semantic Validator
+- [x] Ambiguidade de exceção mantida em fail-closed
+- [x] `BOUNDARY_ROUTING_GATE: APPROVED`
+- [x] `docs/78-fase-9-17-polarity-semantic-boundary.md`

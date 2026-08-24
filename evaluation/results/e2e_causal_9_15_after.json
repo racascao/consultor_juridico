@@ -1,0 +1,19 @@
+{
+  "frozen_executions": 18,
+  "before": {"generator": "18/18", "attribution": "18/18", "polarity_pass": "0/18", "semantic_reached": "0/18"},
+  "after": {
+    "generator": "18/18",
+    "attribution": "18/18",
+    "polarity_consistent": "6/18",
+    "polarity_contradicted_legitimate": "0/18",
+    "unresolved_fail_closed": "12/18",
+    "semantic_reached": "6/18",
+    "unsafe_acceptance": 0
+  },
+  "cases": {
+    "rw-liberdade-religiosa": {"A": "3/3 ANSWERED", "B": "3/3 ANSWERED"},
+    "rw-direito-vida": {"A": "3/3 UNRESOLVED", "B": "3/3 UNRESOLVED"},
+    "rw-estado-sitio": {"A": "3/3 UNRESOLVED", "B": "3/3 UNRESOLVED"}
+  },
+  "polarity_false_rejection": "eliminated for affirmative claims; ambiguous claims remain fail-closed"
+}

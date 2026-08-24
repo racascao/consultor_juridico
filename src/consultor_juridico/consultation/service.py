@@ -9,7 +9,10 @@ from consultor_juridico.consultation.attribution import deterministically_attrib
 from consultor_juridico.consultation.errors import LLMResponseError
 from consultor_juridico.consultation.evidence import build_evidence_set
 from consultor_juridico.consultation.llm import OllamaLegalGenerator
-from consultor_juridico.consultation.polarity import validate_response_polarity
+from consultor_juridico.consultation.polarity import (
+    can_route_to_semantic,
+    validate_response_polarity,
+)
 from consultor_juridico.consultation.selection import select_evidence_candidates
 from consultor_juridico.consultation.semantic import SemanticSupportValidator
 from consultor_juridico.consultation.sufficiency import assess_evidence_sufficiency
@@ -104,7 +107,10 @@ def run_consultation(
                 polarity = validate_response_polarity(
                     response, tuple(evidence_set.items)
                 )
-                if not polarity.is_valid:
+                polarity_blocked = not all(
+                    can_route_to_semantic(item) for item in polarity.results
+                )
+                if polarity_blocked:
                     errors = polarity.errors or (
                         "Guard de polaridade não conseguiu validar a resposta.",
                     )

@@ -3,7 +3,9 @@ from types import SimpleNamespace
 import pytest
 
 from consultor_juridico.consultation.polarity import (
+    PolarityReason,
     PolarityStatus,
+    can_route_to_semantic,
     validate_polarity,
 )
 from consultor_juridico.consultation.types import GeneratedClaim
@@ -96,6 +98,41 @@ def test_parent_context_is_authorized_for_the_comparison():
     assert "obrigação" in result.reason
 
 
+def test_affirmative_normative_claims_are_not_rejected_as_unresolved():
+    check(
+        "A liberdade religiosa é garantida e protege o livre exercício dos cultos.",
+        (
+            "É inviolável a liberdade de consciência e de crença, sendo assegurado "
+            "o livre exercício dos cultos."
+        ),
+        PolarityStatus.CONSISTENT,
+    )
+    check(
+        "O direito à vida é garantido pela Constituição.",
+        "É inviolável o direito à vida.",
+        PolarityStatus.CONSISTENT,
+    )
+    check(
+        "A Constituição estabelece a possibilidade de declaração do estado de sítio.",
+        (
+            "A Constituição estabelece a declaração do estado de sítio nos termos "
+            "constitucionais."
+        ),
+        PolarityStatus.CONSISTENT,
+    )
+
+
+def test_non_polarity_sem_does_not_become_prohibition():
+    check(
+        "O direito à vida é garantido.",
+        (
+            "Todos são iguais perante a lei, sem distinção de qualquer natureza, "
+            "garantindo-se a inviolabilidade do direito à vida."
+        ),
+        PolarityStatus.CONSISTENT,
+    )
+
+
 def test_regressions_prison_vote_and_death_exception():
     check(
         "A prisão perpétua é permitida.",
@@ -139,3 +176,19 @@ def test_adversarial_inversions_are_always_vetoed(claim, source, expected):
         for _ in range(5)
     }
     assert statuses == {expected}
+
+
+def test_unresolved_reason_codes_are_deterministic():
+    no_relation = validate_polarity(
+        GeneratedClaim("C1", "A medida pode ser analisada.", ("EV001",)),
+        (evidence("A providência será analisada conforme o procedimento."),),
+    )
+    assert no_relation.reason_code is PolarityReason.NO_POLARITY_RELATION
+
+    exception = validate_polarity(
+        GeneratedClaim("C1", "A medida é permitida.", ("EV001",)),
+        (evidence("A medida é permitida, salvo em caso de emergência."),),
+    )
+    assert exception.reason_code is PolarityReason.EXCEPTION_SCOPE_AMBIGUITY
+    assert not can_route_to_semantic(exception)
+    assert can_route_to_semantic(no_relation)

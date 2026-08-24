@@ -1,0 +1,30 @@
+{
+  "phase": "9.14",
+  "snapshot": "APPROVED",
+  "causal_experiment": "INCONCLUSIVE",
+  "cases": {
+    "rw-liberdade-religiosa": {"strategy_a_selected": 10, "strategy_b_selected": 3},
+    "rw-racismo": {"strategy_a_selected": 2, "strategy_b_selected": 2},
+    "rw-extradicao": {"strategy_a_selected": 4, "strategy_b_selected": 3},
+    "rw-direito-vida": {"strategy_a_selected": 10, "strategy_b_selected": 3},
+    "rw-estado-sitio": {"strategy_a_selected": 10, "strategy_b_selected": 3}
+  },
+  "downstream_repetitions": {
+    "executions": 18,
+    "strategy_a": {"generator_answer_rate": 1.0, "attribution_success_rate": 1.0, "polarity_pass_rate": 0.0, "semantic_support_rate": null, "final_answer_rate": 0.0, "flip_rate": 0.0},
+    "strategy_b": {"generator_answer_rate": 1.0, "attribution_success_rate": 1.0, "polarity_pass_rate": 0.0, "semantic_support_rate": null, "final_answer_rate": 0.0, "flip_rate": 0.0},
+    "first_failure": "POLARITY_REJECTION",
+    "semantic_was_not_run": true,
+    "citation_validation": "syntactic_snapshot_check"
+  },
+  "evidence_dilution": "NOT_CONFIRMED",
+  "evidence_undercoverage": "NOT_CONFIRMED",
+  "evidence_composition_regression": "NOT_CONFIRMED",
+  "evidence_order_sensitivity": "NOT_CONFIRMED",
+  "generator_variance": "LOW",
+  "polarity_false_rejection": true,
+  "semantic_false_negative": false,
+  "regression_cause": "DOWNSTREAM_VALIDATION_INTERACTION",
+  "structured_evidence_unit_required": "INCONCLUSIVE",
+  "production_changes": "NONE"
+}

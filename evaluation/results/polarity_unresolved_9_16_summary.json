@@ -1,0 +1,10 @@
+{
+  "diagnosis": "COMPLETED",
+  "unresolved_analyzed": "12/12",
+  "genuinely_ambiguous": 0,
+  "no_polarity_relation": 6,
+  "rule_coverage_gap": 0,
+  "structural_context_required": 0,
+  "known_inversions_protected": true,
+  "recommended_intervention": "Manter tres estados e aceitar que claims com excecao omitida ou sem relacao de polaridade permanecam UNRESOLVED fail-closed."
+}

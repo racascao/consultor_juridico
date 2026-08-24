@@ -1,0 +1,15 @@
+{
+  "phase": "9.17",
+  "source": "e2e_causal_9_14_repetitions.json",
+  "policy": {
+    "CONTRADICTED": "REJECT",
+    "CONSISTENT": "SEMANTIC",
+    "UNRESOLVED_NO_POLARITY_RELATION": "SEMANTIC",
+    "UNRESOLVED_OTHER": "FAIL_CLOSED"
+  },
+  "experiment": "evaluation/results/polarity_boundary_9_17_experiment.json",
+  "executions": 12,
+  "routed_to_semantic": 6,
+  "exception_scope_blocked": 6,
+  "unsafe_acceptance": 0
+}

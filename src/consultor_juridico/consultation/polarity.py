@@ -23,6 +23,13 @@ class PolarityStatus(StrEnum):
     UNRESOLVED = "UNRESOLVED"
 
 
+class PolarityReason(StrEnum):
+    NO_POLARITY_RELATION = "NO_POLARITY_RELATION"
+    EXCEPTION_SCOPE_AMBIGUITY = "EXCEPTION_SCOPE_AMBIGUITY"
+    MISSING_EVIDENCE_SIGNAL = "MISSING_EVIDENCE_SIGNAL"
+    MISSING_CLAIM_SIGNAL = "MISSING_CLAIM_SIGNAL"
+
+
 @dataclass(frozen=True, slots=True)
 class PolarityValidationResult:
     status: PolarityStatus
@@ -31,6 +38,7 @@ class PolarityValidationResult:
     reason: str
     evidence_polarities: tuple[str, ...] = ()
     claim_polarities: tuple[str, ...] = ()
+    reason_code: PolarityReason | None = None
 
     @property
     def is_safe(self) -> bool:
@@ -54,9 +62,18 @@ class ResponsePolarityResult:
         )
 
 
+def can_route_to_semantic(result: PolarityValidationResult) -> bool:
+    """Define a fronteira fail-closed entre o guard e o juiz semântico."""
+    if result.status is PolarityStatus.CONTRADICTED:
+        return False
+    if result.status is PolarityStatus.UNRESOLVED:
+        return result.reason_code is PolarityReason.NO_POLARITY_RELATION
+    return True
+
+
 WORD_RE = re.compile(r"[^\W\d_]{2,}", re.UNICODE)
 _NEGATION_RE = re.compile(
-    r"\b(?:não|nao|nunca|jamais|sem|proib(?:ido|ida)|vedad[oa]|impedid[oa])\b"
+    r"\b(?:não|nao|nunca|jamais|proib(?:ido|ida)|vedad[oa]|impedid[oa])\b"
     r"|\bnão\s+(?:haverá|havera|poderá|podera|é|e|será|sera)\b",
     re.IGNORECASE,
 )
@@ -68,6 +85,11 @@ _PERMISSION_RE = re.compile(
 )
 _EXCEPTION_RE = re.compile(
     r"\b(?:salvo|exceto|excepto|ressalvad\w*|ressalva|em\s+caso\s+de)\b",
+    re.IGNORECASE,
+)
+_AFFIRMATIVE_RE = re.compile(
+    r"\b(?:garantid\w*|assegurad\w*|inviol[aá]vel|inviolabil\w*|protege\w*|estabelec\w*|"
+    r"reafirm\w*|reconhec\w*)\b",
     re.IGNORECASE,
 )
 _FUNCTIONAL = {
@@ -120,6 +142,7 @@ def validate_polarity(
             claim.claim_code,
             (),
             "Nenhuma evidência autorizada foi encontrada para a claim.",
+            reason_code=PolarityReason.MISSING_EVIDENCE_SIGNAL,
         )
 
     evidence_text = " ".join(_evidence_text(by_code[code]) for code in cited)
@@ -130,6 +153,12 @@ def validate_polarity(
     overlap = claim_targets & evidence_targets
 
     if not overlap or not claim_profile or not evidence_profile:
+        if "EXCEPTION" in evidence_profile and "EXCEPTION" not in claim_profile:
+            reason_code = PolarityReason.EXCEPTION_SCOPE_AMBIGUITY
+        elif not claim_profile and evidence_profile:
+            reason_code = PolarityReason.MISSING_CLAIM_SIGNAL
+        else:
+            reason_code = PolarityReason.NO_POLARITY_RELATION
         return PolarityValidationResult(
             PolarityStatus.UNRESOLVED,
             claim.claim_code,
@@ -138,6 +167,7 @@ def validate_polarity(
             "para comparar polaridade.",
             tuple(sorted(evidence_profile)),
             tuple(sorted(claim_profile)),
+            reason_code,
         )
 
     contradictions = _contradictions(claim_profile, evidence_profile)
@@ -150,6 +180,7 @@ def validate_polarity(
             + ", ".join(contradictions),
             tuple(sorted(evidence_profile)),
             tuple(sorted(claim_profile)),
+            None,
         )
 
     # Omissão de exceção é perigosa, mas não é uma contradição textual segura.
@@ -172,6 +203,9 @@ def validate_polarity(
         reason,
         tuple(sorted(evidence_profile)),
         tuple(sorted(claim_profile)),
+        PolarityReason.EXCEPTION_SCOPE_AMBIGUITY
+        if status is PolarityStatus.UNRESOLVED
+        else None,
     )
 
 
@@ -210,6 +244,8 @@ def _profile(text: str) -> set[str]:
         profile.add("PERMISSIVE")
     if _EXCEPTION_RE.search(normalized):
         profile.add("EXCEPTION")
+    if _AFFIRMATIVE_RE.search(normalized) and "PROHIBITIVE" not in profile:
+        profile.add("AFFIRMATIVE")
     return profile
 
 

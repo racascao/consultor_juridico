@@ -1,0 +1,642 @@
+{
+  "phase": "9.17",
+  "semantic_judge": "granite4.1:3b",
+  "executions": [
+    {
+      "case_id": "rw-direito-vida",
+      "strategy": "A",
+      "repetition": 1,
+      "claims": [
+        {
+          "claim_code": "C1",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "status": "CONSISTENT",
+          "reason_code": null,
+          "reason": "Nenhuma inversão explícita de polaridade foi detectada."
+        },
+        {
+          "claim_code": "C2",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "status": "UNRESOLVED",
+          "reason_code": "EXCEPTION_SCOPE_AMBIGUITY",
+          "reason": "Não há sinais normativos e alvo textual suficientes para comparar polaridade."
+        }
+      ],
+      "routed_to_semantic": false,
+      "semantic": null
+    },
+    {
+      "case_id": "rw-direito-vida",
+      "strategy": "A",
+      "repetition": 2,
+      "claims": [
+        {
+          "claim_code": "C1",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "status": "CONSISTENT",
+          "reason_code": null,
+          "reason": "Nenhuma inversão explícita de polaridade foi detectada."
+        },
+        {
+          "claim_code": "C2",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "status": "UNRESOLVED",
+          "reason_code": "EXCEPTION_SCOPE_AMBIGUITY",
+          "reason": "Não há sinais normativos e alvo textual suficientes para comparar polaridade."
+        }
+      ],
+      "routed_to_semantic": false,
+      "semantic": null
+    },
+    {
+      "case_id": "rw-direito-vida",
+      "strategy": "A",
+      "repetition": 3,
+      "claims": [
+        {
+          "claim_code": "C1",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "status": "CONSISTENT",
+          "reason_code": null,
+          "reason": "Nenhuma inversão explícita de polaridade foi detectada."
+        },
+        {
+          "claim_code": "C2",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "status": "UNRESOLVED",
+          "reason_code": "EXCEPTION_SCOPE_AMBIGUITY",
+          "reason": "Não há sinais normativos e alvo textual suficientes para comparar polaridade."
+        }
+      ],
+      "routed_to_semantic": false,
+      "semantic": null
+    },
+    {
+      "case_id": "rw-direito-vida",
+      "strategy": "B",
+      "repetition": 1,
+      "claims": [
+        {
+          "claim_code": "C1",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "status": "CONSISTENT",
+          "reason_code": null,
+          "reason": "Nenhuma inversão explícita de polaridade foi detectada."
+        },
+        {
+          "claim_code": "C2",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "status": "CONSISTENT",
+          "reason_code": null,
+          "reason": "Nenhuma inversão explícita de polaridade foi detectada."
+        },
+        {
+          "claim_code": "C3",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "status": "UNRESOLVED",
+          "reason_code": "EXCEPTION_SCOPE_AMBIGUITY",
+          "reason": "A evidência contém exceção normativa não refletida explicitamente na claim."
+        }
+      ],
+      "routed_to_semantic": false,
+      "semantic": null
+    },
+    {
+      "case_id": "rw-direito-vida",
+      "strategy": "B",
+      "repetition": 2,
+      "claims": [
+        {
+          "claim_code": "C1",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "status": "CONSISTENT",
+          "reason_code": null,
+          "reason": "Nenhuma inversão explícita de polaridade foi detectada."
+        },
+        {
+          "claim_code": "C2",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "status": "CONSISTENT",
+          "reason_code": null,
+          "reason": "Nenhuma inversão explícita de polaridade foi detectada."
+        },
+        {
+          "claim_code": "C3",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "status": "UNRESOLVED",
+          "reason_code": "EXCEPTION_SCOPE_AMBIGUITY",
+          "reason": "A evidência contém exceção normativa não refletida explicitamente na claim."
+        }
+      ],
+      "routed_to_semantic": false,
+      "semantic": null
+    },
+    {
+      "case_id": "rw-direito-vida",
+      "strategy": "B",
+      "repetition": 3,
+      "claims": [
+        {
+          "claim_code": "C1",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "status": "CONSISTENT",
+          "reason_code": null,
+          "reason": "Nenhuma inversão explícita de polaridade foi detectada."
+        },
+        {
+          "claim_code": "C2",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "status": "CONSISTENT",
+          "reason_code": null,
+          "reason": "Nenhuma inversão explícita de polaridade foi detectada."
+        },
+        {
+          "claim_code": "C3",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "status": "UNRESOLVED",
+          "reason_code": "EXCEPTION_SCOPE_AMBIGUITY",
+          "reason": "A evidência contém exceção normativa não refletida explicitamente na claim."
+        }
+      ],
+      "routed_to_semantic": false,
+      "semantic": null
+    },
+    {
+      "case_id": "rw-estado-sitio",
+      "strategy": "A",
+      "repetition": 1,
+      "claims": [
+        {
+          "claim_code": "C1",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "status": "UNRESOLVED",
+          "reason_code": "NO_POLARITY_RELATION",
+          "reason": "Não há sinais normativos e alvo textual suficientes para comparar polaridade."
+        },
+        {
+          "claim_code": "C2",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "status": "UNRESOLVED",
+          "reason_code": "NO_POLARITY_RELATION",
+          "reason": "Não há sinais normativos e alvo textual suficientes para comparar polaridade."
+        },
+        {
+          "claim_code": "C3",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "status": "UNRESOLVED",
+          "reason_code": "NO_POLARITY_RELATION",
+          "reason": "Não há sinais normativos e alvo textual suficientes para comparar polaridade."
+        },
+        {
+          "claim_code": "C4",
+          "evidence_codes": [
+            "EV004"
+          ],
+          "status": "CONSISTENT",
+          "reason_code": null,
+          "reason": "Nenhuma inversão explícita de polaridade foi detectada."
+        }
+      ],
+      "routed_to_semantic": true,
+      "semantic": {
+        "valid": true,
+        "error": null,
+        "claims": [
+          {
+            "claim_code": "C1",
+            "status": "SUPPORTED",
+            "evidence_codes": [
+              "EV001"
+            ],
+            "reason": "A evidência citada (EV001) especificamente afirma que o Poder Executivo pode declarar o estado de sítio, conforme estabelecido no Artigo 21, Inciso V, da CF/88."
+          },
+          {
+            "claim_code": "C2",
+            "status": "SUPPORTED",
+            "evidence_codes": [
+              "EV002"
+            ],
+            "reason": "A evidência citada (EV002) indica que o Estado de Defesa e o Estado de Sítio podem ser declarados pelo Poder Executivo, conforme estabelecido no Artigo 84, Inciso IX, da CF/88."
+          },
+          {
+            "claim_code": "C3",
+            "status": "SUPPORTED",
+            "evidence_codes": [
+              "EV003"
+            ],
+            "reason": "A evidência citada (EV003) afirma que o Presidente da República pode aprovar o Estado de Defesa e a Intervenção Federal, autorizar o Estado de Sítio e suspender qualquer uma dessas medidas, conforme estabelecido no Artigo 49, Inciso IV, da CF/88."
+          },
+          {
+            "claim_code": "C4",
+            "status": "SUPPORTED",
+            "evidence_codes": [
+              "EV004"
+            ],
+            "reason": "A evidência citada (EV004) estabelece que a Constituição não pode ser emendada durante a vigência de Intervenção Federal, Estado de Defesa ou Estado de Sítio, conforme o Artigo 60, Parágrafo 1, da CF/88."
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "rw-estado-sitio",
+      "strategy": "A",
+      "repetition": 2,
+      "claims": [
+        {
+          "claim_code": "C1",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "status": "UNRESOLVED",
+          "reason_code": "NO_POLARITY_RELATION",
+          "reason": "Não há sinais normativos e alvo textual suficientes para comparar polaridade."
+        },
+        {
+          "claim_code": "C2",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "status": "UNRESOLVED",
+          "reason_code": "NO_POLARITY_RELATION",
+          "reason": "Não há sinais normativos e alvo textual suficientes para comparar polaridade."
+        },
+        {
+          "claim_code": "C3",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "status": "UNRESOLVED",
+          "reason_code": "NO_POLARITY_RELATION",
+          "reason": "Não há sinais normativos e alvo textual suficientes para comparar polaridade."
+        },
+        {
+          "claim_code": "C4",
+          "evidence_codes": [
+            "EV004"
+          ],
+          "status": "CONSISTENT",
+          "reason_code": null,
+          "reason": "Nenhuma inversão explícita de polaridade foi detectada."
+        }
+      ],
+      "routed_to_semantic": true,
+      "semantic": {
+        "valid": true,
+        "error": null,
+        "claims": [
+          {
+            "claim_code": "C1",
+            "status": "SUPPORTED",
+            "evidence_codes": [
+              "EV001"
+            ],
+            "reason": "A evidência diretamente suporta que o Poder Executivo pode declarar o estado de sítio conforme o Artigo 21, Inciso V, da CF/88."
+          },
+          {
+            "claim_code": "C2",
+            "status": "SUPPORTED",
+            "evidence_codes": [
+              "EV002"
+            ],
+            "reason": "A evidência especificamente afirma que o Presidente da República pode declarar o Estado de Defesa e o Estado de Sítio, conforme o Artigo 84, Inciso IX, da CF/88."
+          },
+          {
+            "claim_code": "C3",
+            "status": "SUPPORTED",
+            "evidence_codes": [
+              "EV003"
+            ],
+            "reason": "A evidência completa suporta que o Presidente pode aprovar o Estado de Defesa, autorizar o Estado de Sítio ou suspender qualquer uma dessas medidas, conforme o Artigo 49, Inciso IV, da CF/88."
+          },
+          {
+            "claim_code": "C4",
+            "status": "SUPPORTED",
+            "evidence_codes": [
+              "EV004"
+            ],
+            "reason": "A evidência claramente afirma que a Constituição não pode ser emendada durante a vigência de intervenção federal, Estado de Defesa ou Estado de Sítio, conforme o Artigo 60, Parágrafo 1, da CF/88."
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "rw-estado-sitio",
+      "strategy": "A",
+      "repetition": 3,
+      "claims": [
+        {
+          "claim_code": "C1",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "status": "UNRESOLVED",
+          "reason_code": "NO_POLARITY_RELATION",
+          "reason": "Não há sinais normativos e alvo textual suficientes para comparar polaridade."
+        },
+        {
+          "claim_code": "C2",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "status": "UNRESOLVED",
+          "reason_code": "NO_POLARITY_RELATION",
+          "reason": "Não há sinais normativos e alvo textual suficientes para comparar polaridade."
+        },
+        {
+          "claim_code": "C3",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "status": "UNRESOLVED",
+          "reason_code": "NO_POLARITY_RELATION",
+          "reason": "Não há sinais normativos e alvo textual suficientes para comparar polaridade."
+        },
+        {
+          "claim_code": "C4",
+          "evidence_codes": [
+            "EV004"
+          ],
+          "status": "CONSISTENT",
+          "reason_code": null,
+          "reason": "Nenhuma inversão explícita de polaridade foi detectada."
+        }
+      ],
+      "routed_to_semantic": true,
+      "semantic": {
+        "valid": true,
+        "error": null,
+        "claims": [
+          {
+            "claim_code": "C1",
+            "status": "SUPPORTED",
+            "evidence_codes": [
+              "EV001"
+            ],
+            "reason": "A evidência diretamente suporta que o Poder Executivo pode declarar o estado de sítio conforme o Artigo 21, Inciso V, da CF/88."
+          },
+          {
+            "claim_code": "C2",
+            "status": "SUPPORTED",
+            "evidence_codes": [
+              "EV002"
+            ],
+            "reason": "A evidência especificamente afirma que o Presidente da República pode declarar o Estado de Defesa e o Estado de Sítio conforme o Artigo 84, Inciso IX, da CF/88."
+          },
+          {
+            "claim_code": "C3",
+            "status": "SUPPORTED",
+            "evidence_codes": [
+              "EV003"
+            ],
+            "reason": "A evidência completa suporta que o Presidente da República pode aprovar o Estado de Defesa, autorizar o estado de sítio ou suspender qualquer uma dessas medidas conforme o Artigo 49, Inciso IV, da CF/88."
+          },
+          {
+            "claim_code": "C4",
+            "status": "SUPPORTED",
+            "evidence_codes": [
+              "EV004"
+            ],
+            "reason": "A evidência claramente afirma que a Constituição não pode ser emendada durante a vigência de intervenção federal, de Estado de Defesa ou de Estado de Sítio conforme o Artigo 60, Parágrafo 1, da CF/88."
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "rw-estado-sitio",
+      "strategy": "B",
+      "repetition": 1,
+      "claims": [
+        {
+          "claim_code": "C1",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "status": "UNRESOLVED",
+          "reason_code": "NO_POLARITY_RELATION",
+          "reason": "Não há sinais normativos e alvo textual suficientes para comparar polaridade."
+        },
+        {
+          "claim_code": "C2",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "status": "UNRESOLVED",
+          "reason_code": "NO_POLARITY_RELATION",
+          "reason": "Não há sinais normativos e alvo textual suficientes para comparar polaridade."
+        },
+        {
+          "claim_code": "C3",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "status": "UNRESOLVED",
+          "reason_code": "NO_POLARITY_RELATION",
+          "reason": "Não há sinais normativos e alvo textual suficientes para comparar polaridade."
+        }
+      ],
+      "routed_to_semantic": true,
+      "semantic": {
+        "valid": true,
+        "error": null,
+        "claims": [
+          {
+            "claim_code": "C1",
+            "status": "SUPPORTED",
+            "evidence_codes": [
+              "EV001"
+            ],
+            "reason": "A evidência EV001 especificamente menciona que o Poder Executivo pode declarar o estado de sítio, conforme estabelecido no Artigo 21, Inciso V, da CF/88."
+          },
+          {
+            "claim_code": "C2",
+            "status": "SUPPORTED",
+            "evidence_codes": [
+              "EV002"
+            ],
+            "reason": "A evidência EV002 indica que o estado de defesa e o estado de sítio podem ser declarados, conforme o Artigo 84, Inciso IX, da CF/88."
+          },
+          {
+            "claim_code": "C3",
+            "status": "SUPPORTED",
+            "evidence_codes": [
+              "EV003"
+            ],
+            "reason": "A evidência EV003 afirma que a aprovação, suspensão ou autorização do estado de defesa e intervenção federal, ou do estado de sítio, está sujeita à aprovação do Congresso Nacional, conforme o Artigo 49, Inciso IV, da CF/88."
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "rw-estado-sitio",
+      "strategy": "B",
+      "repetition": 2,
+      "claims": [
+        {
+          "claim_code": "C1",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "status": "UNRESOLVED",
+          "reason_code": "NO_POLARITY_RELATION",
+          "reason": "Não há sinais normativos e alvo textual suficientes para comparar polaridade."
+        },
+        {
+          "claim_code": "C2",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "status": "UNRESOLVED",
+          "reason_code": "NO_POLARITY_RELATION",
+          "reason": "Não há sinais normativos e alvo textual suficientes para comparar polaridade."
+        },
+        {
+          "claim_code": "C3",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "status": "UNRESOLVED",
+          "reason_code": "NO_POLARITY_RELATION",
+          "reason": "Não há sinais normativos e alvo textual suficientes para comparar polaridade."
+        }
+      ],
+      "routed_to_semantic": true,
+      "semantic": {
+        "valid": true,
+        "error": null,
+        "claims": [
+          {
+            "claim_code": "C1",
+            "status": "SUPPORTED",
+            "evidence_codes": [
+              "EV001"
+            ],
+            "reason": "A evidência citada (EV001) especificamente menciona que o Poder Executivo pode decretar o estado de sítio, conforme estabelecido no Artigo 21, Inciso V, da CF/88."
+          },
+          {
+            "claim_code": "C2",
+            "status": "SUPPORTED",
+            "evidence_codes": [
+              "EV002"
+            ],
+            "reason": "A evidência citada (EV002) afirma que o Estado pode decretar o estado de defesa e o estado de sítio, conforme o Artigo 84, Inciso IX, da CF/88."
+          },
+          {
+            "claim_code": "C3",
+            "status": "SUPPORTED",
+            "evidence_codes": [
+              "EV003"
+            ],
+            "reason": "A evidência citada (EV003) indica que o Congresso Nacional tem autoridade para aprovar o estado de defesa e a intervenção federal, autorizar o estado de sítio ou suspender qualquer uma dessas medidas, conforme o Artigo 49, Inciso IV, da CF/88."
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "rw-estado-sitio",
+      "strategy": "B",
+      "repetition": 3,
+      "claims": [
+        {
+          "claim_code": "C1",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "status": "UNRESOLVED",
+          "reason_code": "NO_POLARITY_RELATION",
+          "reason": "Não há sinais normativos e alvo textual suficientes para comparar polaridade."
+        },
+        {
+          "claim_code": "C2",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "status": "UNRESOLVED",
+          "reason_code": "NO_POLARITY_RELATION",
+          "reason": "Não há sinais normativos e alvo textual suficientes para comparar polaridade."
+        },
+        {
+          "claim_code": "C3",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "status": "UNRESOLVED",
+          "reason_code": "NO_POLARITY_RELATION",
+          "reason": "Não há sinais normativos e alvo textual suficientes para comparar polaridade."
+        }
+      ],
+      "routed_to_semantic": true,
+      "semantic": {
+        "valid": true,
+        "error": null,
+        "claims": [
+          {
+            "claim_code": "C1",
+            "status": "SUPPORTED",
+            "evidence_codes": [
+              "EV001"
+            ],
+            "reason": "A evidência citada (EV001) especificamente menciona que o Poder Executivo pode decretar o estado de sítio, conforme estabelecido no Artigo 21, Inciso V, da CF/88."
+          },
+          {
+            "claim_code": "C2",
+            "status": "SUPPORTED",
+            "evidence_codes": [
+              "EV002"
+            ],
+            "reason": "A evidência citada (EV002) afirma que o Estado pode decretar o estado de defesa e o estado de sítio, conforme o Artigo 84, Inciso IX, da CF/88."
+          },
+          {
+            "claim_code": "C3",
+            "status": "SUPPORTED",
+            "evidence_codes": [
+              "EV003"
+            ],
+            "reason": "A evidência citada (EV003) indica que o Congresso Nacional tem autoridade para aprovar o estado de defesa e a intervenção federal, autorizar o estado de sítio ou suspender qualquer uma dessas medidas, conforme o Artigo 49, Inciso IV, da CF/88."
+          }
+        ]
+      }
+    }
+  ],
+  "counts": {
+    "analyzed": 12,
+    "no_polarity_relation": 18,
+    "exception_scope_ambiguity": 6,
+    "routed_to_semantic": 6
+  }
+}

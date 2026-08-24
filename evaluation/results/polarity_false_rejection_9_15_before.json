@@ -1,0 +1,7 @@
+{
+  "frozen_executions": 18,
+  "polarity_pass": "0/18",
+  "semantic_reached": "0/18",
+  "cause": "ambiguous affirmative normative language and generic 'sem' treated as negation",
+  "unsafe_acceptance": 0
+}

@@ -1,0 +1,29 @@
+{
+  "unresolved_analyzed": "12/12 executions",
+  "distribution": {
+    "EXCEPTION_SCOPE_AMBIGUITY": 6,
+    "NO_POLARITY_RELATION": 6,
+    "MISSING_CLAIM_SIGNAL": 0,
+    "MISSING_EVIDENCE_SIGNAL": 0,
+    "STRUCTURAL_CONTEXT_REQUIRED": 0,
+    "RULE_COVERAGE_GAP": 0,
+    "GENUINELY_AMBIGUOUS": 0,
+    "OTHER": 0
+  },
+  "cases": {
+    "rw-direito-vida": {
+      "unresolved": 6,
+      "cause": "EXCEPTION_SCOPE_AMBIGUITY",
+      "detail": "claims omitiram excecao textual presente em evidencia de Art. 227"
+    },
+    "rw-estado-sitio": {
+      "unresolved": 6,
+      "cause": "NO_POLARITY_RELATION",
+      "detail": "fragmentos em infinitivo nao expressam polaridade comparavel"
+    }
+  },
+  "polarity_state_model": "THREE_STATES_SUFFICIENT",
+  "mvp1_hybrid_hit_at_10": 0.9047619047619048,
+  "real_world_hybrid_hit_at_10": 0.9,
+  "unsafe_acceptance": 0
+}

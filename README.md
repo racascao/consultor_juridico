@@ -1819,6 +1819,26 @@ O roadmap público é deliberadamente compacto. O histórico detalhado das decis
   - qualidade segura preservada (`unsafe=0`, abstenções históricas `100%`);
   - real-world: `6/10` respostas corretas, `4` false abstentions, `1/1` abstenção correta;
   - falhas residuais: 1 `RETRIEVAL_MISS` e 3 `EVIDENCE_SELECTION_MISS`; não houve tuning nesta fase.
+- [x] **Fase 9.13 — Diagnóstico da regressão E2E — diagnóstico inconclusivo**
+  - regressões confirmadas em cinco casos; evidência forte de diluição/ordenação do EvidenceSet;
+  - snapshots históricos completos não estavam disponíveis para repetições A/B válidas;
+  - nenhuma correção de produção adotada.
+- [x] **Fase 9.14 — Snapshotting de EvidenceSet — causalidade inconclusiva**
+  - snapshot diagnóstico A/B exportado sem persistência;
+  - diferença de composição quantificada nos cinco casos regressivos;
+  - 18 repetições downstream A/B concluídas nos três casos prioritários;
+  - A e B tiveram 0/9 respostas finais: rejeição uniforme pelo Polarity Guard;
+  - diluição/ordenação não confirmadas; nenhuma alteração produtiva.
+- [x] **Fase 9.15 — Polarity Guard False-Rejection Hardening**
+  - sinais afirmativos normativos reconhecidos e falso negativo de `sem` removido;
+  - inversões de segurança preservadas; claims ambíguas continuam `UNRESOLVED` fail-closed;
+  - seis execuções legítimas chegaram ao Semantic Validator; nenhuma aceitação insegura;
+  - real-world pós-correção: `2/10`, `1/1` abstenção correta, `0` unsafe; release permanece bloqueado.
+- [x] **Fase 9.16 — Diagnóstico de UNRESOLVED — modelo de três estados mantido**
+- [x] **Fase 9.17 — Boundary Polarity → Semantic Validation — `BOUNDARY_ROUTING_GATE: APPROVED`**
+  - 12/12 ocorrências classificadas: 6 exceções omitidas e 6 sem relação de polaridade aplicável;
+  - MVP1 Hybrid Hit@10 confirmado em `0,905`; real-world em `0,900`;
+  - fail-closed preservado; nenhum quarto estado implementado.
 - [x] **Fase 9.12 — Retrieval + Evidence Selection Hardening — `RETRIEVAL_SELECTION_GATE: APPROVED`**
   - real-world Hybrid Hit@10: `0,800 → 0,900`; `mvp1-v1` Hit@10 preservado em `0,905`;
   - ranking considera tokens substantivos, contexto estrutural em lote e cobertura/posição híbrida, sem alterar provenance;

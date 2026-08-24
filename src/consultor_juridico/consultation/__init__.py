@@ -2,9 +2,11 @@
 
 from consultor_juridico.consultation.llm import OllamaLegalGenerator
 from consultor_juridico.consultation.polarity import (
+    PolarityReason,
     PolarityStatus,
     PolarityValidationResult,
     ResponsePolarityResult,
+    can_route_to_semantic,
     validate_polarity,
     validate_response_polarity,
 )
@@ -32,6 +34,7 @@ __all__ = [
     "GeneratedResponse",
     "OllamaLegalGenerator",
     "PolarityStatus",
+    "PolarityReason",
     "PolarityValidationResult",
     "ResponsePolarityResult",
     "OllamaSemanticSupportValidator",
@@ -43,5 +46,6 @@ __all__ = [
     "run_consultation",
     "validate_polarity",
     "validate_response_polarity",
+    "can_route_to_semantic",
     "validate_citations",
 ]
