@@ -77,14 +77,17 @@ _NEGATION_RE = re.compile(
     r"|\bnão\s+(?:haverá|havera|poderá|podera|é|e|será|sera)\b",
     re.IGNORECASE,
 )
-_OBLIGATION_RE = re.compile(r"\b(?:obrigat\w*|dever\w*|exigid\w*)\b", re.IGNORECASE)
+_OBLIGATION_RE = re.compile(
+    r"\b(?:obrigat\w*|dever\w*|deve(?:m|ra|ria)?|exigid\w*)\b", re.IGNORECASE
+)
 _OPTIONAL_RE = re.compile(r"\b(?:facultativ\w*|opcional\w*)\b", re.IGNORECASE)
 _PERMISSION_RE = re.compile(
     r"\b(?:permitid\w*|admitid\w*|autorizad\w*|facultad\w*|pode|podem|poderá|podera)\b",
     re.IGNORECASE,
 )
 _EXCEPTION_RE = re.compile(
-    r"\b(?:salvo|exceto|excepto|ressalvad\w*|ressalva|em\s+caso\s+de)\b",
+    r"(?<!a )\bsalvo\b|\b(?:exceto|excepto|ressalvad\w*|ressalva|"
+    r"à?\s*exceção\s+de|em\s+caso\s+de)\b",
     re.IGNORECASE,
 )
 _AFFIRMATIVE_RE = re.compile(
@@ -204,7 +207,7 @@ def validate_polarity(
         tuple(sorted(evidence_profile)),
         tuple(sorted(claim_profile)),
         PolarityReason.EXCEPTION_SCOPE_AMBIGUITY
-        if status is PolarityStatus.UNRESOLVED
+        if status is PolarityStatus.UNRESOLVED and "EXCEPTION" in evidence_profile
         else None,
     )
 

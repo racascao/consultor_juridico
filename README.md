@@ -126,6 +126,15 @@ Logging hardening: `engine.echo=False` por padrão, `--verbose/-v` habilita SQL.
 Detalhes em `docs/61-fase-9-hardening-retrieval.md` e
 `docs/62-fase-9-1-gate-real-world.md`.
 
+A Fase 11 aplicou um plano fechado de hardening sistêmico em selection,
+sufficiency, attribution e detecção de exceções. A avaliação final única
+elevou o real-world de **4/10 para 7/10**, reduziu falsas abstenções de seis
+para três, preservou `1/1` abstenção correta, `unsafe=0`, cadeias de citação
+válidas e Hit@10 real-world `0,900`/MVP1 `0,905`. O resultado é
+`QUALITY_BREAKTHROUGH_GATE: PARTIAL`: houve ganho transversal, mas o release
+continua bloqueado. A SEU 10.1 permanece experimental e não integrada.
+Detalhes em `docs/83-fase-11-quality-breakthrough.md`.
+
 ### Corpus materializado
 
 ```text
@@ -1843,6 +1852,11 @@ O roadmap público é deliberadamente compacto. O histórico detalhado das decis
   - 12/12 ocorrências classificadas: 6 exceções omitidas e 6 sem relação de polaridade aplicável;
   - MVP1 Hybrid Hit@10 confirmado em `0,905`; real-world em `0,900`;
   - fail-closed preservado; nenhum quarto estado implementado.
+- [x] **Fase 11 — Quality Breakthrough — `PARTIAL`, produção `4/10 → 7/10`**
+  - quatro intervenções gerais em selection, sufficiency, attribution e exceções;
+  - falsas abstenções `6 → 3`, abstenção correta `1/1`, unsafe `0`;
+  - controles negativos e provenance preservados; SEU continua sem integração;
+  - release permanece bloqueado porque a meta era pelo menos `8/10`.
 - [x] **Fase 9.12 — Retrieval + Evidence Selection Hardening — `RETRIEVAL_SELECTION_GATE: APPROVED`**
   - real-world Hybrid Hit@10: `0,800 → 0,900`; `mvp1-v1` Hit@10 preservado em `0,905`;
   - ranking considera tokens substantivos, contexto estrutural em lote e cobertura/posição híbrida, sem alterar provenance;

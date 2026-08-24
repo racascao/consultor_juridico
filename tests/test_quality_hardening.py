@@ -107,6 +107,19 @@ def test_evidence_selection_uses_parent_context_without_changing_snapshot():
     assert relevant.chunk_text == "de caráter perpétuo"
 
 
+def test_evidence_selection_normalizes_singular_and_plural_forms():
+    relevant = replace(
+        _candidate("relevant"),
+        chunk_text="de morte, salvo em caso de guerra declarada",
+        parent_context="não haverá penas",
+    )
+    noise = replace(_candidate("noise"), chunk_text="pensão por morte")
+    selected = select_evidence_candidates(
+        (noise, relevant), question="pena de morte", limit=1
+    )
+    assert selected == (relevant,)
+
+
 def test_evidence_selection_keeps_ranked_candidate_without_contextual_overlap():
     first = replace(_candidate("first"), chunk_text="texto tematicamente próximo")
     selected = select_evidence_candidates((first,), question="consulta abstrata")
@@ -125,6 +138,16 @@ def test_sufficiency_rejects_weak_evidence_before_llm():
         "Pergunta sem relação", (_candidate("x", lexical=0.1, vector=0.5),)
     )
     assert report.decision is SufficiencyDecision.INSUFFICIENT
+
+
+def test_sufficiency_accepts_weak_scores_with_material_textual_anchor():
+    candidate = replace(
+        _candidate("x", lexical=0.1, vector=0.5),
+        chunk_text="de caráter perpétuo",
+        parent_context="não haverá penas",
+    )
+    report = assess_evidence_sufficiency("prisão perpétua", (candidate,))
+    assert report.is_sufficient
 
 
 def test_sufficiency_rejects_three_known_out_of_corpus_domains():

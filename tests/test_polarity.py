@@ -133,6 +133,15 @@ def test_non_polarity_sem_does_not_become_prohibition():
     )
 
 
+def test_non_exceptive_a_salvo_does_not_trigger_exception():
+    result = check(
+        "O Estado deve proteger crianças de negligência e violência.",
+        "É dever do Estado colocá-las a salvo de negligência e violência.",
+        PolarityStatus.CONSISTENT,
+    )
+    assert result.reason_code is None
+
+
 def test_regressions_prison_vote_and_death_exception():
     check(
         "A prisão perpétua é permitida.",

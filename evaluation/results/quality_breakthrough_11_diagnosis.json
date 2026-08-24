@@ -1,0 +1,58 @@
+{
+  "phase": "11",
+  "dataset": "real-world-short-v1",
+  "baseline_artifact": "quality_breakthrough_11_baseline.json",
+  "baseline": {
+    "correct_answers": 4,
+    "respondable_cases": 10,
+    "false_abstentions": 6,
+    "correct_abstentions": 1,
+    "unsafe_answers": 0,
+    "retrieval_hit_at_10": 0.9
+  },
+  "false_negative_oracle": [
+    {
+      "case_id": "rw-pena-morte",
+      "first_causal_failure": "SELECTION_FALSE_NEGATIVE",
+      "evidence": "A alínea determinante estava no híbrido em rank 8, mas não foi preservada pela seleção baseline."
+    },
+    {
+      "case_id": "rw-prisao-perpetua",
+      "first_causal_failure": "SUFFICIENCY_FALSE_NEGATIVE",
+      "evidence": "A alínea B determinante foi selecionada, porém os scores 0.1/0.597 bloquearam um conjunto com âncora textual material."
+    },
+    {
+      "case_id": "rw-racismo",
+      "first_causal_failure": "ATTRIBUTION_FALSE_NEGATIVE",
+      "evidence": "O Generator produziu claim e o EvidenceSet continha repúdio e criminalização, mas a normalização não conciliou repúdio/repudiado."
+    },
+    {
+      "case_id": "rw-direito-vida",
+      "first_causal_failure": "POLARITY_FALSE_NEGATIVE",
+      "evidence": "A construção não exceptiva 'a salvo' foi interpretada como marcador de exceção e tornou uma claim afirmativa UNRESOLVED."
+    },
+    {
+      "case_id": "rw-liberdade-expressao",
+      "first_causal_failure": "SELECTION_FALSE_NEGATIVE",
+      "evidence": "O dispositivo esperado estava no pool híbrido, mas perdeu a seleção para elementos tematicamente próximos."
+    },
+    {
+      "case_id": "rw-estado-sitio",
+      "first_causal_failure": "ATTRIBUTION_FALSE_NEGATIVE",
+      "reported_stage": "RETRIEVAL_MISS",
+      "evidence": "Embora a provision esperada não estivesse no top-10, o conjunto selecionado continha suporte material e o erro efetivo foi 'Claim C2 sem atribuição inequívoca'."
+    }
+  ],
+  "confirmed_blockers": [
+    "normalização morfológica inconsistente entre selection e attribution",
+    "evidência material não reconhecida pela heurística de sufficiency baseada apenas em scores",
+    "falso marcador de exceção em construção lexical não exceptiva",
+    "evidência determinante descartada na seleção por variação singular/plural"
+  ],
+  "planned_general_interventions_before_implementation": [
+    "normalizar flexões simples de forma uniforme em selection e attribution",
+    "preservar evidência determinante na selection por cobertura textual normalizada",
+    "aceitar sufficiency fraca em score quando existir âncora textual material",
+    "restringir a gramática de exceção a marcadores exceptivos completos"
+  ]
+}

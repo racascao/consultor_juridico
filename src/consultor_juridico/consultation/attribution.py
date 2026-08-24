@@ -131,9 +131,11 @@ def _token(value: str) -> str:
     without_marks = "".join(
         character for character in normalized if not unicodedata.combining(character)
     )
-    # Prefix matching handles inflection conservatively (pena/penas,
-    # obrigatório/obrigatórios) without maintaining a legal synonym list.
-    return without_marks[:7]
+    if len(without_marks) > 4 and without_marks.endswith("s"):
+        without_marks = without_marks[:-1]
+    # Prefixo conservador cobre flexões nominais/verbais sem vocabulário
+    # jurídico específico (repúdio/repudiado, obrigatório/obrigatórios).
+    return without_marks[:6]
 
 
 def _tokens(value: str) -> set[str]:

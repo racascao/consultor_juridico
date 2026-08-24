@@ -49,6 +49,18 @@ def test_prefers_distinctive_term_over_thematically_close_evidence():
     assert result.response.claims[0].evidence_codes == ("EV002",)
 
 
+def test_morphological_prefix_distinguishes_repudio_from_thematic_match():
+    result = deterministically_attribute(
+        _response("O racismo é repudiado constitucionalmente.", ("EV001",)),
+        (
+            _item("EV001", "repúdio ao terrorismo e ao racismo"),
+            _item("EV002", "a prática do racismo constitui crime"),
+        ),
+    )
+    assert not result.abstained
+    assert "EV001" in result.response.claims[0].evidence_codes
+
+
 def test_composed_claim_can_use_two_evidence_items():
     result = deterministically_attribute(
         _response("A regra A vale e a exceção B também existe.", ("EV001",)),

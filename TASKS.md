@@ -316,3 +316,15 @@ Estado: `BLOCKED` — Granite 8B+8B executado; judge rejeita voto facultativo, m
 - [x] A/B: `4/10 → 5/10`, `LOW_IMPACT`
 - [x] `STRUCTURED_EVIDENCE_CONTEXT_GATE: BLOCKED`; produção não integrada
 - [x] `docs/82-fase-10-1-seu-context-selection.md`
+
+## Fase 11 — Quality Breakthrough
+
+- [x] Trace causal baseline do pipeline completo: `4/10`, seis falsas abstenções, zero unsafe
+- [x] Plano fechado com quatro intervenções gerais, sem hardcode por caso/artigo
+- [x] Normalização morfológica consistente em selection e attribution
+- [x] Sufficiency reconhece âncora textual material sem duplicar o Semantic Validator
+- [x] Gramática de exceção distingue locuções exceptivas de `a salvo`
+- [x] Controles negativos e suíte completa: 303 passed, 5 skipped
+- [x] Avaliação final única: `7/10`, três falsas abstenções, `1/1` abstenção correta, zero unsafe
+- [x] `QUALITY_BREAKTHROUGH_GATE: PARTIAL`; SEU continua sem integração
+- [x] `docs/83-fase-11-quality-breakthrough.md`

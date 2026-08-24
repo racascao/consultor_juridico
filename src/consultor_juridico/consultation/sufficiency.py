@@ -1,6 +1,7 @@
 """Gate determinístico de suficiência anterior à geração."""
 
 import re
+import unicodedata
 
 from consultor_juridico.consultation.types import (
     SufficiencyDecision,
@@ -41,7 +42,24 @@ def assess_evidence_sufficiency(
         reasons.append("Consulta fora do escopo explícito CF/88 + ADCT do MVP1.")
     if not candidates:
         reasons.append("Nenhuma evidência candidata válida.")
-    if vector < min_vector_score and lexical < min_lexical_score:
+    query_tokens = _tokens(question)
+    evidence_tokens = {
+        token
+        for candidate in candidates
+        for token in _tokens(
+            " ".join(
+                part
+                for part in (candidate.chunk_text, candidate.parent_context)
+                if isinstance(part, str)
+            )
+        )
+    }
+    has_textual_anchor = bool(query_tokens & evidence_tokens)
+    if (
+        vector < min_vector_score
+        and lexical < min_lexical_score
+        and not has_textual_anchor
+    ):
         reasons.append("Sinais lexical e vetorial abaixo dos limiares conservadores.")
     decision = (
         SufficiencyDecision.INSUFFICIENT if reasons else SufficiencyDecision.SUFFICIENT
@@ -49,3 +67,16 @@ def assess_evidence_sufficiency(
     if not reasons:
         reasons.append("Consulta no escopo e ao menos um sinal forte de retrieval.")
     return SufficiencyReport(decision, tuple(reasons), lexical, vector, agreement)
+
+
+def _tokens(value: str) -> set[str]:
+    normalized = unicodedata.normalize("NFD", value.casefold())
+    normalized = "".join(
+        character for character in normalized if not unicodedata.combining(character)
+    )
+    result = set()
+    for word in re.findall(r"[^\W\d_]{4,}", normalized):
+        if len(word) > 4 and word.endswith("s"):
+            word = word[:-1]
+        result.add(word[:6])
+    return result

@@ -79,9 +79,9 @@ def _normalize_token(token: str) -> str:
 
     nfkd = unicodedata.normalize("NFD", token.casefold())
     ascii_token = "".join(c for c in nfkd if not unicodedata.combining(c))
-    if len(ascii_token) > 5:
-        return ascii_token[:6]
-    return ascii_token
+    if len(ascii_token) > 4 and ascii_token.endswith("s"):
+        ascii_token = ascii_token[:-1]
+    return ascii_token[:6]
 
 
 def _tokens(text: str) -> set[str]:

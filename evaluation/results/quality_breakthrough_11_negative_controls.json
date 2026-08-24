@@ -1,0 +1,58 @@
+{
+  "phase": "11",
+  "status": "PASS",
+  "executed_as_part_of": "uv run pytest -q",
+  "suite_result": {
+    "passed": 303,
+    "skipped": 5
+  },
+  "controls": [
+    {
+      "class": "prisão perpétua invertida",
+      "test": "tests/test_polarity.py::test_regressions_prison_vote_and_death_exception",
+      "result": "PASS"
+    },
+    {
+      "class": "voto facultativo diante de obrigação",
+      "test": "tests/test_polarity.py::test_regressions_prison_vote_and_death_exception",
+      "result": "PASS"
+    },
+    {
+      "class": "permissão versus proibição",
+      "test": "tests/test_polarity.py::test_permission_and_prohibition_are_opposites_in_both_directions",
+      "result": "PASS"
+    },
+    {
+      "class": "exceção material da pena de morte",
+      "test": "tests/test_polarity.py::test_exception_is_consistent_only_when_preserved",
+      "result": "PASS"
+    },
+    {
+      "class": "evidência apenas temática",
+      "test": "tests/test_attribution.py::test_prefers_distinctive_term_over_thematically_close_evidence",
+      "result": "PASS"
+    },
+    {
+      "class": "Evidence ID inexistente",
+      "test": "tests/test_consultation.py::test_generation_schema_restricts_citations_to_authorized_codes",
+      "result": "PASS"
+    },
+    {
+      "class": "claim sem suporte",
+      "test": "tests/test_quality_hardening.py::test_semantic_contradiction_is_unsupported_even_with_supported_material",
+      "result": "PASS"
+    },
+    {
+      "class": "pergunta fora do corpus",
+      "test": "tests/test_quality_hardening.py::test_sufficiency_rejects_three_known_out_of_corpus_domains",
+      "result": "PASS"
+    },
+    {
+      "class": "aborto",
+      "artifact": "quality_breakthrough_11_final.json",
+      "result": "CORRECT_ABSTENTION"
+    }
+  ],
+  "unsafe_answers": 0,
+  "invalid_citation_chains": 0
+}
