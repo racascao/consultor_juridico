@@ -5,9 +5,11 @@ from collections.abc import Callable
 
 from sqlalchemy.orm import Session
 
+from consultor_juridico.consultation.attribution import deterministically_attribute
 from consultor_juridico.consultation.errors import LLMResponseError
 from consultor_juridico.consultation.evidence import build_evidence_set
 from consultor_juridico.consultation.llm import OllamaLegalGenerator
+from consultor_juridico.consultation.polarity import validate_response_polarity
 from consultor_juridico.consultation.selection import select_evidence_candidates
 from consultor_juridico.consultation.semantic import SemanticSupportValidator
 from consultor_juridico.consultation.sufficiency import assess_evidence_sufficiency
@@ -89,8 +91,24 @@ def run_consultation(
         except LLMResponseError as exc:
             errors = (str(exc),)
             continue
+        attribution = deterministically_attribute(response, tuple(evidence_set.items))
+        if attribution.abstained:
+            errors = attribution.reasons or (
+                "Atribuição determinística inconclusiva; resposta recusada.",
+            )
+            continue
+        response = attribution.response
         report = validate_citations(session, evidence_set, response)
         if report.is_valid:
+            if not response.abstain:
+                polarity = validate_response_polarity(
+                    response, tuple(evidence_set.items)
+                )
+                if not polarity.is_valid:
+                    errors = polarity.errors or (
+                        "Guard de polaridade não conseguiu validar a resposta.",
+                    )
+                    continue
             if response.abstain:
                 evidence_set.validation_status = "ABSTAINED"
                 evidence_set.metadata_json = {

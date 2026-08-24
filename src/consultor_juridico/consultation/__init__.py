@@ -1,6 +1,13 @@
 """Consulta jurídica fundamentada, local e auditável."""
 
 from consultor_juridico.consultation.llm import OllamaLegalGenerator
+from consultor_juridico.consultation.polarity import (
+    PolarityStatus,
+    PolarityValidationResult,
+    ResponsePolarityResult,
+    validate_polarity,
+    validate_response_polarity,
+)
 from consultor_juridico.consultation.semantic import OllamaSemanticSupportValidator
 from consultor_juridico.consultation.service import run_consultation
 from consultor_juridico.consultation.types import (
@@ -24,6 +31,9 @@ __all__ = [
     "GeneratedClaim",
     "GeneratedResponse",
     "OllamaLegalGenerator",
+    "PolarityStatus",
+    "PolarityValidationResult",
+    "ResponsePolarityResult",
     "OllamaSemanticSupportValidator",
     "SemanticSupportReport",
     "SemanticSupportStatus",
@@ -31,5 +41,7 @@ __all__ = [
     "SufficiencyReport",
     "ValidationReport",
     "run_consultation",
+    "validate_polarity",
+    "validate_response_polarity",
     "validate_citations",
 ]

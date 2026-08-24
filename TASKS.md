@@ -211,3 +211,12 @@
 - [ ] Fechar `MODEL_CAPABILITY_GATE`
 
 Estado: `BLOCKED` — Granite 8B+8B executado; judge rejeita voto facultativo, mas generator mantém erros e false abstention.
+
+## Fase 9.10 — Polarity & Contradiction Guard determinístico
+
+- [x] Guard isolado determinístico com estados `CONSISTENT`, `CONTRADICTED` e `UNRESOLVED`
+- [x] Fixtures de inversão, obrigação, permissão, exceção, contexto e ambiguidade
+- [x] Gate isolado: `POLARITY_GUARD_GATE: APPROVED`
+- [x] Integração fail-closed após validação de citações e antes do juiz semântico
+- [x] Nenhuma alteração de retrieval, modelos, schema ou datasets
+- [x] `docs/71-fase-9-10-polarity-contradiction-guard.md`

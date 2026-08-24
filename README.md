@@ -1810,6 +1810,10 @@ O roadmap público é deliberadamente compacto. O histórico detalhado das decis
 
 - [x] **Fase 9.7 — Attribution determinística pós-geração — `DETERMINISTIC_ATTRIBUTION_GATE: BLOCKED`**
 - [ ] **Fase 9.8/9.9 — Benchmark de capacidade dos modelos locais — `MODEL_CAPABILITY_GATE: BLOCKED` (8B+8B rejeita inversões, mas não atinge o gate)**
+- [x] **Fase 9.10 — Polarity & Contradiction Guard — `POLARITY_GUARD_GATE: APPROVED`**
+  - barreira determinística após citações e antes do juiz semântico;
+  - inversões explícitas retornam `CONTRADICTED` e casos ambíguos falham fechadamente como `UNRESOLVED`;
+  - o Semantic Validator continua obrigatório; `REAL_WORLD_RELEASE_GATE` não foi reavaliado.
   - protótipo puro avaliado com evidências congeladas e cinco execuções por caso
   - attribution: pena 4/5, prisão 4/5, voto 5/5
   - bloqueado porque attribution correta não eliminou aceitação semântica insegura em prisão perpétua
