@@ -34,7 +34,7 @@ class Settings(BaseSettings):
     embedding_batch_size: int = Field(default=32, alias="EMBEDDING_BATCH_SIZE")
     consultation_timeout: float = Field(default=180.0, alias="CONSULTATION_TIMEOUT")
     consultation_max_tokens: int = Field(default=800, alias="CONSULTATION_MAX_TOKENS")
-    consultation_top_k: int = Field(default=8, alias="CONSULTATION_TOP_K")
+    consultation_top_k: int = Field(default=10, alias="CONSULTATION_TOP_K")
     consultation_max_attempts: int = Field(default=2, alias="CONSULTATION_MAX_ATTEMPTS")
     consultation_evidence_limit: int = Field(
         default=3, alias="CONSULTATION_EVIDENCE_LIMIT"

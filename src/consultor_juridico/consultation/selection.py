@@ -43,25 +43,35 @@ def select_evidence_candidates(
         return tuple(unique[:limit])
     query_tokens = _tokens(question)
     overlaps = [
-        len(query_tokens.intersection(_tokens(item.chunk_text))) for item in unique
+        len(query_tokens.intersection(_tokens(_selection_text(item))))
+        for item in unique
     ]
     strongest = max(overlaps)
     if len(query_tokens) <= 3:
         minimum = 1
-        effective_limit = max(limit, 10)
     else:
         minimum = max(1, (strongest + 1) // 2)
-        effective_limit = limit
+    # O overlap mede cobertura textual; a posição original já representa o
+    # ranking híbrido. A ordenação composta evita que candidatos apenas
+    # temáticos ocupem todo o orçamento de evidências em consultas curtas.
     selected = [
-        item
-        for item, overlap in zip(unique, overlaps, strict=True)
+        (item, overlap, position)
+        for position, (item, overlap) in enumerate(zip(unique, overlaps, strict=True))
         if overlap >= minimum
     ]
-    # O primeiro resultado híbrido sempre é preservado; o overlap é apenas
-    # um filtro de ruído, não uma prova de relevância semântica.
-    if unique[0] not in selected:
-        selected.insert(0, unique[0])
-    return tuple(selected[:effective_limit])
+    selected.sort(
+        key=lambda value: (
+            -value[1],
+            -int(value[0].parent_context is not None),
+            value[2],
+            str(value[0].chunk_id),
+        )
+    )
+    if not selected:
+        # Sem âncora lexical, preserva apenas o melhor resultado híbrido para
+        # que a suficiência possa decidir de modo fail-closed.
+        return (unique[0],)
+    return tuple(item for item, _, _ in selected[:limit])
 
 
 def _normalize_token(token: str) -> str:
@@ -80,3 +90,12 @@ def _tokens(text: str) -> set[str]:
         for token in WORD_RE.findall(text.casefold())
         if token not in STOPWORDS
     }
+
+
+def _selection_text(candidate: RetrievalCandidate) -> str:
+    """Usa contexto estrutural derivado somente para decidir relevância."""
+    return " ".join(
+        part
+        for part in (candidate.chunk_text, candidate.parent_context)
+        if isinstance(part, str)
+    )

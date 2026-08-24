@@ -93,6 +93,26 @@ def test_evidence_selection_filters_lexical_noise_but_keeps_top_candidate():
     assert selected == (relevant,)
 
 
+def test_evidence_selection_uses_parent_context_without_changing_snapshot():
+    relevant = replace(
+        _candidate("relevant"),
+        chunk_text="de caráter perpétuo",
+        parent_context="não haverá penas",
+    )
+    noise = replace(_candidate("noise"), chunk_text="prisão preventiva")
+    selected = select_evidence_candidates(
+        (noise, relevant), question="prisão perpétua", limit=1
+    )
+    assert relevant in selected
+    assert relevant.chunk_text == "de caráter perpétuo"
+
+
+def test_evidence_selection_keeps_ranked_candidate_without_contextual_overlap():
+    first = replace(_candidate("first"), chunk_text="texto tematicamente próximo")
+    selected = select_evidence_candidates((first,), question="consulta abstrata")
+    assert selected == (first,)
+
+
 def test_sufficiency_accepts_strong_constitutional_evidence():
     report = assess_evidence_sufficiency(
         "Quais são os Poderes da União?", (_candidate("2"),)

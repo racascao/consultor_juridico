@@ -11,6 +11,7 @@ from consultor_juridico.retrieval.embeddings import (
     OllamaEmbeddingProvider,
 )
 from consultor_juridico.retrieval.search import (
+    _is_short_substantive_query,
     contextual_caput_rerank,
     lexical_query_text,
     reciprocal_rank_fusion,
@@ -84,6 +85,13 @@ def test_lexical_query_filters_interrogative_stopwords_for_short_queries():
     # Interrogativos adicionam ruído lexical sem contribuir para ranking
     assert "quais" not in lexical_query_text("Quais direitos sociais existem?")
     assert lexical_query_text("idade presidente") == "idade OR presidente"
+
+
+def test_short_query_classification_ignores_function_words():
+    assert _is_short_substantive_query(("idade", "para", "ser", "presidente"))
+    assert not _is_short_substantive_query(
+        ("requisitos", "constitucionais", "elegibilidade", "presidente")
+    )
 
 
 def test_contextual_rerank_promotes_caput_from_strong_article_descendant():

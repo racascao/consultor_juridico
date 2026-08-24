@@ -1,0 +1,683 @@
+{
+  "dataset_version": "real-world-short-v1",
+  "embedding_dimensions": 768,
+  "embedding_model": "nomic-embed-text",
+  "generated_at": "2026-08-24T11:51:51.720467+00:00",
+  "modes": {
+    "hybrid": {
+      "cases": 10,
+      "elapsed_seconds": 0.8459704990000319,
+      "hit_at_1": 0.4,
+      "hit_at_10": 0.9,
+      "hit_at_3": 0.6,
+      "hit_at_5": 0.7,
+      "mode": "hybrid",
+      "mrr": 0.543611111111111,
+      "recall_at_10": 0.75,
+      "results": [
+        {
+          "case_id": "rw-pena-morte",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:7",
+            "CF88/@root/TITLE:V/CHAPTER:III/ARTICLE:144/PARAGRAPH:5-A",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLV",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIII",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIX",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII",
+            "ADCT/@root/ARTICLE:53/INCISO:III"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 0.125
+        },
+        {
+          "case_id": "rw-prisao-perpetua",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXII",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXV",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVII",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXIV",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:V/ARTICLE:53/PARAGRAPH:2",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI",
+            "CF88/@root/TITLE:V/CHAPTER:I/SECTION:I/ARTICLE:136/PARAGRAPH:3/INCISO:I",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:III/ARTICLE:86/PARAGRAPH:3",
+            "CF88/@root/TITLE:V/CHAPTER:I/SECTION:I/ARTICLE:136/PARAGRAPH:3/INCISO:III"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 0.5
+        },
+        {
+          "case_id": "rw-liberdade-religiosa",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+            "CF88/@root/PREAMBLE:@preamble",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VII",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VIII",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XVII",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI/ALINEA:A",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLI",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LIV",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "rw-racismo",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII",
+            "CF88/@root/TITLE:I/ARTICLE:1/INCISO:V",
+            "CF88/@root/TITLE:I/ARTICLE:3/INCISO:III",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:II/ARTICLE:215/PARAGRAPH:1",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXVIII/ALINEA:D",
+            "CF88/@root/TITLE:I/ARTICLE:3/INCISO:IV",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:III/ARTICLE:85/PARAGRAPH:ÚNICO",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XI",
+            "CF88/@root/TITLE:I/ARTICLE:4/INCISO:II"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 0.5
+        },
+        {
+          "case_id": "rw-extradicao",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII",
+            "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:22/INCISO:XV",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:II/ARTICLE:102/INCISO:I/ALINEA:G",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:38/INCISO:IV",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI",
+            "ADCT/@root/ARTICLE:120/PARAGRAPH:ÚNICO/INCISO:II",
+            "CF88/@root/TITLE:III/CHAPTER:IV/ARTICLE:29/INCISO:II",
+            "ADCT/@root/ARTICLE:107-A/INCISO:I",
+            "ADCT/@root/ARTICLE:87/PARAGRAPH:ÚNICO",
+            "CF88/@root/TITLE:III/CHAPTER:VI/ARTICLE:36/INCISO:I"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "rw-direito-vida",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/PARAGRAPH:6",
+            "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V/ARTICLE:156/PARAGRAPH:2/INCISO:I",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:X",
+            "ADCT/@root/ARTICLE:9/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIV/ALINEA:A",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:IV/ARTICLE:109/PARAGRAPH:5",
+            "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V/ARTICLE:156/INCISO:II"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "rw-liberdade-expressao",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX",
+            "CF88/@root/TITLE:VIII/CHAPTER:V/ARTICLE:220/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IV"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/PREAMBLE:@preamble",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI/ALINEA:A",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XVII",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LIV",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLI",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXXI"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.2
+        },
+        {
+          "case_id": "rw-idade-presidente",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:80/CAPUT:@caput",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VI/ARTICLE:57/PARAGRAPH:6/INCISO:I",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:66/PARAGRAPH:7",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:1/INCISO:III",
+            "CF88/@root/TITLE:II/CHAPTER:III/ARTICLE:12/PARAGRAPH:3/INCISO:I",
+            "ADCT/@root/ARTICLE:13/PARAGRAPH:5",
+            "ADCT/@root/ARTICLE:1/CAPUT:@caput",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:II/ARTICLE:49/INCISO:III",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:1/INCISO:II"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "rw-voto-obrigatorio",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I/ALINEA:A",
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:8/INCISO:VII",
+            "CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:3/INCISO:I",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/PARAGRAPH:3",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:2",
+            "ADCT/@root/ARTICLE:11/PARAGRAPH:ÚNICO",
+            "ADCT/@root/ARTICLE:13/PARAGRAPH:4",
+            "ADCT/@root/ARTICLE:3/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:39/PARAGRAPH:ÚNICO",
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I"
+          ],
+          "recall_at_10": 0.5,
+          "reciprocal_rank": 0.1111111111111111
+        },
+        {
+          "case_id": "rw-estado-sitio",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:138/CAPUT:@caput",
+            "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II/ARTICLE:137/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:II/ARTICLE:84/INCISO:IX",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:II/ARTICLE:49/INCISO:IV",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:1",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VI/ARTICLE:57/PARAGRAPH:6/INCISO:I",
+            "CF88/@root/TITLE:V/CHAPTER:I",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:V/SUBSECTION:I/ARTICLE:90/INCISO:I",
+            "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/PARAGRAPH:ÚNICO",
+            "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/CAPUT:@caput",
+            "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.0
+        }
+      ]
+    },
+    "lexical": {
+      "cases": 10,
+      "elapsed_seconds": 0.0647116959999039,
+      "hit_at_1": 0.4,
+      "hit_at_10": 0.9,
+      "hit_at_3": 0.5,
+      "hit_at_5": 0.6,
+      "mode": "lexical",
+      "mrr": 0.51,
+      "recall_at_10": 0.7,
+      "results": [
+        {
+          "case_id": "rw-pena-morte",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:7",
+            "CF88/@root/TITLE:V/CHAPTER:III/ARTICLE:144/PARAGRAPH:5-A",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIII",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIX",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLV",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVIII"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 0.125
+        },
+        {
+          "case_id": "rw-prisao-perpetua",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXII",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXIV",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXV",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVII",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:V/ARTICLE:53/PARAGRAPH:2",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:III/ARTICLE:86/PARAGRAPH:3",
+            "CF88/@root/TITLE:V/CHAPTER:I/SECTION:I/ARTICLE:136/PARAGRAPH:3/INCISO:I",
+            "CF88/@root/TITLE:V/CHAPTER:I/SECTION:I/ARTICLE:136/PARAGRAPH:3/INCISO:III"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "rw-liberdade-religiosa",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+            "CF88/@root/PREAMBLE:@preamble",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VII",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VIII",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XVII",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLI",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI/ALINEA:A",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LIV",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "rw-racismo",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 0.5
+        },
+        {
+          "case_id": "rw-extradicao",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII",
+            "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:22/INCISO:XV",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:II/ARTICLE:102/INCISO:I/ALINEA:G"
+          ],
+          "recall_at_10": 0.5,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "rw-direito-vida",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput",
+            "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/PARAGRAPH:6",
+            "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V/ARTICLE:156/PARAGRAPH:2/INCISO:I",
+            "ADCT/@root/ARTICLE:9/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:X",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIV/ALINEA:A",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:62/PARAGRAPH:1/INCISO:I/ALINEA:A",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:IV/ARTICLE:109/PARAGRAPH:5"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "rw-liberdade-expressao",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX",
+            "CF88/@root/TITLE:VIII/CHAPTER:V/ARTICLE:220/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IV"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/PREAMBLE:@preamble",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XVII",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLI",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI/ALINEA:A",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LIV",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVIII"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.25
+        },
+        {
+          "case_id": "rw-idade-presidente",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:80/CAPUT:@caput",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:1/INCISO:III",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VI/ARTICLE:57/PARAGRAPH:6/INCISO:I",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:66/PARAGRAPH:7",
+            "ADCT/@root/ARTICLE:1/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:13/PARAGRAPH:5",
+            "CF88/@root/TITLE:II/CHAPTER:III/ARTICLE:12/PARAGRAPH:3/INCISO:I",
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:1/INCISO:II",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:5"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 0.125
+        },
+        {
+          "case_id": "rw-voto-obrigatorio",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I/ALINEA:A",
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:8/INCISO:VII",
+            "CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:3/INCISO:I",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:2",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/PARAGRAPH:3",
+            "ADCT/@root/ARTICLE:3/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:11/PARAGRAPH:ÚNICO",
+            "ADCT/@root/ARTICLE:13/PARAGRAPH:4",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/PARAGRAPH:3",
+            "ADCT/@root/ARTICLE:39/PARAGRAPH:ÚNICO",
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput"
+          ],
+          "recall_at_10": 0.5,
+          "reciprocal_rank": 0.1
+        },
+        {
+          "case_id": "rw-estado-sitio",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:138/CAPUT:@caput",
+            "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II/ARTICLE:137/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:II/ARTICLE:49/INCISO:IV",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VI/ARTICLE:57/PARAGRAPH:6/INCISO:I",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:1",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:II/ARTICLE:84/INCISO:IX",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:V/SUBSECTION:I/ARTICLE:90/INCISO:I",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:V/SUBSECTION:II/ARTICLE:91/PARAGRAPH:1/INCISO:II",
+            "CF88/@root/TITLE:V/CHAPTER:I",
+            "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:140/CAPUT:@caput",
+            "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/CAPUT:@caput"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.0
+        }
+      ]
+    },
+    "vector": {
+      "cases": 10,
+      "elapsed_seconds": 0.6819819180000195,
+      "hit_at_1": 0.1,
+      "hit_at_10": 0.4,
+      "hit_at_3": 0.2,
+      "hit_at_5": 0.3,
+      "mode": "vector",
+      "mrr": 0.18611111111111112,
+      "recall_at_10": 0.3,
+      "results": [
+        {
+          "case_id": "rw-pena-morte",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:V/CHAPTER:III/ARTICLE:144/PARAGRAPH:5-A",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:III/ARTICLE:86/PARAGRAPH:1/INCISO:I",
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:7",
+            "CF88/@root/TITLE:IX/ARTICLE:235/INCISO:VI",
+            "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:IV/ARTICLE:155/INCISO:I",
+            "CF88/@root/TITLE:V/CHAPTER:III/ARTICLE:144/INCISO:VI",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:II/ARTICLE:102/INCISO:I/ALINEA:C",
+            "ADCT/@root/ARTICLE:9/PARAGRAPH:ÚNICO",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXXIII",
+            "ADCT/@root/ARTICLE:5/PARAGRAPH:3"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.0
+        },
+        {
+          "case_id": "rw-prisao-perpetua",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:VII/CHAPTER:I/ARTICLE:175/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:5/PARAGRAPH:3",
+            "CF88/@root/TITLE:VIII/CHAPTER:V/ARTICLE:223/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:53/INCISO:VI",
+            "CF88/@root/TITLE:VII/CHAPTER:II/ARTICLE:182/PARAGRAPH:4/INCISO:III",
+            "ADCT/@root/ARTICLE:53/INCISO:II",
+            "ADCT/@root/ARTICLE:50/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:87/PARAGRAPH:ÚNICO",
+            "ADCT/@root/ARTICLE:116/PARAGRAPH:11",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXXIII"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.0
+        },
+        {
+          "case_id": "rw-liberdade-religiosa",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+            "CF88/@root/TITLE:III/CHAPTER:I/ARTICLE:19/INCISO:I",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI/ALINEA:A",
+            "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:II/ARTICLE:150/INCISO:VI/ALINEA:B",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LIV",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VIII",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXXI",
+            "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II/ARTICLE:139/INCISO:IV",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XVII"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "case_id": "rw-racismo",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII",
+            "CF88/@root/TITLE:I/ARTICLE:1/INCISO:V",
+            "CF88/@root/TITLE:I/ARTICLE:3/INCISO:III",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:II/ARTICLE:215/PARAGRAPH:1",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXVIII/ALINEA:D",
+            "CF88/@root/TITLE:I/ARTICLE:3/INCISO:IV",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:III/ARTICLE:85/PARAGRAPH:ÚNICO",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XI",
+            "CF88/@root/TITLE:I/ARTICLE:4/INCISO:II"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 0.5
+        },
+        {
+          "case_id": "rw-extradicao",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:38/INCISO:IV",
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:II/ARTICLE:102/INCISO:I/ALINEA:G",
+            "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:22/INCISO:XV",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII",
+            "ADCT/@root/ARTICLE:120/PARAGRAPH:ÚNICO/INCISO:II",
+            "CF88/@root/TITLE:III/CHAPTER:IV/ARTICLE:29/INCISO:II",
+            "ADCT/@root/ARTICLE:107-A/INCISO:I",
+            "ADCT/@root/ARTICLE:87/PARAGRAPH:ÚNICO",
+            "CF88/@root/TITLE:III/CHAPTER:VI/ARTICLE:36/INCISO:I"
+          ],
+          "recall_at_10": 1.0,
+          "reciprocal_rank": 0.25
+        },
+        {
+          "case_id": "rw-direito-vida",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:VIII/CHAPTER:VI/ARTICLE:225/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:I",
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput",
+            "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V/ARTICLE:156/INCISO:II",
+            "CF88/@root/TITLE:VIII/CHAPTER:II/SECTION:II/ARTICLE:196/CAPUT:@caput",
+            "CF88/@root/TITLE:I/ARTICLE:4/INCISO:II",
+            "CF88/@root/TITLE:III/CHAPTER:IV/ARTICLE:29/INCISO:I",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:206/INCISO:IX",
+            "ADCT/@root/ARTICLE:49/PARAGRAPH:4",
+            "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.0
+        },
+        {
+          "case_id": "rw-liberdade-expressao",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX",
+            "CF88/@root/TITLE:VIII/CHAPTER:V/ARTICLE:220/CAPUT:@caput",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IV"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI/ALINEA:A",
+            "ADCT/@root/ARTICLE:78/PARAGRAPH:2",
+            "ADCT/@root/ARTICLE:76/PARAGRAPH:5",
+            "ADCT/@root/ARTICLE:13/PARAGRAPH:7",
+            "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+            "CF88/@root/TITLE:VIII/CHAPTER:V/ARTICLE:220/PARAGRAPH:1",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:V/ARTICLE:56/INCISO:II",
+            "CF88/@root/TITLE:VIII/CHAPTER:V/ARTICLE:220/CAPUT:@caput",
+            "ADCT/@root/ARTICLE:19/PARAGRAPH:2"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.1111111111111111
+        },
+        {
+          "case_id": "rw-idade-presidente",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:VII/ARTICLE:123/PARAGRAPH:ÚNICO",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:II/ARTICLE:49/INCISO:III",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:79/PARAGRAPH:ÚNICO",
+            "ADCT/@root/ARTICLE:29/PARAGRAPH:1",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:83/CAPUT:@caput",
+            "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:66/PARAGRAPH:7",
+            "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II/ARTICLE:137/PARAGRAPH:ÚNICO",
+            "ADCT/@root/ARTICLE:14/PARAGRAPH:3",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:78/PARAGRAPH:ÚNICO",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/CAPUT:@caput"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.0
+        },
+        {
+          "case_id": "rw-voto-obrigatorio",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I/ALINEA:A",
+            "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:I/ARTICLE:100/PARAGRAPH:5",
+            "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:8/INCISO:VI",
+            "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:208/PARAGRAPH:2",
+            "CF88/@root/TITLE:VI/CHAPTER:II/SECTION:II/ARTICLE:167-A/INCISO:VII",
+            "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:II/ARTICLE:150/PARAGRAPH:7",
+            "ADCT/@root/ARTICLE:76-A/PARAGRAPH:ÚNICO/INCISO:IV",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/PARAGRAPH:3",
+            "ADCT/@root/ARTICLE:86/INCISO:I",
+            "CF88/@root/TITLE:VII/CHAPTER:II/ARTICLE:182/PARAGRAPH:1",
+            "CF88/@root/TITLE:VII/CHAPTER:I/ARTICLE:175/PARAGRAPH:ÚNICO/INCISO:IV"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.0
+        },
+        {
+          "case_id": "rw-estado-sitio",
+          "category": "real_short",
+          "expected_provisions": [
+            "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:138/CAPUT:@caput",
+            "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II/ARTICLE:137/CAPUT:@caput"
+          ],
+          "ranked_provisions": [
+            "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II",
+            "CF88/@root/TITLE:V/CHAPTER:I",
+            "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II/ARTICLE:138/PARAGRAPH:1",
+            "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/PARAGRAPH:ÚNICO",
+            "ADCT/@root/ARTICLE:97/PARAGRAPH:1",
+            "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V",
+            "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:II/ARTICLE:84/INCISO:IX",
+            "ADCT/@root/ARTICLE:97/PARAGRAPH:13",
+            "CF88/@root/TITLE:VIII/CHAPTER:II/SECTION:I/ARTICLE:195/PARAGRAPH:1",
+            "ADCT/@root/ARTICLE:105/PARAGRAPH:2"
+          ],
+          "recall_at_10": 0.0,
+          "reciprocal_rank": 0.0
+        }
+      ]
+    }
+  },
+  "provider": "ollama",
+  "rrf_k": 60,
+  "top_k": 10
+}

@@ -82,6 +82,13 @@ def lexical_query_text(query: str) -> str:
     return " OR ".join(tokens) if tokens else query
 
 
+def _is_short_substantive_query(tokens: tuple[str, ...]) -> bool:
+    """Classifica consultas curtas sem contar conectivos semânticos fracos."""
+    return (
+        len(tuple(token for token in tokens if token not in STOPWORDS_RETRIEVAL)) <= 3
+    )
+
+
 def vector_search(
     session: Session,
     query: str,
@@ -123,6 +130,7 @@ def hybrid_search(
     filters: RetrievalFilters = DEFAULT_FILTERS,
 ) -> tuple[RetrievalCandidate, ...]:
     tokens = tuple(dict.fromkeys(WORD_RE.findall(query.casefold())))
+    is_short_query = _is_short_substantive_query(tokens)
     lexical = lexical_search(session, query, limit=candidate_limit, filters=filters)
     vector = vector_search(
         session,
@@ -134,7 +142,7 @@ def hybrid_search(
     )
     # Para consultas curtas (<=3 tokens), nomic é fraco para paráfrases e split
     # Prioriza lexical: se lexical tem hit, usa lexical como híbrido
-    if len(tokens) <= 3:
+    if is_short_query:
         # Se lexical já cobre bem (Hit@10 0.9), usa lexical puro para short
         # Caso contrário, usa RRF com penalização de vector puro
         lexical_hit = any(c.lexical_rank is not None for c in lexical[:10])
@@ -144,7 +152,7 @@ def hybrid_search(
             # Mas mantém RRF para casos onde lexical falha (ex.: liberdade expressão)
             pass
     fused = reciprocal_rank_fusion(lexical, vector, limit=len(lexical) + len(vector))
-    if len(tokens) <= 3 and fused:
+    if is_short_query and fused:
         boosted = []
         for item in fused:
             base = float(item.rrf_score or 0)
@@ -157,45 +165,22 @@ def hybrid_search(
         fused = tuple(
             sorted(boosted, key=lambda x: (-float(x.rrf_score or 0), str(x.chunk_id)))
         )
+    fused = _attach_parent_context(session, fused)
     # Expansão contextual query-time para ALINEA/ITEM: quando o texto necessário
     # está dividido entre pai (ex.: "não haverá penas:") e filho ("de morte..."),
     # nenhum chunk isolado contém ambos os tokens. Sem alterar Chunk persistido,
     # promovemos o filho quando a união pai+filho cobre todos os tokens da query.
-    if len(tokens) <= 3 and fused:
-        # Busca pais para ALINEA/ITEM em lote
-        alinea_ids = [
-            c.legal_element_id for c in fused if c.element_type in ("ALINEA", "ITEM")
-        ]
-        parent_map: dict = {}
-        if alinea_ids:
-            rows = session.execute(
-                select(LegalElement.id, LegalElement.parent_id).where(
-                    LegalElement.id.in_(alinea_ids)
-                )
-            ).all()
-            elem_to_parent = {r[0]: r[1] for r in rows}
-            parent_ids = [pid for pid in elem_to_parent.values() if pid]
-            if parent_ids:
-                parent_rows = session.execute(
-                    select(LegalElement.id, LegalElement.normalized_text).where(
-                        LegalElement.id.in_(parent_ids)
-                    )
-                ).all()
-                parent_text_map = {r[0]: r[1] for r in parent_rows}
-                for cid, pid in elem_to_parent.items():
-                    if pid in parent_text_map:
-                        parent_map[cid] = parent_text_map[pid]
-        # Para cada ALINEA/ITEM, verifica cobertura da query por união pai+filho
-        query_norm = {_normalize_query_token(t) for t in tokens}
+    if is_short_query and fused:
+        # Para cada ALINEA/ITEM, verifica cobertura da query por união pai+filho.
+        # Tokens funcionais não carregam o contexto jurídico relevante.
+        query_norm = {
+            _normalize_query_token(t) for t in tokens if t not in STOPWORDS_RETRIEVAL
+        }
         boosted2 = []
         for item in fused:
             base = float(item.rrf_score or 0)
-            if (
-                item.element_type in ("ALINEA", "ITEM")
-                and item.legal_element_id in parent_map
-            ):
-                parent_text = parent_map[item.legal_element_id]
-                combined = f"{parent_text} {item.chunk_text}"
+            if item.element_type in ("ALINEA", "ITEM") and item.parent_context:
+                combined = f"{item.parent_context} {item.chunk_text}"
                 combined_tokens = {
                     _normalize_query_token(t)
                     for t in WORD_RE.findall(combined.casefold())
@@ -214,8 +199,38 @@ def hybrid_search(
         fused = tuple(
             sorted(boosted2, key=lambda x: (-float(x.rrf_score or 0), str(x.chunk_id)))
         )
-    effective_limit = max(limit, 10) if len(tokens) <= 3 else limit
+    effective_limit = max(limit, 10) if is_short_query else limit
     return contextual_caput_rerank(fused, limit=effective_limit)
+
+
+def _attach_parent_context(
+    session: Session, candidates: tuple[RetrievalCandidate, ...]
+) -> tuple[RetrievalCandidate, ...]:
+    """Anexa contexto do pai em lote, somente para ranking e seleção."""
+    ids = [item.legal_element_id for item in candidates]
+    if not ids:
+        return candidates
+    rows = session.execute(
+        select(LegalElement.id, LegalElement.parent_id).where(LegalElement.id.in_(ids))
+    ).all()
+    parent_ids = {parent_id for _, parent_id in rows if parent_id is not None}
+    if not parent_ids:
+        return candidates
+    parents = dict(
+        session.execute(
+            select(LegalElement.id, LegalElement.normalized_text).where(
+                LegalElement.id.in_(parent_ids)
+            )
+        ).all()
+    )
+    element_parent = dict(rows)
+    return tuple(
+        replace(
+            item,
+            parent_context=parents.get(element_parent.get(item.legal_element_id)),
+        )
+        for item in candidates
+    )
 
 
 def _normalize_query_token(token: str) -> str:

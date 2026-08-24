@@ -1819,6 +1819,10 @@ O roadmap público é deliberadamente compacto. O histórico detalhado das decis
   - qualidade segura preservada (`unsafe=0`, abstenções históricas `100%`);
   - real-world: `6/10` respostas corretas, `4` false abstentions, `1/1` abstenção correta;
   - falhas residuais: 1 `RETRIEVAL_MISS` e 3 `EVIDENCE_SELECTION_MISS`; não houve tuning nesta fase.
+- [x] **Fase 9.12 — Retrieval + Evidence Selection Hardening — `RETRIEVAL_SELECTION_GATE: APPROVED`**
+  - real-world Hybrid Hit@10: `0,800 → 0,900`; `mvp1-v1` Hit@10 preservado em `0,905`;
+  - ranking considera tokens substantivos, contexto estrutural em lote e cobertura/posição híbrida, sem alterar provenance;
+  - o release depende da reavaliação end-to-end e continua bloqueado enquanto não atingir `9/10` respostas corretas.
   - protótipo puro avaliado com evidências congeladas e cinco execuções por caso
   - attribution: pena 4/5, prisão 4/5, voto 5/5
   - bloqueado porque attribution correta não eliminou aceitação semântica insegura em prisão perpétua

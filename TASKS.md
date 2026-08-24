@@ -230,3 +230,12 @@ Estado: `BLOCKED` — Granite 8B+8B executado; judge rejeita voto facultativo, m
 - [x] Real-world executado: `6/10` respostas corretas, `4` false abstentions, `0` unsafe
 - [ ] `REAL_WORLD_RELEASE_GATE: APPROVED` — permanece `BLOCKED` (mínimo 9/10)
 - [x] `docs/72-fase-9-11-real-world-release-gate.md`
+
+## Fase 9.12 — Retrieval + Evidence Selection Hardening final
+
+- [x] Diagnóstico dos quatro blockers residuais de retrieval/seleção
+- [x] Classificação curta por tokens substantivos e contexto pai em lote
+- [x] Seleção determinística por cobertura, contexto e posição híbrida
+- [x] Real-world Hybrid Hit@10: `0,800 → 0,900`; MVP1 Hit@10 preservado: `0,905`
+- [x] Testes sintéticos para consulta curta, contexto pai, ruído, deduplicação e determinismo
+- [x] `docs/73-fase-9-12-retrieval-selection-hardening.md`
