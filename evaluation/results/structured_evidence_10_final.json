@@ -1,0 +1,9 @@
+{
+  "source": "evaluation/results/structured_evidence_10_ab.json",
+  "correct_answers": 4,
+  "false_abstentions": 6,
+  "correct_abstentions": 1,
+  "unsafe_answers": 0,
+  "invalid_citation_chains": 0,
+  "production_integration": "NOT_ENABLED"
+}

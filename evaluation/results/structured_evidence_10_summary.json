@@ -1,0 +1,25 @@
+{
+  "phase": "10",
+  "structured_evidence_gate": "BLOCKED",
+  "invariants": {
+    "source_fidelity": "PASS",
+    "no_hallucination": "PASS",
+    "deterministic": "PASS",
+    "provenance_complete": "PASS"
+  },
+  "baseline_correct": 4,
+  "structured_correct": 4,
+  "baseline_false_abstentions": 6,
+  "structured_false_abstentions": 6,
+  "correct_abstention": "1/1",
+  "unsafe_answers": 0,
+  "invalid_citation_chains": 0,
+  "case_changes": {
+    "improved": ["rw-liberdade-expressao"],
+    "regressed": ["rw-voto-obrigatorio"]
+  },
+  "quality_impact": "NO_IMPACT",
+  "production_integration": "NOT_ENABLED",
+  "model_capability_limit": "INCONCLUSIVE",
+  "recommended_next_intervention": "Refinar deterministicamente a seleção de contexto estrutural da SEU antes de novo A/B"
+}

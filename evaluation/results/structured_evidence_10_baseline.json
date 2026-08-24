@@ -1,0 +1,9 @@
+{
+  "source": "evaluation/results/real_world_short_e2e_9_18.json",
+  "correct_answers": 4,
+  "false_abstentions": 6,
+  "correct_abstentions": 1,
+  "unsafe_answers": 0,
+  "mvp1_hit_at_10": 0.9047619048,
+  "real_world_hit_at_10": 0.9
+}

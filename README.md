@@ -1838,6 +1838,7 @@ O roadmap público é deliberadamente compacto. O histórico detalhado das decis
 - [x] **Fase 9.17 — Boundary Polarity → Semantic Validation — `BOUNDARY_ROUTING_GATE: APPROVED`**
 - [x] **Fase 9.18 — Reavaliação Real-World pós Boundary Routing — `4/10`, release bloqueado**
 - [x] **Fase 9.19 — Diagnóstico de Generator Abstention — não eram abstenções do Generator; blocker downstream**
+- [x] **Fase 10 — Structured Evidence Unit — `STRUCTURED_EVIDENCE_GATE: BLOCKED`, sem integração**
   - 12/12 ocorrências classificadas: 6 exceções omitidas e 6 sem relação de polaridade aplicável;
   - MVP1 Hybrid Hit@10 confirmado em `0,905`; real-world em `0,900`;
   - fail-closed preservado; nenhum quarto estado implementado.

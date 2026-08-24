@@ -297,3 +297,12 @@ Estado: `BLOCKED` — Granite 8B+8B executado; judge rejeita voto facultativo, m
 - [x] Classificação corrigida: blockers são downstream, não Generator Abstention
 - [x] P1 não executado conforme protocolo
 - [x] `docs/80-fase-9-19-generator-abstention.md`
+
+## Fase 10 — Structured Evidence Unit
+
+- [x] Builder isolado e determinístico em memória
+- [x] Proveniência completa e snapshot original preservado
+- [x] Testes estruturais e invariantes de fidelidade
+- [x] A/B congelado: `4/10 → 4/10`, sem ganho líquido
+- [x] `STRUCTURED_EVIDENCE_GATE: BLOCKED`; produção não integrada
+- [x] `docs/81-fase-10-structured-evidence-unit.md`
