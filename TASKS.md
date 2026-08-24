@@ -328,3 +328,51 @@ Estado: `BLOCKED` — Granite 8B+8B executado; judge rejeita voto facultativo, m
 - [x] Avaliação final única: `7/10`, três falsas abstenções, `1/1` abstenção correta, zero unsafe
 - [x] `QUALITY_BREAKTHROUGH_GATE: PARTIAL`; SEU continua sem integração
 - [x] `docs/83-fase-11-quality-breakthrough.md`
+
+## Fase 11.1 — Composite Support
+
+- [x] Marginal selection determinística com diagnóstico auditável
+- [x] Clause attribution conservadora, multi-evidence e fail-closed
+- [x] Limite de três EvidenceItems e provenance preservados
+- [x] Controles negativos e suíte completa: 323 passed, 5 skipped
+- [x] Avaliação real-world única: `7/10`, `1/1`, zero unsafe
+- [x] MVP1 Hybrid Hit@10 preservado em `0,905`
+- [x] `COMPOSITE_SUPPORT_GATE: BLOCKED`; nenhuma heurística pós-benchmark
+- [x] `docs/84-fase-11-1-composite-support.md`
+
+## Fase 12 — Evidence-Bound Atomic Generation
+
+- [x] SupportSlot imutável e determinístico: um EvidenceItem por slot
+- [x] Fragmentos TARGET/PARENT com provenance, locator e SHA-256
+- [x] Parent context reconstruído e validado contra LegalElement persistido
+- [x] Generator scoped sem Evidence ID; binding feito pelo orquestrador
+- [x] Citation, qualificadores, Polarity e Semantic isolados por claim-slot
+- [x] Classificação conservadora de completude
+- [x] Controles negativos/adversariais e testes de persistência negativa
+- [x] A/B downstream com EvidenceSets congelados
+- [x] Medição corrigida: `ANSWERED` sem suporte relevante não conta como acerto
+- [x] Legado marginal `6/10`; Evidence-Bound `7/10`; abstenção correta `1/1`
+- [x] Liberdade de expressão recuperada; pena de morte não recuperada
+- [x] Prisão perpétua e estado de sítio produziram respostas off-target
+- [x] `EVIDENCE_BOUND_GENERATION_GATE: BLOCKED`
+- [x] `PRODUCTION_INTEGRATION: NOT_ENABLED`
+- [x] `docs/85-fase-12-evidence-bound-atomic-generation.md`
+
+## Experimento VCSA — Verified Core Support Assertion
+
+- [x] `.venv` local restaurada exclusivamente por `uv sync --frozen`
+- [x] Composição offline literal de parent direto e child dependente
+- [x] Provenance, hashes, pontuação e qualifiers verificados
+- [x] Pena de morte recuperada sem Generator/Semantic Judge
+- [x] Prisão perpétua estruturalmente verificada, bloqueada por `RELEVANCE_LIMIT`
+- [x] Estado de sítio manteve abstenção segura
+- [x] `VCSA_EXPERIMENT_GATE: FAIL`; produção não integrada
+- [x] `docs/87-experimento-vcsa-verified-core-support-assertion.md`
+
+## Experimento Semantic Core Relevance
+
+- [x] Comparação offline: lexical, `nomic-embed-text` e judge local
+- [x] Controles adversariais, sete pares históricos e VCSA congelados
+- [x] Embedding sem separação segura; judge com falsos relevantes off-target
+- [x] `SEMANTIC_CORE_RELEVANCE_EXPERIMENT: FAIL`; produção não integrada
+- [x] `docs/88-experimento-semantic-core-relevance.md`

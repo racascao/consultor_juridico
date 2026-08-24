@@ -1,0 +1,44 @@
+{
+  "phase": "12",
+  "comparison": "DOWNSTREAM_ARCHITECTURES",
+  "evidence_bound_generation_gate": "BLOCKED",
+  "production_integration": "NOT_ENABLED",
+  "legacy": {
+    "correct_answers": 6,
+    "correct_abstentions": 1,
+    "false_abstentions": 4,
+    "incorrect_answers": 0,
+    "unsafe_answers": 0,
+    "generator_calls_mean": 1.2727272727272727,
+    "semantic_calls_mean": 0.5454545454545454,
+    "latency_mean": 65.4171980304547,
+    "latency_p50": 59.73585422299948,
+    "latency_p95": 132.00497350599835
+  },
+  "evidence_bound": {
+    "correct_answers": 7,
+    "correct_abstentions": 1,
+    "false_abstentions": 1,
+    "incorrect_answers": 2,
+    "unsafe_answers": 2,
+    "generator_calls_mean": 3.8181818181818183,
+    "semantic_calls_mean": 2.272727272727273,
+    "latency_mean": 74.65465738281769,
+    "latency_p50": 87.77821456699894,
+    "latency_p95": 109.59541882600024
+  },
+  "mvp1_hit_at_10": 0.9047619047619048,
+  "real_world_hit_at_10": 0.9,
+  "architectural_gates": {
+    "support_slot_provenance": "PASS",
+    "parent_context_validation": "PASS",
+    "slot_determinism": "PASS",
+    "invalid_slot_bindings": 0,
+    "external_evidence_bound": 0,
+    "rejected_claims_persisted": 0,
+    "material_qualifier_preservation": "PASS",
+    "negative_controls": "PASS"
+  },
+  "marginal_selection_decision": "KEEP",
+  "clause_attribution_decision": "LEGACY_ONLY"
+}

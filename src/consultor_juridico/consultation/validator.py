@@ -1,10 +1,12 @@
 """Validação determinística de claims, citations e cadeia documental."""
 
 import re
+from typing import Any
 
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
+from consultor_juridico.consultation.support_slots import validate_support_slot
 from consultor_juridico.consultation.types import GeneratedResponse, ValidationReport
 from consultor_juridico.models import (
     Chunk,
@@ -20,10 +22,16 @@ EVIDENCE_CODE_RE = re.compile(r"\bEV\d{3,}\b")
 
 
 def validate_citations(
-    session: Session, evidence_set: EvidenceSet, response: GeneratedResponse
+    session: Session,
+    evidence_set: EvidenceSet,
+    response: GeneratedResponse,
+    *,
+    support_slots: tuple[Any, ...] = (),
 ) -> ValidationReport:
     errors: list[str] = []
     items = {item.evidence_code: item for item in evidence_set.items}
+    for slot in support_slots:
+        errors.extend(validate_support_slot(session, evidence_set, slot))
     if response.abstain:
         if response.claims:
             errors.append("Resposta abstida não pode conter claims.")

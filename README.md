@@ -135,6 +135,40 @@ válidas e Hit@10 real-world `0,900`/MVP1 `0,905`. O resultado é
 continua bloqueado. A SEU 10.1 permanece experimental e não integrada.
 Detalhes em `docs/83-fase-11-quality-breakthrough.md`.
 
+A Fase 11.1 implementou selection por contribuição marginal e attribution por
+cláusula com diagnóstico auditável. O inciso IX passou a ser preservado para
+liberdade de expressão, mas o blocker migrou para attribution simples; estado
+de sítio não produziu claim composta utilizável e pena de morte absteve no
+Generator. A avaliação única permaneceu em **7/10**, com `1/1` abstenção
+correta, `unsafe=0` e MVP1 Hit@10 `0,905`. Assim,
+`COMPOSITE_SUPPORT_GATE: BLOCKED`; não houve tuning após o benchmark e a
+recomendação é revisão arquitetural. Detalhes em
+`docs/84-fase-11-1-composite-support.md`.
+
+A Fase 12 implementou experimentalmente SupportSlots verificáveis e geração
+atômica pré-vinculada a um único EvidenceItem. Provenance, parent context,
+hashes, binding e controles adversariais passaram, e liberdade de expressão foi
+recuperada. A auditoria corrigiu uma inflação metodológica que contava qualquer
+`ANSWERED` como acerto: prisão perpétua e estado de sítio receberam respostas
+sem binding a uma provision esperada/aceitável. O resultado real permaneceu em
+**7/10**, com duas respostas off-target e pena de morte abstida. Assim,
+`EVIDENCE_BOUND_GENERATION_GATE: BLOCKED` e a arquitetura não foi integrada em
+produção. Detalhes em `docs/85-fase-12-evidence-bound-atomic-generation.md`.
+
+O experimento offline de **Verified Core Support Assertion (VCSA)** validou a
+reconstrução literal e rastreável de parent direto + child, recuperando pena de
+morte e preservando exceções sem LLM. Prisão perpétua revelou um
+`RELEVANCE_LIMIT` entre “prisão” e “pena”; o resultado potencial foi `8/10`,
+`unsafe=0`, sem integração em produção. Detalhes em
+`docs/87-experimento-vcsa-verified-core-support-assertion.md`.
+
+O experimento offline de **Semantic Core Relevance** comparou baseline lexical,
+`nomic-embed-text` e judge local sobre `Query ↔ Core Assertion` já verificadas.
+Embeddings não obtiveram separação segura nos controles; o judge recuperou
+prisão perpétua, mas aceitou controles off-target. Assim,
+`SEMANTIC_CORE_RELEVANCE_EXPERIMENT: FAIL`, com nenhuma integração de produção.
+Detalhes em `docs/88-experimento-semantic-core-relevance.md`.
+
 ### Corpus materializado
 
 ```text
@@ -1857,6 +1891,20 @@ O roadmap público é deliberadamente compacto. O histórico detalhado das decis
   - falsas abstenções `6 → 3`, abstenção correta `1/1`, unsafe `0`;
   - controles negativos e provenance preservados; SEU continua sem integração;
   - release permanece bloqueado porque a meta era pelo menos `8/10`.
+- [x] **Fase 11.1 — Composite Support — `BLOCKED`, manteve `7/10`**
+  - marginal selection e clause attribution determinísticas implementadas;
+  - controles negativos, provenance e segurança preservados;
+  - nenhum caso líquido recuperado; próxima decisão é revisão arquitetural.
+- [x] **Fase 12 — Evidence-Bound Atomic Generation — `BLOCKED`, manteve `7/10`**
+  - SupportSlots e fragments verificáveis removeram a escolha de Evidence ID do Generator;
+  - liberdade de expressão foi recuperada, mas prisão perpétua e estado de sítio ficaram off-target;
+  - duas respostas in-scope sem suporte relevante impediram integração em produção;
+  - recomendação: revisão de arquitetura de modelo/contexto, sem novas heurísticas locais.
+- [x] **Experimento VCSA — `FAIL` como rota isolada para `9/10`, sem integração**
+  - composição literal de parent direto e child dependente preservou provenance,
+    pontuação e qualifiers;
+  - pena de morte foi recuperada; prisão perpétua revelou `RELEVANCE_LIMIT`;
+  - estado de sítio permaneceu em abstenção segura e `unsafe=0`.
 - [x] **Fase 9.12 — Retrieval + Evidence Selection Hardening — `RETRIEVAL_SELECTION_GATE: APPROVED`**
   - real-world Hybrid Hit@10: `0,800 → 0,900`; `mvp1-v1` Hit@10 preservado em `0,905`;
   - ranking considera tokens substantivos, contexto estrutural em lote e cobertura/posição híbrida, sem alterar provenance;

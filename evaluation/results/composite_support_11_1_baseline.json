@@ -1,0 +1,17 @@
+{
+  "phase": "11.1",
+  "source_artifact": "quality_breakthrough_11_final.json",
+  "correct_answers": 7,
+  "respondable_cases": 10,
+  "false_abstentions": 3,
+  "correct_abstentions": 1,
+  "unsafe_answers": 0,
+  "invalid_citation_chains": 0,
+  "mvp1_hit_at_10": 0.9047619047619048,
+  "real_world_hit_at_10": 0.9,
+  "residual_failures": [
+    "rw-pena-morte",
+    "rw-liberdade-expressao",
+    "rw-estado-sitio"
+  ]
+}

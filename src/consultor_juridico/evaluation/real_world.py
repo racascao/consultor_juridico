@@ -9,7 +9,9 @@ from consultor_juridico.consultation import (
     OllamaLegalGenerator,
     OllamaSemanticSupportValidator,
 )
-from consultor_juridico.consultation.selection import select_evidence_candidates
+from consultor_juridico.consultation.selection import (
+    select_evidence_candidates_with_diagnostics,
+)
 from consultor_juridico.consultation.sufficiency import assess_evidence_sufficiency
 from consultor_juridico.db.session import SessionLocal
 from consultor_juridico.evaluation.types import EvaluationCase
@@ -71,11 +73,12 @@ def evaluate_real_world_case(
         model_name=embedding_model,
         limit=settings.consultation_top_k,
     )
-    selected = select_evidence_candidates(
+    selection = select_evidence_candidates_with_diagnostics(
         retrieved_for_selection,
         limit=settings.consultation_evidence_limit,
         question=case.question,
     )
+    selected = selection.candidates
     suff = assess_evidence_sufficiency(case.question, selected)
 
     # Build evidence set (to get items) if sufficient
@@ -195,6 +198,19 @@ def evaluate_real_world_case(
                 }
                 for c in selected
             ],
+            "diagnostics": [
+                {
+                    "identity_key": item.identity_key,
+                    "base_relevance": item.base_relevance,
+                    "query_coverage": item.query_coverage,
+                    "marginal_coverage": item.marginal_coverage,
+                    "redundancy": item.redundancy,
+                    "final_score": item.final_score,
+                    "selected_position": item.selected_position,
+                    "decision_reason": item.decision_reason,
+                }
+                for item in selection.diagnostics
+            ],
         },
         "sufficiency": {
             "decision": suff.decision.value,
@@ -215,6 +231,28 @@ def evaluate_real_world_case(
             ],
             "validation_errors": list(final_result.validation_errors),
             "evidence_set_id": str(final_result.evidence_set_id),
+            "attribution": [
+                {
+                    "claim_code": item.claim_code,
+                    "mode": item.mode.value,
+                    "status": item.status.value,
+                    "evidence_codes": list(item.evidence_codes),
+                    "reason": item.reason,
+                    "clauses": [
+                        {
+                            "index": clause.clause.index,
+                            "text": clause.clause.text,
+                            "start": clause.clause.start,
+                            "end": clause.clause.end,
+                            "evidence_codes": list(clause.evidence_codes),
+                            "score": clause.score,
+                            "reason": clause.reason,
+                        }
+                        for clause in item.clauses
+                    ],
+                }
+                for item in final_result.attribution_diagnostics
+            ],
         },
         "semantic_validation": {
             "errors": list(final_result.validation_errors),

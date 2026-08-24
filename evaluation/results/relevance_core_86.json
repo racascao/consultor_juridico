@@ -1,0 +1,751 @@
+{
+  "phase": "answer_relevance_core_offline",
+  "source_artifacts": {
+    "ab": "evaluation/results/evidence_bound_12_ab.json",
+    "frozen_evidence_sets": "evaluation/results/evidence_bound_12_frozen_evidence_sets.json"
+  },
+  "generator_calls": 0,
+  "retrieval_calls": 0,
+  "production_integration": "NOT_ENABLED",
+  "rows": [
+    {
+      "case_id": "rw-pena-morte",
+      "question": "pena de morte",
+      "expect_answer": true,
+      "before_outcome": "ABSTAINED",
+      "after_outcome": "ABSTAINED",
+      "previously_correct": false,
+      "after_correct": false,
+      "was_off_target": false,
+      "unsafe_after": false,
+      "decisions": []
+    },
+    {
+      "case_id": "rw-prisao-perpetua",
+      "question": "prisão perpétua",
+      "expect_answer": true,
+      "before_outcome": "ANSWERED",
+      "after_outcome": "ABSTAINED",
+      "previously_correct": false,
+      "after_correct": false,
+      "was_off_target": true,
+      "unsafe_after": false,
+      "decisions": [
+        {
+          "claim": {
+            "claim_code": "C1",
+            "text": "A Constituição garante a comunicação imediata da prisão de qualquer pessoa e seu local ao juiz competente e à família ou pessoa indicada pelo preso.",
+            "evidence_codes": [
+              "EV001"
+            ]
+          },
+          "decision": {
+            "status": "IRRELEVANT",
+            "role": "AUXILIARY",
+            "query_terms": [
+              "prisao",
+              "perpetua"
+            ],
+            "covered_terms": [
+              "prisao"
+            ],
+            "reason": "A claim e seus fragmentos autorizados não cobrem todos os termos materiais da pergunta."
+          }
+        },
+        {
+          "claim": {
+            "claim_code": "C3",
+            "text": "Os membros do Congresso Nacional não podem ser presos, exceto em caso de crime inafiançável, quando os autos devem ser remetidos à Casa respectiva dentro de 24 horas para decisão sobre a prisão.",
+            "evidence_codes": [
+              "EV003"
+            ]
+          },
+          "decision": {
+            "status": "IRRELEVANT",
+            "role": "AUXILIARY",
+            "query_terms": [
+              "prisao",
+              "perpetua"
+            ],
+            "covered_terms": [
+              "prisao"
+            ],
+            "reason": "A claim e seus fragmentos autorizados não cobrem todos os termos materiais da pergunta."
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "rw-liberdade-religiosa",
+      "question": "liberdade religiosa",
+      "expect_answer": true,
+      "before_outcome": "ANSWERED",
+      "after_outcome": "ANSWERED",
+      "previously_correct": true,
+      "after_correct": true,
+      "was_off_target": false,
+      "unsafe_after": false,
+      "decisions": [
+        {
+          "claim": {
+            "claim_code": "C1",
+            "text": "A liberdade de consciência e de crença é inviolável.",
+            "evidence_codes": [
+              "EV001"
+            ]
+          },
+          "decision": {
+            "status": "RELEVANT",
+            "role": "CENTRAL",
+            "query_terms": [
+              "liberdade",
+              "religiosa"
+            ],
+            "covered_terms": [
+              "liberdade",
+              "religiosa"
+            ],
+            "reason": "A claim e os fragmentos autorizados cobrem a proposição material da pergunta sem veto forte."
+          }
+        },
+        {
+          "claim": {
+            "claim_code": "C2",
+            "text": "A liberdade é um dos valores supremos estabelecidos na Constituição Federal de 1988.",
+            "evidence_codes": [
+              "EV002"
+            ]
+          },
+          "decision": {
+            "status": "IRRELEVANT",
+            "role": "AUXILIARY",
+            "query_terms": [
+              "liberdade",
+              "religiosa"
+            ],
+            "covered_terms": [
+              "liberdade"
+            ],
+            "reason": "A claim e seus fragmentos autorizados não cobrem todos os termos materiais da pergunta."
+          }
+        },
+        {
+          "claim": {
+            "claim_code": "C3",
+            "text": "A Constituição garante a inviolabilidade do direito à vida, à liberdade e à igualdade.",
+            "evidence_codes": [
+              "EV003"
+            ]
+          },
+          "decision": {
+            "status": "IRRELEVANT",
+            "role": "AUXILIARY",
+            "query_terms": [
+              "liberdade",
+              "religiosa"
+            ],
+            "covered_terms": [
+              "liberdade"
+            ],
+            "reason": "A claim e seus fragmentos autorizados não cobrem todos os termos materiais da pergunta."
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "rw-racismo",
+      "question": "racismo",
+      "expect_answer": true,
+      "before_outcome": "ANSWERED",
+      "after_outcome": "ANSWERED",
+      "previously_correct": true,
+      "after_correct": true,
+      "was_off_target": false,
+      "unsafe_after": false,
+      "decisions": [
+        {
+          "claim": {
+            "claim_code": "C1",
+            "text": "O artigo 4º repudia o terrorismo e o racismo.",
+            "evidence_codes": [
+              "EV001"
+            ]
+          },
+          "decision": {
+            "status": "RELEVANT",
+            "role": "CENTRAL",
+            "query_terms": [
+              "racismo"
+            ],
+            "covered_terms": [
+              "racismo"
+            ],
+            "reason": "A claim e os fragmentos autorizados cobrem a proposição material da pergunta sem veto forte."
+          }
+        },
+        {
+          "claim": {
+            "claim_code": "C2",
+            "text": "A prática do racismo é considerada crime inafiançável e imprescritível, sujeito à pena de reclusão, de acordo com o Artigo 5º, Inciso XLII, do texto referenciado.",
+            "evidence_codes": [
+              "EV002"
+            ]
+          },
+          "decision": {
+            "status": "RELEVANT",
+            "role": "AUXILIARY",
+            "query_terms": [
+              "racismo"
+            ],
+            "covered_terms": [
+              "racismo"
+            ],
+            "reason": "A claim descreve apenas localização ou organização documental, não uma proposição central."
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "rw-extradicao",
+      "question": "extradição",
+      "expect_answer": true,
+      "before_outcome": "ANSWERED",
+      "after_outcome": "ANSWERED",
+      "previously_correct": true,
+      "after_correct": true,
+      "was_off_target": false,
+      "unsafe_after": false,
+      "decisions": [
+        {
+          "claim": {
+            "claim_code": "C1",
+            "text": "Não será concedida extradição de estrangeiro por crime político ou de opinião.",
+            "evidence_codes": [
+              "EV001"
+            ]
+          },
+          "decision": {
+            "status": "RELEVANT",
+            "role": "CENTRAL",
+            "query_terms": [
+              "extradicao"
+            ],
+            "covered_terms": [
+              "extradicao"
+            ],
+            "reason": "A claim e os fragmentos autorizados cobrem a proposição material da pergunta sem veto forte."
+          }
+        },
+        {
+          "claim": {
+            "claim_code": "C2",
+            "text": "O artigo 22 do título III, capítulo II, da Lei de Imigração e Extradição abrange a emigração, imigração, entrada, extradição e expulsão de estrangeiros.",
+            "evidence_codes": [
+              "EV002"
+            ]
+          },
+          "decision": {
+            "status": "RELEVANT",
+            "role": "AUXILIARY",
+            "query_terms": [
+              "extradicao"
+            ],
+            "covered_terms": [
+              "extradicao"
+            ],
+            "reason": "A claim descreve apenas localização ou organização documental, não uma proposição central."
+          }
+        },
+        {
+          "claim": {
+            "claim_code": "C3",
+            "text": "Nenhum brasileiro será extraditado, exceto naturalizados, para crimes comuns ou envolvimento comprovado em tráfico ilícito de entorpecentes e drogas afins, de acordo com a lei.",
+            "evidence_codes": [
+              "EV003"
+            ]
+          },
+          "decision": {
+            "status": "IRRELEVANT",
+            "role": "AUXILIARY",
+            "query_terms": [
+              "extradicao"
+            ],
+            "covered_terms": [],
+            "reason": "A claim e seus fragmentos autorizados não cobrem todos os termos materiais da pergunta."
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "rw-direito-vida",
+      "question": "direito à vida",
+      "expect_answer": true,
+      "before_outcome": "ANSWERED",
+      "after_outcome": "ANSWERED",
+      "previously_correct": true,
+      "after_correct": true,
+      "was_off_target": false,
+      "unsafe_after": false,
+      "decisions": [
+        {
+          "claim": {
+            "claim_code": "C1",
+            "text": "O direito à vida é garantido pela Constituição Federal brasileira.",
+            "evidence_codes": [
+              "EV001"
+            ]
+          },
+          "decision": {
+            "status": "RELEVANT",
+            "role": "CENTRAL",
+            "query_terms": [
+              "direito",
+              "vida"
+            ],
+            "covered_terms": [
+              "direito",
+              "vida"
+            ],
+            "reason": "A claim e os fragmentos autorizados cobrem a proposição material da pergunta sem veto forte."
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "rw-liberdade-expressao",
+      "question": "liberdade de expressão",
+      "expect_answer": true,
+      "before_outcome": "ANSWERED",
+      "after_outcome": "ANSWERED",
+      "previously_correct": true,
+      "after_correct": true,
+      "was_off_target": false,
+      "unsafe_after": false,
+      "decisions": [
+        {
+          "claim": {
+            "claim_code": "C1",
+            "text": "A Constituição Federal de 1988 reconhece a liberdade de expressão como um direito social e individual.",
+            "evidence_codes": [
+              "EV001"
+            ]
+          },
+          "decision": {
+            "status": "RELEVANT",
+            "role": "CENTRAL",
+            "query_terms": [
+              "liberdade",
+              "expressao"
+            ],
+            "covered_terms": [
+              "liberdade",
+              "expressao"
+            ],
+            "reason": "A claim e os fragmentos autorizados cobrem a proposição material da pergunta sem veto forte."
+          }
+        },
+        {
+          "claim": {
+            "claim_code": "C2",
+            "text": "A expressão da atividade intelectual, artística, científica e de comunicação é livre, independentemente de censura ou licença.",
+            "evidence_codes": [
+              "EV002"
+            ]
+          },
+          "decision": {
+            "status": "IRRELEVANT",
+            "role": "AUXILIARY",
+            "query_terms": [
+              "liberdade",
+              "expressao"
+            ],
+            "covered_terms": [
+              "expressao"
+            ],
+            "reason": "A claim e seus fragmentos autorizados não cobrem todos os termos materiais da pergunta."
+          }
+        },
+        {
+          "claim": {
+            "claim_code": "C3",
+            "text": "A liberdade de consciência e de crença é inviolável.",
+            "evidence_codes": [
+              "EV003"
+            ]
+          },
+          "decision": {
+            "status": "IRRELEVANT",
+            "role": "AUXILIARY",
+            "query_terms": [
+              "liberdade",
+              "expressao"
+            ],
+            "covered_terms": [
+              "liberdade"
+            ],
+            "reason": "A claim e seus fragmentos autorizados não cobrem todos os termos materiais da pergunta."
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "rw-idade-presidente",
+      "question": "idade para ser presidente",
+      "expect_answer": true,
+      "before_outcome": "ANSWERED",
+      "after_outcome": "ANSWERED",
+      "previously_correct": true,
+      "after_correct": true,
+      "was_off_target": false,
+      "unsafe_after": false,
+      "decisions": [
+        {
+          "claim": {
+            "claim_code": "C1",
+            "text": "A idade mínima para ser Presidente da República é de trinta e cinco anos.",
+            "evidence_codes": [
+              "EV001"
+            ]
+          },
+          "decision": {
+            "status": "RELEVANT",
+            "role": "CENTRAL",
+            "query_terms": [
+              "idade",
+              "ser",
+              "presidente"
+            ],
+            "covered_terms": [
+              "idade",
+              "ser",
+              "presidente"
+            ],
+            "reason": "A claim e os fragmentos autorizados cobrem a proposição material da pergunta sem veto forte."
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "rw-voto-obrigatorio",
+      "question": "voto obrigatório",
+      "expect_answer": true,
+      "before_outcome": "ANSWERED",
+      "after_outcome": "ANSWERED",
+      "previously_correct": true,
+      "after_correct": true,
+      "was_off_target": false,
+      "unsafe_after": false,
+      "decisions": [
+        {
+          "claim": {
+            "claim_code": "C1",
+            "text": "O voto é obrigatório para os maiores de dezoito anos.",
+            "evidence_codes": [
+              "EV001"
+            ]
+          },
+          "decision": {
+            "status": "RELEVANT",
+            "role": "CENTRAL",
+            "query_terms": [
+              "voto",
+              "obrigatorio"
+            ],
+            "covered_terms": [
+              "voto",
+              "obrigatorio"
+            ],
+            "reason": "A claim e os fragmentos autorizados cobrem a proposição material da pergunta sem veto forte."
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "rw-estado-sitio",
+      "question": "estado de sítio",
+      "expect_answer": true,
+      "before_outcome": "ANSWERED",
+      "after_outcome": "ABSTAINED",
+      "previously_correct": false,
+      "after_correct": false,
+      "was_off_target": true,
+      "unsafe_after": false,
+      "decisions": [
+        {
+          "claim": {
+            "claim_code": "C1",
+            "text": "O Congresso pode declarar o estado de sítio, o estado de defesa e a intervenção federal.",
+            "evidence_codes": [
+              "EV001"
+            ]
+          },
+          "decision": {
+            "status": "UNRESOLVED",
+            "role": "UNRESOLVED",
+            "query_terms": [
+              "estado",
+              "sitio"
+            ],
+            "covered_terms": [
+              "estado",
+              "sitio"
+            ],
+            "reason": "A claim introduz termo institucional capitalizado ausente dos fragmentos: congresso."
+          }
+        },
+        {
+          "claim": {
+            "claim_code": "C2",
+            "text": "Após o término do estado de defesa ou de sítio, o Presidente da República deve informar ao Congresso Nacional sobre as medidas adotadas durante esse período, incluindo a especificação e justificação dessas medidas, os afetados e as restrições aplicadas.",
+            "evidence_codes": [
+              "EV002"
+            ]
+          },
+          "decision": {
+            "status": "RELEVANT",
+            "role": "AUXILIARY",
+            "query_terms": [
+              "estado",
+              "sitio"
+            ],
+            "covered_terms": [
+              "estado",
+              "sitio"
+            ],
+            "reason": "Os termos da pergunta aparecem somente em oração subordinada ou temporal da claim."
+          }
+        },
+        {
+          "claim": {
+            "claim_code": "C3",
+            "text": "O Estado de Sítio é regulamentado em um capítulo específico do título V, que aborda a Defesa do Estado e as Instituições Democráticas.",
+            "evidence_codes": [
+              "EV003"
+            ]
+          },
+          "decision": {
+            "status": "RELEVANT",
+            "role": "AUXILIARY",
+            "query_terms": [
+              "estado",
+              "sitio"
+            ],
+            "covered_terms": [
+              "estado",
+              "sitio"
+            ],
+            "reason": "A claim descreve apenas localização ou organização documental, não uma proposição central."
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "rw-aborto",
+      "question": "aborto",
+      "expect_answer": false,
+      "before_outcome": "ABSTAINED",
+      "after_outcome": "ABSTAINED",
+      "previously_correct": true,
+      "after_correct": true,
+      "was_off_target": false,
+      "unsafe_after": false,
+      "decisions": []
+    }
+  ],
+  "controls": [
+    {
+      "name": "TRUE_BUT_IRRELEVANT",
+      "expected_status": "IRRELEVANT",
+      "expected_role": "AUXILIARY",
+      "actual": {
+        "status": "IRRELEVANT",
+        "role": "AUXILIARY",
+        "query_terms": [
+          "pena",
+          "perpetua"
+        ],
+        "covered_terms": [],
+        "reason": "A claim e seus fragmentos autorizados não cobrem todos os termos materiais da pergunta."
+      },
+      "passed": true
+    },
+    {
+      "name": "SUPPORTED_BUT_OFF_TARGET",
+      "expected_status": "RELEVANT",
+      "expected_role": "AUXILIARY",
+      "actual": {
+        "status": "RELEVANT",
+        "role": "AUXILIARY",
+        "query_terms": [
+          "estado",
+          "sitio"
+        ],
+        "covered_terms": [
+          "estado",
+          "sitio"
+        ],
+        "reason": "Os termos da pergunta aparecem somente em oração subordinada ou temporal da claim."
+      },
+      "passed": true
+    },
+    {
+      "name": "WRONG_LEGAL_ACTOR",
+      "expected_status": "UNRESOLVED",
+      "expected_role": "UNRESOLVED",
+      "actual": {
+        "status": "UNRESOLVED",
+        "role": "UNRESOLVED",
+        "query_terms": [
+          "estado",
+          "sitio"
+        ],
+        "covered_terms": [
+          "estado",
+          "sitio"
+        ],
+        "reason": "A claim introduz termo institucional capitalizado ausente dos fragmentos: congresso."
+      },
+      "passed": true
+    },
+    {
+      "name": "RELATED_PROVISION_WRONG_ANSWER",
+      "expected_status": "IRRELEVANT",
+      "expected_role": "AUXILIARY",
+      "actual": {
+        "status": "IRRELEVANT",
+        "role": "AUXILIARY",
+        "query_terms": [
+          "prisao",
+          "perpetua"
+        ],
+        "covered_terms": [
+          "prisao"
+        ],
+        "reason": "A claim e seus fragmentos autorizados não cobrem todos os termos materiais da pergunta."
+      },
+      "passed": true
+    },
+    {
+      "name": "PARTIAL_TRUE_ANSWER_TO_BINARY_QUERY",
+      "expected_status": "IRRELEVANT",
+      "expected_role": "AUXILIARY",
+      "actual": {
+        "status": "IRRELEVANT",
+        "role": "AUXILIARY",
+        "query_terms": [
+          "voto",
+          "obrigatorio"
+        ],
+        "covered_terms": [
+          "voto"
+        ],
+        "reason": "A claim e seus fragmentos autorizados não cobrem todos os termos materiais da pergunta."
+      },
+      "passed": true
+    },
+    {
+      "name": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "expected_status": "RELEVANT",
+      "expected_role": "AUXILIARY",
+      "actual": {
+        "status": "RELEVANT",
+        "role": "AUXILIARY",
+        "query_terms": [
+          "estado",
+          "sitio"
+        ],
+        "covered_terms": [
+          "estado",
+          "sitio"
+        ],
+        "reason": "A claim descreve apenas localização ou organização documental, não uma proposição central."
+      },
+      "passed": true
+    },
+    {
+      "name": "CENTRAL_CLAIM_REJECTED_AUXILIARY_SURVIVES",
+      "expected_status": "RELEVANT",
+      "expected_role": "AUXILIARY",
+      "actual": {
+        "status": "RELEVANT",
+        "role": "AUXILIARY",
+        "query_terms": [
+          "pena",
+          "morte"
+        ],
+        "covered_terms": [
+          "pena",
+          "morte"
+        ],
+        "reason": "Os termos da pergunta aparecem somente em oração subordinada ou temporal da claim."
+      },
+      "passed": true
+    },
+    {
+      "name": "VALID_ALTERNATIVE_PROVISION",
+      "expected_status": "RELEVANT",
+      "expected_role": "CENTRAL",
+      "actual": {
+        "status": "RELEVANT",
+        "role": "CENTRAL",
+        "query_terms": [
+          "voto",
+          "obrigatorio"
+        ],
+        "covered_terms": [
+          "voto",
+          "obrigatorio"
+        ],
+        "reason": "A claim e os fragmentos autorizados cobrem a proposição material da pergunta sem veto forte."
+      },
+      "passed": true
+    },
+    {
+      "name": "RELEVANT_BUT_UNSUPPORTED",
+      "expected_status": "RELEVANT",
+      "expected_role": "CENTRAL",
+      "actual": {
+        "status": "RELEVANT",
+        "role": "CENTRAL",
+        "query_terms": [
+          "pena",
+          "morte"
+        ],
+        "covered_terms": [
+          "pena",
+          "morte"
+        ],
+        "reason": "A claim e os fragmentos autorizados cobrem a proposição material da pergunta sem veto forte."
+      },
+      "passed": true
+    },
+    {
+      "name": "SUPPORTED_AND_RELEVANT",
+      "expected_status": "RELEVANT",
+      "expected_role": "CENTRAL",
+      "actual": {
+        "status": "RELEVANT",
+        "role": "CENTRAL",
+        "query_terms": [
+          "pena",
+          "morte"
+        ],
+        "covered_terms": [
+          "pena",
+          "morte"
+        ],
+        "reason": "A claim e os fragmentos autorizados cobrem a proposição material da pergunta sem veto forte."
+      },
+      "passed": true
+    }
+  ],
+  "summary": {
+    "result": "PASS",
+    "unsafe_product_answers_before": 2,
+    "unsafe_product_answers_after": 0,
+    "historical_correct_regressions": 0,
+    "prison_off_target_cleared": true,
+    "state_off_target_cleared": true,
+    "controls_pass": true
+  }
+}

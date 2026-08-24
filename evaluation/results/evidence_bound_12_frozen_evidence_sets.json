@@ -1,0 +1,2129 @@
+[
+  {
+    "case_id": "rw-pena-morte",
+    "query": "pena de morte",
+    "expect_answer": true,
+    "retrieval_hit": true,
+    "sufficiency": "SUFFICIENT",
+    "evidence_set_id": "4219c27d-e6ca-4361-87ff-1a3a99c81dbd",
+    "items": [
+      {
+        "evidence_item_id": "ee02017b-2c04-4d05-b6a3-224d57cd5120",
+        "evidence_code": "EV001",
+        "legal_element_id": "9ad8a889-82fa-435b-a517-b309f3960fb3",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A\nde morte, salvo em caso de guerra declarada, nos termos do art. 84, XIX;",
+        "text_sha256": "d13ff84d68446fa032f3b463eaa21212a4ad62897e96fe636b98cd2e1e46f2ee",
+        "citation_label": "CF/88, ALINEA a (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.04864213121654941,
+          "text_status": "CURRENT",
+          "vector_rank": 181,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A",
+          "lexical_rank": 9,
+          "vector_score": 0.5297316138816662,
+          "lexical_score": 0.10000000149011612,
+          "parent_context": "não haverá penas:",
+          "contextual_score": 0.04864213121654941,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "84b12b71-0371-4e65-aea5-2a789765ffdf"
+        }
+      },
+      {
+        "evidence_item_id": "6fec8d4a-4f4b-4e90-af51-2de64aef80bf",
+        "evidence_code": "EV002",
+        "legal_element_id": "84f9c67c-1909-4250-ba6b-2b3539b2f4c3",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:7\nObservado o disposto no § 2º do art. 201, quando se tratar da única fonte de renda formal auferida pelo dependente, o benefício de pensão por morte será concedido nos termos de lei do respectivo ente federativo, a qual tratará de forma diferenciada a hipótese de morte dos servidores de que trata o § 4º-B decorrente de agressão sofrida no exercício ou em razão da função. (Redação dada pela Emenda Constitucional nº 103, de 2019)",
+        "text_sha256": "da4e407b1553fd21ca92c1a8b66b1e213ba69bddce63347594b2b1bea951a1ca",
+        "citation_label": "CF/88, PARAGRAPH 7 (identidade: CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:7)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.0822664584959667,
+          "text_status": "CURRENT",
+          "vector_rank": 3,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:7",
+          "lexical_rank": 1,
+          "vector_score": 0.5735828368166858,
+          "lexical_score": 0.20000000298023224,
+          "parent_context": "Art. 40.",
+          "contextual_score": 0.0822664584959667,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "a50ccdcb-846e-4178-bfd1-f0c2636ac2cb"
+        }
+      },
+      {
+        "evidence_item_id": "d6e255c7-8941-4e37-a329-50234c52213a",
+        "evidence_code": "EV003",
+        "legal_element_id": "b5df6bcf-0b4d-48ec-81d9-af38f7caa2c6",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIII\ntodos têm direito a receber dos órgãos públicos informações de seu interesse particular, ou de interesse coletivo ou geral, que serão prestadas no prazo da lei, sob pena de responsabilidade, ressalvadas aquelas cujo sigilo seja imprescindível à segurança da sociedade e do Estado;",
+        "text_sha256": "1143a8cef70e225ab789231513e6dc831252f3541f84ac9aac440c21ce67476b",
+        "citation_label": "CF/88, INCISO XXXIII (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIII)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.06087301587301587,
+          "text_status": "CURRENT",
+          "vector_rank": null,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIII",
+          "lexical_rank": 3,
+          "vector_score": null,
+          "lexical_score": 0.10000000149011612,
+          "parent_context": "Art. 5º",
+          "contextual_score": 0.06087301587301587,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "9bc54c3f-6078-447e-b6e7-675498882ae2"
+        }
+      }
+    ],
+    "support_slot_manifest": {
+      "query": "pena de morte",
+      "slots": [
+        {
+          "slot_id": "SS-863137294dcf52648c33ce5a12e93abe",
+          "evidence_set_id": "4219c27d-e6ca-4361-87ff-1a3a99c81dbd",
+          "evidence_item_id": "ee02017b-2c04-4d05-b6a3-224d57cd5120",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A\nde morte, salvo em caso de guerra declarada, nos termos do art. 84, XIX;",
+              "legal_element_id": "9ad8a889-82fa-435b-a517-b309f3960fb3",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A",
+              "source_locator": {
+                "anchors": [
+                  "art5xlviia",
+                  "5XLVIIA"
+                ],
+                "block_index": 107,
+                "source_line": 904,
+                "tag": "p"
+              },
+              "sha256": "d13ff84d68446fa032f3b463eaa21212a4ad62897e96fe636b98cd2e1e46f2ee"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "não haverá penas:",
+              "legal_element_id": "2dcc4132-3c11-4c11-9434-8678e8d323a5",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII",
+              "source_locator": {
+                "anchors": [
+                  "art5xlvii",
+                  "5XLVII"
+                ],
+                "block_index": 106,
+                "source_line": 897,
+                "tag": "p"
+              },
+              "sha256": "5deeb90decee9a3917a2a201edaaee095f07c2a974c33112de484cfef81794dc"
+            }
+          ]
+        },
+        {
+          "slot_id": "SS-80e37d296fba57b784a3b699b2525b06",
+          "evidence_set_id": "4219c27d-e6ca-4361-87ff-1a3a99c81dbd",
+          "evidence_item_id": "6fec8d4a-4f4b-4e90-af51-2de64aef80bf",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "identity_key": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:7",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:7\nObservado o disposto no § 2º do art. 201, quando se tratar da única fonte de renda formal auferida pelo dependente, o benefício de pensão por morte será concedido nos termos de lei do respectivo ente federativo, a qual tratará de forma diferenciada a hipótese de morte dos servidores de que trata o § 4º-B decorrente de agressão sofrida no exercício ou em razão da função. (Redação dada pela Emenda Constitucional nº 103, de 2019)",
+              "legal_element_id": "84f9c67c-1909-4250-ba6b-2b3539b2f4c3",
+              "identity": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:7",
+              "source_locator": {
+                "anchors": [
+                  "art40§7.0"
+                ],
+                "block_index": 794,
+                "source_line": 6810,
+                "tag": "p"
+              },
+              "sha256": "da4e407b1553fd21ca92c1a8b66b1e213ba69bddce63347594b2b1bea951a1ca"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "Art. 40.",
+              "legal_element_id": "950f29d8-0fc6-4abe-8291-e89663ab75a0",
+              "identity": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40",
+              "source_locator": {
+                "anchors": [
+                  "cf-88-parte-1-titulo-3-capitulo-7-secao-2-artigo-40",
+                  "art40.0"
+                ],
+                "block_index": 758,
+                "source_line": 6424,
+                "tag": "p"
+              },
+              "sha256": "0f6f5988b56e45fcef9f7333235f71cec12f5a3b2347e20c5f3be2abcadf1028"
+            }
+          ]
+        },
+        {
+          "slot_id": "SS-953ef72fef365b7fbd417c86289d17e3",
+          "evidence_set_id": "4219c27d-e6ca-4361-87ff-1a3a99c81dbd",
+          "evidence_item_id": "d6e255c7-8941-4e37-a329-50234c52213a",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIII",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIII\ntodos têm direito a receber dos órgãos públicos informações de seu interesse particular, ou de interesse coletivo ou geral, que serão prestadas no prazo da lei, sob pena de responsabilidade, ressalvadas aquelas cujo sigilo seja imprescindível à segurança da sociedade e do Estado;",
+              "legal_element_id": "b5df6bcf-0b4d-48ec-81d9-af38f7caa2c6",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIII",
+              "source_locator": {
+                "anchors": [
+                  "art5xxxiii",
+                  "5XXXIII"
+                ],
+                "block_index": 81,
+                "source_line": 690,
+                "tag": "p"
+              },
+              "sha256": "1143a8cef70e225ab789231513e6dc831252f3541f84ac9aac440c21ce67476b"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "Art. 5º",
+              "legal_element_id": "b6afbce7-5487-46d6-b476-dd11544fe741",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5",
+              "source_locator": {
+                "anchors": [
+                  "cf-88-parte-1-titulo-2-capitulo-1-artigo-5",
+                  "art5",
+                  "5"
+                ],
+                "block_index": 46,
+                "source_line": 380,
+                "tag": "p"
+              },
+              "sha256": "5024185ffe85d17d0ac358eaceed37cccf30bb34d1534c0ce0a218182501aa32"
+            }
+          ]
+        }
+      ],
+      "manifest_sha256": "72a83206297a5336b219adf29319154accca049396a693cffa9c469eb4214dc4"
+    }
+  },
+  {
+    "case_id": "rw-prisao-perpetua",
+    "query": "prisão perpétua",
+    "expect_answer": true,
+    "retrieval_hit": true,
+    "sufficiency": "SUFFICIENT",
+    "evidence_set_id": "ee185342-c0af-48af-8503-a6757883aa47",
+    "items": [
+      {
+        "evidence_item_id": "bfab0c4e-4e85-4d14-a0d3-f31612340a50",
+        "evidence_code": "EV001",
+        "legal_element_id": "0a14fa7a-eefd-4d51-a91b-4733ca95420b",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXII\na prisão de qualquer pessoa e o local onde se encontre serão comunicados imediatamente ao juiz competente e à família do preso ou à pessoa por ele indicada;",
+        "text_sha256": "c1a4d1458a3d9796b000b630e35d16a6bdb35f56d4871a001a36d359a94e450a",
+        "citation_label": "CF/88, INCISO LXII (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXII)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.07247858978018841,
+          "text_status": "CURRENT",
+          "vector_rank": 53,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXII",
+          "lexical_rank": 2,
+          "vector_score": 0.5972379330113395,
+          "lexical_score": 0.10000000149011612,
+          "parent_context": "Art. 5º",
+          "contextual_score": 0.07247858978018841,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "d311a2ab-c25e-49d8-a221-304fcb3190a1"
+        }
+      },
+      {
+        "evidence_item_id": "56463539-f2d2-4f16-add1-575fa06c192e",
+        "evidence_code": "EV002",
+        "legal_element_id": "46a55371-c84e-4291-913c-8d1fb449bb2c",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B\nde caráter perpétuo;",
+        "text_sha256": "6a8f00719a5ba99f9272cc4209d8756fe83eaf637c4a47a9f2e79f7e911f29d7",
+        "citation_label": "CF/88, ALINEA b (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.06639344262295083,
+          "text_status": "CURRENT",
+          "vector_rank": null,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B",
+          "lexical_rank": 1,
+          "vector_score": null,
+          "lexical_score": 0.10000000149011612,
+          "parent_context": "não haverá penas:",
+          "contextual_score": 0.06639344262295083,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "37643249-d227-4714-a72e-4d82a05e628e"
+        }
+      },
+      {
+        "evidence_item_id": "4c37d76a-eded-446c-9e41-52e082a571cd",
+        "evidence_code": "EV003",
+        "legal_element_id": "c89ac412-b281-4f2f-be9b-73d44b1a27c7",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:IV/CHAPTER:I/SECTION:V/ARTICLE:53/PARAGRAPH:2\nDesde a expedição do diploma, os membros do Congresso Nacional não poderão ser presos, salvo em flagrante de crime inafiançável. Nesse caso, os autos serão remetidos dentro de vinte e quatro horas à Casa respectiva, para que, pelo voto da maioria de seus membros, resolva sobre a prisão.",
+        "text_sha256": "6eca5572dcb0f58c9ab64e6a9f6b57eb8d9357710cbe4324055e140d3a3c718e",
+        "citation_label": "CF/88, PARAGRAPH 2 (identidade: CF88/@root/TITLE:IV/CHAPTER:I/SECTION:V/ARTICLE:53/PARAGRAPH:2)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.05901628222523745,
+          "text_status": "CURRENT",
+          "vector_rank": 50,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:V/ARTICLE:53/PARAGRAPH:2",
+          "lexical_rank": 7,
+          "vector_score": 0.5982503890991381,
+          "lexical_score": 0.10000000149011612,
+          "parent_context": "Art. 53.",
+          "contextual_score": 0.05901628222523745,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "eaf11d18-becc-47f3-86ec-371d8571aa71"
+        }
+      }
+    ],
+    "support_slot_manifest": {
+      "query": "prisão perpétua",
+      "slots": [
+        {
+          "slot_id": "SS-87fd35baa3e95c6ca70e23f257befe43",
+          "evidence_set_id": "ee185342-c0af-48af-8503-a6757883aa47",
+          "evidence_item_id": "bfab0c4e-4e85-4d14-a0d3-f31612340a50",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXII",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXII\na prisão de qualquer pessoa e o local onde se encontre serão comunicados imediatamente ao juiz competente e à família do preso ou à pessoa por ele indicada;",
+              "legal_element_id": "0a14fa7a-eefd-4d51-a91b-4733ca95420b",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXII",
+              "source_locator": {
+                "anchors": [
+                  "art5lxii",
+                  "5LXII"
+                ],
+                "block_index": 126,
+                "source_line": 1056,
+                "tag": "p"
+              },
+              "sha256": "c1a4d1458a3d9796b000b630e35d16a6bdb35f56d4871a001a36d359a94e450a"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "Art. 5º",
+              "legal_element_id": "b6afbce7-5487-46d6-b476-dd11544fe741",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5",
+              "source_locator": {
+                "anchors": [
+                  "cf-88-parte-1-titulo-2-capitulo-1-artigo-5",
+                  "art5",
+                  "5"
+                ],
+                "block_index": 46,
+                "source_line": 380,
+                "tag": "p"
+              },
+              "sha256": "5024185ffe85d17d0ac358eaceed37cccf30bb34d1534c0ce0a218182501aa32"
+            }
+          ]
+        },
+        {
+          "slot_id": "SS-2ef10f3bf9b85d509f79c700f084d8e3",
+          "evidence_set_id": "ee185342-c0af-48af-8503-a6757883aa47",
+          "evidence_item_id": "56463539-f2d2-4f16-add1-575fa06c192e",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B\nde caráter perpétuo;",
+              "legal_element_id": "46a55371-c84e-4291-913c-8d1fb449bb2c",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B",
+              "source_locator": {
+                "anchors": [
+                  "art5xlviib",
+                  "5XLVIIB"
+                ],
+                "block_index": 108,
+                "source_line": 911,
+                "tag": "p"
+              },
+              "sha256": "6a8f00719a5ba99f9272cc4209d8756fe83eaf637c4a47a9f2e79f7e911f29d7"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "não haverá penas:",
+              "legal_element_id": "2dcc4132-3c11-4c11-9434-8678e8d323a5",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII",
+              "source_locator": {
+                "anchors": [
+                  "art5xlvii",
+                  "5XLVII"
+                ],
+                "block_index": 106,
+                "source_line": 897,
+                "tag": "p"
+              },
+              "sha256": "5deeb90decee9a3917a2a201edaaee095f07c2a974c33112de484cfef81794dc"
+            }
+          ]
+        },
+        {
+          "slot_id": "SS-6f00d9bb2fd85a2eaebfdde394e9d3ee",
+          "evidence_set_id": "ee185342-c0af-48af-8503-a6757883aa47",
+          "evidence_item_id": "4c37d76a-eded-446c-9e41-52e082a571cd",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:V/ARTICLE:53/PARAGRAPH:2",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/TITLE:IV/CHAPTER:I/SECTION:V/ARTICLE:53/PARAGRAPH:2\nDesde a expedição do diploma, os membros do Congresso Nacional não poderão ser presos, salvo em flagrante de crime inafiançável. Nesse caso, os autos serão remetidos dentro de vinte e quatro horas à Casa respectiva, para que, pelo voto da maioria de seus membros, resolva sobre a prisão.",
+              "legal_element_id": "c89ac412-b281-4f2f-be9b-73d44b1a27c7",
+              "identity": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:V/ARTICLE:53/PARAGRAPH:2",
+              "source_locator": {
+                "anchors": [
+                  "art53§2"
+                ],
+                "block_index": 996,
+                "source_line": 8528,
+                "tag": "p"
+              },
+              "sha256": "6eca5572dcb0f58c9ab64e6a9f6b57eb8d9357710cbe4324055e140d3a3c718e"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "Art. 53.",
+              "legal_element_id": "aba3a699-3ebb-4be5-9b12-d8c9c92a04a1",
+              "identity": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:V/ARTICLE:53",
+              "source_locator": {
+                "anchors": [
+                  "cf-88-parte-1-titulo-4-capitulo-1-secao-5-artigo-53",
+                  "art53"
+                ],
+                "block_index": 994,
+                "source_line": 8506,
+                "tag": "p"
+              },
+              "sha256": "3baadfd426d8771a1900de29226d8b68610e2f67f6dd1b806dddbf797b190af5"
+            }
+          ]
+        }
+      ],
+      "manifest_sha256": "899ed4e6b48910dd82f1618c426969cbfb9bc0567f772181de59ed4dac664e3c"
+    }
+  },
+  {
+    "case_id": "rw-liberdade-religiosa",
+    "query": "liberdade religiosa",
+    "expect_answer": true,
+    "retrieval_hit": true,
+    "sufficiency": "SUFFICIENT",
+    "evidence_set_id": "7d027ae8-ce9d-431f-912f-b1ac1e4365d2",
+    "items": [
+      {
+        "evidence_item_id": "9baa4e29-6554-46a7-a715-095b15d5939a",
+        "evidence_code": "EV001",
+        "legal_element_id": "d8fecb82-c4b9-4a06-bc61-0bbd73ddc0b5",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI\né inviolável a liberdade de consciência e de crença, sendo assegurado o livre exercício dos cultos religiosos e garantida, na forma da lei, a proteção aos locais de culto e a suas liturgias;",
+        "text_sha256": "4c14f77190f90878f33596b1c9211ffc91af44a98c82c38007c2f46e00e2792d",
+        "citation_label": "CF/88, INCISO VI (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.08278688524590164,
+          "text_status": "CURRENT",
+          "vector_rank": 1,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+          "lexical_rank": 1,
+          "vector_score": 0.7060058537725437,
+          "lexical_score": 0.20000000298023224,
+          "parent_context": "Art. 5º",
+          "contextual_score": 0.08278688524590164,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "e14f1d7e-238e-4817-97ed-2780d70e657a"
+        }
+      },
+      {
+        "evidence_item_id": "cdcd5cda-da8c-43d5-8ac7-3f8bc53daf2f",
+        "evidence_code": "EV002",
+        "legal_element_id": "38db867d-24d8-4c62-8681-aad9c2a58dcf",
+        "text_snapshot": "CF/88 | CF88/@root/PREAMBLE:@preamble\nNós, representantes do povo brasileiro, reunidos em Assembléia Nacional Constituinte para instituir um Estado Democrático, destinado a assegurar o exercício dos direitos sociais e individuais, a liberdade, a segurança, o bem-estar, o desenvolvimento, a igualdade e a justiça como valores supremos de uma sociedade fraterna, pluralista e sem preconceitos, fundada na harmonia social e comprometida, na ordem interna e internacional, com a solução pacífica das controvérsias, promulgamos, sob a proteção de Deus, a seguinte CONSTITUIÇÃO DA REPÚBLICA FEDERATIVA DO BRASIL.",
+        "text_sha256": "149b2da84d22089513aa6d82e95291c80c96f065bde3ba7c965c3d29768932af",
+        "citation_label": "CF/88, PREAMBLE (identidade: CF88/@root/PREAMBLE:@preamble)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.07255760368663594,
+          "text_status": "CURRENT",
+          "vector_rank": 52,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/PREAMBLE:@preamble",
+          "lexical_rank": 2,
+          "vector_score": 0.5939096790282973,
+          "lexical_score": 0.10000000149011612,
+          "parent_context": "Constituição Federal de 1988",
+          "contextual_score": 0.07255760368663594,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "6509fec5-3018-4815-8304-010dc366810d"
+        }
+      },
+      {
+        "evidence_item_id": "afe3e700-5734-4d01-a684-2842e2243903",
+        "evidence_code": "EV003",
+        "legal_element_id": "fba8a790-f1ca-4df6-afee-89db9d332381",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput\nTodos são iguais perante a lei, sem distinção de qualquer natureza, garantindo-se aos brasileiros e aos estrangeiros residentes no País a inviolabilidade do direito à vida, à liberdade, à igualdade, à segurança e à propriedade, nos termos seguintes:",
+        "text_sha256": "c9d551f29f0672a60c1ec9ef3cc132b91ee4a53ed40ebadf39cd19f54c84c078",
+        "citation_label": "CF/88, CAPUT (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.07250092284976006,
+          "text_status": "CURRENT",
+          "vector_rank": 26,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+          "lexical_rank": 3,
+          "vector_score": 0.6109077234699329,
+          "lexical_score": 0.10000000149011612,
+          "parent_context": "Art. 5º",
+          "contextual_score": 0.08270409836065573,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "147799e5-22de-4a14-9782-cb280342faa2"
+        }
+      }
+    ],
+    "support_slot_manifest": {
+      "query": "liberdade religiosa",
+      "slots": [
+        {
+          "slot_id": "SS-23f649653d315f6faf81d271a2da4f27",
+          "evidence_set_id": "7d027ae8-ce9d-431f-912f-b1ac1e4365d2",
+          "evidence_item_id": "9baa4e29-6554-46a7-a715-095b15d5939a",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI\né inviolável a liberdade de consciência e de crença, sendo assegurado o livre exercício dos cultos religiosos e garantida, na forma da lei, a proteção aos locais de culto e a suas liturgias;",
+              "legal_element_id": "d8fecb82-c4b9-4a06-bc61-0bbd73ddc0b5",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+              "source_locator": {
+                "anchors": [
+                  "art5vi",
+                  "5VI"
+                ],
+                "block_index": 52,
+                "source_line": 429,
+                "tag": "p"
+              },
+              "sha256": "4c14f77190f90878f33596b1c9211ffc91af44a98c82c38007c2f46e00e2792d"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "Art. 5º",
+              "legal_element_id": "b6afbce7-5487-46d6-b476-dd11544fe741",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5",
+              "source_locator": {
+                "anchors": [
+                  "cf-88-parte-1-titulo-2-capitulo-1-artigo-5",
+                  "art5",
+                  "5"
+                ],
+                "block_index": 46,
+                "source_line": 380,
+                "tag": "p"
+              },
+              "sha256": "5024185ffe85d17d0ac358eaceed37cccf30bb34d1534c0ce0a218182501aa32"
+            }
+          ]
+        },
+        {
+          "slot_id": "SS-7de7af7e5ded5601b757a5fdb9f87320",
+          "evidence_set_id": "7d027ae8-ce9d-431f-912f-b1ac1e4365d2",
+          "evidence_item_id": "cdcd5cda-da8c-43d5-8ac7-3f8bc53daf2f",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "identity_key": "CF88/@root/PREAMBLE:@preamble",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/PREAMBLE:@preamble\nNós, representantes do povo brasileiro, reunidos em Assembléia Nacional Constituinte para instituir um Estado Democrático, destinado a assegurar o exercício dos direitos sociais e individuais, a liberdade, a segurança, o bem-estar, o desenvolvimento, a igualdade e a justiça como valores supremos de uma sociedade fraterna, pluralista e sem preconceitos, fundada na harmonia social e comprometida, na ordem interna e internacional, com a solução pacífica das controvérsias, promulgamos, sob a proteção de Deus, a seguinte CONSTITUIÇÃO DA REPÚBLICA FEDERATIVA DO BRASIL.",
+              "legal_element_id": "38db867d-24d8-4c62-8681-aad9c2a58dcf",
+              "identity": "CF88/@root/PREAMBLE:@preamble",
+              "source_locator": {
+                "anchors": [],
+                "block_index": 14,
+                "source_line": 115,
+                "tag": "p"
+              },
+              "sha256": "149b2da84d22089513aa6d82e95291c80c96f065bde3ba7c965c3d29768932af"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "Constituição Federal de 1988",
+              "legal_element_id": "ff81791c-f28b-4def-a32f-5c0f32b4492e",
+              "identity": "CF88/@root",
+              "source_locator": {
+                "anchors": [],
+                "block_index": 13,
+                "source_line": 111,
+                "tag": "p"
+              },
+              "sha256": "b8b677250d160d8306f7ffc45696ec872160bec218e898ee89130f30043dbd8c"
+            }
+          ]
+        },
+        {
+          "slot_id": "SS-4be0847a446c5f7f9811471f98c9af24",
+          "evidence_set_id": "7d027ae8-ce9d-431f-912f-b1ac1e4365d2",
+          "evidence_item_id": "afe3e700-5734-4d01-a684-2842e2243903",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput\nTodos são iguais perante a lei, sem distinção de qualquer natureza, garantindo-se aos brasileiros e aos estrangeiros residentes no País a inviolabilidade do direito à vida, à liberdade, à igualdade, à segurança e à propriedade, nos termos seguintes:",
+              "legal_element_id": "fba8a790-f1ca-4df6-afee-89db9d332381",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+              "source_locator": {
+                "anchors": [
+                  "cf-88-parte-1-titulo-2-capitulo-1-artigo-5",
+                  "art5",
+                  "5"
+                ],
+                "block_index": 46,
+                "source_line": 380,
+                "tag": "p"
+              },
+              "sha256": "c9d551f29f0672a60c1ec9ef3cc132b91ee4a53ed40ebadf39cd19f54c84c078"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "Art. 5º",
+              "legal_element_id": "b6afbce7-5487-46d6-b476-dd11544fe741",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5",
+              "source_locator": {
+                "anchors": [
+                  "cf-88-parte-1-titulo-2-capitulo-1-artigo-5",
+                  "art5",
+                  "5"
+                ],
+                "block_index": 46,
+                "source_line": 380,
+                "tag": "p"
+              },
+              "sha256": "5024185ffe85d17d0ac358eaceed37cccf30bb34d1534c0ce0a218182501aa32"
+            }
+          ]
+        }
+      ],
+      "manifest_sha256": "c08a5a24e4e5fe492c8ba05b14003f01a226fc667f293944e71e2cb81f55dd24"
+    }
+  },
+  {
+    "case_id": "rw-racismo",
+    "query": "racismo",
+    "expect_answer": true,
+    "retrieval_hit": true,
+    "sufficiency": "SUFFICIENT",
+    "evidence_set_id": "9de984a2-9b48-487e-beac-c2c406292af1",
+    "items": [
+      {
+        "evidence_item_id": "621496d7-aa35-407f-a25c-f2edabbb5077",
+        "evidence_code": "EV001",
+        "legal_element_id": "3cb0fd3e-8840-4617-87ca-41f7a504f58e",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII\nrepúdio ao terrorismo e ao racismo;",
+        "text_sha256": "df01ccad0318371ff36fe42638e8b75d0dd224a381aee07632e892b32e6fb760",
+        "citation_label": "CF/88, INCISO VIII (identidade: CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.08278688524590164,
+          "text_status": "CURRENT",
+          "vector_rank": 1,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII",
+          "lexical_rank": 1,
+          "vector_score": 0.647151918916769,
+          "lexical_score": 2.1000000312924385,
+          "parent_context": "Art. 4º",
+          "contextual_score": 0.08278688524590164,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "0a4f91af-93f3-46af-b861-e4885f582b4f"
+        }
+      },
+      {
+        "evidence_item_id": "dd1fc5e2-990c-48bf-a463-e7321a80fd33",
+        "evidence_code": "EV002",
+        "legal_element_id": "ff89501c-4a9e-40c1-81e1-9ba09fdd67c6",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII\na prática do racismo constitui crime inafiançável e imprescritível, sujeito à pena de reclusão, nos termos da lei;",
+        "text_sha256": "89e2aca077d9122883c00cc04ba3d3a129c3912c02f0f5d879d45b8f7bec78f5",
+        "citation_label": "CF/88, INCISO XLII (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.07975806451612903,
+          "text_status": "CURRENT",
+          "vector_rank": 2,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII",
+          "lexical_rank": 2,
+          "vector_score": 0.6384990430774792,
+          "lexical_score": 2.1000000312924385,
+          "parent_context": "Art. 5º",
+          "contextual_score": 0.07975806451612903,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "496a6b3f-20e2-46fc-8a92-3380a87a88d8"
+        }
+      }
+    ],
+    "support_slot_manifest": {
+      "query": "racismo",
+      "slots": [
+        {
+          "slot_id": "SS-e644820622ed597c85390ae2ad142be2",
+          "evidence_set_id": "9de984a2-9b48-487e-beac-c2c406292af1",
+          "evidence_item_id": "621496d7-aa35-407f-a25c-f2edabbb5077",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "identity_key": "CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII\nrepúdio ao terrorismo e ao racismo;",
+              "legal_element_id": "3cb0fd3e-8840-4617-87ca-41f7a504f58e",
+              "identity": "CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII",
+              "source_locator": {
+                "anchors": [
+                  "art4viii",
+                  "4VIII"
+                ],
+                "block_index": 38,
+                "source_line": 316,
+                "tag": "p"
+              },
+              "sha256": "df01ccad0318371ff36fe42638e8b75d0dd224a381aee07632e892b32e6fb760"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "Art. 4º",
+              "legal_element_id": "2a1ec30e-6397-4d00-b0f9-65f70f059b13",
+              "identity": "CF88/@root/TITLE:I/ARTICLE:4",
+              "source_locator": {
+                "anchors": [
+                  "cf-88-parte-1-titulo-1-artigo-4",
+                  "art4",
+                  "4"
+                ],
+                "block_index": 30,
+                "source_line": 258,
+                "tag": "p"
+              },
+              "sha256": "9c79bc47baa1476ba572c383cc11eb1a0536ea6e999d23f33d0e79eeb0298040"
+            }
+          ]
+        },
+        {
+          "slot_id": "SS-49e7f65ab81a50d29f24b7aa2d970760",
+          "evidence_set_id": "9de984a2-9b48-487e-beac-c2c406292af1",
+          "evidence_item_id": "dd1fc5e2-990c-48bf-a463-e7321a80fd33",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII\na prática do racismo constitui crime inafiançável e imprescritível, sujeito à pena de reclusão, nos termos da lei;",
+              "legal_element_id": "ff89501c-4a9e-40c1-81e1-9ba09fdd67c6",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII",
+              "source_locator": {
+                "anchors": [
+                  "art5xlii",
+                  "5XLII"
+                ],
+                "block_index": 96,
+                "source_line": 813,
+                "tag": "p"
+              },
+              "sha256": "89e2aca077d9122883c00cc04ba3d3a129c3912c02f0f5d879d45b8f7bec78f5"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "Art. 5º",
+              "legal_element_id": "b6afbce7-5487-46d6-b476-dd11544fe741",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5",
+              "source_locator": {
+                "anchors": [
+                  "cf-88-parte-1-titulo-2-capitulo-1-artigo-5",
+                  "art5",
+                  "5"
+                ],
+                "block_index": 46,
+                "source_line": 380,
+                "tag": "p"
+              },
+              "sha256": "5024185ffe85d17d0ac358eaceed37cccf30bb34d1534c0ce0a218182501aa32"
+            }
+          ]
+        }
+      ],
+      "manifest_sha256": "1ab7518476936122c2365fd3ac97e6f2bb4d728a89ae338c5d1d9eb52163e4da"
+    }
+  },
+  {
+    "case_id": "rw-extradicao",
+    "query": "extradição",
+    "expect_answer": true,
+    "retrieval_hit": true,
+    "sufficiency": "SUFFICIENT",
+    "evidence_set_id": "0e745b56-62a3-44c0-a38f-231cd29402e5",
+    "items": [
+      {
+        "evidence_item_id": "44d2b4b3-9784-4ffe-b375-e673ff39cdbf",
+        "evidence_code": "EV001",
+        "legal_element_id": "8dce1d92-17da-4ef8-8382-5102a4d5c271",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII\nnão será concedida extradição de estrangeiro por crime político ou de opinião;",
+        "text_sha256": "5f9b0f9068160d402c728e9588f85fad8b015007d3983c1efec2f33076a316fc",
+        "citation_label": "CF/88, INCISO LII (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.08177805800756621,
+          "text_status": "CURRENT",
+          "vector_rank": 5,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII",
+          "lexical_rank": 1,
+          "vector_score": 0.6795605803060274,
+          "lexical_score": 2.1000000312924385,
+          "parent_context": "Art. 5º",
+          "contextual_score": 0.08177805800756621,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "912e39a1-36ec-43af-9850-c0e232536f9d"
+        }
+      },
+      {
+        "evidence_item_id": "1567605e-4b6e-4a69-a628-7f5330367666",
+        "evidence_code": "EV002",
+        "legal_element_id": "0099a820-02ef-4b68-a837-5df3015ce427",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:22/INCISO:XV\nemigração e imigração, entrada, extradição e expulsão de estrangeiros;",
+        "text_sha256": "71531eb14b6b7dc0dc7d7fb7baac14f90d4d10e417420c375f3b361745dd203d",
+        "citation_label": "CF/88, INCISO XV (identidade: CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:22/INCISO:XV)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.07950204813108039,
+          "text_status": "CURRENT",
+          "vector_rank": 3,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:22/INCISO:XV",
+          "lexical_rank": 2,
+          "vector_score": 0.683119134159314,
+          "lexical_score": 2.1000000312924385,
+          "parent_context": "Art. 22.",
+          "contextual_score": 0.07950204813108039,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "cbe482ca-3aa9-413b-9c85-2c0c54ce9f22"
+        }
+      },
+      {
+        "evidence_item_id": "388663b8-af26-4031-962e-1faeabb91895",
+        "evidence_code": "EV003",
+        "legal_element_id": "efc22218-3613-40fc-a133-45c88b5e0268",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI\nnenhum brasileiro será extraditado, salvo o naturalizado, em caso de crime comum, praticado antes da naturalização, ou de comprovado envolvimento em tráfico ilícito de entorpecentes e drogas afins, na forma da lei;",
+        "text_sha256": "988a0c4abbae1dfd7a970dea1597b3a86998471cf365fbf1e1471f519e6b7306",
+        "citation_label": "CF/88, INCISO LI (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.005625,
+          "text_status": "CURRENT",
+          "vector_rank": 4,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI",
+          "lexical_rank": null,
+          "vector_score": 0.6805642793544773,
+          "lexical_score": null,
+          "parent_context": "Art. 5º",
+          "contextual_score": 0.005625,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "2275a69e-653e-40d6-b42d-372ba4ed1423"
+        }
+      }
+    ],
+    "support_slot_manifest": {
+      "query": "extradição",
+      "slots": [
+        {
+          "slot_id": "SS-b7c87f6e15ac530b8af169ed46f45350",
+          "evidence_set_id": "0e745b56-62a3-44c0-a38f-231cd29402e5",
+          "evidence_item_id": "44d2b4b3-9784-4ffe-b375-e673ff39cdbf",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII\nnão será concedida extradição de estrangeiro por crime político ou de opinião;",
+              "legal_element_id": "8dce1d92-17da-4ef8-8382-5102a4d5c271",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII",
+              "source_locator": {
+                "anchors": [
+                  "art5lii",
+                  "5LII"
+                ],
+                "block_index": 116,
+                "source_line": 972,
+                "tag": "p"
+              },
+              "sha256": "5f9b0f9068160d402c728e9588f85fad8b015007d3983c1efec2f33076a316fc"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "Art. 5º",
+              "legal_element_id": "b6afbce7-5487-46d6-b476-dd11544fe741",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5",
+              "source_locator": {
+                "anchors": [
+                  "cf-88-parte-1-titulo-2-capitulo-1-artigo-5",
+                  "art5",
+                  "5"
+                ],
+                "block_index": 46,
+                "source_line": 380,
+                "tag": "p"
+              },
+              "sha256": "5024185ffe85d17d0ac358eaceed37cccf30bb34d1534c0ce0a218182501aa32"
+            }
+          ]
+        },
+        {
+          "slot_id": "SS-4ea1ccdf378353b9870b3069880bbdf8",
+          "evidence_set_id": "0e745b56-62a3-44c0-a38f-231cd29402e5",
+          "evidence_item_id": "1567605e-4b6e-4a69-a628-7f5330367666",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "identity_key": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:22/INCISO:XV",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:22/INCISO:XV\nemigração e imigração, entrada, extradição e expulsão de estrangeiros;",
+              "legal_element_id": "0099a820-02ef-4b68-a837-5df3015ce427",
+              "identity": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:22/INCISO:XV",
+              "source_locator": {
+                "anchors": [
+                  "cfart22xv"
+                ],
+                "block_index": 419,
+                "source_line": 3460,
+                "tag": "p"
+              },
+              "sha256": "71531eb14b6b7dc0dc7d7fb7baac14f90d4d10e417420c375f3b361745dd203d"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "Art. 22.",
+              "legal_element_id": "006a200c-a4d1-41dd-9ef5-4eebc8e14c96",
+              "identity": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:22",
+              "source_locator": {
+                "anchors": [
+                  "cf-88-parte-1-titulo-3-capitulo-2-artigo-22",
+                  "art22",
+                  "cfart22"
+                ],
+                "block_index": 404,
+                "source_line": 3378,
+                "tag": "p"
+              },
+              "sha256": "e04c8fc1894299c902d36f8a8442894e20e650cba68a879fd24c62ed647479d2"
+            }
+          ]
+        },
+        {
+          "slot_id": "SS-5aab297d31845dbdacf5014e18618c5c",
+          "evidence_set_id": "0e745b56-62a3-44c0-a38f-231cd29402e5",
+          "evidence_item_id": "388663b8-af26-4031-962e-1faeabb91895",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI\nnenhum brasileiro será extraditado, salvo o naturalizado, em caso de crime comum, praticado antes da naturalização, ou de comprovado envolvimento em tráfico ilícito de entorpecentes e drogas afins, na forma da lei;",
+              "legal_element_id": "efc22218-3613-40fc-a133-45c88b5e0268",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI",
+              "source_locator": {
+                "anchors": [
+                  "art5li",
+                  "5LI"
+                ],
+                "block_index": 115,
+                "source_line": 962,
+                "tag": "p"
+              },
+              "sha256": "988a0c4abbae1dfd7a970dea1597b3a86998471cf365fbf1e1471f519e6b7306"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "Art. 5º",
+              "legal_element_id": "b6afbce7-5487-46d6-b476-dd11544fe741",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5",
+              "source_locator": {
+                "anchors": [
+                  "cf-88-parte-1-titulo-2-capitulo-1-artigo-5",
+                  "art5",
+                  "5"
+                ],
+                "block_index": 46,
+                "source_line": 380,
+                "tag": "p"
+              },
+              "sha256": "5024185ffe85d17d0ac358eaceed37cccf30bb34d1534c0ce0a218182501aa32"
+            }
+          ]
+        }
+      ],
+      "manifest_sha256": "dd589e3611359f0ae6f789718c9c47f2fb8023c4de1ed9d76a6c9426af2e88d7"
+    }
+  },
+  {
+    "case_id": "rw-direito-vida",
+    "query": "direito à vida",
+    "expect_answer": true,
+    "retrieval_hit": true,
+    "sufficiency": "SUFFICIENT",
+    "evidence_set_id": "91a221cb-29ab-4ec6-b313-b10631ecfa60",
+    "items": [
+      {
+        "evidence_item_id": "c6c7f7e7-28d5-4091-bc19-b01bf86abfe9",
+        "evidence_code": "EV001",
+        "legal_element_id": "fba8a790-f1ca-4df6-afee-89db9d332381",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput\nTodos são iguais perante a lei, sem distinção de qualquer natureza, garantindo-se aos brasileiros e aos estrangeiros residentes no País a inviolabilidade do direito à vida, à liberdade, à igualdade, à segurança e à propriedade, nos termos seguintes:",
+        "text_sha256": "c9d551f29f0672a60c1ec9ef3cc132b91ee4a53ed40ebadf39cd19f54c84c078",
+        "citation_label": "CF/88, CAPUT (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.07921395544346364,
+          "text_status": "CURRENT",
+          "vector_rank": 18,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+          "lexical_rank": 1,
+          "vector_score": 0.6332662324150673,
+          "lexical_score": 1.2000000178813934,
+          "parent_context": "Art. 5º",
+          "contextual_score": 0.07921395544346364,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "147799e5-22de-4a14-9782-cb280342faa2"
+        }
+      },
+      {
+        "evidence_item_id": "db1f7dbd-4c9d-4ef2-aaeb-e556d9bc9ebe",
+        "evidence_code": "EV002",
+        "legal_element_id": "c90e345c-992a-4bd4-a037-c5d15071f01a",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput\nA família, a sociedade e o Estado têm o dever de amparar as pessoas idosas, assegurando sua participação na comunidade, defendendo sua dignidade e bem-estar e garantindo-lhes o direito à vida.",
+        "text_sha256": "f440a086e294d1e6d2a6830dabc8a559d33db8cb04a4dc48dcf44d4fd9e14e0f",
+        "citation_label": "CF/88, CAPUT (identidade: CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.07515873015873015,
+          "text_status": "CURRENT",
+          "vector_rank": 10,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput",
+          "lexical_rank": 3,
+          "vector_score": 0.6399710297498753,
+          "lexical_score": 1.2000000178813934,
+          "parent_context": "Art. 230.",
+          "contextual_score": 0.07515873015873015,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "4fb90672-5a7a-4c0f-8264-268a7b7427c7"
+        }
+      },
+      {
+        "evidence_item_id": "2197d650-c3e8-4962-ac7d-3a9725235c71",
+        "evidence_code": "EV003",
+        "legal_element_id": "dcb212d9-d793-47a9-a89d-d2116fa6f2b9",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput\nÉ dever da família, da sociedade e do Estado assegurar à criança, ao adolescente e ao jovem, com absoluta prioridade, o direito à vida, à saúde, à alimentação, à educação, ao lazer, à profissionalização, à cultura, à dignidade, ao respeito, à liberdade e à convivência familiar e comunitária, além de colocá-los a salvo de toda forma de negligência, discriminação, exploração, violência, crueldade e opressão.",
+        "text_sha256": "75df6bdac96687c9d154d07bde927c1d633ebf50441dcdb20a23c5eb3d54a7d2",
+        "citation_label": "CF/88, CAPUT (identidade: CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.0741553480475382,
+          "text_status": "CURRENT",
+          "vector_rank": 35,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput",
+          "lexical_rank": 2,
+          "vector_score": 0.6265415664253263,
+          "lexical_score": 1.2000000178813934,
+          "parent_context": "Art. 227.",
+          "contextual_score": 0.0741553480475382,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "a0a26ae7-6cc1-4e2c-9c98-527a7f6817f5"
+        }
+      }
+    ],
+    "support_slot_manifest": {
+      "query": "direito à vida",
+      "slots": [
+        {
+          "slot_id": "SS-be05d08e181a51d089a9e330d5c9b99a",
+          "evidence_set_id": "91a221cb-29ab-4ec6-b313-b10631ecfa60",
+          "evidence_item_id": "c6c7f7e7-28d5-4091-bc19-b01bf86abfe9",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput\nTodos são iguais perante a lei, sem distinção de qualquer natureza, garantindo-se aos brasileiros e aos estrangeiros residentes no País a inviolabilidade do direito à vida, à liberdade, à igualdade, à segurança e à propriedade, nos termos seguintes:",
+              "legal_element_id": "fba8a790-f1ca-4df6-afee-89db9d332381",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+              "source_locator": {
+                "anchors": [
+                  "cf-88-parte-1-titulo-2-capitulo-1-artigo-5",
+                  "art5",
+                  "5"
+                ],
+                "block_index": 46,
+                "source_line": 380,
+                "tag": "p"
+              },
+              "sha256": "c9d551f29f0672a60c1ec9ef3cc132b91ee4a53ed40ebadf39cd19f54c84c078"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "Art. 5º",
+              "legal_element_id": "b6afbce7-5487-46d6-b476-dd11544fe741",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5",
+              "source_locator": {
+                "anchors": [
+                  "cf-88-parte-1-titulo-2-capitulo-1-artigo-5",
+                  "art5",
+                  "5"
+                ],
+                "block_index": 46,
+                "source_line": 380,
+                "tag": "p"
+              },
+              "sha256": "5024185ffe85d17d0ac358eaceed37cccf30bb34d1534c0ce0a218182501aa32"
+            }
+          ]
+        },
+        {
+          "slot_id": "SS-c446487690005cc5b59639f65737d9a3",
+          "evidence_set_id": "91a221cb-29ab-4ec6-b313-b10631ecfa60",
+          "evidence_item_id": "db1f7dbd-4c9d-4ef2-aaeb-e556d9bc9ebe",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "identity_key": "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput\nA família, a sociedade e o Estado têm o dever de amparar as pessoas idosas, assegurando sua participação na comunidade, defendendo sua dignidade e bem-estar e garantindo-lhes o direito à vida.",
+              "legal_element_id": "c90e345c-992a-4bd4-a037-c5d15071f01a",
+              "identity": "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput",
+              "source_locator": {
+                "anchors": [
+                  "cf-88-parte-1-titulo-8-capitulo-7-artigo-230",
+                  "art230"
+                ],
+                "block_index": 3344,
+                "source_line": 28613,
+                "tag": "p"
+              },
+              "sha256": "f440a086e294d1e6d2a6830dabc8a559d33db8cb04a4dc48dcf44d4fd9e14e0f"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "Art. 230.",
+              "legal_element_id": "8021f33f-7e54-498a-8032-b3f76584429f",
+              "identity": "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230",
+              "source_locator": {
+                "anchors": [
+                  "cf-88-parte-1-titulo-8-capitulo-7-artigo-230",
+                  "art230"
+                ],
+                "block_index": 3344,
+                "source_line": 28613,
+                "tag": "p"
+              },
+              "sha256": "4802acf0f7a75a6cc8ad00c6147373da4fedff877a2300a2ab832428bdd8d076"
+            }
+          ]
+        },
+        {
+          "slot_id": "SS-b5de8907082a5dd3890926423f7c80a1",
+          "evidence_set_id": "91a221cb-29ab-4ec6-b313-b10631ecfa60",
+          "evidence_item_id": "2197d650-c3e8-4962-ac7d-3a9725235c71",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "identity_key": "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput\nÉ dever da família, da sociedade e do Estado assegurar à criança, ao adolescente e ao jovem, com absoluta prioridade, o direito à vida, à saúde, à alimentação, à educação, ao lazer, à profissionalização, à cultura, à dignidade, ao respeito, à liberdade e à convivência familiar e comunitária, além de colocá-los a salvo de toda forma de negligência, discriminação, exploração, violência, crueldade e opressão.",
+              "legal_element_id": "dcb212d9-d793-47a9-a89d-d2116fa6f2b9",
+              "identity": "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput",
+              "source_locator": {
+                "anchors": [
+                  "cf-88-parte-1-titulo-8-capitulo-7-artigo-227",
+                  "art227."
+                ],
+                "block_index": 3318,
+                "source_line": 28401,
+                "tag": "p"
+              },
+              "sha256": "75df6bdac96687c9d154d07bde927c1d633ebf50441dcdb20a23c5eb3d54a7d2"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "Art. 227.",
+              "legal_element_id": "166cdb1e-c6ed-45d1-b94a-5dfcaad0e3d2",
+              "identity": "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227",
+              "source_locator": {
+                "anchors": [
+                  "cf-88-parte-1-titulo-8-capitulo-7-artigo-227",
+                  "art227."
+                ],
+                "block_index": 3318,
+                "source_line": 28401,
+                "tag": "p"
+              },
+              "sha256": "d826585dc09b95ccde1c57439091027f8435a7223088bc39687fa8e6e67f9f93"
+            }
+          ]
+        }
+      ],
+      "manifest_sha256": "69367cad2e84ac7ebf6f5129f55c82e261d9fc1dc9b401372f52a5f481866566"
+    }
+  },
+  {
+    "case_id": "rw-liberdade-expressao",
+    "query": "liberdade de expressão",
+    "expect_answer": true,
+    "retrieval_hit": true,
+    "sufficiency": "SUFFICIENT",
+    "evidence_set_id": "f129cc63-54af-49c8-8d4f-cd71ae524082",
+    "items": [
+      {
+        "evidence_item_id": "7e4b0d5c-af74-4695-a349-318a17bb5037",
+        "evidence_code": "EV001",
+        "legal_element_id": "38db867d-24d8-4c62-8681-aad9c2a58dcf",
+        "text_snapshot": "CF/88 | CF88/@root/PREAMBLE:@preamble\nNós, representantes do povo brasileiro, reunidos em Assembléia Nacional Constituinte para instituir um Estado Democrático, destinado a assegurar o exercício dos direitos sociais e individuais, a liberdade, a segurança, o bem-estar, o desenvolvimento, a igualdade e a justiça como valores supremos de uma sociedade fraterna, pluralista e sem preconceitos, fundada na harmonia social e comprometida, na ordem interna e internacional, com a solução pacífica das controvérsias, promulgamos, sob a proteção de Deus, a seguinte CONSTITUIÇÃO DA REPÚBLICA FEDERATIVA DO BRASIL.",
+        "text_sha256": "149b2da84d22089513aa6d82e95291c80c96f065bde3ba7c965c3d29768932af",
+        "citation_label": "CF/88, PREAMBLE (identidade: CF88/@root/PREAMBLE:@preamble)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.08047794966520434,
+          "text_status": "CURRENT",
+          "vector_rank": 11,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/PREAMBLE:@preamble",
+          "lexical_rank": 1,
+          "vector_score": 0.6692381304048485,
+          "lexical_score": 0.10000000149011612,
+          "parent_context": "Constituição Federal de 1988",
+          "contextual_score": 0.08047794966520434,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "6509fec5-3018-4815-8304-010dc366810d"
+        }
+      },
+      {
+        "evidence_item_id": "5398e59d-e0e7-4d02-b454-ebe17fff8af9",
+        "evidence_code": "EV002",
+        "legal_element_id": "df2cb783-b047-405f-8ddc-92d2dd639345",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX\né livre a expressão da atividade intelectual, artística, científica e de comunicação, independentemente de censura ou licença;",
+        "text_sha256": "018b1a2df5e8d337ff9a433f98bbd3e7089b00e2db9dbfb1d08435eb1660362d",
+        "citation_label": "CF/88, INCISO IX (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.06230910041841005,
+          "text_status": "CURRENT",
+          "vector_rank": 179,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX",
+          "lexical_rank": 4,
+          "vector_score": 0.6358346181112983,
+          "lexical_score": 0.10000000149011612,
+          "parent_context": "Art. 5º",
+          "contextual_score": 0.06230910041841005,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "d4bd5955-487e-4b68-bf6c-613157346ba5"
+        }
+      },
+      {
+        "evidence_item_id": "1d859086-2064-47c4-bdaf-36b9b9855b0c",
+        "evidence_code": "EV003",
+        "legal_element_id": "d8fecb82-c4b9-4a06-bc61-0bbd73ddc0b5",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI\né inviolável a liberdade de consciência e de crença, sendo assegurado o livre exercício dos cultos religiosos e garantida, na forma da lei, a proteção aos locais de culto e a suas liturgias;",
+        "text_sha256": "4c14f77190f90878f33596b1c9211ffc91af44a98c82c38007c2f46e00e2792d",
+        "citation_label": "CF/88, INCISO VI (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.07602453102453102,
+          "text_status": "CURRENT",
+          "vector_rank": 6,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+          "lexical_rank": 3,
+          "vector_score": 0.6733173120050481,
+          "lexical_score": 0.10000000149011612,
+          "parent_context": "Art. 5º",
+          "contextual_score": 0.07602453102453102,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "e14f1d7e-238e-4817-97ed-2780d70e657a"
+        }
+      }
+    ],
+    "support_slot_manifest": {
+      "query": "liberdade de expressão",
+      "slots": [
+        {
+          "slot_id": "SS-a8e5315f8c8e53bd84ae08554b23eceb",
+          "evidence_set_id": "f129cc63-54af-49c8-8d4f-cd71ae524082",
+          "evidence_item_id": "7e4b0d5c-af74-4695-a349-318a17bb5037",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "identity_key": "CF88/@root/PREAMBLE:@preamble",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/PREAMBLE:@preamble\nNós, representantes do povo brasileiro, reunidos em Assembléia Nacional Constituinte para instituir um Estado Democrático, destinado a assegurar o exercício dos direitos sociais e individuais, a liberdade, a segurança, o bem-estar, o desenvolvimento, a igualdade e a justiça como valores supremos de uma sociedade fraterna, pluralista e sem preconceitos, fundada na harmonia social e comprometida, na ordem interna e internacional, com a solução pacífica das controvérsias, promulgamos, sob a proteção de Deus, a seguinte CONSTITUIÇÃO DA REPÚBLICA FEDERATIVA DO BRASIL.",
+              "legal_element_id": "38db867d-24d8-4c62-8681-aad9c2a58dcf",
+              "identity": "CF88/@root/PREAMBLE:@preamble",
+              "source_locator": {
+                "anchors": [],
+                "block_index": 14,
+                "source_line": 115,
+                "tag": "p"
+              },
+              "sha256": "149b2da84d22089513aa6d82e95291c80c96f065bde3ba7c965c3d29768932af"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "Constituição Federal de 1988",
+              "legal_element_id": "ff81791c-f28b-4def-a32f-5c0f32b4492e",
+              "identity": "CF88/@root",
+              "source_locator": {
+                "anchors": [],
+                "block_index": 13,
+                "source_line": 111,
+                "tag": "p"
+              },
+              "sha256": "b8b677250d160d8306f7ffc45696ec872160bec218e898ee89130f30043dbd8c"
+            }
+          ]
+        },
+        {
+          "slot_id": "SS-ba786963fb2e5bee8f77d0cbed78c9d4",
+          "evidence_set_id": "f129cc63-54af-49c8-8d4f-cd71ae524082",
+          "evidence_item_id": "5398e59d-e0e7-4d02-b454-ebe17fff8af9",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX\né livre a expressão da atividade intelectual, artística, científica e de comunicação, independentemente de censura ou licença;",
+              "legal_element_id": "df2cb783-b047-405f-8ddc-92d2dd639345",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX",
+              "source_locator": {
+                "anchors": [
+                  "art5ix",
+                  "5IX"
+                ],
+                "block_index": 55,
+                "source_line": 456,
+                "tag": "p"
+              },
+              "sha256": "018b1a2df5e8d337ff9a433f98bbd3e7089b00e2db9dbfb1d08435eb1660362d"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "Art. 5º",
+              "legal_element_id": "b6afbce7-5487-46d6-b476-dd11544fe741",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5",
+              "source_locator": {
+                "anchors": [
+                  "cf-88-parte-1-titulo-2-capitulo-1-artigo-5",
+                  "art5",
+                  "5"
+                ],
+                "block_index": 46,
+                "source_line": 380,
+                "tag": "p"
+              },
+              "sha256": "5024185ffe85d17d0ac358eaceed37cccf30bb34d1534c0ce0a218182501aa32"
+            }
+          ]
+        },
+        {
+          "slot_id": "SS-e8493288fe6f562aa13829c26dd6a014",
+          "evidence_set_id": "f129cc63-54af-49c8-8d4f-cd71ae524082",
+          "evidence_item_id": "1d859086-2064-47c4-bdaf-36b9b9855b0c",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI\né inviolável a liberdade de consciência e de crença, sendo assegurado o livre exercício dos cultos religiosos e garantida, na forma da lei, a proteção aos locais de culto e a suas liturgias;",
+              "legal_element_id": "d8fecb82-c4b9-4a06-bc61-0bbd73ddc0b5",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+              "source_locator": {
+                "anchors": [
+                  "art5vi",
+                  "5VI"
+                ],
+                "block_index": 52,
+                "source_line": 429,
+                "tag": "p"
+              },
+              "sha256": "4c14f77190f90878f33596b1c9211ffc91af44a98c82c38007c2f46e00e2792d"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "Art. 5º",
+              "legal_element_id": "b6afbce7-5487-46d6-b476-dd11544fe741",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5",
+              "source_locator": {
+                "anchors": [
+                  "cf-88-parte-1-titulo-2-capitulo-1-artigo-5",
+                  "art5",
+                  "5"
+                ],
+                "block_index": 46,
+                "source_line": 380,
+                "tag": "p"
+              },
+              "sha256": "5024185ffe85d17d0ac358eaceed37cccf30bb34d1534c0ce0a218182501aa32"
+            }
+          ]
+        }
+      ],
+      "manifest_sha256": "9982100e45444105dee75ba471b997af4b14a089dd3cfa8021434362a54b0c7c"
+    }
+  },
+  {
+    "case_id": "rw-idade-presidente",
+    "query": "idade para ser presidente",
+    "expect_answer": true,
+    "retrieval_hit": true,
+    "sufficiency": "SUFFICIENT",
+    "evidence_set_id": "460c71d4-ab70-4b20-93ee-b0300e8bc16c",
+    "items": [
+      {
+        "evidence_item_id": "0a6bd343-a7d0-4e8e-9ad1-19d9ad3f0766",
+        "evidence_code": "EV001",
+        "legal_element_id": "1169e503-e430-4e21-9e7f-c4265a0889fc",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A\ntrinta e cinco anos para Presidente e Vice-Presidente da República e Senador;",
+        "text_sha256": "ded796239f40f8f8dfe459da5e92e4ac4eff24163b03f6f117b66c54ae7deb20",
+        "citation_label": "CF/88, ALINEA a (identidade: CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.09751516070345664,
+          "text_status": "CURRENT",
+          "vector_rank": 37,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A",
+          "lexical_rank": 8,
+          "vector_score": 0.6850980740902707,
+          "lexical_score": 0.20000000298023224,
+          "parent_context": "a idade mínima de:",
+          "contextual_score": 0.09751516070345664,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "a9c8e474-c73f-45cf-b2a0-ccb5979a522a"
+        }
+      },
+      {
+        "evidence_item_id": "3676a50d-9f3f-4746-8182-cd66947491eb",
+        "evidence_code": "EV002",
+        "legal_element_id": "6749f688-1275-4b15-8f5f-617d52d86af3",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:80/CAPUT:@caput\nEm caso de impedimento do Presidente e do Vice-Presidente, ou vacância dos respectivos cargos, serão sucessivamente chamados ao exercício da Presidência o Presidente da Câmara dos Deputados, o do Senado Federal e o do Supremo Tribunal Federal.",
+        "text_sha256": "a506c9afc11e7d52b2ece906a13c68413ad72738a14d7fbfae39210044360ff5",
+        "citation_label": "CF/88, CAPUT (identidade: CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:80/CAPUT:@caput)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.07380085003035823,
+          "text_status": "CURRENT",
+          "vector_rank": 75,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:80/CAPUT:@caput",
+          "lexical_rank": 1,
+          "vector_score": 0.6705294055062285,
+          "lexical_score": 0.4000000059604645,
+          "parent_context": "Art. 80.",
+          "contextual_score": 0.07380085003035823,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "a7b33849-8599-47b3-9c23-7b0fd148076d"
+        }
+      },
+      {
+        "evidence_item_id": "f8eede46-2c7f-4614-8d57-456050e4a714",
+        "evidence_code": "EV003",
+        "legal_element_id": "a880f988-c7aa-4213-90b8-724ebe7bce04",
+        "text_snapshot": "ADCT | ADCT/@root/ARTICLE:13/PARAGRAPH:5\nA Assembléia Estadual Constituinte será instalada no quadragésimo sexto dia da eleição de seus integrantes, mas não antes de 1º de janeiro de 1989, sob a presidência do Presidente do Tribunal Regional Eleitoral do Estado de Goiás, e dará posse, na mesma data, ao Governador e ao Vice-Governador eleitos.",
+        "text_sha256": "d7dacbec3caf6d1864188fe6cced5e8db45a8d03abb00c2e129efd545726b422",
+        "citation_label": "ADCT, PARAGRAPH 5 (identidade: ADCT/@root/ARTICLE:13/PARAGRAPH:5)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "ADCT",
+          "rrf_score": 0.06034382284382284,
+          "text_status": "CURRENT",
+          "vector_rank": 70,
+          "content_role": "NORMATIVE",
+          "identity_key": "ADCT/@root/ARTICLE:13/PARAGRAPH:5",
+          "lexical_rank": 6,
+          "vector_score": 0.6711859882890333,
+          "lexical_score": 0.20000000298023224,
+          "parent_context": "Art. 13.",
+          "contextual_score": 0.06034382284382284,
+          "legal_version_id": "102aa27f-b1e8-40d8-ae98-ed12606aab45",
+          "legal_provision_id": "bc4fc331-af82-47f0-bd77-b432333384af"
+        }
+      }
+    ],
+    "support_slot_manifest": {
+      "query": "idade para ser presidente",
+      "slots": [
+        {
+          "slot_id": "SS-f6abe21d5535535ea76d644c5aad746f",
+          "evidence_set_id": "460c71d4-ab70-4b20-93ee-b0300e8bc16c",
+          "evidence_item_id": "0a6bd343-a7d0-4e8e-9ad1-19d9ad3f0766",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A\ntrinta e cinco anos para Presidente e Vice-Presidente da República e Senador;",
+              "legal_element_id": "1169e503-e430-4e21-9e7f-c4265a0889fc",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A",
+              "source_locator": {
+                "anchors": [
+                  "14§3VIA"
+                ],
+                "block_index": 278,
+                "source_line": 2368,
+                "tag": "p"
+              },
+              "sha256": "ded796239f40f8f8dfe459da5e92e4ac4eff24163b03f6f117b66c54ae7deb20"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "a idade mínima de:",
+              "legal_element_id": "eeefbf56-cc59-4fce-8bb1-fd133669a73d",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI",
+              "source_locator": {
+                "anchors": [
+                  "14§3VI"
+                ],
+                "block_index": 277,
+                "source_line": 2363,
+                "tag": "p"
+              },
+              "sha256": "16703b667fb110e40b4837d265920a27e0d0cc7093cdf2ff5158a1a17cb3efa7"
+            }
+          ]
+        },
+        {
+          "slot_id": "SS-2ae05d0b8c2f500a855f105776d8949e",
+          "evidence_set_id": "460c71d4-ab70-4b20-93ee-b0300e8bc16c",
+          "evidence_item_id": "3676a50d-9f3f-4746-8182-cd66947491eb",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:80/CAPUT:@caput",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:80/CAPUT:@caput\nEm caso de impedimento do Presidente e do Vice-Presidente, ou vacância dos respectivos cargos, serão sucessivamente chamados ao exercício da Presidência o Presidente da Câmara dos Deputados, o do Senado Federal e o do Supremo Tribunal Federal.",
+              "legal_element_id": "6749f688-1275-4b15-8f5f-617d52d86af3",
+              "identity": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:80/CAPUT:@caput",
+              "source_locator": {
+                "anchors": [
+                  "cf-88-parte-1-titulo-4-capitulo-2-secao-1-artigo-80",
+                  "art80",
+                  "80"
+                ],
+                "block_index": 1226,
+                "source_line": 10377,
+                "tag": "p"
+              },
+              "sha256": "a506c9afc11e7d52b2ece906a13c68413ad72738a14d7fbfae39210044360ff5"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "Art. 80.",
+              "legal_element_id": "fb0bb210-ac4a-4f45-82a0-85d9599ecc4b",
+              "identity": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:80",
+              "source_locator": {
+                "anchors": [
+                  "cf-88-parte-1-titulo-4-capitulo-2-secao-1-artigo-80",
+                  "art80",
+                  "80"
+                ],
+                "block_index": 1226,
+                "source_line": 10377,
+                "tag": "p"
+              },
+              "sha256": "7f7313d221b8df766d0711916d04342bf14bead1dca25dfc3d7a72e0ce291d6f"
+            }
+          ]
+        },
+        {
+          "slot_id": "SS-94a7551a22605fdca702caa5e3aa9b92",
+          "evidence_set_id": "460c71d4-ab70-4b20-93ee-b0300e8bc16c",
+          "evidence_item_id": "f8eede46-2c7f-4614-8d57-456050e4a714",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "identity_key": "ADCT/@root/ARTICLE:13/PARAGRAPH:5",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "ADCT | ADCT/@root/ARTICLE:13/PARAGRAPH:5\nA Assembléia Estadual Constituinte será instalada no quadragésimo sexto dia da eleição de seus integrantes, mas não antes de 1º de janeiro de 1989, sob a presidência do Presidente do Tribunal Regional Eleitoral do Estado de Goiás, e dará posse, na mesma data, ao Governador e ao Vice-Governador eleitos.",
+              "legal_element_id": "a880f988-c7aa-4213-90b8-724ebe7bce04",
+              "identity": "ADCT/@root/ARTICLE:13/PARAGRAPH:5",
+              "source_locator": {
+                "anchors": [
+                  "DT13§5"
+                ],
+                "block_index": 3478,
+                "source_line": 30078,
+                "tag": "p"
+              },
+              "sha256": "d7dacbec3caf6d1864188fe6cced5e8db45a8d03abb00c2e129efd545726b422"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "Art. 13.",
+              "legal_element_id": "d270f7e9-9dec-482e-b183-d87c883b864f",
+              "identity": "ADCT/@root/ARTICLE:13",
+              "source_locator": {
+                "anchors": [
+                  "sadctart13",
+                  "adctart13"
+                ],
+                "block_index": 3469,
+                "source_line": 30004,
+                "tag": "p"
+              },
+              "sha256": "8f94401dd7a7eccbc72b7eac5ec8aeadd02a5ae233d74e79d0344eca685c6fa0"
+            }
+          ]
+        }
+      ],
+      "manifest_sha256": "9d2f03bfef43a513fcf3c41d5387e0218402228241513fd381ea90422b257e60"
+    }
+  },
+  {
+    "case_id": "rw-voto-obrigatorio",
+    "query": "voto obrigatório",
+    "expect_answer": true,
+    "retrieval_hit": true,
+    "sufficiency": "SUFFICIENT",
+    "evidence_set_id": "b0cdd9bd-0606-430a-9f2c-dd52e67b3899",
+    "items": [
+      {
+        "evidence_item_id": "49b41a04-6cde-4dae-b446-446280db8bb0",
+        "evidence_code": "EV001",
+        "legal_element_id": "d15298b4-fd72-4cc3-b1ae-23143d6119bc",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I\nobrigatórios para os maiores de dezoito anos;",
+        "text_sha256": "842554298c8c6c4ac4bc1dc4fcf3b237f67e3f71c478e84e3e767f4008bf4fb5",
+        "citation_label": "CF/88, INCISO I (identidade: CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.048888888888888885,
+          "text_status": "CURRENT",
+          "vector_rank": 20,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I",
+          "lexical_rank": 12,
+          "vector_score": 0.6349948266151753,
+          "lexical_score": 0.10000000149011612,
+          "parent_context": "O alistamento eleitoral e o voto são:",
+          "contextual_score": 0.048888888888888885,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "99a39bb3-1969-4acf-8acd-fbd35fe45737"
+        }
+      },
+      {
+        "evidence_item_id": "ba46fe8e-2ceb-460f-ad01-6b25bfea3c4e",
+        "evidence_code": "EV002",
+        "legal_element_id": "1ebdf1f7-beeb-4b4c-aef1-568ce36176e5",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:3/INCISO:I\nobtiverem, nas eleições para a Câmara dos Deputados, no mínimo, 3% (três por cento) dos votos válidos, distribuídos em pelo menos um terço das unidades da Federação, com um mínimo de 2% (dois por cento) dos votos válidos em cada uma delas; ou",
+        "text_sha256": "f28be270f7d2e5ffbcd4b2f14e58255e3ce9ae80e534eefb77420a890852932b",
+        "citation_label": "CF/88, INCISO I (identidade: CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:3/INCISO:I)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.07628726010616578,
+          "text_status": "CURRENT",
+          "vector_rank": 19,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:3/INCISO:I",
+          "lexical_rank": 2,
+          "vector_score": 0.6356310142186253,
+          "lexical_score": 0.20000000298023224,
+          "parent_context": "Somente terão direito a recursos do fundo partidário e acesso gratuito ao rádio e à televisão, na forma da lei, os partidos políticos que alternativamente:",
+          "contextual_score": 0.07628726010616578,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "a48ab3fd-fe5b-41c5-b64b-ceee9bc646cd"
+        }
+      },
+      {
+        "evidence_item_id": "914e4f93-af82-409d-922e-41c055b6b32f",
+        "evidence_code": "EV003",
+        "legal_element_id": "69f9c0cc-f148-4718-adc5-886b8b370946",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/PARAGRAPH:3\nSe nenhum candidato alcançar maioria absoluta na primeira votação, far-se-á nova eleição em até vinte dias após a proclamação do resultado, concorrendo os dois candidatos mais votados e considerando-se eleito aquele que obtiver a maioria dos votos válidos.",
+        "text_sha256": "566c6523832f1f4afcc6135fb2a5db14e6d38e060474bbfbb1ba91438b81332f",
+        "citation_label": "CF/88, PARAGRAPH 3 (identidade: CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/PARAGRAPH:3)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.07305037313432836,
+          "text_status": "CURRENT",
+          "vector_rank": 7,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/PARAGRAPH:3",
+          "lexical_rank": 4,
+          "vector_score": 0.6462547430384772,
+          "lexical_score": 0.20000000298023224,
+          "parent_context": "Art. 77.",
+          "contextual_score": 0.07305037313432836,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "19259fb1-ad79-4f95-8b29-37d803e406ca"
+        }
+      }
+    ],
+    "support_slot_manifest": {
+      "query": "voto obrigatório",
+      "slots": [
+        {
+          "slot_id": "SS-6544c8e9c60b55e195a57708905c4cda",
+          "evidence_set_id": "b0cdd9bd-0606-430a-9f2c-dd52e67b3899",
+          "evidence_item_id": "49b41a04-6cde-4dae-b446-446280db8bb0",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I\nobrigatórios para os maiores de dezoito anos;",
+              "legal_element_id": "d15298b4-fd72-4cc3-b1ae-23143d6119bc",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I",
+              "source_locator": {
+                "anchors": [
+                  "14§1I"
+                ],
+                "block_index": 265,
+                "source_line": 2295,
+                "tag": "p"
+              },
+              "sha256": "842554298c8c6c4ac4bc1dc4fcf3b237f67e3f71c478e84e3e767f4008bf4fb5"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "O alistamento eleitoral e o voto são:",
+              "legal_element_id": "92867dee-aae4-4b0c-9a6d-f8d71991cb73",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1",
+              "source_locator": {
+                "anchors": [
+                  "14§1"
+                ],
+                "block_index": 264,
+                "source_line": 2290,
+                "tag": "p"
+              },
+              "sha256": "ae879b2b32085c7a110c0fba0782c48cbada53b895b583eb9d219ee61d8bf37e"
+            }
+          ]
+        },
+        {
+          "slot_id": "SS-38b83f872df1587bbd96f953b403ab36",
+          "evidence_set_id": "b0cdd9bd-0606-430a-9f2c-dd52e67b3899",
+          "evidence_item_id": "ba46fe8e-2ceb-460f-ad01-6b25bfea3c4e",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:3/INCISO:I",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:3/INCISO:I\nobtiverem, nas eleições para a Câmara dos Deputados, no mínimo, 3% (três por cento) dos votos válidos, distribuídos em pelo menos um terço das unidades da Federação, com um mínimo de 2% (dois por cento) dos votos válidos em cada uma delas; ou",
+              "legal_element_id": "1ebdf1f7-beeb-4b4c-aef1-568ce36176e5",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:3/INCISO:I",
+              "source_locator": {
+                "anchors": [
+                  "art17§3i"
+                ],
+                "block_index": 317,
+                "source_line": 2682,
+                "tag": "p"
+              },
+              "sha256": "f28be270f7d2e5ffbcd4b2f14e58255e3ce9ae80e534eefb77420a890852932b"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "Somente terão direito a recursos do fundo partidário e acesso gratuito ao rádio e à televisão, na forma da lei, os partidos políticos que alternativamente:",
+              "legal_element_id": "8330c6b1-9b7d-41b3-b924-a6f033379aa4",
+              "identity": "CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:3",
+              "source_locator": {
+                "anchors": [
+                  "art17§3"
+                ],
+                "block_index": 316,
+                "source_line": 2672,
+                "tag": "p"
+              },
+              "sha256": "2c63a6611ee265dae97ce98dd89cd5c90e8c9bb9f911d07cc396e3b573dec829"
+            }
+          ]
+        },
+        {
+          "slot_id": "SS-81f1953d55f55947a1358b38e32fab68",
+          "evidence_set_id": "b0cdd9bd-0606-430a-9f2c-dd52e67b3899",
+          "evidence_item_id": "914e4f93-af82-409d-922e-41c055b6b32f",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/PARAGRAPH:3",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/PARAGRAPH:3\nSe nenhum candidato alcançar maioria absoluta na primeira votação, far-se-á nova eleição em até vinte dias após a proclamação do resultado, concorrendo os dois candidatos mais votados e considerando-se eleito aquele que obtiver a maioria dos votos válidos.",
+              "legal_element_id": "69f9c0cc-f148-4718-adc5-886b8b370946",
+              "identity": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/PARAGRAPH:3",
+              "source_locator": {
+                "anchors": [
+                  "art77§3"
+                ],
+                "block_index": 1219,
+                "source_line": 10319,
+                "tag": "p"
+              },
+              "sha256": "566c6523832f1f4afcc6135fb2a5db14e6d38e060474bbfbb1ba91438b81332f"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "Art. 77.",
+              "legal_element_id": "c92ac058-a51d-42d3-bc06-d73a4af9944d",
+              "identity": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77",
+              "source_locator": {
+                "anchors": [
+                  "cf-88-parte-1-titulo-4-capitulo-2-secao-1-artigo-77",
+                  "art77"
+                ],
+                "block_index": 1216,
+                "source_line": 10291,
+                "tag": "p"
+              },
+              "sha256": "86049f0293bdae4255388cf6c8c631c8af2317df2e8925ec497409a82cacc1f4"
+            }
+          ]
+        }
+      ],
+      "manifest_sha256": "f71bcab0569eacf73be89e1994abd21db46b37da8defe1e68d430142aa38a119"
+    }
+  },
+  {
+    "case_id": "rw-estado-sitio",
+    "query": "estado de sítio",
+    "expect_answer": true,
+    "retrieval_hit": false,
+    "sufficiency": "SUFFICIENT",
+    "evidence_set_id": "a690e5a0-15b1-4d70-9958-b2c8d9f2346d",
+    "items": [
+      {
+        "evidence_item_id": "2b8bbed5-5e6c-4ad5-a353-e6ded2bcda64",
+        "evidence_code": "EV001",
+        "legal_element_id": "3a18d4fa-8b5b-4776-9ceb-024ba908cc81",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V\ndecretar o estado de sítio, o estado de defesa e a intervenção federal;",
+        "text_sha256": "b777a591bc6d9f8752b6e000ea80a0df4ce63c5d8392dff652e7452ed7f1bb91",
+        "citation_label": "CF/88, INCISO V (identidade: CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.08154495777446598,
+          "text_status": "CURRENT",
+          "vector_rank": 6,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V",
+          "lexical_rank": 1,
+          "vector_score": 0.6088424091841237,
+          "lexical_score": 1.3000000268220901,
+          "parent_context": "Art. 21.",
+          "contextual_score": 0.08154495777446598,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "cff261fe-4b09-47fa-b0e1-ec8a3d531d52"
+        }
+      },
+      {
+        "evidence_item_id": "9598619d-cdf1-4c31-8174-a21a2eb4d767",
+        "evidence_code": "EV002",
+        "legal_element_id": "9a7bf33b-9650-41a9-a735-858bdea82123",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/PARAGRAPH:ÚNICO\nLogo que cesse o estado de defesa ou o estado de sítio, as medidas aplicadas em sua vigência serão relatadas pelo Presidente da República, em mensagem ao Congresso Nacional, com especificação e justificação das providências adotadas, com relação nominal dos atingidos e indicação das restrições aplicadas.",
+        "text_sha256": "700fdc6a1ca15a91c8f4fc19bd941f1b8e28df1bb10e51e2c5dc25326b7deb69",
+        "citation_label": "CF/88, PARAGRAPH único (identidade: CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/PARAGRAPH:ÚNICO)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.054709507042253525,
+          "text_status": "CURRENT",
+          "vector_rank": 4,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/PARAGRAPH:ÚNICO",
+          "lexical_rank": 11,
+          "vector_score": 0.6256246606445713,
+          "lexical_score": 1.3000000268220901,
+          "parent_context": "Art. 141.",
+          "contextual_score": 0.054709507042253525,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "d7cc2c9f-8d45-41d9-9a24-9b006ae76fae"
+        }
+      },
+      {
+        "evidence_item_id": "6c0d771d-7322-4ec5-a50f-793892489b92",
+        "evidence_code": "EV003",
+        "legal_element_id": "b0457286-8b57-48ff-959a-a9d41dbe889e",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:V/CHAPTER:I\nCAPÍTULO I DO ESTADO DE DEFESA E DO ESTADO DE SÍTIO",
+        "text_sha256": "828e62dae881fc7198b2b5cd82ca386ea346593ccf404cf4d4f3c1e1d7de9882",
+        "citation_label": "CF/88, CHAPTER I (identidade: CF88/@root/TITLE:V/CHAPTER:I)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.0633349146110057,
+          "text_status": "CURRENT",
+          "vector_rank": 2,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:V/CHAPTER:I",
+          "lexical_rank": 8,
+          "vector_score": 0.6577172671387963,
+          "lexical_score": 1.3000000268220901,
+          "parent_context": "TÍTULO V Da Defesa do Estado e Das Instituições Democráticas",
+          "contextual_score": 0.0633349146110057,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "534978c5-b33c-4d30-b1c2-02071511707c"
+        }
+      }
+    ],
+    "support_slot_manifest": {
+      "query": "estado de sítio",
+      "slots": [
+        {
+          "slot_id": "SS-b76291dba81658e8a37214cfe4833735",
+          "evidence_set_id": "a690e5a0-15b1-4d70-9958-b2c8d9f2346d",
+          "evidence_item_id": "2b8bbed5-5e6c-4ad5-a353-e6ded2bcda64",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "identity_key": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V\ndecretar o estado de sítio, o estado de defesa e a intervenção federal;",
+              "legal_element_id": "3a18d4fa-8b5b-4776-9ceb-024ba908cc81",
+              "identity": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V",
+              "source_locator": {
+                "anchors": [
+                  "21V"
+                ],
+                "block_index": 362,
+                "source_line": 3054,
+                "tag": "p"
+              },
+              "sha256": "b777a591bc6d9f8752b6e000ea80a0df4ce63c5d8392dff652e7452ed7f1bb91"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "Art. 21.",
+              "legal_element_id": "3c7963bf-cfd9-4b9f-aaac-5324a6f07a89",
+              "identity": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21",
+              "source_locator": {
+                "anchors": [
+                  "cf-88-parte-1-titulo-3-capitulo-2-artigo-21",
+                  "art21",
+                  "21"
+                ],
+                "block_index": 357,
+                "source_line": 3023,
+                "tag": "p"
+              },
+              "sha256": "1d5c04f1b00c1deea9047f2a5933dc28499ce89825ff4a5cd6c0bc9561039353"
+            }
+          ]
+        },
+        {
+          "slot_id": "SS-acc6197f2204584f9b859053b2e3bb53",
+          "evidence_set_id": "a690e5a0-15b1-4d70-9958-b2c8d9f2346d",
+          "evidence_item_id": "9598619d-cdf1-4c31-8174-a21a2eb4d767",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "identity_key": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/PARAGRAPH:ÚNICO",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/PARAGRAPH:ÚNICO\nLogo que cesse o estado de defesa ou o estado de sítio, as medidas aplicadas em sua vigência serão relatadas pelo Presidente da República, em mensagem ao Congresso Nacional, com especificação e justificação das providências adotadas, com relação nominal dos atingidos e indicação das restrições aplicadas.",
+              "legal_element_id": "9a7bf33b-9650-41a9-a735-858bdea82123",
+              "identity": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/PARAGRAPH:ÚNICO",
+              "source_locator": {
+                "anchors": [
+                  "art141p"
+                ],
+                "block_index": 1975,
+                "source_line": 16986,
+                "tag": "p"
+              },
+              "sha256": "700fdc6a1ca15a91c8f4fc19bd941f1b8e28df1bb10e51e2c5dc25326b7deb69"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "Art. 141.",
+              "legal_element_id": "1af8ae09-e621-4289-89d7-d98f8f597242",
+              "identity": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141",
+              "source_locator": {
+                "anchors": [
+                  "cf-88-parte-1-titulo-5-capitulo-1-secao-3-artigo-141",
+                  "art141"
+                ],
+                "block_index": 1974,
+                "source_line": 16975,
+                "tag": "p"
+              },
+              "sha256": "72d28f15edc842030bd4fa7417326e3a13e483a5a7698a22e2fb6e283d70e9b2"
+            }
+          ]
+        },
+        {
+          "slot_id": "SS-020550688bfa54018756ad333bd86deb",
+          "evidence_set_id": "a690e5a0-15b1-4d70-9958-b2c8d9f2346d",
+          "evidence_item_id": "6c0d771d-7322-4ec5-a50f-793892489b92",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "identity_key": "CF88/@root/TITLE:V/CHAPTER:I",
+          "fragments": [
+            {
+              "role": "TARGET_SNAPSHOT",
+              "text": "CF/88 | CF88/@root/TITLE:V/CHAPTER:I\nCAPÍTULO I DO ESTADO DE DEFESA E DO ESTADO DE SÍTIO",
+              "legal_element_id": "b0457286-8b57-48ff-959a-a9d41dbe889e",
+              "identity": "CF88/@root/TITLE:V/CHAPTER:I",
+              "source_locator": {
+                "anchors": [
+                  "titulovcapituloi"
+                ],
+                "block_index": 1931,
+                "source_line": 16668,
+                "tag": "p"
+              },
+              "sha256": "828e62dae881fc7198b2b5cd82ca386ea346593ccf404cf4d4f3c1e1d7de9882"
+            },
+            {
+              "role": "PARENT_CONTEXT",
+              "text": "TÍTULO V Da Defesa do Estado e Das Instituições Democráticas",
+              "legal_element_id": "37b1fc4f-2d4e-458e-9975-99a0d9a7eb1a",
+              "identity": "CF88/@root/TITLE:V",
+              "source_locator": {
+                "anchors": [
+                  "titulov"
+                ],
+                "block_index": 1929,
+                "source_line": 16648,
+                "tag": "p"
+              },
+              "sha256": "705cf309b5f0b57423e0b56bff13df0399e9512df43cecfe910d13ba5ce79edb"
+            }
+          ]
+        }
+      ],
+      "manifest_sha256": "80d0cece14392d8e1a3331d4ba4564e8153d511d33a324641792c36c912a6f22"
+    }
+  },
+  {
+    "case_id": "rw-aborto",
+    "query": "aborto",
+    "expect_answer": false,
+    "retrieval_hit": null,
+    "sufficiency": "INSUFFICIENT",
+    "evidence_set_id": "f259483c-05d7-42c6-b753-77168b193e56",
+    "items": [
+      {
+        "evidence_item_id": "ed76b642-592f-44c5-b9af-25d86f22ba6b",
+        "evidence_code": "EV001",
+        "legal_element_id": "2e667169-6da2-4dbc-a02a-8a0d6ce4cce5",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:4\nNão será objeto de deliberação a proposta de emenda tendente a abolir:",
+        "text_sha256": "51a725ff7fca4460c70aab081b05afbb92e692ff42e9c5647dfab877b02ffe9c",
+        "citation_label": "CF/88, PARAGRAPH 4 (identidade: CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:4)",
+        "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+        "validation_metadata": {
+          "legal_act": "CF/88",
+          "rrf_score": 0.00639344262295082,
+          "text_status": "CURRENT",
+          "vector_rank": 1,
+          "content_role": "NORMATIVE",
+          "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:4",
+          "lexical_rank": null,
+          "vector_score": 0.5811129212379621,
+          "lexical_score": null,
+          "parent_context": "Art. 60.",
+          "contextual_score": 0.00639344262295082,
+          "legal_version_id": "55e55105-7eef-44dd-b366-e4846a9d828b",
+          "legal_provision_id": "8d3d47cc-773a-4fbf-9fba-980e3c218581"
+        }
+      }
+    ]
+  }
+]

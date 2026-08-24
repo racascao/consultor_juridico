@@ -1,0 +1,1210 @@
+[
+  {
+    "case_id": "rw-pena-morte",
+    "question": "pena de morte",
+    "expect_answer": true,
+    "expected_provisions": [
+      "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A"
+    ],
+    "legacy": {
+      "outcome": "ABSTAINED",
+      "claims": [],
+      "errors": [],
+      "generator_calls": 2,
+      "semantic_calls": 0,
+      "elapsed_seconds": 42.17895206700268
+    },
+    "evidence_bound": {
+      "outcome": "ABSTAINED",
+      "query_scope": "TOPICAL_LIMITED",
+      "answer": "",
+      "claims": [],
+      "errors": [
+        "SS-863137294dcf52648c33ce5a12e93abe: Claim C1: PARTIALLY_SUPPORTED (A evidência citada indica que a pena de morte é proibida em todos os casos, exceto em situações de guerra declarada, conforme o artigo 84, XIX. Isso sustenta parcialmente a afirmação, mas não cobre todas as possíveis exceções ou detalhes que a claim pode estar acrescentando.)",
+        "SS-80e37d296fba57b784a3b699b2525b06: Claim omitiu qualificador material CONDITION presente no slot.",
+        "SS-953ef72fef365b7fbd417c86289d17e3: Claim C3: UNRESOLVED — A evidência contém exceção normativa não refletida explicitamente na claim."
+      ],
+      "diagnostics": [
+        {
+          "slot_id": "SS-863137294dcf52648c33ce5a12e93abe",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "generator_calls": 2,
+          "generated_claim": "A pena de morte é proibida em todos os casos, exceto em situações de guerra declarada, de acordo com o artigo 84, XIX.",
+          "approved": false,
+          "qualifier_status": "PASS",
+          "polarity_status": "CONSISTENT",
+          "semantic_status": "PARTIALLY_SUPPORTED",
+          "errors": [
+            "Claim C1: PARTIALLY_SUPPORTED (A evidência citada indica que a pena de morte é proibida em todos os casos, exceto em situações de guerra declarada, conforme o artigo 84, XIX. Isso sustenta parcialmente a afirmação, mas não cobre todas as possíveis exceções ou detalhes que a claim pode estar acrescentando.)"
+          ]
+        },
+        {
+          "slot_id": "SS-80e37d296fba57b784a3b699b2525b06",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "generator_calls": 2,
+          "generated_claim": "A pensão por morte é concedida de acordo com as leis do respectivo ente federativo, diferenciando-se caso de morte decorrente de agressão no exercício da função.",
+          "approved": false,
+          "qualifier_status": "FAIL",
+          "polarity_status": null,
+          "semantic_status": null,
+          "errors": [
+            "Claim omitiu qualificador material CONDITION presente no slot."
+          ]
+        },
+        {
+          "slot_id": "SS-953ef72fef365b7fbd417c86289d17e3",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "generator_calls": 2,
+          "generated_claim": "A pena de morte é permitida em determinados casos sob a exceção de segurança da sociedade e do Estado.",
+          "approved": false,
+          "qualifier_status": "PASS",
+          "polarity_status": "UNRESOLVED",
+          "semantic_status": null,
+          "errors": [
+            "Claim C3: UNRESOLVED — A evidência contém exceção normativa não refletida explicitamente na claim."
+          ]
+        }
+      ],
+      "generator_calls": 6,
+      "semantic_calls": 2,
+      "elapsed_seconds": 89.7488528449976
+    },
+    "acceptable_provisions": [
+      "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII",
+      "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A"
+    ],
+    "required_concepts": [
+      "pena",
+      "morte"
+    ],
+    "legacy_assessment": {
+      "correct": false,
+      "reason": "FALSE_ABSTENTION",
+      "relevant_bindings": []
+    },
+    "evidence_bound_assessment": {
+      "correct": false,
+      "reason": "FALSE_ABSTENTION",
+      "relevant_bindings": []
+    }
+  },
+  {
+    "case_id": "rw-prisao-perpetua",
+    "question": "prisão perpétua",
+    "expect_answer": true,
+    "expected_provisions": [
+      "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B"
+    ],
+    "legacy": {
+      "outcome": "ABSTAINED",
+      "claims": [],
+      "errors": [
+        "Claim C1 sem atribuição inequívoca."
+      ],
+      "generator_calls": 2,
+      "semantic_calls": 0,
+      "elapsed_seconds": 86.05072252900209
+    },
+    "evidence_bound": {
+      "outcome": "ANSWERED",
+      "query_scope": "TOPICAL_LIMITED",
+      "answer": "Com base exclusivamente nas evidências selecionadas:\n\nA Constituição garante a comunicação imediata da prisão de qualquer pessoa e seu local ao juiz competente e à família ou pessoa indicada pelo preso. [EV001]\n\nOs membros do Congresso Nacional não podem ser presos, exceto em caso de crime inafiançável, quando os autos devem ser remetidos à Casa respectiva dentro de 24 horas para decisão sobre a prisão. [EV003]",
+      "claims": [
+        {
+          "claim_code": "C1",
+          "text": "A Constituição garante a comunicação imediata da prisão de qualquer pessoa e seu local ao juiz competente e à família ou pessoa indicada pelo preso.",
+          "evidence_codes": [
+            "EV001"
+          ]
+        },
+        {
+          "claim_code": "C3",
+          "text": "Os membros do Congresso Nacional não podem ser presos, exceto em caso de crime inafiançável, quando os autos devem ser remetidos à Casa respectiva dentro de 24 horas para decisão sobre a prisão.",
+          "evidence_codes": [
+            "EV003"
+          ]
+        }
+      ],
+      "errors": [
+        "SS-2ef10f3bf9b85d509f79c700f084d8e3: Claim C2: CONTRADICTED — Sinais normativos explícitos da claim contradizem a evidência: proibição versus permissão"
+      ],
+      "diagnostics": [
+        {
+          "slot_id": "SS-87fd35baa3e95c6ca70e23f257befe43",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "generator_calls": 1,
+          "generated_claim": "A Constituição garante a comunicação imediata da prisão de qualquer pessoa e seu local ao juiz competente e à família ou pessoa indicada pelo preso.",
+          "approved": true,
+          "qualifier_status": "PASS",
+          "polarity_status": "UNRESOLVED",
+          "semantic_status": "SUPPORTED",
+          "errors": []
+        },
+        {
+          "slot_id": "SS-2ef10f3bf9b85d509f79c700f084d8e3",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "generator_calls": 2,
+          "generated_claim": "A pena de prisão perpétua está permitida na constituição.",
+          "approved": false,
+          "qualifier_status": "PASS",
+          "polarity_status": "CONTRADICTED",
+          "semantic_status": null,
+          "errors": [
+            "Claim C2: CONTRADICTED — Sinais normativos explícitos da claim contradizem a evidência: proibição versus permissão"
+          ]
+        },
+        {
+          "slot_id": "SS-6f00d9bb2fd85a2eaebfdde394e9d3ee",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "generator_calls": 2,
+          "generated_claim": "Os membros do Congresso Nacional não podem ser presos, exceto em caso de crime inafiançável, quando os autos devem ser remetidos à Casa respectiva dentro de 24 horas para decisão sobre a prisão.",
+          "approved": true,
+          "qualifier_status": "PASS",
+          "polarity_status": "CONSISTENT",
+          "semantic_status": "SUPPORTED",
+          "errors": []
+        }
+      ],
+      "generator_calls": 5,
+      "semantic_calls": 2,
+      "elapsed_seconds": 87.77821456699894
+    },
+    "acceptable_provisions": [],
+    "required_concepts": [
+      "perpétua"
+    ],
+    "legacy_assessment": {
+      "correct": false,
+      "reason": "FALSE_ABSTENTION",
+      "relevant_bindings": []
+    },
+    "evidence_bound_assessment": {
+      "correct": false,
+      "reason": "OFF_TARGET_ANSWER",
+      "relevant_bindings": []
+    }
+  },
+  {
+    "case_id": "rw-liberdade-religiosa",
+    "question": "liberdade religiosa",
+    "expect_answer": true,
+    "expected_provisions": [
+      "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI"
+    ],
+    "legacy": {
+      "outcome": "ANSWERED",
+      "claims": [
+        {
+          "claim_code": "C1",
+          "text": "A liberdade religiosa está garantida pelo Artigo 5º, inciso VI da Constituição Federal de 1988.",
+          "evidence_codes": [
+            "EV001"
+          ]
+        }
+      ],
+      "errors": [],
+      "generator_calls": 1,
+      "semantic_calls": 1,
+      "elapsed_seconds": 59.73585422299948
+    },
+    "evidence_bound": {
+      "outcome": "ANSWERED",
+      "query_scope": "TOPICAL_LIMITED",
+      "answer": "Com base exclusivamente nas evidências selecionadas:\n\nA liberdade de consciência e de crença é inviolável. [EV001]\n\nA liberdade é um dos valores supremos estabelecidos na Constituição Federal de 1988. [EV002]\n\nA Constituição garante a inviolabilidade do direito à vida, à liberdade e à igualdade. [EV003]",
+      "claims": [
+        {
+          "claim_code": "C1",
+          "text": "A liberdade de consciência e de crença é inviolável.",
+          "evidence_codes": [
+            "EV001"
+          ]
+        },
+        {
+          "claim_code": "C2",
+          "text": "A liberdade é um dos valores supremos estabelecidos na Constituição Federal de 1988.",
+          "evidence_codes": [
+            "EV002"
+          ]
+        },
+        {
+          "claim_code": "C3",
+          "text": "A Constituição garante a inviolabilidade do direito à vida, à liberdade e à igualdade.",
+          "evidence_codes": [
+            "EV003"
+          ]
+        }
+      ],
+      "errors": [],
+      "diagnostics": [
+        {
+          "slot_id": "SS-23f649653d315f6faf81d271a2da4f27",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "generator_calls": 1,
+          "generated_claim": "A liberdade de consciência e de crença é inviolável.",
+          "approved": true,
+          "qualifier_status": "PASS",
+          "polarity_status": "CONSISTENT",
+          "semantic_status": "SUPPORTED",
+          "errors": []
+        },
+        {
+          "slot_id": "SS-7de7af7e5ded5601b757a5fdb9f87320",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "generator_calls": 2,
+          "generated_claim": "A liberdade é um dos valores supremos estabelecidos na Constituição Federal de 1988.",
+          "approved": true,
+          "qualifier_status": "PASS",
+          "polarity_status": "UNRESOLVED",
+          "semantic_status": "SUPPORTED",
+          "errors": []
+        },
+        {
+          "slot_id": "SS-4be0847a446c5f7f9811471f98c9af24",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "generator_calls": 1,
+          "generated_claim": "A Constituição garante a inviolabilidade do direito à vida, à liberdade e à igualdade.",
+          "approved": true,
+          "qualifier_status": "PASS",
+          "polarity_status": "CONSISTENT",
+          "semantic_status": "SUPPORTED",
+          "errors": []
+        }
+      ],
+      "generator_calls": 4,
+      "semantic_calls": 4,
+      "elapsed_seconds": 109.59541882600024
+    },
+    "acceptable_provisions": [],
+    "required_concepts": [
+      "liberdade",
+      "religião"
+    ],
+    "legacy_assessment": {
+      "correct": true,
+      "reason": "RELEVANT_GROUNDED_CLAIM",
+      "relevant_bindings": [
+        {
+          "claim_code": "C1",
+          "evidence_code": "EV001",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI"
+        }
+      ]
+    },
+    "evidence_bound_assessment": {
+      "correct": true,
+      "reason": "RELEVANT_GROUNDED_CLAIM",
+      "relevant_bindings": [
+        {
+          "claim_code": "C1",
+          "evidence_code": "EV001",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "rw-racismo",
+    "question": "racismo",
+    "expect_answer": true,
+    "expected_provisions": [
+      "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII"
+    ],
+    "legacy": {
+      "outcome": "ANSWERED",
+      "claims": [
+        {
+          "claim_code": "C1",
+          "text": "O racismo é repudiado pela Constituição Federal de 1988, conforme artigo 4º, inciso VIII.",
+          "evidence_codes": [
+            "EV001"
+          ]
+        },
+        {
+          "claim_code": "C2",
+          "text": "O racismo é considerado um crime inafiançável e imprescritível, sujeito à pena de reclusão, de acordo com artigo 5º, inciso XLII.",
+          "evidence_codes": [
+            "EV002"
+          ]
+        }
+      ],
+      "errors": [],
+      "generator_calls": 1,
+      "semantic_calls": 1,
+      "elapsed_seconds": 68.82113541299987
+    },
+    "evidence_bound": {
+      "outcome": "ANSWERED",
+      "query_scope": "TOPICAL_LIMITED",
+      "answer": "Com base exclusivamente nas evidências selecionadas:\n\nO artigo 4º repudia o terrorismo e o racismo. [EV001]\n\nA prática do racismo é considerada crime inafiançável e imprescritível, sujeito à pena de reclusão, de acordo com o Artigo 5º, Inciso XLII, do texto referenciado. [EV002]",
+      "claims": [
+        {
+          "claim_code": "C1",
+          "text": "O artigo 4º repudia o terrorismo e o racismo.",
+          "evidence_codes": [
+            "EV001"
+          ]
+        },
+        {
+          "claim_code": "C2",
+          "text": "A prática do racismo é considerada crime inafiançável e imprescritível, sujeito à pena de reclusão, de acordo com o Artigo 5º, Inciso XLII, do texto referenciado.",
+          "evidence_codes": [
+            "EV002"
+          ]
+        }
+      ],
+      "errors": [],
+      "diagnostics": [
+        {
+          "slot_id": "SS-e644820622ed597c85390ae2ad142be2",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "generator_calls": 1,
+          "generated_claim": "O artigo 4º repudia o terrorismo e o racismo.",
+          "approved": true,
+          "qualifier_status": "PASS",
+          "polarity_status": "UNRESOLVED",
+          "semantic_status": "SUPPORTED",
+          "errors": []
+        },
+        {
+          "slot_id": "SS-49e7f65ab81a50d29f24b7aa2d970760",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "generator_calls": 1,
+          "generated_claim": "A prática do racismo é considerada crime inafiançável e imprescritível, sujeito à pena de reclusão, de acordo com o Artigo 5º, Inciso XLII, do texto referenciado.",
+          "approved": true,
+          "qualifier_status": "PASS",
+          "polarity_status": "UNRESOLVED",
+          "semantic_status": "SUPPORTED",
+          "errors": []
+        }
+      ],
+      "generator_calls": 2,
+      "semantic_calls": 2,
+      "elapsed_seconds": 52.10416294999959
+    },
+    "acceptable_provisions": [],
+    "required_concepts": [
+      "racismo"
+    ],
+    "legacy_assessment": {
+      "correct": true,
+      "reason": "RELEVANT_GROUNDED_CLAIM",
+      "relevant_bindings": [
+        {
+          "claim_code": "C2",
+          "evidence_code": "EV002",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII"
+        }
+      ]
+    },
+    "evidence_bound_assessment": {
+      "correct": true,
+      "reason": "RELEVANT_GROUNDED_CLAIM",
+      "relevant_bindings": [
+        {
+          "claim_code": "C2",
+          "evidence_code": "EV002",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "rw-extradicao",
+    "question": "extradição",
+    "expect_answer": true,
+    "expected_provisions": [
+      "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI",
+      "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII"
+    ],
+    "legacy": {
+      "outcome": "ANSWERED",
+      "claims": [
+        {
+          "claim_code": "C1",
+          "text": "A extradição não será concedida por crime político ou de opinião, conforme estabelecido no Inciso LII do Artigo 5º da CF/88 (EV001).",
+          "evidence_codes": [
+            "EV001"
+          ]
+        },
+        {
+          "claim_code": "C2",
+          "text": "A emigração e imigração, entrada, extradição e expulsão de estrangeiros estão regulamentadas pela Constituição Federal de 1988 (EV002).",
+          "evidence_codes": [
+            "EV002"
+          ]
+        },
+        {
+          "claim_code": "C3",
+          "text": "Para cidadãos brasileiros, a extradição não será aplicada, exceto para naturalizados, em caso de crime comum praticado antes da naturalização ou envolvimento comprovado em tráfico ilícito de entorpecentes e drogas afins, de acordo com a legislação específica (EV003).",
+          "evidence_codes": [
+            "EV003"
+          ]
+        }
+      ],
+      "errors": [],
+      "generator_calls": 1,
+      "semantic_calls": 1,
+      "elapsed_seconds": 114.38045250899813
+    },
+    "evidence_bound": {
+      "outcome": "ANSWERED",
+      "query_scope": "TOPICAL_LIMITED",
+      "answer": "Com base exclusivamente nas evidências selecionadas:\n\nNão será concedida extradição de estrangeiro por crime político ou de opinião. [EV001]\n\nO artigo 22 do título III, capítulo II, da Lei de Imigração e Extradição abrange a emigração, imigração, entrada, extradição e expulsão de estrangeiros. [EV002]\n\nNenhum brasileiro será extraditado, exceto naturalizados, para crimes comuns ou envolvimento comprovado em tráfico ilícito de entorpecentes e drogas afins, de acordo com a lei. [EV003]",
+      "claims": [
+        {
+          "claim_code": "C1",
+          "text": "Não será concedida extradição de estrangeiro por crime político ou de opinião.",
+          "evidence_codes": [
+            "EV001"
+          ]
+        },
+        {
+          "claim_code": "C2",
+          "text": "O artigo 22 do título III, capítulo II, da Lei de Imigração e Extradição abrange a emigração, imigração, entrada, extradição e expulsão de estrangeiros.",
+          "evidence_codes": [
+            "EV002"
+          ]
+        },
+        {
+          "claim_code": "C3",
+          "text": "Nenhum brasileiro será extraditado, exceto naturalizados, para crimes comuns ou envolvimento comprovado em tráfico ilícito de entorpecentes e drogas afins, de acordo com a lei.",
+          "evidence_codes": [
+            "EV003"
+          ]
+        }
+      ],
+      "errors": [],
+      "diagnostics": [
+        {
+          "slot_id": "SS-b7c87f6e15ac530b8af169ed46f45350",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "generator_calls": 1,
+          "generated_claim": "Não será concedida extradição de estrangeiro por crime político ou de opinião.",
+          "approved": true,
+          "qualifier_status": "PASS",
+          "polarity_status": "CONSISTENT",
+          "semantic_status": "SUPPORTED",
+          "errors": []
+        },
+        {
+          "slot_id": "SS-4ea1ccdf378353b9870b3069880bbdf8",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "generator_calls": 1,
+          "generated_claim": "O artigo 22 do título III, capítulo II, da Lei de Imigração e Extradição abrange a emigração, imigração, entrada, extradição e expulsão de estrangeiros.",
+          "approved": true,
+          "qualifier_status": "PASS",
+          "polarity_status": "UNRESOLVED",
+          "semantic_status": "SUPPORTED",
+          "errors": []
+        },
+        {
+          "slot_id": "SS-5aab297d31845dbdacf5014e18618c5c",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "generator_calls": 2,
+          "generated_claim": "Nenhum brasileiro será extraditado, exceto naturalizados, para crimes comuns ou envolvimento comprovado em tráfico ilícito de entorpecentes e drogas afins, de acordo com a lei.",
+          "approved": true,
+          "qualifier_status": "PASS",
+          "polarity_status": "CONSISTENT",
+          "semantic_status": "SUPPORTED",
+          "errors": []
+        }
+      ],
+      "generator_calls": 4,
+      "semantic_calls": 3,
+      "elapsed_seconds": 101.4135349140015
+    },
+    "acceptable_provisions": [
+      "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI"
+    ],
+    "required_concepts": [
+      "extradição"
+    ],
+    "legacy_assessment": {
+      "correct": true,
+      "reason": "RELEVANT_GROUNDED_CLAIM",
+      "relevant_bindings": [
+        {
+          "claim_code": "C1",
+          "evidence_code": "EV001",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII"
+        },
+        {
+          "claim_code": "C3",
+          "evidence_code": "EV003",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI"
+        }
+      ]
+    },
+    "evidence_bound_assessment": {
+      "correct": true,
+      "reason": "RELEVANT_GROUNDED_CLAIM",
+      "relevant_bindings": [
+        {
+          "claim_code": "C1",
+          "evidence_code": "EV001",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII"
+        },
+        {
+          "claim_code": "C3",
+          "evidence_code": "EV003",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "rw-direito-vida",
+    "question": "direito à vida",
+    "expect_answer": true,
+    "expected_provisions": [
+      "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput"
+    ],
+    "legacy": {
+      "outcome": "ANSWERED",
+      "claims": [
+        {
+          "claim_code": "C1",
+          "text": "O direito à vida é garantido pelo Artigo 5º, caput, da Constituição Federal de 1988.",
+          "evidence_codes": [
+            "EV001"
+          ]
+        },
+        {
+          "claim_code": "C2",
+          "text": "O Artigo 230, caput, reconhece o dever da sociedade e do Estado de garantir o direito à vida às pessoas idosas.",
+          "evidence_codes": [
+            "EV002"
+          ]
+        },
+        {
+          "claim_code": "C3",
+          "text": "O Artigo 227, caput, estabelece que é o dever da família, da sociedade e do Estado assegurar o direito à vida, saúde, alimentação, educação, entre outros direitos, a crianças, adolescentes e jovens.",
+          "evidence_codes": [
+            "EV003"
+          ]
+        }
+      ],
+      "errors": [],
+      "generator_calls": 1,
+      "semantic_calls": 1,
+      "elapsed_seconds": 132.00497350599835
+    },
+    "evidence_bound": {
+      "outcome": "ANSWERED",
+      "query_scope": "TOPICAL_LIMITED",
+      "answer": "Com base exclusivamente nas evidências selecionadas:\n\nO direito à vida é garantido pela Constituição Federal brasileira. [EV001]",
+      "claims": [
+        {
+          "claim_code": "C1",
+          "text": "O direito à vida é garantido pela Constituição Federal brasileira.",
+          "evidence_codes": [
+            "EV001"
+          ]
+        }
+      ],
+      "errors": [
+        "SS-c446487690005cc5b59639f65737d9a3: Claim C2: UNRESOLVED — Os sinais normativos não são comparáveis com segurança.",
+        "SS-b5de8907082a5dd3890926423f7c80a1: Claim omitiu qualificador material EXCEPTION presente no slot."
+      ],
+      "diagnostics": [
+        {
+          "slot_id": "SS-be05d08e181a51d089a9e330d5c9b99a",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "generator_calls": 1,
+          "generated_claim": "O direito à vida é garantido pela Constituição Federal brasileira.",
+          "approved": true,
+          "qualifier_status": "PASS",
+          "polarity_status": "CONSISTENT",
+          "semantic_status": "SUPPORTED",
+          "errors": []
+        },
+        {
+          "slot_id": "SS-c446487690005cc5b59639f65737d9a3",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "generator_calls": 2,
+          "generated_claim": "O Artigo 230 reconhece o direito à vida das pessoas idosas.",
+          "approved": false,
+          "qualifier_status": "PASS",
+          "polarity_status": "UNRESOLVED",
+          "semantic_status": null,
+          "errors": [
+            "Claim C2: UNRESOLVED — Os sinais normativos não são comparáveis com segurança."
+          ]
+        },
+        {
+          "slot_id": "SS-b5de8907082a5dd3890926423f7c80a1",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "generator_calls": 2,
+          "generated_claim": "O direito à vida é prioridade assinada para crianças, adolescentes e jovens pelo direito constitucional mencionado.",
+          "approved": false,
+          "qualifier_status": "FAIL",
+          "polarity_status": null,
+          "semantic_status": null,
+          "errors": [
+            "Claim omitiu qualificador material EXCEPTION presente no slot."
+          ]
+        }
+      ],
+      "generator_calls": 5,
+      "semantic_calls": 1,
+      "elapsed_seconds": 53.797331625999504
+    },
+    "acceptable_provisions": [],
+    "required_concepts": [
+      "vida"
+    ],
+    "legacy_assessment": {
+      "correct": true,
+      "reason": "RELEVANT_GROUNDED_CLAIM",
+      "relevant_bindings": [
+        {
+          "claim_code": "C1",
+          "evidence_code": "EV001",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput"
+        }
+      ]
+    },
+    "evidence_bound_assessment": {
+      "correct": true,
+      "reason": "RELEVANT_GROUNDED_CLAIM",
+      "relevant_bindings": [
+        {
+          "claim_code": "C1",
+          "evidence_code": "EV001",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "rw-liberdade-expressao",
+    "question": "liberdade de expressão",
+    "expect_answer": true,
+    "expected_provisions": [
+      "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IV"
+    ],
+    "legacy": {
+      "outcome": "ABSTAINED",
+      "claims": [],
+      "errors": [
+        "Claim C1 sem atribuição inequívoca."
+      ],
+      "generator_calls": 2,
+      "semantic_calls": 0,
+      "elapsed_seconds": 52.25413637499878
+    },
+    "evidence_bound": {
+      "outcome": "ANSWERED",
+      "query_scope": "TOPICAL_LIMITED",
+      "answer": "Com base exclusivamente nas evidências selecionadas:\n\nA Constituição Federal de 1988 reconhece a liberdade de expressão como um direito social e individual. [EV001]\n\nA expressão da atividade intelectual, artística, científica e de comunicação é livre, independentemente de censura ou licença. [EV002]\n\nA liberdade de consciência e de crença é inviolável. [EV003]",
+      "claims": [
+        {
+          "claim_code": "C1",
+          "text": "A Constituição Federal de 1988 reconhece a liberdade de expressão como um direito social e individual.",
+          "evidence_codes": [
+            "EV001"
+          ]
+        },
+        {
+          "claim_code": "C2",
+          "text": "A expressão da atividade intelectual, artística, científica e de comunicação é livre, independentemente de censura ou licença.",
+          "evidence_codes": [
+            "EV002"
+          ]
+        },
+        {
+          "claim_code": "C3",
+          "text": "A liberdade de consciência e de crença é inviolável.",
+          "evidence_codes": [
+            "EV003"
+          ]
+        }
+      ],
+      "errors": [],
+      "diagnostics": [
+        {
+          "slot_id": "SS-a8e5315f8c8e53bd84ae08554b23eceb",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "generator_calls": 1,
+          "generated_claim": "A Constituição Federal de 1988 reconhece a liberdade de expressão como um direito social e individual.",
+          "approved": true,
+          "qualifier_status": "PASS",
+          "polarity_status": "UNRESOLVED",
+          "semantic_status": "SUPPORTED",
+          "errors": []
+        },
+        {
+          "slot_id": "SS-ba786963fb2e5bee8f77d0cbed78c9d4",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "generator_calls": 1,
+          "generated_claim": "A expressão da atividade intelectual, artística, científica e de comunicação é livre, independentemente de censura ou licença.",
+          "approved": true,
+          "qualifier_status": "PASS",
+          "polarity_status": "UNRESOLVED",
+          "semantic_status": "SUPPORTED",
+          "errors": []
+        },
+        {
+          "slot_id": "SS-e8493288fe6f562aa13829c26dd6a014",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "generator_calls": 1,
+          "generated_claim": "A liberdade de consciência e de crença é inviolável.",
+          "approved": true,
+          "qualifier_status": "PASS",
+          "polarity_status": "CONSISTENT",
+          "semantic_status": "SUPPORTED",
+          "errors": []
+        }
+      ],
+      "generator_calls": 3,
+      "semantic_calls": 3,
+      "elapsed_seconds": 82.90229824699782
+    },
+    "acceptable_provisions": [
+      "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IV",
+      "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX",
+      "CF88/@root/TITLE:VIII/CHAPTER:V/ARTICLE:220/CAPUT:@caput"
+    ],
+    "required_concepts": [
+      "expressão"
+    ],
+    "legacy_assessment": {
+      "correct": false,
+      "reason": "FALSE_ABSTENTION",
+      "relevant_bindings": []
+    },
+    "evidence_bound_assessment": {
+      "correct": true,
+      "reason": "RELEVANT_GROUNDED_CLAIM",
+      "relevant_bindings": [
+        {
+          "claim_code": "C2",
+          "evidence_code": "EV002",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "rw-idade-presidente",
+    "question": "idade para ser presidente",
+    "expect_answer": true,
+    "expected_provisions": [
+      "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A"
+    ],
+    "legacy": {
+      "outcome": "ANSWERED",
+      "claims": [
+        {
+          "claim_code": "C1",
+          "text": "A idade mínima para ser Presidente e Vice-Presidente da República e Senador é de trinta e cinco anos, conforme Artigo 14, Inciso VI, Aliná A da Constituição Federal de 1988 (EV001).",
+          "evidence_codes": [
+            "EV001"
+          ]
+        }
+      ],
+      "errors": [],
+      "generator_calls": 1,
+      "semantic_calls": 1,
+      "elapsed_seconds": 49.174081686000136
+    },
+    "evidence_bound": {
+      "outcome": "ANSWERED",
+      "query_scope": "TOPICAL_LIMITED",
+      "answer": "Com base exclusivamente nas evidências selecionadas:\n\nA idade mínima para ser Presidente da República é de trinta e cinco anos. [EV001]",
+      "claims": [
+        {
+          "claim_code": "C1",
+          "text": "A idade mínima para ser Presidente da República é de trinta e cinco anos.",
+          "evidence_codes": [
+            "EV001"
+          ]
+        }
+      ],
+      "errors": [
+        "SS-2ae05d0b8c2f500a855f105776d8949e: Resposta scoped abstida não pode conter claim.",
+        "SS-94a7551a22605fdca702caa5e3aa9b92: Claim C3: UNSUPPORTED (A evidência fornecida (Art. 13) não especifica a idade mínima necessária para se tornar presidente. Ela apenas descreve a instalação da Assembléia Estadual Constituinte e a posse do Governador e Vice-Governador eleitos.)"
+      ],
+      "diagnostics": [
+        {
+          "slot_id": "SS-f6abe21d5535535ea76d644c5aad746f",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "generator_calls": 1,
+          "generated_claim": "A idade mínima para ser Presidente da República é de trinta e cinco anos.",
+          "approved": true,
+          "qualifier_status": "PASS",
+          "polarity_status": "UNRESOLVED",
+          "semantic_status": "SUPPORTED",
+          "errors": []
+        },
+        {
+          "slot_id": "SS-2ae05d0b8c2f500a855f105776d8949e",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "generator_calls": 2,
+          "generated_claim": null,
+          "approved": false,
+          "qualifier_status": null,
+          "polarity_status": null,
+          "semantic_status": null,
+          "errors": [
+            "Resposta scoped abstida não pode conter claim."
+          ]
+        },
+        {
+          "slot_id": "SS-94a7551a22605fdca702caa5e3aa9b92",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "generator_calls": 2,
+          "generated_claim": "A idade mínima para ser presidente não está especificada nos fragmentos fornecidos.",
+          "approved": false,
+          "qualifier_status": "PASS",
+          "polarity_status": "CONSISTENT",
+          "semantic_status": "UNSUPPORTED",
+          "errors": [
+            "Claim C3: UNSUPPORTED (A evidência fornecida (Art. 13) não especifica a idade mínima necessária para se tornar presidente. Ela apenas descreve a instalação da Assembléia Estadual Constituinte e a posse do Governador e Vice-Governador eleitos.)"
+          ]
+        }
+      ],
+      "generator_calls": 5,
+      "semantic_calls": 2,
+      "elapsed_seconds": 64.49710765000054
+    },
+    "acceptable_provisions": [],
+    "required_concepts": [
+      "idade",
+      "presidente"
+    ],
+    "legacy_assessment": {
+      "correct": true,
+      "reason": "RELEVANT_GROUNDED_CLAIM",
+      "relevant_bindings": [
+        {
+          "claim_code": "C1",
+          "evidence_code": "EV001",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A"
+        }
+      ]
+    },
+    "evidence_bound_assessment": {
+      "correct": true,
+      "reason": "RELEVANT_GROUNDED_CLAIM",
+      "relevant_bindings": [
+        {
+          "claim_code": "C1",
+          "evidence_code": "EV001",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "rw-voto-obrigatorio",
+    "question": "voto obrigatório",
+    "expect_answer": true,
+    "expected_provisions": [
+      "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I/ALINEA:A",
+      "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput"
+    ],
+    "legacy": {
+      "outcome": "ANSWERED",
+      "claims": [
+        {
+          "claim_code": "C1",
+          "text": "O voto é obrigatório para os maiores de dezoito anos, conforme estabelecido na Constituição Federal de 1988, Artigo 14, Inciso I.",
+          "evidence_codes": [
+            "EV001",
+            "EV002"
+          ]
+        }
+      ],
+      "errors": [],
+      "generator_calls": 1,
+      "semantic_calls": 1,
+      "elapsed_seconds": 51.905559239003196
+    },
+    "evidence_bound": {
+      "outcome": "ANSWERED",
+      "query_scope": "TOPICAL_LIMITED",
+      "answer": "Com base exclusivamente nas evidências selecionadas:\n\nO voto é obrigatório para os maiores de dezoito anos. [EV001]",
+      "claims": [
+        {
+          "claim_code": "C1",
+          "text": "O voto é obrigatório para os maiores de dezoito anos.",
+          "evidence_codes": [
+            "EV001"
+          ]
+        }
+      ],
+      "errors": [
+        "SS-38b83f872df1587bbd96f953b403ab36: Claim omitiu qualificador material LIMITATION presente no slot.",
+        "SS-81f1953d55f55947a1358b38e32fab68: Claim C3: UNSUPPORTED (O artigo 77 da Constituição Federal de 1988 trata sobre a realização de novas eleições em caso de empate, mas não aborda a questão de se o voto é opcional ou obrigatório para cidadãos brasileiros elegíveis. Portanto, a evidência citada não sustenta a afirmação material da claim C3.)"
+      ],
+      "diagnostics": [
+        {
+          "slot_id": "SS-6544c8e9c60b55e195a57708905c4cda",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "generator_calls": 1,
+          "generated_claim": "O voto é obrigatório para os maiores de dezoito anos.",
+          "approved": true,
+          "qualifier_status": "PASS",
+          "polarity_status": "CONSISTENT",
+          "semantic_status": "SUPPORTED",
+          "errors": []
+        },
+        {
+          "slot_id": "SS-38b83f872df1587bbd96f953b403ab36",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "generator_calls": 2,
+          "generated_claim": "O voto obrigatório não está previsto na constituição brasileira.",
+          "approved": false,
+          "qualifier_status": "FAIL",
+          "polarity_status": null,
+          "semantic_status": null,
+          "errors": [
+            "Claim omitiu qualificador material LIMITATION presente no slot."
+          ]
+        },
+        {
+          "slot_id": "SS-81f1953d55f55947a1358b38e32fab68",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "generator_calls": 2,
+          "generated_claim": "O voto é opcional e não obrigatório para todos os cidadãos brasileiros elegíveis, conforme estabelecido na Constituição Federal de 1988.",
+          "approved": false,
+          "qualifier_status": "PASS",
+          "polarity_status": "UNRESOLVED",
+          "semantic_status": "UNSUPPORTED",
+          "errors": [
+            "Claim C3: UNSUPPORTED (O artigo 77 da Constituição Federal de 1988 trata sobre a realização de novas eleições em caso de empate, mas não aborda a questão de se o voto é opcional ou obrigatório para cidadãos brasileiros elegíveis. Portanto, a evidência citada não sustenta a afirmação material da claim C3.)"
+          ]
+        }
+      ],
+      "generator_calls": 5,
+      "semantic_calls": 3,
+      "elapsed_seconds": 90.66665762100092
+    },
+    "acceptable_provisions": [
+      "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput",
+      "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I/ALINEA:A"
+    ],
+    "required_concepts": [
+      "voto"
+    ],
+    "legacy_assessment": {
+      "correct": true,
+      "reason": "RELEVANT_GROUNDED_CLAIM",
+      "relevant_bindings": [
+        {
+          "claim_code": "C1",
+          "evidence_code": "EV001",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I"
+        }
+      ]
+    },
+    "evidence_bound_assessment": {
+      "correct": true,
+      "reason": "RELEVANT_GROUNDED_CLAIM",
+      "relevant_bindings": [
+        {
+          "claim_code": "C1",
+          "evidence_code": "EV001",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "rw-estado-sitio",
+    "question": "estado de sítio",
+    "expect_answer": true,
+    "expected_provisions": [
+      "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II/ARTICLE:137/CAPUT:@caput"
+    ],
+    "legacy": {
+      "outcome": "ABSTAINED",
+      "claims": [],
+      "errors": [],
+      "generator_calls": 2,
+      "semantic_calls": 0,
+      "elapsed_seconds": 63.083310787998926
+    },
+    "evidence_bound": {
+      "outcome": "ANSWERED",
+      "query_scope": "TOPICAL_LIMITED",
+      "answer": "Com base exclusivamente nas evidências selecionadas:\n\nO Congresso pode declarar o estado de sítio, o estado de defesa e a intervenção federal. [EV001]\n\nApós o término do estado de defesa ou de sítio, o Presidente da República deve informar ao Congresso Nacional sobre as medidas adotadas durante esse período, incluindo a especificação e justificação dessas medidas, os afetados e as restrições aplicadas. [EV002]\n\nO Estado de Sítio é regulamentado em um capítulo específico do título V, que aborda a Defesa do Estado e as Instituições Democráticas. [EV003]",
+      "claims": [
+        {
+          "claim_code": "C1",
+          "text": "O Congresso pode declarar o estado de sítio, o estado de defesa e a intervenção federal.",
+          "evidence_codes": [
+            "EV001"
+          ]
+        },
+        {
+          "claim_code": "C2",
+          "text": "Após o término do estado de defesa ou de sítio, o Presidente da República deve informar ao Congresso Nacional sobre as medidas adotadas durante esse período, incluindo a especificação e justificação dessas medidas, os afetados e as restrições aplicadas.",
+          "evidence_codes": [
+            "EV002"
+          ]
+        },
+        {
+          "claim_code": "C3",
+          "text": "O Estado de Sítio é regulamentado em um capítulo específico do título V, que aborda a Defesa do Estado e as Instituições Democráticas.",
+          "evidence_codes": [
+            "EV003"
+          ]
+        }
+      ],
+      "errors": [],
+      "diagnostics": [
+        {
+          "slot_id": "SS-b76291dba81658e8a37214cfe4833735",
+          "evidence_codes": [
+            "EV001"
+          ],
+          "generator_calls": 1,
+          "generated_claim": "O Congresso pode declarar o estado de sítio, o estado de defesa e a intervenção federal.",
+          "approved": true,
+          "qualifier_status": "PASS",
+          "polarity_status": "UNRESOLVED",
+          "semantic_status": "SUPPORTED",
+          "errors": []
+        },
+        {
+          "slot_id": "SS-acc6197f2204584f9b859053b2e3bb53",
+          "evidence_codes": [
+            "EV002"
+          ],
+          "generator_calls": 1,
+          "generated_claim": "Após o término do estado de defesa ou de sítio, o Presidente da República deve informar ao Congresso Nacional sobre as medidas adotadas durante esse período, incluindo a especificação e justificação dessas medidas, os afetados e as restrições aplicadas.",
+          "approved": true,
+          "qualifier_status": "PASS",
+          "polarity_status": "UNRESOLVED",
+          "semantic_status": "SUPPORTED",
+          "errors": []
+        },
+        {
+          "slot_id": "SS-020550688bfa54018756ad333bd86deb",
+          "evidence_codes": [
+            "EV003"
+          ],
+          "generator_calls": 1,
+          "generated_claim": "O Estado de Sítio é regulamentado em um capítulo específico do título V, que aborda a Defesa do Estado e as Instituições Democráticas.",
+          "approved": true,
+          "qualifier_status": "PASS",
+          "polarity_status": "UNRESOLVED",
+          "semantic_status": "SUPPORTED",
+          "errors": []
+        }
+      ],
+      "generator_calls": 3,
+      "semantic_calls": 3,
+      "elapsed_seconds": 88.69765196499793
+    },
+    "acceptable_provisions": [
+      "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II/ARTICLE:137/CAPUT:@caput",
+      "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:138/CAPUT:@caput"
+    ],
+    "required_concepts": [
+      "sítio"
+    ],
+    "legacy_assessment": {
+      "correct": false,
+      "reason": "FALSE_ABSTENTION",
+      "relevant_bindings": []
+    },
+    "evidence_bound_assessment": {
+      "correct": false,
+      "reason": "OFF_TARGET_ANSWER",
+      "relevant_bindings": []
+    }
+  },
+  {
+    "case_id": "rw-aborto",
+    "question": "aborto",
+    "expect_answer": false,
+    "expected_provisions": [],
+    "legacy": {
+      "outcome": "ABSTAINED",
+      "claims": [],
+      "errors": [
+        "INSUFFICIENT_EVIDENCE"
+      ],
+      "generator_calls": 0,
+      "semantic_calls": 0,
+      "elapsed_seconds": 0.0
+    },
+    "evidence_bound": {
+      "outcome": "ABSTAINED",
+      "claims": [],
+      "errors": [
+        "INSUFFICIENT_EVIDENCE"
+      ],
+      "generator_calls": 0,
+      "semantic_calls": 0,
+      "elapsed_seconds": 0.0
+    },
+    "acceptable_provisions": [],
+    "required_concepts": [],
+    "legacy_assessment": {
+      "correct": true,
+      "reason": "EXPECTED_ABSTENTION",
+      "relevant_bindings": []
+    },
+    "evidence_bound_assessment": {
+      "correct": true,
+      "reason": "EXPECTED_ABSTENTION",
+      "relevant_bindings": []
+    }
+  }
+]

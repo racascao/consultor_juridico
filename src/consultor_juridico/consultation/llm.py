@@ -1,13 +1,19 @@
 """Geração estruturada e local via Ollama."""
 
 import json
+import re
 from copy import deepcopy
 from typing import Any
 
 import httpx
 
 from consultor_juridico.consultation.errors import LLMResponseError
-from consultor_juridico.consultation.types import GeneratedClaim, GeneratedResponse
+from consultor_juridico.consultation.support_slots import SupportSlot
+from consultor_juridico.consultation.types import (
+    GeneratedClaim,
+    GeneratedResponse,
+    ScopedGeneration,
+)
 from consultor_juridico.models import EvidenceItem
 
 SYSTEM_PROMPT = """Você é um consultor da Constituição Federal de 1988 e do ADCT.
@@ -47,6 +53,26 @@ RESPONSE_SCHEMA: dict[str, Any] = {
     "required": ["answer", "abstain", "claims"],
     "additionalProperties": False,
 }
+
+SCOPED_SYSTEM_PROMPT = """Você interpreta um único conjunto fechado de fragmentos
+constitucionais verificáveis. Use SOMENTE esses fragmentos e a pergunta.
+Produza no máximo uma claim curta, atômica e integralmente sustentada.
+Não acrescente fatos, autoridades ou referências externas.
+Preserve qualquer exceção, condição ou limitação material presente.
+Não escolha nem mencione slot, evidence ID ou citation ID.
+Se o slot não sustentar diretamente uma claim útil, use abstain=true.
+Responda somente no JSON solicitado, em português, sem markdown."""
+
+SCOPED_RESPONSE_SCHEMA: dict[str, Any] = {
+    "type": "object",
+    "properties": {
+        "claim": {"type": "string", "maxLength": 500},
+        "abstain": {"type": "boolean"},
+    },
+    "required": ["claim", "abstain"],
+    "additionalProperties": False,
+}
+SCOPED_BINDING_RE = re.compile(r"\bEV\d{3,}\b|\bSS-[0-9a-f-]+\b", re.IGNORECASE)
 
 
 class OllamaLegalGenerator:
@@ -88,6 +114,38 @@ class OllamaLegalGenerator:
             raise LLMResponseError(f"Resposta inválida do Ollama: {exc}") from exc
 
         return parse_generated_response(payload)
+
+    def generate_scoped(
+        self,
+        question: str,
+        slot: SupportSlot,
+        *,
+        correction: tuple[str, ...] = (),
+    ) -> ScopedGeneration:
+        prompt = build_scoped_prompt(question, slot, correction=correction)
+        try:
+            response = httpx.post(
+                f"{self.base_url}/api/chat",
+                json={
+                    "model": self.model,
+                    "stream": False,
+                    "format": SCOPED_RESPONSE_SCHEMA,
+                    "messages": [
+                        {"role": "system", "content": SCOPED_SYSTEM_PROMPT},
+                        {"role": "user", "content": prompt},
+                    ],
+                    "options": {"temperature": 0, "num_predict": self.max_tokens},
+                },
+                timeout=self.timeout,
+            )
+            response.raise_for_status()
+            content = response.json()["message"]["content"]
+            payload = json.loads(content)
+        except (httpx.HTTPError, KeyError, TypeError, ValueError) as exc:
+            raise LLMResponseError(
+                f"Resposta scoped inválida do Ollama: {exc}"
+            ) from exc
+        return parse_scoped_generation(payload)
 
 
 def response_schema(evidence_items: tuple[EvidenceItem, ...]) -> dict[str, Any]:
@@ -134,6 +192,39 @@ def build_evidence_prompt(
     )
 
 
+def build_scoped_prompt(
+    question: str,
+    slot: SupportSlot,
+    *,
+    correction: tuple[str, ...] = (),
+) -> str:
+    blocks = []
+    for fragment in slot.fragments:
+        label = (
+            "TRECHO ALVO"
+            if fragment.role.value == "TARGET_SNAPSHOT"
+            else "CONTEXTO ESTRUTURAL PAI"
+        )
+        blocks.append(f"{label}:\n{fragment.text}")
+    correction_text = ""
+    if correction:
+        safe_corrections = tuple(
+            SCOPED_BINDING_RE.sub("[IDENTIFICADOR REDIGIDO]", item)
+            for item in correction
+        )
+        correction_text = (
+            "\nA saída anterior foi recusada:\n- "
+            + "\n- ".join(safe_corrections)
+            + "\nCorrija sem ampliar o conteúdo dos fragmentos."
+        )
+    return (
+        f"PERGUNTA:\n{question}\n\nFRAGMENTOS AUTORIZADOS:\n"
+        + "\n\n".join(blocks)
+        + correction_text
+        + "\n\nProduza somente claim e abstain."
+    )
+
+
 def parse_generated_response(payload: object) -> GeneratedResponse:
     if not isinstance(payload, dict):
         raise LLMResponseError("O JSON raiz deve ser um objeto.")
@@ -161,3 +252,19 @@ def parse_generated_response(payload: object) -> GeneratedResponse:
             raise LLMResponseError("evidence_ids inválidos.")
         claims.append(GeneratedClaim(code, text, tuple(evidence_ids)))
     return GeneratedResponse(answer=answer, claims=tuple(claims), abstain=abstain)
+
+
+def parse_scoped_generation(payload: object) -> ScopedGeneration:
+    if not isinstance(payload, dict) or set(payload) != {"claim", "abstain"}:
+        raise LLMResponseError("Contrato scoped deve conter apenas claim e abstain.")
+    claim = payload.get("claim")
+    abstain = payload.get("abstain")
+    if not isinstance(claim, str) or not isinstance(abstain, bool):
+        raise LLMResponseError("claim/abstain scoped possuem tipos inválidos.")
+    if abstain and claim.strip():
+        raise LLMResponseError("Resposta scoped abstida não pode conter claim.")
+    if not abstain and not claim.strip():
+        raise LLMResponseError("Resposta scoped não abstida exige claim.")
+    if SCOPED_BINDING_RE.search(claim):
+        raise LLMResponseError("Claim scoped não pode mencionar binding interno.")
+    return ScopedGeneration(claim=claim.strip(), abstain=abstain)

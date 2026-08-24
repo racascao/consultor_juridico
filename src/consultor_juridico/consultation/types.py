@@ -25,6 +25,48 @@ class GeneratedResponse:
 
 
 @dataclass(frozen=True, slots=True)
+class ScopedGeneration:
+    claim: str
+    abstain: bool
+
+
+class AttributionMode(StrEnum):
+    SIMPLE = "SIMPLE"
+    CLAUSE = "CLAUSE"
+
+
+class AttributionStatus(StrEnum):
+    ATTRIBUTED = "ATTRIBUTED"
+    UNRESOLVED = "UNRESOLVED"
+
+
+@dataclass(frozen=True, slots=True)
+class ClaimClause:
+    index: int
+    text: str
+    start: int
+    end: int
+
+
+@dataclass(frozen=True, slots=True)
+class ClauseAttribution:
+    clause: ClaimClause
+    evidence_codes: tuple[str, ...]
+    score: float
+    reason: str
+
+
+@dataclass(frozen=True, slots=True)
+class ClaimAttributionDiagnostic:
+    claim_code: str
+    mode: AttributionMode
+    status: AttributionStatus
+    clauses: tuple[ClauseAttribution, ...]
+    evidence_codes: tuple[str, ...]
+    reason: str
+
+
+@dataclass(frozen=True, slots=True)
 class ValidationReport:
     is_valid: bool
     errors: tuple[str, ...]
@@ -108,3 +150,4 @@ class ConsultationResult:
     validation_errors: tuple[str, ...] = ()
     sufficiency: SufficiencyReport | None = None
     semantic_support: SemanticSupportReport | None = None
+    attribution_diagnostics: tuple[ClaimAttributionDiagnostic, ...] = ()

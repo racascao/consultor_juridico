@@ -1,0 +1,25 @@
+{
+  "phase": "11.1",
+  "status": "PASS",
+  "suite": {
+    "command": "uv run pytest -q",
+    "passed": 323,
+    "skipped": 5
+  },
+  "controls": [
+    "inversão de prisão perpétua",
+    "voto facultativo diante de obrigatoriedade",
+    "permissão versus proibição",
+    "pena de morte com exceção material",
+    "claim composta parcialmente sustentada",
+    "evidência apenas temática",
+    "Evidence ID inexistente",
+    "pergunta fora do corpus",
+    "aborto",
+    "contrato e citação inválidos"
+  ],
+  "unsafe_answers": 0,
+  "invalid_citation_chains": 0,
+  "marginal_selection_deterministic": true,
+  "clause_attribution_deterministic": true
+}

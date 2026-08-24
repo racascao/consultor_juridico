@@ -161,7 +161,9 @@ def parse_semantic_support(
         claim.claim_code: set(claim.evidence_codes) for claim in response.claims
     }
     claim_text = {claim.claim_code: claim.text for claim in response.claims}
-    evidence_text = {item.evidence_code: item.text_snapshot for item in items}
+    evidence_text = {
+        item.evidence_code: _authorized_evidence_text(item) for item in items
+    }
     available = {item.evidence_code for item in items}
     parsed: list[ClaimSupport] = []
     try:
@@ -220,3 +222,13 @@ def _has_lexical_anchor(claim: str, evidence: tuple[str, ...]) -> bool:
         if token not in SEMANTIC_STOPWORDS
     }
     return bool(claim_tokens.intersection(evidence_tokens))
+
+
+def _authorized_evidence_text(item: EvidenceItem) -> str:
+    metadata = getattr(item, "validation_metadata", None) or {}
+    parent = metadata.get("parent_context")
+    return " ".join(
+        part
+        for part in (item.text_snapshot, parent)
+        if isinstance(part, str) and part.strip()
+    )

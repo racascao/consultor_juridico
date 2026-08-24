@@ -1,0 +1,26 @@
+{
+  "phase": "12",
+  "gate": "PASS",
+  "unsafe_acceptance": 0,
+  "controls": [
+    {"name": "claim_extrapolates_slot", "status": "PASS"},
+    {"name": "claim_contradicts_slot", "status": "PASS"},
+    {"name": "thematic_but_unsupported_claim", "status": "PASS"},
+    {"name": "material_exception_omitted", "status": "PASS"},
+    {"name": "material_condition_omitted", "status": "PASS"},
+    {"name": "correct_slot_incorrect_claim", "status": "PASS"},
+    {"name": "tampered_parent_context", "status": "PASS"},
+    {"name": "foreign_parent_context", "status": "PASS"},
+    {"name": "invalid_fragment_hash", "status": "PASS"},
+    {"name": "external_evidence", "status": "PASS"},
+    {"name": "unknown_evidence_id", "status": "PASS"},
+    {"name": "perpetual_sentence_polarity_inversion", "status": "PASS"},
+    {"name": "optional_vote_against_mandatory_evidence", "status": "PASS"},
+    {"name": "permission_vs_prohibition", "status": "PASS"},
+    {"name": "abortion_outside_corpus", "status": "PASS"},
+    {"name": "out_of_corpus_question", "status": "PASS"},
+    {"name": "generator_outputs_evidence_id", "status": "PASS"},
+    {"name": "invalid_scoped_contract", "status": "PASS"}
+  ],
+  "note": "O gate isolado passa; a avaliação de produto permanece bloqueada por respostas off-target."
+}

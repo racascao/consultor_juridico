@@ -1,0 +1,1244 @@
+{
+  "phase": "semantic_core_relevance_offline_88",
+  "source_artifacts": {
+    "relevance_86": "evaluation/results/relevance_core_86.json",
+    "vcsa_87": "evaluation/results/vcsa_87.json"
+  },
+  "production_integration": "NOT_ENABLED",
+  "retrieval_calls": 0,
+  "generator_calls": 0,
+  "semantic_validator_calls": 0,
+  "embedding_model": "nomic-embed-text",
+  "llm_judge_model": null,
+  "embedding_thresholds": {
+    "irrelevant_at_or_below": 0.7971201725857744,
+    "relevant_at_or_above": 0.7184553088706965,
+    "separable": false,
+    "method": "min_positive_vs_max_negative_controls_v1"
+  },
+  "embedding_control_distribution": {
+    "TRUE_BUT_IRRELEVANT": 0.3616591833018475,
+    "SUPPORTED_BUT_OFF_TARGET": 0.5430573830078902,
+    "WRONG_LEGAL_ACTOR": 0.7726496660980432,
+    "RELATED_PROVISION_WRONG_ANSWER": 0.7072675202416528,
+    "AUXILIARY_FACT_WITHOUT_CORE_ANSWER": 0.6705152837079166,
+    "PARTIAL_TRUE_ANSWER_TO_BINARY_QUERY": 0.7184553088706965,
+    "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION": 0.7971201725857744,
+    "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE": 0.7746643857234486,
+    "SEMANTICALLY_CLOSE_BUT_IRRELEVANT": 0.5345195813591322,
+    "VALID_PARAPHRASE": 0.9447184815575166,
+    "MORPHOLOGICAL_VARIATION": 0.8157471775217631,
+    "VALID_ALTERNATIVE_WORDING": 0.7579390861985906
+  },
+  "strategies": {
+    "LEXICAL_BASELINE": {
+      "status": "COMPLETED",
+      "rows": [
+        {
+          "name": "TRUE_BUT_IRRELEVANT",
+          "query": "licença parental",
+          "assertion": "A administração deve publicar seus gastos trimestralmente.",
+          "expected": "IRRELEVANT",
+          "decision": {
+            "status": "IRRELEVANT",
+            "reason": "A claim e seus fragmentos autorizados não cobrem todos os termos materiais da pergunta.",
+            "latency_ms": 0.06373400174197741,
+            "score": null,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "SUPPORTED_BUT_OFF_TARGET",
+          "query": "requisitos de idade para candidatura",
+          "assertion": "O órgão eleitoral divulgará o calendário das eleições.",
+          "expected": "IRRELEVANT",
+          "decision": {
+            "status": "IRRELEVANT",
+            "reason": "A claim e seus fragmentos autorizados não cobrem todos os termos materiais da pergunta.",
+            "latency_ms": 0.022459997126134112,
+            "score": null,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "WRONG_LEGAL_ACTOR",
+          "query": "o presidente autoriza a medida",
+          "assertion": "O tribunal autoriza a medida.",
+          "expected": "IRRELEVANT",
+          "decision": {
+            "status": "IRRELEVANT",
+            "reason": "A claim e seus fragmentos autorizados não cobrem todos os termos materiais da pergunta.",
+            "latency_ms": 0.01270900247618556,
+            "score": null,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "RELATED_PROVISION_WRONG_ANSWER",
+          "query": "qual é o prazo de 30 dias para recurso",
+          "assertion": "O recurso é apresentado perante a autoridade competente.",
+          "expected": "IRRELEVANT",
+          "decision": {
+            "status": "IRRELEVANT",
+            "reason": "A claim e seus fragmentos autorizados não cobrem todos os termos materiais da pergunta.",
+            "latency_ms": 0.018008999177254736,
+            "score": null,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+          "query": "a medida é obrigatória ou facultativa",
+          "assertion": "A medida será registrada em relatório anual.",
+          "expected": "IRRELEVANT",
+          "decision": {
+            "status": "IRRELEVANT",
+            "reason": "A claim e seus fragmentos autorizados não cobrem todos os termos materiais da pergunta.",
+            "latency_ms": 0.015925001207506284,
+            "score": null,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "PARTIAL_TRUE_ANSWER_TO_BINARY_QUERY",
+          "query": "a medida é sempre permitida",
+          "assertion": "A medida é permitida em situação excepcional.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "IRRELEVANT",
+            "reason": "A claim e seus fragmentos autorizados não cobrem todos os termos materiais da pergunta.",
+            "latency_ms": 0.014311997801996768,
+            "score": null,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+          "query": "quem deve prestar contas",
+          "assertion": "A prestação de contas deve ser publicada.",
+          "expected": "IRRELEVANT",
+          "decision": {
+            "status": "IRRELEVANT",
+            "reason": "A claim e seus fragmentos autorizados não cobrem todos os termos materiais da pergunta.",
+            "latency_ms": 0.01430300108040683,
+            "score": null,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+          "query": "a inscrição é obrigatória",
+          "assertion": "A inscrição é facultativa.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "IRRELEVANT",
+            "reason": "A claim e seus fragmentos autorizados não cobrem todos os termos materiais da pergunta.",
+            "latency_ms": 0.009712999599287286,
+            "score": null,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "SEMANTICALLY_CLOSE_BUT_IRRELEVANT",
+          "query": "proteção à moradia",
+          "assertion": "O Estado promoverá programas de transporte urbano.",
+          "expected": "IRRELEVANT",
+          "decision": {
+            "status": "IRRELEVANT",
+            "reason": "A claim e seus fragmentos autorizados não cobrem todos os termos materiais da pergunta.",
+            "latency_ms": 0.014159002603264526,
+            "score": null,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "VALID_PARAPHRASE",
+          "query": "a inscrição é obrigatória",
+          "assertion": "É obrigatório efetuar a inscrição.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A claim e os fragmentos autorizados cobrem a proposição material da pergunta sem veto forte.",
+            "latency_ms": 0.03159600237268023,
+            "score": null,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "MORPHOLOGICAL_VARIATION",
+          "query": "direitos trabalhistas",
+          "assertion": "Os trabalhadores têm direito às garantias laborais previstas.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "IRRELEVANT",
+            "reason": "A claim e seus fragmentos autorizados não cobrem todos os termos materiais da pergunta.",
+            "latency_ms": 0.014815999747952446,
+            "score": null,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "VALID_ALTERNATIVE_WORDING",
+          "query": "quem pode apresentar recurso",
+          "assertion": "A parte interessada está autorizada a interpor o recurso.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "IRRELEVANT",
+            "reason": "A claim e seus fragmentos autorizados não cobrem todos os termos materiais da pergunta.",
+            "latency_ms": 0.014655997802037746,
+            "score": null,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "rw-liberdade-religiosa",
+          "query": "liberdade religiosa",
+          "assertion": "A liberdade de consciência e de crença é inviolável.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "IRRELEVANT",
+            "reason": "A claim e seus fragmentos autorizados não cobrem todos os termos materiais da pergunta.",
+            "latency_ms": 0.012405998859321699,
+            "score": null,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "rw-racismo",
+          "query": "racismo",
+          "assertion": "O artigo 4º repudia o terrorismo e o racismo.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A claim e os fragmentos autorizados cobrem a proposição material da pergunta sem veto forte.",
+            "latency_ms": 0.024758999643381685,
+            "score": null,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "rw-extradicao",
+          "query": "extradição",
+          "assertion": "Não será concedida extradição de estrangeiro por crime político ou de opinião.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A claim e os fragmentos autorizados cobrem a proposição material da pergunta sem veto forte.",
+            "latency_ms": 0.03697200008900836,
+            "score": null,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "rw-direito-vida",
+          "query": "direito à vida",
+          "assertion": "O direito à vida é garantido pela Constituição Federal brasileira.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A claim e os fragmentos autorizados cobrem a proposição material da pergunta sem veto forte.",
+            "latency_ms": 0.029668000934179872,
+            "score": null,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "rw-liberdade-expressao",
+          "query": "liberdade de expressão",
+          "assertion": "A Constituição Federal de 1988 reconhece a liberdade de expressão como um direito social e individual.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A claim e os fragmentos autorizados cobrem a proposição material da pergunta sem veto forte.",
+            "latency_ms": 0.03967600059695542,
+            "score": null,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "rw-idade-presidente",
+          "query": "idade para ser presidente",
+          "assertion": "A idade mínima para ser Presidente da República é de trinta e cinco anos.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A claim e os fragmentos autorizados cobrem a proposição material da pergunta sem veto forte.",
+            "latency_ms": 0.036665998777607456,
+            "score": null,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "rw-voto-obrigatorio",
+          "query": "voto obrigatório",
+          "assertion": "O voto é obrigatório para os maiores de dezoito anos.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A claim e os fragmentos autorizados cobrem a proposição material da pergunta sem veto forte.",
+            "latency_ms": 0.025673998607089743,
+            "score": null,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "rw-pena-morte",
+          "query": "pena de morte",
+          "assertion": "não haverá penas: de morte, salvo em caso de guerra declarada, nos termos do art. 84, XIX;",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A claim e os fragmentos autorizados cobrem a proposição material da pergunta sem veto forte.",
+            "latency_ms": 0.04128900036448613,
+            "score": null,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "rw-prisao-perpetua",
+          "query": "prisão perpétua",
+          "assertion": "não haverá penas: de caráter perpétuo;",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "IRRELEVANT",
+            "reason": "A claim e seus fragmentos autorizados não cobrem todos os termos materiais da pergunta.",
+            "latency_ms": 0.012464999599615112,
+            "score": null,
+            "raw_response": null
+          }
+        }
+      ],
+      "metrics": {
+        "relevant_true_positives": 8,
+        "irrelevant_true_negatives": 7,
+        "unresolved": 0,
+        "false_relevant": 0,
+        "false_irrelevant": 6,
+        "average_latency_ms": 0.024093666676587116
+      }
+    },
+    "EMBEDDING_RELEVANCE": {
+      "status": "COMPLETED",
+      "rows": [
+        {
+          "name": "TRUE_BUT_IRRELEVANT",
+          "query": "licença parental",
+          "assertion": "A administração deve publicar seus gastos trimestralmente.",
+          "expected": "IRRELEVANT",
+          "decision": {
+            "status": "UNRESOLVED",
+            "reason": "Os controles não produziram separação segura para congelar thresholds.",
+            "latency_ms": 597.1668849997513,
+            "score": 0.3616591833018475,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "SUPPORTED_BUT_OFF_TARGET",
+          "query": "requisitos de idade para candidatura",
+          "assertion": "O órgão eleitoral divulgará o calendário das eleições.",
+          "expected": "IRRELEVANT",
+          "decision": {
+            "status": "UNRESOLVED",
+            "reason": "Os controles não produziram separação segura para congelar thresholds.",
+            "latency_ms": 69.14173499899334,
+            "score": 0.5430573830078902,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "WRONG_LEGAL_ACTOR",
+          "query": "o presidente autoriza a medida",
+          "assertion": "O tribunal autoriza a medida.",
+          "expected": "IRRELEVANT",
+          "decision": {
+            "status": "UNRESOLVED",
+            "reason": "Os controles não produziram separação segura para congelar thresholds.",
+            "latency_ms": 57.85069199919235,
+            "score": 0.7726496660980432,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "RELATED_PROVISION_WRONG_ANSWER",
+          "query": "qual é o prazo de 30 dias para recurso",
+          "assertion": "O recurso é apresentado perante a autoridade competente.",
+          "expected": "IRRELEVANT",
+          "decision": {
+            "status": "UNRESOLVED",
+            "reason": "Os controles não produziram separação segura para congelar thresholds.",
+            "latency_ms": 70.26649200270185,
+            "score": 0.7072675202416528,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+          "query": "a medida é obrigatória ou facultativa",
+          "assertion": "A medida será registrada em relatório anual.",
+          "expected": "IRRELEVANT",
+          "decision": {
+            "status": "UNRESOLVED",
+            "reason": "Os controles não produziram separação segura para congelar thresholds.",
+            "latency_ms": 66.13074700362631,
+            "score": 0.6705152837079166,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "PARTIAL_TRUE_ANSWER_TO_BINARY_QUERY",
+          "query": "a medida é sempre permitida",
+          "assertion": "A medida é permitida em situação excepcional.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "UNRESOLVED",
+            "reason": "Os controles não produziram separação segura para congelar thresholds.",
+            "latency_ms": 61.41798099997686,
+            "score": 0.7184553088706965,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+          "query": "quem deve prestar contas",
+          "assertion": "A prestação de contas deve ser publicada.",
+          "expected": "IRRELEVANT",
+          "decision": {
+            "status": "UNRESOLVED",
+            "reason": "Os controles não produziram separação segura para congelar thresholds.",
+            "latency_ms": 61.297650001506554,
+            "score": 0.7971201725857744,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+          "query": "a inscrição é obrigatória",
+          "assertion": "A inscrição é facultativa.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "UNRESOLVED",
+            "reason": "Os controles não produziram separação segura para congelar thresholds.",
+            "latency_ms": 64.4686380001076,
+            "score": 0.7746643857234486,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "SEMANTICALLY_CLOSE_BUT_IRRELEVANT",
+          "query": "proteção à moradia",
+          "assertion": "O Estado promoverá programas de transporte urbano.",
+          "expected": "IRRELEVANT",
+          "decision": {
+            "status": "UNRESOLVED",
+            "reason": "Os controles não produziram separação segura para congelar thresholds.",
+            "latency_ms": 57.55070599843748,
+            "score": 0.5345195813591322,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "VALID_PARAPHRASE",
+          "query": "a inscrição é obrigatória",
+          "assertion": "É obrigatório efetuar a inscrição.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "UNRESOLVED",
+            "reason": "Os controles não produziram separação segura para congelar thresholds.",
+            "latency_ms": 61.19317499906174,
+            "score": 0.9447184815575166,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "MORPHOLOGICAL_VARIATION",
+          "query": "direitos trabalhistas",
+          "assertion": "Os trabalhadores têm direito às garantias laborais previstas.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "UNRESOLVED",
+            "reason": "Os controles não produziram separação segura para congelar thresholds.",
+            "latency_ms": 68.96597000013571,
+            "score": 0.8157471775217631,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "VALID_ALTERNATIVE_WORDING",
+          "query": "quem pode apresentar recurso",
+          "assertion": "A parte interessada está autorizada a interpor o recurso.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "UNRESOLVED",
+            "reason": "Os controles não produziram separação segura para congelar thresholds.",
+            "latency_ms": 64.47608799862792,
+            "score": 0.7579390861985906,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "rw-liberdade-religiosa",
+          "query": "liberdade religiosa",
+          "assertion": "A liberdade de consciência e de crença é inviolável.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "UNRESOLVED",
+            "reason": "Os controles não produziram separação segura para congelar thresholds.",
+            "latency_ms": 66.15155100007541,
+            "score": 0.7392951251240523,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "rw-racismo",
+          "query": "racismo",
+          "assertion": "O artigo 4º repudia o terrorismo e o racismo.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "UNRESOLVED",
+            "reason": "Os controles não produziram separação segura para congelar thresholds.",
+            "latency_ms": 57.637579997390276,
+            "score": 0.6878503163878517,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "rw-extradicao",
+          "query": "extradição",
+          "assertion": "Não será concedida extradição de estrangeiro por crime político ou de opinião.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "UNRESOLVED",
+            "reason": "Os controles não produziram separação segura para congelar thresholds.",
+            "latency_ms": 68.48261800041655,
+            "score": 0.7472857960399348,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "rw-direito-vida",
+          "query": "direito à vida",
+          "assertion": "O direito à vida é garantido pela Constituição Federal brasileira.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "UNRESOLVED",
+            "reason": "Os controles não produziram separação segura para congelar thresholds.",
+            "latency_ms": 66.55794700054685,
+            "score": 0.805468136800717,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "rw-liberdade-expressao",
+          "query": "liberdade de expressão",
+          "assertion": "A Constituição Federal de 1988 reconhece a liberdade de expressão como um direito social e individual.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "UNRESOLVED",
+            "reason": "Os controles não produziram separação segura para congelar thresholds.",
+            "latency_ms": 74.42628799981321,
+            "score": 0.7335111610992584,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "rw-idade-presidente",
+          "query": "idade para ser presidente",
+          "assertion": "A idade mínima para ser Presidente da República é de trinta e cinco anos.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "UNRESOLVED",
+            "reason": "Os controles não produziram separação segura para congelar thresholds.",
+            "latency_ms": 69.23232799817924,
+            "score": 0.7911612615300024,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "rw-voto-obrigatorio",
+          "query": "voto obrigatório",
+          "assertion": "O voto é obrigatório para os maiores de dezoito anos.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "UNRESOLVED",
+            "reason": "Os controles não produziram separação segura para congelar thresholds.",
+            "latency_ms": 64.43627599946922,
+            "score": 0.7855634563542839,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "rw-pena-morte",
+          "query": "pena de morte",
+          "assertion": "não haverá penas: de morte, salvo em caso de guerra declarada, nos termos do art. 84, XIX;",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "UNRESOLVED",
+            "reason": "Os controles não produziram separação segura para congelar thresholds.",
+            "latency_ms": 75.63848300196696,
+            "score": 0.6776363190463771,
+            "raw_response": null
+          }
+        },
+        {
+          "name": "rw-prisao-perpetua",
+          "query": "prisão perpétua",
+          "assertion": "não haverá penas: de caráter perpétuo;",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "UNRESOLVED",
+            "reason": "Os controles não produziram separação segura para congelar thresholds.",
+            "latency_ms": 60.79174300248269,
+            "score": 0.7461163067749547,
+            "raw_response": null
+          }
+        }
+      ],
+      "metrics": {
+        "relevant_true_positives": 0,
+        "irrelevant_true_negatives": 0,
+        "unresolved": 21,
+        "false_relevant": 0,
+        "false_irrelevant": 0,
+        "average_latency_ms": 90.63245585725997
+      }
+    },
+    "LLM_RELEVANCE_JUDGE": {
+      "status": "COMPLETED",
+      "rows": [
+        {
+          "name": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+          "query": "a medida é obrigatória ou facultativa",
+          "assertion": "A medida será registrada em relatório anual.",
+          "expected": "IRRELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A assertion indica que a medida será registrada em um relatório anual, sugerindo um processo de registro obrigatório ou padrão, o que implica que a medida não é apenas facultativa.",
+            "latency_ms": 8001.874524001323,
+            "score": null,
+            "raw_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-24T21:40:55.201608665Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\"status\": \"RELEVANT\", \"reason\": \"A assertion indica que a medida será registrada em um relatório anual, sugerindo um processo de registro obrigatório ou padrão, o que implica que a medida não é apenas facultativa.\"}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 7980644672,
+              "load_duration": 74431473,
+              "prompt_eval_count": 303,
+              "prompt_eval_duration": 768582000,
+              "eval_count": 55,
+              "eval_duration": 7132839000
+            }
+          }
+        },
+        {
+          "name": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+          "query": "a inscrição é obrigatória",
+          "assertion": "A inscrição é facultativa.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "IRRELEVANT",
+            "reason": "A assertion trata de um contrário à proposição principal (obrigatória vs facultativa), mas não responde diretamente à pergunta de forma simétrica.",
+            "latency_ms": 7519.39209199918,
+            "score": null,
+            "raw_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-24T21:42:07.761275991Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\"status\": \"IRRELEVANT\", \"reason\": \"A assertion trata de um contrário à proposição principal (obrigatória vs facultativa), mas não responde diretamente à pergunta de forma simétrica.\"}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 7497973024,
+              "load_duration": 73063055,
+              "prompt_eval_count": 299,
+              "prompt_eval_duration": 793614000,
+              "eval_count": 51,
+              "eval_duration": 6627090000
+            }
+          }
+        },
+        {
+          "name": "MORPHOLOGICAL_VARIATION",
+          "query": "direitos trabalhistas",
+          "assertion": "Os trabalhadores têm direito às garantias laborais previstas.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A assertion 'Os trabalhadores têm direito às garantias laborais previstas.' aborda diretamente o tema dos direitos trabalhistas, indicando que há um direito constitucional ou legalmente reconhecido para que os trabalhadores tenham acesso às garantias laborais estabelecidas.",
+            "latency_ms": 11843.857407999167,
+            "score": null,
+            "raw_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-24T21:42:59.056917961Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"status\": \"RELEVANT\",\n  \"reason\": \"A assertion 'Os trabalhadores têm direito às garantias laborais previstas.' aborda diretamente o tema dos direitos trabalhistas, indicando que há um direito constitucional ou legalmente reconhecido para que os trabalhadores tenham acesso às garantias laborais estabelecidas.\"\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 11822246788,
+              "load_duration": 80443616,
+              "prompt_eval_count": 303,
+              "prompt_eval_duration": 789836000,
+              "eval_count": 83,
+              "eval_duration": 10947243000
+            }
+          }
+        },
+        {
+          "name": "PARTIAL_TRUE_ANSWER_TO_BINARY_QUERY",
+          "query": "a medida é sempre permitida",
+          "assertion": "A medida é permitida em situação excepcional.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A assertion responde diretamente à questão de saber se a medida é sempre permitida, indicando que é permita em situação excepcional, o que aborda diretamente a pergunta principal.",
+            "latency_ms": 8655.46858900052,
+            "score": null,
+            "raw_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-24T21:41:11.420612507Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"status\": \"RELEVANT\",\n  \"reason\": \"A assertion responde diretamente à questão de saber se a medida é sempre permitida, indicando que é permita em situação excepcional, o que aborda diretamente a pergunta principal.\"\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 8633801715,
+              "load_duration": 90607863,
+              "prompt_eval_count": 301,
+              "prompt_eval_duration": 726159000,
+              "eval_count": 60,
+              "eval_duration": 7812099000
+            }
+          }
+        },
+        {
+          "name": "RELATED_PROVISION_WRONG_ANSWER",
+          "query": "qual é o prazo de 30 dias para recurso",
+          "assertion": "O recurso é apresentado perante a autoridade competente.",
+          "expected": "IRRELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A assertion trata diretamente do conceito de recurso sendo apresentado perante a autoridade competente, o que está relacionado ao prazo de 30 dias para recurso.",
+            "latency_ms": 7928.947860000335,
+            "score": null,
+            "raw_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-24T21:40:38.707580148Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\"status\": \"RELEVANT\", \"reason\": \"A assertion trata diretamente do conceito de recurso sendo apresentado perante a autoridade competente, o que está relacionado ao prazo de 30 dias para recurso.\"}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 7907347311,
+              "load_duration": 82009187,
+              "prompt_eval_count": 309,
+              "prompt_eval_duration": 859327000,
+              "eval_count": 53,
+              "eval_duration": 6962340000
+            }
+          }
+        },
+        {
+          "name": "SEMANTICALLY_CLOSE_BUT_IRRELEVANT",
+          "query": "proteção à moradia",
+          "assertion": "O Estado promoverá programas de transporte urbano.",
+          "expected": "IRRELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A assertion trata do tema de proteção à moradia ao promover programas de transporte urbano, que podem ter um impacto direto na acessibilidade e sustentabilidade da moradia.",
+            "latency_ms": 8193.905027997971,
+            "score": null,
+            "raw_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-24T21:42:24.074704634Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"status\": \"RELEVANT\",\n  \"reason\": \"A assertion trata do tema de proteção à moradia ao promover programas de transporte urbano, que podem ter um impacto direto na acessibilidade e sustentabilidade da moradia.\"\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 8171403724,
+              "load_duration": 83845285,
+              "prompt_eval_count": 300,
+              "prompt_eval_duration": 827007000,
+              "eval_count": 56,
+              "eval_duration": 7255973000
+            }
+          }
+        },
+        {
+          "name": "SUPPORTED_BUT_OFF_TARGET",
+          "query": "requisitos de idade para candidatura",
+          "assertion": "O órgão eleitoral divulgará o calendário das eleições.",
+          "expected": "IRRELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A assertion sobre o órgão eleitoral divulgar o calendário das eleições está relacionada ao processo de eleição, que inclui os requisitos de idade para candidatura, pois o calendário determina quando as pessoas podem se candidatar e se apresentar para o voto.",
+            "latency_ms": 11325.35130299948,
+            "score": null,
+            "raw_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-24T21:40:05.994878581Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"status\": \"RELEVANT\",\n  \"reason\": \"A assertion sobre o órgão eleitoral divulgar o calendário das eleições está relacionada ao processo de eleição, que inclui os requisitos de idade para candidatura, pois o calendário determina quando as pessoas podem se candidatar e se apresentar para o voto.\"\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 11294397252,
+              "load_duration": 74992369,
+              "prompt_eval_count": 309,
+              "prompt_eval_duration": 856107000,
+              "eval_count": 79,
+              "eval_duration": 10358714000
+            }
+          }
+        },
+        {
+          "name": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+          "query": "quem deve prestar contas",
+          "assertion": "A prestação de contas deve ser publicada.",
+          "expected": "IRRELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A assertion responde diretamente à questão de quem deve prestar contas, indicando que a prestação de contas deve ser pública.",
+            "latency_ms": 7009.76317399909,
+            "score": null,
+            "raw_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-24T21:41:46.64440872Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"status\": \"RELEVANT\",\n  \"reason\": \"A assertion responde diretamente à questão de quem deve prestar contas, indicando que a prestação de contas deve ser pública.\"\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 6988382506,
+              "load_duration": 74457595,
+              "prompt_eval_count": 301,
+              "prompt_eval_duration": 832199000,
+              "eval_count": 47,
+              "eval_duration": 6077326000
+            }
+          }
+        },
+        {
+          "name": "TRUE_BUT_IRRELEVANT",
+          "query": "licença parental",
+          "assertion": "A administração deve publicar seus gastos trimestralmente.",
+          "expected": "IRRELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A assertion trata de uma obrigação de administração (publicar gastos trimestralmente), que está diretamente relacionada ao conceito de licença parental em termos de gerenciamento e transparência de recursos, mesmo que não aborde diretamente o direito ou processo de licença parental.",
+            "latency_ms": 18028.85155399781,
+            "score": null,
+            "raw_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-24T21:39:40.935035681Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"status\": \"RELEVANT\",\n  \"reason\": \"A assertion trata de uma obrigação de administração (publicar gastos trimestralmente), que está diretamente relacionada ao conceito de licença parental em termos de gerenciamento e transparência de recursos, mesmo que não aborde diretamente o direito ou processo de licença parental.\"\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 17994776849,
+              "load_duration": 3371070503,
+              "prompt_eval_count": 300,
+              "prompt_eval_duration": 3891308000,
+              "eval_count": 81,
+              "eval_duration": 10727554000
+            }
+          }
+        },
+        {
+          "name": "VALID_ALTERNATIVE_WORDING",
+          "query": "quem pode apresentar recurso",
+          "assertion": "A parte interessada está autorizada a interpor o recurso.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A assertion responde diretamente à pergunta sobre quem pode apresentar recurso, identificando a autorização da parte interessada.",
+            "latency_ms": 6288.336842000717,
+            "score": null,
+            "raw_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-24T21:43:13.592365953Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\"status\": \"RELEVANT\", \"reason\": \"A assertion responde diretamente à pergunta sobre quem pode apresentar recurso, identificando a autorização da parte interessada.\"}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 6266593203,
+              "load_duration": 71933778,
+              "prompt_eval_count": 304,
+              "prompt_eval_duration": 811816000,
+              "eval_count": 42,
+              "eval_duration": 5378797000
+            }
+          }
+        },
+        {
+          "name": "VALID_PARAPHRASE",
+          "query": "a inscrição é obrigatória",
+          "assertion": "É obrigatório efetuar a inscrição.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A assertion responde diretamente à questão de se a inscrição é obrigatória, confirmando que há uma obrigatoriedade associada.",
+            "latency_ms": 7135.143793999305,
+            "score": null,
+            "raw_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-24T21:42:39.087386343Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\"status\": \"RELEVANT\", \"reason\": \"A assertion responde diretamente à questão de se a inscrição é obrigatória, confirmando que há uma obrigatoriedade associada.\"}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 7113722843,
+              "load_duration": 75067542,
+              "prompt_eval_count": 302,
+              "prompt_eval_duration": 827956000,
+              "eval_count": 45,
+              "eval_duration": 6206973000
+            }
+          }
+        },
+        {
+          "name": "WRONG_LEGAL_ACTOR",
+          "query": "o presidente autoriza a medida",
+          "assertion": "O tribunal autoriza a medida.",
+          "expected": "IRRELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A assertion responde diretamente à proposta principal da query, embora indique uma autoridade diferente (tribunal em vez de presidente).",
+            "latency_ms": 6924.118412000098,
+            "score": null,
+            "raw_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-24T21:40:21.162763743Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"status\": \"RELEVANT\",\n  \"reason\": \"A assertion responde diretamente à proposta principal da query, embora indique uma autoridade diferente (tribunal em vez de presidente).\"\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 6902511504,
+              "load_duration": 69378185,
+              "prompt_eval_count": 296,
+              "prompt_eval_duration": 753285000,
+              "eval_count": 47,
+              "eval_duration": 6076315000
+            }
+          }
+        },
+        {
+          "name": "rw-direito-vida",
+          "query": "direito à vida",
+          "assertion": "O direito à vida é garantido pela Constituição Federal brasileira.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A assertion direta e específica responde ao pedido de informações sobre o direito à vida, fornecendo um suporte normativo específico, embora a correção jurídica seja avaliada por outros validadores.",
+            "latency_ms": 9239.355150999472,
+            "score": null,
+            "raw_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-24T21:44:26.879620997Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"status\": \"RELEVANT\",\n  \"reason\": \"A assertion direta e específica responde ao pedido de informações sobre o direito à vida, fornecendo um suporte normativo específico, embora a correção jurídica seja avaliada por outros validadores.\"\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 9217182420,
+              "load_duration": 75734214,
+              "prompt_eval_count": 302,
+              "prompt_eval_duration": 753491000,
+              "eval_count": 65,
+              "eval_duration": 8384218999
+            }
+          }
+        },
+        {
+          "name": "rw-extradicao",
+          "query": "extradição",
+          "assertion": "Não será concedida extradição de estrangeiro por crime político ou de opinião.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A assertion responde diretamente à questão de extradição, especificando que não será concedida por crime político ou de opinião, o que é um aspecto específico e relevante da norma de extradição.",
+            "latency_ms": 9591.757004000101,
+            "score": null,
+            "raw_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-24T21:44:08.688327909Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"status\": \"RELEVANT\",\n  \"reason\": \"A assertion responde diretamente à questão de extradição, especificando que não será concedida por crime político ou de opinião, o que é um aspecto específico e relevante da norma de extradição.\"\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 9570553343,
+              "load_duration": 65489401,
+              "prompt_eval_count": 307,
+              "prompt_eval_duration": 859008000,
+              "eval_count": 67,
+              "eval_duration": 8641942000
+            }
+          }
+        },
+        {
+          "name": "rw-idade-presidente",
+          "query": "idade para ser presidente",
+          "assertion": "A idade mínima para ser Presidente da República é de trinta e cinco anos.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A assertion responde diretamente à proposta principal da query, que é sobre a idade necessária para ser presidente.",
+            "latency_ms": 6247.986237001896,
+            "score": null,
+            "raw_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-24T21:44:59.52286769Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"status\": \"RELEVANT\",\n  \"reason\": \"A assertion responde diretamente à proposta principal da query, que é sobre a idade necessária para ser presidente.\"\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 6225905856,
+              "load_duration": 74281390,
+              "prompt_eval_count": 306,
+              "prompt_eval_duration": 890344000,
+              "eval_count": 41,
+              "eval_duration": 5257376000
+            }
+          }
+        },
+        {
+          "name": "rw-liberdade-expressao",
+          "query": "liberdade de expressão",
+          "assertion": "A Constituição Federal de 1988 reconhece a liberdade de expressão como um direito social e individual.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A assertion responde diretamente à questão de liberdade de expressão, citando especificamente a Constituição Federal de 1988 como reconhecimento desse direito.",
+            "latency_ms": 8197.199543999886,
+            "score": null,
+            "raw_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-24T21:44:44.680240601Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"status\": \"RELEVANT\",\n  \"reason\": \"A assertion responde diretamente à questão de liberdade de expressão, citando especificamente a Constituição Federal de 1988 como reconhecimento desse direito.\"\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 8176185595,
+              "load_duration": 82491675,
+              "prompt_eval_count": 315,
+              "prompt_eval_duration": 992139000,
+              "eval_count": 55,
+              "eval_duration": 7095919000
+            }
+          }
+        },
+        {
+          "name": "rw-liberdade-religiosa",
+          "query": "liberdade religiosa",
+          "assertion": "A liberdade de consciência e de crença é inviolável.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A assertion responde diretamente à questão de liberdade religiosa, afirmando que a liberdade de consciência e de crença é inviolável, o que está diretamente relacionado ao conceito de liberdade religiosa.",
+            "latency_ms": 10614.209986997594,
+            "score": null,
+            "raw_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-24T21:43:33.864718325Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"status\": \"RELEVANT\",\n  \"reason\": \"A assertion responde diretamente à questão de liberdade religiosa, afirmando que a liberdade de consciência e de crença é inviolável, o que está diretamente relacionado ao conceito de liberdade religiosa.\"\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 10590955764,
+              "load_duration": 79150262,
+              "prompt_eval_count": 306,
+              "prompt_eval_duration": 850021000,
+              "eval_count": 72,
+              "eval_duration": 9656736000
+            }
+          }
+        },
+        {
+          "name": "rw-pena-morte",
+          "query": "pena de morte",
+          "assertion": "não haverá penas: de morte, salvo em caso de guerra declarada, nos termos do art. 84, XIX;",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A assertion trata diretamente do tema da pena de morte e especifica uma condição normativa relacionada, mesmo que juridicamente possa ser controversa.",
+            "latency_ms": 7448.982343001262,
+            "score": null,
+            "raw_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-24T21:45:32.296536012Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\"status\": \"RELEVANT\", \"reason\": \"A assertion trata diretamente do tema da pena de morte e especifica uma condição normativa relacionada, mesmo que juridicamente possa ser controversa.\"}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 7427511859,
+              "load_duration": 75667286,
+              "prompt_eval_count": 321,
+              "prompt_eval_duration": 1046731000,
+              "eval_count": 49,
+              "eval_duration": 6300297000
+            }
+          }
+        },
+        {
+          "name": "rw-prisao-perpetua",
+          "query": "prisão perpétua",
+          "assertion": "não haverá penas: de caráter perpétuo;",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A assertion responde diretamente à questão de propósito da query, que é sobre a existência de prisão perpétua, indicando que não haverá penas de caráter perpétuo.",
+            "latency_ms": 9300.256245998753,
+            "score": null,
+            "raw_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-24T21:45:49.785712463Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"status\": \"RELEVANT\",\n  \"reason\": \"A assertion responde diretamente à questão de propósito da query, que é sobre a existência de prisão perpétua, indicando que não haverá penas de caráter perpétuo.\"\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 9278236725,
+              "load_duration": 67575355,
+              "prompt_eval_count": 307,
+              "prompt_eval_duration": 912305000,
+              "eval_count": 64,
+              "eval_duration": 8294449000
+            }
+          }
+        },
+        {
+          "name": "rw-racismo",
+          "query": "racismo",
+          "assertion": "O artigo 4º repudia o terrorismo e o racismo.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A assertion 'O artigo 4º repudia o terrorismo e o racismo' diretamente aborda o tema da query 'racismo', especificando que o artigo 4º tem como princípio repudiar o racismo.",
+            "latency_ms": 9880.638900998747,
+            "score": null,
+            "raw_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-24T21:43:51.320759244Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"status\": \"RELEVANT\",\n  \"reason\": \"A assertion 'O artigo 4º repudia o terrorismo e o racismo' diretamente aborda o tema da query 'racismo', especificando que o artigo 4º tem como princípio repudiar o racismo.\"\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 9859414836,
+              "load_duration": 73294679,
+              "prompt_eval_count": 302,
+              "prompt_eval_duration": 752621000,
+              "eval_count": 70,
+              "eval_duration": 9029197000
+            }
+          }
+        },
+        {
+          "name": "rw-voto-obrigatorio",
+          "query": "voto obrigatório",
+          "assertion": "O voto é obrigatório para os maiores de dezoito anos.",
+          "expected": "RELEVANT",
+          "decision": {
+            "status": "RELEVANT",
+            "reason": "A assertion diretamente aborda o conceito de voto obrigatório, especificando que o voto é obrigatório para pessoas com mais de 18 anos, o que é uma resposta direta à pergunta sobre o voto obrigatório.",
+            "latency_ms": 9553.740413000924,
+            "score": null,
+            "raw_response": {
+              "model": "granite4.1:3b",
+              "created_at": "2026-08-24T21:45:17.375771313Z",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"status\": \"RELEVANT\",\n  \"reason\": \"A assertion diretamente aborda o conceito de voto obrigatório, especificando que o voto é obrigatório para pessoas com mais de 18 anos, o que é uma resposta direta à pergunta sobre o voto obrigatório.\"\n}"
+              },
+              "done": true,
+              "done_reason": "stop",
+              "total_duration": 9531494976,
+              "load_duration": 75998315,
+              "prompt_eval_count": 303,
+              "prompt_eval_duration": 771775000,
+              "eval_count": 67,
+              "eval_duration": 8678824000
+            }
+          }
+        }
+      ],
+      "metrics": {
+        "relevant_true_positives": 13,
+        "irrelevant_true_negatives": 0,
+        "unresolved": 0,
+        "false_relevant": 7,
+        "false_irrelevant": 1,
+        "average_latency_ms": 8996.625543142554
+      }
+    }
+  },
+  "summary": {
+    "historical_cases": [
+      "rw-liberdade-religiosa",
+      "rw-racismo",
+      "rw-extradicao",
+      "rw-direito-vida",
+      "rw-liberdade-expressao",
+      "rw-idade-presidente",
+      "rw-voto-obrigatorio"
+    ],
+    "main_cases": [
+      "rw-pena-morte",
+      "rw-prisao-perpetua"
+    ],
+    "estado_sitio": "SAFE_ABSTENTION",
+    "historical_correct_regressions": {
+      "LEXICAL_BASELINE": 1,
+      "EMBEDDING_RELEVANCE": 7,
+      "LLM_RELEVANCE_JUDGE": 0
+    },
+    "controls_pass": {
+      "LEXICAL_BASELINE": false,
+      "EMBEDDING_RELEVANCE": false,
+      "LLM_RELEVANCE_JUDGE": false
+    },
+    "candidate_pass": {
+      "LEXICAL_BASELINE": false,
+      "EMBEDDING_RELEVANCE": false,
+      "LLM_RELEVANCE_JUDGE": false
+    },
+    "offline_correct_potential": {
+      "LEXICAL_BASELINE": 8,
+      "EMBEDDING_RELEVANCE": 7,
+      "LLM_RELEVANCE_JUDGE": 9
+    }
+  }
+}

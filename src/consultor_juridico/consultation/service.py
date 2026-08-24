@@ -86,6 +86,7 @@ def run_consultation(
 
     errors: tuple[str, ...] = ()
     response: GeneratedResponse | None = None
+    attribution_diagnostics = ()
     for _attempt in range(max_generation_attempts):
         try:
             response = generator.generate(
@@ -95,6 +96,7 @@ def run_consultation(
             errors = (str(exc),)
             continue
         attribution = deterministically_attribute(response, tuple(evidence_set.items))
+        attribution_diagnostics = attribution.diagnostics
         if attribution.abstained:
             errors = attribution.reasons or (
                 "Atribuição determinística inconclusiva; resposta recusada.",
@@ -130,6 +132,7 @@ def run_consultation(
                     (),
                     (),
                     sufficiency=sufficiency,
+                    attribution_diagnostics=attribution_diagnostics,
                 )
             semantic = semantic_validator.validate(response, tuple(evidence_set.items))
             if semantic.is_valid:
@@ -141,6 +144,7 @@ def run_consultation(
                     _attempt + 1,
                     sufficiency,
                     semantic,
+                    attribution_diagnostics,
                 )
             errors = semantic.errors
             continue
@@ -161,6 +165,7 @@ def run_consultation(
         (),
         errors,
         sufficiency,
+        attribution_diagnostics=attribution_diagnostics,
     )
 
 
@@ -172,6 +177,7 @@ def _persist_valid_response(
     attempts: int,
     sufficiency,
     semantic_support,
+    attribution_diagnostics,
 ) -> ConsultationResult:
     items = {item.evidence_code: item for item in evidence_set.items}
     citation_pairs = []
@@ -230,4 +236,5 @@ def _persist_valid_response(
         tuple(citation_pairs),
         sufficiency=sufficiency,
         semantic_support=semantic_support,
+        attribution_diagnostics=attribution_diagnostics,
     )
