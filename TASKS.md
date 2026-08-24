@@ -289,3 +289,11 @@ Estado: `BLOCKED` — Granite 8B+8B executado; judge rejeita voto facultativo, m
 - [x] `4/10` respostas corretas, `1/1` abstenção correta, `0` unsafe
 - [x] Release gate permanece bloqueado
 - [x] `docs/79-fase-9-18-real-world-reevaluation.md`
+
+## Fase 9.19 — Diagnóstico Focal de Generator Abstention
+
+- [x] EvidenceSets de `racismo` e `direito à vida` congelados e classificados como materialmente suficientes
+- [x] Cinco repetições P0 por caso: Generator respondeu 10/10, sem contratos inválidos
+- [x] Classificação corrigida: blockers são downstream, não Generator Abstention
+- [x] P1 não executado conforme protocolo
+- [x] `docs/80-fase-9-19-generator-abstention.md`

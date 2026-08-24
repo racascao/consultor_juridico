@@ -1,0 +1,25 @@
+{
+  "phase": "9.19",
+  "cases": {
+    "rw-racismo": {
+      "evidence": "MATERIALLY_SUFFICIENT",
+      "answer_rate_p0": 1.0,
+      "abstentions_p0": 0,
+      "invalid_contracts": 0,
+      "downstream_first_failure": "ATTRIBUTION_FAILURE",
+      "cause": "EVIDENCE_REPRESENTATION"
+    },
+    "rw-direito-vida": {
+      "evidence": "MATERIALLY_SUFFICIENT",
+      "answer_rate_p0": 1.0,
+      "abstentions_p0": 0,
+      "invalid_contracts": 0,
+      "downstream_first_failure": "POLARITY_UNRESOLVED_FAIL_CLOSED",
+      "cause": "EVIDENCE_REPRESENTATION"
+    }
+  },
+  "p1": "NOT_EXECUTED: nenhuma das cinco repetições P0 foi abstain em nenhum caso",
+  "generator_abstention_cause": "EVIDENCE_REPRESENTATION",
+  "unsafe_acceptance": 0,
+  "recommended_next_intervention": "Diagnosticar attribution/representação de evidência, não ajustar o prompt de abstention"
+}

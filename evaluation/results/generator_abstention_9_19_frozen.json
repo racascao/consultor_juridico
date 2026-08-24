@@ -1,0 +1,56 @@
+{
+  "rw-racismo": {
+    "evidence_set_id": "b2afdc1f-c883-4eac-83fc-5240c74b6052",
+    "question": "racismo",
+    "items": [
+      {
+        "code": "EV001",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII\nrepúdio ao terrorismo e ao racismo;",
+        "parent_context": "Art. 4º",
+        "citation_label": "CF/88, INCISO VIII (identidade: CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII)"
+      },
+      {
+        "code": "EV002",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII\na prática do racismo constitui crime inafiançável e imprescritível, sujeito à pena de reclusão, nos termos da lei;",
+        "parent_context": "Art. 5º",
+        "citation_label": "CF/88, INCISO XLII (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII)"
+      }
+    ],
+    "configuration": {
+      "generator": "granite4.1:3b",
+      "semantic_judge": "granite4.1:3b",
+      "embedding": "nomic-embed-text",
+      "evidence_limit": 3
+    }
+  },
+  "rw-direito-vida": {
+    "evidence_set_id": "12e53e3b-cd78-4ad0-b77e-75ae4e119962",
+    "question": "direito à vida",
+    "items": [
+      {
+        "code": "EV001",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput\nTodos são iguais perante a lei, sem distinção de qualquer natureza, garantindo-se aos brasileiros e aos estrangeiros residentes no País a inviolabilidade do direito à vida, à liberdade, à igualdade, à segurança e à propriedade, nos termos seguintes:",
+        "parent_context": "Art. 5º",
+        "citation_label": "CF/88, CAPUT (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput)"
+      },
+      {
+        "code": "EV002",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput\nA família, a sociedade e o Estado têm o dever de amparar as pessoas idosas, assegurando sua participação na comunidade, defendendo sua dignidade e bem-estar e garantindo-lhes o direito à vida.",
+        "parent_context": "Art. 230.",
+        "citation_label": "CF/88, CAPUT (identidade: CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput)"
+      },
+      {
+        "code": "EV003",
+        "text_snapshot": "CF/88 | CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput\nÉ dever da família, da sociedade e do Estado assegurar à criança, ao adolescente e ao jovem, com absoluta prioridade, o direito à vida, à saúde, à alimentação, à educação, ao lazer, à profissionalização, à cultura, à dignidade, ao respeito, à liberdade e à convivência familiar e comunitária, além de colocá-los a salvo de toda forma de negligência, discriminação, exploração, violência, crueldade e opressão.",
+        "parent_context": "Art. 227.",
+        "citation_label": "CF/88, CAPUT (identidade: CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput)"
+      }
+    ],
+    "configuration": {
+      "generator": "granite4.1:3b",
+      "semantic_judge": "granite4.1:3b",
+      "embedding": "nomic-embed-text",
+      "evidence_limit": 3
+    }
+  }
+}

@@ -1,0 +1,457 @@
+{
+  "rw-racismo": {
+    "P0": [
+      {
+        "repetition": 1,
+        "abstain": false,
+        "claims": [
+          {
+            "id": "C1",
+            "text": "O racismo é repudiado pela Constituição Federal de 1988, conforme artigo 4º, inciso VIII.",
+            "evidence_ids": [
+              "EV001"
+            ]
+          },
+          {
+            "id": "C2",
+            "text": "A prática do racismo é considerada um crime inafiançável e imprescritível, sujeito à pena de reclusão, de acordo com o artigo 5º, inciso XLII da Constituição Federal de 1988.",
+            "evidence_ids": [
+              "EV002"
+            ]
+          }
+        ],
+        "raw_response": "true",
+        "json_valid": true,
+        "error": null,
+        "attribution": {
+          "abstained": true,
+          "reasons": [
+            "Claim C1 sem atribuição inequívoca."
+          ]
+        },
+        "latency_seconds": 34.80682282900125
+      },
+      {
+        "repetition": 2,
+        "abstain": false,
+        "claims": [
+          {
+            "id": "C1",
+            "text": "O racismo é repudiado pela Constituição Federal de 1988, conforme artigo 4º, inciso VIII.",
+            "evidence_ids": [
+              "EV001"
+            ]
+          },
+          {
+            "id": "C2",
+            "text": "A prática do racismo é considerada um crime inafiançável e imprescritível, sujeito à pena de reclusão, de acordo com artigo 5º, inciso XLII.",
+            "evidence_ids": [
+              "EV002"
+            ]
+          }
+        ],
+        "raw_response": "true",
+        "json_valid": true,
+        "error": null,
+        "attribution": {
+          "abstained": true,
+          "reasons": [
+            "Claim C1 sem atribuição inequívoca."
+          ]
+        },
+        "latency_seconds": 20.979565555999216
+      },
+      {
+        "repetition": 3,
+        "abstain": false,
+        "claims": [
+          {
+            "id": "C1",
+            "text": "O racismo é repudiado pela Constituição Federal de 1988, conforme artigo 4º, inciso VIII.",
+            "evidence_ids": [
+              "EV001"
+            ]
+          },
+          {
+            "id": "C2",
+            "text": "A prática do racismo é considerada um crime inafiançável e imprescritível, sujeito à pena de reclusão, de acordo com artigo 5º, inciso XLII.",
+            "evidence_ids": [
+              "EV002"
+            ]
+          }
+        ],
+        "raw_response": "true",
+        "json_valid": true,
+        "error": null,
+        "attribution": {
+          "abstained": true,
+          "reasons": [
+            "Claim C1 sem atribuição inequívoca."
+          ]
+        },
+        "latency_seconds": 21.131166773000587
+      },
+      {
+        "repetition": 4,
+        "abstain": false,
+        "claims": [
+          {
+            "id": "C1",
+            "text": "O racismo é repudiado pela Constituição Federal de 1988, conforme artigo 4º, inciso VIII.",
+            "evidence_ids": [
+              "EV001"
+            ]
+          },
+          {
+            "id": "C2",
+            "text": "A prática do racismo é considerada um crime inafiançável e imprescritível, sujeito à pena de reclusão, de acordo com artigo 5º, inciso XLII.",
+            "evidence_ids": [
+              "EV002"
+            ]
+          }
+        ],
+        "raw_response": "true",
+        "json_valid": true,
+        "error": null,
+        "attribution": {
+          "abstained": true,
+          "reasons": [
+            "Claim C1 sem atribuição inequívoca."
+          ]
+        },
+        "latency_seconds": 21.17183562900027
+      },
+      {
+        "repetition": 5,
+        "abstain": false,
+        "claims": [
+          {
+            "id": "C1",
+            "text": "O racismo é repudiado pela Constituição Federal de 1988, conforme artigo 4º, inciso VIII.",
+            "evidence_ids": [
+              "EV001"
+            ]
+          },
+          {
+            "id": "C2",
+            "text": "A prática do racismo é considerada um crime inafiançável e imprescritível, sujeito à pena de reclusão, de acordo com artigo 5º, inciso XLII.",
+            "evidence_ids": [
+              "EV002"
+            ]
+          }
+        ],
+        "raw_response": "true",
+        "json_valid": true,
+        "error": null,
+        "attribution": {
+          "abstained": true,
+          "reasons": [
+            "Claim C1 sem atribuição inequívoca."
+          ]
+        },
+        "latency_seconds": 22.219334658999287
+      }
+    ]
+  },
+  "rw-direito-vida": {
+    "P0": [
+      {
+        "repetition": 1,
+        "abstain": false,
+        "claims": [
+          {
+            "id": "C1",
+            "text": "O direito à vida é garantido pelo Artigo 5º, caput, da Constituição Federal de 1988.",
+            "evidence_ids": [
+              "EV001"
+            ]
+          },
+          {
+            "id": "C2",
+            "text": "O Artigo 230, caput, reconhece o dever da família, da sociedade e do Estado de garantir o direito à vida às pessoas idosas.",
+            "evidence_ids": [
+              "EV002"
+            ]
+          },
+          {
+            "id": "C3",
+            "text": "O Artigo 227, caput, estabelece que é o dever da família, da sociedade e do Estado assegurar o direito à vida, à saúde, à alimentação, à educação, ao lazer, à profissionalização, à cultura, à dignidade, ao respeito, à liberdade e à convivência familiar e comunitária, além de protegê-los de toda forma de negligência, discriminação, exploração, violência, crueldade e opressão.",
+            "evidence_ids": [
+              "EV003"
+            ]
+          }
+        ],
+        "raw_response": "Sim, o direito à vida é garantido pela Constituição Federal de 1988. De acordo com o Artigo 5º, caput, todos são iguais perante a lei e o direito à vida é inviolável. Além disso, o Artigo 230, caput, reconhece o dever da família, da sociedade e do Estado de amparar as pessoas idosas, defendendo sua dignidade e bem-estar e garantindo-lhes o direito à vida. O Artigo 227, caput, também estabelece que é o dever da família, da sociedade e do Estado assegurar ao direito à vida, à saúde, à alimentação, à educação, ao lazer, à profissionalização, à cultura, à dignidade, ao respeito, à liberdade e à convivência familiar e comunitária, além de protegê-los de toda forma de negligência, discriminação, exploração, violência, crueldade e opressão.",
+        "json_valid": true,
+        "error": null,
+        "attribution": {
+          "abstained": false,
+          "reasons": []
+        },
+        "polarity": [
+          {
+            "status": "CONSISTENT",
+            "reason": "Nenhuma inversão explícita de polaridade foi detectada.",
+            "reason_code": null
+          },
+          {
+            "status": "CONSISTENT",
+            "reason": "Nenhuma inversão explícita de polaridade foi detectada.",
+            "reason_code": null
+          },
+          {
+            "status": "UNRESOLVED",
+            "reason": "A evidência contém exceção normativa não refletida explicitamente na claim.",
+            "reason_code": "EXCEPTION_SCOPE_AMBIGUITY"
+          }
+        ],
+        "semantic": {
+          "valid": true,
+          "error": null,
+          "claims": [
+            {
+              "id": "C1",
+              "status": "SUPPORTED",
+              "reason": "A evidência citada (Art. 5º, caput, CF/88) explicitamente afirma que o direito à vida é garantido para todos os brasileiros e estrangeiros residentes no País."
+            },
+            {
+              "id": "C2",
+              "status": "SUPPORTED",
+              "reason": "A evidência citada (Art. 230, caput, CF/88) afirma que a família, a sociedade e o Estado têm o dever de garantir o direito à vida às pessoas idosas."
+            },
+            {
+              "id": "C3",
+              "status": "SUPPORTED",
+              "reason": "A evidência citada (Art. 227, caput, CF/88) detalha que é o dever da família, da sociedade e do Estado assegurar o direito à vida, entre outros direitos, e protegê-los de diversas formas de negligência e opressão."
+            }
+          ]
+        },
+        "latency_seconds": 141.68214070499926
+      },
+      {
+        "repetition": 2,
+        "abstain": false,
+        "claims": [
+          {
+            "id": "C1",
+            "text": "A Constituição Federal de 1988 garante o direito à vida a todos os cidadãos e estrangeiros residentes no Brasil (EV001).",
+            "evidence_ids": [
+              "EV001"
+            ]
+          },
+          {
+            "id": "C2",
+            "text": "O Estado, a família e a sociedade têm o dever de assegurar o direito à vida à criança, ao adolescente e ao jovem (EV003).",
+            "evidence_ids": [
+              "EV003"
+            ]
+          }
+        ],
+        "raw_response": "Sim, a Constituição Federal de 1988 garante o direito à vida aos brasileiros e estrangeiros residentes no País (EV001). Além disso, há disposições específicas que reforçam esse direito, como o dever da família, da sociedade e do Estado de assegurar o direito à vida à criança, ao adolescente e ao jovem (EV003).",
+        "json_valid": true,
+        "error": null,
+        "attribution": {
+          "abstained": false,
+          "reasons": []
+        },
+        "polarity": [
+          {
+            "status": "UNRESOLVED",
+            "reason": "Não há sinais normativos e alvo textual suficientes para comparar polaridade.",
+            "reason_code": "MISSING_CLAIM_SIGNAL"
+          },
+          {
+            "status": "UNRESOLVED",
+            "reason": "A evidência contém exceção normativa não refletida explicitamente na claim.",
+            "reason_code": "EXCEPTION_SCOPE_AMBIGUITY"
+          }
+        ],
+        "semantic": {
+          "valid": true,
+          "error": null,
+          "claims": [
+            {
+              "id": "C1",
+              "status": "SUPPORTED",
+              "reason": "A evidência citada (EV001) do Artigo 5º da Constituição Federal de 1988 explicitamente garante o direito à vida a todos os cidadãos e estrangeiros residentes no Brasil."
+            },
+            {
+              "id": "C2",
+              "status": "SUPPORTED",
+              "reason": "A evidência citada (EV003) do Artigo 227 da Constituição Federal de 1988 afirma que é o dever da família, da sociedade e do Estado assegurar ao direito à vida, à saúde, à alimentação, à educação, ao lazer, à profissionalização, à cultura, à dignidade, ao respeito, à liberdade e à convivência familiar e comunitária para a criança, ao adolescente e ao jovem."
+            }
+          ]
+        },
+        "latency_seconds": 80.24996313500014
+      },
+      {
+        "repetition": 3,
+        "abstain": false,
+        "claims": [
+          {
+            "id": "C1",
+            "text": "A Constituição Federal de 1988 garante o direito à vida a todos os cidadãos e estrangeiros residentes no Brasil (EV001).",
+            "evidence_ids": [
+              "EV001"
+            ]
+          },
+          {
+            "id": "C2",
+            "text": "O Estado, a família e a sociedade têm o dever de assegurar o direito à vida à criança, ao adolescente e ao jovem (EV003).",
+            "evidence_ids": [
+              "EV003"
+            ]
+          }
+        ],
+        "raw_response": "Sim, a Constituição Federal de 1988 garante o direito à vida aos brasileiros e estrangeiros residentes no País (EV001). Além disso, há disposições específicas que reforçam esse direito, como o dever da família, da sociedade e do Estado de assegurar o direito à vida à criança, ao adolescente e ao jovem (EV003).",
+        "json_valid": true,
+        "error": null,
+        "attribution": {
+          "abstained": false,
+          "reasons": []
+        },
+        "polarity": [
+          {
+            "status": "UNRESOLVED",
+            "reason": "Não há sinais normativos e alvo textual suficientes para comparar polaridade.",
+            "reason_code": "MISSING_CLAIM_SIGNAL"
+          },
+          {
+            "status": "UNRESOLVED",
+            "reason": "A evidência contém exceção normativa não refletida explicitamente na claim.",
+            "reason_code": "EXCEPTION_SCOPE_AMBIGUITY"
+          }
+        ],
+        "semantic": {
+          "valid": true,
+          "error": null,
+          "claims": [
+            {
+              "id": "C1",
+              "status": "SUPPORTED",
+              "reason": "A evidência citada (EV001) do Artigo 5º da Constituição Federal de 1988 explicitamente garante o direito à vida a todos os cidadãos e estrangeiros residentes no Brasil."
+            },
+            {
+              "id": "C2",
+              "status": "SUPPORTED",
+              "reason": "A evidência citada (EV003) do Artigo 227 da Constituição Federal de 1988 afirma que é o dever da família, da sociedade e do Estado assegurar ao direito à vida, entre outros direitos, à criança, ao adolescente e ao jovem."
+            }
+          ]
+        },
+        "latency_seconds": 67.39434382500076
+      },
+      {
+        "repetition": 4,
+        "abstain": false,
+        "claims": [
+          {
+            "id": "C1",
+            "text": "A Constituição Federal de 1988 garante o direito à vida a todos os cidadãos e estrangeiros residentes no Brasil (EV001).",
+            "evidence_ids": [
+              "EV001"
+            ]
+          },
+          {
+            "id": "C2",
+            "text": "O Estado, a família e a sociedade têm o dever de assegurar o direito à vida à criança, ao adolescente e ao jovem (EV003).",
+            "evidence_ids": [
+              "EV003"
+            ]
+          }
+        ],
+        "raw_response": "Sim, a Constituição Federal de 1988 garante o direito à vida aos brasileiros e estrangeiros residentes no País (EV001). Além disso, há disposições específicas que reforçam esse direito, como o dever da família, da sociedade e do Estado de assegurar o direito à vida à criança, ao adolescente e ao jovem (EV003).",
+        "json_valid": true,
+        "error": null,
+        "attribution": {
+          "abstained": false,
+          "reasons": []
+        },
+        "polarity": [
+          {
+            "status": "UNRESOLVED",
+            "reason": "Não há sinais normativos e alvo textual suficientes para comparar polaridade.",
+            "reason_code": "MISSING_CLAIM_SIGNAL"
+          },
+          {
+            "status": "UNRESOLVED",
+            "reason": "A evidência contém exceção normativa não refletida explicitamente na claim.",
+            "reason_code": "EXCEPTION_SCOPE_AMBIGUITY"
+          }
+        ],
+        "semantic": {
+          "valid": true,
+          "error": null,
+          "claims": [
+            {
+              "id": "C1",
+              "status": "SUPPORTED",
+              "reason": "A evidência citada (EV001) do Artigo 5º da Constituição Federal de 1988 explicitamente garante o direito à vida a todos os cidadãos e estrangeiros residentes no Brasil."
+            },
+            {
+              "id": "C2",
+              "status": "SUPPORTED",
+              "reason": "A evidência citada (EV003) do Artigo 227 da Constituição Federal de 1988 afirma que é o dever da família, da sociedade e do Estado assegurar ao direito à vida, entre outros direitos, à criança, ao adolescente e ao jovem."
+            }
+          ]
+        },
+        "latency_seconds": 65.30355752400101
+      },
+      {
+        "repetition": 5,
+        "abstain": false,
+        "claims": [
+          {
+            "id": "C1",
+            "text": "A Constituição Federal de 1988 garante o direito à vida a todos os cidadãos e estrangeiros residentes no Brasil (EV001).",
+            "evidence_ids": [
+              "EV001"
+            ]
+          },
+          {
+            "id": "C2",
+            "text": "O Estado, a família e a sociedade têm o dever de assegurar o direito à vida à criança, ao adolescente e ao jovem (EV003).",
+            "evidence_ids": [
+              "EV003"
+            ]
+          }
+        ],
+        "raw_response": "Sim, a Constituição Federal de 1988 garante o direito à vida aos brasileiros e estrangeiros residentes no País (EV001). Além disso, há disposições específicas que reforçam esse direito, como o dever da família, da sociedade e do Estado de assegurar o direito à vida à criança, ao adolescente e ao jovem (EV003).",
+        "json_valid": true,
+        "error": null,
+        "attribution": {
+          "abstained": false,
+          "reasons": []
+        },
+        "polarity": [
+          {
+            "status": "UNRESOLVED",
+            "reason": "Não há sinais normativos e alvo textual suficientes para comparar polaridade.",
+            "reason_code": "MISSING_CLAIM_SIGNAL"
+          },
+          {
+            "status": "UNRESOLVED",
+            "reason": "A evidência contém exceção normativa não refletida explicitamente na claim.",
+            "reason_code": "EXCEPTION_SCOPE_AMBIGUITY"
+          }
+        ],
+        "semantic": {
+          "valid": true,
+          "error": null,
+          "claims": [
+            {
+              "id": "C1",
+              "status": "SUPPORTED",
+              "reason": "A evidência citada (EV001) do Artigo 5º da Constituição Federal de 1988 explicitamente garante o direito à vida a todos os cidadãos e estrangeiros residentes no Brasil."
+            },
+            {
+              "id": "C2",
+              "status": "SUPPORTED",
+              "reason": "A evidência citada (EV003) do Artigo 227 da Constituição Federal de 1988 afirma que é o dever da família, da sociedade e do Estado assegurar ao direito à vida, entre outros direitos, à criança, ao adolescente e ao jovem."
+            }
+          ]
+        },
+        "latency_seconds": 63.316289214999415
+      }
+    ]
+  }
+}
