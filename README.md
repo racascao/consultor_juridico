@@ -1814,6 +1814,11 @@ O roadmap público é deliberadamente compacto. O histórico detalhado das decis
   - barreira determinística após citações e antes do juiz semântico;
   - inversões explícitas retornam `CONTRADICTED` e casos ambíguos falham fechadamente como `UNRESOLVED`;
   - o Semantic Validator continua obrigatório; `REAL_WORLD_RELEASE_GATE` não foi reavaliado.
+- [x] **Fase 9.11 — Reavaliação End-to-End — `REAL_WORLD_RELEASE_GATE: BLOCKED`**
+  - retrieval híbrido preservado em Hit@10 `0,905`;
+  - qualidade segura preservada (`unsafe=0`, abstenções históricas `100%`);
+  - real-world: `6/10` respostas corretas, `4` false abstentions, `1/1` abstenção correta;
+  - falhas residuais: 1 `RETRIEVAL_MISS` e 3 `EVIDENCE_SELECTION_MISS`; não houve tuning nesta fase.
   - protótipo puro avaliado com evidências congeladas e cinco execuções por caso
   - attribution: pena 4/5, prisão 4/5, voto 5/5
   - bloqueado porque attribution correta não eliminou aceitação semântica insegura em prisão perpétua

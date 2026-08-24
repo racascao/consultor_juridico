@@ -1,0 +1,267 @@
+{
+  "phase": "9.11",
+  "source": "variance_9_7_deterministic.json",
+  "guard": "polarity_guard_v1",
+  "cases": [
+    {
+      "case_id": "rw-pena-morte",
+      "runs": [
+        {
+          "signature": "[[\"A Constituição Federal de 1988, Artigo 5º, Inciso XLV, proíbe penas que ultrapassem a pessoa do condenado.\",[\"EV002\"]],[\"A ADCT, Artigo 53, Inciso III, estabelece pensão à viúva ou companheira ou dependente em caso de morte, com valor proporcional ao pensão anterior.\",[\"EV008\"]]]",
+          "claims": []
+        },
+        {
+          "signature": "[[\"A pena de morte é permitida na Constituição Federal de 1988, Artigo 5º, Inciso XLVII, Alinea A, que permite a pena de morte apenas em caso de guerra declarada, nos termos do artigo 84, Inciso XIX.\",[\"EV001\",\"EV002\"]],[\"A ADCT, Artigo 53, Inciso III, prevê pensão à viúva ou companheira ou dependente, de forma proporcional, de valor igual à do inciso anterior em caso de morte.\",[\"EV003\"]]]",
+          "claims": [
+            {
+              "claim_code": "C1",
+              "claim": "A pena de morte é permitida na Constituição Federal de 1988, Artigo 5º, Inciso XLVII, Alinea A, que permite a pena de morte apenas em caso de guerra declarada, nos termos do artigo 84, Inciso XIX.",
+              "evidence_codes": [
+                "EV007"
+              ],
+              "status": "CONTRADICTED",
+              "reason": "Sinais normativos explícitos da claim contradizem a evidência: proibição versus permissão"
+            },
+            {
+              "claim_code": "C2",
+              "claim": "A ADCT, Artigo 53, Inciso III, prevê pensão à viúva ou companheira ou dependente, de forma proporcional, de valor igual à do inciso anterior em caso de morte.",
+              "evidence_codes": [
+                "EV008"
+              ],
+              "status": "CONSISTENT",
+              "reason": "Nenhuma inversão explícita de polaridade foi detectada."
+            }
+          ]
+        },
+        {
+          "signature": "[[\"A pena de morte é permitida na Constituição Federal de 1988, Artigo 5º, Inciso XLVII, Alinea A, que permite a pena de morte apenas em caso de guerra declarada, nos termos do artigo 84, Inciso XIX.\",[\"EV001\",\"EV002\"]],[\"A ADCT, Artigo 53, Inciso III, prevê pensão à viúva ou companheira ou dependente, de forma proporcional, de valor igual à do inciso anterior em caso de morte.\",[\"EV003\"]]]",
+          "claims": [
+            {
+              "claim_code": "C1",
+              "claim": "A pena de morte é permitida na Constituição Federal de 1988, Artigo 5º, Inciso XLVII, Alinea A, que permite a pena de morte apenas em caso de guerra declarada, nos termos do artigo 84, Inciso XIX.",
+              "evidence_codes": [
+                "EV007"
+              ],
+              "status": "CONTRADICTED",
+              "reason": "Sinais normativos explícitos da claim contradizem a evidência: proibição versus permissão"
+            },
+            {
+              "claim_code": "C2",
+              "claim": "A ADCT, Artigo 53, Inciso III, prevê pensão à viúva ou companheira ou dependente, de forma proporcional, de valor igual à do inciso anterior em caso de morte.",
+              "evidence_codes": [
+                "EV008"
+              ],
+              "status": "CONSISTENT",
+              "reason": "Nenhuma inversão explícita de polaridade foi detectada."
+            }
+          ]
+        },
+        {
+          "signature": "[[\"A pena de morte é permitida na Constituição Federal de 1988, Artigo 5º, Inciso XLVII, Alinea A, que permite a pena de morte apenas em caso de guerra declarada, nos termos do artigo 84, Inciso XIX.\",[\"EV001\",\"EV002\"]],[\"A ADCT, Artigo 53, Inciso III, prevê pensão à viúva ou companheira ou dependente, de forma proporcional, de valor igual à do inciso anterior em caso de morte.\",[\"EV003\"]]]",
+          "claims": [
+            {
+              "claim_code": "C1",
+              "claim": "A pena de morte é permitida na Constituição Federal de 1988, Artigo 5º, Inciso XLVII, Alinea A, que permite a pena de morte apenas em caso de guerra declarada, nos termos do artigo 84, Inciso XIX.",
+              "evidence_codes": [
+                "EV007"
+              ],
+              "status": "CONTRADICTED",
+              "reason": "Sinais normativos explícitos da claim contradizem a evidência: proibição versus permissão"
+            },
+            {
+              "claim_code": "C2",
+              "claim": "A ADCT, Artigo 53, Inciso III, prevê pensão à viúva ou companheira ou dependente, de forma proporcional, de valor igual à do inciso anterior em caso de morte.",
+              "evidence_codes": [
+                "EV008"
+              ],
+              "status": "CONSISTENT",
+              "reason": "Nenhuma inversão explícita de polaridade foi detectada."
+            }
+          ]
+        },
+        {
+          "signature": "[[\"A pena de morte é permitida na Constituição Federal de 1988, Artigo 5º, Inciso XLVII, Alinea A, que permite a pena de morte apenas em caso de guerra declarada, nos termos do artigo 84, Inciso XIX.\",[\"EV001\",\"EV002\"]],[\"A ADCT, Artigo 53, Inciso III, prevê pensão à viúva ou companheira ou dependente, de forma proporcional, de valor igual à do inciso anterior em caso de morte.\",[\"EV003\"]]]",
+          "claims": [
+            {
+              "claim_code": "C1",
+              "claim": "A pena de morte é permitida na Constituição Federal de 1988, Artigo 5º, Inciso XLVII, Alinea A, que permite a pena de morte apenas em caso de guerra declarada, nos termos do artigo 84, Inciso XIX.",
+              "evidence_codes": [
+                "EV007"
+              ],
+              "status": "CONTRADICTED",
+              "reason": "Sinais normativos explícitos da claim contradizem a evidência: proibição versus permissão"
+            },
+            {
+              "claim_code": "C2",
+              "claim": "A ADCT, Artigo 53, Inciso III, prevê pensão à viúva ou companheira ou dependente, de forma proporcional, de valor igual à do inciso anterior em caso de morte.",
+              "evidence_codes": [
+                "EV008"
+              ],
+              "status": "CONSISTENT",
+              "reason": "Nenhuma inversão explícita de polaridade foi detectada."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "rw-prisao-perpetua",
+      "runs": [
+        {
+          "signature": "ABSTAINED",
+          "claims": [
+            {
+              "claim_code": "C1",
+              "claim": "A prisão perpétua é proibida pelo Artigo 5º, inciso XLVII, alínea b da Constituição Federal de 1988.",
+              "evidence_codes": [
+                "EV002"
+              ],
+              "status": "CONSISTENT",
+              "reason": "Nenhuma inversão explícita de polaridade foi detectada."
+            },
+            {
+              "claim_code": "C2",
+              "claim": "A Constituição Federal de 1988 não especifica se a proibição de penas perpétuas se aplica a todos os casos de prisão ou apenas a determinados tipos de crimes.",
+              "evidence_codes": [],
+              "status": "UNRESOLVED",
+              "reason": "Nenhuma evidência autorizada foi encontrada para a claim."
+            }
+          ]
+        },
+        {
+          "signature": "[[\"A prisão perpétua é permitida na Constituição Federal de 1988, conforme a alinha b do inciso XLVII do Artigo 5º, que permite penas de caráter perpétuo.\",[\"EV002\"]]]",
+          "claims": [
+            {
+              "claim_code": "C1",
+              "claim": "A prisão perpétua é permitida na Constituição Federal de 1988, conforme a alinha b do inciso XLVII do Artigo 5º, que permite penas de caráter perpétuo.",
+              "evidence_codes": [
+                "EV002"
+              ],
+              "status": "CONTRADICTED",
+              "reason": "Sinais normativos explícitos da claim contradizem a evidência: proibição versus permissão"
+            }
+          ]
+        },
+        {
+          "signature": "[[\"A prisão perpétua é permitida na Constituição Federal de 1988, conforme a alinha b do inciso XLVII do Artigo 5º, que permite penas de caráter perpétuo.\",[\"EV002\"]]]",
+          "claims": [
+            {
+              "claim_code": "C1",
+              "claim": "A prisão perpétua é permitida na Constituição Federal de 1988, conforme a alinha b do inciso XLVII do Artigo 5º, que permite penas de caráter perpétuo.",
+              "evidence_codes": [
+                "EV002"
+              ],
+              "status": "CONTRADICTED",
+              "reason": "Sinais normativos explícitos da claim contradizem a evidência: proibição versus permissão"
+            }
+          ]
+        },
+        {
+          "signature": "[[\"A prisão perpétua é permitida na Constituição Federal de 1988, conforme a alinha b do inciso XLVII do Artigo 5º, que permite penas de caráter perpétuo.\",[\"EV002\"]]]",
+          "claims": [
+            {
+              "claim_code": "C1",
+              "claim": "A prisão perpétua é permitida na Constituição Federal de 1988, conforme a alinha b do inciso XLVII do Artigo 5º, que permite penas de caráter perpétuo.",
+              "evidence_codes": [
+                "EV002"
+              ],
+              "status": "CONTRADICTED",
+              "reason": "Sinais normativos explícitos da claim contradizem a evidência: proibição versus permissão"
+            }
+          ]
+        },
+        {
+          "signature": "[[\"A prisão perpétua é permitida na Constituição Federal de 1988, conforme a alinha b do inciso XLVII do Artigo 5º, que permite penas de caráter perpétuo.\",[\"EV002\"]]]",
+          "claims": [
+            {
+              "claim_code": "C1",
+              "claim": "A prisão perpétua é permitida na Constituição Federal de 1988, conforme a alinha b do inciso XLVII do Artigo 5º, que permite penas de caráter perpétuo.",
+              "evidence_codes": [
+                "EV002"
+              ],
+              "status": "CONTRADICTED",
+              "reason": "Sinais normativos explícitos da claim contradizem a evidência: proibição versus permissão"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "rw-voto-obrigatorio",
+      "runs": [
+        {
+          "signature": "[[\"O voto é obrigatório para os maiores de dezoito anos, conforme estabelecido no inciso I do artigo 14 da CF/88.\",[\"EV003\",\"EV001\"]]]",
+          "claims": [
+            {
+              "claim_code": "C1",
+              "claim": "O voto é obrigatório para os maiores de dezoito anos, conforme estabelecido no inciso I do artigo 14 da CF/88.",
+              "evidence_codes": [
+                "EV004"
+              ],
+              "status": "CONSISTENT",
+              "reason": "Nenhuma inversão explícita de polaridade foi detectada."
+            }
+          ]
+        },
+        {
+          "signature": "[[\"O voto é obrigatório para os maiores de dezoito anos, conforme estabelecido no Inciso I do Artigo 14 da CF/88.\",[\"EV003\",\"EV001\"]]]",
+          "claims": [
+            {
+              "claim_code": "C1",
+              "claim": "O voto é obrigatório para os maiores de dezoito anos, conforme estabelecido no Inciso I do Artigo 14 da CF/88.",
+              "evidence_codes": [
+                "EV004"
+              ],
+              "status": "CONSISTENT",
+              "reason": "Nenhuma inversão explícita de polaridade foi detectada."
+            }
+          ]
+        },
+        {
+          "signature": "[[\"O voto é obrigatório para os maiores de dezoito anos, conforme estabelecido no Inciso I do Artigo 14 da CF/88.\",[\"EV003\",\"EV001\"]]]",
+          "claims": [
+            {
+              "claim_code": "C1",
+              "claim": "O voto é obrigatório para os maiores de dezoito anos, conforme estabelecido no Inciso I do Artigo 14 da CF/88.",
+              "evidence_codes": [
+                "EV004"
+              ],
+              "status": "CONSISTENT",
+              "reason": "Nenhuma inversão explícita de polaridade foi detectada."
+            }
+          ]
+        },
+        {
+          "signature": "[[\"O voto é obrigatório para os maiores de dezoito anos, conforme estabelecido no Inciso I do Artigo 14 da CF/88.\",[\"EV003\",\"EV001\"]]]",
+          "claims": [
+            {
+              "claim_code": "C1",
+              "claim": "O voto é obrigatório para os maiores de dezoito anos, conforme estabelecido no Inciso I do Artigo 14 da CF/88.",
+              "evidence_codes": [
+                "EV004"
+              ],
+              "status": "CONSISTENT",
+              "reason": "Nenhuma inversão explícita de polaridade foi detectada."
+            }
+          ]
+        },
+        {
+          "signature": "[[\"O voto é obrigatório para os maiores de dezoito anos, conforme estabelecido no Inciso I do Artigo 14 da CF/88.\",[\"EV003\",\"EV001\"]]]",
+          "claims": [
+            {
+              "claim_code": "C1",
+              "claim": "O voto é obrigatório para os maiores de dezoito anos, conforme estabelecido no Inciso I do Artigo 14 da CF/88.",
+              "evidence_codes": [
+                "EV004"
+              ],
+              "status": "CONSISTENT",
+              "reason": "Nenhuma inversão explícita de polaridade foi detectada."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "contradicted_claims": 8,
+  "unresolved_claims": 1
+}

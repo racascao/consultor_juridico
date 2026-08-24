@@ -220,3 +220,13 @@ Estado: `BLOCKED` — Granite 8B+8B executado; judge rejeita voto facultativo, m
 - [x] Integração fail-closed após validação de citações e antes do juiz semântico
 - [x] Nenhuma alteração de retrieval, modelos, schema ou datasets
 - [x] `docs/71-fase-9-10-polarity-contradiction-guard.md`
+
+## Fase 9.11 — Reavaliação End-to-End e Real-World Release Gate
+
+- [x] Retrieval híbrido preservado: Hit@10 `0,905`
+- [x] Quality/abstenção: correct abstention `100%`, unsafe `0`
+- [x] Semantic Support: unsafe acceptance `0`
+- [x] Regressão de polaridade executada sem inversões liberadas
+- [x] Real-world executado: `6/10` respostas corretas, `4` false abstentions, `0` unsafe
+- [ ] `REAL_WORLD_RELEASE_GATE: APPROVED` — permanece `BLOCKED` (mínimo 9/10)
+- [x] `docs/72-fase-9-11-real-world-release-gate.md`

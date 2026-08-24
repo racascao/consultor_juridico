@@ -1,0 +1,53 @@
+{
+  "phase": "9.11",
+  "configuration": {
+    "generator": "granite4.1:3b",
+    "semantic_judge": "granite4.1:3b",
+    "embedding": "nomic-embed-text:latest",
+    "alembic": "005_normative_identity_occurrences"
+  },
+  "retrieval": {
+    "dataset": "mvp1-v1",
+    "hybrid_hit_at_1": 0.5238095238095238,
+    "hybrid_hit_at_3": 0.7142857142857143,
+    "hybrid_hit_at_5": 0.8095238095238095,
+    "hybrid_hit_at_10": 0.9047619047619048,
+    "mrr": 0.6267195767195768,
+    "recall_at_10": 0.8809523809523809
+  },
+  "quality": {
+    "correct_abstention_rate": 1.0,
+    "unsafe_answer_rate": 0.0,
+    "false_abstention_rate": 0.0
+  },
+  "semantic_support": {
+    "accuracy": 0.8,
+    "supported_precision": 1.0,
+    "supported_recall": 1.0,
+    "unsafe_acceptance": 0,
+    "invalid_contracts": 0
+  },
+  "real_world": {
+    "respondible_cases": 10,
+    "correct_answers": 6,
+    "false_abstentions": 4,
+    "correct_abstentions": 1,
+    "unsafe_answers": 0,
+    "retrieval_hit_rate": 0.8,
+    "failure_stages": {
+      "RETRIEVAL_MISS": 1,
+      "EVIDENCE_SELECTION_MISS": 3
+    }
+  },
+  "citation_integrity": {
+    "invalid_citation_rows": 0,
+    "raw_sha256": "25b6934ef228df40d0f5d35e225f6f7160b98f32dd2de328ad9fed9d97496a3d"
+  },
+  "polarity_guard": {
+    "gate": "APPROVED",
+    "explicit_inversions_rejected": true,
+    "real_world_unsafe_answers": 0
+  },
+  "release_gate": "BLOCKED",
+  "recommendation": "NOT_READY_FOR_RELEASE"
+}
