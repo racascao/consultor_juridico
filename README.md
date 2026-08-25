@@ -169,6 +169,13 @@ prisão perpétua, mas aceitou controles off-target. Assim,
 `SEMANTIC_CORE_RELEVANCE_EXPERIMENT: FAIL`, com nenhuma integração de produção.
 Detalhes em `docs/88-experimento-semantic-core-relevance.md`.
 
+A revisão arquitetural subsequente congelou **cross-encoder pairwise** como a
+próxima capacidade a avaliar para `Query ↔ Core Assertion`, sem autorizar
+implementação. O benchmark futuro fica limitado ao MiniLM mMARCO como primary e
+ao BGE reranker v2-m3 como controle, com score e zona `UNRESOLVED`. VCSA
+permanece foundation; Evidence-Bound permanece experimental. Detalhes em
+`docs/89-model-architecture-review.md`.
+
 ### Corpus materializado
 
 ```text
@@ -1905,6 +1912,10 @@ O roadmap público é deliberadamente compacto. O histórico detalhado das decis
     pontuação e qualifiers;
   - pena de morte foi recuperada; prisão perpétua revelou `RELEVANCE_LIMIT`;
   - estado de sítio permaneceu em abstenção segura e `unsafe=0`.
+- [x] **Fase 89 — Model Architecture Review — cross-encoder aprovado para benchmark controlado**
+  - primary: `cross-encoder/mmarco-mMiniLMv2-L12-H384-v1`;
+  - control: `BAAI/bge-reranker-v2-m3`; Granite 3B permanece baseline histórico;
+  - nenhuma implementação, dependência, download ou integração foi autorizada.
 - [x] **Fase 9.12 — Retrieval + Evidence Selection Hardening — `RETRIEVAL_SELECTION_GATE: APPROVED`**
   - real-world Hybrid Hit@10: `0,800 → 0,900`; `mvp1-v1` Hit@10 preservado em `0,905`;
   - ranking considera tokens substantivos, contexto estrutural em lote e cobertura/posição híbrida, sem alterar provenance;

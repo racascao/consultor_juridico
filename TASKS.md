@@ -376,3 +376,13 @@ Estado: `BLOCKED` — Granite 8B+8B executado; judge rejeita voto facultativo, m
 - [x] Embedding sem separação segura; judge com falsos relevantes off-target
 - [x] `SEMANTIC_CORE_RELEVANCE_EXPERIMENT: FAIL`; produção não integrada
 - [x] `docs/88-experimento-semantic-core-relevance.md`
+
+## Fase 89 — Model Architecture Review
+
+- [x] Falhas lexical, bi-encoder e Granite 3B separadas por capacidade
+- [x] Cross-encoder pairwise escolhido como arquitetura principal de relevance
+- [x] Benchmark futuro limitado a MiniLM mMARCO + BGE reranker v2-m3
+- [x] Score com zona `UNRESOLVED` e gate de zero false relevant especificados
+- [x] VCSA mantida como foundation; Evidence-Bound mantido experimental
+- [x] Nenhum download, benchmark, dependência ou código de produção alterado
+- [x] `docs/89-model-architecture-review.md`
