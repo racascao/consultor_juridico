@@ -1,0 +1,20 @@
+{
+  "phase": "91.7",
+  "baseline_sha256": "866b4b7f467cffd709a884231a076d2e6b0bed90821f83e0ce0d596c3be7c72b",
+  "database_configuration": {"host": "db (compose) / localhost:5433 (host)", "database": "consultor_juridico", "user": "consultor"},
+  "database_preflight": "PASS",
+  "schema_revision": "005_normative_identity_occurrences",
+  "corpus_counts": {"sources": 1, "source_documents": 1, "legal_acts": 2, "legal_versions": 2, "legal_elements": 6775, "legal_provisions": 4096, "chunks": 3389, "embeddings": 3389},
+  "corpus_invariants": {"cf88": true, "adct": true, "parent_child_same_act_version": true, "current_versions": 2},
+  "prison_relational_validation": {"target": true, "direct_parent": true, "parent_current_normative": true, "composition": "não haverá penas: de caráter perpétuo;"},
+  "vcsa_materialization_analysis": {"point": "build_evidence_set -> EvidenceItem.text_snapshot -> generator tuple", "architecture": "INCONCLUSIVE"},
+  "state_siege_relational_replay": {"container": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II", "direct_articles": 3, "resolved_caputs": 3, "target_candidates": ["ARTICLE:137/CAPUT", "ARTICLE:138/CAPUT"], "target_final_rank": 11, "target_in_top10": false, "selection": "NOT_SELECTED"},
+  "dataset_structural_replay": "INCOMPLETE",
+  "abortion_negative_control": "INCONCLUSIVE",
+  "adversarial_results": "NOT_EXECUTED",
+  "blast_radius": {"containers_considered": "INCOMPLETE", "containers_expanded": 1, "children_promoted": 3, "unexpected_expansions": 0},
+  "full_test_suite": "BLOCKED_DATABASE_UNAVAILABLE",
+  "promotion_decisions": {"structural_retrieval_expansion": "INCONCLUSIVE", "vCSA": "INCONCLUSIVE_ISOLATED"},
+  "manual_infra_action_required": false,
+  "new_llm_inference": false
+}

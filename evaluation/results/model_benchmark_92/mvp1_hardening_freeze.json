@@ -1,0 +1,34 @@
+{
+  "phase": "92",
+  "baseline_artifact": "evaluation/results/model_benchmark_91_1/e2e_single_model_screen.json",
+  "baseline_sha256": "866b4b7f467cffd709a884231a076d2e6b0bed90821f83e0ce0d596c3be7c72b",
+  "baseline_sha_verified": true,
+  "alembic_revision": "005_normative_identity_occurrences",
+  "production_active": {
+    "locator_fidelity_guard": true,
+    "semantic_parent_context_regression_fix": true
+  },
+  "production_inactive": {
+    "atomic_claim_acceptance": "INCONCLUSIVE_NOT_INTEGRATED",
+    "vcsa": "STRUCTURAL_PROVEN_INTEGRATION_INCONCLUSIVE",
+    "structural_expansion": "INCONCLUSIVE_NOT_INTEGRATED",
+    "structural_reserve": "INCONCLUSIVE_NOT_INTEGRATED",
+    "evidence_selection_fix": "INCONCLUSIVE_NOT_INTEGRATED"
+  },
+  "validation": {
+    "full_test_suite": "403 passed, 5 skipped, 0 failed, 0 errors",
+    "ruff_format_check": "PASS",
+    "ruff_check": "PASS",
+    "git_diff_check": "PASS"
+  },
+  "second_e2e": {
+    "status": "READY_FOR_MANUAL_RUN",
+    "generator_model": "ministral-3:8b",
+    "semantic_judge_model": "ministral-3:8b",
+    "relevance": "DETERMINISTIC",
+    "embedding_model": "nomic-embed-text:latest",
+    "generator": {"think": false, "num_predict": 800},
+    "semantic": {"think": false, "num_predict": 500}
+  },
+  "new_llm_inference_executed": false
+}

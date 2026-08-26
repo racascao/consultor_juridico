@@ -386,3 +386,120 @@ Estado: `BLOCKED` — Granite 8B+8B executado; judge rejeita voto facultativo, m
 - [x] VCSA mantida como foundation; Evidence-Bound mantido experimental
 - [x] Nenhum download, benchmark, dependência ou código de produção alterado
 - [x] `docs/89-model-architecture-review.md`
+
+## Fase 90 — Controlled Relevance Model Benchmark
+
+- [x] Primary MiniLM executado em ONNX Runtime CPU
+- [x] Prisão perpétua e pena de morte relevantes; `3` falsos relevantes
+- [x] Gate primary falhou; não há separação segura de scores
+- [x] Controle BGE registrado como `NOT_RUN` por download incompleto
+- [x] Nenhuma integração, alteração de corpus ou migration
+- [x] `docs/90-controlled-relevance-model-benchmark.md`
+
+## Fase 91 — Definitive MVP1 Model Benchmark
+
+- [ ] Matriz completa de Generator, Semantic Support e Query/Core Relevance
+- [ ] Matriz Generator × Judge e estabilidade final
+- [ ] Execução interrompida operacionalmente após checkpoint parcial do Granite 3B
+- [ ] Nenhuma seleção definitiva ou integração de modelo
+- [ ] `docs/91-definitive-mvp1-model-benchmark.md`
+
+## Fase 91.1 — Staged Model Elimination Benchmark
+
+- [ ] Relevance kill-test dos sete modelos
+- [x] Semantic kill-test manual concluído; survivors e eliminação por papel documentados
+- [x] Harness do generator kill-test preparado com EvidenceSets congelados
+- [x] Generator retry 512, merge determinístico e eliminação por papel auditados
+- [x] Capability Confirmation: relevance, semantic e segurança do Generator concluídos
+- [ ] E2E screen single-model (`ministral-3:8b`)
+- [ ] Capability confirmation e matriz end-to-end
+- [ ] Execução inconclusiva por limitação operacional do daemon em sessão longa
+- [ ] Nenhum modelo eliminado ou integrado
+- [x] Preparação manual: perfil desktop, execução sequencial, checkpoint atômico, log e Ctrl+C seguro
+- [x] Hotfix de compatibilidade Qwen/DeepSeek e rerun seletivo de falhas operacionais
+- [ ] Próximo checkpoint: `RELEVANCE_KILL_TEST_MANUAL`
+- [x] Harness `semantic-kill` separado, com dataset curto e contrato SUPPORTED/UNSUPPORTED/UNRESOLVED
+- [ ] `docs/91-1-staged-model-elimination.md`
+
+## Fase 91.5 — VCSA Structural Context Safety Gate
+
+- [x] Composição estrutural parent direto + child implementada e testada offline
+- [x] Controles positivos/negativos, determinismo e imutabilidade validados
+- [x] Captura de prisão perpétua analisada sem nova inferência
+- [ ] Integração de produção; gate permanece `INCONCLUSIVE`
+- [x] `docs/92-fase-91-5-vcsa-structural-context.md`
+
+## Fase 91.6 — Structural Retrieval Expansion Safety Gate
+
+- [x] Transformer offline limitado a SECTION/SUBSECTION e filhos diretos
+- [x] Proveniência, score derivado e limites fail-closed testados
+- [ ] Replay completo no corpus PostgreSQL e integração de produção
+- [x] Gate `INCONCLUSIVE`; `docs/93-fase-91-6-structural-retrieval-expansion.md`
+
+## Fase 91.7 — Relational Corpus & Infrastructure Validation Gate
+
+- [x] Configuração PostgreSQL/Docker diagnosticada
+- [x] Primeira tentativa registrada como `MANUAL_INFRA_ACTION_REQUIRED`
+- [x] PostgreSQL relacional validado na retomada; corpus e invariantes conferidos
+- [ ] Replay completo/gate de Structural Expansion; target ficou fora do top-10
+- [x] `docs/94-fase-91-7-relational-validation.md`
+
+## Fase 91.8 — VCSA Materialization & Provenance Integration Safety Gate
+
+- [x] Protótipo runtime único e provenance VCSA implementados offline
+- [x] Snapshot original preservado; controles focais verdes
+- [ ] Replay histórico completo e suíte container para promoção de produção
+- [x] `docs/95-fase-91-8-vcsa-materialization-integration.md`
+
+## Fase 91.9 — VCSA Pipeline Replay & Integration Gate
+
+- [x] Resolver único de materialização preparado e testes focais preservados
+- [ ] Replay histórico e suíte container necessários antes da integração
+- [x] `docs/96-fase-91-9-vcsa-pipeline-integration.md`
+
+## Fase 91.10 — Structural Candidate Budget & Evidence Selection Safety Gate
+
+- [x] Transformador puro de reserve estrutural preparado e testado
+- [ ] Replay real A/B/C, aborto e adversariais antes de qualquer integração
+- [x] `docs/97-fase-91-10-structural-candidate-budget.md`
+
+## Fase 91.11 — Structural Candidate Pool Replay & Selection Gate
+
+- [x] Primeira tentativa bloqueada: imagem container não continha módulos experimentais
+- [x] Retomada com PostgreSQL real: `PRIMARY_TOP10` reconstruído por identidade e IDs físicos reais
+- [x] Replay `BASELINE` / `STRUCTURAL_RESERVE_1` / `STRUCTURAL_RESERVE_2` e controle `rw-aborto`
+- [x] Art. 137 alcançou reserve, mas não foi selecionado; camada de falha: Evidence Selection
+- [ ] Política não comprovada para produção; nenhuma integração de Structural Reserve/Expansion
+- [x] Diagnóstico e artefato atualizados em `docs/98-fase-91-11-structural-pool-selection.md`
+
+## Fase 91.12 — Evidence Selection Safety Gate
+
+- [x] Traço real do selector sobre pools congelados da Fase 91.11
+- [x] Estado de sítio alcança o pool, mas perde por orçamento/marginalidade
+- [x] `rw-voto-obrigatorio` apresenta a mesma causa; não há bug de provenance/tipo
+- [x] `rw-aborto` permanece insuficiente
+- [ ] Nenhuma correção integrada: `EVIDENCE_SELECTION_FIX=INCONCLUSIVE`
+- [x] `docs/99-fase-91-12-evidence-selection.md`
+
+## Fase 91.13 — Baseline Regression & Test Suite Closure
+
+- [x] Regressão de contexto pai do Semantic Prompt classificada como produto
+- [x] Contrato legado restaurado sem integrar VCSA/materialização
+- [x] Testes focais: 60 passed
+- [x] Suíte containerizada: 403 passed, 5 skipped
+- [x] Baseline pronta; `docs/100-fase-91-13-baseline-regression-closure.md`
+
+## Fase 91.14 — Atomic Claim Acceptance Production Integration Gate
+
+- [x] Pipeline e protótipo Atomic auditados contra outputs históricos congelados
+- [x] Ausência de derivação determinística de Core Answer/Material Dependency identificada
+- [ ] Integração Atomic não autorizada; `ATOMIC_CLAIM_ACCEPTANCE=INCONCLUSIVE`
+- [x] `docs/101-fase-91-14-atomic-claim-integration.md`
+
+## Fase 92 — MVP1 Hardening Freeze & Second E2E Readiness
+
+- [x] SHA do baseline E2E verificado: `866b4b7f467cffd709a884231a076d2e6b0bed90821f83e0ce0d596c3be7c72b`
+- [x] Locator Fidelity Guard e correção de contexto pai confirmados ativos
+- [x] Atomic, VCSA, Structural Expansion/Reserve e Evidence Selection experimental congelados fora da produção
+- [x] Baseline de suíte e lint aprovada; segunda medição E2E pronta para execução manual
+- [x] `docs/102-fase-92-mvp1-hardening-freeze.md`

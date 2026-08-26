@@ -1,0 +1,229 @@
+{
+  "phase": "controlled_relevance_model_benchmark_90",
+  "model": {
+    "id": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+    "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+    "runtime": "onnxruntime CPU",
+    "model_file": "/home/racascao/.cache/huggingface/hub/models--cross-encoder--mmarco-mMiniLMv2-L12-H384-v1/snapshots/1427fd652930e4ba29e8149678df786c240d8825/onnx/model_quint8_avx2.onnx",
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "input_names": [
+      "attention_mask",
+      "input_ids"
+    ],
+    "dtype": "quint8 ONNX AVX2"
+  },
+  "task": "Query ↔ Verified/Core Assertion relevance",
+  "thresholds": {
+    "low": 1.7888102531433105,
+    "high": -4.172726631164551,
+    "method": "max_negative_vs_min_positive_frozen_pairs_v1",
+    "separable": false
+  },
+  "rows": [
+    {
+      "name": "TRUE_BUT_IRRELEVANT",
+      "query": "licença parental",
+      "assertion": "A administração deve publicar seus gastos trimestralmente.",
+      "expected": "IRRELEVANT",
+      "score": -4.510070323944092,
+      "decision": "IRRELEVANT",
+      "latency_ms": 2.196756428572501
+    },
+    {
+      "name": "SUPPORTED_BUT_OFF_TARGET",
+      "query": "requisitos de idade para candidatura",
+      "assertion": "O órgão eleitoral divulgará o calendário das eleições.",
+      "expected": "IRRELEVANT",
+      "score": -4.819363594055176,
+      "decision": "IRRELEVANT",
+      "latency_ms": 2.196756428572501
+    },
+    {
+      "name": "WRONG_LEGAL_ACTOR",
+      "query": "o presidente autoriza a medida",
+      "assertion": "O tribunal autoriza a medida.",
+      "expected": "IRRELEVANT",
+      "score": 1.7888102531433105,
+      "decision": "RELEVANT",
+      "latency_ms": 2.196756428572501
+    },
+    {
+      "name": "RELATED_PROVISION_WRONG_ANSWER",
+      "query": "qual é o prazo de 30 dias para recurso",
+      "assertion": "O recurso é apresentado perante a autoridade competente.",
+      "expected": "IRRELEVANT",
+      "score": -4.767168998718262,
+      "decision": "IRRELEVANT",
+      "latency_ms": 2.196756428572501
+    },
+    {
+      "name": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "query": "a medida é obrigatória ou facultativa",
+      "assertion": "A medida será registrada em relatório anual.",
+      "expected": "IRRELEVANT",
+      "score": -3.1817548274993896,
+      "decision": "RELEVANT",
+      "latency_ms": 2.196756428572501
+    },
+    {
+      "name": "PARTIAL_TRUE_ANSWER_TO_BINARY_QUERY",
+      "query": "a medida é sempre permitida",
+      "assertion": "A medida é permitida em situação excepcional.",
+      "expected": "RELEVANT",
+      "score": 2.9851441383361816,
+      "decision": "RELEVANT",
+      "latency_ms": 2.196756428572501
+    },
+    {
+      "name": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "query": "quem deve prestar contas",
+      "assertion": "A prestação de contas deve ser publicada.",
+      "expected": "IRRELEVANT",
+      "score": -0.6408075094223022,
+      "decision": "RELEVANT",
+      "latency_ms": 2.196756428572501
+    },
+    {
+      "name": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "query": "a inscrição é obrigatória",
+      "assertion": "A inscrição é facultativa.",
+      "expected": "RELEVANT",
+      "score": 5.740667343139648,
+      "decision": "RELEVANT",
+      "latency_ms": 2.196756428572501
+    },
+    {
+      "name": "SEMANTICALLY_CLOSE_BUT_IRRELEVANT",
+      "query": "proteção à moradia",
+      "assertion": "O Estado promoverá programas de transporte urbano.",
+      "expected": "IRRELEVANT",
+      "score": -4.487371921539307,
+      "decision": "IRRELEVANT",
+      "latency_ms": 2.196756428572501
+    },
+    {
+      "name": "VALID_PARAPHRASE",
+      "query": "a inscrição é obrigatória",
+      "assertion": "É obrigatório efetuar a inscrição.",
+      "expected": "RELEVANT",
+      "score": 6.0555596351623535,
+      "decision": "RELEVANT",
+      "latency_ms": 2.196756428572501
+    },
+    {
+      "name": "MORPHOLOGICAL_VARIATION",
+      "query": "direitos trabalhistas",
+      "assertion": "Os trabalhadores têm direito às garantias laborais previstas.",
+      "expected": "RELEVANT",
+      "score": 0.1361159086227417,
+      "decision": "RELEVANT",
+      "latency_ms": 2.196756428572501
+    },
+    {
+      "name": "VALID_ALTERNATIVE_WORDING",
+      "query": "quem pode apresentar recurso",
+      "assertion": "A parte interessada está autorizada a interpor o recurso.",
+      "expected": "RELEVANT",
+      "score": -2.165569543838501,
+      "decision": "RELEVANT",
+      "latency_ms": 2.196756428572501
+    },
+    {
+      "name": "rw-liberdade-religiosa",
+      "query": "liberdade religiosa",
+      "assertion": "A liberdade de consciência e de crença é inviolável.",
+      "expected": "RELEVANT",
+      "score": -1.2951338291168213,
+      "decision": "RELEVANT",
+      "latency_ms": 2.196756428572501
+    },
+    {
+      "name": "rw-racismo",
+      "query": "racismo",
+      "assertion": "O artigo 4º repudia o terrorismo e o racismo.",
+      "expected": "RELEVANT",
+      "score": -4.172726631164551,
+      "decision": "RELEVANT",
+      "latency_ms": 2.196756428572501
+    },
+    {
+      "name": "rw-extradicao",
+      "query": "extradição",
+      "assertion": "Não será concedida extradição de estrangeiro por crime político ou de opinião.",
+      "expected": "RELEVANT",
+      "score": -1.8443549871444702,
+      "decision": "RELEVANT",
+      "latency_ms": 2.196756428572501
+    },
+    {
+      "name": "rw-direito-vida",
+      "query": "direito à vida",
+      "assertion": "O direito à vida é garantido pela Constituição Federal brasileira.",
+      "expected": "RELEVANT",
+      "score": 2.604816198348999,
+      "decision": "RELEVANT",
+      "latency_ms": 2.196756428572501
+    },
+    {
+      "name": "rw-liberdade-expressao",
+      "query": "liberdade de expressão",
+      "assertion": "A Constituição Federal de 1988 reconhece a liberdade de expressão como um direito social e individual.",
+      "expected": "RELEVANT",
+      "score": 4.506446838378906,
+      "decision": "RELEVANT",
+      "latency_ms": 2.196756428572501
+    },
+    {
+      "name": "rw-idade-presidente",
+      "query": "idade para ser presidente",
+      "assertion": "A idade mínima para ser Presidente da República é de trinta e cinco anos.",
+      "expected": "RELEVANT",
+      "score": 6.0735554695129395,
+      "decision": "RELEVANT",
+      "latency_ms": 2.196756428572501
+    },
+    {
+      "name": "rw-voto-obrigatorio",
+      "query": "voto obrigatório",
+      "assertion": "O voto é obrigatório para os maiores de dezoito anos.",
+      "expected": "RELEVANT",
+      "score": 2.8226802349090576,
+      "decision": "RELEVANT",
+      "latency_ms": 2.196756428572501
+    },
+    {
+      "name": "rw-pena-morte",
+      "query": "pena de morte",
+      "assertion": "não haverá penas: de morte, salvo em caso de guerra declarada, nos termos do art. 84, XIX;",
+      "expected": "RELEVANT",
+      "score": -0.9527114629745483,
+      "decision": "RELEVANT",
+      "latency_ms": 2.196756428572501
+    },
+    {
+      "name": "rw-prisao-perpetua",
+      "query": "prisão perpétua",
+      "assertion": "não haverá penas: de caráter perpétuo;",
+      "expected": "RELEVANT",
+      "score": -1.5571730136871338,
+      "decision": "RELEVANT",
+      "latency_ms": 2.196756428572501
+    }
+  ],
+  "metrics": {
+    "false_relevant": 3,
+    "false_irrelevant": 0,
+    "unresolved": 0,
+    "relevant_total": 14,
+    "irrelevant_total": 7,
+    "latency_mean_ms": 2.196756428572501,
+    "latency_p50_ms": 2.196756428572501,
+    "latency_p95_ms": 2.196756428572501
+  },
+  "gate": {
+    "primary_gate": false,
+    "production_integration": "NOT_ENABLED"
+  }
+}

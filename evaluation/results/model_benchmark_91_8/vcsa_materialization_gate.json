@@ -1,0 +1,19 @@
+{
+  "phase": "91.8",
+  "baseline_sha256": "866b4b7f467cffd709a884231a076d2e6b0bed90821f83e0ce0d596c3be7c72b",
+  "database_revision": "005_normative_identity_occurrences",
+  "materialization_architecture": "offline runtime MaterializedEvidence wrapping immutable EvidenceItem snapshot",
+  "evidence_consumers": ["generator", "attribution", "polarity", "semantic", "locator"],
+  "provenance_model": "EvidenceItem.validation_metadata.vcsa",
+  "real_prison_replay": {"effective_text": "não haverá penas: de caráter perpétuo;", "target_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B", "parent_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII"},
+  "positive_controls": "PASS",
+  "negative_controls": "PASS",
+  "validator_interactions": {"attribution": "PASS_WITH_TEST_DOUBLE", "polarity": "PASS_WITH_TEST_DOUBLE", "semantic_interface": "PASS_WITH_INTERFACE", "locator": "PASS_WITH_INTERFACE", "citation": "PASS_WITH_PROVENANCE"},
+  "blast_radius": "INCONCLUSIVE_NO_HISTORICAL_EVIDENCESET_REPLAY",
+  "immutability": "PASS",
+  "determinism": "PASS",
+  "legacy_equivalence": "PASS",
+  "test_results": "47 focal passed",
+  "integration_decision": "INCONCLUSIVE",
+  "new_llm_inference": false
+}

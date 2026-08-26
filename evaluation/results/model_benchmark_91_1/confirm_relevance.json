@@ -1,0 +1,4542 @@
+{
+  "phase": "91",
+  "manifest_hash": "6c6b798e247d0c57523446d1b4b35e13e65f4a513150217f1c5b7f4579e60754",
+  "runs": [
+    {
+      "model": "qwen3.5:4b",
+      "pair": "TRUE_BUT_IRRELEVANT",
+      "repeat": 1,
+      "name": "TRUE_BUT_IRRELEVANT",
+      "query": "licença parental",
+      "assertion": "A administração deve publicar seus gastos trimestralmente.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A pergunta trata sobre licença parental (direito do trabalhador/família), enquanto a assertion refere-se à transparência financeira da administração pública. Não há relação direta entre os temas."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 239,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 57
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "TRUE_BUT_IRRELEVANT",
+      "repeat": 2,
+      "name": "TRUE_BUT_IRRELEVANT",
+      "query": "licença parental",
+      "assertion": "A administração deve publicar seus gastos trimestralmente.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A pergunta trata sobre licença parental (direito do trabalhador/família), enquanto a assertion refere-se à transparência financeira da administração pública. Não há relação direta entre os temas."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 239,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 57
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "TRUE_BUT_IRRELEVANT",
+      "repeat": 3,
+      "name": "TRUE_BUT_IRRELEVANT",
+      "query": "licença parental",
+      "assertion": "A administração deve publicar seus gastos trimestralmente.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A pergunta trata sobre licença parental (direito do trabalhador/família), enquanto a assertion refere-se à transparência financeira da administração pública. Não há relação direta entre os temas."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 239,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 57
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "SUPPORTED_BUT_OFF_TARGET",
+      "repeat": 1,
+      "name": "SUPPORTED_BUT_OFF_TARGET",
+      "query": "requisitos de idade para candidatura",
+      "assertion": "O órgão eleitoral divulgará o calendário das eleições.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion trata da divulgação do calendário eleitoral, enquanto a pergunta refere-se aos requisitos de idade para candidatura. São temas distintos e a assertion não responde à proposição principal."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 243,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 55
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "SUPPORTED_BUT_OFF_TARGET",
+      "repeat": 2,
+      "name": "SUPPORTED_BUT_OFF_TARGET",
+      "query": "requisitos de idade para candidatura",
+      "assertion": "O órgão eleitoral divulgará o calendário das eleições.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion trata da divulgação do calendário eleitoral, enquanto a pergunta refere-se aos requisitos de idade para candidatura. São temas distintos e a assertion não responde à proposição principal."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 243,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 55
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "SUPPORTED_BUT_OFF_TARGET",
+      "repeat": 3,
+      "name": "SUPPORTED_BUT_OFF_TARGET",
+      "query": "requisitos de idade para candidatura",
+      "assertion": "O órgão eleitoral divulgará o calendário das eleições.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion trata da divulgação do calendário eleitoral, enquanto a pergunta refere-se aos requisitos de idade para candidatura. São temas distintos e a assertion não responde à proposição principal."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 243,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 55
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "WRONG_LEGAL_ACTOR",
+      "repeat": 1,
+      "name": "WRONG_LEGAL_ACTOR",
+      "query": "o presidente autoriza a medida",
+      "assertion": "O tribunal autoriza a medida.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion normativa verificada atribui o ato autorizatório ao 'tribunal', enquanto a pergunta propõe que seja o 'presidente'. Os atores jurídicos são diferentes, tornando a resposta à proposição principal."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 251,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 64
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "WRONG_LEGAL_ACTOR",
+      "repeat": 2,
+      "name": "WRONG_LEGAL_ACTOR",
+      "query": "o presidente autoriza a medida",
+      "assertion": "O tribunal autoriza a medida.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion normativa verificada atribui o ato autorizatório ao 'tribunal', enquanto a pergunta propõe que seja o 'presidente'. Os atores jurídicos são diferentes, tornando a resposta à proposição principal."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 251,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 64
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "WRONG_LEGAL_ACTOR",
+      "repeat": 3,
+      "name": "WRONG_LEGAL_ACTOR",
+      "query": "o presidente autoriza a medida",
+      "assertion": "O tribunal autoriza a medida.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion normativa verificada atribui o ato autorizatório ao 'tribunal', enquanto a pergunta propõe que seja o 'presidente'. Os atores jurídicos são diferentes, tornando a resposta à proposição principal."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 251,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 64
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "RELATED_PROVISION_WRONG_ANSWER",
+      "repeat": 1,
+      "name": "RELATED_PROVISION_WRONG_ANSWER",
+      "query": "qual é o prazo de 30 dias para recurso",
+      "assertion": "O recurso é apresentado perante a autoridade competente.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion afirma apenas onde o recurso deve ser apresentado (autoridade competente), sem responder ao prazo de 30 dias proposto na pergunta."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 186,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 50
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "RELATED_PROVISION_WRONG_ANSWER",
+      "repeat": 2,
+      "name": "RELATED_PROVISION_WRONG_ANSWER",
+      "query": "qual é o prazo de 30 dias para recurso",
+      "assertion": "O recurso é apresentado perante a autoridade competente.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion afirma apenas onde o recurso deve ser apresentado (autoridade competente), sem responder ao prazo de 30 dias proposto na pergunta."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 186,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 50
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "RELATED_PROVISION_WRONG_ANSWER",
+      "repeat": 3,
+      "name": "RELATED_PROVISION_WRONG_ANSWER",
+      "query": "qual é o prazo de 30 dias para recurso",
+      "assertion": "O recurso é apresentado perante a autoridade competente.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion afirma apenas onde o recurso deve ser apresentado (autoridade competente), sem responder ao prazo de 30 dias proposto na pergunta."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 186,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 50
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "repeat": 1,
+      "name": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "query": "a medida é obrigatória ou facultativa",
+      "assertion": "A medida será registrada em relatório anual.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion (registro em relatório anual) não responde diretamente à proposição principal da pergunta (obrigatoriedade ou facultabilidade da medida). Trata-se de uma consequência administrativa, não do caráter obrigatório ou facultativo da própria decisão."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 300,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 69
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "repeat": 2,
+      "name": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "query": "a medida é obrigatória ou facultativa",
+      "assertion": "A medida será registrada em relatório anual.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion (registro em relatório anual) não responde diretamente à proposição principal da pergunta (obrigatoriedade ou facultabilidade da medida). Trata-se de uma consequência administrativa, não do caráter obrigatório ou facultativo da própria decisão."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 300,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 69
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "repeat": 3,
+      "name": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "query": "a medida é obrigatória ou facultativa",
+      "assertion": "A medida será registrada em relatório anual.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion (registro em relatório anual) não responde diretamente à proposição principal da pergunta (obrigatoriedade ou facultabilidade da medida). Trata-se de uma consequência administrativa, não do caráter obrigatório ou facultativo da própria decisão."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 300,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 69
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "PARTIAL_TRUE_ANSWER_TO_BINARY_QUERY",
+      "repeat": 1,
+      "name": "PARTIAL_TRUE_ANSWER_TO_BINARY_QUERY",
+      "query": "a medida é sempre permitida",
+      "assertion": "A medida é permitida em situação excepcional.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion afirma que a medida é permitida 'em situação excepcional', o que responde diretamente à proposição da pergunta sobre se a medida é 'sempre' permitida, estabelecendo uma condição de exceção."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 243,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 65
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "PARTIAL_TRUE_ANSWER_TO_BINARY_QUERY",
+      "repeat": 2,
+      "name": "PARTIAL_TRUE_ANSWER_TO_BINARY_QUERY",
+      "query": "a medida é sempre permitida",
+      "assertion": "A medida é permitida em situação excepcional.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion afirma que a medida é permitida 'em situação excepcional', o que responde diretamente à proposição da pergunta sobre se a medida é 'sempre' permitida, estabelecendo uma condição de exceção."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 243,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 65
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "PARTIAL_TRUE_ANSWER_TO_BINARY_QUERY",
+      "repeat": 3,
+      "name": "PARTIAL_TRUE_ANSWER_TO_BINARY_QUERY",
+      "query": "a medida é sempre permitida",
+      "assertion": "A medida é permitida em situação excepcional.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion afirma que a medida é permitida 'em situação excepcional', o que responde diretamente à proposição da pergunta sobre se a medida é 'sempre' permitida, estabelecendo uma condição de exceção."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 243,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 65
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "repeat": 1,
+      "name": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "query": "quem deve prestar contas",
+      "assertion": "A prestação de contas deve ser publicada.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion normativa verificada trata da obrigação de publicação, enquanto a pergunta solicita o identificação do sujeito passivo (quem deve). A resposta à proposição não responde diretamente à questão sobre a identidade do ator jurídico."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 283,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 63
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "repeat": 2,
+      "name": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "query": "quem deve prestar contas",
+      "assertion": "A prestação de contas deve ser publicada.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion normativa verificada trata da obrigação de publicação, enquanto a pergunta solicita o identificação do sujeito passivo (quem deve). A resposta à proposição não responde diretamente à questão sobre a identidade do ator jurídico."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 283,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 63
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "repeat": 3,
+      "name": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "query": "quem deve prestar contas",
+      "assertion": "A prestação de contas deve ser publicada.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion normativa verificada trata da obrigação de publicação, enquanto a pergunta solicita o identificação do sujeito passivo (quem deve). A resposta à proposição não responde diretamente à questão sobre a identidade do ator jurídico."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 283,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 63
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "repeat": 1,
+      "name": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "query": "a inscrição é obrigatória",
+      "assertion": "A inscrição é facultativa.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion afirma que a inscrição é 'facultativa', enquanto a pergunta propõe que ela é 'obrigatória'. São proposições contraditórias sobre o mesmo fato, mas a assertion não responde à pergunta; pelo contrário, nega-a."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 263,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 72
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "repeat": 2,
+      "name": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "query": "a inscrição é obrigatória",
+      "assertion": "A inscrição é facultativa.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion afirma que a inscrição é 'facultativa', enquanto a pergunta propõe que ela é 'obrigatória'. São proposições contraditórias sobre o mesmo fato, mas a assertion não responde à pergunta; pelo contrário, nega-a."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 263,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 72
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "repeat": 3,
+      "name": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "query": "a inscrição é obrigatória",
+      "assertion": "A inscrição é facultativa.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion afirma que a inscrição é 'facultativa', enquanto a pergunta propõe que ela é 'obrigatória'. São proposições contraditórias sobre o mesmo fato, mas a assertion não responde à pergunta; pelo contrário, nega-a."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 263,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 72
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "SEMANTICALLY_CLOSE_BUT_IRRELEVANT",
+      "repeat": 1,
+      "name": "SEMANTICALLY_CLOSE_BUT_IRRELEVANT",
+      "query": "proteção à moradia",
+      "assertion": "O Estado promoverá programas de transporte urbano.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion trata de programas de transporte urbano, enquanto a pergunta refere-se à proteção à moradia. São temas distintos e não há relação direta entre eles."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 204,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 52
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "SEMANTICALLY_CLOSE_BUT_IRRELEVANT",
+      "repeat": 2,
+      "name": "SEMANTICALLY_CLOSE_BUT_IRRELEVANT",
+      "query": "proteção à moradia",
+      "assertion": "O Estado promoverá programas de transporte urbano.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion trata de programas de transporte urbano, enquanto a pergunta refere-se à proteção à moradia. São temas distintos e não há relação direta entre eles."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 204,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 52
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "SEMANTICALLY_CLOSE_BUT_IRRELEVANT",
+      "repeat": 3,
+      "name": "SEMANTICALLY_CLOSE_BUT_IRRELEVANT",
+      "query": "proteção à moradia",
+      "assertion": "O Estado promoverá programas de transporte urbano.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion trata de programas de transporte urbano, enquanto a pergunta refere-se à proteção à moradia. São temas distintos e não há relação direta entre eles."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 204,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 52
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "VALID_PARAPHRASE",
+      "repeat": 1,
+      "name": "VALID_PARAPHRASE",
+      "query": "a inscrição é obrigatória",
+      "assertion": "É obrigatório efetuar a inscrição.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa verificada ('É obrigatório efetuar a inscrição') responde diretamente à proposição principal da pergunta ('a inscrição é obrigatória'), estabelecendo uma equivalência semântica direta sobre o dever jurídico de inscrição."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 284,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 66
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "VALID_PARAPHRASE",
+      "repeat": 2,
+      "name": "VALID_PARAPHRASE",
+      "query": "a inscrição é obrigatória",
+      "assertion": "É obrigatório efetuar a inscrição.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa verificada ('É obrigatório efetuar a inscrição') responde diretamente à proposição principal da pergunta ('a inscrição é obrigatória'), estabelecendo uma equivalência semântica direta sobre o dever jurídico de inscrição."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 284,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 66
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "VALID_PARAPHRASE",
+      "repeat": 3,
+      "name": "VALID_PARAPHRASE",
+      "query": "a inscrição é obrigatória",
+      "assertion": "É obrigatório efetuar a inscrição.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa verificada ('É obrigatório efetuar a inscrição') responde diretamente à proposição principal da pergunta ('a inscrição é obrigatória'), estabelecendo uma equivalência semântica direta sobre o dever jurídico de inscrição."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 284,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 66
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "MORPHOLOGICAL_VARIATION",
+      "repeat": 1,
+      "name": "MORPHOLOGICAL_VARIATION",
+      "query": "direitos trabalhistas",
+      "assertion": "Os trabalhadores têm direito às garantias laborais previstas.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion afirma que os trabalhadores têm direito às garantias laborais, o que responde diretamente à proposição principal sobre direitos trabalhistas."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 195,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 48
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "MORPHOLOGICAL_VARIATION",
+      "repeat": 2,
+      "name": "MORPHOLOGICAL_VARIATION",
+      "query": "direitos trabalhistas",
+      "assertion": "Os trabalhadores têm direito às garantias laborais previstas.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion afirma que os trabalhadores têm direito às garantias laborais, o que responde diretamente à proposição principal sobre direitos trabalhistas."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 195,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 48
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "MORPHOLOGICAL_VARIATION",
+      "repeat": 3,
+      "name": "MORPHOLOGICAL_VARIATION",
+      "query": "direitos trabalhistas",
+      "assertion": "Os trabalhadores têm direito às garantias laborais previstas.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion afirma que os trabalhadores têm direito às garantias laborais, o que responde diretamente à proposição principal sobre direitos trabalhistas."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 195,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 48
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "VALID_ALTERNATIVE_WORDING",
+      "repeat": 1,
+      "name": "VALID_ALTERNATIVE_WORDING",
+      "query": "quem pode apresentar recurso",
+      "assertion": "A parte interessada está autorizada a interpor o recurso.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion afirma que 'a parte interessada' tem autorização para interpor o recurso, respondendo diretamente à proposição principal da pergunta sobre 'quem pode apresentar recurso', estabelecendo a condição de legitimidade (parte interessada) para o exercício do direito recursivo."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 324,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 75
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "VALID_ALTERNATIVE_WORDING",
+      "repeat": 2,
+      "name": "VALID_ALTERNATIVE_WORDING",
+      "query": "quem pode apresentar recurso",
+      "assertion": "A parte interessada está autorizada a interpor o recurso.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion afirma que 'a parte interessada' tem autorização para interpor o recurso, respondendo diretamente à proposição principal da pergunta sobre 'quem pode apresentar recurso', estabelecendo a condição de legitimidade (parte interessada) para o exercício do direito recursivo."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 324,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 75
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "VALID_ALTERNATIVE_WORDING",
+      "repeat": 3,
+      "name": "VALID_ALTERNATIVE_WORDING",
+      "query": "quem pode apresentar recurso",
+      "assertion": "A parte interessada está autorizada a interpor o recurso.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion afirma que 'a parte interessada' tem autorização para interpor o recurso, respondendo diretamente à proposição principal da pergunta sobre 'quem pode apresentar recurso', estabelecendo a condição de legitimidade (parte interessada) para o exercício do direito recursivo."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 324,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 75
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-liberdade-religiosa",
+      "repeat": 1,
+      "name": "rw-liberdade-religiosa",
+      "query": "liberdade religiosa",
+      "assertion": "A liberdade de consciência e de crença é inviolável.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa verificada trata diretamente do princípio da liberdade de consciência e de crença, que é o conceito central da pergunta sobre a liberdade religiosa."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 212,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 51
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-liberdade-religiosa",
+      "repeat": 2,
+      "name": "rw-liberdade-religiosa",
+      "query": "liberdade religiosa",
+      "assertion": "A liberdade de consciência e de crença é inviolável.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa verificada trata diretamente do princípio da liberdade de consciência e de crença, que é o conceito central da pergunta sobre a liberdade religiosa."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 212,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 51
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-liberdade-religiosa",
+      "repeat": 3,
+      "name": "rw-liberdade-religiosa",
+      "query": "liberdade religiosa",
+      "assertion": "A liberdade de consciência e de crença é inviolável.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa verificada trata diretamente do princípio da liberdade de consciência e de crença, que é o conceito central da pergunta sobre a liberdade religiosa."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 212,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 51
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-racismo",
+      "repeat": 1,
+      "name": "rw-racismo",
+      "query": "racismo",
+      "assertion": "O artigo 4º repudia o terrorismo e o racismo.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa verifica diretamente a proposição principal (racismo) ao citar uma norma específica que trata do tema."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 166,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 43
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-racismo",
+      "repeat": 2,
+      "name": "rw-racismo",
+      "query": "racismo",
+      "assertion": "O artigo 4º repudia o terrorismo e o racismo.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa verifica diretamente a proposição principal (racismo) ao citar uma norma específica que trata do tema."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 166,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 43
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-racismo",
+      "repeat": 3,
+      "name": "rw-racismo",
+      "query": "racismo",
+      "assertion": "O artigo 4º repudia o terrorismo e o racismo.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa verifica diretamente a proposição principal (racismo) ao citar uma norma específica que trata do tema."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 166,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 43
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-extradicao",
+      "repeat": 1,
+      "name": "rw-extradicao",
+      "query": "extradição",
+      "assertion": "Não será concedida extradição de estrangeiro por crime político ou de opinião.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa afirma uma regra específica sobre a concessão de extradição para crimes políticos, o que responde diretamente à proposição principal (extradição) estabelecendo um critério de não concessão."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 253,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 63
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-extradicao",
+      "repeat": 2,
+      "name": "rw-extradicao",
+      "query": "extradição",
+      "assertion": "Não será concedida extradição de estrangeiro por crime político ou de opinião.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa afirma uma regra específica sobre a concessão de extradição para crimes políticos, o que responde diretamente à proposição principal (extradição) estabelecendo um critério de não concessão."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 253,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 63
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-extradicao",
+      "repeat": 3,
+      "name": "rw-extradicao",
+      "query": "extradição",
+      "assertion": "Não será concedida extradição de estrangeiro por crime político ou de opinião.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa afirma uma regra específica sobre a concessão de extradição para crimes políticos, o que responde diretamente à proposição principal (extradição) estabelecendo um critério de não concessão."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 253,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 63
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-direito-vida",
+      "repeat": 1,
+      "name": "rw-direito-vida",
+      "query": "direito à vida",
+      "assertion": "O direito à vida é garantido pela Constituição Federal brasileira.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion afirma que o direito à vida está garantido pela CF/88, respondendo diretamente à proposição principal da pergunta sobre a existência desse direito."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 201,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 52
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-direito-vida",
+      "repeat": 2,
+      "name": "rw-direito-vida",
+      "query": "direito à vida",
+      "assertion": "O direito à vida é garantido pela Constituição Federal brasileira.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion afirma que o direito à vida está garantido pela CF/88, respondendo diretamente à proposição principal da pergunta sobre a existência desse direito."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 201,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 52
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-direito-vida",
+      "repeat": 3,
+      "name": "rw-direito-vida",
+      "query": "direito à vida",
+      "assertion": "O direito à vida é garantido pela Constituição Federal brasileira.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion afirma que o direito à vida está garantido pela CF/88, respondendo diretamente à proposição principal da pergunta sobre a existência desse direito."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 201,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 52
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-liberdade-expressao",
+      "repeat": 1,
+      "name": "rw-liberdade-expressao",
+      "query": "liberdade de expressão",
+      "assertion": "A Constituição Federal de 1988 reconhece a liberdade de expressão como um direito social e individual.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal da pergunta ao afirmar se a Constituição Federal de 1988 reconhece a liberdade de expressão como um direito social e individual, que é o tema central levantado."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 258,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 63
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-liberdade-expressao",
+      "repeat": 2,
+      "name": "rw-liberdade-expressao",
+      "query": "liberdade de expressão",
+      "assertion": "A Constituição Federal de 1988 reconhece a liberdade de expressão como um direito social e individual.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal da pergunta ao afirmar se a Constituição Federal de 1988 reconhece a liberdade de expressão como um direito social e individual, que é o tema central levantado."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 258,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 63
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-liberdade-expressao",
+      "repeat": 3,
+      "name": "rw-liberdade-expressao",
+      "query": "liberdade de expressão",
+      "assertion": "A Constituição Federal de 1988 reconhece a liberdade de expressão como um direito social e individual.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal da pergunta ao afirmar se a Constituição Federal de 1988 reconhece a liberdade de expressão como um direito social e individual, que é o tema central levantado."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 258,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 63
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-idade-presidente",
+      "repeat": 1,
+      "name": "rw-idade-presidente",
+      "query": "idade para ser presidente",
+      "assertion": "A idade mínima para ser Presidente da República é de trinta e cinco anos.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal da pergunta, estabelecendo o critério específico (idade) solicitado."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 166,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 43
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-idade-presidente",
+      "repeat": 2,
+      "name": "rw-idade-presidente",
+      "query": "idade para ser presidente",
+      "assertion": "A idade mínima para ser Presidente da República é de trinta e cinco anos.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal da pergunta, estabelecendo o critério específico (idade) solicitado."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 166,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 43
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-idade-presidente",
+      "repeat": 3,
+      "name": "rw-idade-presidente",
+      "query": "idade para ser presidente",
+      "assertion": "A idade mínima para ser Presidente da República é de trinta e cinco anos.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal da pergunta, estabelecendo o critério específico (idade) solicitado."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 166,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 43
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-voto-obrigatorio",
+      "repeat": 1,
+      "name": "rw-voto-obrigatorio",
+      "query": "voto obrigatório",
+      "assertion": "O voto é obrigatório para os maiores de dezoito anos.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal da pergunta ao definir o escopo (maiores de dezoito anos) da regra do voto obrigatório."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 185,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 51
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-voto-obrigatorio",
+      "repeat": 2,
+      "name": "rw-voto-obrigatorio",
+      "query": "voto obrigatório",
+      "assertion": "O voto é obrigatório para os maiores de dezoito anos.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal da pergunta ao definir o escopo (maiores de dezoito anos) da regra do voto obrigatório."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 185,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 51
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-voto-obrigatorio",
+      "repeat": 3,
+      "name": "rw-voto-obrigatorio",
+      "query": "voto obrigatório",
+      "assertion": "O voto é obrigatório para os maiores de dezoito anos.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal da pergunta ao definir o escopo (maiores de dezoito anos) da regra do voto obrigatório."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 185,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 51
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-pena-morte",
+      "repeat": 1,
+      "name": "rw-pena-morte",
+      "query": "pena de morte",
+      "assertion": "não haverá penas: de morte, salvo em caso de guerra declarada, nos termos do art. 84, XIX;",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa verifica diretamente a proposição principal da pergunta sobre a pena de morte, especificando sua inexistência e a exceção prevista em lei."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 202,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 51
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-pena-morte",
+      "repeat": 2,
+      "name": "rw-pena-morte",
+      "query": "pena de morte",
+      "assertion": "não haverá penas: de morte, salvo em caso de guerra declarada, nos termos do art. 84, XIX;",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa verifica diretamente a proposição principal da pergunta sobre a pena de morte, especificando sua inexistência e a exceção prevista em lei."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 202,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 51
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-pena-morte",
+      "repeat": 3,
+      "name": "rw-pena-morte",
+      "query": "pena de morte",
+      "assertion": "não haverá penas: de morte, salvo em caso de guerra declarada, nos termos do art. 84, XIX;",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa verifica diretamente a proposição principal da pergunta sobre a pena de morte, especificando sua inexistência e a exceção prevista em lei."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 202,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 51
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-prisao-perpetua",
+      "repeat": 1,
+      "name": "rw-prisao-perpetua",
+      "query": "prisão perpétua",
+      "assertion": "não haverá penas: de caráter perpétuo;",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion afirma a inexistência de penas perpétuas, o que é uma proposição normativa direta sobre o instituto da prisão perpétua levantado na pergunta. A resposta confirma ou nega a existência do instituto, respondendo diretamente à proposição principal."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 298,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 73
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-prisao-perpetua",
+      "repeat": 2,
+      "name": "rw-prisao-perpetua",
+      "query": "prisão perpétua",
+      "assertion": "não haverá penas: de caráter perpétuo;",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion afirma a inexistência de penas perpétuas, o que é uma proposição normativa direta sobre o instituto da prisão perpétua levantado na pergunta. A resposta confirma ou nega a existência do instituto, respondendo diretamente à proposição principal."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 298,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 73
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-prisao-perpetua",
+      "repeat": 3,
+      "name": "rw-prisao-perpetua",
+      "query": "prisão perpétua",
+      "assertion": "não haverá penas: de caráter perpétuo;",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion afirma a inexistência de penas perpétuas, o que é uma proposição normativa direta sobre o instituto da prisão perpétua levantado na pergunta. A resposta confirma ou nega a existência do instituto, respondendo diretamente à proposição principal."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 298,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 73
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "TRUE_BUT_IRRELEVANT",
+      "repeat": 1,
+      "name": "TRUE_BUT_IRRELEVANT",
+      "query": "licença parental",
+      "assertion": "A administração deve publicar seus gastos trimestralmente.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion normativa trata de obrigação de publicação de gastos pela administração pública, enquanto a pergunta versa sobre **licença parental**, que é uma matéria distinta (direito do trabalho/familiar) e não guarda relação direta com a temática financeira ou administrativa abordada na assertion."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 343,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 81
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "TRUE_BUT_IRRELEVANT",
+      "repeat": 2,
+      "name": "TRUE_BUT_IRRELEVANT",
+      "query": "licença parental",
+      "assertion": "A administração deve publicar seus gastos trimestralmente.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion normativa trata de obrigação de publicação de gastos pela administração pública, enquanto a pergunta versa sobre **licença parental**, que é uma matéria distinta (direito do trabalho/familiar) e não guarda relação direta com a temática financeira ou administrativa abordada na assertion."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 343,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 81
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "TRUE_BUT_IRRELEVANT",
+      "repeat": 3,
+      "name": "TRUE_BUT_IRRELEVANT",
+      "query": "licença parental",
+      "assertion": "A administração deve publicar seus gastos trimestralmente.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion normativa trata de obrigação de publicação de gastos pela administração pública, enquanto a pergunta versa sobre **licença parental**, que é uma matéria distinta (direito do trabalho/familiar) e não guarda relação direta com a temática financeira ou administrativa abordada na assertion."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 343,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 81
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "SUPPORTED_BUT_OFF_TARGET",
+      "repeat": 1,
+      "name": "SUPPORTED_BUT_OFF_TARGET",
+      "query": "requisitos de idade para candidatura",
+      "assertion": "O órgão eleitoral divulgará o calendário das eleições.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion normativa trata de uma obrigação do órgão eleitoral (divulgação do calendário eleitoral), que não está diretamente relacionada aos requisitos de idade para candidatura. Não há conexão material entre a divulgação do calendário e a idade mínima exigida para se candidatar."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 326,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 79
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "SUPPORTED_BUT_OFF_TARGET",
+      "repeat": 2,
+      "name": "SUPPORTED_BUT_OFF_TARGET",
+      "query": "requisitos de idade para candidatura",
+      "assertion": "O órgão eleitoral divulgará o calendário das eleições.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion normativa trata de uma obrigação do órgão eleitoral (divulgação do calendário eleitoral), que não está diretamente relacionada aos requisitos de idade para candidatura. Não há conexão material entre a divulgação do calendário e a idade mínima exigida para se candidatar."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 326,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 79
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "SUPPORTED_BUT_OFF_TARGET",
+      "repeat": 3,
+      "name": "SUPPORTED_BUT_OFF_TARGET",
+      "query": "requisitos de idade para candidatura",
+      "assertion": "O órgão eleitoral divulgará o calendário das eleições.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion normativa trata de uma obrigação do órgão eleitoral (divulgação do calendário eleitoral), que não está diretamente relacionada aos requisitos de idade para candidatura. Não há conexão material entre a divulgação do calendário e a idade mínima exigida para se candidatar."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 326,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 79
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "WRONG_LEGAL_ACTOR",
+      "repeat": 1,
+      "name": "WRONG_LEGAL_ACTOR",
+      "query": "o presidente autoriza a medida",
+      "assertion": "O tribunal autoriza a medida.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion menciona ator jurídico diferente ('tribunal') em relação à proposição principal ('presidente'), não respondendo diretamente à pergunta sobre quem autoriza a medida."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 220,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 53
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "WRONG_LEGAL_ACTOR",
+      "repeat": 2,
+      "name": "WRONG_LEGAL_ACTOR",
+      "query": "o presidente autoriza a medida",
+      "assertion": "O tribunal autoriza a medida.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion menciona ator jurídico diferente ('tribunal') em relação à proposição principal ('presidente'), não respondendo diretamente à pergunta sobre quem autoriza a medida."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 220,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 53
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "WRONG_LEGAL_ACTOR",
+      "repeat": 3,
+      "name": "WRONG_LEGAL_ACTOR",
+      "query": "o presidente autoriza a medida",
+      "assertion": "O tribunal autoriza a medida.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion menciona ator jurídico diferente ('tribunal') em relação à proposição principal ('presidente'), não respondendo diretamente à pergunta sobre quem autoriza a medida."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 220,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 53
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "RELATED_PROVISION_WRONG_ANSWER",
+      "repeat": 1,
+      "name": "RELATED_PROVISION_WRONG_ANSWER",
+      "query": "qual é o prazo de 30 dias para recurso",
+      "assertion": "O recurso é apresentado perante a autoridade competente.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion normativa não responde diretamente ao prazo de 30 dias para recurso. Ela trata apenas do procedimento de apresentação do recurso (autoridade competente), sem mencionar prazo, limite temporal ou relação com a proposição principal."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 285,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 70
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "RELATED_PROVISION_WRONG_ANSWER",
+      "repeat": 2,
+      "name": "RELATED_PROVISION_WRONG_ANSWER",
+      "query": "qual é o prazo de 30 dias para recurso",
+      "assertion": "O recurso é apresentado perante a autoridade competente.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion normativa não responde diretamente ao prazo de 30 dias para recurso. Ela trata apenas do procedimento de apresentação do recurso (autoridade competente), sem mencionar prazo, limite temporal ou relação com a proposição principal."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 285,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 70
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "RELATED_PROVISION_WRONG_ANSWER",
+      "repeat": 3,
+      "name": "RELATED_PROVISION_WRONG_ANSWER",
+      "query": "qual é o prazo de 30 dias para recurso",
+      "assertion": "O recurso é apresentado perante a autoridade competente.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion menciona apenas o procedimento de apresentação do recurso ('perante a autoridade competente'), sem responder diretamente ao **prazo de 30 dias** para recurso (prazo temporal, condição ou limite legal). É uma informação temática, mas não a assertiva que define ou delimita o prazo em questão."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 347,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 87
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "repeat": 1,
+      "name": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "query": "a medida é obrigatória ou facultativa",
+      "assertion": "A medida será registrada em relatório anual.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion trata de um aspecto processual ou documental (registro em relatório anual) que não responde diretamente à obrigatoriedade ou facultatividade da medida em si. É temática, mas não aborda a natureza jurídica da obrigatoriedade da ação."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 288,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 72
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "repeat": 2,
+      "name": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "query": "a medida é obrigatória ou facultativa",
+      "assertion": "A medida será registrada em relatório anual.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion trata de um aspecto processual ou documental (registro em relatório anual) que não responde diretamente à obrigatoriedade ou facultatividade da medida em si. É temática, mas não aborda a natureza jurídica da obrigatoriedade da ação."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 288,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 72
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "repeat": 3,
+      "name": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "query": "a medida é obrigatória ou facultativa",
+      "assertion": "A medida será registrada em relatório anual.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion trata de um aspecto processual ou documental (registro em relatório anual) que não responde diretamente à obrigatoriedade ou facultatividade da medida em si. É temática, mas não aborda a natureza jurídica da obrigatoriedade da ação."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 288,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 72
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "PARTIAL_TRUE_ANSWER_TO_BINARY_QUERY",
+      "repeat": 1,
+      "name": "PARTIAL_TRUE_ANSWER_TO_BINARY_QUERY",
+      "query": "a medida é sempre permitida",
+      "assertion": "A medida é permitida em situação excepcional.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal da pergunta ('a medida é sempre permitida') ao estabelecer uma condição específica ('situação excepcional') em que a medida é permitida, negando a generalidade implícita na pergunta."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 280,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 69
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "PARTIAL_TRUE_ANSWER_TO_BINARY_QUERY",
+      "repeat": 2,
+      "name": "PARTIAL_TRUE_ANSWER_TO_BINARY_QUERY",
+      "query": "a medida é sempre permitida",
+      "assertion": "A medida é permitida em situação excepcional.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal da pergunta ('a medida é sempre permitida') ao estabelecer uma condição específica ('situação excepcional') em que a medida é permitida, negando a generalidade implícita na pergunta."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 280,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 69
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "PARTIAL_TRUE_ANSWER_TO_BINARY_QUERY",
+      "repeat": 3,
+      "name": "PARTIAL_TRUE_ANSWER_TO_BINARY_QUERY",
+      "query": "a medida é sempre permitida",
+      "assertion": "A medida é permitida em situação excepcional.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal da pergunta ('a medida é sempre permitida') ao estabelecer uma condição específica ('situação excepcional') em que a medida é permitida, negando a generalidade implícita na pergunta."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 280,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 69
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "repeat": 1,
+      "name": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "query": "quem deve prestar contas",
+      "assertion": "A prestação de contas deve ser publicada.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion normativa trata apenas da **forma** (publicação) da prestação de contas, não respondendo diretamente à **questão sobre o ator obrigado** (quem deve prestar contas). É temática, mas não aborda a relação jurídica principal da pergunta."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 289,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 80
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "repeat": 2,
+      "name": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "query": "quem deve prestar contas",
+      "assertion": "A prestação de contas deve ser publicada.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion normativa trata apenas da **forma** (publicação) da prestação de contas, não respondendo diretamente à **questão sobre o ator obrigado** (quem deve prestar contas). É temática, mas não aborda a relação jurídica principal da pergunta."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 289,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 80
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "repeat": 3,
+      "name": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "query": "quem deve prestar contas",
+      "assertion": "A prestação de contas deve ser publicada.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion normativa trata apenas da **forma** (publicação) da prestação de contas, não respondendo diretamente à **questão sobre o ator obrigado** (quem deve prestar contas). É temática, mas não aborda a relação jurídica principal da pergunta."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 289,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 80
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "repeat": 1,
+      "name": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "query": "a inscrição é obrigatória",
+      "assertion": "A inscrição é facultativa.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion afirma o oposto da proposição principal ('obrigatória' vs 'facultativa'), não respondendo diretamente à pergunta, mas contradizendo-a. Não há base segura para classificar como RELEVANT ou UNRESOLVED, pois a assertiva é uma resposta direta, porém negativa à proposição."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 324,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 88
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "repeat": 2,
+      "name": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "query": "a inscrição é obrigatória",
+      "assertion": "A inscrição é facultativa.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion afirma o oposto da proposição principal ('obrigatória' vs 'facultativa'), não respondendo diretamente à pergunta, mas contradizendo-a. Não há base segura para classificar como RELEVANT ou UNRESOLVED, pois a assertiva é explicitamente contrária."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 300,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 82
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "repeat": 3,
+      "name": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "query": "a inscrição é obrigatória",
+      "assertion": "A inscrição é facultativa.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion afirma o oposto da proposição principal ('obrigatória' vs 'facultativa'), não respondendo diretamente à pergunta, mas contradizendo-a. Não há base segura para classificar como RELEVANT ou UNRESOLVED, pois a assertiva é explicitamente contrária."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 300,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 82
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "SEMANTICALLY_CLOSE_BUT_IRRELEVANT",
+      "repeat": 1,
+      "name": "SEMANTICALLY_CLOSE_BUT_IRRELEVANT",
+      "query": "proteção à moradia",
+      "assertion": "O Estado promoverá programas de transporte urbano.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion normativa trata de 'programas de transporte urbano', enquanto a pergunta principal versa sobre 'proteção à moradia'. Não há relação direta entre a assertiva e a proposição principal."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 238,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 60
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "SEMANTICALLY_CLOSE_BUT_IRRELEVANT",
+      "repeat": 2,
+      "name": "SEMANTICALLY_CLOSE_BUT_IRRELEVANT",
+      "query": "proteção à moradia",
+      "assertion": "O Estado promoverá programas de transporte urbano.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion normativa trata de 'programas de transporte urbano', enquanto a pergunta principal versa sobre 'proteção à moradia'. Não há relação direta entre a assertiva e a proposição principal."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 238,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 60
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "SEMANTICALLY_CLOSE_BUT_IRRELEVANT",
+      "repeat": 3,
+      "name": "SEMANTICALLY_CLOSE_BUT_IRRELEVANT",
+      "query": "proteção à moradia",
+      "assertion": "O Estado promoverá programas de transporte urbano.",
+      "expected": "IRRELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion normativa trata de 'programas de transporte urbano', enquanto a pergunta principal versa sobre 'proteção à moradia'. Não há relação direta entre a assertiva e a proposição principal."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 238,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 60
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "VALID_PARAPHRASE",
+      "repeat": 1,
+      "name": "VALID_PARAPHRASE",
+      "query": "a inscrição é obrigatória",
+      "assertion": "É obrigatório efetuar a inscrição.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal da pergunta ('a inscrição é obrigatória') ao afirmar explicitamente que a inscrição é obrigatória, sem desvios temáticos ou referenciais jurídicos indiretos."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 255,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 61
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "VALID_PARAPHRASE",
+      "repeat": 2,
+      "name": "VALID_PARAPHRASE",
+      "query": "a inscrição é obrigatória",
+      "assertion": "É obrigatório efetuar a inscrição.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal da pergunta ('a inscrição é obrigatória') ao afirmar explicitamente que a inscrição é obrigatória, sem desvios temáticos ou referenciais jurídicos indiretos."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 255,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 61
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "VALID_PARAPHRASE",
+      "repeat": 3,
+      "name": "VALID_PARAPHRASE",
+      "query": "a inscrição é obrigatória",
+      "assertion": "É obrigatório efetuar a inscrição.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal da pergunta ('a inscrição é obrigatória') ao afirmar explicitamente que a inscrição é obrigatória, sem desvios temáticos ou referenciais jurídicos indiretos."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 255,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 61
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "MORPHOLOGICAL_VARIATION",
+      "repeat": 1,
+      "name": "MORPHOLOGICAL_VARIATION",
+      "query": "direitos trabalhistas",
+      "assertion": "Os trabalhadores têm direito às garantias laborais previstas.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal sobre direitos trabalhistas, ao afirmar explicitamente que os trabalhadores possuem garantias laborais, o que é uma relação normativa materialmente relevante para a pergunta."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 272,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 59
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "MORPHOLOGICAL_VARIATION",
+      "repeat": 2,
+      "name": "MORPHOLOGICAL_VARIATION",
+      "query": "direitos trabalhistas",
+      "assertion": "Os trabalhadores têm direito às garantias laborais previstas.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal sobre direitos trabalhistas, ao afirmar explicitamente que os trabalhadores possuem garantias laborais, o que é uma relação normativa materialmente relevante para a pergunta."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 272,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 59
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "MORPHOLOGICAL_VARIATION",
+      "repeat": 3,
+      "name": "MORPHOLOGICAL_VARIATION",
+      "query": "direitos trabalhistas",
+      "assertion": "Os trabalhadores têm direito às garantias laborais previstas.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal sobre direitos trabalhistas, ao afirmar explicitamente que os trabalhadores possuem garantias laborais, o que é uma relação normativa materialmente relevante para a pergunta."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 272,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 59
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "VALID_ALTERNATIVE_WORDING",
+      "repeat": 1,
+      "name": "VALID_ALTERNATIVE_WORDING",
+      "query": "quem pode apresentar recurso",
+      "assertion": "A parte interessada está autorizada a interpor o recurso.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à pergunta ao identificar o ator jurídico ('parte interessada') que possui legitimidade para apresentar recurso, sem introduzir elementos temáticos ou auxiliares."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 237,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 54
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "VALID_ALTERNATIVE_WORDING",
+      "repeat": 2,
+      "name": "VALID_ALTERNATIVE_WORDING",
+      "query": "quem pode apresentar recurso",
+      "assertion": "A parte interessada está autorizada a interpor o recurso.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à pergunta ao identificar o ator jurídico ('parte interessada') que possui legitimidade para apresentar recurso, sem introduzir elementos temáticos ou auxiliares."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 237,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 54
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "VALID_ALTERNATIVE_WORDING",
+      "repeat": 3,
+      "name": "VALID_ALTERNATIVE_WORDING",
+      "query": "quem pode apresentar recurso",
+      "assertion": "A parte interessada está autorizada a interpor o recurso.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à pergunta ao identificar o ator jurídico ('parte interessada') que possui legitimidade para apresentar recurso, sem introduzir elementos temáticos ou auxiliares."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 237,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 54
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-liberdade-religiosa",
+      "repeat": 1,
+      "name": "rw-liberdade-religiosa",
+      "query": "liberdade religiosa",
+      "assertion": "A liberdade de consciência e de crença é inviolável.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion aborda diretamente a liberdade religiosa ao tratar da 'liberdade de consciência e de crença', que é um aspecto central da liberdade religiosa, garantindo proteção normativa à proposição principal."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 250,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 61
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-liberdade-religiosa",
+      "repeat": 2,
+      "name": "rw-liberdade-religiosa",
+      "query": "liberdade religiosa",
+      "assertion": "A liberdade de consciência e de crença é inviolável.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion aborda diretamente a liberdade religiosa ao tratar da 'liberdade de consciência e de crença', que é um aspecto central da liberdade religiosa, garantindo proteção normativa à proposição principal."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 250,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 61
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-liberdade-religiosa",
+      "repeat": 3,
+      "name": "rw-liberdade-religiosa",
+      "query": "liberdade religiosa",
+      "assertion": "A liberdade de consciência e de crença é inviolável.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion aborda diretamente a liberdade religiosa ao tratar da 'liberdade de consciência e de crença', que é um aspecto central da liberdade religiosa, garantindo proteção normativa à proposição principal."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 250,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 61
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-racismo",
+      "repeat": 1,
+      "name": "rw-racismo",
+      "query": "racismo",
+      "assertion": "O artigo 4º repudia o terrorismo e o racismo.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa ('O artigo 4º repudia o racismo') responde diretamente à proposição principal ('racismo') ao mencionar explicitamente o repúdio legal ao racismo, estabelecendo uma relação normativa direta com o tema."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 264,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 69
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-racismo",
+      "repeat": 2,
+      "name": "rw-racismo",
+      "query": "racismo",
+      "assertion": "O artigo 4º repudia o terrorismo e o racismo.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa ('O artigo 4º repudia o racismo') responde diretamente à proposição principal ('racismo') ao mencionar explicitamente o repúdio ao racismo em uma norma jurídica, estabelecendo uma relação de proibição ou condenação legal ao tema."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 293,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 75
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-racismo",
+      "repeat": 3,
+      "name": "rw-racismo",
+      "query": "racismo",
+      "assertion": "O artigo 4º repudia o terrorismo e o racismo.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa ('O artigo 4º repudia o racismo') responde diretamente à proposição principal ('racismo') ao mencionar explicitamente o repúdio ao racismo em uma norma jurídica, estabelecendo uma relação de proibição ou condenação legal ao tema."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 293,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 75
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-extradicao",
+      "repeat": 1,
+      "name": "rw-extradicao",
+      "query": "extradição",
+      "assertion": "Não será concedida extradição de estrangeiro por crime político ou de opinião.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa responde diretamente à proposição principal sobre extradição, ao estabelecer uma exceção legal específica (crime político ou de opinião) que afeta diretamente a concessão ou não da medida."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 252,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 63
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-extradicao",
+      "repeat": 2,
+      "name": "rw-extradicao",
+      "query": "extradição",
+      "assertion": "Não será concedida extradição de estrangeiro por crime político ou de opinião.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa responde diretamente à proposição principal sobre extradição, ao estabelecer uma exceção legal específica (crime político ou de opinião) que afeta diretamente a concessão ou não da medida."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 252,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 63
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-extradicao",
+      "repeat": 3,
+      "name": "rw-extradicao",
+      "query": "extradição",
+      "assertion": "Não será concedida extradição de estrangeiro por crime político ou de opinião.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa responde diretamente à proposição principal sobre extradição, ao estabelecer uma exceção legal específica (crime político ou de opinião) que afeta diretamente a concessão ou não da medida."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 252,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 63
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-direito-vida",
+      "repeat": 1,
+      "name": "rw-direito-vida",
+      "query": "direito à vida",
+      "assertion": "O direito à vida é garantido pela Constituição Federal brasileira.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal ('direito à vida') ao afirmar sua garantia constitucional no ordenamento jurídico brasileiro, sem desvios temáticos ou atores jurídicos irrelevantes."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 247,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 59
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-direito-vida",
+      "repeat": 2,
+      "name": "rw-direito-vida",
+      "query": "direito à vida",
+      "assertion": "O direito à vida é garantido pela Constituição Federal brasileira.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal ('direito à vida') ao afirmar sua garantia constitucional no ordenamento jurídico brasileiro, sem desvios temáticos ou atores jurídicos irrelevantes."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 247,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 59
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-direito-vida",
+      "repeat": 3,
+      "name": "rw-direito-vida",
+      "query": "direito à vida",
+      "assertion": "O direito à vida é garantido pela Constituição Federal brasileira.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal ('direito à vida') ao afirmar sua garantia constitucional no ordenamento jurídico brasileiro, sem desvios temáticos ou atores jurídicos irrelevantes."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 247,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 59
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-liberdade-expressao",
+      "repeat": 1,
+      "name": "rw-liberdade-expressao",
+      "query": "liberdade de expressão",
+      "assertion": "A Constituição Federal de 1988 reconhece a liberdade de expressão como um direito social e individual.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal ('liberdade de expressão') ao identificar explicitamente o reconhecimento desse direito na Constituição Federal de 1988, sem desviar para temas colaterais ou atores jurídicos distintos."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 283,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 68
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-liberdade-expressao",
+      "repeat": 2,
+      "name": "rw-liberdade-expressao",
+      "query": "liberdade de expressão",
+      "assertion": "A Constituição Federal de 1988 reconhece a liberdade de expressão como um direito social e individual.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal ('liberdade de expressão') ao identificar explicitamente o reconhecimento desse direito na Constituição Federal de 1988, sem desviar para temas colaterais ou atores jurídicos distintos."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 283,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 68
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-liberdade-expressao",
+      "repeat": 3,
+      "name": "rw-liberdade-expressao",
+      "query": "liberdade de expressão",
+      "assertion": "A Constituição Federal de 1988 reconhece a liberdade de expressão como um direito social e individual.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal ('liberdade de expressão') ao identificar explicitamente o reconhecimento desse direito na Constituição Federal de 1988, sem desviar para temas colaterais ou atores jurídicos distintos."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 283,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 68
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-idade-presidente",
+      "repeat": 1,
+      "name": "rw-idade-presidente",
+      "query": "idade para ser presidente",
+      "assertion": "A idade mínima para ser Presidente da República é de trinta e cinco anos.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal sobre a idade mínima exigida para o cargo de Presidente da República, sem introduzir elementos temáticos ou auxiliares."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 217,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 50
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-idade-presidente",
+      "repeat": 2,
+      "name": "rw-idade-presidente",
+      "query": "idade para ser presidente",
+      "assertion": "A idade mínima para ser Presidente da República é de trinta e cinco anos.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal sobre a idade mínima exigida para o cargo de Presidente da República, sem introduzir elementos temáticos ou auxiliares."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 217,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 50
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-idade-presidente",
+      "repeat": 3,
+      "name": "rw-idade-presidente",
+      "query": "idade para ser presidente",
+      "assertion": "A idade mínima para ser Presidente da República é de trinta e cinco anos.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal sobre a idade mínima exigida para o cargo de Presidente da República, sem introduzir elementos temáticos ou auxiliares."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 217,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 50
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-voto-obrigatorio",
+      "repeat": 1,
+      "name": "rw-voto-obrigatorio",
+      "query": "voto obrigatório",
+      "assertion": "O voto é obrigatório para os maiores de dezoito anos.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal da pergunta ('voto obrigatório') ao estabelecer uma regra sobre quem está obrigado a votar (maiores de 18 anos), sem introduzir elementos temáticos, auxiliares ou atores jurídicos distintos."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 288,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 74
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-voto-obrigatorio",
+      "repeat": 2,
+      "name": "rw-voto-obrigatorio",
+      "query": "voto obrigatório",
+      "assertion": "O voto é obrigatório para os maiores de dezoito anos.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal da pergunta ('voto obrigatório') ao estabelecer uma regra sobre quem está obrigado a votar (maiores de 18 anos), sem introduzir elementos temáticos, auxiliares ou atores jurídicos distintos."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 288,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 74
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-voto-obrigatorio",
+      "repeat": 3,
+      "name": "rw-voto-obrigatorio",
+      "query": "voto obrigatório",
+      "assertion": "O voto é obrigatório para os maiores de dezoito anos.",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion responde diretamente à proposição principal da pergunta ('voto obrigatório') ao estabelecer uma regra sobre quem está obrigado a votar (maiores de 18 anos), sem introduzir elementos temáticos, auxiliares ou atores jurídicos distintos."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 288,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 74
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-pena-morte",
+      "repeat": 1,
+      "name": "rw-pena-morte",
+      "query": "pena de morte",
+      "assertion": "não haverá penas: de morte, salvo em caso de guerra declarada, nos termos do art. 84, XIX;",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa aborda diretamente a **proposição principal** sobre a pena de morte, respondendo à pergunta ao estabelecer uma exceção expressa (guerra declarada) para sua aplicação no ordenamento jurídico brasileiro, conforme previsto em dispositivo constitucional específico (art. 84, XIX). Não há atores jurídicos errados, nem resposta a outra relação jurídica."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 412,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 99
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-pena-morte",
+      "repeat": 2,
+      "name": "rw-pena-morte",
+      "query": "pena de morte",
+      "assertion": "não haverá penas: de morte, salvo em caso de guerra declarada, nos termos do art. 84, XIX;",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa aborda diretamente a **proposição principal** sobre a pena de morte, respondendo à pergunta ao estabelecer uma exceção expressa (guerra declarada) para sua aplicação no ordenamento jurídico brasileiro, conforme previsto em dispositivo constitucional específico (art. 84, XIX). Não há atores jurídicos errados, nem resposta a outra relação jurídica."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 412,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 99
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-pena-morte",
+      "repeat": 3,
+      "name": "rw-pena-morte",
+      "query": "pena de morte",
+      "assertion": "não haverá penas: de morte, salvo em caso de guerra declarada, nos termos do art. 84, XIX;",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa aborda diretamente a **proposição principal** sobre a pena de morte, respondendo à pergunta ao estabelecer uma exceção expressa (guerra declarada) para sua aplicação no ordenamento jurídico brasileiro, conforme previsto em dispositivo constitucional específico (art. 84, XIX). Não há atores jurídicos errados, nem resposta a outra relação jurídica."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 412,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 99
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-prisao-perpetua",
+      "repeat": 1,
+      "name": "rw-prisao-perpetua",
+      "query": "prisão perpétua",
+      "assertion": "não haverá penas: de caráter perpétuo;",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa responde diretamente à proposição principal sobre a existência ou não de 'prisão perpétua', ao afirmar explicitamente que não haverá penas de caráter perpétuo."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 223,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 56
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-prisao-perpetua",
+      "repeat": 2,
+      "name": "rw-prisao-perpetua",
+      "query": "prisão perpétua",
+      "assertion": "não haverá penas: de caráter perpétuo;",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa responde diretamente à proposição principal sobre a existência ou não de 'prisão perpétua', ao afirmar explicitamente que não haverá penas de caráter perpétuo."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 223,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 56
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-prisao-perpetua",
+      "repeat": 3,
+      "name": "rw-prisao-perpetua",
+      "query": "prisão perpétua",
+      "assertion": "não haverá penas: de caráter perpétuo;",
+      "expected": "RELEVANT",
+      "num_predict": 180,
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa responde diretamente à proposição principal sobre a existência ou não de 'prisão perpétua', ao afirmar explicitamente que não haverá penas de caráter perpétuo."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 223,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 56
+      }
+    }
+  ]
+}

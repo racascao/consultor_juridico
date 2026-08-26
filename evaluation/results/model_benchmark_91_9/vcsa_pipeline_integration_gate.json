@@ -1,0 +1,10 @@
+{
+  "phase": "91.9",
+  "baseline_sha256": "866b4b7f467cffd709a884231a076d2e6b0bed90821f83e0ce0d596c3be7c72b",
+  "materialization_architecture": "single offline MaterializedEvidence resolver",
+  "real_prison_replay": "NOT_EXECUTED_AGAINST_HISTORICAL_EVIDENCESETS",
+  "consumer_wiring": "NOT_ENABLED_IN_PRODUCTION",
+  "historical_replay": "INCOMPLETE",
+  "integration_decision": "INCONCLUSIVE",
+  "new_llm_inference": false
+}

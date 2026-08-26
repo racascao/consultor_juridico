@@ -275,12 +275,12 @@ def _has_predicate(text: str) -> bool:
 
 
 def _evidence_text(item: Any) -> str:
+    if getattr(item, "materialization_type", None) is not None:
+        return str(getattr(item, "text_snapshot", ""))
     metadata = getattr(item, "validation_metadata", None) or {}
-    parent = metadata.get("parent_context")
-    identity = metadata.get("identity_key")
     return " ".join(
         part
-        for part in (getattr(item, "text_snapshot", ""), parent, identity)
+        for part in (getattr(item, "text_snapshot", ""), metadata.get("parent_context"))
         if isinstance(part, str)
     )
 

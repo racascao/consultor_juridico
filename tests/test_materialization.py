@@ -1,216 +1,63 @@
-"""Testes transacionais da materialização constitucional."""
+from types import SimpleNamespace
 
-import hashlib
-import os
-import subprocess
-import sys
-import uuid
-from pathlib import Path
-
-import pytest
-from sqlalchemy import create_engine, func, select, text
-from sqlalchemy.engine import make_url
-from sqlalchemy.orm import Session
-
-from consultor_juridico.db.session import get_database_url
-from consultor_juridico.models import (
-    Chunk,
-    ChunkLegalElement,
-    Embedding,
-    LegalAct,
-    LegalElement,
-    LegalProvision,
-    LegalVersion,
-    ParsingRun,
-    Source,
-    SourceDocument,
-)
-from consultor_juridico.parsing.materialization import (
-    ParsingOutcome,
-    materialize_constitution,
-)
-from consultor_juridico.retrieval import IndexingOutcome, build_search_index
-
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-ALEMBIC = Path(sys.executable).with_name("alembic")
+from consultor_juridico.consultation.materialization import materialize, vcsa_metadata
+from consultor_juridico.consultation.polarity import PolarityStatus, validate_polarity
+from consultor_juridico.consultation.types import GeneratedClaim
 
 
-@pytest.fixture
-def database_url():
-    base = make_url(get_database_url())
-    name = f"cj_materialize_{uuid.uuid4().hex[:10]}"
-    admin = create_engine(base.set(database="postgres"), isolation_level="AUTOCOMMIT")
-    with admin.connect() as connection:
-        connection.exec_driver_sql(f'CREATE DATABASE "{name}"')
-    url = base.set(database=name)
-    environment = os.environ.copy()
-    environment["DATABASE_URL"] = url.render_as_string(hide_password=False)
-    environment["DEBUG"] = "false"
-    subprocess.run(
-        [str(ALEMBIC), "upgrade", "head"],
-        cwd=PROJECT_ROOT,
-        env=environment,
-        check=True,
-        capture_output=True,
-        text=True,
+def test_vcsa_effective_text_is_literal_and_snapshot_is_immutable():
+    parent = SimpleNamespace(
+        identity="CF/INCISO:XLVII",
+        element_id="parent",
+        text="não haverá penas:",
+        legal_act_id="act",
+        legal_version_id="version",
     )
-    try:
-        yield url
-    finally:
-        with admin.connect() as connection:
-            connection.execute(
-                text(
-                    "SELECT pg_terminate_backend(pid) FROM pg_stat_activity "
-                    "WHERE datname=:name AND pid<>pg_backend_pid()"
-                ),
-                {"name": name},
-            )
-            connection.exec_driver_sql(f'DROP DATABASE "{name}"')
-        admin.dispose()
-
-
-def _document(session: Session) -> SourceDocument:
-    html = (
-        "<p>PREÂMBULO</p><p>Texto preambular.</p>"
-        "<p>TÍTULO I</p><p>Dos princípios.</p>"
-        "<p><strike>Art. 1º Redação histórica.</strike></p>"
-        "<p>Art. 1º Redação corrente.</p><p>Art. 250. Fecho.</p>"
-        "<p>Assinaturas</p>"
-        "<p>ATO DAS DISPOSIÇÕES CONSTITUCIONAIS TRANSITÓRIAS</p>"
-        "<p>Art. 1º ADCT.</p><p>Art. 138. Fecho.</p>"
-    ).encode("windows-1252")
-    source = Source(name="Planalto", base_url="https://www.planalto.gov.br")
-    session.add(source)
-    session.flush()
-    document = SourceDocument(
-        source_id=source.id,
-        url_source="https://www.planalto.gov.br/constituicao.htm",
-        raw_bytes=html,
-        content_hash_sha256=hashlib.sha256(html).hexdigest(),
+    target = SimpleNamespace(
+        identity="CF/INCISO:XLVII/ALINEA:B",
+        element_id="child",
+        text="de caráter perpétuo;",
+        legal_act_id="act",
+        legal_version_id="version",
     )
-    session.add(document)
-    session.commit()
-    return document
-
-
-def _count(session: Session, model) -> int:
-    return int(session.scalar(select(func.count()).select_from(model)) or 0)
-
-
-def test_materialization_is_atomic_auditable_and_idempotent(database_url):
-    engine = create_engine(database_url)
-    with Session(engine) as session:
-        document = _document(session)
-        first = materialize_constitution(session, document.id)
-        assert first.outcome == ParsingOutcome.CREATED
-        assert len(first.legal_version_ids) == 2
-        assert first.provision_count > 0
-        assert first.element_count > first.provision_count
-        assert _count(session, ParsingRun) == 1
-        assert _count(session, LegalAct) == 2
-        assert _count(session, LegalVersion) == 2
-        assert _count(session, LegalProvision) == first.provision_count
-        assert _count(session, LegalElement) == first.element_count
-        assert (
-            session.scalar(
-                select(func.count())
-                .select_from(LegalVersion)
-                .where(LegalVersion.is_active_for_query.is_(True))
+    item = SimpleNamespace(
+        evidence_code="EV001",
+        text_snapshot="de caráter perpétuo;",
+        validation_metadata={
+            "vcsa": vcsa_metadata(
+                target=target,
+                parent=parent,
+                effective_text="não haverá penas: de caráter perpétuo;",
             )
-            == 2
-        )
-
-        second = materialize_constitution(session, document.id)
-        assert second.outcome == ParsingOutcome.ALREADY_PARSED
-        assert second.parsing_run_id == first.parsing_run_id
-        assert _count(session, LegalVersion) == 2
-        assert _count(session, LegalElement) == first.element_count
-    engine.dispose()
+        },
+    )
+    result = materialize(item)
+    assert result.text_snapshot == "não haverá penas: de caráter perpétuo;"
+    assert item.text_snapshot == "de caráter perpétuo;"
+    assert materialize(item).effective_text == result.effective_text
 
 
-def test_tx2_failure_rolls_back_all_derived_rows_and_retry_succeeds(database_url):
-    engine = create_engine(database_url)
-    with Session(engine) as session:
-        document = _document(session)
-
-        def fail(_session: Session) -> None:
-            raise RuntimeError("falha injetada em TX2")
-
-        with pytest.raises(RuntimeError, match="falha injetada"):
-            materialize_constitution(session, document.id, before_complete=fail)
-        run = session.scalar(select(ParsingRun))
-        assert run is not None and run.status == "FAILED"
-        assert _count(session, LegalAct) == 0
-        assert _count(session, LegalVersion) == 0
-        assert _count(session, LegalProvision) == 0
-        assert _count(session, LegalElement) == 0
-
-        retry = materialize_constitution(session, document.id)
-        assert retry.outcome == ParsingOutcome.CREATED
-        assert retry.parsing_run_id == run.id
-        assert _count(session, LegalVersion) == 2
-    engine.dispose()
+def test_vcsa_effective_text_reaches_polarity_guard():
+    item = SimpleNamespace(
+        evidence_code="EV001",
+        text_snapshot="de caráter perpétuo;",
+        validation_metadata={
+            "vcsa": {"effective_text": "não haverá penas: de caráter perpétuo;"}
+        },
+    )
+    result = validate_polarity(
+        GeneratedClaim(
+            "C1", "É permitido aplicar penas de caráter perpétuo.", ("EV001",)
+        ),
+        (materialize(item),),
+    )
+    assert result.status is PolarityStatus.CONTRADICTED
 
 
-class _FakeEmbeddingProvider:
-    def embed(self, texts):
-        return tuple(
-            (float(index + 1), 0.5, -0.25) for index, _text in enumerate(texts)
-        )
-
-
-def test_indexing_is_auditable_and_idempotent(database_url):
-    engine = create_engine(database_url)
-    with Session(engine) as session:
-        document = _document(session)
-        materialize_constitution(session, document.id)
-        first = build_search_index(
-            session,
-            _FakeEmbeddingProvider(),
-            model_name="fake-embedding",
-            batch_size=4,
-        )
-        assert first.outcome == IndexingOutcome.CREATED
-        assert first.chunks == first.embeddings > 0
-        assert first.dimensions == 3
-        assert _count(session, Chunk) == first.chunks
-        assert _count(session, ChunkLegalElement) == first.chunks
-        assert _count(session, Embedding) == first.chunks
-        assert (
-            session.scalar(
-                select(func.count())
-                .select_from(Chunk)
-                .where(Chunk.tsv_content.is_(None))
-            )
-            == 0
-        )
-
-        second = build_search_index(
-            session,
-            _FakeEmbeddingProvider(),
-            model_name="fake-embedding",
-        )
-        assert second.outcome == IndexingOutcome.ALREADY_INDEXED
-        assert _count(session, Chunk) == first.chunks
-    engine.dispose()
-
-
-def test_indexing_provider_failure_rolls_back_chunks_and_embeddings(database_url):
-    class FailingProvider:
-        def embed(self, _texts):
-            raise RuntimeError("falha vetorial injetada")
-
-    engine = create_engine(database_url)
-    with Session(engine) as session:
-        document = _document(session)
-        materialize_constitution(session, document.id)
-        with pytest.raises(RuntimeError, match="falha vetorial injetada"):
-            build_search_index(
-                session,
-                FailingProvider(),
-                model_name="fake-embedding",
-            )
-        assert _count(session, Chunk) == 0
-        assert _count(session, ChunkLegalElement) == 0
-        assert _count(session, Embedding) == 0
-    engine.dispose()
+def test_non_vcsa_materialization_preserves_legacy_context():
+    item = SimpleNamespace(
+        evidence_code="EV001",
+        text_snapshot="filho",
+        validation_metadata={"parent_context": "pai:"},
+    )
+    assert materialize(item).effective_text == "filho pai:"

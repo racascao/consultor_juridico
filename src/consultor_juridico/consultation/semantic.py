@@ -111,6 +111,7 @@ class OllamaSemanticSupportValidator:
                 json={
                     "model": self.model,
                     "stream": False,
+                    "think": False,
                     "format": SEMANTIC_SCHEMA,
                     "messages": [
                         {"role": "system", "content": SEMANTIC_SYSTEM_PROMPT},
@@ -137,12 +138,7 @@ def build_semantic_support_prompt(
         for code in claim.evidence_codes:
             item = evidence.get(code)
             if item is not None:
-                metadata = getattr(item, "validation_metadata", None) or {}
-                parent_context = metadata.get("parent_context")
-                context = (
-                    f"\nContexto estrutural: {parent_context}" if parent_context else ""
-                )
-                cited.append(f"[{code}] {item.text_snapshot}{context}")
+                cited.append(f"[{code}] {_semantic_prompt_evidence_text(item)}")
         blocks.append(
             f"CLAIM {claim.claim_code}: {claim.text}\nEVIDÊNCIAS CITADAS:\n"
             + "\n".join(cited)
@@ -225,10 +221,25 @@ def _has_lexical_anchor(claim: str, evidence: tuple[str, ...]) -> bool:
 
 
 def _authorized_evidence_text(item: EvidenceItem) -> str:
+    if getattr(item, "materialization_type", None) is not None:
+        return str(item.text_snapshot)
     metadata = getattr(item, "validation_metadata", None) or {}
-    parent = metadata.get("parent_context")
     return " ".join(
         part
-        for part in (item.text_snapshot, parent)
+        for part in (item.text_snapshot, metadata.get("parent_context"))
         if isinstance(part, str) and part.strip()
     )
+
+
+def _semantic_prompt_evidence_text(item: EvidenceItem) -> str:
+    """Preserva contexto pai legado sem duplicar evidência materializada."""
+    if getattr(item, "materialization_type", None) is not None:
+        return str(item.text_snapshot)
+    metadata = getattr(item, "validation_metadata", None) or {}
+    parent_context = metadata.get("parent_context")
+    context = (
+        f"\nContexto estrutural: {parent_context}"
+        if isinstance(parent_context, str) and parent_context.strip()
+        else ""
+    )
+    return f"{item.text_snapshot}{context}"

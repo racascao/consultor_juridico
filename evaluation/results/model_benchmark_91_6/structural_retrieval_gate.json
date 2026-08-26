@@ -1,0 +1,26 @@
+{
+  "phase": "91.6",
+  "baseline_sha256": "866b4b7f467cffd709a884231a076d2e6b0bed90821f83e0ce0d596c3be7c72b",
+  "source_artifacts": ["evaluation/results/model_benchmark_91_1/e2e_single_model_screen.json"],
+  "allowed_containers": ["SECTION", "SUBSECTION"],
+  "expansion_policy": "direct normative ARTICLE/CAPUT children only",
+  "ranking_policy": {"decay": 0.85, "max_children_per_parent": 8, "fake_component_ranks": false},
+  "positive_controls": "PASS",
+  "negative_controls": "PASS",
+  "state_siege_replay": {
+    "container_found": true,
+    "container_type": "SECTION",
+    "target_recovered_counterfactual": true,
+    "target_final_rank": 1,
+    "target_selected": "NOT_EVALUATED",
+    "note": "O artefato E2E não contém a árvore persistida necessária para executar o transformer contra os filhos reais."
+  },
+  "all_dataset_replay": "NOT_EXECUTED_WITHOUT_PERSISTED_STRUCTURAL_CORPUS",
+  "abstention_replay": "NOT_EXECUTED_WITHOUT_PERSISTED_STRUCTURAL_CORPUS",
+  "blast_radius": "INCONCLUSIVE",
+  "safety_metrics": {"cross_version": 0, "cross_act": 0, "non_current": 0, "non_normative": 0, "unexpected_expansions": 0},
+  "functional_metrics": {"baseline_hit_at_10": 0.9, "counterfactual_hit_at_10": 1.0, "baseline_hits_lost": 0},
+  "integration_decision": "NONE",
+  "classification": "INCONCLUSIVE",
+  "new_llm_inference": false
+}

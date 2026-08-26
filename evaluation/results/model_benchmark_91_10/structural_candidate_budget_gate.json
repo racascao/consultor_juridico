@@ -1,0 +1,9 @@
+{
+  "phase": "91.10",
+  "baseline_sha256": "866b4b7f467cffd709a884231a076d2e6b0bed90821f83e0ce0d596c3be7c72b",
+  "pipeline_order": "retrieval -> expansion prototype -> primary truncation -> selection",
+  "policies_tested": ["BASELINE", "STRUCTURAL_RESERVE_1", "STRUCTURAL_RESERVE_2"],
+  "policy_result": "INCONCLUSIVE_NO_REAL_DATASET_REPLAY",
+  "integration_decision": "NONE",
+  "new_llm_inference": false
+}

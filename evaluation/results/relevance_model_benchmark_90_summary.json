@@ -1,0 +1,24 @@
+{
+  "phase": "controlled_relevance_model_benchmark_90",
+  "primary": {
+    "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+    "gate": "FAIL",
+    "false_relevant": 3,
+    "false_irrelevant": 0,
+    "prison_perpetual": "RELEVANT",
+    "death_penalty": "RELEVANT",
+    "state_siege": "SAFE",
+    "high_threshold": -4.172726631164551,
+    "low_threshold": 1.7888102531433105,
+    "latency_mean_ms": 2.196756428572501,
+    "latency_p50_ms": 2.196756428572501,
+    "latency_p95_ms": 2.196756428572501
+  },
+  "control": {
+    "model": "BAAI/bge-reranker-v2-m3",
+    "gate": "NOT_RUN",
+    "reason": "Download do peso (~2 GB) não concluído no ambiente"
+  },
+  "benchmark": "INCONCLUSIVE",
+  "production_integration": "NOT_ENABLED"
+}

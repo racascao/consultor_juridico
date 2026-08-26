@@ -1,0 +1,384 @@
+{
+  "phase": "91.2",
+  "baseline_path": "evaluation/results/model_benchmark_91_1/e2e_single_model_screen.json",
+  "baseline_sha256": "866b4b7f467cffd709a884231a076d2e6b0bed90821f83e0ce0d596c3be7c72b",
+  "dataset_sha256": "c6b496d20dd9b7b5952f7abecca92e64c0179ce134794f5e3b39e579025f441f",
+  "cases": [
+    {
+      "case_id": "rw-pena-morte",
+      "expect_answer": true,
+      "retrieval_hit": true,
+      "retrieval_expected_rank": {
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A": {
+          "lexical": 9,
+          "vector": null,
+          "hybrid": 8
+        },
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII": {
+          "lexical": 8,
+          "vector": null,
+          "hybrid": 9
+        }
+      },
+      "sufficiency": "SUFFICIENT",
+      "generator_raw_outcome": "ANSWERED",
+      "generated_claim_count": 1,
+      "attributed_claim_count": 1,
+      "unresolved_attribution_count": 0,
+      "semantic_rejected_claim_count": 0,
+      "final_outcome": "ANSWERED",
+      "original_classification": "CORRECT_ANSWER",
+      "original_failure_stage": null,
+      "forensic_primary_cause": "NONE",
+      "forensic_secondary_cause": null,
+      "safety_failure": false,
+      "locator_mismatch": true,
+      "notes": "offline classification; no LLM inference"
+    },
+    {
+      "case_id": "rw-prisao-perpetua",
+      "expect_answer": true,
+      "retrieval_hit": true,
+      "retrieval_expected_rank": {
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B": {
+          "lexical": 1,
+          "vector": null,
+          "hybrid": 2
+        }
+      },
+      "sufficiency": "SUFFICIENT",
+      "generator_raw_outcome": "ABSTAINED",
+      "generated_claim_count": 0,
+      "attributed_claim_count": 0,
+      "unresolved_attribution_count": 0,
+      "semantic_rejected_claim_count": 0,
+      "final_outcome": "ABSTAINED",
+      "original_classification": "FALSE_ABSTENTION",
+      "original_failure_stage": "GENERATOR_ABSTENTION",
+      "forensic_primary_cause": "GENERATOR_FALSE_ABSTENTION",
+      "forensic_secondary_cause": null,
+      "safety_failure": false,
+      "locator_mismatch": false,
+      "notes": "offline classification; no LLM inference"
+    },
+    {
+      "case_id": "rw-liberdade-religiosa",
+      "expect_answer": true,
+      "retrieval_hit": true,
+      "retrieval_expected_rank": {
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI": {
+          "lexical": 1,
+          "vector": 1,
+          "hybrid": 1
+        }
+      },
+      "sufficiency": "SUFFICIENT",
+      "generator_raw_outcome": "ABSTAINED",
+      "generated_claim_count": 0,
+      "attributed_claim_count": 1,
+      "unresolved_attribution_count": 1,
+      "semantic_rejected_claim_count": 0,
+      "final_outcome": "ABSTAINED",
+      "original_classification": "FALSE_ABSTENTION",
+      "original_failure_stage": "GENERATOR_ABSTENTION",
+      "forensic_primary_cause": "ATTRIBUTION_FALSE_NEGATIVE",
+      "forensic_secondary_cause": "SELECTION_SUFFICIENCY",
+      "safety_failure": false,
+      "locator_mismatch": false,
+      "notes": "offline classification; no LLM inference"
+    },
+    {
+      "case_id": "rw-racismo",
+      "expect_answer": true,
+      "retrieval_hit": true,
+      "retrieval_expected_rank": {
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII": {
+          "lexical": 2,
+          "vector": 2,
+          "hybrid": 2
+        }
+      },
+      "sufficiency": "SUFFICIENT",
+      "generator_raw_outcome": "ABSTAINED",
+      "generated_claim_count": 0,
+      "attributed_claim_count": 0,
+      "unresolved_attribution_count": 1,
+      "semantic_rejected_claim_count": 0,
+      "final_outcome": "ABSTAINED",
+      "original_classification": "FALSE_ABSTENTION",
+      "original_failure_stage": "GENERATOR_ABSTENTION",
+      "forensic_primary_cause": "ATTRIBUTION_FALSE_NEGATIVE",
+      "forensic_secondary_cause": "SELECTION_SUFFICIENCY",
+      "safety_failure": false,
+      "locator_mismatch": false,
+      "notes": "offline classification; no LLM inference"
+    },
+    {
+      "case_id": "rw-extradicao",
+      "expect_answer": true,
+      "retrieval_hit": true,
+      "retrieval_expected_rank": {
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII": {
+          "lexical": 1,
+          "vector": 5,
+          "hybrid": 1
+        },
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI": {
+          "lexical": null,
+          "vector": 4,
+          "hybrid": 5
+        }
+      },
+      "sufficiency": "SUFFICIENT",
+      "generator_raw_outcome": "ABSTAINED",
+      "generated_claim_count": 0,
+      "attributed_claim_count": 1,
+      "unresolved_attribution_count": 1,
+      "semantic_rejected_claim_count": 0,
+      "final_outcome": "ABSTAINED",
+      "original_classification": "FALSE_ABSTENTION",
+      "original_failure_stage": "GENERATOR_ABSTENTION",
+      "forensic_primary_cause": "ATTRIBUTION_FALSE_NEGATIVE",
+      "forensic_secondary_cause": "SELECTION_SUFFICIENCY",
+      "safety_failure": false,
+      "locator_mismatch": false,
+      "notes": "offline classification; no LLM inference"
+    },
+    {
+      "case_id": "rw-direito-vida",
+      "expect_answer": true,
+      "retrieval_hit": true,
+      "retrieval_expected_rank": {
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput": {
+          "lexical": 1,
+          "vector": null,
+          "hybrid": 1
+        }
+      },
+      "sufficiency": "SUFFICIENT",
+      "generator_raw_outcome": "ABSTAINED",
+      "generated_claim_count": 0,
+      "attributed_claim_count": 3,
+      "unresolved_attribution_count": 0,
+      "semantic_rejected_claim_count": 1,
+      "final_outcome": "ABSTAINED",
+      "original_classification": "FALSE_ABSTENTION",
+      "original_failure_stage": "SEMANTIC_FALSE_NEGATIVE",
+      "forensic_primary_cause": "SEMANTIC_FALSE_NEGATIVE",
+      "forensic_secondary_cause": "AUXILIARY_CLAIM_FAILURE",
+      "safety_failure": false,
+      "locator_mismatch": false,
+      "notes": "offline classification; no LLM inference"
+    },
+    {
+      "case_id": "rw-liberdade-expressao",
+      "expect_answer": true,
+      "retrieval_hit": true,
+      "retrieval_expected_rank": {
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX": {
+          "lexical": 4,
+          "vector": null,
+          "hybrid": 5
+        },
+        "CF88/@root/TITLE:VIII/CHAPTER:V/ARTICLE:220/CAPUT:@caput": {
+          "lexical": null,
+          "vector": 9,
+          "hybrid": null
+        },
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IV": {
+          "lexical": null,
+          "vector": null,
+          "hybrid": null
+        }
+      },
+      "sufficiency": "SUFFICIENT",
+      "generator_raw_outcome": "ANSWERED",
+      "generated_claim_count": 2,
+      "attributed_claim_count": 2,
+      "unresolved_attribution_count": 0,
+      "semantic_rejected_claim_count": 0,
+      "final_outcome": "ANSWERED",
+      "original_classification": "CORRECT_ANSWER",
+      "original_failure_stage": null,
+      "forensic_primary_cause": "NONE",
+      "forensic_secondary_cause": null,
+      "safety_failure": false,
+      "locator_mismatch": false,
+      "notes": "offline classification; no LLM inference"
+    },
+    {
+      "case_id": "rw-idade-presidente",
+      "expect_answer": true,
+      "retrieval_hit": true,
+      "retrieval_expected_rank": {
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A": {
+          "lexical": 8,
+          "vector": null,
+          "hybrid": 1
+        }
+      },
+      "sufficiency": "SUFFICIENT",
+      "generator_raw_outcome": "ANSWERED",
+      "generated_claim_count": 1,
+      "attributed_claim_count": 1,
+      "unresolved_attribution_count": 0,
+      "semantic_rejected_claim_count": 0,
+      "final_outcome": "ANSWERED",
+      "original_classification": "CORRECT_ANSWER",
+      "original_failure_stage": null,
+      "forensic_primary_cause": "NONE",
+      "forensic_secondary_cause": null,
+      "safety_failure": false,
+      "locator_mismatch": false,
+      "notes": "offline classification; no LLM inference"
+    },
+    {
+      "case_id": "rw-voto-obrigatorio",
+      "expect_answer": true,
+      "retrieval_hit": true,
+      "retrieval_expected_rank": {
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput": {
+          "lexical": 10,
+          "vector": null,
+          "hybrid": 9
+        },
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I/ALINEA:A": {
+          "lexical": null,
+          "vector": null,
+          "hybrid": null
+        }
+      },
+      "sufficiency": "SUFFICIENT",
+      "generator_raw_outcome": "ANSWERED",
+      "generated_claim_count": 1,
+      "attributed_claim_count": 1,
+      "unresolved_attribution_count": 0,
+      "semantic_rejected_claim_count": 0,
+      "final_outcome": "ANSWERED",
+      "original_classification": "CORRECT_ANSWER",
+      "original_failure_stage": null,
+      "forensic_primary_cause": "NONE",
+      "forensic_secondary_cause": null,
+      "safety_failure": false,
+      "locator_mismatch": false,
+      "notes": "offline classification; no LLM inference"
+    },
+    {
+      "case_id": "rw-estado-sitio",
+      "expect_answer": true,
+      "retrieval_hit": false,
+      "retrieval_expected_rank": {
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:138/CAPUT:@caput": {
+          "lexical": null,
+          "vector": null,
+          "hybrid": null
+        },
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II/ARTICLE:137/CAPUT:@caput": {
+          "lexical": null,
+          "vector": null,
+          "hybrid": null
+        }
+      },
+      "sufficiency": "SUFFICIENT",
+      "generator_raw_outcome": "ABSTAINED",
+      "generated_claim_count": 0,
+      "attributed_claim_count": 1,
+      "unresolved_attribution_count": 1,
+      "semantic_rejected_claim_count": 0,
+      "final_outcome": "ABSTAINED",
+      "original_classification": "FALSE_ABSTENTION",
+      "original_failure_stage": "RETRIEVAL_MISS",
+      "forensic_primary_cause": "RETRIEVAL",
+      "forensic_secondary_cause": "STRUCTURAL_CONTEXT",
+      "safety_failure": false,
+      "locator_mismatch": false,
+      "notes": "offline classification; no LLM inference"
+    },
+    {
+      "case_id": "rw-aborto",
+      "expect_answer": false,
+      "retrieval_hit": null,
+      "retrieval_expected_rank": {},
+      "sufficiency": "INSUFFICIENT",
+      "generator_raw_outcome": "ABSTAINED",
+      "generated_claim_count": 0,
+      "attributed_claim_count": 0,
+      "unresolved_attribution_count": 0,
+      "semantic_rejected_claim_count": 0,
+      "final_outcome": "ABSTAINED",
+      "original_classification": "CORRECT_ABSTENTION",
+      "original_failure_stage": null,
+      "forensic_primary_cause": "NONE",
+      "forensic_secondary_cause": null,
+      "safety_failure": false,
+      "locator_mismatch": false,
+      "notes": "offline classification; no LLM inference"
+    }
+  ],
+  "experiments": {
+    "atomic_claim_acceptance": {
+      "recovered_cases": [
+        "rw-liberdade-religiosa",
+        "rw-extradicao"
+      ],
+      "new_unsafe_cases": 0,
+      "status": "PROMISING"
+    },
+    "vcsa_prisao_perpetua": {
+      "applicable": true,
+      "verified": true,
+      "status": "PROMISING",
+      "note": "parent direto + child dependente"
+    },
+    "structural_retrieval_state_siege": {
+      "target_recovered": true,
+      "baseline_hit_at_10": 0.9,
+      "counterfactual_hit_at_10": 1.0,
+      "status": "PROMISING",
+      "note": "expansão apenas de filhos diretos"
+    },
+    "racismo_attribution_false_negative": {
+      "status": "YES",
+      "cause": "STRUCTURAL_TEXT/THRESHOLD",
+      "production_changed": false
+    }
+  },
+  "summary": {
+    "automatic_correct": 4,
+    "strict_audited_correct": 3,
+    "expected_abstention": 1,
+    "unsafe": 0,
+    "baseline_hit_at_10": 0.9,
+    "state_siege": {
+      "case_id": "rw-estado-sitio",
+      "expect_answer": true,
+      "retrieval_hit": false,
+      "retrieval_expected_rank": {
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:138/CAPUT:@caput": {
+          "lexical": null,
+          "vector": null,
+          "hybrid": null
+        },
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II/ARTICLE:137/CAPUT:@caput": {
+          "lexical": null,
+          "vector": null,
+          "hybrid": null
+        }
+      },
+      "sufficiency": "SUFFICIENT",
+      "generator_raw_outcome": "ABSTAINED",
+      "generated_claim_count": 0,
+      "attributed_claim_count": 1,
+      "unresolved_attribution_count": 1,
+      "semantic_rejected_claim_count": 0,
+      "final_outcome": "ABSTAINED",
+      "original_classification": "FALSE_ABSTENTION",
+      "original_failure_stage": "RETRIEVAL_MISS",
+      "forensic_primary_cause": "RETRIEVAL",
+      "forensic_secondary_cause": "STRUCTURAL_CONTEXT",
+      "safety_failure": false,
+      "locator_mismatch": false,
+      "notes": "offline classification; no LLM inference"
+    }
+  }
+}

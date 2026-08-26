@@ -1,0 +1,35 @@
+{
+  "phase": "91.5",
+  "baseline_sha256": "866b4b7f467cffd709a884231a076d2e6b0bed90821f83e0ce0d596c3be7c72b",
+  "execution": "offline_only",
+  "new_llm_inference": false,
+  "prison_perpetual": {
+    "target_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B",
+    "target_retrieved": true,
+    "target_selected": true,
+    "direct_parent": true,
+    "parent_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII",
+    "parent_text_ends_colon": true,
+    "vcsa_applicable": true,
+    "composition": "não haverá penas: b) de caráter perpétuo",
+    "context_structurally_recovered": true
+  },
+  "positive_controls": {"count": 3, "passed": 3},
+  "negative_controls": {
+    "sibling": 0,
+    "cousin": 0,
+    "cross_version": 0,
+    "cross_act": 0,
+    "non_current": 0,
+    "non_normative": 0,
+    "semantic_only": 0
+  },
+  "determinism": true,
+  "immutability": true,
+  "locator_guard_with_vcsa": "PASS",
+  "citation_provenance_with_vcsa": "PASS",
+  "blast_radius": "SAFE",
+  "production_integration": "NONE",
+  "classification": "INCONCLUSIVE",
+  "reason": "Componente isolado aprovado nos controles offline; não integrado por ausência de um ponto de materialização de contexto validado nesta fase."
+}

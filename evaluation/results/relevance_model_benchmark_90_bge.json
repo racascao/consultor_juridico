@@ -1,0 +1,11 @@
+{
+  "phase": "controlled_relevance_model_benchmark_90",
+  "model": {
+    "id": "BAAI/bge-reranker-v2-m3",
+    "revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+    "runtime": "torch CPU",
+    "status": "NOT_RUN"
+  },
+  "reason": "Download do model.safetensors (~2 GB) não foi concluído no ambiente; nenhuma inferência foi executada e nenhuma qualidade foi inferida.",
+  "production_integration": "NOT_ENABLED"
+}

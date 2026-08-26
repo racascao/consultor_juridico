@@ -69,13 +69,10 @@ def build_evidence_set(
         # Para INCISO/ALINEA/ITEM, captura contexto estrutural do pai para auxiliar
         # geração e retrieval sem alterar snapshot citável (provenance preservada)
         parent_context = candidate.parent_context
-        if (
-            parent_context is None
-            and element.element_type in ("INCISO", "ALINEA", "ITEM")
-            and element.parent_id
-        ):
+        parent = None
+        if element.element_type in ("INCISO", "ALINEA", "ITEM") and element.parent_id:
             parent = session.get(LegalElement, element.parent_id)
-            if parent and parent.normalized_text:
+            if parent_context is None and parent and parent.normalized_text:
                 parent_context = parent.normalized_text.strip()
         item = EvidenceItem(
             evidence_set_id=evidence_set.id,

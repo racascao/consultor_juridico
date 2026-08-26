@@ -1,0 +1,2184 @@
+{
+  "phase": "91",
+  "manifest_hash": "32e6e406271951f0a1fd9ab7b919d25464a4642b6cc481ecf1d6c61affd5396b",
+  "runs": [
+    {
+      "model": "qwen3.5:4b",
+      "pair": "TRUE_BUT_IRRELEVANT",
+      "repeat": 1,
+      "name": "TRUE_BUT_IRRELEVANT",
+      "query": "licença parental",
+      "assertion": "A administração deve publicar seus gastos trimestralmente.",
+      "expected": "IRRELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "SUPPORTED_BUT_OFF_TARGET",
+      "repeat": 1,
+      "name": "SUPPORTED_BUT_OFF_TARGET",
+      "query": "requisitos de idade para candidatura",
+      "assertion": "O órgão eleitoral divulgará o calendário das eleições.",
+      "expected": "IRRELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "WRONG_LEGAL_ACTOR",
+      "repeat": 1,
+      "name": "WRONG_LEGAL_ACTOR",
+      "query": "o presidente autoriza a medida",
+      "assertion": "O tribunal autoriza a medida.",
+      "expected": "IRRELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "RELATED_PROVISION_WRONG_ANSWER",
+      "repeat": 1,
+      "name": "RELATED_PROVISION_WRONG_ANSWER",
+      "query": "qual é o prazo de 30 dias para recurso",
+      "assertion": "O recurso é apresentado perante a autoridade competente.",
+      "expected": "IRRELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "repeat": 1,
+      "name": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "query": "a medida é obrigatória ou facultativa",
+      "assertion": "A medida será registrada em relatório anual.",
+      "expected": "IRRELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "repeat": 1,
+      "name": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "query": "quem deve prestar contas",
+      "assertion": "A prestação de contas deve ser publicada.",
+      "expected": "IRRELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "repeat": 1,
+      "name": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "query": "a inscrição é obrigatória",
+      "assertion": "A inscrição é facultativa.",
+      "expected": "RELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-pena-morte",
+      "repeat": 1,
+      "name": "rw-pena-morte",
+      "query": "pena de morte",
+      "assertion": "não haverá penas: de morte, salvo em caso de guerra declarada, nos termos do art. 84, XIX;",
+      "expected": "RELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-prisao-perpetua",
+      "repeat": 1,
+      "name": "rw-prisao-perpetua",
+      "query": "prisão perpétua",
+      "assertion": "não haverá penas: de caráter perpétuo;",
+      "expected": "RELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "ministral-3:3b",
+      "pair": "TRUE_BUT_IRRELEVANT",
+      "repeat": 1,
+      "name": "TRUE_BUT_IRRELEVANT",
+      "query": "licença parental",
+      "assertion": "A administração deve publicar seus gastos trimestralmente.",
+      "expected": "IRRELEVANT",
+      "status": "IRRELEVANT",
+      "reason": "A assertiva não aborda diretamente o tema da 'licença parental' e não se relaciona com a administração pública ou seus gastos, mas sim com a transparência fiscal.",
+      "raw": {
+        "model": "ministral-3:3b",
+        "created_at": "2026-08-25T11:07:48.156179904Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"IRRELEVANT\",\n  \"reason\": \"A assertiva não aborda diretamente o tema da 'licença parental' e não se relaciona com a administração pública ou seus gastos, mas sim com a transparência fiscal.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 8955829502,
+        "load_duration": 3243986683,
+        "prompt_eval_count": 134,
+        "prompt_eval_duration": 1604499000,
+        "eval_count": 57,
+        "eval_duration": 4073613000
+      }
+    },
+    {
+      "model": "ministral-3:3b",
+      "pair": "SUPPORTED_BUT_OFF_TARGET",
+      "repeat": 1,
+      "name": "SUPPORTED_BUT_OFF_TARGET",
+      "query": "requisitos de idade para candidatura",
+      "assertion": "O órgão eleitoral divulgará o calendário das eleições.",
+      "expected": "IRRELEVANT",
+      "status": "IRRELEVANT",
+      "reason": "A assertion não aborda diretamente os requisitos de idade para candidatura, mas trata de um ato administrativo genérico (divulgação do calendário eleitoral).",
+      "raw": {
+        "model": "ministral-3:3b",
+        "created_at": "2026-08-25T11:07:52.582847962Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"IRRELEVANT\",\n  \"reason\": \"A assertion não aborda diretamente os requisitos de idade para candidatura, mas trata de um ato administrativo genérico (divulgação do calendário eleitoral).\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 4417258547,
+        "load_duration": 146743599,
+        "prompt_eval_count": 141,
+        "prompt_eval_duration": 405972000,
+        "eval_count": 54,
+        "eval_duration": 3834986000
+      }
+    },
+    {
+      "model": "ministral-3:3b",
+      "pair": "WRONG_LEGAL_ACTOR",
+      "repeat": 1,
+      "name": "WRONG_LEGAL_ACTOR",
+      "query": "o presidente autoriza a medida",
+      "assertion": "O tribunal autoriza a medida.",
+      "expected": "IRRELEVANT",
+      "status": "IRRELEVANT",
+      "reason": "A assertion normativa não aborda diretamente a proposição principal da pergunta, que se refere ao ato do presidente, e não ao tribunal.",
+      "raw": {
+        "model": "ministral-3:3b",
+        "created_at": "2026-08-25T11:07:56.508014415Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"IRRELEVANT\",\n  \"reason\": \"A assertion normativa não aborda diretamente a proposição principal da pergunta, que se refere ao ato do presidente, e não ao tribunal.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 3913915906,
+        "load_duration": 148511241,
+        "prompt_eval_count": 133,
+        "prompt_eval_duration": 321879000,
+        "eval_count": 48,
+        "eval_duration": 3417436000
+      }
+    },
+    {
+      "model": "ministral-3:3b",
+      "pair": "RELATED_PROVISION_WRONG_ANSWER",
+      "repeat": 1,
+      "name": "RELATED_PROVISION_WRONG_ANSWER",
+      "query": "qual é o prazo de 30 dias para recurso",
+      "assertion": "O recurso é apresentado perante a autoridade competente.",
+      "expected": "IRRELEVANT",
+      "status": "RELEVANT",
+      "reason": "A assertion normativa verificada ('O recurso é apresentado perante a autoridade competente') abrange diretamente o contexto material da pergunta ('qual é o prazo de 30 dias para recurso'), pois trata da validade processual do ato recursal e sua relação com o prazo estabelecido.",
+      "raw": {
+        "model": "ministral-3:3b",
+        "created_at": "2026-08-25T11:08:02.905714618Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"RELEVANT\",\n  \"reason\": \"A assertion normativa verificada ('O recurso é apresentado perante a autoridade competente') abrange diretamente o contexto material da pergunta ('qual é o prazo de 30 dias para recurso'), pois trata da validade processual do ato recursal e sua relação com o prazo estabelecido.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 6386673331,
+        "load_duration": 150390218,
+        "prompt_eval_count": 144,
+        "prompt_eval_duration": 445937000,
+        "eval_count": 81,
+        "eval_duration": 5762602000
+      }
+    },
+    {
+      "model": "ministral-3:3b",
+      "pair": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "repeat": 1,
+      "name": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "query": "a medida é obrigatória ou facultativa",
+      "assertion": "A medida será registrada em relatório anual.",
+      "expected": "IRRELEVANT",
+      "status": "IRRELEVANT",
+      "reason": "A assertion não aborda diretamente a obrigatoriedade ou facultatividade da medida, mas trata de um procedimento administrativo ou documentação (registro em relatório anual).",
+      "raw": {
+        "model": "ministral-3:3b",
+        "created_at": "2026-08-25T11:08:07.536503335Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"IRRELEVANT\",\n  \"reason\": \"A assertion não aborda diretamente a obrigatoriedade ou facultatividade da medida, mas trata de um procedimento administrativo ou documentação (registro em relatório anual).\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 4620942290,
+        "load_duration": 170692297,
+        "prompt_eval_count": 138,
+        "prompt_eval_duration": 365878000,
+        "eval_count": 57,
+        "eval_duration": 4053232000
+      }
+    },
+    {
+      "model": "ministral-3:3b",
+      "pair": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "repeat": 1,
+      "name": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "query": "quem deve prestar contas",
+      "assertion": "A prestação de contas deve ser publicada.",
+      "expected": "IRRELEVANT",
+      "status": "RELEVANT",
+      "reason": "A assertion normativa ('A prestação de contas deve ser publicada') abrange diretamente o aspecto material da pergunta ('quem deve prestar contas'), ao estabelecer uma obrigação formal de publicação como condição para a prestação de contas.",
+      "raw": {
+        "model": "ministral-3:3b",
+        "created_at": "2026-08-25T11:08:13.455017124Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"RELEVANT\",\n  \"reason\": \"A assertion normativa ('A prestação de contas deve ser publicada') abrange diretamente o aspecto material da pergunta ('quem deve prestar contas'), ao estabelecer uma obrigação formal de publicação como condição para a prestação de contas.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 5909203453,
+        "load_duration": 159308703,
+        "prompt_eval_count": 138,
+        "prompt_eval_duration": 362553000,
+        "eval_count": 75,
+        "eval_duration": 5358006000
+      }
+    },
+    {
+      "model": "ministral-3:3b",
+      "pair": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "repeat": 1,
+      "name": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "query": "a inscrição é obrigatória",
+      "assertion": "A inscrição é facultativa.",
+      "expected": "RELEVANT",
+      "status": "IRRELEVANT",
+      "reason": "A assertion normativa não responde diretamente à proposição principal da pergunta, que trata da obrigatoriedade da inscrição. A assertion afirma a oposto (facultativa) e não aborda o contexto da obrigatoriedade.",
+      "raw": {
+        "model": "ministral-3:3b",
+        "created_at": "2026-08-25T11:08:18.624753318Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"IRRELEVANT\",\n  \"reason\": \"A assertion normativa não responde diretamente à proposição principal da pergunta, que trata da obrigatoriedade da inscrição. A assertion afirma a oposto (facultativa) e não aborda o contexto da obrigatoriedade.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 5158784581,
+        "load_duration": 158452036,
+        "prompt_eval_count": 133,
+        "prompt_eval_duration": 295193000,
+        "eval_count": 66,
+        "eval_duration": 4681475000
+      }
+    },
+    {
+      "model": "ministral-3:3b",
+      "pair": "rw-pena-morte",
+      "repeat": 1,
+      "name": "rw-pena-morte",
+      "query": "pena de morte",
+      "assertion": "não haverá penas: de morte, salvo em caso de guerra declarada, nos termos do art. 84, XIX;",
+      "expected": "RELEVANT",
+      "status": "RELEVANT",
+      "reason": "A assertion normativa verificada abrange diretamente a **proposição principal** da pergunta ('pena de morte'), ao estabelecer que sua aplicação está restrita a casos específicos (guerra declarada) conforme o art. 84, XIX, sem mencionar outras relações ou atores jurídicos",
+      "raw": {
+        "model": "ministral-3:3b",
+        "created_at": "2026-08-25T11:08:25.291931692Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"RELEVANT\",\n  \"reason\": \"A assertion normativa verificada abrange diretamente a **proposição principal** da pergunta ('pena de morte'), ao estabelecer que sua aplicação está restrita a casos específicos (guerra declarada) conforme o art. 84, XIX, sem mencionar outras relações ou atores jurídicos\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 6656369448,
+        "load_duration": 126261399,
+        "prompt_eval_count": 152,
+        "prompt_eval_duration": 520659999,
+        "eval_count": 82,
+        "eval_duration": 5986440000
+      }
+    },
+    {
+      "model": "ministral-3:3b",
+      "pair": "rw-prisao-perpetua",
+      "repeat": 1,
+      "name": "rw-prisao-perpetua",
+      "query": "prisão perpétua",
+      "assertion": "não haverá penas: de caráter perpétuo;",
+      "expected": "RELEVANT",
+      "status": "RELEVANT",
+      "reason": "A assertion normativa abrange diretamente o tema central da pergunta ('prisão perpétua'), esclarecendo que tal pena não será aplicada no sistema jurídico em questão.",
+      "raw": {
+        "model": "ministral-3:3b",
+        "created_at": "2026-08-25T11:08:29.68779214Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"RELEVANT\",\n  \"reason\": \"A assertion normativa abrange diretamente o tema central da pergunta ('prisão perpétua'), esclarecendo que tal pena não será aplicada no sistema jurídico em questão.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 4385068683,
+        "load_duration": 132856801,
+        "prompt_eval_count": 136,
+        "prompt_eval_duration": 377433000,
+        "eval_count": 54,
+        "eval_duration": 3838073000
+      }
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "TRUE_BUT_IRRELEVANT",
+      "repeat": 1,
+      "name": "TRUE_BUT_IRRELEVANT",
+      "query": "licença parental",
+      "assertion": "A administração deve publicar seus gastos trimestralmente.",
+      "expected": "IRRELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "SUPPORTED_BUT_OFF_TARGET",
+      "repeat": 1,
+      "name": "SUPPORTED_BUT_OFF_TARGET",
+      "query": "requisitos de idade para candidatura",
+      "assertion": "O órgão eleitoral divulgará o calendário das eleições.",
+      "expected": "IRRELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "WRONG_LEGAL_ACTOR",
+      "repeat": 1,
+      "name": "WRONG_LEGAL_ACTOR",
+      "query": "o presidente autoriza a medida",
+      "assertion": "O tribunal autoriza a medida.",
+      "expected": "IRRELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "RELATED_PROVISION_WRONG_ANSWER",
+      "repeat": 1,
+      "name": "RELATED_PROVISION_WRONG_ANSWER",
+      "query": "qual é o prazo de 30 dias para recurso",
+      "assertion": "O recurso é apresentado perante a autoridade competente.",
+      "expected": "IRRELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "repeat": 1,
+      "name": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "query": "a medida é obrigatória ou facultativa",
+      "assertion": "A medida será registrada em relatório anual.",
+      "expected": "IRRELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "repeat": 1,
+      "name": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "query": "quem deve prestar contas",
+      "assertion": "A prestação de contas deve ser publicada.",
+      "expected": "IRRELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "repeat": 1,
+      "name": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "query": "a inscrição é obrigatória",
+      "assertion": "A inscrição é facultativa.",
+      "expected": "RELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "rw-pena-morte",
+      "repeat": 1,
+      "name": "rw-pena-morte",
+      "query": "pena de morte",
+      "assertion": "não haverá penas: de morte, salvo em caso de guerra declarada, nos termos do art. 84, XIX;",
+      "expected": "RELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "rw-prisao-perpetua",
+      "repeat": 1,
+      "name": "rw-prisao-perpetua",
+      "query": "prisão perpétua",
+      "assertion": "não haverá penas: de caráter perpétuo;",
+      "expected": "RELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "TRUE_BUT_IRRELEVANT",
+      "repeat": 1,
+      "name": "TRUE_BUT_IRRELEVANT",
+      "query": "licença parental",
+      "assertion": "A administração deve publicar seus gastos trimestralmente.",
+      "expected": "IRRELEVANT",
+      "status": "IRRELEVANT",
+      "reason": "A assertion normativa trata de obrigação de publicação de gastos pela administração pública, enquanto a pergunta versa sobre **licença parental**, que é uma matéria distinta (direito do trabalho/familiar) e não guarda relação direta com a temática financeira ou orçamentária abordada na assertion.",
+      "raw": {
+        "model": "ministral-3:8b",
+        "created_at": "2026-08-25T11:14:22.233689857Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"IRRELEVANT\",\n  \"reason\": \"A assertion normativa trata de obrigação de publicação de gastos pela administração pública, enquanto a pergunta versa sobre **licença parental**, que é uma matéria distinta (direito do trabalho/familiar) e não guarda relação direta com a temática financeira ou orçamentária abordada na assertion.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 24313181083,
+        "load_duration": 6295859829,
+        "prompt_eval_count": 134,
+        "prompt_eval_duration": 4325172000,
+        "eval_count": 83,
+        "eval_duration": 13658182000
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "SUPPORTED_BUT_OFF_TARGET",
+      "repeat": 1,
+      "name": "SUPPORTED_BUT_OFF_TARGET",
+      "query": "requisitos de idade para candidatura",
+      "assertion": "O órgão eleitoral divulgará o calendário das eleições.",
+      "expected": "IRRELEVANT",
+      "status": "IRRELEVANT",
+      "reason": "A assertion normativa trata de uma obrigação do órgão eleitoral (divulgação do calendário eleitoral), que não está diretamente relacionada aos requisitos de idade para candidatura. Não há conexão material entre a divulgação do calendário e a idade mínima exigida para se candidatar.",
+      "raw": {
+        "model": "ministral-3:8b",
+        "created_at": "2026-08-25T11:14:36.470318611Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"IRRELEVANT\",\n  \"reason\": \"A assertion normativa trata de uma obrigação do órgão eleitoral (divulgação do calendário eleitoral), que não está diretamente relacionada aos requisitos de idade para candidatura. Não há conexão material entre a divulgação do calendário e a idade mínima exigida para se candidatar.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 14181032302,
+        "load_duration": 168746069,
+        "prompt_eval_count": 141,
+        "prompt_eval_duration": 1137118000,
+        "eval_count": 79,
+        "eval_duration": 12841197000
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "WRONG_LEGAL_ACTOR",
+      "repeat": 1,
+      "name": "WRONG_LEGAL_ACTOR",
+      "query": "o presidente autoriza a medida",
+      "assertion": "O tribunal autoriza a medida.",
+      "expected": "IRRELEVANT",
+      "status": "IRRELEVANT",
+      "reason": "A assertion menciona ator jurídico diferente ('tribunal') em relação à proposição principal ('presidente'), não respondendo diretamente à pergunta sobre quem autoriza a medida.",
+      "raw": {
+        "model": "ministral-3:8b",
+        "created_at": "2026-08-25T11:14:46.041304998Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"IRRELEVANT\",\n  \"reason\": \"A assertion menciona ator jurídico diferente ('tribunal') em relação à proposição principal ('presidente'), não respondendo diretamente à pergunta sobre quem autoriza a medida.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 9568142691,
+        "load_duration": 169138372,
+        "prompt_eval_count": 133,
+        "prompt_eval_duration": 797814000,
+        "eval_count": 53,
+        "eval_duration": 8568700999
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "RELATED_PROVISION_WRONG_ANSWER",
+      "repeat": 1,
+      "name": "RELATED_PROVISION_WRONG_ANSWER",
+      "query": "qual é o prazo de 30 dias para recurso",
+      "assertion": "O recurso é apresentado perante a autoridade competente.",
+      "expected": "IRRELEVANT",
+      "status": "IRRELEVANT",
+      "reason": "A assertion normativa não responde diretamente ao prazo de 30 dias para recurso. Ela trata apenas do procedimento de apresentação do recurso (autoridade competente), sem mencionar prazo, limite temporal ou relação com a proposição principal.",
+      "raw": {
+        "model": "ministral-3:8b",
+        "created_at": "2026-08-25T11:14:58.795064031Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"IRRELEVANT\",\n  \"reason\": \"A assertion normativa não responde diretamente ao prazo de 30 dias para recurso. Ela trata apenas do procedimento de apresentação do recurso (autoridade competente), sem mencionar prazo, limite temporal ou relação com a proposição principal.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 12751524218,
+        "load_duration": 149447281,
+        "prompt_eval_count": 144,
+        "prompt_eval_duration": 1247616000,
+        "eval_count": 70,
+        "eval_duration": 11321088000
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "repeat": 1,
+      "name": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "query": "a medida é obrigatória ou facultativa",
+      "assertion": "A medida será registrada em relatório anual.",
+      "expected": "IRRELEVANT",
+      "status": "IRRELEVANT",
+      "reason": "A assertion trata de um aspecto processual ou documental (registro em relatório anual) que não responde diretamente à obrigatoriedade ou facultatividade da medida em si. É temática, mas não aborda a natureza jurídica da obrigatoriedade da ação.",
+      "raw": {
+        "model": "ministral-3:8b",
+        "created_at": "2026-08-25T11:15:11.529693665Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"IRRELEVANT\",\n  \"reason\": \"A assertion trata de um aspecto processual ou documental (registro em relatório anual) que não responde diretamente à obrigatoriedade ou facultatividade da medida em si. É temática, mas não aborda a natureza jurídica da obrigatoriedade da ação.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 12722794719,
+        "load_duration": 134721677,
+        "prompt_eval_count": 138,
+        "prompt_eval_duration": 880293000,
+        "eval_count": 72,
+        "eval_duration": 11685747000
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "repeat": 1,
+      "name": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "query": "quem deve prestar contas",
+      "assertion": "A prestação de contas deve ser publicada.",
+      "expected": "IRRELEVANT",
+      "status": "IRRELEVANT",
+      "reason": "A assertion normativa trata apenas da **forma** (publicação) da prestação de contas, não respondendo diretamente à **questão sobre o ator obrigado** (quem deve prestar contas). É temática, mas não aborda a relação jurídica principal da pergunta.",
+      "raw": {
+        "model": "ministral-3:8b",
+        "created_at": "2026-08-25T11:15:25.793120324Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"IRRELEVANT\",\n  \"reason\": \"A assertion normativa trata apenas da **forma** (publicação) da prestação de contas, não respondendo diretamente à **questão sobre o ator obrigado** (quem deve prestar contas). É temática, mas não aborda a relação jurídica principal da pergunta.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 14252715720,
+        "load_duration": 169430144,
+        "prompt_eval_count": 138,
+        "prompt_eval_duration": 1002781000,
+        "eval_count": 80,
+        "eval_duration": 13052681000
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "repeat": 1,
+      "name": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "query": "a inscrição é obrigatória",
+      "assertion": "A inscrição é facultativa.",
+      "expected": "RELEVANT",
+      "status": "IRRELEVANT",
+      "reason": "A assertion afirma o oposto da proposição principal ('obrigatória' vs 'facultativa'), não respondendo diretamente à pergunta, mas contradizendo-a. Não há base segura para classificar como RELEVANT ou UNRESOLVED, pois a assertiva é uma resposta direta, porém negativa à proposição.",
+      "raw": {
+        "model": "ministral-3:8b",
+        "created_at": "2026-08-25T11:15:41.006195248Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"IRRELEVANT\",\n  \"reason\": \"A assertion afirma o oposto da proposição principal ('obrigatória' vs 'facultativa'), não respondendo diretamente à pergunta, mas contradizendo-a. Não há base segura para classificar como RELEVANT ou UNRESOLVED, pois a assertiva é uma resposta direta, porém negativa à proposição.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 15203044860,
+        "load_duration": 161768129,
+        "prompt_eval_count": 133,
+        "prompt_eval_duration": 712542000,
+        "eval_count": 88,
+        "eval_duration": 14298765000
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-pena-morte",
+      "repeat": 1,
+      "name": "rw-pena-morte",
+      "query": "pena de morte",
+      "assertion": "não haverá penas: de morte, salvo em caso de guerra declarada, nos termos do art. 84, XIX;",
+      "expected": "RELEVANT",
+      "status": "RELEVANT",
+      "reason": "A assertion normativa aborda diretamente a **proposição principal** sobre a pena de morte, respondendo à pergunta ao estabelecer uma exceção expressa (guerra declarada) para sua aplicação no ordenamento jurídico brasileiro, conforme previsto em dispositivo constitucional específico (art. 84, XIX). Não há atores jurídicos errados, nem resposta a outra relação jurídica.",
+      "raw": {
+        "model": "ministral-3:8b",
+        "created_at": "2026-08-25T11:15:58.874721614Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"RELEVANT\",\n  \"reason\": \"A assertion normativa aborda diretamente a **proposição principal** sobre a pena de morte, respondendo à pergunta ao estabelecer uma exceção expressa (guerra declarada) para sua aplicação no ordenamento jurídico brasileiro, conforme previsto em dispositivo constitucional específico (art. 84, XIX). Não há atores jurídicos errados, nem resposta a outra relação jurídica.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 17774194774,
+        "load_duration": 151840728,
+        "prompt_eval_count": 152,
+        "prompt_eval_duration": 1455855000,
+        "eval_count": 99,
+        "eval_duration": 16140277000
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "rw-prisao-perpetua",
+      "repeat": 1,
+      "name": "rw-prisao-perpetua",
+      "query": "prisão perpétua",
+      "assertion": "não haverá penas: de caráter perpétuo;",
+      "expected": "RELEVANT",
+      "status": "RELEVANT",
+      "reason": "A assertion normativa responde diretamente à proposição principal sobre a existência ou não de 'prisão perpétua', ao afirmar explicitamente que não haverá penas de caráter perpétuo.",
+      "raw": {
+        "model": "ministral-3:8b",
+        "created_at": "2026-08-25T11:16:09.096501236Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"RELEVANT\",\n  \"reason\": \"A assertion normativa responde diretamente à proposição principal sobre a existência ou não de 'prisão perpétua', ao afirmar explicitamente que não haverá penas de caráter perpétuo.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 10210595760,
+        "load_duration": 162243219,
+        "prompt_eval_count": 136,
+        "prompt_eval_duration": 903117000,
+        "eval_count": 56,
+        "eval_duration": 9101460000
+      }
+    },
+    {
+      "model": "granite4.1:3b",
+      "pair": "TRUE_BUT_IRRELEVANT",
+      "repeat": 1,
+      "name": "TRUE_BUT_IRRELEVANT",
+      "query": "licença parental",
+      "assertion": "A administração deve publicar seus gastos trimestralmente.",
+      "expected": "IRRELEVANT",
+      "status": "UNRESOLVED",
+      "reason": "A pergunta sobre licença parental não está relacionada diretamente à assertão normativa sobre a publicação de gastos trimestrais pela administração. A assertão trata de uma questão de gestão financeira, enquanto a pergunta aborda direitos de licença parental, que são áreas jurídicas distintas sem conexão direta.",
+      "raw": {
+        "model": "granite4.1:3b",
+        "created_at": "2026-08-25T11:16:20.214872879Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"UNRESOLVED\",\n  \"reason\": \"A pergunta sobre licença parental não está relacionada diretamente à assertão normativa sobre a publicação de gastos trimestrais pela administração. A assertão trata de uma questão de gestão financeira, enquanto a pergunta aborda direitos de licença parental, que são áreas jurídicas distintas sem conexão direta.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 11083884819,
+        "load_duration": 2467336660,
+        "prompt_eval_count": 154,
+        "prompt_eval_duration": 2053818000,
+        "eval_count": 91,
+        "eval_duration": 6551535000
+      }
+    },
+    {
+      "model": "granite4.1:3b",
+      "pair": "SUPPORTED_BUT_OFF_TARGET",
+      "repeat": 1,
+      "name": "SUPPORTED_BUT_OFF_TARGET",
+      "query": "requisitos de idade para candidatura",
+      "assertion": "O órgão eleitoral divulgará o calendário das eleições.",
+      "expected": "IRRELEVANT",
+      "status": "UNRESOLVED",
+      "reason": "A assertion fornecida sobre o órgão eleitoral divulgar o calendário das eleições não está relacionada diretamente aos requisitos de idade para candidatura. Ela aborda a divulgação de informações sobre eleições, mas não aborda diretamente o tema da idade mínima necessária para se candidatar a um cargo eleito.",
+      "raw": {
+        "model": "granite4.1:3b",
+        "created_at": "2026-08-25T11:16:27.608482663Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"UNRESOLVED\",\n  \"reason\": \"A assertion fornecida sobre o órgão eleitoral divulgar o calendário das eleições não está relacionada diretamente aos requisitos de idade para candidatura. Ela aborda a divulgação de informações sobre eleições, mas não aborda diretamente o tema da idade mínima necessária para se candidatar a um cargo eleito.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 7383113809,
+        "load_duration": 77268194,
+        "prompt_eval_count": 163,
+        "prompt_eval_duration": 500391000,
+        "eval_count": 94,
+        "eval_duration": 6802613000
+      }
+    },
+    {
+      "model": "granite4.1:3b",
+      "pair": "WRONG_LEGAL_ACTOR",
+      "repeat": 1,
+      "name": "WRONG_LEGAL_ACTOR",
+      "query": "o presidente autoriza a medida",
+      "assertion": "O tribunal autoriza a medida.",
+      "expected": "IRRELEVANT",
+      "status": "UNRESOLVED",
+      "reason": "A pergunta refere-se ao autor da medida como 'o presidente', enquanto a afirmação diz que 'o tribunal' é o autor. Essa discrepância de autoridade torna impossível determinar se a afirmação é relevante para a pergunta sem mais contexto ou conhecimento externo.",
+      "raw": {
+        "model": "granite4.1:3b",
+        "created_at": "2026-08-25T11:16:33.931808023Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"UNRESOLVED\",\n  \"reason\": \"A pergunta refere-se ao autor da medida como 'o presidente', enquanto a afirmação diz que 'o tribunal' é o autor. Essa discrepância de autoridade torna impossível determinar se a afirmação é relevante para a pergunta sem mais contexto ou conhecimento externo.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 6313476520,
+        "load_duration": 75730118,
+        "prompt_eval_count": 150,
+        "prompt_eval_duration": 325535000,
+        "eval_count": 82,
+        "eval_duration": 5908346000
+      }
+    },
+    {
+      "model": "granite4.1:3b",
+      "pair": "RELATED_PROVISION_WRONG_ANSWER",
+      "repeat": 1,
+      "name": "RELATED_PROVISION_WRONG_ANSWER",
+      "query": "qual é o prazo de 30 dias para recurso",
+      "assertion": "O recurso é apresentado perante a autoridade competente.",
+      "expected": "IRRELEVANT",
+      "status": "RELEVANT",
+      "reason": "A assertion direta menciona o procedimento de recurso, que está relacionado ao prazo de 30 dias solicitado na pergunta.",
+      "raw": {
+        "model": "granite4.1:3b",
+        "created_at": "2026-08-25T11:16:37.867002761Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"RELEVANT\",\n  \"reason\": \"A assertion direta menciona o procedimento de recurso, que está relacionado ao prazo de 30 dias solicitado na pergunta.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 3923547872,
+        "load_duration": 69959696,
+        "prompt_eval_count": 163,
+        "prompt_eval_duration": 481618000,
+        "eval_count": 47,
+        "eval_duration": 3369086000
+      }
+    },
+    {
+      "model": "granite4.1:3b",
+      "pair": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "repeat": 1,
+      "name": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "query": "a medida é obrigatória ou facultativa",
+      "assertion": "A medida será registrada em relatório anual.",
+      "expected": "IRRELEVANT",
+      "status": "UNRESOLVED",
+      "reason": "A assertion fornecida ('A medida será registrada em relatório anual') não fornece informações sobre se a medida é obrigatória ou facultativa. Ela apenas descreve uma ação de registro em um relatório anual, sem detalhar os requisitos ou obrigações legais associados à medida em questão.",
+      "raw": {
+        "model": "granite4.1:3b",
+        "created_at": "2026-08-25T11:16:44.961802593Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"UNRESOLVED\",\n  \"reason\": \"A assertion fornecida ('A medida será registrada em relatório anual') não fornece informações sobre se a medida é obrigatória ou facultativa. Ela apenas descreve uma ação de registro em um relatório anual, sem detalhar os requisitos ou obrigações legais associados à medida em questão.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 7084580731,
+        "load_duration": 72000852,
+        "prompt_eval_count": 157,
+        "prompt_eval_duration": 501729000,
+        "eval_count": 90,
+        "eval_duration": 6507171000
+      }
+    },
+    {
+      "model": "granite4.1:3b",
+      "pair": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "repeat": 1,
+      "name": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "query": "quem deve prestar contas",
+      "assertion": "A prestação de contas deve ser publicada.",
+      "expected": "IRRELEVANT",
+      "status": "RELEVANT",
+      "reason": "A pergunta ",
+      "raw": {
+        "model": "granite4.1:3b",
+        "created_at": "2026-08-25T11:16:47.107731183Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"RELEVANT\",\n  \"reason\": \"A pergunta \"\n\n  }"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 2142273814,
+        "load_duration": 82743879,
+        "prompt_eval_count": 155,
+        "prompt_eval_duration": 414502000,
+        "eval_count": 23,
+        "eval_duration": 1641902000
+      }
+    },
+    {
+      "model": "granite4.1:3b",
+      "pair": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "repeat": 1,
+      "name": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "query": "a inscrição é obrigatória",
+      "assertion": "A inscrição é facultativa.",
+      "expected": "RELEVANT",
+      "status": "IRRELEVANT",
+      "reason": "A assertion responde diretamente à proposição principal, mas afirma o oposto, indicando que a inscrição não é obrigatória, ao contrário da pergunta que pede sobre a obrigatória da inscrição.",
+      "raw": {
+        "model": "granite4.1:3b",
+        "created_at": "2026-08-25T11:16:52.643732545Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"IRRELEVANT\",\n  \"reason\": \"A assertion responde diretamente à proposição principal, mas afirma o oposto, indicando que a inscrição não é obrigatória, ao contrário da pergunta que pede sobre a obrigatória da inscrição.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 5525691110,
+        "load_duration": 68129269,
+        "prompt_eval_count": 153,
+        "prompt_eval_duration": 381372000,
+        "eval_count": 68,
+        "eval_duration": 5073189000
+      }
+    },
+    {
+      "model": "granite4.1:3b",
+      "pair": "rw-pena-morte",
+      "repeat": 1,
+      "name": "rw-pena-morte",
+      "query": "pena de morte",
+      "assertion": "não haverá penas: de morte, salvo em caso de guerra declarada, nos termos do art. 84, XIX;",
+      "expected": "RELEVANT",
+      "status": "UNRESOLVED",
+      "reason": "A pergunta 'pena de morte' refere-se a uma possibilidade de punição, enquanto a assertion fornecida trata de uma proibição geral de penas de morte, exceto em casos específicos de guerra declarada, conforme o artigo 84, XIX. No entanto, a assertion não aborda diretamente a aplicabilidade ou legitimidade da pena de morte em geral, mas sim limita sua aplicação a situações específicas de guerra, o que não resolve diretamente a pergunta inicial sobre a pena de morte em geral.",
+      "raw": {
+        "model": "granite4.1:3b",
+        "created_at": "2026-08-25T11:17:03.808522868Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"UNRESOLVED\",\n  \"reason\": \"A pergunta 'pena de morte' refere-se a uma possibilidade de punição, enquanto a assertion fornecida trata de uma proibição geral de penas de morte, exceto em casos específicos de guerra declarada, conforme o artigo 84, XIX. No entanto, a assertion não aborda diretamente a aplicabilidade ou legitimidade da pena de morte em geral, mas sim limita sua aplicação a situações específicas de guerra, o que não resolve diretamente a pergunta inicial sobre a pena de morte em geral.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 11161152650,
+        "load_duration": 71495876,
+        "prompt_eval_count": 175,
+        "prompt_eval_duration": 735675000,
+        "eval_count": 139,
+        "eval_duration": 10349962000
+      }
+    },
+    {
+      "model": "granite4.1:3b",
+      "pair": "rw-prisao-perpetua",
+      "repeat": 1,
+      "name": "rw-prisao-perpetua",
+      "query": "prisão perpétua",
+      "assertion": "não haverá penas: de caráter perpétuo;",
+      "expected": "RELEVANT",
+      "status": "UNRESOLVED",
+      "reason": "A pergunta 'prisão perpétua' refere-se a uma possibilidade de sentença, enquanto a assertion 'não haverá penas: de caráter perpétuo;' é uma declaração geral sobre a existência de tal sentença. Não há base segura para determinar se a assertion responde diretamente à pergunta sem conhecimento externo ou contexto específico sobre o sistema jurídico em questão.",
+      "raw": {
+        "model": "granite4.1:3b",
+        "created_at": "2026-08-25T11:17:12.581764195Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"UNRESOLVED\",\n  \"reason\": \"A pergunta 'prisão perpétua' refere-se a uma possibilidade de sentença, enquanto a assertion 'não haverá penas: de caráter perpétuo;' é uma declaração geral sobre a existência de tal sentença. Não há base segura para determinar se a assertion responde diretamente à pergunta sem conhecimento externo ou contexto específico sobre o sistema jurídico em questão.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 8770574184,
+        "load_duration": 65705100,
+        "prompt_eval_count": 161,
+        "prompt_eval_duration": 454708000,
+        "eval_count": 113,
+        "eval_duration": 8233879999
+      }
+    },
+    {
+      "model": "granite4.1:8b",
+      "pair": "TRUE_BUT_IRRELEVANT",
+      "repeat": 1,
+      "name": "TRUE_BUT_IRRELEVANT",
+      "query": "licença parental",
+      "assertion": "A administração deve publicar seus gastos trimestralmente.",
+      "expected": "IRRELEVANT",
+      "status": "IRRELEVANT",
+      "reason": "A assertiva sobre a administração publicando seus gastos trimestralmente não está diretamente relacionada à pergunta sobre licença parental, que lida com direitos e benefícios legais relacionados à paternidade ou maternidade.",
+      "raw": {
+        "model": "granite4.1:8b",
+        "created_at": "2026-08-25T11:17:35.237032055Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"IRRELEVANT\",\n  \"reason\": \"A assertiva sobre a administração publicando seus gastos trimestralmente não está diretamente relacionada à pergunta sobre licença parental, que lida com direitos e benefícios legais relacionados à paternidade ou maternidade.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 22631092865,
+        "load_duration": 5394864391,
+        "prompt_eval_count": 154,
+        "prompt_eval_duration": 4824011000,
+        "eval_count": 72,
+        "eval_duration": 12408377000
+      }
+    },
+    {
+      "model": "granite4.1:8b",
+      "pair": "SUPPORTED_BUT_OFF_TARGET",
+      "repeat": 1,
+      "name": "SUPPORTED_BUT_OFF_TARGET",
+      "query": "requisitos de idade para candidatura",
+      "assertion": "O órgão eleitoral divulgará o calendário das eleições.",
+      "expected": "IRRELEVANT",
+      "status": "IRRELEVANT",
+      "reason": "A assertão fala sobre a divulgação do calendário eleitoral pelo órgão eleitoral, mas não aborda diretamente os requisitos de idade para candidatura, que é a proposição principal da pergunta.",
+      "raw": {
+        "model": "granite4.1:8b",
+        "created_at": "2026-08-25T11:17:48.460577307Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"IRRELEVANT\",\n  \"reason\": \"A assertão fala sobre a divulgação do calendário eleitoral pelo órgão eleitoral, mas não aborda diretamente os requisitos de idade para candidatura, que é a proposição principal da pergunta.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 13221173172,
+        "load_duration": 56784403,
+        "prompt_eval_count": 163,
+        "prompt_eval_duration": 1391289000,
+        "eval_count": 68,
+        "eval_duration": 11768677000
+      }
+    },
+    {
+      "model": "granite4.1:8b",
+      "pair": "WRONG_LEGAL_ACTOR",
+      "repeat": 1,
+      "name": "WRONG_LEGAL_ACTOR",
+      "query": "o presidente autoriza a medida",
+      "assertion": "O tribunal autoriza a medida.",
+      "expected": "IRRELEVANT",
+      "status": "IRRELEVANT",
+      "reason": "A assertiva menciona o tribunal autorizando a medida, enquanto a pergunta se refere à autorização pelo presidente. Os atores jurídicos são diferentes, tornando a assertiva irrelevante em relação à proposição principal da pergunta.",
+      "raw": {
+        "model": "granite4.1:8b",
+        "created_at": "2026-08-25T11:18:01.614808971Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"IRRELEVANT\",\n  \"reason\": \"A assertiva menciona o tribunal autorizando a medida, enquanto a pergunta se refere à autorização pelo presidente. Os atores jurídicos são diferentes, tornando a assertiva irrelevante em relação à proposição principal da pergunta.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 13143409210,
+        "load_duration": 73656008,
+        "prompt_eval_count": 150,
+        "prompt_eval_duration": 794090000,
+        "eval_count": 70,
+        "eval_duration": 12272184000
+      }
+    },
+    {
+      "model": "granite4.1:8b",
+      "pair": "RELATED_PROVISION_WRONG_ANSWER",
+      "repeat": 1,
+      "name": "RELATED_PROVISION_WRONG_ANSWER",
+      "query": "qual é o prazo de 30 dias para recurso",
+      "assertion": "O recurso é apresentado perante a autoridade competente.",
+      "expected": "IRRELEVANT",
+      "status": "IRRELEVANT",
+      "reason": "A assertão não fornece informações sobre o prazo de 30 dias para apresentar um recurso, apenas menciona que o recurso é apresentado perante a autoridade competente.",
+      "raw": {
+        "model": "granite4.1:8b",
+        "created_at": "2026-08-25T11:18:13.240062152Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"IRRELEVANT\",\n  \"reason\": \"A assertão não fornece informações sobre o prazo de 30 dias para apresentar um recurso, apenas menciona que o recurso é apresentado perante a autoridade competente.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 11611432070,
+        "load_duration": 79290750,
+        "prompt_eval_count": 163,
+        "prompt_eval_duration": 1246284000,
+        "eval_count": 60,
+        "eval_duration": 10282384000
+      }
+    },
+    {
+      "model": "granite4.1:8b",
+      "pair": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "repeat": 1,
+      "name": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "query": "a medida é obrigatória ou facultativa",
+      "assertion": "A medida será registrada em relatório anual.",
+      "expected": "IRRELEVANT",
+      "status": "IRRELEVANT",
+      "reason": "A assertão informa que a medida será registrada em um relatório anual, mas não especifica se a medida é obrigatória ou facultativa. Portanto, não responde diretamente à proposição principal da pergunta.",
+      "raw": {
+        "model": "granite4.1:8b",
+        "created_at": "2026-08-25T11:18:26.332164833Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"IRRELEVANT\",\n  \"reason\": \"A assertão informa que a medida será registrada em um relatório anual, mas não especifica se a medida é obrigatória ou facultativa. Portanto, não responde diretamente à proposição principal da pergunta.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 13081918474,
+        "load_duration": 66024438,
+        "prompt_eval_count": 157,
+        "prompt_eval_duration": 1125627000,
+        "eval_count": 68,
+        "eval_duration": 11887032000
+      }
+    },
+    {
+      "model": "granite4.1:8b",
+      "pair": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "repeat": 1,
+      "name": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "query": "quem deve prestar contas",
+      "assertion": "A prestação de contas deve ser publicada.",
+      "expected": "IRRELEVANT",
+      "status": "IRRELEVANT",
+      "reason": "A assertiva fala sobre a publicação da prestação de contas, mas não identifica quem deve prestar contas, que é a proposição principal da pergunta.",
+      "raw": {
+        "model": "granite4.1:8b",
+        "created_at": "2026-08-25T11:18:36.946657439Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"IRRELEVANT\",\n  \"reason\": \"A assertiva fala sobre a publicação da prestação de contas, mas não identifica quem deve prestar contas, que é a proposição principal da pergunta.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 10600835385,
+        "load_duration": 92093446,
+        "prompt_eval_count": 155,
+        "prompt_eval_duration": 982173000,
+        "eval_count": 56,
+        "eval_duration": 9522823000
+      }
+    },
+    {
+      "model": "granite4.1:8b",
+      "pair": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "repeat": 1,
+      "name": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "query": "a inscrição é obrigatória",
+      "assertion": "A inscrição é facultativa.",
+      "expected": "RELEVANT",
+      "status": "IRRELEVANT",
+      "reason": "A assertiva contradiz diretamente a proposição principal sem fornecer uma resposta clara ou relevante à questão de obrigação da inscrição.",
+      "raw": {
+        "model": "granite4.1:8b",
+        "created_at": "2026-08-25T11:18:46.602736825Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"IRRELEVANT\",\n  \"reason\": \"A assertiva contradiz diretamente a proposição principal sem fornecer uma resposta clara ou relevante à questão de obrigação da inscrição.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 9643933876,
+        "load_duration": 71815756,
+        "prompt_eval_count": 153,
+        "prompt_eval_duration": 931337000,
+        "eval_count": 51,
+        "eval_duration": 8637652000
+      }
+    },
+    {
+      "model": "granite4.1:8b",
+      "pair": "rw-pena-morte",
+      "repeat": 1,
+      "name": "rw-pena-morte",
+      "query": "pena de morte",
+      "assertion": "não haverá penas: de morte, salvo em caso de guerra declarada, nos termos do art. 84, XIX;",
+      "expected": "RELEVANT",
+      "status": "RELEVANT",
+      "reason": "A assertão aborda diretamente a proposição principal sobre a pena de morte, especificando as condições sob as quais ela seria aplicada, ou seja, apenas em caso de guerra declarada conforme o artigo 84, XIX.",
+      "raw": {
+        "model": "granite4.1:8b",
+        "created_at": "2026-08-25T11:19:00.253438672Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"RELEVANT\",\n  \"reason\": \"A assertão aborda diretamente a proposição principal sobre a pena de morte, especificando as condições sob as quais ela seria aplicada, ou seja, apenas em caso de guerra declarada conforme o artigo 84, XIX.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 13638846813,
+        "load_duration": 78049683,
+        "prompt_eval_count": 175,
+        "prompt_eval_duration": 1596367000,
+        "eval_count": 70,
+        "eval_duration": 11961043000
+      }
+    },
+    {
+      "model": "granite4.1:8b",
+      "pair": "rw-prisao-perpetua",
+      "repeat": 1,
+      "name": "rw-prisao-perpetua",
+      "query": "prisão perpétua",
+      "assertion": "não haverá penas: de caráter perpétuo;",
+      "expected": "RELEVANT",
+      "status": "IRRELEVANT",
+      "reason": "A assertão nega a existência de penas perpétuas, enquanto a pergunta apenas menciona a prisão perpétua sem solicitar uma resposta direta sobre a existência ou não dessas penas. A assertão não aborda diretamente a proposição principal da pergunta.",
+      "raw": {
+        "model": "granite4.1:8b",
+        "created_at": "2026-08-25T11:19:16.013607428Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"IRRELEVANT\",\n  \"reason\": \"A assertão nega a existência de penas perpétuas, enquanto a pergunta apenas menciona a prisão perpétua sem solicitar uma resposta direta sobre a existência ou não dessas penas. A assertão não aborda diretamente a proposição principal da pergunta.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 15748730738,
+        "load_duration": 83385484,
+        "prompt_eval_count": 161,
+        "prompt_eval_duration": 1326334000,
+        "eval_count": 84,
+        "eval_duration": 14335696000
+      }
+    },
+    {
+      "model": "deepseek-r1:8b",
+      "pair": "TRUE_BUT_IRRELEVANT",
+      "repeat": 1,
+      "name": "TRUE_BUT_IRRELEVANT",
+      "query": "licença parental",
+      "assertion": "A administração deve publicar seus gastos trimestralmente.",
+      "expected": "IRRELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "deepseek-r1:8b",
+      "pair": "SUPPORTED_BUT_OFF_TARGET",
+      "repeat": 1,
+      "name": "SUPPORTED_BUT_OFF_TARGET",
+      "query": "requisitos de idade para candidatura",
+      "assertion": "O órgão eleitoral divulgará o calendário das eleições.",
+      "expected": "IRRELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "deepseek-r1:8b",
+      "pair": "WRONG_LEGAL_ACTOR",
+      "repeat": 1,
+      "name": "WRONG_LEGAL_ACTOR",
+      "query": "o presidente autoriza a medida",
+      "assertion": "O tribunal autoriza a medida.",
+      "expected": "IRRELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "deepseek-r1:8b",
+      "pair": "RELATED_PROVISION_WRONG_ANSWER",
+      "repeat": 1,
+      "name": "RELATED_PROVISION_WRONG_ANSWER",
+      "query": "qual é o prazo de 30 dias para recurso",
+      "assertion": "O recurso é apresentado perante a autoridade competente.",
+      "expected": "IRRELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "deepseek-r1:8b",
+      "pair": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "repeat": 1,
+      "name": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "query": "a medida é obrigatória ou facultativa",
+      "assertion": "A medida será registrada em relatório anual.",
+      "expected": "IRRELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "deepseek-r1:8b",
+      "pair": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "repeat": 1,
+      "name": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "query": "quem deve prestar contas",
+      "assertion": "A prestação de contas deve ser publicada.",
+      "expected": "IRRELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "deepseek-r1:8b",
+      "pair": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "repeat": 1,
+      "name": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "query": "a inscrição é obrigatória",
+      "assertion": "A inscrição é facultativa.",
+      "expected": "RELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "deepseek-r1:8b",
+      "pair": "rw-pena-morte",
+      "repeat": 1,
+      "name": "rw-pena-morte",
+      "query": "pena de morte",
+      "assertion": "não haverá penas: de morte, salvo em caso de guerra declarada, nos termos do art. 84, XIX;",
+      "expected": "RELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "deepseek-r1:8b",
+      "pair": "rw-prisao-perpetua",
+      "repeat": 1,
+      "name": "rw-prisao-perpetua",
+      "query": "prisão perpétua",
+      "assertion": "não haverá penas: de caráter perpétuo;",
+      "expected": "RELEVANT",
+      "status": "MODEL_FAIL",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "TRUE_BUT_IRRELEVANT",
+      "repeat": 1,
+      "name": "TRUE_BUT_IRRELEVANT",
+      "query": "licença parental",
+      "assertion": "A administração deve publicar seus gastos trimestralmente.",
+      "expected": "IRRELEVANT",
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A pergunta trata sobre licença parental (direito do trabalhador/família), enquanto a assertion refere-se à transparência financeira da administração pública. Não há relação direta entre os temas."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 239,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 57
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "SUPPORTED_BUT_OFF_TARGET",
+      "repeat": 1,
+      "name": "SUPPORTED_BUT_OFF_TARGET",
+      "query": "requisitos de idade para candidatura",
+      "assertion": "O órgão eleitoral divulgará o calendário das eleições.",
+      "expected": "IRRELEVANT",
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion trata da divulgação do calendário eleitoral, enquanto a pergunta refere-se aos requisitos de idade para candidatura. São temas distintos e a assertion não responde à proposição principal."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 243,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 55
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "WRONG_LEGAL_ACTOR",
+      "repeat": 1,
+      "name": "WRONG_LEGAL_ACTOR",
+      "query": "o presidente autoriza a medida",
+      "assertion": "O tribunal autoriza a medida.",
+      "expected": "IRRELEVANT",
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion normativa verificada atribui o ato autorizatório ao 'tribunal', enquanto a pergunta propõe que seja o 'presidente'. Os atores jurídicos são diferentes, tornando a resposta à proposição principal."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 251,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 64
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "RELATED_PROVISION_WRONG_ANSWER",
+      "repeat": 1,
+      "name": "RELATED_PROVISION_WRONG_ANSWER",
+      "query": "qual é o prazo de 30 dias para recurso",
+      "assertion": "O recurso é apresentado perante a autoridade competente.",
+      "expected": "IRRELEVANT",
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion afirma apenas onde o recurso deve ser apresentado (autoridade competente), sem responder ao prazo de 30 dias proposto na pergunta."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 186,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 50
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "repeat": 1,
+      "name": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "query": "a medida é obrigatória ou facultativa",
+      "assertion": "A medida será registrada em relatório anual.",
+      "expected": "IRRELEVANT",
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion (registro em relatório anual) não responde diretamente à proposição principal da pergunta (obrigatoriedade ou facultabilidade da medida). Trata-se de uma consequência administrativa, não do caráter obrigatório ou facultativo da própria decisão."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 300,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 69
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "repeat": 1,
+      "name": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "query": "quem deve prestar contas",
+      "assertion": "A prestação de contas deve ser publicada.",
+      "expected": "IRRELEVANT",
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion normativa verificada trata da obrigação de publicação, enquanto a pergunta solicita o identificação do sujeito passivo (quem deve). A resposta à proposição não responde diretamente à questão sobre a identidade do ator jurídico."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 283,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 63
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "repeat": 1,
+      "name": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "query": "a inscrição é obrigatória",
+      "assertion": "A inscrição é facultativa.",
+      "expected": "RELEVANT",
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion afirma que a inscrição é 'facultativa', enquanto a pergunta propõe que ela é 'obrigatória'. São proposições contraditórias sobre o mesmo fato, mas a assertion não responde à pergunta; pelo contrário, nega-a."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 263,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 72
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-pena-morte",
+      "repeat": 1,
+      "name": "rw-pena-morte",
+      "query": "pena de morte",
+      "assertion": "não haverá penas: de morte, salvo em caso de guerra declarada, nos termos do art. 84, XIX;",
+      "expected": "RELEVANT",
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa verifica diretamente a proposição principal da pergunta sobre a pena de morte, especificando sua inexistência e a exceção prevista em lei."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 202,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 51
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "rw-prisao-perpetua",
+      "repeat": 1,
+      "name": "rw-prisao-perpetua",
+      "query": "prisão perpétua",
+      "assertion": "não haverá penas: de caráter perpétuo;",
+      "expected": "RELEVANT",
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion afirma a inexistência de penas perpétuas, o que é uma proposição normativa direta sobre o instituto da prisão perpétua levantado na pergunta. A resposta confirma ou nega a existência do instituto, respondendo diretamente à proposição principal."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 298,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 73
+      }
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "TRUE_BUT_IRRELEVANT",
+      "repeat": 1,
+      "name": "TRUE_BUT_IRRELEVANT",
+      "query": "licença parental",
+      "assertion": "A administração deve publicar seus gastos trimestralmente.",
+      "expected": "IRRELEVANT",
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion trata da obrigatoriedade de publicação de gastos trimestrais pela administração pública, o que não responde diretamente à proposição principal sobre licença parental."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 222,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 52
+      }
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "SUPPORTED_BUT_OFF_TARGET",
+      "repeat": 1,
+      "name": "SUPPORTED_BUT_OFF_TARGET",
+      "query": "requisitos de idade para candidatura",
+      "assertion": "O órgão eleitoral divulgará o calendário das eleições.",
+      "expected": "IRRELEVANT",
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion trata da divulgação do calendário eleitoral pelo órgão, enquanto a pergunta refere-se aos requisitos de idade para candidatura. A resposta à assertion não aborda diretamente a proposição principal sobre idade."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 265,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 59
+      }
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "WRONG_LEGAL_ACTOR",
+      "repeat": 1,
+      "name": "WRONG_LEGAL_ACTOR",
+      "query": "o presidente autoriza a medida",
+      "assertion": "O tribunal autoriza a medida.",
+      "expected": "IRRELEVANT",
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion refere-se ao 'tribunal' como ator jurídico que autoriza a medida, enquanto a pergunta especifica o 'presidente'. Como os atores jurídicos são diferentes, a assertion não responde diretamente à proposição principal da pergunta."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 282,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 70
+      }
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "RELATED_PROVISION_WRONG_ANSWER",
+      "repeat": 1,
+      "name": "RELATED_PROVISION_WRONG_ANSWER",
+      "query": "qual é o prazo de 30 dias para recurso",
+      "assertion": "O recurso é apresentado perante a autoridade competente.",
+      "expected": "IRRELEVANT",
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion descreve o local ou a autoridade para apresentação do recurso, mas não responde à pergunta sobre a duração específica do prazo (30 dias)."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 193,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 53
+      }
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "repeat": 1,
+      "name": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "query": "a medida é obrigatória ou facultativa",
+      "assertion": "A medida será registrada em relatório anual.",
+      "expected": "IRRELEVANT",
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion descreve uma consequência administrativa (registro em relatório anual) que não responde diretamente à pergunta sobre a natureza da medida (obrigatória ou facultativa)."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 223,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 56
+      }
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "repeat": 1,
+      "name": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "query": "quem deve prestar contas",
+      "assertion": "A prestação de contas deve ser publicada.",
+      "expected": "IRRELEVANT",
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion afirma que a prestação de contas deve ser publicada (foco no ato de publicação), enquanto a pergunta identifica quem é o sujeito obrigado a realizar esse ato (foco no ator jurídico). A resposta não aborda diretamente a proposição principal sobre a identidade do prestador."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 328,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 77
+      }
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "repeat": 1,
+      "name": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "query": "a inscrição é obrigatória",
+      "assertion": "A inscrição é facultativa.",
+      "expected": "RELEVANT",
+      "status": "VALID",
+      "payload": {
+        "status": "IRRELEVANT",
+        "reason": "A assertion nega a proposição da pergunta (afirma que é facultativa enquanto a pergunta afirma que é obrigatória), não respondendo à proposição principal de forma afirmativa ou verificável no contexto de relevância material direta."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 275,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 69
+      }
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "rw-pena-morte",
+      "repeat": 1,
+      "name": "rw-pena-morte",
+      "query": "pena de morte",
+      "assertion": "não haverá penas: de morte, salvo em caso de guerra declarada, nos termos do art. 84, XIX;",
+      "expected": "RELEVANT",
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa verifica diretamente a existência e as exceções à pena de morte mencionada na pergunta."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 151,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 41
+      }
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "rw-prisao-perpetua",
+      "repeat": 1,
+      "name": "rw-prisao-perpetua",
+      "query": "prisão perpétua",
+      "assertion": "não haverá penas: de caráter perpétuo;",
+      "expected": "RELEVANT",
+      "status": "VALID",
+      "payload": {
+        "status": "RELEVANT",
+        "reason": "A assertion normativa verifica diretamente a existência ou não da pena de prisão perpétua mencionada na pergunta."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 155,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 42
+      }
+    },
+    {
+      "model": "deepseek-r1:8b",
+      "pair": "TRUE_BUT_IRRELEVANT",
+      "repeat": 1,
+      "name": "TRUE_BUT_IRRELEVANT",
+      "query": "licença parental",
+      "assertion": "A administração deve publicar seus gastos trimestralmente.",
+      "expected": "IRRELEVANT",
+      "status": "THINKING_WITHOUT_FINAL_CONTENT",
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "length",
+        "content_length": 0,
+        "thinking_present": true,
+        "thinking_length": 765,
+        "eval_count": 180
+      }
+    },
+    {
+      "model": "deepseek-r1:8b",
+      "pair": "SUPPORTED_BUT_OFF_TARGET",
+      "repeat": 1,
+      "name": "SUPPORTED_BUT_OFF_TARGET",
+      "query": "requisitos de idade para candidatura",
+      "assertion": "O órgão eleitoral divulgará o calendário das eleições.",
+      "expected": "IRRELEVANT",
+      "status": "THINKING_WITHOUT_FINAL_CONTENT",
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "length",
+        "content_length": 0,
+        "thinking_present": true,
+        "thinking_length": 721,
+        "eval_count": 180
+      }
+    },
+    {
+      "model": "deepseek-r1:8b",
+      "pair": "WRONG_LEGAL_ACTOR",
+      "repeat": 1,
+      "name": "WRONG_LEGAL_ACTOR",
+      "query": "o presidente autoriza a medida",
+      "assertion": "O tribunal autoriza a medida.",
+      "expected": "IRRELEVANT",
+      "status": "THINKING_WITHOUT_FINAL_CONTENT",
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "length",
+        "content_length": 0,
+        "thinking_present": true,
+        "thinking_length": 721,
+        "eval_count": 180
+      }
+    },
+    {
+      "model": "deepseek-r1:8b",
+      "pair": "RELATED_PROVISION_WRONG_ANSWER",
+      "repeat": 1,
+      "name": "RELATED_PROVISION_WRONG_ANSWER",
+      "query": "qual é o prazo de 30 dias para recurso",
+      "assertion": "O recurso é apresentado perante a autoridade competente.",
+      "expected": "IRRELEVANT",
+      "status": "THINKING_WITHOUT_FINAL_CONTENT",
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "length",
+        "content_length": 0,
+        "thinking_present": true,
+        "thinking_length": 680,
+        "eval_count": 180
+      }
+    },
+    {
+      "model": "deepseek-r1:8b",
+      "pair": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "repeat": 1,
+      "name": "AUXILIARY_FACT_WITHOUT_CORE_ANSWER",
+      "query": "a medida é obrigatória ou facultativa",
+      "assertion": "A medida será registrada em relatório anual.",
+      "expected": "IRRELEVANT",
+      "status": "THINKING_WITHOUT_FINAL_CONTENT",
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "length",
+        "content_length": 0,
+        "thinking_present": true,
+        "thinking_length": 877,
+        "eval_count": 180
+      }
+    },
+    {
+      "model": "deepseek-r1:8b",
+      "pair": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "repeat": 1,
+      "name": "THEMATICALLY_SIMILAR_BUT_WRONG_RELATION",
+      "query": "quem deve prestar contas",
+      "assertion": "A prestação de contas deve ser publicada.",
+      "expected": "IRRELEVANT",
+      "status": "THINKING_WITHOUT_FINAL_CONTENT",
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "length",
+        "content_length": 0,
+        "thinking_present": true,
+        "thinking_length": 684,
+        "eval_count": 180
+      }
+    },
+    {
+      "model": "deepseek-r1:8b",
+      "pair": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "repeat": 1,
+      "name": "CORRECT_TOPIC_WRONG_NORMATIVE_ROLE",
+      "query": "a inscrição é obrigatória",
+      "assertion": "A inscrição é facultativa.",
+      "expected": "RELEVANT",
+      "status": "THINKING_WITHOUT_FINAL_CONTENT",
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "length",
+        "content_length": 0,
+        "thinking_present": true,
+        "thinking_length": 734,
+        "eval_count": 180
+      }
+    },
+    {
+      "model": "deepseek-r1:8b",
+      "pair": "rw-pena-morte",
+      "repeat": 1,
+      "name": "rw-pena-morte",
+      "query": "pena de morte",
+      "assertion": "não haverá penas: de morte, salvo em caso de guerra declarada, nos termos do art. 84, XIX;",
+      "expected": "RELEVANT",
+      "status": "THINKING_WITHOUT_FINAL_CONTENT",
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "length",
+        "content_length": 0,
+        "thinking_present": true,
+        "thinking_length": 775,
+        "eval_count": 180
+      }
+    },
+    {
+      "model": "deepseek-r1:8b",
+      "pair": "rw-prisao-perpetua",
+      "repeat": 1,
+      "name": "rw-prisao-perpetua",
+      "query": "prisão perpétua",
+      "assertion": "não haverá penas: de caráter perpétuo;",
+      "expected": "RELEVANT",
+      "status": "THINKING_WITHOUT_FINAL_CONTENT",
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "length",
+        "content_length": 0,
+        "thinking_present": true,
+        "thinking_length": 779,
+        "eval_count": 180
+      }
+    }
+  ]
+}

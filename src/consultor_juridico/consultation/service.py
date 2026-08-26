@@ -9,6 +9,7 @@ from consultor_juridico.consultation.attribution import deterministically_attrib
 from consultor_juridico.consultation.errors import LLMResponseError
 from consultor_juridico.consultation.evidence import build_evidence_set
 from consultor_juridico.consultation.llm import OllamaLegalGenerator
+from consultor_juridico.consultation.locator import validate_response_locators
 from consultor_juridico.consultation.polarity import (
     can_route_to_semantic,
     validate_response_polarity,
@@ -103,6 +104,10 @@ def run_consultation(
             )
             continue
         response = attribution.response
+        locator = validate_response_locators(response, tuple(evidence_set.items))
+        if not locator.valid:
+            errors = locator.errors
+            continue
         report = validate_citations(session, evidence_set, response)
         if report.is_valid:
             if not response.abstain:
@@ -128,7 +133,7 @@ def run_consultation(
                 return ConsultationResult(
                     ConsultationOutcome.ABSTAINED,
                     evidence_set.id,
-                    response.answer or ABSTENTION,
+                    ABSTENTION,
                     (),
                     (),
                     sufficiency=sufficiency,

@@ -1,0 +1,14 @@
+{
+  "phase": "91.13",
+  "source_phase": "91.12",
+  "failed_test": "test_semantic_prompt_preserves_structural_parent_context",
+  "failure_reproduction": "YES",
+  "failure_classification": "PRODUCT_REGRESSION",
+  "root_cause": "build_semantic_support_prompt removed legacy validation_metadata.parent_context even though legacy EvidenceItem snapshots remain structurally incomplete.",
+  "change_applied": "Legacy prompt evidence restores the labeled parent context; MaterializedEvidence still uses only effective_text.",
+  "focal_tests": "60 passed",
+  "full_suite": {"result": "PASS", "counts": "403 passed, 0 failed, 0 errors, 5 skipped"},
+  "remaining_failures": {"product": 0, "experimental": 0, "infrastructure": 0},
+  "baseline_decision": "READY_FOR_NEXT_HARDENING",
+  "new_llm_inference_executed": false
+}

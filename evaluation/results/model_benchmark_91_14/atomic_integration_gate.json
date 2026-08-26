@@ -1,0 +1,29 @@
+{
+  "phase": "91.14",
+  "baseline_sha256": "866b4b7f467cffd709a884231a076d2e6b0bed90821f83e0ce0d596c3be7c72b",
+  "source_artifacts": [
+    "evaluation/results/model_benchmark_91_1/e2e_single_model_screen.json",
+    "evaluation/results/model_benchmark_91_2/e2e_failure_forensics.json"
+  ],
+  "pipeline_map": "generator -> claims/citations -> attribution -> locator -> polarity -> citation -> semantic -> all-or-nothing rendering",
+  "atomic_component": "src/consultor_juridico/consultation/atomic.py",
+  "historical_replay": "INCONCLUSIVE: frozen historical outputs do not contain independently proven on_target/core_answer/material_dependency decisions per claim",
+  "core_answer_results": "INCONCLUSIVE: production pipeline has no deterministic implementation that derives AtomicClaim.on_target/core_answer",
+  "material_dependency_results": "INCONCLUSIVE: AtomicClaim.material_dependency is caller-supplied and no generic production derivation exists",
+  "real_case_results": {
+    "liberdade_religiosa": "INCONCLUSIVE",
+    "extradicao": "INCONCLUSIVE",
+    "direito_vida": "INCONCLUSIVE",
+    "racismo": "UNCHANGED",
+    "prisao_perpetua": "UNCHANGED",
+    "estado_sitio_unsafe_salvage": "NO",
+    "pena_morte_locator_mismatch_blocked": "YES",
+    "aborto_abstention": "PASS"
+  },
+  "adversarial_results": "Isolated Atomic tests pass; production shadow cannot prove material dependency without an approved deterministic classifier.",
+  "shadow_metrics": {"baseline_strict_correct": "3/10", "atomic_projected_strict_correct": "INCONCLUSIVE"},
+  "renderer_results": "NOT_IMPLEMENTED: no integration permitted",
+  "integration_decision": "NONE",
+  "atomic_claim_acceptance": "INCONCLUSIVE",
+  "new_llm_inference_executed": false
+}

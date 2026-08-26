@@ -98,6 +98,7 @@ class OllamaLegalGenerator:
                 json={
                     "model": self.model,
                     "stream": False,
+                    "think": False,
                     "format": response_schema(evidence_items),
                     "messages": [
                         {"role": "system", "content": SYSTEM_PROMPT},
@@ -169,8 +170,7 @@ def build_evidence_prompt(
         metadata = getattr(item, "validation_metadata", None) or {}
         parent_ctx = ""
         if metadata.get("parent_context"):
-            ctx = metadata["parent_context"]
-            parent_ctx = f"\nContexto estrutural: {ctx}"
+            parent_ctx = f"\nContexto estrutural: {metadata['parent_context']}"
         blocks.append(
             f"[{item.evidence_code}]\n"
             f"Referência: {item.citation_label}\n"

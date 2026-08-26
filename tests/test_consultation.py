@@ -87,6 +87,7 @@ def test_ollama_generator_uses_json_schema_and_temperature_zero(monkeypatch):
     assert result.abstain is True
     assert captured["format"]["type"] == "object"
     assert captured["options"]["temperature"] == 0
+    assert captured["think"] is False
 
 
 def test_generation_schema_restricts_citations_to_authorized_codes():

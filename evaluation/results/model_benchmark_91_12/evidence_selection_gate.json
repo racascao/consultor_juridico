@@ -1,0 +1,4637 @@
+{
+  "phase": "91.12",
+  "baseline_sha256": "866b4b7f467cffd709a884231a076d2e6b0bed90821f83e0ce0d596c3be7c72b",
+  "source_artifacts": [
+    "evaluation/results/model_benchmark_91_11/structural_pool_selection_gate.json"
+  ],
+  "selector_implementation": "src/consultor_juridico/consultation/selection.py",
+  "selection_budget": 3,
+  "new_retrieval_executed": false,
+  "structural_score_changed": false,
+  "baseline_selector_trace": {
+    "rw-pena-morte": {
+      "candidate_count": 10,
+      "selected_identities": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A",
+        "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:7",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIII"
+      ],
+      "expected_target_selected": true,
+      "candidates": [
+        {
+          "candidate_identity": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:7",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.0822664584959667,
+          "structural_score": null,
+          "selection_score": 0.432697,
+          "selection_features": {
+            "base_relevance": 0.675,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.140351,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 2,
+          "selector_input_position": 1,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:V/CHAPTER:III/ARTICLE:144/PARAGRAPH:5-A",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.08002247488101534,
+          "structural_score": null,
+          "selection_score": 0.25,
+          "selection_features": {
+            "base_relevance": 0.25,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 2,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLV",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.061501072673639044,
+          "structural_score": null,
+          "selection_score": 0.363068,
+          "selection_features": {
+            "base_relevance": 0.541667,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.204545,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 3,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06087301587301587,
+          "structural_score": null,
+          "selection_score": 0.364375,
+          "selection_features": {
+            "base_relevance": 0.525,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.145833,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 3,
+          "selector_input_position": 4,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIX",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.058125,
+          "structural_score": null,
+          "selection_score": 0.340371,
+          "selection_features": {
+            "base_relevance": 0.515,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.275862,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 5,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.055384615384615386,
+          "structural_score": null,
+          "selection_score": 0.332198,
+          "selection_features": {
+            "base_relevance": 0.508333,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.310345,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 6,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.04992537313432836,
+          "structural_score": null,
+          "selection_score": 0.337718,
+          "selection_features": {
+            "base_relevance": 0.503571,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.259259,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 7,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.04864213121654941,
+          "structural_score": null,
+          "selection_score": 0.825,
+          "selection_features": {
+            "base_relevance": 0.825,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 1,
+          "selector_input_position": 8,
+          "element_type": "ALINEA"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.04720588235294118,
+          "structural_score": null,
+          "selection_score": 0.294803,
+          "selection_features": {
+            "base_relevance": 0.497222,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.526316,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 9,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:53/INCISO:III",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.04668564312399929,
+          "structural_score": null,
+          "selection_score": 0.34275,
+          "selection_features": {
+            "base_relevance": 0.495,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.2,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 10,
+          "element_type": "INCISO"
+        }
+      ],
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ]
+      }
+    },
+    "rw-prisao-perpetua": {
+      "candidate_count": 10,
+      "selected_identities": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXII",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B",
+        "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:V/ARTICLE:53/PARAGRAPH:2"
+      ],
+      "expected_target_selected": true,
+      "candidates": [
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07247858978018841,
+          "structural_score": null,
+          "selection_score": 0.675,
+          "selection_features": {
+            "base_relevance": 0.675,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 1,
+          "selector_input_position": 1,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06639344262295083,
+          "structural_score": null,
+          "selection_score": 0.58375,
+          "selection_features": {
+            "base_relevance": 0.575,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.5,
+            "redundancy": 0.166667,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 2,
+          "selector_input_position": 2,
+          "element_type": "ALINEA"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXV",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06364986187845303,
+          "structural_score": null,
+          "selection_score": 0.352371,
+          "selection_features": {
+            "base_relevance": 0.541667,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.275862,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 3,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06364052614052615,
+          "structural_score": null,
+          "selection_score": 0.347361,
+          "selection_features": {
+            "base_relevance": 0.525,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.259259,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 4,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXIV",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06087301587301587,
+          "structural_score": null,
+          "selection_score": 0.340841,
+          "selection_features": {
+            "base_relevance": 0.515,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.272727,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 5,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:V/ARTICLE:53/PARAGRAPH:2",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.05901628222523745,
+          "structural_score": null,
+          "selection_score": 0.355673,
+          "selection_features": {
+            "base_relevance": 0.508333,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.153846,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 3,
+          "selector_input_position": 6,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.055384615384615386,
+          "structural_score": null,
+          "selection_score": 0.348229,
+          "selection_features": {
+            "base_relevance": 0.503571,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.189189,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 7,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:I/ARTICLE:136/PARAGRAPH:3/INCISO:I",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.050703933747412014,
+          "structural_score": null,
+          "selection_score": 0.33587,
+          "selection_features": {
+            "base_relevance": 0.5,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.26087,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 8,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:III/ARTICLE:86/PARAGRAPH:3",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.04720588235294118,
+          "structural_score": null,
+          "selection_score": 0.346964,
+          "selection_features": {
+            "base_relevance": 0.497222,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.178571,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 9,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:I/ARTICLE:136/PARAGRAPH:3/INCISO:III",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.04178571428571429,
+          "structural_score": null,
+          "selection_score": 0.343482,
+          "selection_features": {
+            "base_relevance": 0.495,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.195122,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 10,
+          "element_type": "INCISO"
+        }
+      ],
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ]
+      }
+    },
+    "rw-liberdade-religiosa": {
+      "candidate_count": 10,
+      "selected_identities": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+        "CF88/@root/PREAMBLE:@preamble",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput"
+      ],
+      "expected_target_selected": true,
+      "candidates": [
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.08278688524590164,
+          "structural_score": null,
+          "selection_score": 1.0,
+          "selection_features": {
+            "base_relevance": 1.0,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 1,
+          "selector_input_position": 1,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07250092284976006,
+          "structural_score": null,
+          "selection_score": 0.375417,
+          "selection_features": {
+            "base_relevance": 0.575,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.222222,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 3,
+          "selector_input_position": 2,
+          "element_type": "CAPUT"
+        },
+        {
+          "candidate_identity": "CF88/@root/PREAMBLE:@preamble",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07255760368663594,
+          "structural_score": null,
+          "selection_score": 0.38125,
+          "selection_features": {
+            "base_relevance": 0.541667,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.083333,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 2,
+          "selector_input_position": 3,
+          "element_type": "PREAMBLE"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07182363013698631,
+          "structural_score": null,
+          "selection_score": 0.34875,
+          "selection_features": {
+            "base_relevance": 0.525,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.25,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 4,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VIII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07030998851894374,
+          "structural_score": null,
+          "selection_score": 0.353027,
+          "selection_features": {
+            "base_relevance": 0.515,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.191489,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 5,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XVII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06693722943722943,
+          "structural_score": null,
+          "selection_score": 0.346932,
+          "selection_features": {
+            "base_relevance": 0.508333,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.212121,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 6,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI/ALINEA:A",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06307889822595705,
+          "structural_score": null,
+          "selection_score": 0.34744,
+          "selection_features": {
+            "base_relevance": 0.503571,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.194444,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 7,
+          "element_type": "ALINEA"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLI",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06291238612134134,
+          "structural_score": null,
+          "selection_score": 0.332813,
+          "selection_features": {
+            "base_relevance": 0.5,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.28125,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 8,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LIV",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.059644268774703565,
+          "structural_score": null,
+          "selection_score": 0.34375,
+          "selection_features": {
+            "base_relevance": 0.497222,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.2,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 9,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.05717032967032967,
+          "structural_score": null,
+          "selection_score": 0.341171,
+          "selection_features": {
+            "base_relevance": 0.495,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.210526,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 10,
+          "element_type": "INCISO"
+        }
+      ],
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ]
+      }
+    },
+    "rw-racismo": {
+      "candidate_count": 10,
+      "selected_identities": [
+        "CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII"
+      ],
+      "expected_target_selected": true,
+      "candidates": [
+        {
+          "candidate_identity": "CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.08278688524590164,
+          "structural_score": null,
+          "selection_score": 1.0,
+          "selection_features": {
+            "base_relevance": 1.0,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 1,
+          "selector_input_position": 1,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07975806451612903,
+          "structural_score": null,
+          "selection_score": 0.514091,
+          "selection_features": {
+            "base_relevance": 0.9,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.272727,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 2,
+          "selector_input_position": 2,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:I/ARTICLE:1/INCISO:V",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.005873015873015872,
+          "structural_score": null,
+          "selection_score": 0.216667,
+          "selection_features": {
+            "base_relevance": 0.216667,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 3,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:I/ARTICLE:3/INCISO:III",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.005625,
+          "structural_score": null,
+          "selection_score": 0.2,
+          "selection_features": {
+            "base_relevance": 0.2,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 4,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:II/ARTICLE:215/PARAGRAPH:1",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.005384615384615385,
+          "structural_score": null,
+          "selection_score": 0.19,
+          "selection_features": {
+            "base_relevance": 0.19,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 5,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXVIII/ALINEA:D",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.005151515151515152,
+          "structural_score": null,
+          "selection_score": 0.183333,
+          "selection_features": {
+            "base_relevance": 0.183333,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 6,
+          "element_type": "ALINEA"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:I/ARTICLE:3/INCISO:IV",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.004925373134328358,
+          "structural_score": null,
+          "selection_score": 0.178571,
+          "selection_features": {
+            "base_relevance": 0.178571,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 7,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:III/ARTICLE:85/PARAGRAPH:ÚNICO",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.004705882352941176,
+          "structural_score": null,
+          "selection_score": 0.175,
+          "selection_features": {
+            "base_relevance": 0.175,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 8,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XI",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.004492753623188406,
+          "structural_score": null,
+          "selection_score": 0.172222,
+          "selection_features": {
+            "base_relevance": 0.172222,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 9,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:I/ARTICLE:4/INCISO:II",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.004285714285714285,
+          "structural_score": null,
+          "selection_score": 0.17,
+          "selection_features": {
+            "base_relevance": 0.17,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 10,
+          "element_type": "INCISO"
+        }
+      ],
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ]
+      }
+    },
+    "rw-extradicao": {
+      "candidate_count": 10,
+      "selected_identities": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII",
+        "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:22/INCISO:XV",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI"
+      ],
+      "expected_target_selected": true,
+      "candidates": [
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.08177805800756621,
+          "structural_score": null,
+          "selection_score": 1.0,
+          "selection_features": {
+            "base_relevance": 1.0,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 1,
+          "selector_input_position": 1,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:22/INCISO:XV",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07950204813108039,
+          "structural_score": null,
+          "selection_score": 0.497857,
+          "selection_features": {
+            "base_relevance": 0.9,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.380952,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 2,
+          "selector_input_position": 2,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:II/ARTICLE:102/INCISO:I/ALINEA:G",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07700204813108039,
+          "structural_score": null,
+          "selection_score": 0.482857,
+          "selection_features": {
+            "base_relevance": 0.866667,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.380952,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 3,
+          "element_type": "ALINEA"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:38/INCISO:IV",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.00639344262295082,
+          "structural_score": null,
+          "selection_score": 0.2,
+          "selection_features": {
+            "base_relevance": 0.2,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 4,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.005625,
+          "structural_score": null,
+          "selection_score": 0.487091,
+          "selection_features": {
+            "base_relevance": 0.84,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.272727,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 3,
+          "selector_input_position": 5,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:120/PARAGRAPH:ÚNICO/INCISO:II",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.005151515151515152,
+          "structural_score": null,
+          "selection_score": 0.183333,
+          "selection_features": {
+            "base_relevance": 0.183333,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 6,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:III/CHAPTER:IV/ARTICLE:29/INCISO:II",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.004925373134328358,
+          "structural_score": null,
+          "selection_score": 0.178571,
+          "selection_features": {
+            "base_relevance": 0.178571,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 7,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:107-A/INCISO:I",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.004705882352941176,
+          "structural_score": null,
+          "selection_score": 0.175,
+          "selection_features": {
+            "base_relevance": 0.175,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 8,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:87/PARAGRAPH:ÚNICO",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.004492753623188406,
+          "structural_score": null,
+          "selection_score": 0.172222,
+          "selection_features": {
+            "base_relevance": 0.172222,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 9,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:III/CHAPTER:VI/ARTICLE:36/INCISO:I",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.004285714285714285,
+          "structural_score": null,
+          "selection_score": 0.17,
+          "selection_features": {
+            "base_relevance": 0.17,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 10,
+          "element_type": "INCISO"
+        }
+      ],
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ]
+      }
+    },
+    "rw-direito-vida": {
+      "candidate_count": 10,
+      "selected_identities": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+        "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput",
+        "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput"
+      ],
+      "expected_target_selected": true,
+      "candidates": [
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07921395544346364,
+          "structural_score": null,
+          "selection_score": 1.0,
+          "selection_features": {
+            "base_relevance": 1.0,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 1,
+          "selector_input_position": 1,
+          "element_type": "CAPUT"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07515873015873015,
+          "structural_score": null,
+          "selection_score": 0.527449,
+          "selection_features": {
+            "base_relevance": 0.9,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.183673,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 2,
+          "selector_input_position": 2,
+          "element_type": "CAPUT"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.0741553480475382,
+          "structural_score": null,
+          "selection_score": 0.493636,
+          "selection_features": {
+            "base_relevance": 0.866667,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.309091,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 3,
+          "selector_input_position": 3,
+          "element_type": "CAPUT"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/PARAGRAPH:6",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06502155172413793,
+          "structural_score": null,
+          "selection_score": 0.359779,
+          "selection_features": {
+            "base_relevance": 0.525,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.176471,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 4,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V/ARTICLE:156/PARAGRAPH:2/INCISO:I",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06490842490842491,
+          "structural_score": null,
+          "selection_score": 0.366996,
+          "selection_features": {
+            "base_relevance": 0.515,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.098361,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 5,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:X",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.0632587064676617,
+          "structural_score": null,
+          "selection_score": 0.488415,
+          "selection_features": {
+            "base_relevance": 0.833333,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.243902,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 6,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:9/CAPUT:@caput",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.05894082332761578,
+          "structural_score": null,
+          "selection_score": 0.365069,
+          "selection_features": {
+            "base_relevance": 0.503571,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.076923,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 7,
+          "element_type": "CAPUT"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIV/ALINEA:A",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.055335963653754185,
+          "structural_score": null,
+          "selection_score": 0.351667,
+          "selection_features": {
+            "base_relevance": 0.5,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.155556,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 8,
+          "element_type": "ALINEA"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:IV/ARTICLE:109/PARAGRAPH:5",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.0507947232947233,
+          "structural_score": null,
+          "selection_score": 0.352656,
+          "selection_features": {
+            "base_relevance": 0.497222,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.140625,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 9,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V/ARTICLE:156/INCISO:II",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.049323630136986304,
+          "structural_score": null,
+          "selection_score": 0.344027,
+          "selection_features": {
+            "base_relevance": 0.495,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.191489,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 10,
+          "element_type": "INCISO"
+        }
+      ],
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ]
+      }
+    },
+    "rw-liberdade-expressao": {
+      "candidate_count": 10,
+      "selected_identities": [
+        "CF88/@root/PREAMBLE:@preamble",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI"
+      ],
+      "expected_target_selected": true,
+      "candidates": [
+        {
+          "candidate_identity": "CF88/@root/PREAMBLE:@preamble",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.08047794966520434,
+          "structural_score": null,
+          "selection_score": 0.675,
+          "selection_features": {
+            "base_relevance": 0.675,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 1,
+          "selector_input_position": 1,
+          "element_type": "PREAMBLE"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07602453102453102,
+          "structural_score": null,
+          "selection_score": 0.377868,
+          "selection_features": {
+            "base_relevance": 0.575,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.205882,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 3,
+          "selector_input_position": 2,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07324441687344913,
+          "structural_score": null,
+          "selection_score": 0.375457,
+          "selection_features": {
+            "base_relevance": 0.541667,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.121951,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 3,
+          "element_type": "CAPUT"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI/ALINEA:A",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06605440539239288,
+          "structural_score": null,
+          "selection_score": 0.360388,
+          "selection_features": {
+            "base_relevance": 0.525,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.172414,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 4,
+          "element_type": "ALINEA"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06230910041841005,
+          "structural_score": null,
+          "selection_score": 0.579544,
+          "selection_features": {
+            "base_relevance": 0.515,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.5,
+            "redundancy": 0.014706,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 2,
+          "selector_input_position": 5,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XVII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.062051282051282054,
+          "structural_score": null,
+          "selection_score": 0.34275,
+          "selection_features": {
+            "base_relevance": 0.508333,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.24,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 6,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LIV",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06109477124183006,
+          "structural_score": null,
+          "selection_score": 0.343274,
+          "selection_features": {
+            "base_relevance": 0.503571,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.222222,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 7,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06088619624613923,
+          "structural_score": null,
+          "selection_score": 0.345968,
+          "selection_features": {
+            "base_relevance": 0.5,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.193548,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 8,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLI",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.05849946836788942,
+          "structural_score": null,
+          "selection_score": 0.339135,
+          "selection_features": {
+            "base_relevance": 0.497222,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.230769,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 9,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXXI",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.05158450704225352,
+          "structural_score": null,
+          "selection_score": 0.348426,
+          "selection_features": {
+            "base_relevance": 0.495,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.162162,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 10,
+          "element_type": "INCISO"
+        }
+      ],
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ]
+      }
+    },
+    "rw-idade-presidente": {
+      "candidate_count": 10,
+      "selected_identities": [
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A",
+        "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:80/CAPUT:@caput",
+        "ADCT/@root/ARTICLE:13/PARAGRAPH:5"
+      ],
+      "expected_target_selected": true,
+      "candidates": [
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.09751516070345664,
+          "structural_score": null,
+          "selection_score": 0.783333,
+          "selection_features": {
+            "base_relevance": 0.783333,
+            "query_coverage": 0.666667,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 1,
+          "selector_input_position": 1,
+          "element_type": "ALINEA"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:80/CAPUT:@caput",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07380085003035823,
+          "structural_score": null,
+          "selection_score": 0.329118,
+          "selection_features": {
+            "base_relevance": 0.466667,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.205882,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 2,
+          "selector_input_position": 2,
+          "element_type": "CAPUT"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VI/ARTICLE:57/PARAGRAPH:6/INCISO:I",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07353124372111713,
+          "structural_score": null,
+          "selection_score": 0.299545,
+          "selection_features": {
+            "base_relevance": 0.433333,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.30303,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 3,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:66/PARAGRAPH:7",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07327651515151515,
+          "structural_score": null,
+          "selection_score": 0.300833,
+          "selection_features": {
+            "base_relevance": 0.416667,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.244444,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 4,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:1/INCISO:III",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07092830233105721,
+          "structural_score": null,
+          "selection_score": 0.306684,
+          "selection_features": {
+            "base_relevance": 0.406667,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.175439,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 5,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:III/ARTICLE:12/PARAGRAPH:3/INCISO:I",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.060451688923802045,
+          "structural_score": null,
+          "selection_score": 0.265714,
+          "selection_features": {
+            "base_relevance": 0.4,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.428571,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 6,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:13/PARAGRAPH:5",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06034382284382284,
+          "structural_score": null,
+          "selection_score": 0.310549,
+          "selection_features": {
+            "base_relevance": 0.395238,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.115385,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 3,
+          "selector_input_position": 7,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:1/CAPUT:@caput",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.055384615384615386,
+          "structural_score": null,
+          "selection_score": 0.295481,
+          "selection_features": {
+            "base_relevance": 0.391667,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.205128,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 8,
+          "element_type": "CAPUT"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:II/ARTICLE:49/INCISO:III",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.05521353930031804,
+          "structural_score": null,
+          "selection_score": 0.280556,
+          "selection_features": {
+            "base_relevance": 0.388889,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.296296,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 9,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:1/INCISO:II",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.05027310044399766,
+          "structural_score": null,
+          "selection_score": 0.291857,
+          "selection_features": {
+            "base_relevance": 0.386667,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.214286,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 10,
+          "element_type": "INCISO"
+        }
+      ],
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ]
+      }
+    },
+    "rw-voto-obrigatorio": {
+      "candidate_count": 10,
+      "selected_identities": [
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I",
+        "CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:3/INCISO:I",
+        "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/PARAGRAPH:3"
+      ],
+      "expected_target_selected": false,
+      "candidates": [
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:8/INCISO:VII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.08028233151183971,
+          "structural_score": null,
+          "selection_score": 0.35,
+          "selection_features": {
+            "base_relevance": 0.35,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 1,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:3/INCISO:I",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07628726010616578,
+          "structural_score": null,
+          "selection_score": 0.387321,
+          "selection_features": {
+            "base_relevance": 0.575,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.142857,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 2,
+          "selector_input_position": 2,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/PARAGRAPH:3",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07305037313432836,
+          "structural_score": null,
+          "selection_score": 0.3675,
+          "selection_features": {
+            "base_relevance": 0.541667,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.175,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 3,
+          "selector_input_position": 3,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:2",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07277777777777777,
+          "structural_score": null,
+          "selection_score": 0.359201,
+          "selection_features": {
+            "base_relevance": 0.525,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.180328,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 4,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:11/PARAGRAPH:ÚNICO",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.062175324675324675,
+          "structural_score": null,
+          "selection_score": 0.19,
+          "selection_features": {
+            "base_relevance": 0.19,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 5,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:13/PARAGRAPH:4",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.057444170126809566,
+          "structural_score": null,
+          "selection_score": 0.183333,
+          "selection_features": {
+            "base_relevance": 0.183333,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 6,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:3/CAPUT:@caput",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.055384615384615386,
+          "structural_score": null,
+          "selection_score": 0.357252,
+          "selection_features": {
+            "base_relevance": 0.503571,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.129032,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 7,
+          "element_type": "CAPUT"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:39/PARAGRAPH:ÚNICO",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.054802031973703876,
+          "structural_score": null,
+          "selection_score": 0.175,
+          "selection_features": {
+            "base_relevance": 0.175,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 8,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.0491931216931217,
+          "structural_score": null,
+          "selection_score": 0.349556,
+          "selection_features": {
+            "base_relevance": 0.497222,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.16129,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 9,
+          "element_type": "CAPUT"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.048888888888888885,
+          "structural_score": null,
+          "selection_score": 0.82,
+          "selection_features": {
+            "base_relevance": 0.82,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 1,
+          "selector_input_position": 10,
+          "element_type": "INCISO"
+        }
+      ],
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ]
+      }
+    },
+    "rw-estado-sitio": {
+      "candidate_count": 10,
+      "selected_identities": [
+        "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V",
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/PARAGRAPH:ÚNICO",
+        "CF88/@root/TITLE:V/CHAPTER:I"
+      ],
+      "expected_target_selected": false,
+      "candidates": [
+        {
+          "candidate_identity": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.08154495777446598,
+          "structural_score": null,
+          "selection_score": 1.0,
+          "selection_features": {
+            "base_relevance": 1.0,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 1,
+          "selector_input_position": 1,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:II/ARTICLE:84/INCISO:IX",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07030998851894374,
+          "structural_score": null,
+          "selection_score": 0.447857,
+          "selection_features": {
+            "base_relevance": 0.9,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.714286,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 2,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:II/ARTICLE:49/INCISO:IV",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07025154881435591,
+          "structural_score": null,
+          "selection_score": 0.461429,
+          "selection_features": {
+            "base_relevance": 0.866667,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.52381,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 3,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:1",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06689692982456141,
+          "structural_score": null,
+          "selection_score": 0.464318,
+          "selection_features": {
+            "base_relevance": 0.85,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.454545,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 4,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VI/ARTICLE:57/PARAGRAPH:6/INCISO:I",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.0651648613665781,
+          "structural_score": null,
+          "selection_score": 0.471103,
+          "selection_features": {
+            "base_relevance": 0.84,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.37931,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 5,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:V/CHAPTER:I",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.0633349146110057,
+          "structural_score": null,
+          "selection_score": 0.475,
+          "selection_features": {
+            "base_relevance": 0.833333,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.333333,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 3,
+          "selector_input_position": 6,
+          "element_type": "CHAPTER"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:V/SUBSECTION:I/ARTICLE:90/INCISO:I",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06084823646299056,
+          "structural_score": null,
+          "selection_score": 0.412857,
+          "selection_features": {
+            "base_relevance": 0.828571,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.733333,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 7,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/PARAGRAPH:ÚNICO",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.054709507042253525,
+          "structural_score": null,
+          "selection_score": 0.488323,
+          "selection_features": {
+            "base_relevance": 0.825,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.219512,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 2,
+          "selector_input_position": 8,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/CAPUT:@caput",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.05178571428571429,
+          "structural_score": null,
+          "selection_score": 0.473448,
+          "selection_features": {
+            "base_relevance": 0.822222,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.310345,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 9,
+          "element_type": "CAPUT"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.05009207275993712,
+          "structural_score": null,
+          "selection_score": 0.46275,
+          "selection_features": {
+            "base_relevance": 0.82,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.375,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 10,
+          "element_type": "SECTION"
+        }
+      ],
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ]
+      }
+    },
+    "rw-aborto": {
+      "candidate_count": 10,
+      "selected_identities": [
+        "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:4"
+      ],
+      "expected_target_selected": false,
+      "candidates": [
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:4",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.00639344262295082,
+          "structural_score": null,
+          "selection_score": 1.0,
+          "selection_features": {
+            "base_relevance": 1.0,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED_AS_RETRIEVAL_FALLBACK",
+          "selection_position": 1,
+          "selector_input_position": 1,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:97/PARAGRAPH:8/INCISO:I",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.0061290322580645155,
+          "structural_score": null,
+          "selection_score": 0.5,
+          "selection_features": {
+            "base_relevance": 0.5,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 2,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:10/INCISO:II/ALINEA:B",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.005873015873015872,
+          "structural_score": null,
+          "selection_score": 0.3333333333333333,
+          "selection_features": {
+            "base_relevance": 0.3333333333333333,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 3,
+          "element_type": "ALINEA"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:86/INCISO:I",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.005625,
+          "structural_score": null,
+          "selection_score": 0.25,
+          "selection_features": {
+            "base_relevance": 0.25,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 4,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IX/ARTICLE:235/INCISO:VIII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.005384615384615385,
+          "structural_score": null,
+          "selection_score": 0.2,
+          "selection_features": {
+            "base_relevance": 0.2,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 5,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:34/PARAGRAPH:4",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.005151515151515152,
+          "structural_score": null,
+          "selection_score": 0.16666666666666666,
+          "selection_features": {
+            "base_relevance": 0.16666666666666666,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 6,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXXVI/ALINEA:B",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.004925373134328358,
+          "structural_score": null,
+          "selection_score": 0.14285714285714285,
+          "selection_features": {
+            "base_relevance": 0.14285714285714285,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 7,
+          "element_type": "ALINEA"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:66/PARAGRAPH:2",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.004705882352941176,
+          "structural_score": null,
+          "selection_score": 0.125,
+          "selection_features": {
+            "base_relevance": 0.125,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 8,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:67/CAPUT:@caput",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.004492753623188406,
+          "structural_score": null,
+          "selection_score": 0.1111111111111111,
+          "selection_features": {
+            "base_relevance": 0.1111111111111111,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 9,
+          "element_type": "CAPUT"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:C",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.004285714285714285,
+          "structural_score": null,
+          "selection_score": 0.1,
+          "selection_features": {
+            "base_relevance": 0.1,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 10,
+          "element_type": "ALINEA"
+        }
+      ],
+      "sufficiency": {
+        "decision": "INSUFFICIENT",
+        "reasons": [
+          "Sinais lexical e vetorial abaixo dos limiares conservadores."
+        ]
+      }
+    }
+  },
+  "reserve_1_selector_trace": {
+    "rw-pena-morte": {
+      "candidate_count": 10,
+      "selected_identities": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A",
+        "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:7",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIII"
+      ],
+      "expected_target_selected": true,
+      "candidates": [
+        {
+          "candidate_identity": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:7",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.0822664584959667,
+          "structural_score": null,
+          "selection_score": 0.432697,
+          "selection_features": {
+            "base_relevance": 0.675,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.140351,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 2,
+          "selector_input_position": 1,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:V/CHAPTER:III/ARTICLE:144/PARAGRAPH:5-A",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.08002247488101534,
+          "structural_score": null,
+          "selection_score": 0.25,
+          "selection_features": {
+            "base_relevance": 0.25,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 2,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLV",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.061501072673639044,
+          "structural_score": null,
+          "selection_score": 0.363068,
+          "selection_features": {
+            "base_relevance": 0.541667,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.204545,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 3,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06087301587301587,
+          "structural_score": null,
+          "selection_score": 0.364375,
+          "selection_features": {
+            "base_relevance": 0.525,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.145833,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 3,
+          "selector_input_position": 4,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIX",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.058125,
+          "structural_score": null,
+          "selection_score": 0.340371,
+          "selection_features": {
+            "base_relevance": 0.515,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.275862,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 5,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.055384615384615386,
+          "structural_score": null,
+          "selection_score": 0.332198,
+          "selection_features": {
+            "base_relevance": 0.508333,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.310345,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 6,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.04992537313432836,
+          "structural_score": null,
+          "selection_score": 0.337718,
+          "selection_features": {
+            "base_relevance": 0.503571,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.259259,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 7,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.04864213121654941,
+          "structural_score": null,
+          "selection_score": 0.825,
+          "selection_features": {
+            "base_relevance": 0.825,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 1,
+          "selector_input_position": 8,
+          "element_type": "ALINEA"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.04720588235294118,
+          "structural_score": null,
+          "selection_score": 0.294803,
+          "selection_features": {
+            "base_relevance": 0.497222,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.526316,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 9,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:53/INCISO:III",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.04668564312399929,
+          "structural_score": null,
+          "selection_score": 0.34275,
+          "selection_features": {
+            "base_relevance": 0.495,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.2,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 10,
+          "element_type": "INCISO"
+        }
+      ],
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ]
+      }
+    },
+    "rw-prisao-perpetua": {
+      "candidate_count": 10,
+      "selected_identities": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXII",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B",
+        "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:V/ARTICLE:53/PARAGRAPH:2"
+      ],
+      "expected_target_selected": true,
+      "candidates": [
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07247858978018841,
+          "structural_score": null,
+          "selection_score": 0.675,
+          "selection_features": {
+            "base_relevance": 0.675,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 1,
+          "selector_input_position": 1,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06639344262295083,
+          "structural_score": null,
+          "selection_score": 0.58375,
+          "selection_features": {
+            "base_relevance": 0.575,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.5,
+            "redundancy": 0.166667,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 2,
+          "selector_input_position": 2,
+          "element_type": "ALINEA"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXV",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06364986187845303,
+          "structural_score": null,
+          "selection_score": 0.352371,
+          "selection_features": {
+            "base_relevance": 0.541667,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.275862,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 3,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06364052614052615,
+          "structural_score": null,
+          "selection_score": 0.347361,
+          "selection_features": {
+            "base_relevance": 0.525,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.259259,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 4,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXIV",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06087301587301587,
+          "structural_score": null,
+          "selection_score": 0.340841,
+          "selection_features": {
+            "base_relevance": 0.515,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.272727,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 5,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:V/ARTICLE:53/PARAGRAPH:2",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.05901628222523745,
+          "structural_score": null,
+          "selection_score": 0.355673,
+          "selection_features": {
+            "base_relevance": 0.508333,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.153846,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 3,
+          "selector_input_position": 6,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.055384615384615386,
+          "structural_score": null,
+          "selection_score": 0.348229,
+          "selection_features": {
+            "base_relevance": 0.503571,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.189189,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 7,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:I/ARTICLE:136/PARAGRAPH:3/INCISO:I",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.050703933747412014,
+          "structural_score": null,
+          "selection_score": 0.33587,
+          "selection_features": {
+            "base_relevance": 0.5,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.26087,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 8,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:III/ARTICLE:86/PARAGRAPH:3",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.04720588235294118,
+          "structural_score": null,
+          "selection_score": 0.346964,
+          "selection_features": {
+            "base_relevance": 0.497222,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.178571,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 9,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:I/ARTICLE:136/PARAGRAPH:3/INCISO:III",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.04178571428571429,
+          "structural_score": null,
+          "selection_score": 0.343482,
+          "selection_features": {
+            "base_relevance": 0.495,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.195122,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 10,
+          "element_type": "INCISO"
+        }
+      ],
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ]
+      }
+    },
+    "rw-liberdade-religiosa": {
+      "candidate_count": 10,
+      "selected_identities": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+        "CF88/@root/PREAMBLE:@preamble",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput"
+      ],
+      "expected_target_selected": true,
+      "candidates": [
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.08278688524590164,
+          "structural_score": null,
+          "selection_score": 1.0,
+          "selection_features": {
+            "base_relevance": 1.0,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 1,
+          "selector_input_position": 1,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07250092284976006,
+          "structural_score": null,
+          "selection_score": 0.375417,
+          "selection_features": {
+            "base_relevance": 0.575,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.222222,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 3,
+          "selector_input_position": 2,
+          "element_type": "CAPUT"
+        },
+        {
+          "candidate_identity": "CF88/@root/PREAMBLE:@preamble",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07255760368663594,
+          "structural_score": null,
+          "selection_score": 0.38125,
+          "selection_features": {
+            "base_relevance": 0.541667,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.083333,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 2,
+          "selector_input_position": 3,
+          "element_type": "PREAMBLE"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07182363013698631,
+          "structural_score": null,
+          "selection_score": 0.34875,
+          "selection_features": {
+            "base_relevance": 0.525,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.25,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 4,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VIII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07030998851894374,
+          "structural_score": null,
+          "selection_score": 0.353027,
+          "selection_features": {
+            "base_relevance": 0.515,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.191489,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 5,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XVII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06693722943722943,
+          "structural_score": null,
+          "selection_score": 0.346932,
+          "selection_features": {
+            "base_relevance": 0.508333,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.212121,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 6,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI/ALINEA:A",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06307889822595705,
+          "structural_score": null,
+          "selection_score": 0.34744,
+          "selection_features": {
+            "base_relevance": 0.503571,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.194444,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 7,
+          "element_type": "ALINEA"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLI",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06291238612134134,
+          "structural_score": null,
+          "selection_score": 0.332813,
+          "selection_features": {
+            "base_relevance": 0.5,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.28125,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 8,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LIV",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.059644268774703565,
+          "structural_score": null,
+          "selection_score": 0.34375,
+          "selection_features": {
+            "base_relevance": 0.497222,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.2,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 9,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.05717032967032967,
+          "structural_score": null,
+          "selection_score": 0.341171,
+          "selection_features": {
+            "base_relevance": 0.495,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.210526,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 10,
+          "element_type": "INCISO"
+        }
+      ],
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ]
+      }
+    },
+    "rw-racismo": {
+      "candidate_count": 10,
+      "selected_identities": [
+        "CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII"
+      ],
+      "expected_target_selected": true,
+      "candidates": [
+        {
+          "candidate_identity": "CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.08278688524590164,
+          "structural_score": null,
+          "selection_score": 1.0,
+          "selection_features": {
+            "base_relevance": 1.0,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 1,
+          "selector_input_position": 1,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07975806451612903,
+          "structural_score": null,
+          "selection_score": 0.514091,
+          "selection_features": {
+            "base_relevance": 0.9,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.272727,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 2,
+          "selector_input_position": 2,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:I/ARTICLE:1/INCISO:V",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.005873015873015872,
+          "structural_score": null,
+          "selection_score": 0.216667,
+          "selection_features": {
+            "base_relevance": 0.216667,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 3,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:I/ARTICLE:3/INCISO:III",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.005625,
+          "structural_score": null,
+          "selection_score": 0.2,
+          "selection_features": {
+            "base_relevance": 0.2,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 4,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:II/ARTICLE:215/PARAGRAPH:1",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.005384615384615385,
+          "structural_score": null,
+          "selection_score": 0.19,
+          "selection_features": {
+            "base_relevance": 0.19,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 5,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXVIII/ALINEA:D",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.005151515151515152,
+          "structural_score": null,
+          "selection_score": 0.183333,
+          "selection_features": {
+            "base_relevance": 0.183333,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 6,
+          "element_type": "ALINEA"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:I/ARTICLE:3/INCISO:IV",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.004925373134328358,
+          "structural_score": null,
+          "selection_score": 0.178571,
+          "selection_features": {
+            "base_relevance": 0.178571,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 7,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:III/ARTICLE:85/PARAGRAPH:ÚNICO",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.004705882352941176,
+          "structural_score": null,
+          "selection_score": 0.175,
+          "selection_features": {
+            "base_relevance": 0.175,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 8,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XI",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.004492753623188406,
+          "structural_score": null,
+          "selection_score": 0.172222,
+          "selection_features": {
+            "base_relevance": 0.172222,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 9,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:I/ARTICLE:4/INCISO:II",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.004285714285714285,
+          "structural_score": null,
+          "selection_score": 0.17,
+          "selection_features": {
+            "base_relevance": 0.17,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 10,
+          "element_type": "INCISO"
+        }
+      ],
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ]
+      }
+    },
+    "rw-extradicao": {
+      "candidate_count": 10,
+      "selected_identities": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII",
+        "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:22/INCISO:XV",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI"
+      ],
+      "expected_target_selected": true,
+      "candidates": [
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.08177805800756621,
+          "structural_score": null,
+          "selection_score": 1.0,
+          "selection_features": {
+            "base_relevance": 1.0,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 1,
+          "selector_input_position": 1,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:22/INCISO:XV",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07950204813108039,
+          "structural_score": null,
+          "selection_score": 0.497857,
+          "selection_features": {
+            "base_relevance": 0.9,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.380952,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 2,
+          "selector_input_position": 2,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:II/ARTICLE:102/INCISO:I/ALINEA:G",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07700204813108039,
+          "structural_score": null,
+          "selection_score": 0.482857,
+          "selection_features": {
+            "base_relevance": 0.866667,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.380952,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 3,
+          "element_type": "ALINEA"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:38/INCISO:IV",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.00639344262295082,
+          "structural_score": null,
+          "selection_score": 0.2,
+          "selection_features": {
+            "base_relevance": 0.2,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 4,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.005625,
+          "structural_score": null,
+          "selection_score": 0.487091,
+          "selection_features": {
+            "base_relevance": 0.84,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.272727,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 3,
+          "selector_input_position": 5,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:120/PARAGRAPH:ÚNICO/INCISO:II",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.005151515151515152,
+          "structural_score": null,
+          "selection_score": 0.183333,
+          "selection_features": {
+            "base_relevance": 0.183333,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 6,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:III/CHAPTER:IV/ARTICLE:29/INCISO:II",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.004925373134328358,
+          "structural_score": null,
+          "selection_score": 0.178571,
+          "selection_features": {
+            "base_relevance": 0.178571,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 7,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:107-A/INCISO:I",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.004705882352941176,
+          "structural_score": null,
+          "selection_score": 0.175,
+          "selection_features": {
+            "base_relevance": 0.175,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 8,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:87/PARAGRAPH:ÚNICO",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.004492753623188406,
+          "structural_score": null,
+          "selection_score": 0.172222,
+          "selection_features": {
+            "base_relevance": 0.172222,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 9,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:III/CHAPTER:VI/ARTICLE:36/INCISO:I",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.004285714285714285,
+          "structural_score": null,
+          "selection_score": 0.17,
+          "selection_features": {
+            "base_relevance": 0.17,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 10,
+          "element_type": "INCISO"
+        }
+      ],
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ]
+      }
+    },
+    "rw-direito-vida": {
+      "candidate_count": 10,
+      "selected_identities": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+        "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput",
+        "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput"
+      ],
+      "expected_target_selected": true,
+      "candidates": [
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07921395544346364,
+          "structural_score": null,
+          "selection_score": 1.0,
+          "selection_features": {
+            "base_relevance": 1.0,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 1,
+          "selector_input_position": 1,
+          "element_type": "CAPUT"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07515873015873015,
+          "structural_score": null,
+          "selection_score": 0.527449,
+          "selection_features": {
+            "base_relevance": 0.9,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.183673,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 2,
+          "selector_input_position": 2,
+          "element_type": "CAPUT"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.0741553480475382,
+          "structural_score": null,
+          "selection_score": 0.493636,
+          "selection_features": {
+            "base_relevance": 0.866667,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.309091,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 3,
+          "selector_input_position": 3,
+          "element_type": "CAPUT"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/PARAGRAPH:6",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06502155172413793,
+          "structural_score": null,
+          "selection_score": 0.359779,
+          "selection_features": {
+            "base_relevance": 0.525,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.176471,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 4,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V/ARTICLE:156/PARAGRAPH:2/INCISO:I",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06490842490842491,
+          "structural_score": null,
+          "selection_score": 0.366996,
+          "selection_features": {
+            "base_relevance": 0.515,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.098361,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 5,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:X",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.0632587064676617,
+          "structural_score": null,
+          "selection_score": 0.488415,
+          "selection_features": {
+            "base_relevance": 0.833333,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.243902,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 6,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:9/CAPUT:@caput",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.05894082332761578,
+          "structural_score": null,
+          "selection_score": 0.365069,
+          "selection_features": {
+            "base_relevance": 0.503571,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.076923,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 7,
+          "element_type": "CAPUT"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIV/ALINEA:A",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.055335963653754185,
+          "structural_score": null,
+          "selection_score": 0.351667,
+          "selection_features": {
+            "base_relevance": 0.5,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.155556,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 8,
+          "element_type": "ALINEA"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:IV/ARTICLE:109/PARAGRAPH:5",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.0507947232947233,
+          "structural_score": null,
+          "selection_score": 0.352656,
+          "selection_features": {
+            "base_relevance": 0.497222,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.140625,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 9,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V/ARTICLE:156/INCISO:II",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.049323630136986304,
+          "structural_score": null,
+          "selection_score": 0.344027,
+          "selection_features": {
+            "base_relevance": 0.495,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.191489,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 10,
+          "element_type": "INCISO"
+        }
+      ],
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ]
+      }
+    },
+    "rw-liberdade-expressao": {
+      "candidate_count": 10,
+      "selected_identities": [
+        "CF88/@root/PREAMBLE:@preamble",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI"
+      ],
+      "expected_target_selected": true,
+      "candidates": [
+        {
+          "candidate_identity": "CF88/@root/PREAMBLE:@preamble",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.08047794966520434,
+          "structural_score": null,
+          "selection_score": 0.675,
+          "selection_features": {
+            "base_relevance": 0.675,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 1,
+          "selector_input_position": 1,
+          "element_type": "PREAMBLE"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07602453102453102,
+          "structural_score": null,
+          "selection_score": 0.377868,
+          "selection_features": {
+            "base_relevance": 0.575,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.205882,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 3,
+          "selector_input_position": 2,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07324441687344913,
+          "structural_score": null,
+          "selection_score": 0.375457,
+          "selection_features": {
+            "base_relevance": 0.541667,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.121951,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 3,
+          "element_type": "CAPUT"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI/ALINEA:A",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06605440539239288,
+          "structural_score": null,
+          "selection_score": 0.360388,
+          "selection_features": {
+            "base_relevance": 0.525,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.172414,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 4,
+          "element_type": "ALINEA"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06230910041841005,
+          "structural_score": null,
+          "selection_score": 0.579544,
+          "selection_features": {
+            "base_relevance": 0.515,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.5,
+            "redundancy": 0.014706,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 2,
+          "selector_input_position": 5,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XVII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.062051282051282054,
+          "structural_score": null,
+          "selection_score": 0.34275,
+          "selection_features": {
+            "base_relevance": 0.508333,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.24,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 6,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LIV",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06109477124183006,
+          "structural_score": null,
+          "selection_score": 0.343274,
+          "selection_features": {
+            "base_relevance": 0.503571,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.222222,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 7,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06088619624613923,
+          "structural_score": null,
+          "selection_score": 0.345968,
+          "selection_features": {
+            "base_relevance": 0.5,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.193548,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 8,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLI",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.05849946836788942,
+          "structural_score": null,
+          "selection_score": 0.339135,
+          "selection_features": {
+            "base_relevance": 0.497222,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.230769,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 9,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXXI",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.05158450704225352,
+          "structural_score": null,
+          "selection_score": 0.348426,
+          "selection_features": {
+            "base_relevance": 0.495,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.162162,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 10,
+          "element_type": "INCISO"
+        }
+      ],
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ]
+      }
+    },
+    "rw-idade-presidente": {
+      "candidate_count": 10,
+      "selected_identities": [
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A",
+        "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:80/CAPUT:@caput",
+        "ADCT/@root/ARTICLE:13/PARAGRAPH:5"
+      ],
+      "expected_target_selected": true,
+      "candidates": [
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.09751516070345664,
+          "structural_score": null,
+          "selection_score": 0.783333,
+          "selection_features": {
+            "base_relevance": 0.783333,
+            "query_coverage": 0.666667,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 1,
+          "selector_input_position": 1,
+          "element_type": "ALINEA"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:80/CAPUT:@caput",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07380085003035823,
+          "structural_score": null,
+          "selection_score": 0.329118,
+          "selection_features": {
+            "base_relevance": 0.466667,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.205882,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 2,
+          "selector_input_position": 2,
+          "element_type": "CAPUT"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VI/ARTICLE:57/PARAGRAPH:6/INCISO:I",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07353124372111713,
+          "structural_score": null,
+          "selection_score": 0.299545,
+          "selection_features": {
+            "base_relevance": 0.433333,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.30303,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 3,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:66/PARAGRAPH:7",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07327651515151515,
+          "structural_score": null,
+          "selection_score": 0.300833,
+          "selection_features": {
+            "base_relevance": 0.416667,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.244444,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 4,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:1/INCISO:III",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07092830233105721,
+          "structural_score": null,
+          "selection_score": 0.306684,
+          "selection_features": {
+            "base_relevance": 0.406667,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.175439,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 5,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:III/ARTICLE:12/PARAGRAPH:3/INCISO:I",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.060451688923802045,
+          "structural_score": null,
+          "selection_score": 0.265714,
+          "selection_features": {
+            "base_relevance": 0.4,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.428571,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 6,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:13/PARAGRAPH:5",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06034382284382284,
+          "structural_score": null,
+          "selection_score": 0.310549,
+          "selection_features": {
+            "base_relevance": 0.395238,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.115385,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 3,
+          "selector_input_position": 7,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:1/CAPUT:@caput",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.055384615384615386,
+          "structural_score": null,
+          "selection_score": 0.295481,
+          "selection_features": {
+            "base_relevance": 0.391667,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.205128,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 8,
+          "element_type": "CAPUT"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:II/ARTICLE:49/INCISO:III",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.05521353930031804,
+          "structural_score": null,
+          "selection_score": 0.280556,
+          "selection_features": {
+            "base_relevance": 0.388889,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.296296,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 9,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:1/INCISO:II",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.05027310044399766,
+          "structural_score": null,
+          "selection_score": 0.291857,
+          "selection_features": {
+            "base_relevance": 0.386667,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.214286,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 10,
+          "element_type": "INCISO"
+        }
+      ],
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ]
+      }
+    },
+    "rw-voto-obrigatorio": {
+      "candidate_count": 10,
+      "selected_identities": [
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I",
+        "CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:3/INCISO:I",
+        "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/PARAGRAPH:3"
+      ],
+      "expected_target_selected": false,
+      "candidates": [
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:8/INCISO:VII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.08028233151183971,
+          "structural_score": null,
+          "selection_score": 0.35,
+          "selection_features": {
+            "base_relevance": 0.35,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 1,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:3/INCISO:I",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07628726010616578,
+          "structural_score": null,
+          "selection_score": 0.387321,
+          "selection_features": {
+            "base_relevance": 0.575,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.142857,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 2,
+          "selector_input_position": 2,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/PARAGRAPH:3",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07305037313432836,
+          "structural_score": null,
+          "selection_score": 0.3675,
+          "selection_features": {
+            "base_relevance": 0.541667,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.175,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 3,
+          "selector_input_position": 3,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:2",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07277777777777777,
+          "structural_score": null,
+          "selection_score": 0.359201,
+          "selection_features": {
+            "base_relevance": 0.525,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.180328,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 4,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:11/PARAGRAPH:ÚNICO",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.062175324675324675,
+          "structural_score": null,
+          "selection_score": 0.19,
+          "selection_features": {
+            "base_relevance": 0.19,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 5,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:13/PARAGRAPH:4",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.057444170126809566,
+          "structural_score": null,
+          "selection_score": 0.183333,
+          "selection_features": {
+            "base_relevance": 0.183333,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 6,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:3/CAPUT:@caput",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.055384615384615386,
+          "structural_score": null,
+          "selection_score": 0.357252,
+          "selection_features": {
+            "base_relevance": 0.503571,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.129032,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 7,
+          "element_type": "CAPUT"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:39/PARAGRAPH:ÚNICO",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.054802031973703876,
+          "structural_score": null,
+          "selection_score": 0.175,
+          "selection_features": {
+            "base_relevance": 0.175,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 8,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.0491931216931217,
+          "structural_score": null,
+          "selection_score": 0.349556,
+          "selection_features": {
+            "base_relevance": 0.497222,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.16129,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 9,
+          "element_type": "CAPUT"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.048888888888888885,
+          "structural_score": null,
+          "selection_score": 0.82,
+          "selection_features": {
+            "base_relevance": 0.82,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 1,
+          "selector_input_position": 10,
+          "element_type": "INCISO"
+        }
+      ],
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ]
+      }
+    },
+    "rw-estado-sitio": {
+      "candidate_count": 11,
+      "selected_identities": [
+        "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V",
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/PARAGRAPH:ÚNICO",
+        "CF88/@root/TITLE:V/CHAPTER:I"
+      ],
+      "expected_target_selected": false,
+      "candidates": [
+        {
+          "candidate_identity": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.08154495777446598,
+          "structural_score": null,
+          "selection_score": 1.0,
+          "selection_features": {
+            "base_relevance": 1.0,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 1,
+          "selector_input_position": 1,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:II/ARTICLE:84/INCISO:IX",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07030998851894374,
+          "structural_score": null,
+          "selection_score": 0.447857,
+          "selection_features": {
+            "base_relevance": 0.9,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.714286,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 2,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:II/ARTICLE:49/INCISO:IV",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.07025154881435591,
+          "structural_score": null,
+          "selection_score": 0.461429,
+          "selection_features": {
+            "base_relevance": 0.866667,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.52381,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 3,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:1",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06689692982456141,
+          "structural_score": null,
+          "selection_score": 0.464318,
+          "selection_features": {
+            "base_relevance": 0.85,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.454545,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 4,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VI/ARTICLE:57/PARAGRAPH:6/INCISO:I",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.0651648613665781,
+          "structural_score": null,
+          "selection_score": 0.471103,
+          "selection_features": {
+            "base_relevance": 0.84,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.37931,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 5,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:V/CHAPTER:I",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.0633349146110057,
+          "structural_score": null,
+          "selection_score": 0.475,
+          "selection_features": {
+            "base_relevance": 0.833333,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.333333,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 3,
+          "selector_input_position": 6,
+          "element_type": "CHAPTER"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:V/SUBSECTION:I/ARTICLE:90/INCISO:I",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.06084823646299056,
+          "structural_score": null,
+          "selection_score": 0.412857,
+          "selection_features": {
+            "base_relevance": 0.828571,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.733333,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 7,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/PARAGRAPH:ÚNICO",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.054709507042253525,
+          "structural_score": null,
+          "selection_score": 0.488323,
+          "selection_features": {
+            "base_relevance": 0.825,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.219512,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED",
+          "selection_position": 2,
+          "selector_input_position": 8,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/CAPUT:@caput",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.05178571428571429,
+          "structural_score": null,
+          "selection_score": 0.473448,
+          "selection_features": {
+            "base_relevance": 0.822222,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.310345,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 9,
+          "element_type": "CAPUT"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.05009207275993712,
+          "structural_score": null,
+          "selection_score": 0.46275,
+          "selection_features": {
+            "base_relevance": 0.82,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.375,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 10,
+          "element_type": "SECTION"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II/ARTICLE:137/CAPUT:@caput",
+          "candidate_source": "STRUCTURAL_EXPANSION",
+          "candidate_rrf": null,
+          "structural_score": 0.042578261845946555,
+          "selection_score": 0.466259,
+          "selection_features": {
+            "base_relevance": 0.818182,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.346154,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+          "selection_position": null,
+          "selector_input_position": 11,
+          "element_type": "CAPUT"
+        }
+      ],
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ]
+      }
+    },
+    "rw-aborto": {
+      "candidate_count": 10,
+      "selected_identities": [
+        "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:4"
+      ],
+      "expected_target_selected": false,
+      "candidates": [
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:4",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.00639344262295082,
+          "structural_score": null,
+          "selection_score": 1.0,
+          "selection_features": {
+            "base_relevance": 1.0,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": true,
+          "rejection_reason": "SELECTED_AS_RETRIEVAL_FALLBACK",
+          "selection_position": 1,
+          "selector_input_position": 1,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:97/PARAGRAPH:8/INCISO:I",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.0061290322580645155,
+          "structural_score": null,
+          "selection_score": 0.5,
+          "selection_features": {
+            "base_relevance": 0.5,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 2,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:10/INCISO:II/ALINEA:B",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.005873015873015872,
+          "structural_score": null,
+          "selection_score": 0.3333333333333333,
+          "selection_features": {
+            "base_relevance": 0.3333333333333333,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 3,
+          "element_type": "ALINEA"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:86/INCISO:I",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.005625,
+          "structural_score": null,
+          "selection_score": 0.25,
+          "selection_features": {
+            "base_relevance": 0.25,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 4,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IX/ARTICLE:235/INCISO:VIII",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.005384615384615385,
+          "structural_score": null,
+          "selection_score": 0.2,
+          "selection_features": {
+            "base_relevance": 0.2,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 5,
+          "element_type": "INCISO"
+        },
+        {
+          "candidate_identity": "ADCT/@root/ARTICLE:34/PARAGRAPH:4",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.005151515151515152,
+          "structural_score": null,
+          "selection_score": 0.16666666666666666,
+          "selection_features": {
+            "base_relevance": 0.16666666666666666,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 6,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXXVI/ALINEA:B",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.004925373134328358,
+          "structural_score": null,
+          "selection_score": 0.14285714285714285,
+          "selection_features": {
+            "base_relevance": 0.14285714285714285,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 7,
+          "element_type": "ALINEA"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:66/PARAGRAPH:2",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.004705882352941176,
+          "structural_score": null,
+          "selection_score": 0.125,
+          "selection_features": {
+            "base_relevance": 0.125,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 8,
+          "element_type": "PARAGRAPH"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:67/CAPUT:@caput",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.004492753623188406,
+          "structural_score": null,
+          "selection_score": 0.1111111111111111,
+          "selection_features": {
+            "base_relevance": 0.1111111111111111,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 9,
+          "element_type": "CAPUT"
+        },
+        {
+          "candidate_identity": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:C",
+          "candidate_source": "PRIMARY_TOP10",
+          "candidate_rrf": 0.004285714285714285,
+          "structural_score": null,
+          "selection_score": 0.1,
+          "selection_features": {
+            "base_relevance": 0.1,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "has_parent_context": true
+          },
+          "selected": false,
+          "rejection_reason": "REJECTED_WITHOUT_QUERY_ANCHOR",
+          "selection_position": null,
+          "selector_input_position": 10,
+          "element_type": "ALINEA"
+        }
+      ],
+      "sufficiency": {
+        "decision": "INSUFFICIENT",
+        "reasons": [
+          "Sinais lexical e vetorial abaixo dos limiares conservadores."
+        ]
+      }
+    }
+  },
+  "state_siege_trace": {
+    "ART137": {
+      "candidate_identity": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II/ARTICLE:137/CAPUT:@caput",
+      "candidate_source": "STRUCTURAL_EXPANSION",
+      "candidate_rrf": null,
+      "structural_score": 0.042578261845946555,
+      "selection_score": 0.466259,
+      "selection_features": {
+        "base_relevance": 0.818182,
+        "query_coverage": 1.0,
+        "marginal_coverage": 0.0,
+        "redundancy": 0.346154,
+        "has_parent_context": true
+      },
+      "selected": false,
+      "rejection_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT",
+      "selection_position": null,
+      "selector_input_position": 11,
+      "element_type": "CAPUT"
+    },
+    "ART138": null,
+    "ART139": null,
+    "selected": [
+      "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V",
+      "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/PARAGRAPH:ÚNICO",
+      "CF88/@root/TITLE:V/CHAPTER:I"
+    ]
+  },
+  "target_selection_failure_cases": [
+    "rw-voto-obrigatorio",
+    "rw-estado-sitio"
+  ],
+  "root_causes": {
+    "rw-estado-sitio": [
+      "SELECTION_BUDGET",
+      "MARGINAL_GAIN"
+    ],
+    "rw-voto-obrigatorio": [
+      "SELECTION_BUDGET",
+      "MARGINAL_GAIN"
+    ],
+    "explanation": "O Art. 137 tem cobertura lexical integral, mas, na posição 11, perde o orçamento de três itens pela regra de relevância/marginalidade existente. O structural_score é apenas provenance do replay: o selector não o lê nem penaliza a origem estrutural. O mesmo padrão explica o CAPUT do art. 14."
+  },
+  "candidate_fix": "NONE — only score/budget behavior was observed; no bug or invariant violation demonstrated",
+  "pre_fix_results": {
+    "targets_selected": "8/10",
+    "state_siege_selected": false
+  },
+  "post_fix_results": "NOT_APPLICABLE",
+  "safety_gates": {
+    "ABORTO_REMAINS_INSUFFICIENT": true,
+    "synthetic_controls": "NOT_RUN_NO_IN_SCOPE_FIX"
+  },
+  "integration_decision": "NONE",
+  "evidence_selection_fix": "INCONCLUSIVE"
+}

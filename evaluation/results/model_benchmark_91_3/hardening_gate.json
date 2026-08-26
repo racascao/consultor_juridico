@@ -1,0 +1,21 @@
+{
+  "phase": "91.3",
+  "baseline_sha256": "866b4b7f467cffd709a884231a076d2e6b0bed90821f83e0ce0d596c3be7c72b",
+  "forensics_sha256": "34ecf224f2c8f1fb402f80d2797538e37fa571e28bc5f0c0839ca23185431a32",
+  "components": {
+    "locator_fidelity_guard": "PROVEN_FOR_PRODUCTION",
+    "atomic_claim_acceptance": "INCONCLUSIVE",
+    "vcsa_structural_context": "INCONCLUSIVE",
+    "structural_retrieval_expansion": "INCONCLUSIVE",
+    "attribution_fix": "INCONCLUSIVE",
+    "citation_overbinding_fix": "INCONCLUSIVE"
+  },
+  "integrated_components": ["locator_fidelity_guard"],
+  "rejected_components": [],
+  "remaining_unresolved_cases": [
+    "rw-prisao-perpetua", "rw-liberdade-religiosa", "rw-racismo",
+    "rw-extradicao", "rw-direito-vida", "rw-estado-sitio", "rw-voto-obrigatorio"
+  ],
+  "new_unsafe_cases": 0,
+  "llm_inference_executed": false
+}

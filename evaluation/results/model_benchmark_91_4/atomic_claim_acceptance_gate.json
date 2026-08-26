@@ -1,0 +1,24 @@
+{
+  "phase": "91.4",
+  "baseline_sha256": "866b4b7f467cffd709a884231a076d2e6b0bed90821f83e0ce0d596c3be7c72b",
+  "implementation_mode": "offline_replay_only",
+  "positive_controls": 3,
+  "negative_controls": 10,
+  "real_case_replay": {
+    "rw-liberdade-religiosa": {"core_survives": true, "auxiliary_removed": true, "material_dependency": false},
+    "rw-extradicao": {"core_survives": true, "auxiliary_removed": true, "material_dependency": false},
+    "rw-direito-vida": {"core_survives": true, "auxiliary_semantic_failure": true, "salvage": false}
+  },
+  "safety": {
+    "new_unsafe_cases": 0,
+    "new_wrong_actor_acceptances": 0,
+    "new_exception_omissions": 0,
+    "new_polarity_acceptances": 0,
+    "new_locator_mismatch_acceptances": 0,
+    "new_off_target_acceptances": 0,
+    "new_unsupported_core_claims": 0
+  },
+  "classification": "INCONCLUSIVE",
+  "integrated_in_production": false,
+  "llm_inference_executed": false
+}

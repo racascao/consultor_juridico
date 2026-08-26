@@ -28,6 +28,7 @@ No MVP 1, o corpus é restrito à **Constituição Federal de 1988 (CF/88)** e a
 - [Estado atual do MVP](#estado-atual-do-mvp)
 - [Princípios de arquitetura](#princípios-de-arquitetura)
 - [Arquitetura de alto nível](#arquitetura-de-alto-nível)
+- [Relatório científico de seleção de modelos locais — MVP1](docs/relatorio-cientifico-selecao-modelos-mvp1.md)
 - [Pipeline documental](#pipeline-documental)
 - [Pipeline de consulta jurídica](#pipeline-de-consulta-jurídica)
 - [Cadeia de rastreabilidade](#cadeia-de-rastreabilidade)
@@ -175,6 +176,44 @@ implementação. O benchmark futuro fica limitado ao MiniLM mMARCO como primary 
 ao BGE reranker v2-m3 como controle, com score e zona `UNRESOLVED`. VCSA
 permanece foundation; Evidence-Bound permanece experimental. Detalhes em
 `docs/89-model-architecture-review.md`.
+
+A Fase 90 executou o MiniLM em ONNX CPU: prisão perpétua e pena de morte foram
+classificadas como relevantes, mas houve 3 falsos relevantes, incluindo ator
+jurídico incorreto. O BGE não concluiu o download do peso no ambiente e ficou
+`NOT_RUN`; portanto o benchmark comparativo é inconclusivo e nenhum modelo foi
+integrado. Detalhes em `docs/90-controlled-relevance-model-benchmark.md`.
+
+A Fase 91 iniciou o benchmark definitivo dos sete modelos Ollama, mas foi
+interrompida após sete chamadas parciais por custo de inferência sequencial em
+CPU. Nenhuma seleção definitiva foi feita; o harness é resumível e o MVP1
+continua sem modelo novo integrado. Detalhes em
+`docs/91-definitive-mvp1-model-benchmark.md`.
+
+A Fase 91.1 reorganizou a seleção em estágios com eliminação precoce, mas o
+primeiro kill-test não pôde ser concluído nesta sessão por limitação operacional
+de execução prolongada contra o daemon Ollama. Nenhum modelo foi eliminado e a
+seleção continua inconclusiva. Detalhes em
+`docs/91-1-staged-model-elimination.md`. O semantic kill-test manual está
+concluído; o harness do generator kill-test foi preparado com EvidenceSets
+congelados, mas sua execução permanece manual e ainda não houve seleção de
+modelo. O Generator Kill-Test foi posteriormente fechado com retry de 512
+tokens e merge determinístico; `ministral-3:8b` é apenas survivor provisório
+(`SAFE_BUT_LOW_RECALL`) aguardando Capability Confirmation.
+Capability Confirmation foi concluída sem unsafe acceptance; o próximo passo é
+um único screen E2E da configuração single-model, ainda sem seleção definitiva
+de modelo de produção. O pre-E2E hardening canonicalizou abstentions,
+explicitou `think=false` e criou `evaluation.e2e_single_model_91`, que usa o
+serviço real de consulta; o screen continua pendente de execução manual.
+
+O benchmark staged está preparado para execução manual local: perfil desktop,
+um modelo/requisição por vez, checkpoints e log persistente. A primeira etapa é
+`relevance-kill`; use `--resume` e, para execução longa, `tmux`. A execução do
+agente não mantém inferências longas nem integra modelos em produção.
+
+O harness também trata respostas Qwen/DeepSeek por capability da API
+(`think=false`, content final separado de thinking, falhas operacionais
+reexecutáveis) e permite filtrar modelos com `--models`. O primeiro rerun manual
+deve limitar-se aos três modelos que tiveram falha operacional anterior.
 
 ### Corpus materializado
 
@@ -373,6 +412,17 @@ Claim
 O PostgreSQL armazena tanto o corpus jurídico estruturado quanto os dados derivados de retrieval e, futuramente, de evidence/citation.
 
 O Ollama é usado localmente. Na Fase 5, ele fornece embeddings; na Fase 6, passa a fornecer também o modelo generativo local.
+
+---
+
+
+### Avaliação científica e seleção de modelos locais
+
+A seleção dos modelos do MVP1 foi conduzida por um protocolo experimental em estágios, com avaliação independente dos papéis de **Relevance Judge**, **Semantic/Support Judge** e **Generator**, critérios fail-closed, kill-tests adversariais e confirmação com múltiplas repetições.
+
+Os resultados atuais apontam `ministral-3:8b` como **único candidato single-model** que permaneceu elegível nos três papéis. A seleção final de produção ainda depende do screening end-to-end e dos testes de estabilidade.
+
+- [Relatório científico de seleção de modelos locais — MVP1](docs/relatorio-cientifico-selecao-modelos-mvp1.md)
 
 ---
 
@@ -1916,6 +1966,18 @@ O roadmap público é deliberadamente compacto. O histórico detalhado das decis
   - primary: `cross-encoder/mmarco-mMiniLMv2-L12-H384-v1`;
   - control: `BAAI/bge-reranker-v2-m3`; Granite 3B permanece baseline histórico;
   - nenhuma implementação, dependência, download ou integração foi autorizada.
+- [x] **Fase 90 — Controlled Relevance Model Benchmark — `INCONCLUSIVE`, primary falhou**
+  - MiniLM ONNX: `3` falsos relevantes, distribuição não separável;
+  - BGE: `NOT_RUN` por download incompleto do peso;
+  - nenhum classificador integrado em produção.
+- [ ] **Fase 91 — Definitive MVP1 Model Benchmark — `INCONCLUSIVE`**
+  - sete modelos disponíveis no Ollama;
+  - apenas checkpoint parcial de relevance do Granite 3B;
+  - nenhuma decisão ou integração de modelo.
+- [ ] **Fase 91.1 — Staged Model Elimination — `INCONCLUSIVE`**
+  - sete modelos disponíveis;
+  - kill-test ainda não concluído;
+  - nenhum modelo eliminado ou integrado.
 - [x] **Fase 9.12 — Retrieval + Evidence Selection Hardening — `RETRIEVAL_SELECTION_GATE: APPROVED`**
   - real-world Hybrid Hit@10: `0,800 → 0,900`; `mvp1-v1` Hit@10 preservado em `0,905`;
   - ranking considera tokens substantivos, contexto estrutural em lote e cobertura/posição híbrida, sem alterar provenance;
@@ -2098,6 +2160,97 @@ O dataset inicial `mvp1-v1` é versionado e auditável, mas ainda pequeno. A
 avaliação identificou retrieval abaixo do threshold, latência generativa alta e
 uma resposta indevida fora do corpus. O resultado correto é gate bloqueado, não
 uma declaração prematura de conclusão do MVP1.
+
+### Fase 91.5 — VCSA Structural Context
+
+Foi validado offline um componente determinístico de composição entre elemento
+normativo pai e filho direto, preservando escopo jurídico, vigência e proveniência.
+Os controles passaram; a integração de produção permanece `INCONCLUSIVE` e não
+houve nova inferência ou alteração do pipeline.
+
+Detalhes: [Fase 91.5 — VCSA Structural Context Safety Gate](docs/92-fase-91-5-vcsa-structural-context.md).
+
+### Fase 91.6 — Structural Retrieval Expansion
+
+Existe um transformer offline para promover filhos normativos diretos de
+containers estruturais recuperados, com provenance e score derivado explícitos.
+Os controles sintéticos passaram, mas o replay completo requer o corpus
+relacional PostgreSQL; a integração permanece `INCONCLUSIVE`.
+
+Detalhes: [Fase 91.6 — Structural Retrieval Expansion Safety Gate](docs/93-fase-91-6-structural-retrieval-expansion.md).
+
+### Fase 91.7 — Relational Corpus & Infrastructure Validation
+
+Na retomada, PostgreSQL foi validado no container e o corpus relacional foi
+auditado. Structural Expansion continuou `INCONCLUSIVE`: os caputs de estado de
+sítio foram encontrados, mas a regra congelada com decay 0,85 os deixou fora do
+top-10 final e a Evidence Selection não os selecionou. Nenhuma integração,
+ingestão ou inferência foi executada.
+
+Detalhes: [Fase 91.7 — Relational Validation](docs/94-fase-91-7-relational-validation.md).
+
+### Fase 91.8 — VCSA Materialization
+
+VCSA possui um protótipo de materialização runtime que mantém o snapshot
+persistido intacto. A promoção e integração de produção seguem inconclusivas
+até o replay histórico completo e a suíte container.
+
+Detalhes: [Fase 91.8 — VCSA Materialization](docs/95-fase-91-8-vcsa-materialization-integration.md).
+
+### Fase 91.9 — VCSA Pipeline Replay
+
+O resolver de materialização foi preparado, porém continua isolado até replay
+histórico e validação container completos. Nenhuma integração no serviço foi
+ativada.
+
+### Fase 91.10 — Structural Candidate Budget
+
+O reserve estrutural foi implementado como transformador puro que não altera o
+top-K primário. A validação A/B/C contra o dataset real continua pendente; não
+há integração no retrieval ou na seleção.
+
+### Fase 91.11 — Structural Candidate Pool Replay
+
+O replay relacional real confirmou que o CAPUT do art. 137 alcança o reserve
+estrutural de estado de sítio, mas a Evidence Selection não o escolhe dentro do
+orçamento atual. `rw-aborto` continuou insuficiente. A expansão e o reserve
+permanecem não integrados: `STRUCTURAL_CANDIDATE_POLICY=NOT_PROVEN_FOR_PRODUCTION`.
+
+Detalhes: [Fase 91.11 — Structural Candidate Pool Replay](docs/98-fase-91-11-structural-pool-selection.md).
+
+### Fase 91.12 — Evidence Selection Safety Gate
+
+O traço do selector real confirmou que os CAPUTs de estado de sítio e voto
+obrigatório perdem slots pelo orçamento/marginalidade já congelados — não por
+bug de provenance, tipo ou deduplicação. Não foi adotado tuning oportunista;
+o selector e a expansão estrutural permanecem sem integração.
+
+Detalhes: [Fase 91.12 — Evidence Selection Safety Gate](docs/99-fase-91-12-evidence-selection.md).
+
+### Fase 91.13 — Baseline Regression Closure
+
+O contexto estrutural de evidências legadas foi restaurado no prompt semântico,
+sem integrar VCSA. A suíte containerizada passou com `403 passed, 5 skipped`.
+
+Detalhes: [Fase 91.13 — Baseline Regression & Test Suite Closure](docs/100-fase-91-13-baseline-regression-closure.md).
+
+### Fase 91.14 — Atomic Claim Acceptance
+
+O protótipo Atomic não foi integrado: o pipeline ainda não deriva de modo
+determinístico e auditável `core_answer` e `material_dependency` por claim.
+Mantém-se o comportamento all-or-nothing atual.
+
+Detalhes: [Fase 91.14 — Atomic Claim Integration](docs/101-fase-91-14-atomic-claim-integration.md).
+
+### Fase 92 — MVP1 Hardening Freeze
+
+O hardening experimental foi encerrado para a próxima medição: Locator
+Fidelity Guard e o contexto pai no prompt semântico permanecem ativos; Atomic,
+VCSA, Structural Expansion/Reserve e a correção experimental de seleção ficam
+fora da produção. O SHA verificado do baseline E2E é
+`866b4b7f467cffd709a884231a076d2e6b0bed90821f83e0ce0d596c3be7c72b`.
+
+Detalhes e comando da segunda medição: [Fase 92 — MVP1 Hardening Freeze](docs/102-fase-92-mvp1-hardening-freeze.md).
 
 ---
 

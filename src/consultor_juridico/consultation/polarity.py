@@ -223,10 +223,14 @@ def validate_response_polarity(
 
 
 def _evidence_text(item: Any) -> str:
+    if getattr(item, "materialization_type", None) is not None:
+        return str(getattr(item, "text_snapshot", ""))
     metadata = getattr(item, "validation_metadata", None) or {}
-    parent = metadata.get("parent_context")
-    text = getattr(item, "text_snapshot", "")
-    return " ".join(part for part in (text, parent) if isinstance(part, str))
+    return " ".join(
+        part
+        for part in (getattr(item, "text_snapshot", ""), metadata.get("parent_context"))
+        if isinstance(part, str)
+    )
 
 
 def _normalize(text: str) -> str:

@@ -1,0 +1,2106 @@
+{
+  "phase": "91",
+  "manifest_hash": "7ddd98b69485518ff9eb7019dca411e686e7f0663ecd8eb357e39004883723fd",
+  "runs": [
+    {
+      "model": "qwen3.5:4b",
+      "pair": "LITERAL",
+      "repeat": 1,
+      "name": "LITERAL",
+      "evidence": "A inscrição é obrigatória.",
+      "claim": "A inscrição é obrigatória.",
+      "expected": "SUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "SUPPORTED",
+        "reason": "A afirmação da evidência idêntica à claim, garantindo suporte integral."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 111,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 36
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "VALID_PARAPHRASE",
+      "repeat": 1,
+      "name": "VALID_PARAPHRASE",
+      "evidence": "A inscrição é obrigatória.",
+      "claim": "É obrigatório efetuar a inscrição.",
+      "expected": "SUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "SUPPORTED",
+        "reason": "A evidência afirma que 'a inscrição é obrigatória', o que semânticamente equivale à claim de que 'é obrigatório efetuar a inscrição'. Não há contradição, erro de ator, generalização indevida ou omissão material significativa."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 268,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 73
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "QUALIFIER_PRESERVED",
+      "repeat": 1,
+      "name": "QUALIFIER_PRESERVED",
+      "evidence": "A pena de morte é admitida somente em guerra declarada.",
+      "claim": "A pena de morte é admitida somente em guerra declarada.",
+      "expected": "SUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "SUPPORTED",
+        "reason": "A evidência e a claim são idênticas, apresentando exatamente o mesmo conteúdo factual sem contradições, generalizações ou omissões materiais."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 184,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 54
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "WRONG_LEGAL_ACTOR",
+      "repeat": 1,
+      "name": "WRONG_LEGAL_ACTOR",
+      "evidence": "O Presidente autoriza a medida.",
+      "claim": "O Tribunal autoriza a medida.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "ator errado"
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 56,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 23
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "POLARITY_INVERSION",
+      "repeat": 1,
+      "name": "POLARITY_INVERSION",
+      "evidence": "Não haverá penas de caráter perpétuo.",
+      "claim": "Penas de caráter perpétuo são permitidas.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "contradição"
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 56,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 24
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "UNSUPPORTED_GENERALIZATION",
+      "repeat": 1,
+      "name": "UNSUPPORTED_GENERALIZATION",
+      "evidence": "A medida é permitida em situação excepcional.",
+      "claim": "A medida é sempre permitida.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "contradição"
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 56,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 24
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "THEMATIC_ONLY_SUPPORT",
+      "repeat": 1,
+      "name": "THEMATIC_ONLY_SUPPORT",
+      "evidence": "A pena será cumprida em estabelecimento distinto.",
+      "claim": "A prisão perpétua é proibida.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "O ator errado (a evidência fala sobre o local de cumprimento da pena, não sobre a proibição da pena em si) e a generalização/imprecisão (a evidência não menciona prisão perpétua especificamente)."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 239,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 66
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "MATERIAL_EXCEPTION_OMITTED",
+      "repeat": 1,
+      "name": "MATERIAL_EXCEPTION_OMITTED",
+      "evidence": "A pena de morte é proibida, salvo em guerra declarada.",
+      "claim": "A pena de morte é proibida.",
+      "expected": "UNRESOLVED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "O ator errado (a evidência apresenta uma condição específica 'salvo em guerra declarada', enquanto a claim generaliza sem essa exceção) e a omissão material da condição de guerra tornam a evidência insuficiente para suportar integralmente a afirmação absoluta da claim."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 314,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 77
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "MATERIAL_CONDITION_OMITTED",
+      "repeat": 1,
+      "name": "MATERIAL_CONDITION_OMITTED",
+      "evidence": "A medida depende de autorização do Congresso.",
+      "claim": "A medida pode ser adotada livremente.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "contradição"
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 56,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 24
+      }
+    },
+    {
+      "model": "qwen3.5:4b",
+      "pair": "PARTIAL_SUPPORT",
+      "repeat": 1,
+      "name": "PARTIAL_SUPPORT",
+      "evidence": "A inscrição é obrigatória.",
+      "claim": "A inscrição é obrigatória e gratuita.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "Omissão material"
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 61,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 24
+      }
+    },
+    {
+      "model": "ministral-3:3b",
+      "pair": "LITERAL",
+      "repeat": 1,
+      "name": "LITERAL",
+      "evidence": "A inscrição é obrigatória.",
+      "claim": "A inscrição é obrigatória.",
+      "expected": "SUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "SUPPORTED",
+        "reason": "A evidência reforça diretamente a afirmação sem contradição ou omissão"
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 113,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 36
+      }
+    },
+    {
+      "model": "ministral-3:3b",
+      "pair": "VALID_PARAPHRASE",
+      "repeat": 1,
+      "name": "VALID_PARAPHRASE",
+      "evidence": "A inscrição é obrigatória.",
+      "claim": "É obrigatório efetuar a inscrição.",
+      "expected": "SUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "SUPPORTED",
+        "reason": "A inscrição é obrigatória → Efetuar a inscrição é uma ação necessária para cumprir a obrigação"
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 137,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 47
+      }
+    },
+    {
+      "model": "ministral-3:3b",
+      "pair": "QUALIFIER_PRESERVED",
+      "repeat": 1,
+      "name": "QUALIFIER_PRESERVED",
+      "evidence": "A pena de morte é admitida somente em guerra declarada.",
+      "claim": "A pena de morte é admitida somente em guerra declarada.",
+      "expected": "SUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "SUPPORTED",
+        "reason": "A evidência fornecida concorda integralmente com a claim, reforçando a afirmação sem ambiguidade ou omissão relevante."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 161,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 49
+      }
+    },
+    {
+      "model": "ministral-3:3b",
+      "pair": "WRONG_LEGAL_ACTOR",
+      "repeat": 1,
+      "name": "WRONG_LEGAL_ACTOR",
+      "evidence": "O Presidente autoriza a medida.",
+      "claim": "O Tribunal autoriza a medida.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "Ator incorreto: a evidência menciona o Presidente, enquanto a claim refere-se ao Tribunal."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 135,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 41
+      }
+    },
+    {
+      "model": "ministral-3:3b",
+      "pair": "POLARITY_INVERSION",
+      "repeat": 1,
+      "name": "POLARITY_INVERSION",
+      "evidence": "Não haverá penas de caráter perpétuo.",
+      "claim": "Penas de caráter perpétuo são permitidas.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "Contradição direta com a afirmação da evidência"
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 92,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 35
+      }
+    },
+    {
+      "model": "ministral-3:3b",
+      "pair": "UNSUPPORTED_GENERALIZATION",
+      "repeat": 1,
+      "name": "UNSUPPORTED_GENERALIZATION",
+      "evidence": "A medida é permitida em situação excepcional.",
+      "claim": "A medida é sempre permitida.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "Contradição: a evidência menciona 'situação excepcional', enquanto a claim afirma 'sempre'"
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 135,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 45
+      }
+    },
+    {
+      "model": "ministral-3:3b",
+      "pair": "THEMATIC_ONLY_SUPPORT",
+      "repeat": 1,
+      "name": "THEMATIC_ONLY_SUPPORT",
+      "evidence": "A pena será cumprida em estabelecimento distinto.",
+      "claim": "A prisão perpétua é proibida.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "A evidência não sustenta a claim porque não menciona explicitamente a proibição de prisão perpétua, apenas que a pena será cumprida em estabelecimento distinto (que pode ser aplicado a penas indeterminadas ou temporárias, não necessariamente perpétuas)."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 298,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 76
+      }
+    },
+    {
+      "model": "ministral-3:3b",
+      "pair": "MATERIAL_EXCEPTION_OMITTED",
+      "repeat": 1,
+      "name": "MATERIAL_EXCEPTION_OMITTED",
+      "evidence": "A pena de morte é proibida, salvo em guerra declarada.",
+      "claim": "A pena de morte é proibida.",
+      "expected": "UNRESOLVED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "A evidência menciona uma exceção ('salvo em guerra declarada'), o que contradiz a afirmação geral da claim"
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 151,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 48
+      }
+    },
+    {
+      "model": "ministral-3:3b",
+      "pair": "MATERIAL_CONDITION_OMITTED",
+      "repeat": 1,
+      "name": "MATERIAL_CONDITION_OMITTED",
+      "evidence": "A medida depende de autorização do Congresso.",
+      "claim": "A medida pode ser adotada livremente.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "A evidência contradiz a claim ao afirmar que a medida depende de autorização do Congresso, o que implica uma restrição à adoção livre"
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 178,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 52
+      }
+    },
+    {
+      "model": "ministral-3:3b",
+      "pair": "PARTIAL_SUPPORT",
+      "repeat": 1,
+      "name": "PARTIAL_SUPPORT",
+      "evidence": "A inscrição é obrigatória.",
+      "claim": "A inscrição é obrigatória e gratuita.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "A evidência não menciona a gratuidade da inscrição"
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 95,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 34
+      }
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "LITERAL",
+      "repeat": 1,
+      "name": "LITERAL",
+      "evidence": "A inscrição é obrigatória.",
+      "claim": "A inscrição é obrigatória.",
+      "expected": "SUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "SUPPORTED",
+        "reason": "A claim é idêntica à evidência fornecida."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 80,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 29
+      }
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "VALID_PARAPHRASE",
+      "repeat": 1,
+      "name": "VALID_PARAPHRASE",
+      "evidence": "A inscrição é obrigatória.",
+      "claim": "É obrigatório efetuar a inscrição.",
+      "expected": "SUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "SUPPORTED",
+        "reason": "A claim 'É obrigatório efetuar a inscrição' é semanticamente equivalente à evidência 'A inscrição é obrigatória', sem contradição ou omissão material."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 189,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 49
+      }
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "QUALIFIER_PRESERVED",
+      "repeat": 1,
+      "name": "QUALIFIER_PRESERVED",
+      "evidence": "A pena de morte é admitida somente em guerra declarada.",
+      "claim": "A pena de morte é admitida somente em guerra declarada.",
+      "expected": "SUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "SUPPORTED",
+        "reason": "A claim replica exatamente a evidência fornecida sem adição, omissão ou contradição."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 123,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 36
+      }
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "WRONG_LEGAL_ACTOR",
+      "repeat": 1,
+      "name": "WRONG_LEGAL_ACTOR",
+      "evidence": "O Presidente autoriza a medida.",
+      "claim": "O Tribunal autoriza a medida.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "ator errado"
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 52,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 18
+      }
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "POLARITY_INVERSION",
+      "repeat": 1,
+      "name": "POLARITY_INVERSION",
+      "evidence": "Não haverá penas de caráter perpétuo.",
+      "claim": "Penas de caráter perpétuo são permitidas.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "contradição"
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 52,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 19
+      }
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "UNSUPPORTED_GENERALIZATION",
+      "repeat": 1,
+      "name": "UNSUPPORTED_GENERALIZATION",
+      "evidence": "A medida é permitida em situação excepcional.",
+      "claim": "A medida é sempre permitida.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "contradição"
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 52,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 19
+      }
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "THEMATIC_ONLY_SUPPORT",
+      "repeat": 1,
+      "name": "THEMATIC_ONLY_SUPPORT",
+      "evidence": "A pena será cumprida em estabelecimento distinto.",
+      "claim": "A prisão perpétua é proibida.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "contradição"
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 56,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 23
+      }
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "MATERIAL_EXCEPTION_OMITTED",
+      "repeat": 1,
+      "name": "MATERIAL_EXCEPTION_OMITTED",
+      "evidence": "A pena de morte é proibida, salvo em guerra declarada.",
+      "claim": "A pena de morte é proibida.",
+      "expected": "UNRESOLVED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "omissão material"
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 57,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 18
+      }
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "MATERIAL_CONDITION_OMITTED",
+      "repeat": 1,
+      "name": "MATERIAL_CONDITION_OMITTED",
+      "evidence": "A medida depende de autorização do Congresso.",
+      "claim": "A medida pode ser adotada livremente.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "contradição"
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 52,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 19
+      }
+    },
+    {
+      "model": "qwen3.5:9b",
+      "pair": "PARTIAL_SUPPORT",
+      "repeat": 1,
+      "name": "PARTIAL_SUPPORT",
+      "evidence": "A inscrição é obrigatória.",
+      "claim": "A inscrição é obrigatória e gratuita.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "generalization"
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 55,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 17
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "LITERAL",
+      "repeat": 1,
+      "name": "LITERAL",
+      "evidence": "A inscrição é obrigatória.",
+      "claim": "A inscrição é obrigatória.",
+      "expected": "SUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "SUPPORTED",
+        "reason": "A evidência e a claim são idênticas, não havendo contradição, omissão material, generalização ou erro de ator."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 153,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 47
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "VALID_PARAPHRASE",
+      "repeat": 1,
+      "name": "VALID_PARAPHRASE",
+      "evidence": "A inscrição é obrigatória.",
+      "claim": "É obrigatório efetuar a inscrição.",
+      "expected": "SUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "SUPPORTED",
+        "reason": "A evidência ('A inscrição é obrigatória') fornece suporte integral à claim ('É obrigatório efetuar a inscrição'), pois ambas expressam a mesma exigência sem contradições, generalizações ou omissões relevantes."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 252,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 69
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "QUALIFIER_PRESERVED",
+      "repeat": 1,
+      "name": "QUALIFIER_PRESERVED",
+      "evidence": "A pena de morte é admitida somente em guerra declarada.",
+      "claim": "A pena de morte é admitida somente em guerra declarada.",
+      "expected": "SUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "SUPPORTED",
+        "reason": "A evidência fornece uma afirmação direta e inequívoca que corrobora integralmente a claim, sem contradições, generalizações excessivas ou omissões relevantes."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 201,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 57
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "WRONG_LEGAL_ACTOR",
+      "repeat": 1,
+      "name": "WRONG_LEGAL_ACTOR",
+      "evidence": "O Presidente autoriza a medida.",
+      "claim": "O Tribunal autoriza a medida.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "O ator na evidência é o **Presidente**, enquanto a claim atribui a autorização ao **Tribunal**, o que constitui **ator errado** (contradição material)."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 196,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 60
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "POLARITY_INVERSION",
+      "repeat": 1,
+      "name": "POLARITY_INVERSION",
+      "evidence": "Não haverá penas de caráter perpétuo.",
+      "claim": "Penas de caráter perpétuo são permitidas.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "Contradiction: A evidência afirma explicitamente que 'Não haverá penas de caráter perpétuo', enquanto a claim alega que 'Penas de caráter perpétuo são permitidas'. A evidência refuta diretamente a claim."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 248,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 69
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "UNSUPPORTED_GENERALIZATION",
+      "repeat": 1,
+      "name": "UNSUPPORTED_GENERALIZATION",
+      "evidence": "A medida é permitida em situação excepcional.",
+      "claim": "A medida é sempre permitida.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "Generalização ou omissão material. A evidência restringe a permissão da medida a situações 'excepcionais', enquanto a claim afirma que ela é 'sempre' permitida, sem qualquer restrição."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 229,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 65
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "THEMATIC_ONLY_SUPPORT",
+      "repeat": 1,
+      "name": "THEMATIC_ONLY_SUPPORT",
+      "evidence": "A pena será cumprida em estabelecimento distinto.",
+      "claim": "A prisão perpétua é proibida.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "Omissão material: A evidência menciona apenas a separação de estabelecimentos para cumprimento de pena, sem qualquer referência à proibição da prisão perpétua ou à legislação que a regule. Não há conexão lógica ou semântica que suporte a claim de que a prisão perpétua é proibida com base nessa evidência."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 350,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 90
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "MATERIAL_EXCEPTION_OMITTED",
+      "repeat": 1,
+      "name": "MATERIAL_EXCEPTION_OMITTED",
+      "evidence": "A pena de morte é proibida, salvo em guerra declarada.",
+      "claim": "A pena de morte é proibida.",
+      "expected": "UNRESOLVED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "Generalização ou omissão material. A evidência menciona uma exceção explícita ('salvo em guerra declarada'), o que invalida a afirmação absoluta de que a pena de morte é proibida em todos os casos."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 242,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 67
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "MATERIAL_CONDITION_OMITTED",
+      "repeat": 1,
+      "name": "MATERIAL_CONDITION_OMITTED",
+      "evidence": "A medida depende de autorização do Congresso.",
+      "claim": "A medida pode ser adotada livremente.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "Contradiction: A medida depender de autorização do Congresso implica que ela não pode ser adotada livremente, contradizendo diretamente a claim."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 189,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 50
+      }
+    },
+    {
+      "model": "ministral-3:8b",
+      "pair": "PARTIAL_SUPPORT",
+      "repeat": 1,
+      "name": "PARTIAL_SUPPORT",
+      "evidence": "A inscrição é obrigatória.",
+      "claim": "A inscrição é obrigatória e gratuita.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "generalização ou omissão material"
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 78,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 26
+      }
+    },
+    {
+      "model": "granite4.1:3b",
+      "pair": "LITERAL",
+      "repeat": 1,
+      "name": "LITERAL",
+      "evidence": "A inscrição é obrigatória.",
+      "claim": "A inscrição é obrigatória.",
+      "expected": "SUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "A claim e a evidência são idênticas, portanto, não há necessidade de suporte ou contradição. A evidência não fornece informações adicionais que possam apoiar ou refutar a claim."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 216,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 62
+      }
+    },
+    {
+      "model": "granite4.1:3b",
+      "pair": "VALID_PARAPHRASE",
+      "repeat": 1,
+      "name": "VALID_PARAPHRASE",
+      "evidence": "A inscrição é obrigatória.",
+      "claim": "É obrigatório efetuar a inscrição.",
+      "expected": "SUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "SUPPORTED",
+        "reason": "A evidência 'A inscrição é obrigatória.' diretamente apoia a afirmação 'É obrigatório efetuar a inscrição.' pois ambas expressam o mesmo conceito de necessidade ou exigência de realizar a inscrição."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 241,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 71
+      }
+    },
+    {
+      "model": "granite4.1:3b",
+      "pair": "QUALIFIER_PRESERVED",
+      "repeat": 1,
+      "name": "QUALIFIER_PRESERVED",
+      "evidence": "A pena de morte é admitida somente em guerra declarada.",
+      "claim": "A pena de morte é admitida somente em guerra declarada.",
+      "expected": "SUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "SUPPORTED",
+        "reason": "A evidência fornecida afirma diretamente a mesma afirmação do claim: a pena de morte é admitida somente em guerra declarada. Não há contradição, atores errados, generalizações ou omissões materiais que desafiem essa afirmação."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 269,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 78
+      }
+    },
+    {
+      "model": "granite4.1:3b",
+      "pair": "WRONG_LEGAL_ACTOR",
+      "repeat": 1,
+      "name": "WRONG_LEGAL_ACTOR",
+      "evidence": "O Presidente autoriza a medida.",
+      "claim": "O Tribunal autoriza a medida.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "A evidência afirma que o Presidente autoriza a medida, enquanto o claim afirma que o Tribunal autoriza a medida. Essa é uma omissão material, pois as autorizações são atribuídas a diferentes entidades (Presidente vs Tribunal)."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 265,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 68
+      }
+    },
+    {
+      "model": "granite4.1:3b",
+      "pair": "POLARITY_INVERSION",
+      "repeat": 1,
+      "name": "POLARITY_INVERSION",
+      "evidence": "Não haverá penas de caráter perpétuo.",
+      "claim": "Penas de caráter perpétuo são permitidas.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "A evidência afirma que não haverá penas de caráter perpétuo, o que contradiz a claim que as penas de caráter perpétuo são permitidas."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 178,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 59
+      }
+    },
+    {
+      "model": "granite4.1:3b",
+      "pair": "UNSUPPORTED_GENERALIZATION",
+      "repeat": 1,
+      "name": "UNSUPPORTED_GENERALIZATION",
+      "evidence": "A medida é permitida em situação excepcional.",
+      "claim": "A medida é sempre permitida.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "A evidência afirma que a medida é permitida apenas em situações excepcionais, enquanto o claim afirma que a medida é sempre permitida. Isso cria uma contradição entre a evidência e o claim."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 234,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 64
+      }
+    },
+    {
+      "model": "granite4.1:3b",
+      "pair": "THEMATIC_ONLY_SUPPORT",
+      "repeat": 1,
+      "name": "THEMATIC_ONLY_SUPPORT",
+      "evidence": "A pena será cumprida em estabelecimento distinto.",
+      "claim": "A prisão perpétua é proibida.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "The evidence states that the punishment will be carried out in a separate establishment, which does not provide any support or contradiction to the claim that perpetual imprisonment is prohibited. The evidence is silent on the legality or prohibition of perpetual imprisonment."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 316,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 58
+      }
+    },
+    {
+      "model": "granite4.1:3b",
+      "pair": "MATERIAL_EXCEPTION_OMITTED",
+      "repeat": 1,
+      "name": "MATERIAL_EXCEPTION_OMITTED",
+      "evidence": "A pena de morte é proibida, salvo em guerra declarada.",
+      "claim": "A pena de morte é proibida.",
+      "expected": "UNRESOLVED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "A evidência especifica que a pena de morte é proibida 'salvo em guerra declarada', o que implica que há exceções permitindo seu uso em certos contextos (guerra declarada). A afirmação original do claim ('A pena de morte é proibida') não leva em conta essa exceção, portanto, não é totalmente apoiada pela evidência fornecida."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 370,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 105
+      }
+    },
+    {
+      "model": "granite4.1:3b",
+      "pair": "MATERIAL_CONDITION_OMITTED",
+      "repeat": 1,
+      "name": "MATERIAL_CONDITION_OMITTED",
+      "evidence": "A medida depende de autorização do Congresso.",
+      "claim": "A medida pode ser adotada livremente.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "A evidência indica que a medida depende de autorização do Congresso, o que implica que não pode ser adotada livremente. A claim contradiz a informação fornecida."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 206,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 57
+      }
+    },
+    {
+      "model": "granite4.1:3b",
+      "pair": "PARTIAL_SUPPORT",
+      "repeat": 1,
+      "name": "PARTIAL_SUPPORT",
+      "evidence": "A inscrição é obrigatória.",
+      "claim": "A inscrição é obrigatória e gratuita.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "A afirmação original inclui 'gratuita', que não é suportada pela evidência fornecida. A evidência só diz que a inscrição é obrigatória, mas não aborda o custo ou a natureza gratuita da inscrição."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 240,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 74
+      }
+    },
+    {
+      "model": "granite4.1:8b",
+      "pair": "LITERAL",
+      "repeat": 1,
+      "name": "LITERAL",
+      "evidence": "A inscrição é obrigatória.",
+      "claim": "A inscrição é obrigatória.",
+      "expected": "SUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "SUPPORTED",
+        "reason": "A evidência afirma diretamente que a inscrição é obrigatória, o que corresponde exatamente à claim fornecida."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 152,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 49
+      }
+    },
+    {
+      "model": "granite4.1:8b",
+      "pair": "VALID_PARAPHRASE",
+      "repeat": 1,
+      "name": "VALID_PARAPHRASE",
+      "evidence": "A inscrição é obrigatória.",
+      "claim": "É obrigatório efetuar a inscrição.",
+      "expected": "SUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "SUPPORTED",
+        "reason": "A evidência afirma diretamente que a inscrição é obrigatória, o que corresponde exatamente à claim de que é obrigatório efetuar a inscrição."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 183,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 58
+      }
+    },
+    {
+      "model": "granite4.1:8b",
+      "pair": "QUALIFIER_PRESERVED",
+      "repeat": 1,
+      "name": "QUALIFIER_PRESERVED",
+      "evidence": "A pena de morte é admitida somente em guerra declarada.",
+      "claim": "A pena de morte é admitida somente em guerra declarada.",
+      "expected": "SUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "SUPPORTED",
+        "reason": "A evidência afirma diretamente que a pena de morte é admitida somente em guerra declarada, o que corresponde exatamente à claim fornecida."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 181,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 55
+      }
+    },
+    {
+      "model": "granite4.1:8b",
+      "pair": "WRONG_LEGAL_ACTOR",
+      "repeat": 1,
+      "name": "WRONG_LEGAL_ACTOR",
+      "evidence": "O Presidente autoriza a medida.",
+      "claim": "O Tribunal autoriza a medida.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "O ator mencionado na evidência é o Presidente, enquanto a claim fala sobre o Tribunal. Não há indicação de autorização pelo Tribunal na evidência fornecida."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 201,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 58
+      }
+    },
+    {
+      "model": "granite4.1:8b",
+      "pair": "POLARITY_INVERSION",
+      "repeat": 1,
+      "name": "POLARITY_INVERSION",
+      "evidence": "Não haverá penas de caráter perpétuo.",
+      "claim": "Penas de caráter perpétuo são permitidas.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "A evidência afirma explicitamente que não haverá penas de caráter perpétuo, o que contradiz a claim que afirma que penas de caráter perpétuo são permitidas."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 201,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 66
+      }
+    },
+    {
+      "model": "granite4.1:8b",
+      "pair": "UNSUPPORTED_GENERALIZATION",
+      "repeat": 1,
+      "name": "UNSUPPORTED_GENERALIZATION",
+      "evidence": "A medida é permitida em situação excepcional.",
+      "claim": "A medida é sempre permitida.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "A evidência afirma que a medida é permitida apenas em situação excepcional, o que contradiz a afirmação de que a medida é sempre permitida."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 184,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 55
+      }
+    },
+    {
+      "model": "granite4.1:8b",
+      "pair": "THEMATIC_ONLY_SUPPORT",
+      "repeat": 1,
+      "name": "THEMATIC_ONLY_SUPPORT",
+      "evidence": "A pena será cumprida em estabelecimento distinto.",
+      "claim": "A prisão perpétua é proibida.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "A evidência menciona que a pena será cumprida em um estabelecimento distinto, mas não aborda a proibição ou permitimento de prisão perpétua. A claim de que a prisão perpétua é proibida não é suportada pelas informações fornecidas."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 275,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 86
+      }
+    },
+    {
+      "model": "granite4.1:8b",
+      "pair": "MATERIAL_EXCEPTION_OMITTED",
+      "repeat": 1,
+      "name": "MATERIAL_EXCEPTION_OMITTED",
+      "evidence": "A pena de morte é proibida, salvo em guerra declarada.",
+      "claim": "A pena de morte é proibida.",
+      "expected": "UNRESOLVED",
+      "status": "VALID",
+      "payload": {
+        "status": "SUPPORTED",
+        "reason": "A evidência afirma explicitamente que a pena de morte é proibida, exceto em caso de guerra declarada, o que inclui a afirmação geral de proibição sem exceções específicas além do contexto de guerra."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 241,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 70
+      }
+    },
+    {
+      "model": "granite4.1:8b",
+      "pair": "MATERIAL_CONDITION_OMITTED",
+      "repeat": 1,
+      "name": "MATERIAL_CONDITION_OMITTED",
+      "evidence": "A medida depende de autorização do Congresso.",
+      "claim": "A medida pode ser adotada livremente.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "A evidência afirma que a medida depende da autorização do Congresso, o que contradiz a afirmação de que a medida pode ser adotada livremente sem tal autorização."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 206,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 60
+      }
+    },
+    {
+      "model": "granite4.1:8b",
+      "pair": "PARTIAL_SUPPORT",
+      "repeat": 1,
+      "name": "PARTIAL_SUPPORT",
+      "evidence": "A inscrição é obrigatória.",
+      "claim": "A inscrição é obrigatória e gratuita.",
+      "expected": "UNSUPPORTED",
+      "status": "VALID",
+      "payload": {
+        "status": "UNSUPPORTED",
+        "reason": "O trecho de evidência menciona apenas que a inscrição é obrigatória, sem fornecer informações sobre o custo da inscrição. Portanto, não há suporte para a afirmação de que a inscrição é gratuita."
+      },
+      "metadata": {
+        "raw_top_level_keys": [
+          "created_at",
+          "done",
+          "done_reason",
+          "eval_count",
+          "eval_duration",
+          "load_duration",
+          "message",
+          "model",
+          "prompt_eval_count",
+          "prompt_eval_duration",
+          "total_duration"
+        ],
+        "done": true,
+        "done_reason": "stop",
+        "content_length": 239,
+        "thinking_present": false,
+        "thinking_length": 0,
+        "eval_count": 72
+      }
+    }
+  ]
+}
