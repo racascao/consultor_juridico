@@ -94,6 +94,7 @@ def run_consultation(
     errors: tuple[str, ...] = ()
     response: GeneratedResponse | None = None
     attribution_diagnostics = ()
+    validation_stage: str | None = None
     for _attempt in range(max_generation_attempts):
         try:
             response = generator.generate(
@@ -105,6 +106,7 @@ def run_consultation(
         attribution = deterministically_attribute(response, tuple(evidence_set.items))
         attribution_diagnostics = attribution.diagnostics
         if attribution.abstained:
+            validation_stage = "ATTRIBUTION"
             errors = attribution.reasons or (
                 "Atribuição determinística inconclusiva; resposta recusada.",
             )
@@ -116,6 +118,7 @@ def run_consultation(
             generation_mode=generation_mode,
         )
         if not locator.valid:
+            validation_stage = "LOCATOR_VALIDATION"
             errors = locator.errors
             continue
         report = validate_citations(session, evidence_set, response)
@@ -128,6 +131,7 @@ def run_consultation(
                     can_route_to_semantic(item) for item in polarity.results
                 )
                 if polarity_blocked:
+                    validation_stage = "POLARITY_VALIDATION"
                     errors = polarity.errors or (
                         "Guard de polaridade não conseguiu validar a resposta.",
                     )
@@ -163,8 +167,10 @@ def run_consultation(
                     generation_mode,
                 )
             errors = semantic.errors
+            validation_stage = "SEMANTIC_VALIDATION"
             continue
         errors = report.errors
+        validation_stage = "CITATION_VALIDATION"
 
     evidence_set.validation_status = "VALIDATION_FAILED"
     evidence_set.metadata_json = {
@@ -182,6 +188,7 @@ def run_consultation(
         errors,
         sufficiency,
         attribution_diagnostics=attribution_diagnostics,
+        validation_stage=validation_stage or "VALIDATION_ABSTENTION",
     )
 
 

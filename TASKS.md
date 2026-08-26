@@ -574,3 +574,11 @@ Estado: `BLOCKED` — Granite 8B+8B executado; judge rejeita voto facultativo, m
 - [ ] `BENCHMARK_V2_CONTRACT`
 - [ ] `RETRIEVAL_STATE_OF_SIEGE_ANALYSIS`
 - [ ] `QUALIFIER_PRESERVATION_MEASUREMENT`
+
+## Fase 99 — Benchmark v2 Freeze
+
+- [x] `real_world_short_v2` congelado após auditoria de contrato
+- [x] Reavaliação offline: `8/10`; não é novo E2E
+- [x] Failure stage estruturado para Polarity
+- [ ] PHASE_100: STRUCTURAL_CONTEXT_FOR_VALIDATION
+- [ ] PHASE_101: RETRIEVAL_STATE_OF_SIEGE

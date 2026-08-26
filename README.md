@@ -2320,6 +2320,12 @@ uma ambiguidade de contrato, sem alterar o dataset v1 ou o artefato bruto.
 
 Detalhes: [Fase 98](docs/111-fase-98-benchmark-contract-audit.md).
 
+### Fase 99 — Benchmark v2 congelado
+
+O benchmark v1 foi preservado; o v2 corrige somente racismo e voto obrigatório.
+A reavaliação offline do E2E já existente é `8/10`, não um novo E2E.
+Detalhes: [Fase 99](docs/112-fase-99-benchmark-v2-freeze.md).
+
 ---
 
 ## Filosofia do projeto

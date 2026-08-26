@@ -163,10 +163,9 @@ def evaluate_real_world_case(
             ):
                 failure_stage = "CITATION_FAILURE"
             else:
-                # Check if generator abstained
-                failure_stage = "GENERATOR_ABSTENTION"
+                failure_stage = final_result.validation_stage or "VALIDATION_ABSTENTION"
         else:
-            failure_stage = "GENERATOR_ABSTENTION"
+            failure_stage = final_result.validation_stage or "EBCG_CONSTRUCTION"
 
     # Build detailed record
     elapsed = time.perf_counter() - started_total

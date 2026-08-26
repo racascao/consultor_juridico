@@ -1,0 +1,40 @@
+{
+  "same_count": true,
+  "same_order": true,
+  "changed_case_ids": [
+    "rw-racismo",
+    "rw-voto-obrigatorio"
+  ],
+  "changes": {
+    "rw-racismo": {
+      "acceptable_provisions": {
+        "v1": null,
+        "v2": [
+          "CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII"
+        ]
+      }
+    },
+    "rw-voto-obrigatorio": {
+      "acceptable_provisions": {
+        "v1": [
+          "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput",
+          "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I/ALINEA:A"
+        ],
+        "v2": [
+          "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput",
+          "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I"
+        ]
+      },
+      "expected_provisions": {
+        "v1": [
+          "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I/ALINEA:A",
+          "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput"
+        ],
+        "v2": [
+          "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I",
+          "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput"
+        ]
+      }
+    }
+  }
+}

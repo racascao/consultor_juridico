@@ -142,6 +142,7 @@ class ConsultationResult:
     claims: tuple[GeneratedClaim, ...]
     citations: tuple[CitationReference, ...]
     validation_errors: tuple[str, ...] = ()
+    validation_stage: str | None = None
     sufficiency: SufficiencyReport | None = None
     semantic_support: SemanticSupportReport | None = None
     attribution_diagnostics: tuple[ClaimAttributionDiagnostic, ...] = ()
