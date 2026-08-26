@@ -2252,6 +2252,26 @@ fora da produção. O SHA verificado do baseline E2E é
 
 Detalhes e comando da segunda medição: [Fase 92 — MVP1 Hardening Freeze](docs/102-fase-92-mvp1-hardening-freeze.md).
 
+### Fase 93 — Generator Contract Closure
+
+Após o segundo E2E (`3/10`, `unsafe=0`, Hit@10 `0,900`), o contrato do
+Generator foi reduzido à **menor resposta completa**: para uma regra simples,
+uma claim central curta, sem locators inventados ou contexto auxiliar não
+necessário. Validators e experimentos congelados permaneceram inalterados. O
+terceiro E2E exige destino explícito e não sobrescreve artefatos anteriores.
+
+Detalhes e comando manual: [Fase 93 — Generator Contract Closure](docs/103-fase-93-generator-contract-closure.md).
+
+### Fase 94 — Evidence-Bound Controlled Generation
+
+A geração livre de claims jurídicas foi congelada para substituição por
+EBCG-v1: a Core Claim será a reprodução controlada do snapshot `EV001` já
+selecionado, com citações e validators existentes preservados. O LLM ficará
+restrito ao veto semântico fail-closed; não haverá composição VCSA nem novo
+ranking/seleção.
+
+Detalhes: [Fase 94 — decisão arquitetural](docs/104-fase-94-generation-architecture-decision.md) e [ADR 105](docs/105-adr-evidence-bound-controlled-generation.md).
+
 ---
 
 ## Filosofia do projeto

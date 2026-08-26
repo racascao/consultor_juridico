@@ -22,6 +22,17 @@ integrados (Atomic, VCSA, expansão/reserva estrutural e seleção experimental)
 confirmou os guards ativos e verificou o SHA do baseline E2E:
 `866b4b7f467cffd709a884231a076d2e6b0bed90821f83e0ce0d596c3be7c72b`.
 
+O segundo E2E conservou segurança (`unsafe=0`), mas alcançou somente `3/10`
+respostas estritamente corretas. Como última alteração focal antes de nova
+medição, a Fase 93 reduziu o contrato do Generator à menor resposta completa e
+proibiu locators manuais na prosa; o modelo continua apenas candidato e o
+terceiro E2E permanece manual.
+
+A Fase 94 decidiu não realizar novo tuning: EBCG-v1 substituirá a geração livre
+por uma Core Claim factual ligada ao primeiro EvidenceItem já selecionado. O
+modelo local continuará somente como veto semântico; a decisão preserva a
+cadeia auditável e mantém experimentos não integrados fora da produção.
+
 **Palavras-chave:** RAG jurídico; LLM local; avaliação de modelos; segurança; evidência; citação; fail-closed; Constituição Federal; Ollama; CPU.
 
 ---

@@ -503,3 +503,22 @@ Estado: `BLOCKED` — Granite 8B+8B executado; judge rejeita voto facultativo, m
 - [x] Atomic, VCSA, Structural Expansion/Reserve e Evidence Selection experimental congelados fora da produção
 - [x] Baseline de suíte e lint aprovada; segunda medição E2E pronta para execução manual
 - [x] `docs/102-fase-92-mvp1-hardening-freeze.md`
+
+## Fase 93 — MVP1 Generator Contract Closure
+
+- [x] Contrato orientado à menor resposta completa e claims centrais
+- [x] Locator removido da responsabilidade da prosa, sem relaxar o Locator Guard
+- [x] `parent_context` legado confirmado no prompt do Generator
+- [x] Harness E2E exige `--output` e recusa sobrescrita de resultado existente
+- [ ] Terceiro E2E manual pendente; nenhum modelo selecionado
+- [x] `docs/103-fase-93-generator-contract-closure.md`
+
+## Fase 94 — MVP1 Generation Architecture Decision
+
+- [x] EBCG-v1 congelada: Core Claim factual vinculada a `EV001`
+- [x] LLM restrito ao veto semântico; geração livre jurídica será removida
+- [x] Citation/Locator/Polarity/Attribution preservados sem novos guards
+- [x] Atomic, VCSA, Structural Expansion/Reserve e seleção experimental permanecem congelados
+- [x] Plano único de implementação e novo E2E definido
+- [x] `docs/104-fase-94-generation-architecture-decision.md`
+- [x] `docs/105-adr-evidence-bound-controlled-generation.md`
