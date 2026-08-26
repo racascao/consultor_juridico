@@ -10,7 +10,7 @@ from pathlib import Path
 
 from consultor_juridico.config import settings
 from consultor_juridico.consultation import (
-    OllamaLegalGenerator,
+    EvidenceBoundControlledGenerator,
     OllamaSemanticSupportValidator,
 )
 from consultor_juridico.evaluation.dataset import load_dataset
@@ -19,6 +19,8 @@ from consultor_juridico.retrieval.embeddings import OllamaEmbeddingProvider
 
 DATASET = Path("evaluation/datasets/real_world_short_v1.json")
 EXPECTED_HASH = "c6b496d20dd9b7b5952f7abecca92e64c0179ce134794f5e3b39e579025f441f"
+PHASE = "95"
+GENERATION_MODE = "EBCG_V1"
 
 
 def prepare_output_path(output: Path) -> Path:
@@ -38,12 +40,7 @@ def main(output: Path) -> None:
     provider = OllamaEmbeddingProvider(
         settings.ollama_base_url, settings.embedding_model, settings.embedding_timeout
     )
-    generator = OllamaLegalGenerator(
-        settings.ollama_base_url,
-        settings.ollama_model,
-        settings.consultation_timeout,
-        settings.consultation_max_tokens,
-    )
+    generator = EvidenceBoundControlledGenerator()
     semantic = OllamaSemanticSupportValidator(
         settings.ollama_base_url,
         settings.semantic_judge_model or settings.ollama_model,
@@ -58,13 +55,12 @@ def main(output: Path) -> None:
         settings.embedding_model,
     )
     payload = {
-        "phase": "91.1",
+        "phase": PHASE,
         "dataset": DATASET.name,
         "dataset_sha256": digest,
         "configuration": {
-            "generator_model": settings.ollama_model,
-            "generator_num_predict": settings.consultation_max_tokens,
-            "generator_think": False,
+            "generation_mode": GENERATION_MODE,
+            "generator_model": None,
             "semantic_model": settings.semantic_judge_model or settings.ollama_model,
             "semantic_num_predict": 500,
             "semantic_think": False,

@@ -2272,6 +2272,16 @@ ranking/seleção.
 
 Detalhes: [Fase 94 — decisão arquitetural](docs/104-fase-94-generation-architecture-decision.md) e [ADR 105](docs/105-adr-evidence-bound-controlled-generation.md).
 
+### Fase 95 — EBCG-v1 implementado
+
+O caminho MVP1 não usa mais geração livre de claims: `EV001` gera uma única
+claim idêntica ao seu snapshot, com Attribution, Locator, Citation, Polarity e
+Semantic Support preservados. O LLM atua somente como veto semântico
+fail-closed. O primeiro E2E da nova arquitetura está preparado, mas permanece
+manual.
+
+Detalhes: [Fase 95 — EBCG-v1](docs/106-fase-95-ebcg-v1-implementation.md).
+
 ---
 
 ## Filosofia do projeto

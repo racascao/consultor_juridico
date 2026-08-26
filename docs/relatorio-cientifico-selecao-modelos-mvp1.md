@@ -33,6 +33,11 @@ por uma Core Claim factual ligada ao primeiro EvidenceItem já selecionado. O
 modelo local continuará somente como veto semântico; a decisão preserva a
 cadeia auditável e mantém experimentos não integrados fora da produção.
 
+A Fase 95 implementou EBCG-v1 no caminho de produção. A próxima medição será o
+primeiro E2E dessa arquitetura, identificado como `phase=95` e
+`generation_mode=EBCG_V1`; ela não deve ser confundida com mais uma rodada de
+prompt tuning.
+
 **Palavras-chave:** RAG jurídico; LLM local; avaliação de modelos; segurança; evidência; citação; fail-closed; Constituição Federal; Ollama; CPU.
 
 ---

@@ -522,3 +522,12 @@ Estado: `BLOCKED` — Granite 8B+8B executado; judge rejeita voto facultativo, m
 - [x] Plano único de implementação e novo E2E definido
 - [x] `docs/104-fase-94-generation-architecture-decision.md`
 - [x] `docs/105-adr-evidence-bound-controlled-generation.md`
+
+## Fase 95 — Implementação consolidada do EBCG-v1
+
+- [x] `EvidenceBoundControlledGenerator` determinístico integrado ao caminho MVP1
+- [x] Core Evidence `EV001`; Core Claim igual ao `text_snapshot`
+- [x] Sem composição de pai, multi-evidence ou fallback
+- [x] Harness E2E registra `phase=95` e `generation_mode=EBCG_V1`
+- [x] Primeiro E2E EBCG-v1 preparado para execução manual
+- [x] `docs/106-fase-95-ebcg-v1-implementation.md`

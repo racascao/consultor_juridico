@@ -6,9 +6,9 @@ from typing import Any
 from sqlalchemy.orm import Session
 
 from consultor_juridico.consultation import (
-    OllamaLegalGenerator,
     OllamaSemanticSupportValidator,
 )
+from consultor_juridico.consultation.llm import LegalGenerator
 from consultor_juridico.consultation.selection import (
     select_evidence_candidates_with_diagnostics,
 )
@@ -35,7 +35,7 @@ def evaluate_real_world_case(
     session: Session,
     case: EvaluationCase,
     provider: OllamaEmbeddingProvider,
-    generator: OllamaLegalGenerator,
+    generator: LegalGenerator,
     semantic_validator: OllamaSemanticSupportValidator,
     model_name: str,
     embedding_model: str,
@@ -269,7 +269,7 @@ def evaluate_real_world_case(
 def evaluate_real_world(
     cases: tuple[EvaluationCase, ...],
     provider: OllamaEmbeddingProvider,
-    generator: OllamaLegalGenerator,
+    generator: LegalGenerator,
     semantic_validator: OllamaSemanticSupportValidator,
     model_name: str,
     embedding_model: str,

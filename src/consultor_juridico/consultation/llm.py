@@ -3,7 +3,7 @@
 import json
 import re
 from copy import deepcopy
-from typing import Any
+from typing import Any, Protocol
 
 import httpx
 
@@ -102,6 +102,52 @@ SCOPED_RESPONSE_SCHEMA: dict[str, Any] = {
     "additionalProperties": False,
 }
 SCOPED_BINDING_RE = re.compile(r"\bEV\d{3,}\b|\bSS-[0-9a-f-]+\b", re.IGNORECASE)
+
+
+class LegalGenerator(Protocol):
+    """Contrato mínimo comum a geradores livres e controlados."""
+
+    def generate(
+        self,
+        question: str,
+        evidence_items: tuple[EvidenceItem, ...],
+        *,
+        correction: tuple[str, ...] = (),
+    ) -> GeneratedResponse: ...
+
+
+class EvidenceBoundControlledGenerator:
+    """Gera uma única claim factual a partir da Core Evidence congelada.
+
+    EBCG-v1 não interpreta, resume nem combina texto: EV001 é a autoridade
+    exclusiva do conteúdo apresentado. O construtor é puro e não possui I/O.
+    """
+
+    generation_mode = "EBCG_V1"
+
+    def generate(
+        self,
+        question: str,
+        evidence_items: tuple[EvidenceItem, ...],
+        *,
+        correction: tuple[str, ...] = (),
+    ) -> GeneratedResponse:
+        del question, correction
+        core = next(
+            (
+                item
+                for item in evidence_items
+                if item.evidence_code == "EV001"
+                and bool(getattr(item, "is_validated", False))
+                and isinstance(getattr(item, "text_snapshot", None), str)
+                and item.text_snapshot.strip()
+            ),
+            None,
+        )
+        if core is None:
+            return GeneratedResponse("", (), abstain=True)
+        claim = GeneratedClaim("C1", core.text_snapshot, ("EV001",))
+        return GeneratedResponse(core.text_snapshot, (claim,), abstain=False)
 
 
 class OllamaLegalGenerator:

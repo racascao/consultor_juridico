@@ -12,7 +12,7 @@ from sqlalchemy import func, select
 from consultor_juridico import __version__
 from consultor_juridico.config import settings
 from consultor_juridico.consultation import (
-    OllamaLegalGenerator,
+    EvidenceBoundControlledGenerator,
     OllamaSemanticSupportValidator,
     run_consultation,
 )
@@ -313,12 +313,7 @@ def consult(
     """Executa consulta jurídica com respostas fundamentadas."""
     top_k = limit or settings.consultation_top_k
     provider = _embedding_provider()
-    generator = OllamaLegalGenerator(
-        settings.ollama_base_url,
-        settings.ollama_model,
-        settings.consultation_timeout,
-        settings.consultation_max_tokens,
-    )
+    generator = EvidenceBoundControlledGenerator()
     semantic_validator = OllamaSemanticSupportValidator(
         settings.ollama_base_url,
         settings.semantic_judge_model or settings.ollama_model,
@@ -456,12 +451,7 @@ def eval_consultation_command(
         case for case in cases if category is None or case.category == category
     )[:case_limit]
     provider = _embedding_provider()
-    generator = OllamaLegalGenerator(
-        settings.ollama_base_url,
-        model or settings.ollama_model,
-        settings.consultation_timeout,
-        settings.consultation_max_tokens,
-    )
+    generator = EvidenceBoundControlledGenerator()
     semantic_validator = OllamaSemanticSupportValidator(
         settings.ollama_base_url,
         settings.semantic_judge_model or model or settings.ollama_model,
@@ -639,12 +629,7 @@ def eval_real_world_command(
     provider = _embedding_provider()
     gen_model = model or settings.ollama_model
     judge_model = semantic_judge_model or settings.semantic_judge_model or gen_model
-    generator = OllamaLegalGenerator(
-        settings.ollama_base_url,
-        gen_model,
-        settings.consultation_timeout,
-        settings.consultation_max_tokens,
-    )
+    generator = EvidenceBoundControlledGenerator()
     validator = OllamaSemanticSupportValidator(
         settings.ollama_base_url, judge_model, settings.consultation_timeout
     )
@@ -655,7 +640,8 @@ def eval_real_world_command(
         {
             "generated_at": datetime.now(UTC).isoformat(),
             "dataset_version": version,
-            "generator_model": gen_model,
+            "generation_mode": "EBCG_V1",
+            "generator_model": None,
             "semantic_judge_model": judge_model,
             "embedding_model": settings.embedding_model,
             "embedding_dimensions": 768,

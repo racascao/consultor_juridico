@@ -8,7 +8,7 @@ from sqlalchemy.orm import Session
 from consultor_juridico.consultation.attribution import deterministically_attribute
 from consultor_juridico.consultation.errors import LLMResponseError
 from consultor_juridico.consultation.evidence import build_evidence_set
-from consultor_juridico.consultation.llm import OllamaLegalGenerator
+from consultor_juridico.consultation.llm import LegalGenerator
 from consultor_juridico.consultation.locator import validate_response_locators
 from consultor_juridico.consultation.polarity import (
     can_route_to_semantic,
@@ -40,7 +40,7 @@ def run_consultation(
     question: str,
     *,
     retriever: Retriever,
-    generator: OllamaLegalGenerator,
+    generator: LegalGenerator,
     model_name: str,
     semantic_validator: SemanticSupportValidator,
     max_generation_attempts: int = 2,
@@ -48,6 +48,7 @@ def run_consultation(
 ) -> ConsultationResult:
     if not question.strip():
         raise ValueError("A pergunta não pode ser vazia.")
+    generation_mode = getattr(generator, "generation_mode", "OLLAMA")
     retrieved = retriever(question)
     candidates = select_evidence_candidates(
         retrieved, limit=evidence_limit, question=question
@@ -62,6 +63,7 @@ def run_consultation(
             "selected_candidate_count": len(candidates),
             "removed_by_selection": len(retrieved) - len(candidates),
             "model": model_name,
+            "generation_mode": generation_mode,
             "sufficiency": {
                 "decision": sufficiency.decision.value,
                 "reasons": list(sufficiency.reasons),
@@ -150,6 +152,7 @@ def run_consultation(
                     sufficiency,
                     semantic,
                     attribution_diagnostics,
+                    generation_mode,
                 )
             errors = semantic.errors
             continue
@@ -183,6 +186,7 @@ def _persist_valid_response(
     sufficiency,
     semantic_support,
     attribution_diagnostics,
+    generation_mode: str,
 ) -> ConsultationResult:
     items = {item.evidence_code: item for item in evidence_set.items}
     citation_pairs = []
@@ -221,6 +225,8 @@ def _persist_valid_response(
         "raw_llm_answer": response.answer,
         "answer_sha256": hashlib.sha256(final_answer.encode()).hexdigest(),
         "llm_model": model_name,
+        "semantic_model": model_name,
+        "generation_mode": generation_mode,
         "generation_attempts": attempts,
         "semantic_support": [
             {

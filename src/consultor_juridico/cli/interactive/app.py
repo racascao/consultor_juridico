@@ -16,7 +16,7 @@ from consultor_juridico.cli.interactive.readiness import (
 )
 from consultor_juridico.config import settings
 from consultor_juridico.consultation import (
-    OllamaLegalGenerator,
+    EvidenceBoundControlledGenerator,
     OllamaSemanticSupportValidator,
     run_consultation,
 )
@@ -136,12 +136,7 @@ def run_consultation_screen() -> None:
 
     # Orquestração do pipeline
     provider = _embedding_provider()
-    generator = OllamaLegalGenerator(
-        settings.ollama_base_url,
-        settings.ollama_model,
-        settings.consultation_timeout,
-        settings.consultation_max_tokens,
-    )
+    generator = EvidenceBoundControlledGenerator()
     semantic_validator = OllamaSemanticSupportValidator(
         settings.ollama_base_url,
         settings.semantic_judge_model or settings.ollama_model,
