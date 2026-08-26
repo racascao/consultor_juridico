@@ -1,0 +1,420 @@
+{
+  "artifact": "evaluation/results/model_benchmark_95_ebcg_e2e_1/e2e_ebcg_run_1.json",
+  "raw_artifact_sha256": "67d6faffa28a0171896e0e2c97bbc5718192652c7f966aa669380f7e6eeab9b3",
+  "dataset": "evaluation/datasets/real_world_short_v1.json",
+  "raw_artifact_unchanged": "YES",
+  "core_evidence_v1_policy": "EV001",
+  "policy_a_candidate": "QUERY_COVERAGE_BASE_RELEVANCE_SELECTED_POSITION",
+  "policy_b_candidate": "QUERY_COVERAGE_MARGINAL_COVERAGE_BASE_RELEVANCE_SELECTED_POSITION",
+  "core_evidence_v1_target_hits": 5,
+  "policy_a_target_hits": 5,
+  "policy_b_target_hits": 7,
+  "results": [
+    {
+      "case_id": "rw-pena-morte",
+      "allowed_targets": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII"
+      ],
+      "selected_evidence": [
+        {
+          "evidence_code": "EV001",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A",
+          "query_coverage": 1.0,
+          "marginal_coverage": 0.0,
+          "base_relevance": 0.825,
+          "final_score": 0.825,
+          "selected_position": 1,
+          "is_allowed_target": true
+        },
+        {
+          "evidence_code": "EV002",
+          "identity_key": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:7",
+          "query_coverage": 0.5,
+          "marginal_coverage": 0.0,
+          "base_relevance": 0.675,
+          "final_score": 0.432697,
+          "selected_position": 2,
+          "is_allowed_target": false
+        },
+        {
+          "evidence_code": "EV003",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIII",
+          "query_coverage": 0.5,
+          "marginal_coverage": 0.0,
+          "base_relevance": 0.525,
+          "final_score": 0.364375,
+          "selected_position": 3,
+          "is_allowed_target": false
+        }
+      ],
+      "v1_core_evidence": "EV001",
+      "policy_a_core_evidence": "EV001",
+      "policy_b_core_evidence": "EV001"
+    },
+    {
+      "case_id": "rw-prisao-perpetua",
+      "allowed_targets": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B"
+      ],
+      "selected_evidence": [
+        {
+          "evidence_code": "EV001",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXII",
+          "query_coverage": 0.5,
+          "marginal_coverage": 0.0,
+          "base_relevance": 0.675,
+          "final_score": 0.675,
+          "selected_position": 1,
+          "is_allowed_target": false
+        },
+        {
+          "evidence_code": "EV002",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B",
+          "query_coverage": 0.5,
+          "marginal_coverage": 0.5,
+          "base_relevance": 0.575,
+          "final_score": 0.58375,
+          "selected_position": 2,
+          "is_allowed_target": true
+        },
+        {
+          "evidence_code": "EV003",
+          "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:V/ARTICLE:53/PARAGRAPH:2",
+          "query_coverage": 0.5,
+          "marginal_coverage": 0.0,
+          "base_relevance": 0.508333,
+          "final_score": 0.355673,
+          "selected_position": 3,
+          "is_allowed_target": false
+        }
+      ],
+      "v1_core_evidence": "EV001",
+      "policy_a_core_evidence": "EV001",
+      "policy_b_core_evidence": "EV002"
+    },
+    {
+      "case_id": "rw-liberdade-religiosa",
+      "allowed_targets": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI"
+      ],
+      "selected_evidence": [
+        {
+          "evidence_code": "EV001",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+          "query_coverage": 1.0,
+          "marginal_coverage": 0.0,
+          "base_relevance": 1.0,
+          "final_score": 1.0,
+          "selected_position": 1,
+          "is_allowed_target": true
+        },
+        {
+          "evidence_code": "EV002",
+          "identity_key": "CF88/@root/PREAMBLE:@preamble",
+          "query_coverage": 0.5,
+          "marginal_coverage": 0.0,
+          "base_relevance": 0.541667,
+          "final_score": 0.38125,
+          "selected_position": 2,
+          "is_allowed_target": false
+        },
+        {
+          "evidence_code": "EV003",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+          "query_coverage": 0.5,
+          "marginal_coverage": 0.0,
+          "base_relevance": 0.575,
+          "final_score": 0.375417,
+          "selected_position": 3,
+          "is_allowed_target": false
+        }
+      ],
+      "v1_core_evidence": "EV001",
+      "policy_a_core_evidence": "EV001",
+      "policy_b_core_evidence": "EV001"
+    },
+    {
+      "case_id": "rw-racismo",
+      "allowed_targets": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII"
+      ],
+      "selected_evidence": [
+        {
+          "evidence_code": "EV001",
+          "identity_key": "CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII",
+          "query_coverage": 1.0,
+          "marginal_coverage": 0.0,
+          "base_relevance": 1.0,
+          "final_score": 1.0,
+          "selected_position": 1,
+          "is_allowed_target": false
+        },
+        {
+          "evidence_code": "EV002",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII",
+          "query_coverage": 1.0,
+          "marginal_coverage": 0.0,
+          "base_relevance": 0.9,
+          "final_score": 0.514091,
+          "selected_position": 2,
+          "is_allowed_target": true
+        }
+      ],
+      "v1_core_evidence": "EV001",
+      "policy_a_core_evidence": "EV001",
+      "policy_b_core_evidence": "EV001"
+    },
+    {
+      "case_id": "rw-extradicao",
+      "allowed_targets": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII"
+      ],
+      "selected_evidence": [
+        {
+          "evidence_code": "EV001",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII",
+          "query_coverage": 1.0,
+          "marginal_coverage": 0.0,
+          "base_relevance": 1.0,
+          "final_score": 1.0,
+          "selected_position": 1,
+          "is_allowed_target": true
+        },
+        {
+          "evidence_code": "EV002",
+          "identity_key": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:22/INCISO:XV",
+          "query_coverage": 1.0,
+          "marginal_coverage": 0.0,
+          "base_relevance": 0.9,
+          "final_score": 0.497857,
+          "selected_position": 2,
+          "is_allowed_target": false
+        },
+        {
+          "evidence_code": "EV003",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI",
+          "query_coverage": 1.0,
+          "marginal_coverage": 0.0,
+          "base_relevance": 0.84,
+          "final_score": 0.487091,
+          "selected_position": 3,
+          "is_allowed_target": true
+        }
+      ],
+      "v1_core_evidence": "EV001",
+      "policy_a_core_evidence": "EV001",
+      "policy_b_core_evidence": "EV001"
+    },
+    {
+      "case_id": "rw-direito-vida",
+      "allowed_targets": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput"
+      ],
+      "selected_evidence": [
+        {
+          "evidence_code": "EV001",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+          "query_coverage": 1.0,
+          "marginal_coverage": 0.0,
+          "base_relevance": 1.0,
+          "final_score": 1.0,
+          "selected_position": 1,
+          "is_allowed_target": true
+        },
+        {
+          "evidence_code": "EV002",
+          "identity_key": "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput",
+          "query_coverage": 1.0,
+          "marginal_coverage": 0.0,
+          "base_relevance": 0.9,
+          "final_score": 0.527449,
+          "selected_position": 2,
+          "is_allowed_target": false
+        },
+        {
+          "evidence_code": "EV003",
+          "identity_key": "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput",
+          "query_coverage": 1.0,
+          "marginal_coverage": 0.0,
+          "base_relevance": 0.866667,
+          "final_score": 0.493636,
+          "selected_position": 3,
+          "is_allowed_target": false
+        }
+      ],
+      "v1_core_evidence": "EV001",
+      "policy_a_core_evidence": "EV001",
+      "policy_b_core_evidence": "EV001"
+    },
+    {
+      "case_id": "rw-liberdade-expressao",
+      "allowed_targets": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IV",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX",
+        "CF88/@root/TITLE:VIII/CHAPTER:V/ARTICLE:220/CAPUT:@caput"
+      ],
+      "selected_evidence": [
+        {
+          "evidence_code": "EV001",
+          "identity_key": "CF88/@root/PREAMBLE:@preamble",
+          "query_coverage": 0.5,
+          "marginal_coverage": 0.0,
+          "base_relevance": 0.675,
+          "final_score": 0.675,
+          "selected_position": 1,
+          "is_allowed_target": false
+        },
+        {
+          "evidence_code": "EV002",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX",
+          "query_coverage": 0.5,
+          "marginal_coverage": 0.5,
+          "base_relevance": 0.515,
+          "final_score": 0.579544,
+          "selected_position": 2,
+          "is_allowed_target": true
+        },
+        {
+          "evidence_code": "EV003",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+          "query_coverage": 0.5,
+          "marginal_coverage": 0.0,
+          "base_relevance": 0.575,
+          "final_score": 0.377868,
+          "selected_position": 3,
+          "is_allowed_target": false
+        }
+      ],
+      "v1_core_evidence": "EV001",
+      "policy_a_core_evidence": "EV001",
+      "policy_b_core_evidence": "EV002"
+    },
+    {
+      "case_id": "rw-idade-presidente",
+      "allowed_targets": [
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A"
+      ],
+      "selected_evidence": [
+        {
+          "evidence_code": "EV001",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A",
+          "query_coverage": 0.666667,
+          "marginal_coverage": 0.0,
+          "base_relevance": 0.783333,
+          "final_score": 0.783333,
+          "selected_position": 1,
+          "is_allowed_target": true
+        },
+        {
+          "evidence_code": "EV002",
+          "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:80/CAPUT:@caput",
+          "query_coverage": 0.333333,
+          "marginal_coverage": 0.0,
+          "base_relevance": 0.466667,
+          "final_score": 0.329118,
+          "selected_position": 2,
+          "is_allowed_target": false
+        },
+        {
+          "evidence_code": "EV003",
+          "identity_key": "ADCT/@root/ARTICLE:13/PARAGRAPH:5",
+          "query_coverage": 0.333333,
+          "marginal_coverage": 0.0,
+          "base_relevance": 0.395238,
+          "final_score": 0.310549,
+          "selected_position": 3,
+          "is_allowed_target": false
+        }
+      ],
+      "v1_core_evidence": "EV001",
+      "policy_a_core_evidence": "EV001",
+      "policy_b_core_evidence": "EV001"
+    },
+    {
+      "case_id": "rw-voto-obrigatorio",
+      "allowed_targets": [
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I/ALINEA:A",
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput"
+      ],
+      "selected_evidence": [
+        {
+          "evidence_code": "EV001",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I",
+          "query_coverage": 1.0,
+          "marginal_coverage": 0.0,
+          "base_relevance": 0.82,
+          "final_score": 0.82,
+          "selected_position": 1,
+          "is_allowed_target": false
+        },
+        {
+          "evidence_code": "EV002",
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:3/INCISO:I",
+          "query_coverage": 0.5,
+          "marginal_coverage": 0.0,
+          "base_relevance": 0.575,
+          "final_score": 0.387321,
+          "selected_position": 2,
+          "is_allowed_target": false
+        },
+        {
+          "evidence_code": "EV003",
+          "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/PARAGRAPH:3",
+          "query_coverage": 0.5,
+          "marginal_coverage": 0.0,
+          "base_relevance": 0.541667,
+          "final_score": 0.3675,
+          "selected_position": 3,
+          "is_allowed_target": false
+        }
+      ],
+      "v1_core_evidence": "EV001",
+      "policy_a_core_evidence": "EV001",
+      "policy_b_core_evidence": "EV001"
+    },
+    {
+      "case_id": "rw-estado-sitio",
+      "allowed_targets": [
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II/ARTICLE:137/CAPUT:@caput",
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:138/CAPUT:@caput"
+      ],
+      "selected_evidence": [
+        {
+          "evidence_code": "EV001",
+          "identity_key": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V",
+          "query_coverage": 1.0,
+          "marginal_coverage": 0.0,
+          "base_relevance": 1.0,
+          "final_score": 1.0,
+          "selected_position": 1,
+          "is_allowed_target": false
+        },
+        {
+          "evidence_code": "EV002",
+          "identity_key": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/PARAGRAPH:ÚNICO",
+          "query_coverage": 1.0,
+          "marginal_coverage": 0.0,
+          "base_relevance": 0.825,
+          "final_score": 0.488323,
+          "selected_position": 2,
+          "is_allowed_target": false
+        },
+        {
+          "evidence_code": "EV003",
+          "identity_key": "CF88/@root/TITLE:V/CHAPTER:I",
+          "query_coverage": 1.0,
+          "marginal_coverage": 0.0,
+          "base_relevance": 0.833333,
+          "final_score": 0.475,
+          "selected_position": 3,
+          "is_allowed_target": false
+        }
+      ],
+      "v1_core_evidence": "EV001",
+      "policy_a_core_evidence": "EV001",
+      "policy_b_core_evidence": "EV001"
+    }
+  ]
+}

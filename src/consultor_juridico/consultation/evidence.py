@@ -3,6 +3,7 @@
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
+from consultor_juridico.consultation.selection import SelectionCandidateDiagnostic
 from consultor_juridico.models import (
     Chunk,
     ChunkLegalElement,
@@ -23,6 +24,7 @@ def build_evidence_set(
     candidates: tuple[RetrievalCandidate, ...],
     *,
     retrieval_metadata: dict[str, object],
+    selection_diagnostics: tuple[SelectionCandidateDiagnostic, ...] = (),
 ) -> EvidenceSet:
     evidence_set = EvidenceSet(
         query_text=question,
@@ -34,6 +36,9 @@ def build_evidence_set(
     session.add(evidence_set)
     session.flush()
 
+    diagnostics_by_identity = {
+        diagnostic.identity_key: diagnostic for diagnostic in selection_diagnostics
+    }
     for position, candidate in enumerate(candidates, start=1):
         row = session.execute(
             select(
@@ -74,6 +79,32 @@ def build_evidence_set(
             parent = session.get(LegalElement, element.parent_id)
             if parent_context is None and parent and parent.normalized_text:
                 parent_context = parent.normalized_text.strip()
+        diagnostic = diagnostics_by_identity.get(candidate.identity_key)
+        validation_metadata = {
+            "legal_act": act.short_name,
+            "legal_version_id": str(version.id),
+            "legal_provision_id": str(provision.id),
+            "identity_key": provision.identity_key,
+            "text_status": element.text_status,
+            "content_role": element.content_role,
+            "lexical_rank": candidate.lexical_rank,
+            "lexical_score": candidate.lexical_score,
+            "vector_rank": candidate.vector_rank,
+            "vector_score": candidate.vector_score,
+            "rrf_score": candidate.rrf_score,
+            "contextual_score": candidate.contextual_score,
+            "parent_context": parent_context,
+        }
+        if diagnostic is not None:
+            validation_metadata.update(
+                {
+                    "query_coverage": diagnostic.query_coverage,
+                    "marginal_coverage": diagnostic.marginal_coverage,
+                    "base_relevance": diagnostic.base_relevance,
+                    "final_score": diagnostic.final_score,
+                    "selected_position": diagnostic.selected_position,
+                }
+            )
         item = EvidenceItem(
             evidence_set_id=evidence_set.id,
             chunk_id=chunk.id,
@@ -83,21 +114,7 @@ def build_evidence_set(
             text_snapshot=chunk.chunk_text,
             source_url=document.url_source,
             is_validated=True,
-            validation_metadata={
-                "legal_act": act.short_name,
-                "legal_version_id": str(version.id),
-                "legal_provision_id": str(provision.id),
-                "identity_key": provision.identity_key,
-                "text_status": element.text_status,
-                "content_role": element.content_role,
-                "lexical_rank": candidate.lexical_rank,
-                "lexical_score": candidate.lexical_score,
-                "vector_rank": candidate.vector_rank,
-                "vector_score": candidate.vector_score,
-                "rrf_score": candidate.rrf_score,
-                "contextual_score": candidate.contextual_score,
-                "parent_context": parent_context,
-            },
+            validation_metadata=validation_metadata,
         )
         session.add(item)
         evidence_set.items.append(item)

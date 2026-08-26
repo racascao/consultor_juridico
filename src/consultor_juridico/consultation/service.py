@@ -14,7 +14,9 @@ from consultor_juridico.consultation.polarity import (
     can_route_to_semantic,
     validate_response_polarity,
 )
-from consultor_juridico.consultation.selection import select_evidence_candidates
+from consultor_juridico.consultation.selection import (
+    select_evidence_candidates_with_diagnostics,
+)
 from consultor_juridico.consultation.semantic import SemanticSupportValidator
 from consultor_juridico.consultation.sufficiency import assess_evidence_sufficiency
 from consultor_juridico.consultation.types import (
@@ -50,9 +52,10 @@ def run_consultation(
         raise ValueError("A pergunta não pode ser vazia.")
     generation_mode = getattr(generator, "generation_mode", "OLLAMA")
     retrieved = retriever(question)
-    candidates = select_evidence_candidates(
+    selection = select_evidence_candidates_with_diagnostics(
         retrieved, limit=evidence_limit, question=question
     )
+    candidates = selection.candidates
     sufficiency = assess_evidence_sufficiency(question, candidates)
     evidence_set = build_evidence_set(
         session,
@@ -72,6 +75,7 @@ def run_consultation(
                 "retriever_agreement": sufficiency.retriever_agreement,
             },
         },
+        selection_diagnostics=selection.diagnostics,
     )
     if not sufficiency.is_sufficient:
         evidence_set.validation_status = "INSUFFICIENT_EVIDENCE"
@@ -106,7 +110,11 @@ def run_consultation(
             )
             continue
         response = attribution.response
-        locator = validate_response_locators(response, tuple(evidence_set.items))
+        locator = validate_response_locators(
+            response,
+            tuple(evidence_set.items),
+            generation_mode=generation_mode,
+        )
         if not locator.valid:
             errors = locator.errors
             continue

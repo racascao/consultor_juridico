@@ -24,10 +24,20 @@ class LocatorResult:
 
 
 def validate_response_locators(
-    response: GeneratedResponse, items: tuple[EvidenceItem, ...]
+    response: GeneratedResponse,
+    items: tuple[EvidenceItem, ...],
+    *,
+    generation_mode: str | None = None,
 ) -> LocatorResult:
     errors: list[str] = []
     for claim in response.claims:
+        if _is_exact_ebcg_snapshot(
+            claim.text, claim.evidence_codes, items, generation_mode
+        ):
+            # Em EBCG, o locator autoritativo é o do EvidenceItem ligado à
+            # claim. Remissões normativas dentro do excerto não são locators
+            # declarados pelo sistema.
+            continue
         matches = list(_LOCATOR.finditer(claim.text))
         if not matches:
             continue
@@ -43,6 +53,21 @@ def validate_response_locators(
         ):
             errors.append(f"LOCATOR_MISMATCH: {claim.claim_code}")
     return LocatorResult(not errors, bool(response.claims), tuple(errors))
+
+
+def _is_exact_ebcg_snapshot(
+    claim_text: str,
+    evidence_codes: tuple[str, ...],
+    items: tuple[EvidenceItem, ...],
+    generation_mode: str | None,
+) -> bool:
+    if generation_mode not in {"EBCG_V1", "EBCG_V2"} or len(evidence_codes) != 1:
+        return False
+    code = evidence_codes[0]
+    return any(
+        item.evidence_code == code and claim_text == item.text_snapshot
+        for item in items
+    )
 
 
 def _identity(item: EvidenceItem) -> str:

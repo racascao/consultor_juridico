@@ -531,3 +531,15 @@ Estado: `BLOCKED` — Granite 8B+8B executado; judge rejeita voto facultativo, m
 - [x] Harness E2E registra `phase=95` e `generation_mode=EBCG_V1`
 - [x] Primeiro E2E EBCG-v1 preparado para execução manual
 - [x] `docs/106-fase-95-ebcg-v1-implementation.md`
+
+## Fase 96 — Correção da medição + Core Evidence Policy v2
+
+- [x] `WRONG_TARGET` e target fidelity explícitos no harness E2E
+- [x] Auditoria offline do EBCG-v1 preservando o artefato bruto: 4 corretas
+  estritas, 5 `WRONG_TARGET`, 1 false abstention e 1 abstention correta
+- [x] Policy A auditada sem ganho (5 hits); Policy B aprovada (7 hits)
+- [x] EBCG-v2 integrado: cobertura → contribuição marginal → relevância → posição
+- [x] Correção limitada do Locator Fidelity para remissão interna de snapshot EBCG
+- [ ] Próximo E2E manual EBCG-v2 pendente; sem nova inferência nesta fase
+- [x] `docs/107-fase-96-target-fidelity-core-evidence-v2.md`
+- [x] `docs/108-adr-core-evidence-policy-v2.md`

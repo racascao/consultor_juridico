@@ -14,7 +14,9 @@ from consultor_juridico.consultation.selection import (
 )
 from consultor_juridico.consultation.sufficiency import assess_evidence_sufficiency
 from consultor_juridico.db.session import SessionLocal
+from consultor_juridico.evaluation.target_fidelity import assess_target_fidelity
 from consultor_juridico.evaluation.types import EvaluationCase
+from consultor_juridico.models import EvidenceSet
 from consultor_juridico.retrieval import (
     RetrievalCandidate,
     hybrid_search,
@@ -105,6 +107,22 @@ def evaluate_real_world_case(
         evidence_limit=settings.consultation_evidence_limit,
     )
 
+    evidence_set = session.get(EvidenceSet, final_result.evidence_set_id)
+    evidence_by_code = (
+        {item.evidence_code: item for item in evidence_set.items}
+        if evidence_set
+        else {}
+    )
+    cited_codes = tuple(
+        code for claim in final_result.claims for code in claim.evidence_codes
+    )
+    used_identity_keys = tuple(
+        str((evidence_by_code[code].validation_metadata or {}).get("identity_key", ""))
+        for code in cited_codes
+        if code in evidence_by_code
+    )
+    target_fidelity = assess_target_fidelity(case, used_identity_keys)
+
     # Determine classification
     # CORRECT_ANSWER: expect True + ANSWERED + valid citations
     # CORRECT_ABSTENTION: expect False + ABSTAINED
@@ -113,7 +131,7 @@ def evaluate_real_world_case(
     outcome = final_result.outcome.value
     expect = case.expect_answer
     if expect and outcome == "ANSWERED":
-        classification = "CORRECT_ANSWER"
+        classification = "CORRECT_ANSWER" if target_fidelity.passed else "WRONG_TARGET"
     elif not expect and outcome == "ABSTAINED":
         classification = "CORRECT_ABSTENTION"
     elif expect and outcome == "ABSTAINED":
@@ -125,6 +143,8 @@ def evaluate_real_world_case(
 
     # Determine failure stage
     failure_stage = None
+    if classification == "WRONG_TARGET":
+        failure_stage = "TARGET_FIDELITY"
     if classification == "FALSE_ABSTENTION":
         if not hit:
             failure_stage = "RETRIEVAL_MISS"
@@ -254,6 +274,14 @@ def evaluate_real_world_case(
                 for item in final_result.attribution_diagnostics
             ],
         },
+        "target_fidelity": {
+            "allowed_targets": list(target_fidelity.allowed_targets),
+            "used_evidence_identity_keys": list(
+                target_fidelity.used_evidence_identity_keys
+            ),
+            "passed": target_fidelity.passed,
+            "reason": target_fidelity.reason,
+        },
         "semantic_validation": {
             "errors": list(final_result.validation_errors),
         },
@@ -298,6 +326,9 @@ def evaluate_real_world(
     false_abstentions = sum(
         1 for r in results if r["result"]["classification"] == "FALSE_ABSTENTION"
     )
+    wrong_targets = sum(
+        1 for r in results if r["result"]["classification"] == "WRONG_TARGET"
+    )
     unsafe_answers = sum(
         1 for r in results if r["result"]["classification"] == "UNSAFE_ANSWER"
     )
@@ -311,7 +342,19 @@ def evaluate_real_world(
         "correct_answers": correct_answers,
         "correct_abstentions": correct_abstentions,
         "false_abstentions": false_abstentions,
+        "wrong_targets": wrong_targets,
         "unsafe_answers": unsafe_answers,
+        "answered_cases": sum(
+            1
+            for r in results
+            if r["result"]["classification"] in {"CORRECT_ANSWER", "WRONG_TARGET"}
+        ),
+        "target_fidelity_passes": sum(
+            r["target_fidelity"]["passed"] is True for r in results
+        ),
+        "target_fidelity_failures": sum(
+            r["target_fidelity"]["passed"] is False for r in results
+        ),
         "retrieval_hit_rate": retrieval_hit_rate,
         "results": results,
     }

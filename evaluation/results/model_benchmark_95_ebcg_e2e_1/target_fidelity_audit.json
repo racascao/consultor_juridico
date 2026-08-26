@@ -1,0 +1,171 @@
+{
+  "artifact": "evaluation/results/model_benchmark_95_ebcg_e2e_1/e2e_ebcg_run_1.json",
+  "raw_artifact_sha256": "67d6faffa28a0171896e0e2c97bbc5718192652c7f966aa669380f7e6eeab9b3",
+  "dataset": "evaluation/datasets/real_world_short_v1.json",
+  "raw_artifact_unchanged": "YES",
+  "cases": 11,
+  "correct_answers": 4,
+  "correct_abstentions": 1,
+  "false_abstentions": 1,
+  "wrong_targets": 5,
+  "unsafe_answers": 0,
+  "answered_cases": 9,
+  "target_fidelity_passes": 4,
+  "target_fidelity_failures": 6,
+  "results": [
+    {
+      "case_id": "rw-pena-morte",
+      "legacy_classification": "FALSE_ABSTENTION",
+      "strict_classification": "FALSE_ABSTENTION",
+      "allowed_targets": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII"
+      ],
+      "used_evidence_identity_keys": [],
+      "target_fidelity_pass": false,
+      "reason": "NO_CITED_EVIDENCE_IN_ALLOWED_TARGETS",
+      "failure_stage": "GENERATOR_ABSTENTION"
+    },
+    {
+      "case_id": "rw-prisao-perpetua",
+      "legacy_classification": "CORRECT_ANSWER",
+      "strict_classification": "WRONG_TARGET",
+      "allowed_targets": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B"
+      ],
+      "used_evidence_identity_keys": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXII"
+      ],
+      "target_fidelity_pass": false,
+      "reason": "NO_CITED_EVIDENCE_IN_ALLOWED_TARGETS",
+      "failure_stage": "TARGET_FIDELITY"
+    },
+    {
+      "case_id": "rw-liberdade-religiosa",
+      "legacy_classification": "CORRECT_ANSWER",
+      "strict_classification": "CORRECT_ANSWER",
+      "allowed_targets": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI"
+      ],
+      "used_evidence_identity_keys": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI"
+      ],
+      "target_fidelity_pass": true,
+      "reason": "ALLOWED_TARGET_CITED",
+      "failure_stage": null
+    },
+    {
+      "case_id": "rw-racismo",
+      "legacy_classification": "CORRECT_ANSWER",
+      "strict_classification": "WRONG_TARGET",
+      "allowed_targets": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII"
+      ],
+      "used_evidence_identity_keys": [
+        "CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII"
+      ],
+      "target_fidelity_pass": false,
+      "reason": "NO_CITED_EVIDENCE_IN_ALLOWED_TARGETS",
+      "failure_stage": "TARGET_FIDELITY"
+    },
+    {
+      "case_id": "rw-extradicao",
+      "legacy_classification": "CORRECT_ANSWER",
+      "strict_classification": "CORRECT_ANSWER",
+      "allowed_targets": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII"
+      ],
+      "used_evidence_identity_keys": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII"
+      ],
+      "target_fidelity_pass": true,
+      "reason": "ALLOWED_TARGET_CITED",
+      "failure_stage": null
+    },
+    {
+      "case_id": "rw-direito-vida",
+      "legacy_classification": "CORRECT_ANSWER",
+      "strict_classification": "CORRECT_ANSWER",
+      "allowed_targets": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput"
+      ],
+      "used_evidence_identity_keys": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput"
+      ],
+      "target_fidelity_pass": true,
+      "reason": "ALLOWED_TARGET_CITED",
+      "failure_stage": null
+    },
+    {
+      "case_id": "rw-liberdade-expressao",
+      "legacy_classification": "CORRECT_ANSWER",
+      "strict_classification": "WRONG_TARGET",
+      "allowed_targets": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IV",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX",
+        "CF88/@root/TITLE:VIII/CHAPTER:V/ARTICLE:220/CAPUT:@caput"
+      ],
+      "used_evidence_identity_keys": [
+        "CF88/@root/PREAMBLE:@preamble"
+      ],
+      "target_fidelity_pass": false,
+      "reason": "NO_CITED_EVIDENCE_IN_ALLOWED_TARGETS",
+      "failure_stage": "TARGET_FIDELITY"
+    },
+    {
+      "case_id": "rw-idade-presidente",
+      "legacy_classification": "CORRECT_ANSWER",
+      "strict_classification": "CORRECT_ANSWER",
+      "allowed_targets": [
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A"
+      ],
+      "used_evidence_identity_keys": [
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A"
+      ],
+      "target_fidelity_pass": true,
+      "reason": "ALLOWED_TARGET_CITED",
+      "failure_stage": null
+    },
+    {
+      "case_id": "rw-voto-obrigatorio",
+      "legacy_classification": "CORRECT_ANSWER",
+      "strict_classification": "WRONG_TARGET",
+      "allowed_targets": [
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I/ALINEA:A",
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput"
+      ],
+      "used_evidence_identity_keys": [
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I"
+      ],
+      "target_fidelity_pass": false,
+      "reason": "NO_CITED_EVIDENCE_IN_ALLOWED_TARGETS",
+      "failure_stage": "TARGET_FIDELITY"
+    },
+    {
+      "case_id": "rw-estado-sitio",
+      "legacy_classification": "CORRECT_ANSWER",
+      "strict_classification": "WRONG_TARGET",
+      "allowed_targets": [
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II/ARTICLE:137/CAPUT:@caput",
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:138/CAPUT:@caput"
+      ],
+      "used_evidence_identity_keys": [
+        "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V"
+      ],
+      "target_fidelity_pass": false,
+      "reason": "NO_CITED_EVIDENCE_IN_ALLOWED_TARGETS",
+      "failure_stage": "TARGET_FIDELITY"
+    },
+    {
+      "case_id": "rw-aborto",
+      "legacy_classification": "CORRECT_ABSTENTION",
+      "strict_classification": "CORRECT_ABSTENTION",
+      "allowed_targets": [],
+      "used_evidence_identity_keys": [],
+      "target_fidelity_pass": null,
+      "reason": "NOT_APPLICABLE",
+      "failure_stage": null
+    }
+  ]
+}

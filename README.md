@@ -2282,6 +2282,23 @@ manual.
 
 Detalhes: [Fase 95 — EBCG-v1](docs/106-fase-95-ebcg-v1-implementation.md).
 
+### Fase 96 — Target fidelity e EBCG-v2
+
+A medição EBCG-v1 foi reavaliada sem alterar o artefato bruto: o resultado
+automático `9/10` não expressava fidelidade ao dispositivo-alvo; a regra estrita
+identificou `4` respostas corretas, `5` `WRONG_TARGET`, uma falsa abstenção e
+uma abstenção correta. O harness agora exige que a EvidenceItem ligada à claim
+pertença a `expected_provisions ∪ acceptable_provisions`.
+
+A Core Evidence deixou de ser sempre `EV001`: EBCG-v2 escolhe, entre evidências
+já selecionadas, maior cobertura da query, contribuição marginal, relevância
+base, posição e código. A claim continua uma reprodução literal de uma única
+evidência; não há composição de contexto pai ou geração jurídica livre. O
+próximo E2E permanece manual e deverá registrar `EBCG_V2`.
+
+Detalhes: [Fase 96](docs/107-fase-96-target-fidelity-core-evidence-v2.md) e
+[ADR 108](docs/108-adr-core-evidence-policy-v2.md).
+
 ---
 
 ## Filosofia do projeto

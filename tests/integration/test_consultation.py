@@ -8,7 +8,7 @@ from sqlalchemy import select
 from consultor_juridico.config import settings
 from consultor_juridico.consultation import (
     ConsultationOutcome,
-    OllamaLegalGenerator,
+    EvidenceBoundControlledGenerator,
     OllamaSemanticSupportValidator,
     run_consultation,
 )
@@ -33,12 +33,7 @@ def test_local_consultation_persists_a_valid_traceability_chain():
     provider = OllamaEmbeddingProvider(
         settings.ollama_base_url, settings.embedding_model, settings.embedding_timeout
     )
-    generator = OllamaLegalGenerator(
-        settings.ollama_base_url,
-        settings.ollama_model,
-        settings.consultation_timeout,
-        settings.consultation_max_tokens,
-    )
+    generator = EvidenceBoundControlledGenerator()
     semantic_validator = OllamaSemanticSupportValidator(
         settings.ollama_base_url,
         settings.ollama_model,

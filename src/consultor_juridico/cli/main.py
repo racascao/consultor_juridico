@@ -640,7 +640,7 @@ def eval_real_world_command(
         {
             "generated_at": datetime.now(UTC).isoformat(),
             "dataset_version": version,
-            "generation_mode": "EBCG_V1",
+            "generation_mode": "EBCG_V2",
             "generator_model": None,
             "semantic_judge_model": judge_model,
             "embedding_model": settings.embedding_model,

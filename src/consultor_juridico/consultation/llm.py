@@ -7,6 +7,7 @@ from typing import Any, Protocol
 
 import httpx
 
+from consultor_juridico.consultation.core_evidence import select_core_evidence_v2
 from consultor_juridico.consultation.errors import LLMResponseError
 from consultor_juridico.consultation.support_slots import SupportSlot
 from consultor_juridico.consultation.types import (
@@ -119,11 +120,12 @@ class LegalGenerator(Protocol):
 class EvidenceBoundControlledGenerator:
     """Gera uma única claim factual a partir da Core Evidence congelada.
 
-    EBCG-v1 não interpreta, resume nem combina texto: EV001 é a autoridade
-    exclusiva do conteúdo apresentado. O construtor é puro e não possui I/O.
+    EBCG-v2 não interpreta, resume nem combina texto: a Core Evidence é
+    escolhida somente entre itens já autorizados pelos diagnostics da seleção.
+    O construtor é puro e não possui I/O.
     """
 
-    generation_mode = "EBCG_V1"
+    generation_mode = "EBCG_V2"
 
     def generate(
         self,
@@ -133,20 +135,15 @@ class EvidenceBoundControlledGenerator:
         correction: tuple[str, ...] = (),
     ) -> GeneratedResponse:
         del question, correction
-        core = next(
-            (
-                item
-                for item in evidence_items
-                if item.evidence_code == "EV001"
-                and bool(getattr(item, "is_validated", False))
-                and isinstance(getattr(item, "text_snapshot", None), str)
-                and item.text_snapshot.strip()
-            ),
-            None,
-        )
-        if core is None:
+        core = select_core_evidence_v2(evidence_items)
+        if (
+            core is None
+            or not bool(getattr(core, "is_validated", False))
+            or not isinstance(getattr(core, "text_snapshot", None), str)
+            or not core.text_snapshot.strip()
+        ):
             return GeneratedResponse("", (), abstain=True)
-        claim = GeneratedClaim("C1", core.text_snapshot, ("EV001",))
+        claim = GeneratedClaim("C1", core.text_snapshot, (core.evidence_code,))
         return GeneratedResponse(core.text_snapshot, (claim,), abstain=False)
 
 

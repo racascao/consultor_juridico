@@ -13,14 +13,15 @@ from consultor_juridico.consultation import (
     EvidenceBoundControlledGenerator,
     OllamaSemanticSupportValidator,
 )
+from consultor_juridico.consultation.core_evidence import CORE_EVIDENCE_POLICY_V2
 from consultor_juridico.evaluation.dataset import load_dataset
 from consultor_juridico.evaluation.real_world import evaluate_real_world
 from consultor_juridico.retrieval.embeddings import OllamaEmbeddingProvider
 
 DATASET = Path("evaluation/datasets/real_world_short_v1.json")
 EXPECTED_HASH = "c6b496d20dd9b7b5952f7abecca92e64c0179ce134794f5e3b39e579025f441f"
-PHASE = "95"
-GENERATION_MODE = "EBCG_V1"
+PHASE = "96"
+GENERATION_MODE = "EBCG_V2"
 
 
 def prepare_output_path(output: Path) -> Path:
@@ -60,6 +61,7 @@ def main(output: Path) -> None:
         "dataset_sha256": digest,
         "configuration": {
             "generation_mode": GENERATION_MODE,
+            "core_evidence_policy": CORE_EVIDENCE_POLICY_V2,
             "generator_model": None,
             "semantic_model": settings.semantic_judge_model or settings.ollama_model,
             "semantic_num_predict": 500,
