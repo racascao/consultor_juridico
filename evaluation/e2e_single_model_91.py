@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 from datetime import UTC, datetime
@@ -18,10 +19,18 @@ from consultor_juridico.retrieval.embeddings import OllamaEmbeddingProvider
 
 DATASET = Path("evaluation/datasets/real_world_short_v1.json")
 EXPECTED_HASH = "c6b496d20dd9b7b5952f7abecca92e64c0179ce134794f5e3b39e579025f441f"
-OUTPUT = Path("evaluation/results/model_benchmark_91_1/e2e_single_model_screen.json")
 
 
-def main() -> None:
+def prepare_output_path(output: Path) -> Path:
+    """Recusa sobrescrever resultados E2E congelados antes de qualquer inferência."""
+    if output.exists():
+        raise FileExistsError(f"OUTPUT_ALREADY_EXISTS: {output}")
+    output.parent.mkdir(parents=True, exist_ok=True)
+    return output
+
+
+def main(output: Path) -> None:
+    output = prepare_output_path(output)
     digest = hashlib.sha256(DATASET.read_bytes()).hexdigest()
     if digest != EXPECTED_HASH:
         raise RuntimeError(f"hash do dataset divergente: {digest}")
@@ -66,11 +75,19 @@ def main() -> None:
         "timestamp": datetime.now(UTC).isoformat(),
         **result,
     }
-    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT.write_text(
+    output.write_text(
         json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"
     )
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(
+        description="Executa o screen E2E real sem sobrescrever resultados congelados."
+    )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        required=True,
+        help="Destino novo para o JSON de resultado; sobrescrita é recusada.",
+    )
+    main(parser.parse_args().output)

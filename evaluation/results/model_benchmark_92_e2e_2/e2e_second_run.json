@@ -1,0 +1,3614 @@
+{
+  "phase": "91.1",
+  "dataset": "real_world_short_v1.json",
+  "dataset_sha256": "c6b496d20dd9b7b5952f7abecca92e64c0179ce134794f5e3b39e579025f441f",
+  "configuration": {
+    "generator_model": "ministral-3:8b",
+    "generator_num_predict": 800,
+    "generator_think": false,
+    "semantic_model": "ministral-3:8b",
+    "semantic_num_predict": 500,
+    "semantic_think": false,
+    "relevance_mode": "DETERMINISTIC",
+    "relevance_model": null,
+    "embedding_model": "nomic-embed-text"
+  },
+  "timestamp": "2026-08-26T01:28:01.513770+00:00",
+  "cases": 11,
+  "correct_answers": 3,
+  "correct_abstentions": 1,
+  "false_abstentions": 7,
+  "unsafe_answers": 0,
+  "retrieval_hit_rate": 0.9,
+  "results": [
+    {
+      "case_id": "rw-pena-morte",
+      "question": "pena de morte",
+      "expect_answer": true,
+      "expected_provisions": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A"
+      ],
+      "acceptable_provisions": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A"
+      ],
+      "retrieval": {
+        "lexical_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:7",
+            "rank": 1,
+            "score": 0.20000000298023224
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:V/CHAPTER:III/ARTICLE:144/PARAGRAPH:5-A",
+            "rank": 2,
+            "score": 0.20000000298023224
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIII",
+            "rank": 3,
+            "score": 0.10000000149011612
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIX",
+            "rank": 4,
+            "score": 0.10000000149011612
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII",
+            "rank": 5,
+            "score": 0.10000000149011612
+          }
+        ],
+        "vector_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:V/CHAPTER:III/ARTICLE:144/PARAGRAPH:5-A",
+            "rank": 1,
+            "score": 0.6030557401313333
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:III/ARTICLE:86/PARAGRAPH:1/INCISO:I",
+            "rank": 2,
+            "score": 0.5887962791434167
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:7",
+            "rank": 3,
+            "score": 0.5735828368166858
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IX/ARTICLE:235/INCISO:VI",
+            "rank": 4,
+            "score": 0.5731329409042892
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:IV/ARTICLE:155/INCISO:I",
+            "rank": 5,
+            "score": 0.5730542714725351
+          }
+        ],
+        "hybrid_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:7",
+            "rrf": 0.0822664584959667,
+            "lex_rank": 1,
+            "vec_rank": 3
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:V/CHAPTER:III/ARTICLE:144/PARAGRAPH:5-A",
+            "rrf": 0.08002247488101534,
+            "lex_rank": 2,
+            "vec_rank": 1
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLV",
+            "rrf": 0.061501072673639044,
+            "lex_rank": 6,
+            "vec_rank": 53
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIII",
+            "rrf": 0.06087301587301587,
+            "lex_rank": 3,
+            "vec_rank": null
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIX",
+            "rrf": 0.058125,
+            "lex_rank": 4,
+            "vec_rank": null
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII",
+            "rrf": 0.055384615384615386,
+            "lex_rank": 5,
+            "vec_rank": null
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI",
+            "rrf": 0.04992537313432836,
+            "lex_rank": 7,
+            "vec_rank": null
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A",
+            "rrf": 0.04864213121654941,
+            "lex_rank": 9,
+            "vec_rank": 181
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII",
+            "rrf": 0.04720588235294118,
+            "lex_rank": 8,
+            "vec_rank": null
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:53/INCISO:III",
+            "rrf": 0.04668564312399929,
+            "lex_rank": 13,
+            "vec_rank": 17
+          }
+        ],
+        "ranks": {
+          "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A": {
+            "lexical": 9,
+            "vector": null,
+            "hybrid": 8
+          },
+          "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII": {
+            "lexical": 8,
+            "vector": null,
+            "hybrid": 9
+          }
+        },
+        "hit": true
+      },
+      "evidence_selection": {
+        "received": 10,
+        "selected": 3,
+        "items": [
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A",
+            "element_type": "ALINEA",
+            "lexical_rank": 9,
+            "vector_rank": 181,
+            "rrf": 0.04864213121654941
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:7",
+            "element_type": "PARAGRAPH",
+            "lexical_rank": 1,
+            "vector_rank": 3,
+            "rrf": 0.0822664584959667
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIII",
+            "element_type": "INCISO",
+            "lexical_rank": 3,
+            "vector_rank": null,
+            "rrf": 0.06087301587301587
+          }
+        ],
+        "diagnostics": [
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:7",
+            "base_relevance": 0.675,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.140351,
+            "final_score": 0.432697,
+            "selected_position": 2,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:V/CHAPTER:III/ARTICLE:144/PARAGRAPH:5-A",
+            "base_relevance": 0.25,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.25,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLV",
+            "base_relevance": 0.541667,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.204545,
+            "final_score": 0.363068,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIII",
+            "base_relevance": 0.525,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.145833,
+            "final_score": 0.364375,
+            "selected_position": 3,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIX",
+            "base_relevance": 0.515,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.275862,
+            "final_score": 0.340371,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII",
+            "base_relevance": 0.508333,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.310345,
+            "final_score": 0.332198,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI",
+            "base_relevance": 0.503571,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.259259,
+            "final_score": 0.337718,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A",
+            "base_relevance": 0.825,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.825,
+            "selected_position": 1,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII",
+            "base_relevance": 0.497222,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.526316,
+            "final_score": 0.294803,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:53/INCISO:III",
+            "base_relevance": 0.495,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.2,
+            "final_score": 0.34275,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          }
+        ]
+      },
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "is_sufficient": true,
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ],
+        "lexical_score": 0.20000000298023224,
+        "vector_score": 0.5735828368166858
+      },
+      "generation": {
+        "outcome": "ABSTAINED",
+        "claims": [],
+        "citations": [],
+        "validation_errors": [
+          "LOCATOR_MISMATCH: C1"
+        ],
+        "evidence_set_id": "b62c941b-de20-44d6-bf6c-e62877fc05a2",
+        "attribution": [
+          {
+            "claim_code": "C1",
+            "mode": "SIMPLE",
+            "status": "ATTRIBUTED",
+            "evidence_codes": [
+              "EV001"
+            ],
+            "reason": "Todas as cláusulas materiais receberam atribuição autorizada.",
+            "clauses": [
+              {
+                "index": 1,
+                "text": "A pena de morte é vedada no Brasil, exceto em caso de guerra declarada, conforme estabelecido no art. 5º, inciso XLVIII, alínea 'a' da CF/88.",
+                "start": 0,
+                "end": 141,
+                "evidence_codes": [
+                  "EV001"
+                ],
+                "score": 0.520177,
+                "reason": "EvidenceItems autorizados com contribuição material."
+              }
+            ]
+          }
+        ]
+      },
+      "semantic_validation": {
+        "errors": [
+          "LOCATOR_MISMATCH: C1"
+        ]
+      },
+      "result": {
+        "outcome": "ABSTAINED",
+        "classification": "FALSE_ABSTENTION",
+        "failure_stage": "GENERATOR_ABSTENTION",
+        "elapsed_seconds": 49.60426659299992
+      }
+    },
+    {
+      "case_id": "rw-prisao-perpetua",
+      "question": "prisão perpétua",
+      "expect_answer": true,
+      "expected_provisions": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B"
+      ],
+      "acceptable_provisions": [],
+      "retrieval": {
+        "lexical_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B",
+            "rank": 1,
+            "score": 0.10000000149011612
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXII",
+            "rank": 2,
+            "score": 0.10000000149011612
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXIV",
+            "rank": 3,
+            "score": 0.10000000149011612
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXV",
+            "rank": 4,
+            "score": 0.10000000149011612
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI",
+            "rank": 5,
+            "score": 0.10000000149011612
+          }
+        ],
+        "vector_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:VII/CHAPTER:I/ARTICLE:175/CAPUT:@caput",
+            "rank": 1,
+            "score": 0.6309240992529581
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:5/PARAGRAPH:3",
+            "rank": 2,
+            "score": 0.6299932998383145
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:VIII/CHAPTER:V/ARTICLE:223/CAPUT:@caput",
+            "rank": 3,
+            "score": 0.6255489737449897
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:53/INCISO:VI",
+            "rank": 4,
+            "score": 0.6207562232919049
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:VII/CHAPTER:II/ARTICLE:182/PARAGRAPH:4/INCISO:III",
+            "rank": 5,
+            "score": 0.6206186722234782
+          }
+        ],
+        "hybrid_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXII",
+            "rrf": 0.07247858978018841,
+            "lex_rank": 2,
+            "vec_rank": 53
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B",
+            "rrf": 0.06639344262295083,
+            "lex_rank": 1,
+            "vec_rank": null
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXV",
+            "rrf": 0.06364986187845303,
+            "lex_rank": 4,
+            "vec_rank": 121
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVII",
+            "rrf": 0.06364052614052615,
+            "lex_rank": 6,
+            "vec_rank": 31
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXIV",
+            "rrf": 0.06087301587301587,
+            "lex_rank": 3,
+            "vec_rank": null
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:V/ARTICLE:53/PARAGRAPH:2",
+            "rrf": 0.05901628222523745,
+            "lex_rank": 7,
+            "vec_rank": 50
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI",
+            "rrf": 0.055384615384615386,
+            "lex_rank": 5,
+            "vec_rank": null
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:I/ARTICLE:136/PARAGRAPH:3/INCISO:I",
+            "rrf": 0.050703933747412014,
+            "lex_rank": 9,
+            "vec_rank": 101
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:III/ARTICLE:86/PARAGRAPH:3",
+            "rrf": 0.04720588235294118,
+            "lex_rank": 8,
+            "vec_rank": null
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:I/ARTICLE:136/PARAGRAPH:3/INCISO:III",
+            "rrf": 0.04178571428571429,
+            "lex_rank": 10,
+            "vec_rank": null
+          }
+        ],
+        "ranks": {
+          "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B": {
+            "lexical": 1,
+            "vector": null,
+            "hybrid": 2
+          }
+        },
+        "hit": true
+      },
+      "evidence_selection": {
+        "received": 10,
+        "selected": 3,
+        "items": [
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXII",
+            "element_type": "INCISO",
+            "lexical_rank": 2,
+            "vector_rank": 53,
+            "rrf": 0.07247858978018841
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B",
+            "element_type": "ALINEA",
+            "lexical_rank": 1,
+            "vector_rank": null,
+            "rrf": 0.06639344262295083
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:V/ARTICLE:53/PARAGRAPH:2",
+            "element_type": "PARAGRAPH",
+            "lexical_rank": 7,
+            "vector_rank": 50,
+            "rrf": 0.05901628222523745
+          }
+        ],
+        "diagnostics": [
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXII",
+            "base_relevance": 0.675,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.675,
+            "selected_position": 1,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B",
+            "base_relevance": 0.575,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.5,
+            "redundancy": 0.166667,
+            "final_score": 0.58375,
+            "selected_position": 2,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXV",
+            "base_relevance": 0.541667,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.275862,
+            "final_score": 0.352371,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVII",
+            "base_relevance": 0.525,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.259259,
+            "final_score": 0.347361,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXIV",
+            "base_relevance": 0.515,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.272727,
+            "final_score": 0.340841,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:V/ARTICLE:53/PARAGRAPH:2",
+            "base_relevance": 0.508333,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.153846,
+            "final_score": 0.355673,
+            "selected_position": 3,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI",
+            "base_relevance": 0.503571,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.189189,
+            "final_score": 0.348229,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:I/ARTICLE:136/PARAGRAPH:3/INCISO:I",
+            "base_relevance": 0.5,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.26087,
+            "final_score": 0.33587,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:III/ARTICLE:86/PARAGRAPH:3",
+            "base_relevance": 0.497222,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.178571,
+            "final_score": 0.346964,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:I/ARTICLE:136/PARAGRAPH:3/INCISO:III",
+            "base_relevance": 0.495,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.195122,
+            "final_score": 0.343482,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          }
+        ]
+      },
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "is_sufficient": true,
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ],
+        "lexical_score": 0.10000000149011612,
+        "vector_score": 0.5982503890991381
+      },
+      "generation": {
+        "outcome": "ABSTAINED",
+        "claims": [],
+        "citations": [],
+        "validation_errors": [],
+        "evidence_set_id": "32b1bcb7-9e98-4418-812a-8f9cec37b634",
+        "attribution": []
+      },
+      "semantic_validation": {
+        "errors": []
+      },
+      "result": {
+        "outcome": "ABSTAINED",
+        "classification": "FALSE_ABSTENTION",
+        "failure_stage": "GENERATOR_ABSTENTION",
+        "elapsed_seconds": 4.800098075000278
+      }
+    },
+    {
+      "case_id": "rw-liberdade-religiosa",
+      "question": "liberdade religiosa",
+      "expect_answer": true,
+      "expected_provisions": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI"
+      ],
+      "acceptable_provisions": [],
+      "retrieval": {
+        "lexical_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+            "rank": 1,
+            "score": 0.20000000298023224
+          },
+          {
+            "identity_key": "CF88/@root/PREAMBLE:@preamble",
+            "rank": 2,
+            "score": 0.10000000149011612
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+            "rank": 3,
+            "score": 0.10000000149011612
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VII",
+            "rank": 4,
+            "score": 0.10000000149011612
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VIII",
+            "rank": 5,
+            "score": 0.10000000149011612
+          }
+        ],
+        "vector_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+            "rank": 1,
+            "score": 0.7060058537725437
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:I/ARTICLE:19/INCISO:I",
+            "rank": 2,
+            "score": 0.6747942588671572
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI/ALINEA:A",
+            "rank": 3,
+            "score": 0.663674632529922
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:II/ARTICLE:150/INCISO:VI/ALINEA:B",
+            "rank": 4,
+            "score": 0.6583515420524456
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI",
+            "rank": 5,
+            "score": 0.6520636651629907
+          }
+        ],
+        "hybrid_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+            "rrf": 0.08278688524590164,
+            "lex_rank": 1,
+            "vec_rank": 1
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+            "rrf": 0.07250092284976006,
+            "lex_rank": 3,
+            "vec_rank": 26
+          },
+          {
+            "identity_key": "CF88/@root/PREAMBLE:@preamble",
+            "rrf": 0.07255760368663594,
+            "lex_rank": 2,
+            "vec_rank": 52
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VII",
+            "rrf": 0.07182363013698631,
+            "lex_rank": 4,
+            "vec_rank": 13
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VIII",
+            "rrf": 0.07030998851894374,
+            "lex_rank": 5,
+            "vec_rank": 7
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XVII",
+            "rrf": 0.06693722943722943,
+            "lex_rank": 6,
+            "vec_rank": 10
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI/ALINEA:A",
+            "rrf": 0.06307889822595705,
+            "lex_rank": 8,
+            "vec_rank": 3
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLI",
+            "rrf": 0.06291238612134134,
+            "lex_rank": 7,
+            "vec_rank": 17
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LIV",
+            "rrf": 0.059644268774703565,
+            "lex_rank": 9,
+            "vec_rank": 6
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI",
+            "rrf": 0.05717032967032967,
+            "lex_rank": 10,
+            "vec_rank": 5
+          }
+        ],
+        "ranks": {
+          "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI": {
+            "lexical": 1,
+            "vector": 1,
+            "hybrid": 1
+          }
+        },
+        "hit": true
+      },
+      "evidence_selection": {
+        "received": 10,
+        "selected": 3,
+        "items": [
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+            "element_type": "INCISO",
+            "lexical_rank": 1,
+            "vector_rank": 1,
+            "rrf": 0.08278688524590164
+          },
+          {
+            "identity_key": "CF88/@root/PREAMBLE:@preamble",
+            "element_type": "PREAMBLE",
+            "lexical_rank": 2,
+            "vector_rank": 52,
+            "rrf": 0.07255760368663594
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+            "element_type": "CAPUT",
+            "lexical_rank": 3,
+            "vector_rank": 26,
+            "rrf": 0.07250092284976006
+          }
+        ],
+        "diagnostics": [
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+            "base_relevance": 1.0,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 1.0,
+            "selected_position": 1,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+            "base_relevance": 0.575,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.222222,
+            "final_score": 0.375417,
+            "selected_position": 3,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "CF88/@root/PREAMBLE:@preamble",
+            "base_relevance": 0.541667,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.083333,
+            "final_score": 0.38125,
+            "selected_position": 2,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VII",
+            "base_relevance": 0.525,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.25,
+            "final_score": 0.34875,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VIII",
+            "base_relevance": 0.515,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.191489,
+            "final_score": 0.353027,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XVII",
+            "base_relevance": 0.508333,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.212121,
+            "final_score": 0.346932,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI/ALINEA:A",
+            "base_relevance": 0.503571,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.194444,
+            "final_score": 0.34744,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLI",
+            "base_relevance": 0.5,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.28125,
+            "final_score": 0.332813,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LIV",
+            "base_relevance": 0.497222,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.2,
+            "final_score": 0.34375,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI",
+            "base_relevance": 0.495,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.210526,
+            "final_score": 0.341171,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          }
+        ]
+      },
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "is_sufficient": true,
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ],
+        "lexical_score": 0.20000000298023224,
+        "vector_score": 0.7060058537725437
+      },
+      "generation": {
+        "outcome": "ABSTAINED",
+        "claims": [],
+        "citations": [],
+        "validation_errors": [
+          "Claim C2 sem atribuição inequívoca."
+        ],
+        "evidence_set_id": "fe918331-e424-4ddf-ab70-565b9ddbc554",
+        "attribution": [
+          {
+            "claim_code": "C1",
+            "mode": "SIMPLE",
+            "status": "ATTRIBUTED",
+            "evidence_codes": [
+              "EV001",
+              "EV002"
+            ],
+            "reason": "Todas as cláusulas materiais receberam atribuição autorizada.",
+            "clauses": [
+              {
+                "index": 1,
+                "text": "A Constituição Federal de 1988 assegura a liberdade de consciência e de crença como direito inviolável (EV001).",
+                "start": 0,
+                "end": 111,
+                "evidence_codes": [
+                  "EV001",
+                  "EV002"
+                ],
+                "score": 1.0,
+                "reason": "EvidenceItems autorizados com contribuição material."
+              }
+            ]
+          },
+          {
+            "claim_code": "C2",
+            "mode": "CLAUSE",
+            "status": "UNRESOLVED",
+            "evidence_codes": [],
+            "reason": "Cláusula 2 possui apenas suporte parcial.",
+            "clauses": [
+              {
+                "index": 1,
+                "text": "A liberdade religiosa é protegida como um dos valores supremos de uma sociedade pluralista e sem preconceitos",
+                "start": 0,
+                "end": 109,
+                "evidence_codes": [
+                  "EV002"
+                ],
+                "score": 0.75315,
+                "reason": "EvidenceItems autorizados com contribuição material."
+              },
+              {
+                "index": 2,
+                "text": "conforme estabelecido no Preâmbulo da Constituição Federal de 1988 (EV002).",
+                "start": 111,
+                "end": 186,
+                "evidence_codes": [
+                  "EV002"
+                ],
+                "score": 0.5,
+                "reason": "Cobertura insuficiente para cláusula material independente."
+              }
+            ]
+          }
+        ]
+      },
+      "semantic_validation": {
+        "errors": [
+          "Claim C2 sem atribuição inequívoca."
+        ]
+      },
+      "result": {
+        "outcome": "ABSTAINED",
+        "classification": "FALSE_ABSTENTION",
+        "failure_stage": "GENERATOR_ABSTENTION",
+        "elapsed_seconds": 51.589302252999914
+      }
+    },
+    {
+      "case_id": "rw-racismo",
+      "question": "racismo",
+      "expect_answer": true,
+      "expected_provisions": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII"
+      ],
+      "acceptable_provisions": [],
+      "retrieval": {
+        "lexical_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII",
+            "rank": 1,
+            "score": 2.1000000312924385
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII",
+            "rank": 2,
+            "score": 2.1000000312924385
+          }
+        ],
+        "vector_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII",
+            "rank": 1,
+            "score": 0.647151918916769
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII",
+            "rank": 2,
+            "score": 0.6384990430774792
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:I/ARTICLE:1/INCISO:V",
+            "rank": 3,
+            "score": 0.5453525131522008
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:I/ARTICLE:3/INCISO:III",
+            "rank": 4,
+            "score": 0.542951347084959
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:II/ARTICLE:215/PARAGRAPH:1",
+            "rank": 5,
+            "score": 0.5364129253218701
+          }
+        ],
+        "hybrid_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII",
+            "rrf": 0.08278688524590164,
+            "lex_rank": 1,
+            "vec_rank": 1
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII",
+            "rrf": 0.07975806451612903,
+            "lex_rank": 2,
+            "vec_rank": 2
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:I/ARTICLE:1/INCISO:V",
+            "rrf": 0.005873015873015872,
+            "lex_rank": null,
+            "vec_rank": 3
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:I/ARTICLE:3/INCISO:III",
+            "rrf": 0.005625,
+            "lex_rank": null,
+            "vec_rank": 4
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:II/ARTICLE:215/PARAGRAPH:1",
+            "rrf": 0.005384615384615385,
+            "lex_rank": null,
+            "vec_rank": 5
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXVIII/ALINEA:D",
+            "rrf": 0.005151515151515152,
+            "lex_rank": null,
+            "vec_rank": 6
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:I/ARTICLE:3/INCISO:IV",
+            "rrf": 0.004925373134328358,
+            "lex_rank": null,
+            "vec_rank": 7
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:III/ARTICLE:85/PARAGRAPH:ÚNICO",
+            "rrf": 0.004705882352941176,
+            "lex_rank": null,
+            "vec_rank": 8
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XI",
+            "rrf": 0.004492753623188406,
+            "lex_rank": null,
+            "vec_rank": 9
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:I/ARTICLE:4/INCISO:II",
+            "rrf": 0.004285714285714285,
+            "lex_rank": null,
+            "vec_rank": 10
+          }
+        ],
+        "ranks": {
+          "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII": {
+            "lexical": 2,
+            "vector": 2,
+            "hybrid": 2
+          }
+        },
+        "hit": true
+      },
+      "evidence_selection": {
+        "received": 10,
+        "selected": 2,
+        "items": [
+          {
+            "identity_key": "CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII",
+            "element_type": "INCISO",
+            "lexical_rank": 1,
+            "vector_rank": 1,
+            "rrf": 0.08278688524590164
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII",
+            "element_type": "INCISO",
+            "lexical_rank": 2,
+            "vector_rank": 2,
+            "rrf": 0.07975806451612903
+          }
+        ],
+        "diagnostics": [
+          {
+            "identity_key": "CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII",
+            "base_relevance": 1.0,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 1.0,
+            "selected_position": 1,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII",
+            "base_relevance": 0.9,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.272727,
+            "final_score": 0.514091,
+            "selected_position": 2,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:I/ARTICLE:1/INCISO:V",
+            "base_relevance": 0.216667,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.216667,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:I/ARTICLE:3/INCISO:III",
+            "base_relevance": 0.2,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.2,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:II/ARTICLE:215/PARAGRAPH:1",
+            "base_relevance": 0.19,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.19,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXVIII/ALINEA:D",
+            "base_relevance": 0.183333,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.183333,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:I/ARTICLE:3/INCISO:IV",
+            "base_relevance": 0.178571,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.178571,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:III/ARTICLE:85/PARAGRAPH:ÚNICO",
+            "base_relevance": 0.175,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.175,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XI",
+            "base_relevance": 0.172222,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.172222,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:I/ARTICLE:4/INCISO:II",
+            "base_relevance": 0.17,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.17,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          }
+        ]
+      },
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "is_sufficient": true,
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ],
+        "lexical_score": 2.1000000312924385,
+        "vector_score": 0.647151918916769
+      },
+      "generation": {
+        "outcome": "ABSTAINED",
+        "claims": [],
+        "citations": [],
+        "validation_errors": [
+          "Claim C1 sem atribuição inequívoca."
+        ],
+        "evidence_set_id": "3873feda-a61c-488c-b87c-b70c1260c2c2",
+        "attribution": [
+          {
+            "claim_code": "C1",
+            "mode": "SIMPLE",
+            "status": "UNRESOLVED",
+            "evidence_codes": [],
+            "reason": "Cláusula 1 sem suporte inequívoco.",
+            "clauses": [
+              {
+                "index": 1,
+                "text": "A Constituição Federal de 1988 expressamente prevê o repúdio ao racismo no Artigo 4º, inciso VIII.",
+                "start": 0,
+                "end": 98,
+                "evidence_codes": [],
+                "score": 0.0,
+                "reason": "Cláusula sem atribuição material inequívoca."
+              }
+            ]
+          }
+        ]
+      },
+      "semantic_validation": {
+        "errors": [
+          "Claim C1 sem atribuição inequívoca."
+        ]
+      },
+      "result": {
+        "outcome": "ABSTAINED",
+        "classification": "FALSE_ABSTENTION",
+        "failure_stage": "GENERATOR_ABSTENTION",
+        "elapsed_seconds": 63.412284697005816
+      }
+    },
+    {
+      "case_id": "rw-extradicao",
+      "question": "extradição",
+      "expect_answer": true,
+      "expected_provisions": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII"
+      ],
+      "acceptable_provisions": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI"
+      ],
+      "retrieval": {
+        "lexical_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII",
+            "rank": 1,
+            "score": 2.1000000312924385
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:22/INCISO:XV",
+            "rank": 2,
+            "score": 2.1000000312924385
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:II/ARTICLE:102/INCISO:I/ALINEA:G",
+            "rank": 3,
+            "score": 2.1000000312924385
+          }
+        ],
+        "vector_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:38/INCISO:IV",
+            "rank": 1,
+            "score": 0.6909534107502651
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:II/ARTICLE:102/INCISO:I/ALINEA:G",
+            "rank": 2,
+            "score": 0.684211690174896
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:22/INCISO:XV",
+            "rank": 3,
+            "score": 0.683119134159314
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI",
+            "rank": 4,
+            "score": 0.6805642793544773
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII",
+            "rank": 5,
+            "score": 0.6795605803060274
+          }
+        ],
+        "hybrid_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII",
+            "rrf": 0.08177805800756621,
+            "lex_rank": 1,
+            "vec_rank": 5
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:22/INCISO:XV",
+            "rrf": 0.07950204813108039,
+            "lex_rank": 2,
+            "vec_rank": 3
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:II/ARTICLE:102/INCISO:I/ALINEA:G",
+            "rrf": 0.07700204813108039,
+            "lex_rank": 3,
+            "vec_rank": 2
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:38/INCISO:IV",
+            "rrf": 0.00639344262295082,
+            "lex_rank": null,
+            "vec_rank": 1
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI",
+            "rrf": 0.005625,
+            "lex_rank": null,
+            "vec_rank": 4
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:120/PARAGRAPH:ÚNICO/INCISO:II",
+            "rrf": 0.005151515151515152,
+            "lex_rank": null,
+            "vec_rank": 6
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:IV/ARTICLE:29/INCISO:II",
+            "rrf": 0.004925373134328358,
+            "lex_rank": null,
+            "vec_rank": 7
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:107-A/INCISO:I",
+            "rrf": 0.004705882352941176,
+            "lex_rank": null,
+            "vec_rank": 8
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:87/PARAGRAPH:ÚNICO",
+            "rrf": 0.004492753623188406,
+            "lex_rank": null,
+            "vec_rank": 9
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:VI/ARTICLE:36/INCISO:I",
+            "rrf": 0.004285714285714285,
+            "lex_rank": null,
+            "vec_rank": 10
+          }
+        ],
+        "ranks": {
+          "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI": {
+            "lexical": null,
+            "vector": 4,
+            "hybrid": 5
+          },
+          "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII": {
+            "lexical": 1,
+            "vector": 5,
+            "hybrid": 1
+          }
+        },
+        "hit": true
+      },
+      "evidence_selection": {
+        "received": 10,
+        "selected": 3,
+        "items": [
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII",
+            "element_type": "INCISO",
+            "lexical_rank": 1,
+            "vector_rank": 5,
+            "rrf": 0.08177805800756621
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:22/INCISO:XV",
+            "element_type": "INCISO",
+            "lexical_rank": 2,
+            "vector_rank": 3,
+            "rrf": 0.07950204813108039
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI",
+            "element_type": "INCISO",
+            "lexical_rank": null,
+            "vector_rank": 4,
+            "rrf": 0.005625
+          }
+        ],
+        "diagnostics": [
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII",
+            "base_relevance": 1.0,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 1.0,
+            "selected_position": 1,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:22/INCISO:XV",
+            "base_relevance": 0.9,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.380952,
+            "final_score": 0.497857,
+            "selected_position": 2,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:II/ARTICLE:102/INCISO:I/ALINEA:G",
+            "base_relevance": 0.866667,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.380952,
+            "final_score": 0.482857,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:38/INCISO:IV",
+            "base_relevance": 0.2,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.2,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI",
+            "base_relevance": 0.84,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.272727,
+            "final_score": 0.487091,
+            "selected_position": 3,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:120/PARAGRAPH:ÚNICO/INCISO:II",
+            "base_relevance": 0.183333,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.183333,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:IV/ARTICLE:29/INCISO:II",
+            "base_relevance": 0.178571,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.178571,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:107-A/INCISO:I",
+            "base_relevance": 0.175,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.175,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:87/PARAGRAPH:ÚNICO",
+            "base_relevance": 0.172222,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.172222,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:VI/ARTICLE:36/INCISO:I",
+            "base_relevance": 0.17,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.17,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          }
+        ]
+      },
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "is_sufficient": true,
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ],
+        "lexical_score": 2.1000000312924385,
+        "vector_score": 0.683119134159314
+      },
+      "generation": {
+        "outcome": "ABSTAINED",
+        "claims": [],
+        "citations": [],
+        "validation_errors": [
+          "Claim C2 sem atribuição inequívoca."
+        ],
+        "evidence_set_id": "66a8bd55-e6a5-4b83-9176-d5a87a907007",
+        "attribution": [
+          {
+            "claim_code": "C1",
+            "mode": "SIMPLE",
+            "status": "ATTRIBUTED",
+            "evidence_codes": [
+              "EV001"
+            ],
+            "reason": "Todas as cláusulas materiais receberam atribuição autorizada.",
+            "clauses": [
+              {
+                "index": 1,
+                "text": "A Constituição Federal de 1988 proíbe a extradição de estrangeiro por crime político ou de opinião (EV001).",
+                "start": 0,
+                "end": 107,
+                "evidence_codes": [
+                  "EV001"
+                ],
+                "score": 0.644563,
+                "reason": "EvidenceItems autorizados com contribuição material."
+              }
+            ]
+          },
+          {
+            "claim_code": "C2",
+            "mode": "SIMPLE",
+            "status": "UNRESOLVED",
+            "evidence_codes": [],
+            "reason": "Cláusula 1 sem suporte inequívoco.",
+            "clauses": [
+              {
+                "index": 1,
+                "text": "A União possui competência para legislar sobre extradição de estrangeiros, conforme o inciso XV do art. 22 da CF/88 (EV002).",
+                "start": 0,
+                "end": 124,
+                "evidence_codes": [],
+                "score": 0.0,
+                "reason": "Cláusula sem atribuição material inequívoca."
+              }
+            ]
+          }
+        ]
+      },
+      "semantic_validation": {
+        "errors": [
+          "Claim C2 sem atribuição inequívoca."
+        ]
+      },
+      "result": {
+        "outcome": "ABSTAINED",
+        "classification": "FALSE_ABSTENTION",
+        "failure_stage": "GENERATOR_ABSTENTION",
+        "elapsed_seconds": 91.74652467899432
+      }
+    },
+    {
+      "case_id": "rw-direito-vida",
+      "question": "direito à vida",
+      "expect_answer": true,
+      "expected_provisions": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput"
+      ],
+      "acceptable_provisions": [],
+      "retrieval": {
+        "lexical_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+            "rank": 1,
+            "score": 1.2000000178813934
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput",
+            "rank": 2,
+            "score": 1.2000000178813934
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput",
+            "rank": 3,
+            "score": 1.2000000178813934
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/PARAGRAPH:6",
+            "rank": 4,
+            "score": 0.30000001192092896
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V/ARTICLE:156/PARAGRAPH:2/INCISO:I",
+            "rank": 5,
+            "score": 0.30000001192092896
+          }
+        ],
+        "vector_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:VIII/CHAPTER:VI/ARTICLE:225/CAPUT:@caput",
+            "rank": 1,
+            "score": 0.6679343381006314
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I",
+            "rank": 2,
+            "score": 0.6513744204417228
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput",
+            "rank": 3,
+            "score": 0.647449496844502
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V/ARTICLE:156/INCISO:II",
+            "rank": 4,
+            "score": 0.6448179385743305
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:VIII/CHAPTER:II/SECTION:II/ARTICLE:196/CAPUT:@caput",
+            "rank": 5,
+            "score": 0.6438868086540457
+          }
+        ],
+        "hybrid_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+            "rrf": 0.07921395544346364,
+            "lex_rank": 1,
+            "vec_rank": 18
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput",
+            "rrf": 0.07515873015873015,
+            "lex_rank": 3,
+            "vec_rank": 10
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput",
+            "rrf": 0.0741553480475382,
+            "lex_rank": 2,
+            "vec_rank": 35
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/PARAGRAPH:6",
+            "rrf": 0.06502155172413793,
+            "lex_rank": 4,
+            "vec_rank": 85
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V/ARTICLE:156/PARAGRAPH:2/INCISO:I",
+            "rrf": 0.06490842490842491,
+            "lex_rank": 5,
+            "vec_rank": 45
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:X",
+            "rrf": 0.0632587064676617,
+            "lex_rank": 7,
+            "vec_rank": 15
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:9/CAPUT:@caput",
+            "rrf": 0.05894082332761578,
+            "lex_rank": 6,
+            "vec_rank": 99
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIV/ALINEA:A",
+            "rrf": 0.055335963653754185,
+            "lex_rank": 8,
+            "vec_rank": 63
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:IV/ARTICLE:109/PARAGRAPH:5",
+            "rrf": 0.0507947232947233,
+            "lex_rank": 10,
+            "vec_rank": 51
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V/ARTICLE:156/INCISO:II",
+            "rrf": 0.049323630136986304,
+            "lex_rank": 13,
+            "vec_rank": 4
+          }
+        ],
+        "ranks": {
+          "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput": {
+            "lexical": 1,
+            "vector": null,
+            "hybrid": 1
+          }
+        },
+        "hit": true
+      },
+      "evidence_selection": {
+        "received": 10,
+        "selected": 3,
+        "items": [
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+            "element_type": "CAPUT",
+            "lexical_rank": 1,
+            "vector_rank": 18,
+            "rrf": 0.07921395544346364
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput",
+            "element_type": "CAPUT",
+            "lexical_rank": 3,
+            "vector_rank": 10,
+            "rrf": 0.07515873015873015
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput",
+            "element_type": "CAPUT",
+            "lexical_rank": 2,
+            "vector_rank": 35,
+            "rrf": 0.0741553480475382
+          }
+        ],
+        "diagnostics": [
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+            "base_relevance": 1.0,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 1.0,
+            "selected_position": 1,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput",
+            "base_relevance": 0.9,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.183673,
+            "final_score": 0.527449,
+            "selected_position": 2,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput",
+            "base_relevance": 0.866667,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.309091,
+            "final_score": 0.493636,
+            "selected_position": 3,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:I/ARTICLE:37/PARAGRAPH:6",
+            "base_relevance": 0.525,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.176471,
+            "final_score": 0.359779,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V/ARTICLE:156/PARAGRAPH:2/INCISO:I",
+            "base_relevance": 0.515,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.098361,
+            "final_score": 0.366996,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:X",
+            "base_relevance": 0.833333,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.243902,
+            "final_score": 0.488415,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:9/CAPUT:@caput",
+            "base_relevance": 0.503571,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.076923,
+            "final_score": 0.365069,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIV/ALINEA:A",
+            "base_relevance": 0.5,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.155556,
+            "final_score": 0.351667,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:IV/ARTICLE:109/PARAGRAPH:5",
+            "base_relevance": 0.497222,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.140625,
+            "final_score": 0.352656,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:V/ARTICLE:156/INCISO:II",
+            "base_relevance": 0.495,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.191489,
+            "final_score": 0.344027,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          }
+        ]
+      },
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "is_sufficient": true,
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ],
+        "lexical_score": 1.2000000178813934,
+        "vector_score": 0.6399710297498753
+      },
+      "generation": {
+        "outcome": "ABSTAINED",
+        "claims": [],
+        "citations": [],
+        "validation_errors": [
+          "Claim C3: PARTIALLY_SUPPORTED (A evidência [EV003] afirma que 'é dever da família, da sociedade e do Estado assegurar à criança, ao adolescente e ao jovem, com absoluta prioridade, o direito à vida' (e outros direitos), mas a claim restringe-se apenas ao direito à vida. Embora a claim seja materialmente sustentada, ela não abrange todas as afirmações da evidência (como saúde, alimentação, etc.), mas como a claim não exige detalhes adicionais, a afirmação central é sustentada. No entanto, como a claim não menciona os outros direitos, ela não exige que a evidência os inclua, mas apenas o direito à vida, que está presente.)"
+        ],
+        "evidence_set_id": "812ba206-f9d9-485e-bd4e-bd1bf86d59da",
+        "attribution": [
+          {
+            "claim_code": "C1",
+            "mode": "SIMPLE",
+            "status": "ATTRIBUTED",
+            "evidence_codes": [
+              "EV001"
+            ],
+            "reason": "Todas as cláusulas materiais receberam atribuição autorizada.",
+            "clauses": [
+              {
+                "index": 1,
+                "text": "O direito à vida é inviolável e garantido a todos os brasileiros e estrangeiros residentes no País, conforme o Art. 5º, caput, da CF/88.",
+                "start": 0,
+                "end": 136,
+                "evidence_codes": [
+                  "EV001"
+                ],
+                "score": 1.0,
+                "reason": "EvidenceItems autorizados com contribuição material."
+              }
+            ]
+          },
+          {
+            "claim_code": "C2",
+            "mode": "SIMPLE",
+            "status": "ATTRIBUTED",
+            "evidence_codes": [
+              "EV002"
+            ],
+            "reason": "Todas as cláusulas materiais receberam atribuição autorizada.",
+            "clauses": [
+              {
+                "index": 1,
+                "text": "A família, a sociedade e o Estado têm o dever de garantir o direito à vida das pessoas idosas, conforme o Art. 230 da CF/88.",
+                "start": 0,
+                "end": 124,
+                "evidence_codes": [
+                  "EV002"
+                ],
+                "score": 1.0,
+                "reason": "EvidenceItems autorizados com contribuição material."
+              }
+            ]
+          },
+          {
+            "claim_code": "C3",
+            "mode": "SIMPLE",
+            "status": "ATTRIBUTED",
+            "evidence_codes": [
+              "EV003"
+            ],
+            "reason": "Todas as cláusulas materiais receberam atribuição autorizada.",
+            "clauses": [
+              {
+                "index": 1,
+                "text": "É dever da família, da sociedade e do Estado assegurar, com absoluta prioridade, o direito à vida da criança, do adolescente e do jovem, conforme o Art. 227 da CF/88.",
+                "start": 0,
+                "end": 166,
+                "evidence_codes": [
+                  "EV003"
+                ],
+                "score": 1.0,
+                "reason": "EvidenceItems autorizados com contribuição material."
+              }
+            ]
+          }
+        ]
+      },
+      "semantic_validation": {
+        "errors": [
+          "Claim C3: PARTIALLY_SUPPORTED (A evidência [EV003] afirma que 'é dever da família, da sociedade e do Estado assegurar à criança, ao adolescente e ao jovem, com absoluta prioridade, o direito à vida' (e outros direitos), mas a claim restringe-se apenas ao direito à vida. Embora a claim seja materialmente sustentada, ela não abrange todas as afirmações da evidência (como saúde, alimentação, etc.), mas como a claim não exige detalhes adicionais, a afirmação central é sustentada. No entanto, como a claim não menciona os outros direitos, ela não exige que a evidência os inclua, mas apenas o direito à vida, que está presente.)"
+        ]
+      },
+      "result": {
+        "outcome": "ABSTAINED",
+        "classification": "FALSE_ABSTENTION",
+        "failure_stage": "SEMANTIC_FALSE_NEGATIVE",
+        "elapsed_seconds": 262.47736659799557
+      }
+    },
+    {
+      "case_id": "rw-liberdade-expressao",
+      "question": "liberdade de expressão",
+      "expect_answer": true,
+      "expected_provisions": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IV"
+      ],
+      "acceptable_provisions": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IV",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX",
+        "CF88/@root/TITLE:VIII/CHAPTER:V/ARTICLE:220/CAPUT:@caput"
+      ],
+      "retrieval": {
+        "lexical_top": [
+          {
+            "identity_key": "CF88/@root/PREAMBLE:@preamble",
+            "rank": 1,
+            "score": 0.10000000149011612
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+            "rank": 2,
+            "score": 0.10000000149011612
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+            "rank": 3,
+            "score": 0.10000000149011612
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX",
+            "rank": 4,
+            "score": 0.10000000149011612
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XVII",
+            "rank": 5,
+            "score": 0.10000000149011612
+          }
+        ],
+        "vector_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI",
+            "rank": 1,
+            "score": 0.6892641371927192
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI/ALINEA:A",
+            "rank": 2,
+            "score": 0.6805939649473504
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:78/PARAGRAPH:2",
+            "rank": 3,
+            "score": 0.679738843363238
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:76/PARAGRAPH:5",
+            "rank": 4,
+            "score": 0.6781823230873166
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:13/PARAGRAPH:7",
+            "rank": 5,
+            "score": 0.6768792427686336
+          }
+        ],
+        "hybrid_top": [
+          {
+            "identity_key": "CF88/@root/PREAMBLE:@preamble",
+            "rrf": 0.08047794966520434,
+            "lex_rank": 1,
+            "vec_rank": 11
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+            "rrf": 0.07602453102453102,
+            "lex_rank": 3,
+            "vec_rank": 6
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+            "rrf": 0.07324441687344913,
+            "lex_rank": 2,
+            "vec_rank": 44
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI/ALINEA:A",
+            "rrf": 0.06605440539239288,
+            "lex_rank": 7,
+            "vec_rank": 2
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX",
+            "rrf": 0.06230910041841005,
+            "lex_rank": 4,
+            "vec_rank": 179
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XVII",
+            "rrf": 0.062051282051282054,
+            "lex_rank": 5,
+            "vec_rank": 90
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LIV",
+            "rrf": 0.06109477124183006,
+            "lex_rank": 8,
+            "vec_rank": 12
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI",
+            "rrf": 0.06088619624613923,
+            "lex_rank": 9,
+            "vec_rank": 1
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLI",
+            "rrf": 0.05849946836788942,
+            "lex_rank": 6,
+            "vec_rank": 111
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXXI",
+            "rrf": 0.05158450704225352,
+            "lex_rank": 11,
+            "vec_rank": 20
+          }
+        ],
+        "ranks": {
+          "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IV": {
+            "lexical": null,
+            "vector": null,
+            "hybrid": null
+          },
+          "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX": {
+            "lexical": 4,
+            "vector": null,
+            "hybrid": 5
+          },
+          "CF88/@root/TITLE:VIII/CHAPTER:V/ARTICLE:220/CAPUT:@caput": {
+            "lexical": null,
+            "vector": 9,
+            "hybrid": null
+          }
+        },
+        "hit": true
+      },
+      "evidence_selection": {
+        "received": 10,
+        "selected": 3,
+        "items": [
+          {
+            "identity_key": "CF88/@root/PREAMBLE:@preamble",
+            "element_type": "PREAMBLE",
+            "lexical_rank": 1,
+            "vector_rank": 11,
+            "rrf": 0.08047794966520434
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX",
+            "element_type": "INCISO",
+            "lexical_rank": 4,
+            "vector_rank": 179,
+            "rrf": 0.06230910041841005
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+            "element_type": "INCISO",
+            "lexical_rank": 3,
+            "vector_rank": 6,
+            "rrf": 0.07602453102453102
+          }
+        ],
+        "diagnostics": [
+          {
+            "identity_key": "CF88/@root/PREAMBLE:@preamble",
+            "base_relevance": 0.675,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.675,
+            "selected_position": 1,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+            "base_relevance": 0.575,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.205882,
+            "final_score": 0.377868,
+            "selected_position": 3,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+            "base_relevance": 0.541667,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.121951,
+            "final_score": 0.375457,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVI/ALINEA:A",
+            "base_relevance": 0.525,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.172414,
+            "final_score": 0.360388,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX",
+            "base_relevance": 0.515,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.5,
+            "redundancy": 0.014706,
+            "final_score": 0.579544,
+            "selected_position": 2,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XVII",
+            "base_relevance": 0.508333,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.24,
+            "final_score": 0.34275,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LIV",
+            "base_relevance": 0.503571,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.222222,
+            "final_score": 0.343274,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXVI",
+            "base_relevance": 0.5,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.193548,
+            "final_score": 0.345968,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLI",
+            "base_relevance": 0.497222,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.230769,
+            "final_score": 0.339135,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXXI",
+            "base_relevance": 0.495,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.162162,
+            "final_score": 0.348426,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          }
+        ]
+      },
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "is_sufficient": true,
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ],
+        "lexical_score": 0.10000000149011612,
+        "vector_score": 0.6733173120050481
+      },
+      "generation": {
+        "outcome": "ANSWERED",
+        "claims": [
+          {
+            "code": "C1",
+            "text": "A Constituição Federal de 1988 institui um Estado Democrático que assegura a liberdade como um valor supremo de uma sociedade fraterna, pluralista e sem preconceitos.",
+            "ev": [
+              "EV001"
+            ]
+          },
+          {
+            "code": "C2",
+            "text": "A expressão da atividade intelectual, artística, científica e de comunicação é livre, independentemente de censura ou licença, conforme previsto no inciso IX do Artigo 5º da Constituição Federal de 1988.",
+            "ev": [
+              "EV002"
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "code": "EV001",
+            "label": "CF/88, PREAMBLE (identidade: CF88/@root/PREAMBLE:@preamble)"
+          },
+          {
+            "code": "EV002",
+            "label": "CF/88, INCISO IX (identidade: CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX)"
+          }
+        ],
+        "validation_errors": [],
+        "evidence_set_id": "1b529cba-00fd-480f-8416-7bef3564da1a",
+        "attribution": [
+          {
+            "claim_code": "C1",
+            "mode": "SIMPLE",
+            "status": "ATTRIBUTED",
+            "evidence_codes": [
+              "EV001"
+            ],
+            "reason": "Todas as cláusulas materiais receberam atribuição autorizada.",
+            "clauses": [
+              {
+                "index": 1,
+                "text": "A Constituição Federal de 1988 institui um Estado Democrático que assegura a liberdade como um valor supremo de uma sociedade fraterna, pluralista e sem preconceitos.",
+                "start": 0,
+                "end": 166,
+                "evidence_codes": [
+                  "EV001"
+                ],
+                "score": 0.898827,
+                "reason": "EvidenceItems autorizados com contribuição material."
+              }
+            ]
+          },
+          {
+            "claim_code": "C2",
+            "mode": "SIMPLE",
+            "status": "ATTRIBUTED",
+            "evidence_codes": [
+              "EV002"
+            ],
+            "reason": "Todas as cláusulas materiais receberam atribuição autorizada.",
+            "clauses": [
+              {
+                "index": 1,
+                "text": "A expressão da atividade intelectual, artística, científica e de comunicação é livre, independentemente de censura ou licença, conforme previsto no inciso IX do Artigo 5º da Constituição Federal de 1988.",
+                "start": 0,
+                "end": 203,
+                "evidence_codes": [
+                  "EV002"
+                ],
+                "score": 0.802021,
+                "reason": "EvidenceItems autorizados com contribuição material."
+              }
+            ]
+          }
+        ]
+      },
+      "semantic_validation": {
+        "errors": []
+      },
+      "result": {
+        "outcome": "ANSWERED",
+        "classification": "CORRECT_ANSWER",
+        "failure_stage": null,
+        "elapsed_seconds": 88.37813469299726
+      }
+    },
+    {
+      "case_id": "rw-idade-presidente",
+      "question": "idade para ser presidente",
+      "expect_answer": true,
+      "expected_provisions": [
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A"
+      ],
+      "acceptable_provisions": [],
+      "retrieval": {
+        "lexical_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:80/CAPUT:@caput",
+            "rank": 1,
+            "score": 0.4000000059604645
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:1/INCISO:III",
+            "rank": 2,
+            "score": 0.30000001192092896
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VI/ARTICLE:57/PARAGRAPH:6/INCISO:I",
+            "rank": 3,
+            "score": 0.30000001192092896
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:66/PARAGRAPH:7",
+            "rank": 4,
+            "score": 0.30000001192092896
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:1/CAPUT:@caput",
+            "rank": 5,
+            "score": 0.20000000298023224
+          }
+        ],
+        "vector_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:VII/ARTICLE:123/PARAGRAPH:ÚNICO",
+            "rank": 1,
+            "score": 0.7070482620058574
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:II/ARTICLE:49/INCISO:III",
+            "rank": 2,
+            "score": 0.7058760699107618
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:79/PARAGRAPH:ÚNICO",
+            "rank": 3,
+            "score": 0.7054574207835277
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:29/PARAGRAPH:1",
+            "rank": 4,
+            "score": 0.7053571205054291
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:83/CAPUT:@caput",
+            "rank": 5,
+            "score": 0.7047054551628674
+          }
+        ],
+        "hybrid_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A",
+            "rrf": 0.09751516070345664,
+            "lex_rank": 8,
+            "vec_rank": 37
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:80/CAPUT:@caput",
+            "rrf": 0.07380085003035823,
+            "lex_rank": 1,
+            "vec_rank": 75
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VI/ARTICLE:57/PARAGRAPH:6/INCISO:I",
+            "rrf": 0.07353124372111713,
+            "lex_rank": 3,
+            "vec_rank": 19
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:66/PARAGRAPH:7",
+            "rrf": 0.07327651515151515,
+            "lex_rank": 4,
+            "vec_rank": 6
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:1/INCISO:III",
+            "rrf": 0.07092830233105721,
+            "lex_rank": 2,
+            "vec_rank": 77
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:III/ARTICLE:12/PARAGRAPH:3/INCISO:I",
+            "rrf": 0.060451688923802045,
+            "lex_rank": 7,
+            "vec_rank": 35
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:13/PARAGRAPH:5",
+            "rrf": 0.06034382284382284,
+            "lex_rank": 6,
+            "vec_rank": 70
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:1/CAPUT:@caput",
+            "rrf": 0.055384615384615386,
+            "lex_rank": 5,
+            "vec_rank": null
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:II/ARTICLE:49/INCISO:III",
+            "rrf": 0.05521353930031804,
+            "lex_rank": 11,
+            "vec_rank": 2
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:1/INCISO:II",
+            "rrf": 0.05027310044399766,
+            "lex_rank": 9,
+            "vec_rank": 113
+          }
+        ],
+        "ranks": {
+          "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A": {
+            "lexical": 8,
+            "vector": null,
+            "hybrid": 1
+          }
+        },
+        "hit": true
+      },
+      "evidence_selection": {
+        "received": 10,
+        "selected": 3,
+        "items": [
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A",
+            "element_type": "ALINEA",
+            "lexical_rank": 8,
+            "vector_rank": 37,
+            "rrf": 0.09751516070345664
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:80/CAPUT:@caput",
+            "element_type": "CAPUT",
+            "lexical_rank": 1,
+            "vector_rank": 75,
+            "rrf": 0.07380085003035823
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:13/PARAGRAPH:5",
+            "element_type": "PARAGRAPH",
+            "lexical_rank": 6,
+            "vector_rank": 70,
+            "rrf": 0.06034382284382284
+          }
+        ],
+        "diagnostics": [
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A",
+            "base_relevance": 0.783333,
+            "query_coverage": 0.666667,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.783333,
+            "selected_position": 1,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:80/CAPUT:@caput",
+            "base_relevance": 0.466667,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.205882,
+            "final_score": 0.329118,
+            "selected_position": 2,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VI/ARTICLE:57/PARAGRAPH:6/INCISO:I",
+            "base_relevance": 0.433333,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.30303,
+            "final_score": 0.299545,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:66/PARAGRAPH:7",
+            "base_relevance": 0.416667,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.244444,
+            "final_score": 0.300833,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:1/INCISO:III",
+            "base_relevance": 0.406667,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.175439,
+            "final_score": 0.306684,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:III/ARTICLE:12/PARAGRAPH:3/INCISO:I",
+            "base_relevance": 0.4,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.428571,
+            "final_score": 0.265714,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:13/PARAGRAPH:5",
+            "base_relevance": 0.395238,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.115385,
+            "final_score": 0.310549,
+            "selected_position": 3,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:1/CAPUT:@caput",
+            "base_relevance": 0.391667,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.205128,
+            "final_score": 0.295481,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:II/ARTICLE:49/INCISO:III",
+            "base_relevance": 0.388889,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.296296,
+            "final_score": 0.280556,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:1/INCISO:II",
+            "base_relevance": 0.386667,
+            "query_coverage": 0.333333,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.214286,
+            "final_score": 0.291857,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          }
+        ]
+      },
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "is_sufficient": true,
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ],
+        "lexical_score": 0.4000000059604645,
+        "vector_score": 0.6850980740902707
+      },
+      "generation": {
+        "outcome": "ANSWERED",
+        "claims": [
+          {
+            "code": "C1",
+            "text": "A Constituição Federal de 1988 estabelece que a idade mínima para o cargo de Presidente da República é de trinta e cinco anos.",
+            "ev": [
+              "EV001"
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "code": "EV001",
+            "label": "CF/88, ALINEA a (identidade: CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A)"
+          }
+        ],
+        "validation_errors": [],
+        "evidence_set_id": "0858a31d-445d-4958-8223-2711882d7761",
+        "attribution": [
+          {
+            "claim_code": "C1",
+            "mode": "SIMPLE",
+            "status": "ATTRIBUTED",
+            "evidence_codes": [
+              "EV001"
+            ],
+            "reason": "Todas as cláusulas materiais receberam atribuição autorizada.",
+            "clauses": [
+              {
+                "index": 1,
+                "text": "A Constituição Federal de 1988 estabelece que a idade mínima para o cargo de Presidente da República é de trinta e cinco anos.",
+                "start": 0,
+                "end": 126,
+                "evidence_codes": [
+                  "EV001"
+                ],
+                "score": 0.791463,
+                "reason": "EvidenceItems autorizados com contribuição material."
+              }
+            ]
+          }
+        ]
+      },
+      "semantic_validation": {
+        "errors": []
+      },
+      "result": {
+        "outcome": "ANSWERED",
+        "classification": "CORRECT_ANSWER",
+        "failure_stage": null,
+        "elapsed_seconds": 40.080344179004896
+      }
+    },
+    {
+      "case_id": "rw-voto-obrigatorio",
+      "question": "voto obrigatório",
+      "expect_answer": true,
+      "expected_provisions": [
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I/ALINEA:A",
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput"
+      ],
+      "acceptable_provisions": [
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput",
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I/ALINEA:A"
+      ],
+      "retrieval": {
+        "lexical_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:8/INCISO:VII",
+            "rank": 1,
+            "score": 0.20000000298023224
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:3/INCISO:I",
+            "rank": 2,
+            "score": 0.20000000298023224
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:2",
+            "rank": 3,
+            "score": 0.20000000298023224
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/PARAGRAPH:3",
+            "rank": 4,
+            "score": 0.20000000298023224
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:3/CAPUT:@caput",
+            "rank": 5,
+            "score": 0.10000000149011612
+          }
+        ],
+        "vector_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:III/SECTION:I/ARTICLE:100/PARAGRAPH:5",
+            "rank": 1,
+            "score": 0.6680220564610619
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:8/INCISO:VI",
+            "rank": 2,
+            "score": 0.6575425895896281
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:VIII/CHAPTER:III/SECTION:I/ARTICLE:208/PARAGRAPH:2",
+            "rank": 3,
+            "score": 0.6562020583092696
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:VI/CHAPTER:II/SECTION:II/ARTICLE:167-A/INCISO:VII",
+            "rank": 4,
+            "score": 0.6516488428953069
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:VI/CHAPTER:I/SECTION:II/ARTICLE:150/PARAGRAPH:7",
+            "rank": 5,
+            "score": 0.6512208816478534
+          }
+        ],
+        "hybrid_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:8/INCISO:VII",
+            "rrf": 0.08028233151183971,
+            "lex_rank": 1,
+            "vec_rank": 12
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:3/INCISO:I",
+            "rrf": 0.07628726010616578,
+            "lex_rank": 2,
+            "vec_rank": 19
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/PARAGRAPH:3",
+            "rrf": 0.07305037313432836,
+            "lex_rank": 4,
+            "vec_rank": 7
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:2",
+            "rrf": 0.07277777777777777,
+            "lex_rank": 3,
+            "vec_rank": 24
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:11/PARAGRAPH:ÚNICO",
+            "rrf": 0.062175324675324675,
+            "lex_rank": 6,
+            "vec_rank": 45
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:13/PARAGRAPH:4",
+            "rrf": 0.057444170126809566,
+            "lex_rank": 7,
+            "vec_rank": 73
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:3/CAPUT:@caput",
+            "rrf": 0.055384615384615386,
+            "lex_rank": 5,
+            "vec_rank": null
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:39/PARAGRAPH:ÚNICO",
+            "rrf": 0.054802031973703876,
+            "lex_rank": 9,
+            "vec_rank": 37
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput",
+            "rrf": 0.0491931216931217,
+            "lex_rank": 10,
+            "vec_rank": 75
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I",
+            "rrf": 0.048888888888888885,
+            "lex_rank": 12,
+            "vec_rank": 20
+          }
+        ],
+        "ranks": {
+          "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I/ALINEA:A": {
+            "lexical": null,
+            "vector": null,
+            "hybrid": null
+          },
+          "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput": {
+            "lexical": 10,
+            "vector": null,
+            "hybrid": 9
+          }
+        },
+        "hit": true
+      },
+      "evidence_selection": {
+        "received": 10,
+        "selected": 3,
+        "items": [
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I",
+            "element_type": "INCISO",
+            "lexical_rank": 12,
+            "vector_rank": 20,
+            "rrf": 0.048888888888888885
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:3/INCISO:I",
+            "element_type": "INCISO",
+            "lexical_rank": 2,
+            "vector_rank": 19,
+            "rrf": 0.07628726010616578
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/PARAGRAPH:3",
+            "element_type": "PARAGRAPH",
+            "lexical_rank": 4,
+            "vector_rank": 7,
+            "rrf": 0.07305037313432836
+          }
+        ],
+        "diagnostics": [
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:II/ARTICLE:8/INCISO:VII",
+            "base_relevance": 0.35,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.35,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:3/INCISO:I",
+            "base_relevance": 0.575,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.142857,
+            "final_score": 0.387321,
+            "selected_position": 2,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/PARAGRAPH:3",
+            "base_relevance": 0.541667,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.175,
+            "final_score": 0.3675,
+            "selected_position": 3,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:2",
+            "base_relevance": 0.525,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.180328,
+            "final_score": 0.359201,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:11/PARAGRAPH:ÚNICO",
+            "base_relevance": 0.19,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.19,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:13/PARAGRAPH:4",
+            "base_relevance": 0.183333,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.183333,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:3/CAPUT:@caput",
+            "base_relevance": 0.503571,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.129032,
+            "final_score": 0.357252,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:39/PARAGRAPH:ÚNICO",
+            "base_relevance": 0.175,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.175,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput",
+            "base_relevance": 0.497222,
+            "query_coverage": 0.5,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.16129,
+            "final_score": 0.349556,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I",
+            "base_relevance": 0.82,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.82,
+            "selected_position": 1,
+            "decision_reason": "SELECTED"
+          }
+        ]
+      },
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "is_sufficient": true,
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ],
+        "lexical_score": 0.20000000298023224,
+        "vector_score": 0.6462547430384772
+      },
+      "generation": {
+        "outcome": "ANSWERED",
+        "claims": [
+          {
+            "code": "C1",
+            "text": "O voto é obrigatório para os maiores de dezoito anos, conforme estabelecido no inciso I do §1º do artigo 14 da Constituição Federal de 1988.",
+            "ev": [
+              "EV001",
+              "EV002"
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "code": "EV001",
+            "label": "CF/88, INCISO I (identidade: CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I)"
+          },
+          {
+            "code": "EV002",
+            "label": "CF/88, INCISO I (identidade: CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:3/INCISO:I)"
+          }
+        ],
+        "validation_errors": [],
+        "evidence_set_id": "5fa9d5ed-e09f-4087-a612-d40b8c02a391",
+        "attribution": [
+          {
+            "claim_code": "C1",
+            "mode": "SIMPLE",
+            "status": "ATTRIBUTED",
+            "evidence_codes": [
+              "EV001",
+              "EV002"
+            ],
+            "reason": "Todas as cláusulas materiais receberam atribuição autorizada.",
+            "clauses": [
+              {
+                "index": 1,
+                "text": "O voto é obrigatório para os maiores de dezoito anos, conforme estabelecido no inciso I do §1º do artigo 14 da Constituição Federal de 1988.",
+                "start": 0,
+                "end": 140,
+                "evidence_codes": [
+                  "EV001",
+                  "EV002"
+                ],
+                "score": 1.0,
+                "reason": "EvidenceItems autorizados com contribuição material."
+              }
+            ]
+          }
+        ]
+      },
+      "semantic_validation": {
+        "errors": []
+      },
+      "result": {
+        "outcome": "ANSWERED",
+        "classification": "CORRECT_ANSWER",
+        "failure_stage": null,
+        "elapsed_seconds": 49.73615890699875
+      }
+    },
+    {
+      "case_id": "rw-estado-sitio",
+      "question": "estado de sítio",
+      "expect_answer": true,
+      "expected_provisions": [
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II/ARTICLE:137/CAPUT:@caput"
+      ],
+      "acceptable_provisions": [
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II/ARTICLE:137/CAPUT:@caput",
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:138/CAPUT:@caput"
+      ],
+      "retrieval": {
+        "lexical_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V",
+            "rank": 1,
+            "score": 1.3000000268220901
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:II/ARTICLE:49/INCISO:IV",
+            "rank": 2,
+            "score": 1.3000000268220901
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VI/ARTICLE:57/PARAGRAPH:6/INCISO:I",
+            "rank": 3,
+            "score": 1.3000000268220901
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:1",
+            "rank": 4,
+            "score": 1.3000000268220901
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:II/ARTICLE:84/INCISO:IX",
+            "rank": 5,
+            "score": 1.3000000268220901
+          }
+        ],
+        "vector_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II",
+            "rank": 1,
+            "score": 0.6681663399337744
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:V/CHAPTER:I",
+            "rank": 2,
+            "score": 0.6577172671387963
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II/ARTICLE:138/PARAGRAPH:1",
+            "rank": 3,
+            "score": 0.6302057251640748
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/PARAGRAPH:ÚNICO",
+            "rank": 4,
+            "score": 0.6256246606445713
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:97/PARAGRAPH:1",
+            "rank": 5,
+            "score": 0.6113380459160958
+          }
+        ],
+        "hybrid_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V",
+            "rrf": 0.08154495777446598,
+            "lex_rank": 1,
+            "vec_rank": 6
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:II/ARTICLE:84/INCISO:IX",
+            "rrf": 0.07030998851894374,
+            "lex_rank": 5,
+            "vec_rank": 7
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:II/ARTICLE:49/INCISO:IV",
+            "rrf": 0.07025154881435591,
+            "lex_rank": 2,
+            "vec_rank": 91
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:1",
+            "rrf": 0.06689692982456141,
+            "lex_rank": 4,
+            "vec_rank": 54
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VI/ARTICLE:57/PARAGRAPH:6/INCISO:I",
+            "rrf": 0.0651648613665781,
+            "lex_rank": 3,
+            "vec_rank": 173
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:V/CHAPTER:I",
+            "rrf": 0.0633349146110057,
+            "lex_rank": 8,
+            "vec_rank": 2
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:V/SUBSECTION:I/ARTICLE:90/INCISO:I",
+            "rrf": 0.06084823646299056,
+            "lex_rank": 6,
+            "vec_rank": 62
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/PARAGRAPH:ÚNICO",
+            "rrf": 0.054709507042253525,
+            "lex_rank": 11,
+            "vec_rank": 4
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/CAPUT:@caput",
+            "rrf": 0.05178571428571429,
+            "lex_rank": 10,
+            "vec_rank": 40
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II",
+            "rrf": 0.05009207275993712,
+            "lex_rank": 13,
+            "vec_rank": 1
+          }
+        ],
+        "ranks": {
+          "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:138/CAPUT:@caput": {
+            "lexical": null,
+            "vector": null,
+            "hybrid": null
+          },
+          "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II/ARTICLE:137/CAPUT:@caput": {
+            "lexical": null,
+            "vector": null,
+            "hybrid": null
+          }
+        },
+        "hit": false
+      },
+      "evidence_selection": {
+        "received": 10,
+        "selected": 3,
+        "items": [
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V",
+            "element_type": "INCISO",
+            "lexical_rank": 1,
+            "vector_rank": 6,
+            "rrf": 0.08154495777446598
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/PARAGRAPH:ÚNICO",
+            "element_type": "PARAGRAPH",
+            "lexical_rank": 11,
+            "vector_rank": 4,
+            "rrf": 0.054709507042253525
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:V/CHAPTER:I",
+            "element_type": "CHAPTER",
+            "lexical_rank": 8,
+            "vector_rank": 2,
+            "rrf": 0.0633349146110057
+          }
+        ],
+        "diagnostics": [
+          {
+            "identity_key": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V",
+            "base_relevance": 1.0,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 1.0,
+            "selected_position": 1,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:II/ARTICLE:84/INCISO:IX",
+            "base_relevance": 0.9,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.714286,
+            "final_score": 0.447857,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:II/ARTICLE:49/INCISO:IV",
+            "base_relevance": 0.866667,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.52381,
+            "final_score": 0.461429,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:1",
+            "base_relevance": 0.85,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.454545,
+            "final_score": 0.464318,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VI/ARTICLE:57/PARAGRAPH:6/INCISO:I",
+            "base_relevance": 0.84,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.37931,
+            "final_score": 0.471103,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:V/CHAPTER:I",
+            "base_relevance": 0.833333,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.333333,
+            "final_score": 0.475,
+            "selected_position": 3,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:V/SUBSECTION:I/ARTICLE:90/INCISO:I",
+            "base_relevance": 0.828571,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.733333,
+            "final_score": 0.412857,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/PARAGRAPH:ÚNICO",
+            "base_relevance": 0.825,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.219512,
+            "final_score": 0.488323,
+            "selected_position": 2,
+            "decision_reason": "SELECTED"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/CAPUT:@caput",
+            "base_relevance": 0.822222,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.310345,
+            "final_score": 0.473448,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II",
+            "base_relevance": 0.82,
+            "query_coverage": 1.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.375,
+            "final_score": 0.46275,
+            "selected_position": null,
+            "decision_reason": "REJECTED_AS_REDUNDANT_OR_BY_LIMIT"
+          }
+        ]
+      },
+      "sufficiency": {
+        "decision": "SUFFICIENT",
+        "is_sufficient": true,
+        "reasons": [
+          "Consulta no escopo e ao menos um sinal forte de retrieval."
+        ],
+        "lexical_score": 1.3000000268220901,
+        "vector_score": 0.6577172671387963
+      },
+      "generation": {
+        "outcome": "ABSTAINED",
+        "claims": [],
+        "citations": [],
+        "validation_errors": [
+          "Claim C2 sem atribuição inequívoca."
+        ],
+        "evidence_set_id": "d88058de-1c62-439c-b6bc-69c2b026387c",
+        "attribution": [
+          {
+            "claim_code": "C1",
+            "mode": "CLAUSE",
+            "status": "ATTRIBUTED",
+            "evidence_codes": [
+              "EV003",
+              "EV001"
+            ],
+            "reason": "Todas as cláusulas materiais receberam atribuição autorizada.",
+            "clauses": [
+              {
+                "index": 1,
+                "text": "O estado de sítio é disciplinado no **Capítulo I do Título V** da Constituição Federal de 1988",
+                "start": 0,
+                "end": 94,
+                "evidence_codes": [
+                  "EV003",
+                  "EV001"
+                ],
+                "score": 0.747902,
+                "reason": "EvidenceItems autorizados com contribuição material."
+              },
+              {
+                "index": 2,
+                "text": "que trata da 'Defesa do Estado e das Instituições Democráticas'.",
+                "start": 96,
+                "end": 160,
+                "evidence_codes": [
+                  "EV003"
+                ],
+                "score": 0.692986,
+                "reason": "EvidenceItems autorizados com contribuição material."
+              }
+            ]
+          },
+          {
+            "claim_code": "C2",
+            "mode": "SIMPLE",
+            "status": "UNRESOLVED",
+            "evidence_codes": [],
+            "reason": "Cláusula 1 sem suporte inequívoco.",
+            "clauses": [
+              {
+                "index": 1,
+                "text": "A competência para decretar o estado de sítio é atribuída ao Presidente da República, conforme previsto no **Art. 21, inciso V**, da CF/88.",
+                "start": 0,
+                "end": 139,
+                "evidence_codes": [],
+                "score": 0.0,
+                "reason": "Cláusula sem atribuição material inequívoca."
+              }
+            ]
+          }
+        ]
+      },
+      "semantic_validation": {
+        "errors": [
+          "Claim C2 sem atribuição inequívoca."
+        ]
+      },
+      "result": {
+        "outcome": "ABSTAINED",
+        "classification": "FALSE_ABSTENTION",
+        "failure_stage": "RETRIEVAL_MISS",
+        "elapsed_seconds": 82.94840426199517
+      }
+    },
+    {
+      "case_id": "rw-aborto",
+      "question": "aborto",
+      "expect_answer": false,
+      "expected_provisions": [],
+      "acceptable_provisions": [],
+      "retrieval": {
+        "lexical_top": [],
+        "vector_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:4",
+            "rank": 1,
+            "score": 0.5811129212379621
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:97/PARAGRAPH:8/INCISO:I",
+            "rank": 2,
+            "score": 0.5798386084937313
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:10/INCISO:II/ALINEA:B",
+            "rank": 3,
+            "score": 0.575760433168467
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:86/INCISO:I",
+            "rank": 4,
+            "score": 0.5742784496681613
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IX/ARTICLE:235/INCISO:VIII",
+            "rank": 5,
+            "score": 0.5701018736221946
+          }
+        ],
+        "hybrid_top": [
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:4",
+            "rrf": 0.00639344262295082,
+            "lex_rank": null,
+            "vec_rank": 1
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:97/PARAGRAPH:8/INCISO:I",
+            "rrf": 0.0061290322580645155,
+            "lex_rank": null,
+            "vec_rank": 2
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:10/INCISO:II/ALINEA:B",
+            "rrf": 0.005873015873015872,
+            "lex_rank": null,
+            "vec_rank": 3
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:86/INCISO:I",
+            "rrf": 0.005625,
+            "lex_rank": null,
+            "vec_rank": 4
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IX/ARTICLE:235/INCISO:VIII",
+            "rrf": 0.005384615384615385,
+            "lex_rank": null,
+            "vec_rank": 5
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:34/PARAGRAPH:4",
+            "rrf": 0.005151515151515152,
+            "lex_rank": null,
+            "vec_rank": 6
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXXVI/ALINEA:B",
+            "rrf": 0.004925373134328358,
+            "lex_rank": null,
+            "vec_rank": 7
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:66/PARAGRAPH:2",
+            "rrf": 0.004705882352941176,
+            "lex_rank": null,
+            "vec_rank": 8
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:67/CAPUT:@caput",
+            "rrf": 0.004492753623188406,
+            "lex_rank": null,
+            "vec_rank": 9
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:C",
+            "rrf": 0.004285714285714285,
+            "lex_rank": null,
+            "vec_rank": 10
+          }
+        ],
+        "ranks": {},
+        "hit": null
+      },
+      "evidence_selection": {
+        "received": 10,
+        "selected": 1,
+        "items": [
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:4",
+            "element_type": "PARAGRAPH",
+            "lexical_rank": null,
+            "vector_rank": 1,
+            "rrf": 0.00639344262295082
+          }
+        ],
+        "diagnostics": [
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:4",
+            "base_relevance": 1.0,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 1.0,
+            "selected_position": 1,
+            "decision_reason": "SELECTED_AS_RETRIEVAL_FALLBACK"
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:97/PARAGRAPH:8/INCISO:I",
+            "base_relevance": 0.5,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.5,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:10/INCISO:II/ALINEA:B",
+            "base_relevance": 0.3333333333333333,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.3333333333333333,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:86/INCISO:I",
+            "base_relevance": 0.25,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.25,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IX/ARTICLE:235/INCISO:VIII",
+            "base_relevance": 0.2,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.2,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          },
+          {
+            "identity_key": "ADCT/@root/ARTICLE:34/PARAGRAPH:4",
+            "base_relevance": 0.16666666666666666,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.16666666666666666,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXXVI/ALINEA:B",
+            "base_relevance": 0.14285714285714285,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.14285714285714285,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:66/PARAGRAPH:2",
+            "base_relevance": 0.125,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.125,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:III/ARTICLE:67/CAPUT:@caput",
+            "base_relevance": 0.1111111111111111,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.1111111111111111,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          },
+          {
+            "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:C",
+            "base_relevance": 0.1,
+            "query_coverage": 0.0,
+            "marginal_coverage": 0.0,
+            "redundancy": 0.0,
+            "final_score": 0.1,
+            "selected_position": null,
+            "decision_reason": "REJECTED_WITHOUT_QUERY_ANCHOR"
+          }
+        ]
+      },
+      "sufficiency": {
+        "decision": "INSUFFICIENT",
+        "is_sufficient": false,
+        "reasons": [
+          "Sinais lexical e vetorial abaixo dos limiares conservadores."
+        ],
+        "lexical_score": 0.0,
+        "vector_score": 0.5811129212379621
+      },
+      "generation": {
+        "outcome": "ABSTAINED",
+        "claims": [],
+        "citations": [],
+        "validation_errors": [],
+        "evidence_set_id": "c3465acb-eff4-45ae-a093-1cfaab574a7b",
+        "attribution": []
+      },
+      "semantic_validation": {
+        "errors": []
+      },
+      "result": {
+        "outcome": "ABSTAINED",
+        "classification": "CORRECT_ABSTENTION",
+        "failure_stage": null,
+        "elapsed_seconds": 0.24544133999734186
+      }
+    }
+  ]
+}

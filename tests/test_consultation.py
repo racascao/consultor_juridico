@@ -9,6 +9,8 @@ import pytest
 
 from consultor_juridico.consultation.errors import LLMResponseError
 from consultor_juridico.consultation.llm import (
+    GENERATOR_CONTRACT,
+    SYSTEM_PROMPT,
     OllamaLegalGenerator,
     build_evidence_prompt,
     parse_generated_response,
@@ -33,6 +35,26 @@ def test_prompt_contains_only_question_and_frozen_evidence():
     assert "[EV001]" in prompt
     assert "é livre a manifestação do pensamento" in prompt
     assert "Fonte oficial:" in prompt
+
+
+def test_generator_contract_enforces_minimum_complete_answer_policy():
+    assert set(GENERATOR_CONTRACT) == {
+        "minimum_complete_answer",
+        "core_claims_only",
+        "no_auxiliary_claims",
+        "evidence_codes_for_citations",
+        "do_not_invent_locators",
+        "abstain_when_unsupported",
+    }
+    assert all(rule in SYSTEM_PROMPT for rule in GENERATOR_CONTRACT.values())
+
+
+def test_generator_prompt_preserves_existing_parent_context():
+    item = _evidence()
+    item.validation_metadata = {"parent_context": "não haverá penas:"}
+    prompt = build_evidence_prompt("Há pena perpétua?", (item,))
+    assert "Texto: é livre a manifestação do pensamento" in prompt
+    assert "Contexto estrutural: não haverá penas:" in prompt
 
 
 def test_structured_response_is_parsed_strictly():
