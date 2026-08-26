@@ -1,9 +1,6 @@
 """Consulta jurídica fundamentada, local e auditável."""
 
-from consultor_juridico.consultation.llm import (
-    EvidenceBoundControlledGenerator,
-    OllamaLegalGenerator,
-)
+from consultor_juridico.consultation.llm import EvidenceBoundControlledGenerator
 from consultor_juridico.consultation.polarity import (
     PolarityReason,
     PolarityStatus,
@@ -36,7 +33,6 @@ __all__ = [
     "GeneratedClaim",
     "GeneratedResponse",
     "EvidenceBoundControlledGenerator",
-    "OllamaLegalGenerator",
     "PolarityStatus",
     "PolarityReason",
     "PolarityValidationResult",

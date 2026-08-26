@@ -543,3 +543,23 @@ Estado: `BLOCKED` — Granite 8B+8B executado; judge rejeita voto facultativo, m
 - [ ] Próximo E2E manual EBCG-v2 pendente; sem nova inferência nesta fase
 - [x] `docs/107-fase-96-target-fidelity-core-evidence-v2.md`
 - [x] `docs/108-adr-core-evidence-policy-v2.md`
+
+## Fase 97 — Limpeza, remoção de código morto e organização
+
+- [x] Inventário do runtime, testes, avaliações, dependências e artefatos órfãos
+- [x] Geração livre e módulos experimentais rejeitados removidos do runtime
+- [x] `lxml` removido após auditoria de uso; `uv.lock` atualizado por `uv`
+- [x] EBCG-v2 e validators ativos preservados por testes focais e suíte completa
+- [x] Resultados, datasets e documentação científica histórica preservados
+- [x] `docs/109-fase-97-cleanup-inventory.md`
+- [x] `docs/110-fase-97-cleanup-result.md`
+
+### Dívidas deliberadamente adiadas
+
+- [ ] `POST_MVP_TEXT_NORMALIZATION_CONSOLIDATION`: normalizações textuais
+  semelhantes permanecem locais para não mudar a semântica do MVP1.
+- [ ] Reorganização profunda de runners e artefatos históricos de avaliação.
+- [ ] Medir `qualifier preservation` no próximo ciclo de avaliação.
+- [ ] Executar manualmente o E2E EBCG-v2; a limpeza não executa inferência.
+- [ ] Reconciliar em avaliação futura o Hit@10 atual `0,900` com o gate
+  histórico `0,905`; nenhum ranking foi alterado nesta fase.

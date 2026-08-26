@@ -2299,6 +2299,18 @@ próximo E2E permanece manual e deverá registrar `EBCG_V2`.
 Detalhes: [Fase 96](docs/107-fase-96-target-fidelity-core-evidence-v2.md) e
 [ADR 108](docs/108-adr-core-evidence-policy-v2.md).
 
+### Fase 97 — Limpeza arquitetural
+
+O runtime foi limpo sem alterar o pipeline funcional: geração livre e módulos
+experimentais rejeitados deixaram o pacote de produção; EBCG-v2, retrieval,
+seleção, Attribution, Locator Fidelity, Citation, Polarity e o Semantic Judge
+permanecem ativos. `lxml`, sem uso pelo parser ativo, também foi removido. A
+memória científica permanece em documentos, datasets e resultados históricos;
+nenhuma inferência foi executada nesta fase.
+
+Detalhes: [inventário](docs/109-fase-97-cleanup-inventory.md) e
+[resultado](docs/110-fase-97-cleanup-result.md).
+
 ---
 
 ## Filosofia do projeto

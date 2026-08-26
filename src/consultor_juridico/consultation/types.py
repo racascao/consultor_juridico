@@ -24,12 +24,6 @@ class GeneratedResponse:
     abstain: bool = False
 
 
-@dataclass(frozen=True, slots=True)
-class ScopedGeneration:
-    claim: str
-    abstain: bool
-
-
 class AttributionMode(StrEnum):
     SIMPLE = "SIMPLE"
     CLAUSE = "CLAUSE"

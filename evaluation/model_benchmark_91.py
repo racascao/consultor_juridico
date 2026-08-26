@@ -17,7 +17,6 @@ from typing import Any
 
 import httpx
 
-from consultor_juridico.consultation.llm import RESPONSE_SCHEMA
 from evaluation.semantic_core_relevance_88 import controls, load_frozen_cases
 
 MODELS = (
@@ -82,6 +81,32 @@ SEMANTIC_SCHEMA = {
         "reason": {"type": "string"},
     },
     "required": ["status", "reason"],
+    "additionalProperties": False,
+}
+GENERATOR_RESPONSE_SCHEMA: dict[str, Any] = {
+    "type": "object",
+    "properties": {
+        "answer": {"type": "string", "maxLength": 1000},
+        "abstain": {"type": "boolean"},
+        "claims": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {"type": "string"},
+                    "text": {"type": "string", "maxLength": 500},
+                    "evidence_ids": {
+                        "type": "array",
+                        "items": {"type": "string"},
+                    },
+                },
+                "required": ["id", "text", "evidence_ids"],
+                "additionalProperties": False,
+            },
+        },
+    },
+    "required": ["answer", "abstain", "claims"],
     "additionalProperties": False,
 }
 SYSTEM = """Você classifica somente relevância material entre uma pergunta e uma
@@ -216,7 +241,7 @@ def generator_prompt(pair: dict[str, Any]) -> str:
 
 
 def generator_schema(pair: dict[str, Any]) -> dict[str, Any]:
-    schema = json.loads(json.dumps(RESPONSE_SCHEMA))
+    schema = json.loads(json.dumps(GENERATOR_RESPONSE_SCHEMA))
     schema["properties"]["claims"]["items"]["properties"]["evidence_ids"]["items"][
         "enum"
     ] = list(pair["evidence_codes"])

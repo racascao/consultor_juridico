@@ -41,6 +41,11 @@ próxima medição é `phase=96`, `generation_mode=EBCG_V2`: a Core Evidence ser
 escolhida por signals já existentes da seleção, sem prompt tuning ou nova
 inferência nesta fase.
 
+A Fase 97 realizou somente limpeza arquitetural: removeu do runtime geração
+livre e implementações experimentais rejeitadas, preservando documentos,
+datasets e resultados históricos. EBCG-v2 e os resultados científicos acima
+não foram modificados; nenhuma inferência nova foi executada.
+
 **Palavras-chave:** RAG jurídico; LLM local; avaliação de modelos; segurança; evidência; citação; fail-closed; Constituição Federal; Ollama; CPU.
 
 ---
