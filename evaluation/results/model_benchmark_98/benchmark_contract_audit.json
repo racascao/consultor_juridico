@@ -1,0 +1,697 @@
+{
+  "phase": "98",
+  "source_artifact": "evaluation/results/model_benchmark_96_ebcg_v2_e2e_1/e2e_ebcg_v2_run_1.json",
+  "source_artifact_sha256": "0e27a539ce623ac38221fb55fd5f830666682c1227269ee0b67358311bfca268",
+  "dataset": "evaluation/datasets/real_world_short_v1.json",
+  "dataset_sha256": "c6b496d20dd9b7b5952f7abecca92e64c0179ce134794f5e3b39e579025f441f",
+  "raw_artifact_unchanged": true,
+  "read_only_structural_audit": true,
+  "cases": [
+    {
+      "case_id": "rw-pena-morte",
+      "question": "pena de morte",
+      "expect_answer": true,
+      "pipeline_classification": "CORRECT_ANSWER",
+      "failure_stage": null,
+      "expected_provisions": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A"
+      ],
+      "acceptable_provisions": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A"
+      ],
+      "retrieval_hit": true,
+      "allowed_target_ranks": {
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A": {
+          "lexical": 9,
+          "vector": null,
+          "hybrid": 8
+        },
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII": {
+          "lexical": 8,
+          "vector": null,
+          "hybrid": 9
+        }
+      },
+      "selected_evidence": [
+        {
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A",
+          "element_type": "ALINEA",
+          "lexical_rank": 9,
+          "vector_rank": 181,
+          "rrf": 0.04864213121654941
+        },
+        {
+          "identity_key": "CF88/@root/TITLE:III/CHAPTER:VII/SECTION:II/ARTICLE:40/PARAGRAPH:7",
+          "element_type": "PARAGRAPH",
+          "lexical_rank": 1,
+          "vector_rank": 3,
+          "rrf": 0.0822664584959667
+        },
+        {
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XXXIII",
+          "element_type": "INCISO",
+          "lexical_rank": 3,
+          "vector_rank": null,
+          "rrf": 0.06087301587301587
+        }
+      ],
+      "core_evidence": {
+        "code": "EV001",
+        "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A",
+        "cited_identity_keys": [
+          "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A"
+        ]
+      },
+      "target_fidelity_pass": true,
+      "structural_target_status": {
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:A": "VALID",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII": "VALID"
+      },
+      "primary_attribution": "PASS",
+      "secondary_attributions": [],
+      "reason": "Resposta e target fidelity passaram no artefato congelado.",
+      "recommended_failure_stage": null,
+      "dataset_change_recommended": false,
+      "production_change_recommended": false
+    },
+    {
+      "case_id": "rw-prisao-perpetua",
+      "question": "prisão perpétua",
+      "expect_answer": true,
+      "pipeline_classification": "FALSE_ABSTENTION",
+      "failure_stage": "GENERATOR_ABSTENTION",
+      "expected_provisions": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B"
+      ],
+      "acceptable_provisions": [],
+      "retrieval_hit": true,
+      "allowed_target_ranks": {
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B": {
+          "lexical": 1,
+          "vector": null,
+          "hybrid": 2
+        }
+      },
+      "selected_evidence": [
+        {
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LXII",
+          "element_type": "INCISO",
+          "lexical_rank": 2,
+          "vector_rank": 53,
+          "rrf": 0.07247858978018841
+        },
+        {
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B",
+          "element_type": "ALINEA",
+          "lexical_rank": 1,
+          "vector_rank": null,
+          "rrf": 0.06639344262295083
+        },
+        {
+          "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:V/ARTICLE:53/PARAGRAPH:2",
+          "element_type": "PARAGRAPH",
+          "lexical_rank": 7,
+          "vector_rank": 50,
+          "rrf": 0.05901628222523745
+        }
+      ],
+      "core_evidence": {
+        "code": "EV002",
+        "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B",
+        "cited_identity_keys": []
+      },
+      "target_fidelity_pass": false,
+      "structural_target_status": {
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLVII/ALINEA:B": "VALID"
+      },
+      "primary_attribution": "STRUCTURAL_CONTEXT_REQUIRED_FOR_VALIDATION",
+      "secondary_attributions": [
+        "EVALUATION_TAXONOMY_ERROR"
+      ],
+      "reason": "Claim atribuída ao target foi bloqueada em validação com snapshot isolado.",
+      "recommended_failure_stage": "POLARITY_VALIDATION",
+      "dataset_change_recommended": false,
+      "production_change_recommended": true
+    },
+    {
+      "case_id": "rw-liberdade-religiosa",
+      "question": "liberdade religiosa",
+      "expect_answer": true,
+      "pipeline_classification": "CORRECT_ANSWER",
+      "failure_stage": null,
+      "expected_provisions": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI"
+      ],
+      "acceptable_provisions": [],
+      "retrieval_hit": true,
+      "allowed_target_ranks": {
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI": {
+          "lexical": 1,
+          "vector": 1,
+          "hybrid": 1
+        }
+      },
+      "selected_evidence": [
+        {
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+          "element_type": "INCISO",
+          "lexical_rank": 1,
+          "vector_rank": 1,
+          "rrf": 0.08278688524590164
+        },
+        {
+          "identity_key": "CF88/@root/PREAMBLE:@preamble",
+          "element_type": "PREAMBLE",
+          "lexical_rank": 2,
+          "vector_rank": 52,
+          "rrf": 0.07255760368663594
+        },
+        {
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+          "element_type": "CAPUT",
+          "lexical_rank": 3,
+          "vector_rank": 26,
+          "rrf": 0.07250092284976006
+        }
+      ],
+      "core_evidence": {
+        "code": "EV001",
+        "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+        "cited_identity_keys": [
+          "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI"
+        ]
+      },
+      "target_fidelity_pass": true,
+      "structural_target_status": {
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI": "VALID"
+      },
+      "primary_attribution": "PASS",
+      "secondary_attributions": [],
+      "reason": "Resposta e target fidelity passaram no artefato congelado.",
+      "recommended_failure_stage": null,
+      "dataset_change_recommended": false,
+      "production_change_recommended": false
+    },
+    {
+      "case_id": "rw-racismo",
+      "question": "racismo",
+      "expect_answer": true,
+      "pipeline_classification": "WRONG_TARGET",
+      "failure_stage": "TARGET_FIDELITY",
+      "expected_provisions": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII"
+      ],
+      "acceptable_provisions": [],
+      "retrieval_hit": true,
+      "allowed_target_ranks": {
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII": {
+          "lexical": 2,
+          "vector": 2,
+          "hybrid": 2
+        }
+      },
+      "selected_evidence": [
+        {
+          "identity_key": "CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII",
+          "element_type": "INCISO",
+          "lexical_rank": 1,
+          "vector_rank": 1,
+          "rrf": 0.08278688524590164
+        },
+        {
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII",
+          "element_type": "INCISO",
+          "lexical_rank": 2,
+          "vector_rank": 2,
+          "rrf": 0.07975806451612903
+        }
+      ],
+      "core_evidence": {
+        "code": "EV001",
+        "identity_key": "CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII",
+        "cited_identity_keys": [
+          "CF88/@root/TITLE:I/ARTICLE:4/INCISO:VIII"
+        ]
+      },
+      "target_fidelity_pass": false,
+      "structural_target_status": {
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII": "VALID"
+      },
+      "primary_attribution": "QUERY_AMBIGUITY",
+      "secondary_attributions": [
+        "ACCEPTABLE_TARGETS_INCOMPLETE"
+      ],
+      "reason": "Target permitido e norma distinta selecionada têm cobertura integral da consulta curta.",
+      "recommended_failure_stage": null,
+      "dataset_change_recommended": true,
+      "production_change_recommended": false
+    },
+    {
+      "case_id": "rw-extradicao",
+      "question": "extradição",
+      "expect_answer": true,
+      "pipeline_classification": "CORRECT_ANSWER",
+      "failure_stage": null,
+      "expected_provisions": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII"
+      ],
+      "acceptable_provisions": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI"
+      ],
+      "retrieval_hit": true,
+      "allowed_target_ranks": {
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI": {
+          "lexical": null,
+          "vector": 4,
+          "hybrid": 5
+        },
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII": {
+          "lexical": 1,
+          "vector": 5,
+          "hybrid": 1
+        }
+      },
+      "selected_evidence": [
+        {
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII",
+          "element_type": "INCISO",
+          "lexical_rank": 1,
+          "vector_rank": 5,
+          "rrf": 0.08177805800756621
+        },
+        {
+          "identity_key": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:22/INCISO:XV",
+          "element_type": "INCISO",
+          "lexical_rank": 2,
+          "vector_rank": 3,
+          "rrf": 0.07950204813108039
+        },
+        {
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI",
+          "element_type": "INCISO",
+          "lexical_rank": null,
+          "vector_rank": 4,
+          "rrf": 0.005625
+        }
+      ],
+      "core_evidence": {
+        "code": "EV001",
+        "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII",
+        "cited_identity_keys": [
+          "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII"
+        ]
+      },
+      "target_fidelity_pass": true,
+      "structural_target_status": {
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LI": "VALID",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:LII": "VALID"
+      },
+      "primary_attribution": "PASS",
+      "secondary_attributions": [],
+      "reason": "Resposta e target fidelity passaram no artefato congelado.",
+      "recommended_failure_stage": null,
+      "dataset_change_recommended": false,
+      "production_change_recommended": false
+    },
+    {
+      "case_id": "rw-direito-vida",
+      "question": "direito à vida",
+      "expect_answer": true,
+      "pipeline_classification": "CORRECT_ANSWER",
+      "failure_stage": null,
+      "expected_provisions": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput"
+      ],
+      "acceptable_provisions": [],
+      "retrieval_hit": true,
+      "allowed_target_ranks": {
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput": {
+          "lexical": 1,
+          "vector": null,
+          "hybrid": 1
+        }
+      },
+      "selected_evidence": [
+        {
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+          "element_type": "CAPUT",
+          "lexical_rank": 1,
+          "vector_rank": 18,
+          "rrf": 0.07921395544346364
+        },
+        {
+          "identity_key": "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:230/CAPUT:@caput",
+          "element_type": "CAPUT",
+          "lexical_rank": 3,
+          "vector_rank": 10,
+          "rrf": 0.07515873015873015
+        },
+        {
+          "identity_key": "CF88/@root/TITLE:VIII/CHAPTER:VII/ARTICLE:227/CAPUT:@caput",
+          "element_type": "CAPUT",
+          "lexical_rank": 2,
+          "vector_rank": 35,
+          "rrf": 0.0741553480475382
+        }
+      ],
+      "core_evidence": {
+        "code": "EV001",
+        "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput",
+        "cited_identity_keys": [
+          "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput"
+        ]
+      },
+      "target_fidelity_pass": true,
+      "structural_target_status": {
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/CAPUT:@caput": "VALID"
+      },
+      "primary_attribution": "PASS",
+      "secondary_attributions": [],
+      "reason": "Resposta e target fidelity passaram no artefato congelado.",
+      "recommended_failure_stage": null,
+      "dataset_change_recommended": false,
+      "production_change_recommended": false
+    },
+    {
+      "case_id": "rw-liberdade-expressao",
+      "question": "liberdade de expressão",
+      "expect_answer": true,
+      "pipeline_classification": "CORRECT_ANSWER",
+      "failure_stage": null,
+      "expected_provisions": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IV"
+      ],
+      "acceptable_provisions": [
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IV",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX",
+        "CF88/@root/TITLE:VIII/CHAPTER:V/ARTICLE:220/CAPUT:@caput"
+      ],
+      "retrieval_hit": true,
+      "allowed_target_ranks": {
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IV": {
+          "lexical": null,
+          "vector": null,
+          "hybrid": null
+        },
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX": {
+          "lexical": 4,
+          "vector": null,
+          "hybrid": 5
+        },
+        "CF88/@root/TITLE:VIII/CHAPTER:V/ARTICLE:220/CAPUT:@caput": {
+          "lexical": null,
+          "vector": 9,
+          "hybrid": null
+        }
+      },
+      "selected_evidence": [
+        {
+          "identity_key": "CF88/@root/PREAMBLE:@preamble",
+          "element_type": "PREAMBLE",
+          "lexical_rank": 1,
+          "vector_rank": 11,
+          "rrf": 0.08047794966520434
+        },
+        {
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX",
+          "element_type": "INCISO",
+          "lexical_rank": 4,
+          "vector_rank": 179,
+          "rrf": 0.06230910041841005
+        },
+        {
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:VI",
+          "element_type": "INCISO",
+          "lexical_rank": 3,
+          "vector_rank": 6,
+          "rrf": 0.07602453102453102
+        }
+      ],
+      "core_evidence": {
+        "code": "EV002",
+        "identity_key": "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX",
+        "cited_identity_keys": [
+          "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX"
+        ]
+      },
+      "target_fidelity_pass": true,
+      "structural_target_status": {
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IV": "VALID",
+        "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:IX": "VALID",
+        "CF88/@root/TITLE:VIII/CHAPTER:V/ARTICLE:220/CAPUT:@caput": "VALID"
+      },
+      "primary_attribution": "PASS",
+      "secondary_attributions": [],
+      "reason": "Resposta e target fidelity passaram no artefato congelado.",
+      "recommended_failure_stage": null,
+      "dataset_change_recommended": false,
+      "production_change_recommended": false
+    },
+    {
+      "case_id": "rw-idade-presidente",
+      "question": "idade para ser presidente",
+      "expect_answer": true,
+      "pipeline_classification": "CORRECT_ANSWER",
+      "failure_stage": null,
+      "expected_provisions": [
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A"
+      ],
+      "acceptable_provisions": [],
+      "retrieval_hit": true,
+      "allowed_target_ranks": {
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A": {
+          "lexical": 8,
+          "vector": null,
+          "hybrid": 1
+        }
+      },
+      "selected_evidence": [
+        {
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A",
+          "element_type": "ALINEA",
+          "lexical_rank": 8,
+          "vector_rank": 37,
+          "rrf": 0.09751516070345664
+        },
+        {
+          "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:80/CAPUT:@caput",
+          "element_type": "CAPUT",
+          "lexical_rank": 1,
+          "vector_rank": 75,
+          "rrf": 0.07380085003035823
+        },
+        {
+          "identity_key": "ADCT/@root/ARTICLE:13/PARAGRAPH:5",
+          "element_type": "PARAGRAPH",
+          "lexical_rank": 6,
+          "vector_rank": 70,
+          "rrf": 0.06034382284382284
+        }
+      ],
+      "core_evidence": {
+        "code": "EV001",
+        "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A",
+        "cited_identity_keys": [
+          "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A"
+        ]
+      },
+      "target_fidelity_pass": true,
+      "structural_target_status": {
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:3/INCISO:VI/ALINEA:A": "VALID"
+      },
+      "primary_attribution": "PASS",
+      "secondary_attributions": [],
+      "reason": "Resposta e target fidelity passaram no artefato congelado.",
+      "recommended_failure_stage": null,
+      "dataset_change_recommended": false,
+      "production_change_recommended": false
+    },
+    {
+      "case_id": "rw-voto-obrigatorio",
+      "question": "voto obrigatório",
+      "expect_answer": true,
+      "pipeline_classification": "WRONG_TARGET",
+      "failure_stage": "TARGET_FIDELITY",
+      "expected_provisions": [
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I/ALINEA:A",
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput"
+      ],
+      "acceptable_provisions": [
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput",
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I/ALINEA:A"
+      ],
+      "retrieval_hit": true,
+      "allowed_target_ranks": {
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I/ALINEA:A": {
+          "lexical": null,
+          "vector": null,
+          "hybrid": null
+        },
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput": {
+          "lexical": 10,
+          "vector": null,
+          "hybrid": 9
+        }
+      },
+      "selected_evidence": [
+        {
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I",
+          "element_type": "INCISO",
+          "lexical_rank": 12,
+          "vector_rank": 20,
+          "rrf": 0.048888888888888885
+        },
+        {
+          "identity_key": "CF88/@root/TITLE:II/CHAPTER:V/ARTICLE:17/PARAGRAPH:3/INCISO:I",
+          "element_type": "INCISO",
+          "lexical_rank": 2,
+          "vector_rank": 19,
+          "rrf": 0.07628726010616578
+        },
+        {
+          "identity_key": "CF88/@root/TITLE:IV/CHAPTER:II/SECTION:I/ARTICLE:77/PARAGRAPH:3",
+          "element_type": "PARAGRAPH",
+          "lexical_rank": 4,
+          "vector_rank": 7,
+          "rrf": 0.07305037313432836
+        }
+      ],
+      "core_evidence": {
+        "code": "EV001",
+        "identity_key": "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I",
+        "cited_identity_keys": [
+          "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I"
+        ]
+      },
+      "target_fidelity_pass": false,
+      "structural_target_status": {
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I/ALINEA:A": "MISSING",
+        "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput": "VALID"
+      },
+      "primary_attribution": "DATASET_TARGET_ERROR",
+      "secondary_attributions": [
+        "EVALUATION_TAXONOMY_ERROR"
+      ],
+      "reason": "Target do dataset não existe; a ocorrência ancestral foi selecionada.",
+      "recommended_failure_stage": "TARGET_HIERARCHY_MISMATCH_SUSPECTED",
+      "dataset_change_recommended": true,
+      "production_change_recommended": false
+    },
+    {
+      "case_id": "rw-estado-sitio",
+      "question": "estado de sítio",
+      "expect_answer": true,
+      "pipeline_classification": "WRONG_TARGET",
+      "failure_stage": "TARGET_FIDELITY",
+      "expected_provisions": [
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II/ARTICLE:137/CAPUT:@caput"
+      ],
+      "acceptable_provisions": [
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II/ARTICLE:137/CAPUT:@caput",
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:138/CAPUT:@caput"
+      ],
+      "retrieval_hit": false,
+      "allowed_target_ranks": {
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II/ARTICLE:137/CAPUT:@caput": {
+          "lexical": null,
+          "vector": null,
+          "hybrid": null
+        },
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:138/CAPUT:@caput": {
+          "lexical": null,
+          "vector": null,
+          "hybrid": null
+        }
+      },
+      "selected_evidence": [
+        {
+          "identity_key": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V",
+          "element_type": "INCISO",
+          "lexical_rank": 1,
+          "vector_rank": 6,
+          "rrf": 0.08154495777446598
+        },
+        {
+          "identity_key": "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:141/PARAGRAPH:ÚNICO",
+          "element_type": "PARAGRAPH",
+          "lexical_rank": 11,
+          "vector_rank": 4,
+          "rrf": 0.054709507042253525
+        },
+        {
+          "identity_key": "CF88/@root/TITLE:V/CHAPTER:I",
+          "element_type": "CHAPTER",
+          "lexical_rank": 8,
+          "vector_rank": 2,
+          "rrf": 0.0633349146110057
+        }
+      ],
+      "core_evidence": {
+        "code": "EV001",
+        "identity_key": "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V",
+        "cited_identity_keys": [
+          "CF88/@root/TITLE:III/CHAPTER:II/ARTICLE:21/INCISO:V"
+        ]
+      },
+      "target_fidelity_pass": false,
+      "structural_target_status": {
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:II/ARTICLE:137/CAPUT:@caput": "VALID",
+        "CF88/@root/TITLE:V/CHAPTER:I/SECTION:III/ARTICLE:138/CAPUT:@caput": "MISSING"
+      },
+      "primary_attribution": "RETRIEVAL_MISS",
+      "secondary_attributions": [],
+      "reason": "Nenhum target permitido ocorreu no retrieval medido.",
+      "recommended_failure_stage": null,
+      "dataset_change_recommended": false,
+      "production_change_recommended": true
+    },
+    {
+      "case_id": "rw-aborto",
+      "question": "aborto",
+      "expect_answer": false,
+      "pipeline_classification": "CORRECT_ABSTENTION",
+      "failure_stage": null,
+      "expected_provisions": [],
+      "acceptable_provisions": [],
+      "retrieval_hit": null,
+      "allowed_target_ranks": {},
+      "selected_evidence": [
+        {
+          "identity_key": "CF88/@root/TITLE:IV/CHAPTER:I/SECTION:VIII/SUBSECTION:II/ARTICLE:60/PARAGRAPH:4",
+          "element_type": "PARAGRAPH",
+          "lexical_rank": null,
+          "vector_rank": 1,
+          "rrf": 0.00639344262295082
+        }
+      ],
+      "core_evidence": {
+        "code": null,
+        "identity_key": null,
+        "cited_identity_keys": []
+      },
+      "target_fidelity_pass": null,
+      "structural_target_status": {},
+      "primary_attribution": "EXPECTED_ABSTENTION",
+      "secondary_attributions": [],
+      "reason": "Caso não respondível absteve corretamente.",
+      "recommended_failure_stage": null,
+      "dataset_change_recommended": false,
+      "production_change_recommended": false
+    }
+  ],
+  "aggregate": {
+    "pass": 6,
+    "expected_abstention": 1,
+    "retrieval_miss": 1,
+    "core_evidence_selection_error": 0,
+    "validator_false_negative": 0,
+    "structural_context_required_for_validation": 1,
+    "dataset_target_error": 1,
+    "acceptable_targets_incomplete": 0,
+    "query_ambiguity": 1,
+    "evaluation_taxonomy_error": 0,
+    "inconclusive": 0
+  }
+}

@@ -2311,6 +2311,15 @@ nenhuma inferência foi executada nesta fase.
 Detalhes: [inventário](docs/109-fase-97-cleanup-inventory.md) e
 [resultado](docs/110-fase-97-cleanup-result.md).
 
+### Fase 98 — Auditoria do contrato EBCG-v2
+
+O primeiro E2E EBCG-v2 foi auditado sem nova inferência: `6/10` respostas
+estritas, `1/1` abstenção correta e `unsafe=0`. A auditoria separou um miss
+real de retrieval, uma limitação estrutural de validação, um erro de target e
+uma ambiguidade de contrato, sem alterar o dataset v1 ou o artefato bruto.
+
+Detalhes: [Fase 98](docs/111-fase-98-benchmark-contract-audit.md).
+
 ---
 
 ## Filosofia do projeto

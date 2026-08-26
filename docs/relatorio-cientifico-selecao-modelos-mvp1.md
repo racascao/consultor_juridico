@@ -41,6 +41,11 @@ próxima medição é `phase=96`, `generation_mode=EBCG_V2`: a Core Evidence ser
 escolhida por signals já existentes da seleção, sem prompt tuning ou nova
 inferência nesta fase.
 
+A Fase 98 auditou offline o primeiro E2E EBCG-v2: `6/10` estrito, `1/1`
+abstenção correta, três `WRONG_TARGET`, uma falsa abstenção e `unsafe=0`.
+A Core Evidence atingiu target em `7/10` respondíveis. Não houve nova
+inferência nem alteração do dataset v1.
+
 A Fase 97 realizou somente limpeza arquitetural: removeu do runtime geração
 livre e implementações experimentais rejeitadas, preservando documentos,
 datasets e resultados históricos. EBCG-v2 e os resultados científicos acima

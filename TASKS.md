@@ -563,3 +563,14 @@ Estado: `BLOCKED` — Granite 8B+8B executado; judge rejeita voto facultativo, m
 - [ ] Executar manualmente o E2E EBCG-v2; a limpeza não executa inferência.
 - [ ] Reconciliar em avaliação futura o Hit@10 atual `0,900` com o gate
   histórico `0,905`; nenhum ranking foi alterado nesta fase.
+
+## Fase 98 — Benchmark Contract Audit & Failure Attribution
+
+- [x] Auditoria offline dos 11 casos EBCG-v2 e validação read-only da árvore
+- [x] Dataset e artefato bruto preservados e verificados por SHA-256
+- [x] Erro de target em voto obrigatório e ambiguidade em racismo classificados
+- [x] `docs/111-fase-98-benchmark-contract-audit.md`
+- [ ] `POLARITY_STRUCTURAL_CONTEXT_SUPPORT`
+- [ ] `BENCHMARK_V2_CONTRACT`
+- [ ] `RETRIEVAL_STATE_OF_SIEGE_ANALYSIS`
+- [ ] `QUALIFIER_PRESERVATION_MEASUREMENT`

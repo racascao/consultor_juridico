@@ -1,0 +1,33 @@
+{
+  "phase": "98",
+  "proposals": [
+    {
+      "case_id": "rw-racismo",
+      "current_contract": {
+        "expected_provisions": [
+          "CF88/@root/TITLE:II/CHAPTER:I/ARTICLE:5/INCISO:XLII"
+        ],
+        "acceptable_provisions": []
+      },
+      "proposed_change": "QUERY_AMBIGUITY",
+      "reason": "Target permitido e norma distinta selecionada têm cobertura integral da consulta curta.",
+      "confidence": "MEDIUM"
+    },
+    {
+      "case_id": "rw-voto-obrigatorio",
+      "current_contract": {
+        "expected_provisions": [
+          "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I/ALINEA:A",
+          "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput"
+        ],
+        "acceptable_provisions": [
+          "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/CAPUT:@caput",
+          "CF88/@root/TITLE:II/CHAPTER:IV/ARTICLE:14/PARAGRAPH:1/INCISO:I/ALINEA:A"
+        ]
+      },
+      "proposed_change": "DATASET_TARGET_ERROR",
+      "reason": "Target do dataset não existe; a ocorrência ancestral foi selecionada.",
+      "confidence": "HIGH"
+    }
+  ]
+}
