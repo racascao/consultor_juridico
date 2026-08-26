@@ -121,8 +121,7 @@ def test_check_readiness_detects_models_and_index(monkeypatch):
     response.status_code = 200
     response.json.return_value = {
         "models": [
-            {"name": "llama3.2:latest"},
-            {"name": "granite4.1:3b"},
+            {"name": "ministral-3:8b"},
             {"name": "nomic-embed-text:latest"},
         ]
     }
@@ -660,8 +659,7 @@ def test_check_readiness_handles_session_exception(monkeypatch):
     response.status_code = 200
     response.json.return_value = {
         "models": [
-            {"name": "llama3.2:latest"},
-            {"name": "granite4.1:3b"},
+            {"name": "ministral-3:8b"},
             {"name": "nomic-embed-text:latest"},
         ]
     }

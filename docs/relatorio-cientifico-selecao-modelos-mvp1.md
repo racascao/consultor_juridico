@@ -53,6 +53,21 @@ não foram modificados; nenhuma inferência nova foi executada.
 
 **Palavras-chave:** RAG jurídico; LLM local; avaliação de modelos; segurança; evidência; citação; fail-closed; Constituição Federal; Ollama; CPU.
 
+## Estado de freeze do MVP1
+
+O estado científico usado no freeze do MVP1 fixa `ministral-3:8b` como juiz
+semântico conservador. O runtime de consulta usa EBCG_V2, sem Generator LLM
+livre; o modelo não cria proposições jurídicas e somente participa do veto
+semântico após as validações determinísticas.
+
+O resultado mais recente é um reassessment **offline** do último artefato E2E
+contra `real_world_short_v2`: 8/10 casos respondíveis corretos, 1/1 abstenção
+esperada e zero respostas inseguras. Ele não equivale a um E2E nativo final
+contra v2. O retrieval congelado tem `Hit@10=0.900`, abaixo do threshold
+histórico `0.905`; qualifier preservation não foi medida e formal stability não
+foi executada. Esses limites permanecem explícitos no
+[freeze do MVP1](mvp1-freeze.md).
+
 ---
 
 ## 1. Pergunta de pesquisa
