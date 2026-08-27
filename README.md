@@ -157,6 +157,21 @@ executada. O retrieval do benchmark congelado permaneceu em `Hit@10 = 0.900`,
 abaixo do threshold histórico de `0.905`; portanto esse gate está em **FAIL** e
 é uma limitação assumida, não uma métrica mascarada.
 
+O E2E nativo final deve escolher a versão congelada de forma explícita e nunca
+sobrescreve um artefato existente:
+
+```bash
+OLLAMA_BASE_URL=http://localhost:11435 \
+uv run python -m evaluation.e2e_single_model_91 \
+  --dataset-version v2 \
+  --output evaluation/results/mvp1_final_v2/e2e.json
+```
+
+O comando acima executa inferência e deve ser rodado manualmente após revisão.
+O harness também preserva `--dataset-version v1` para reproduzir o histórico da
+Fase 96; cada versão verifica seu SHA-256 antes de criar providers ou chamar
+Ollama.
+
 Também permanecem: `QUALIFIER_PRESERVATION=NOT_YET_MEASURED` e
 `FORMAL_STABILITY=NOT_RUN`.
 

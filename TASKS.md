@@ -19,7 +19,8 @@
 
 - [x] Reassessment offline: 8/10 casos respondíveis corretos, 1/1 abstenção
   esperada e zero unsafe answers.
-- [ ] E2E nativo final contra `real_world_short_v2` ainda não executado.
+- [ ] E2E nativo final contra `real_world_short_v2` ainda não executado
+  (`evaluation.e2e_single_model_91 --dataset-version v2 --output <novo-json>`).
 - [ ] `Hit@10=0.900` não atingiu o threshold histórico `0.905`.
 - [ ] Qualifier preservation: `NOT_YET_MEASURED`.
 - [ ] Formal stability: `NOT_RUN`.

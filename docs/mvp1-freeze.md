@@ -52,6 +52,20 @@ abstenção esperada. O reassessment **offline** do último artefato E2E aponta
 8/10 respostas respondíveis corretas, 1/1 abstenção correta e zero respostas
 inseguras. Não é uma medição E2E nativa final contra v2.
 
+O E2E nativo final deve declarar o dataset explicitamente:
+
+```bash
+OLLAMA_BASE_URL=http://localhost:11435 \
+uv run python -m evaluation.e2e_single_model_91 \
+  --dataset-version v2 \
+  --output evaluation/results/mvp1_final_v2/e2e.json
+```
+
+O harness aceita apenas `v1` e `v2`, valida o SHA-256 antes de qualquer
+provider/inferência e não sobrescreve outputs. `v1` continua reproduzindo o
+artefato histórico da Fase 96; `v2` registra `MVP1_FINAL_NATIVE_V2` para não
+ser confundido com ele.
+
 | Indicador | Estado |
 |---|---|
 | Reassessment offline v2 | 8/10 respondíveis; 1/1 abstention; unsafe 0 |
