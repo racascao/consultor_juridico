@@ -3,7 +3,7 @@
 **Projeto:** `consultor_juridico`  
 **Escopo:** Constituição Federal de 1988 (CF/88) + ADCT  
 **Data de consolidação:** 25 de agosto de 2026  
-**Status da decisão:** **candidato single-model definido; seleção final de produção ainda pendente de validação end-to-end e estabilidade**
+**Status da decisão:** **MVP1 0.1.0 congelado; E2E nativo final v2 executado; estabilidade formal ainda não medida**
 
 ---
 
@@ -15,7 +15,10 @@ A avaliação foi organizada por **papéis independentes** — `Relevance Judge`
 
 Os testes de `Relevance` e `Semantic Support` mostraram desempenho seguro e estável tanto para `qwen3.5:4b` quanto para `ministral-3:8b`. Entretanto, no papel de `Generator`, `qwen3.5:4b`, `qwen3.5:9b`, `ministral-3:3b`, `granite4.1:3b` e `granite4.1:8b` apresentaram falhas críticas confirmadas. `ministral-3:8b` foi o único modelo a sobreviver ao Generator Kill-Test sem falha crítica de segurança, embora com recall baixo.
 
-A decisão científica atual é, portanto, **promover `ministral-3:8b` como único candidato single-model para o screening end-to-end do MVP1**, e não declará-lo ainda como modelo final de produção. A seleção definitiva dependerá do `E2E Single-Model Screen` e, se aprovado, de testes posteriores de estabilidade.
+A decisão científica atual é manter `ministral-3:8b` como juiz semântico
+conservador do MVP1. A geração jurídica livre foi removida do runtime: o
+EBCG_V2 constrói a Core Claim a partir de evidência autorizada, e o modelo não
+é fonte de proposições jurídicas.
 
 Em preparação para a segunda medição, a Fase 92 congelou experimentos não
 integrados (Atomic, VCSA, expansão/reserva estrutural e seleção experimental),
@@ -55,17 +58,53 @@ não foram modificados; nenhuma inferência nova foi executada.
 
 ## Estado de freeze do MVP1
 
-O estado científico usado no freeze do MVP1 fixa `ministral-3:8b` como juiz
-semântico conservador. O runtime de consulta usa EBCG_V2, sem Generator LLM
-livre; o modelo não cria proposições jurídicas e somente participa do veto
-semântico após as validações determinísticas.
+O estado científico do MVP1 fixa `ministral-3:8b` como juiz semântico
+conservador. O runtime de consulta usa EBCG_V2, sem Generator LLM livre; o
+modelo somente atua como veto após as validações determinísticas.
 
-O resultado mais recente é um reassessment **offline** do último artefato E2E
-contra `real_world_short_v2`: 8/10 casos respondíveis corretos, 1/1 abstenção
-esperada e zero respostas inseguras. Ele não equivale a um E2E nativo final
-contra v2. O retrieval congelado tem `Hit@10=0.900`, abaixo do threshold
-histórico `0.905`; qualifier preservation não foi medida e formal stability não
-foi executada. Esses limites permanecem explícitos no
+A cronologia de qualidade é preservada: o E2E histórico v1 alcançou 6/10; a
+auditoria de contrato exigiu o benchmark v2; o reassessment offline v2 alcançou
+8/10; e o E2E nativo final v2 reproduziu 8/10. Logo, a projeção offline de 80%
+foi confirmada por execução nativa, sem alteração do produto entre as duas
+medições.
+
+### E2E nativo final v2
+
+| Campo | Valor |
+|---|---|
+| `phase` | `MVP1_FINAL` |
+| `evaluation_context` | `MVP1_FINAL_NATIVE_V2` |
+| Dataset | `real_world_short_v2.json` |
+| SHA-256 do dataset | `a6ef0c9e0f3a95a44637c80d061c854a9848aaea5aad1443e7f9f0ee9b710a89` |
+| Generation mode | `EBCG_V2` |
+| Core Evidence policy | `QUERY_COVERAGE_MARGINAL_COVERAGE_BASE_RELEVANCE_SELECTED_POSITION` |
+| Generator model | `null` |
+| Semantic model | `ministral-3:8b` (`num_predict=500`, `think=false`) |
+| Relevance mode | `DETERMINISTIC` |
+| Embedding model | `nomic-embed-text` |
+| Artefato | `evaluation/results/mvp1_v0_1_0_final_e2e/e2e_real_world_short_v2.json` |
+| SHA-256 do artefato | `3175c5e3d5cda4f3baf7220a42ce9b47073250c31a6e6af7035765c65a84202d` |
+
+O aggregate nativo contém 11 casos: 8 respostas corretas entre 10 casos
+respondíveis (80%), 1 abstenção correta, 1 falsa abstenção, 1 `WRONG_TARGET`,
+0 respostas inseguras, 9 casos respondidos, 8 passes e 2 falhas de target
+fidelity, e `retrieval_hit_rate=0.900`. Os 9 comportamentos corretos entre os
+11 casos totais são uma métrica distinta; a métrica principal permanece 8/10
+entre os casos respondíveis.
+
+As limitações finais são auditáveis. Em `rw-prisao-perpetua`, a Core Evidence
+target estava correta, mas o snapshot `de caráter perpétuo;` não continha a
+negação normativa do elemento estrutural pai: `FALSE_ABSTENTION` em
+`POLARITY_VALIDATION`, classificado como `KNOWN_MVP1_LIMITATION`. Em
+`rw-estado-sitio`, os arts. 137/138 não foram recuperados no top-10, a
+evidência usada foi o art. 21, V, e Target Fidelity registrou `WRONG_TARGET`
+em `TARGET_FIDELITY`: um `KNOWN_RETRIEVAL_MISS`.
+
+O retrieval congelado tem `Hit@10=0.900`, abaixo do threshold histórico
+`0.905`; seu gate permanece **FAIL**. `QUALIFIER_PRESERVATION` continua
+`NOT_YET_MEASURED` e a estabilidade formal está `NOT_RUN`. O MVP1 foi
+congelado e aceito para release com esses limites conscientemente explícitos;
+eles não representam aprovação de todos os gates. Consulte também o
 [freeze do MVP1](mvp1-freeze.md).
 
 ---

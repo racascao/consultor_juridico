@@ -139,48 +139,45 @@ consultor-juridico
 O último comando inicia o menu interativo em terminal TTY. O modo normal evita
 mostrar SQL, vetores e payloads extensos.
 
-## Qualidade e freeze do MVP1
+## Estado da avaliação do MVP1
 
-O dataset de produto é `real_world_short_v2`: dez casos respondíveis e uma
-abstenção esperada. A reavaliação **offline** do último artefato E2E obteve:
+O benchmark de produto é `real_world_short_v2`: dez casos respondíveis e uma
+abstenção esperada. O E2E nativo final foi executado contra esse dataset e
+reproduziu exatamente o reassessment offline anterior:
 
-- 8/10 respostas respondíveis corretas (80% strict accuracy);
+- 8/10 respostas respondíveis corretas (80% de acurácia estrita);
 - 1/1 abstenção esperada correta;
+- 1 falsa abstenção;
+- 1 resposta com alvo jurídico incorreto;
 - 0 respostas inseguras.
 
-A seleção de Core Evidence atingiu o target em 7/10 casos no E2E original,
-antes da correção de contrato do benchmark. A métrica permanece preservada
-como referência histórica e não deve ser confundida com o reassessment v2.
+O artefato final é
+`evaluation/results/mvp1_v0_1_0_final_e2e/e2e_real_world_short_v2.json`
+(`SHA-256 3175c5e3d5cda4f3baf7220a42ce9b47073250c31a6e6af7035765c65a84202d`).
+O dataset v2 permanece identificado por
+`a6ef0c9e0f3a95a44637c80d061c854a9848aaea5aad1443e7f9f0ee9b710a89`.
 
-Isso não é um E2E nativo final contra v2: essa inferência ainda não foi
-executada. O retrieval do benchmark congelado permaneceu em `Hit@10 = 0.900`,
-abaixo do threshold histórico de `0.905`; portanto esse gate está em **FAIL** e
-é uma limitação assumida, não uma métrica mascarada.
+A cronologia científica preservada é: E2E histórico v1 com 6/10, reassessment
+offline v2 com 8/10 e E2E nativo final v2 com 8/10. O retrieval do benchmark
+congelado permaneceu em `Hit@10 = 0.900`, abaixo do threshold histórico de
+`0.905`; portanto esse gate está em **FAIL**. O MVP1 0.1.0 foi congelado com
+essa limitação conscientemente aceita, sem redefinir o threshold.
 
-O E2E nativo final deve escolher a versão congelada de forma explícita e nunca
-sobrescreve um artefato existente:
+**MVP1_READY=YES:** o produto está pronto para o fechamento da versão 0.1.0,
+sem declarar que todos os gates históricos de qualidade foram aprovados.
 
-```bash
-OLLAMA_BASE_URL=http://localhost:11435 \
-uv run python -m evaluation.e2e_single_model_91 \
-  --dataset-version v2 \
-  --output evaluation/results/mvp1_final_v2/e2e.json
-```
-
-O comando acima executa inferência e deve ser rodado manualmente após revisão.
-O harness também preserva `--dataset-version v1` para reproduzir o histórico da
-Fase 96; cada versão verifica seu SHA-256 antes de criar providers ou chamar
-Ollama.
-
-Também permanecem: `QUALIFIER_PRESERVATION=NOT_YET_MEASURED` e
+Também permanecem `QUALIFIER_PRESERVATION=NOT_YET_MEASURED` e
 `FORMAL_STABILITY=NOT_RUN`.
 
 ## Limitações conhecidas
 
-- **Prisão perpétua:** a Core Evidence correta pode depender de informação
-  negativa no elemento estrutural pai; o MVP1 pode abstê-la conservadoramente.
-- **Estado de sítio:** os arts. 137/138 não alcançaram o top-10 no benchmark
-  atual de retrieval.
+- **Prisão perpétua:** a Core Evidence foi correta, mas o Polarity Guard
+  abortou conservadoramente porque o snapshot `de caráter perpétuo;` não traz
+  isoladamente a negação do contexto estrutural pai. Classificação:
+  `FALSE_ABSTENTION`; estágio: `POLARITY_VALIDATION`.
+- **Estado de sítio:** os arts. 137/138 não alcançaram o top-10 do benchmark;
+  foi usada evidência do art. 21, V. Target Fidelity classificou o resultado
+  como `WRONG_TARGET`; estágio: `TARGET_FIDELITY`.
 - O corpus do MVP1 continua restrito à CF/88 e ao ADCT.
 
 ## Desenvolvimento

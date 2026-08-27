@@ -19,10 +19,17 @@
 - avaliação offline v2: 8/10 respondíveis corretos, 1/1 abstenção correta e
   zero respostas inseguras.
 
+### Validação
+
+- benchmark nativo final `real_world_short_v2` executado: 8/10 casos
+  respondíveis corretos (80%), 1/1 abstenção esperada correta e zero respostas
+  inseguras;
+- EBCG_V2 validado no fluxo completo; artefato final congelado e identificado
+  por SHA-256.
+
 ### Limitações conhecidas
 
 - `Hit@10=0.900` permanece abaixo do threshold histórico de `0.905`;
-- E2E nativo final contra v2, qualifier preservation e formal stability ainda
-  não foram medidos;
-- contexto estrutural de prisão perpétua e retrieval de estado de sítio seguem
-  como limitações documentadas.
+- uma falsa abstenção permanece por contexto estrutural em prisão perpétua e
+  um `WRONG_TARGET` permanece por retrieval miss em estado de sítio;
+- qualifier preservation não foi medido e formal stability não foi executada.
