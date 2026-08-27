@@ -48,7 +48,8 @@ suportada.
 
 ```text
 Claim -> Citation -> EvidenceItem -> Chunk -> LegalElement
-      -> LegalProvision -> LegalVersion -> SourceDocument -> Source
+      -> LegalProvision -> LegalVersion -> LegalAct
+      -> SourceDocument -> Source
 ```
 
 Cada entidade cumpre um papel específico nessa cadeia:
@@ -62,15 +63,19 @@ Cada entidade cumpre um papel específico nessa cadeia:
   específica, como artigo, parágrafo, inciso, alínea ou item.
 - **LegalProvision:** identidade normativa estável da disposição jurídica,
   independente de sua ocorrência em uma versão específica.
-- **LegalVersion:** versão materializada completa de um LegalAct em determinado
-  estado temporal.
+- **LegalVersion:** versão materializada de um `LegalAct` em determinado estado
+  temporal, representando o conteúdo normativo válido daquela versão.
+- **LegalAct:** identidade do ato normativo ao qual a versão pertence, como a
+  Constituição Federal de 1988 ou o ADCT.
 - **SourceDocument:** captura física do documento oficial ingerido, com
   proveniência e hash do conteúdo.
 - **Source:** origem oficial do documento, como a fonte primária do Planalto.
 
 Essa cadeia permite rastrear uma afirmação da resposta até o documento oficial
 original, preservando a evidência utilizada, a versão normativa e a proveniência
-da captura.
+da captura. O diagrama representa a cadeia lógica de rastreabilidade até a fonte
+oficial, e não necessariamente uma sequência de relacionamentos 1:1 entre
+tabelas.
 
 Os bytes brutos nunca são canonicalizados ou sobrescritos. Cada captura possui
 SHA-256, metadados HTTP e proveniência até a URL oficial.
