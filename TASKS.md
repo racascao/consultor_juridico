@@ -1,5 +1,20 @@
 # TASKS — Consultor Jurídico
 
+## v0.2 — em desenvolvimento
+
+- [x] Fase 0.2.1 — fundação Clean Architecture, contratos tipados e workflow
+  LangGraph com clarificação e limites testados por fakes.
+- [ ] Fase 0.2.2 — novo corpus e SearchUnits contextualizadas.
+- [ ] Fase 0.2.3 — retrieval lexical + vetorial e avaliação básica.
+- [ ] Fase 0.2.4 — Evidence Relevance Judge e detecção de ambiguidade.
+- [ ] Fase 0.2.5 — Answer Generator.
+- [ ] Fase 0.2.6 — Answer Judge e loops reais de retry.
+- [ ] Fase 0.2.7 — clarificação interativa na CLI.
+- [ ] Fase 0.2.8 — benchmark natural e hardening.
+
+Princípio de execução: estabilizar retrieval antes de geração. A v0.1.0 abaixo
+permanece como referência histórica congelada.
+
 ## MVP1 — concluído e congelado
 
 - [x] Fundação, CLI-first, Docker Compose, PostgreSQL + pgvector e Ollama.

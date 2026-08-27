@@ -13,6 +13,27 @@ Oferecer consulta jurídica auditável sobre legislação oficial: o corpus é
 versionado, o retrieval produz evidências autorizadas e toda resposta mantém
 citações verificáveis até a fonte primária. O LLM local não é fonte jurídica.
 
+## Desenvolvimento v0.2
+
+A versão v0.1.0 permanece congelada e preserva o MVP1 histórico descrito neste
+README. A branch `mvp-v0.2` inicia uma reestruturação arquitetural; ela ainda
+não representa um novo pipeline funcional de consulta.
+
+O objetivo central da v0.2 é corrigir localização e relevância da evidência
+antes da geração. A fundação usa Clean Architecture e SOLID: o domínio é
+independente de frameworks, capacidades externas são ports injetáveis e o
+LangGraph coordena apenas estado, rotas, retries e clarificações.
+
+O workflow distinguirá um **Evidence Relevance Judge**, responsável pela
+relação pergunta-evidência, de um **Answer Judge**, responsável pela relação
+pergunta-resposta-evidência. Evidência ambígua poderá suspender o fluxo para
+pedir esclarecimento ao usuário. Não haverá fine-tuning; as próximas etapas
+implementarão primeiro corpus contextual e retrieval, antes da geração.
+
+Documentação ativa: [arquitetura](docs/v0.2/architecture.md),
+[aprendizados da v0.1](docs/v0.2/lessons-from-v0.1.md) e
+[plano de implementação](docs/v0.2/implementation-plan.md).
+
 ## Escopo do MVP1
 
 - aquisição da fonte oficial do Planalto, preservando os bytes recebidos;

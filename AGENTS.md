@@ -67,3 +67,24 @@ Ela deve ser adaptada, não copiada literalmente.
 - Se a cadeia não puder ser validada, a resposta não é apresentada como fundamentada.
 - Todas as dependências Python devem ser isoladas no ambiente virtual `.venv` do projeto. Nenhuma dependência Python deve ser instalada globalmente no sistema operacional do desenvolvedor.
 
+## Invariantes permanentes da v0.2
+
+- O desenvolvimento da v0.2 ocorre na branch `mvp-v0.2`; a tag v0.1.0 permanece
+  congelada.
+- A nova implementação segue Clean Architecture e SOLID, com domínio
+  independente de frameworks e integrações externas.
+- LangGraph coordena somente estado, rotas, retries e interrupções; regras de
+  negócio pertencem aos componentes apropriados.
+- Decisões de workflow são tipos explícitos, não coleções de flags booleanas.
+- Não criar God Service, God Graph ou condicionais de negócio profundamente
+  aninhadas.
+- Dependências externas entram por ports e dependency injection; não usar
+  estado global para adapters.
+- Não criar regras específicas para perguntas, artigos ou casos de benchmark.
+- Não realizar fine-tuning no MVP1 e não executar LLM real durante fases que o
+  proíbam expressamente.
+- Cada fase corresponde a um commit manual do usuário. O assistente não cria
+  commits, e mensagens Git devem ser escritas em português.
+- Atualizar o README após cada fase que altere arquitetura ou comportamento.
+- Nunca executar `uv run ruff format .`; formatar somente arquivos tocados e
+  sempre validar com `uv run ruff format --check .`.

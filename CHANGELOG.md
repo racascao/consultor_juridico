@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.2.0 — Em desenvolvimento
+
+### Arquitetura
+
+- reset arquitetural iniciado com Clean Architecture e SOLID;
+- LangGraph adotado exclusivamente para orquestração tipada do workflow;
+- Evidence Relevance Judge e Answer Judge separados por responsabilidade;
+- clarificação modelada como estado interrompível e retomável do workflow;
+- ports e dependency injection preparados para adapters futuros;
+- fine-tuning explicitamente fora do plano da v0.2.
+
 ## 0.1.0 — MVP1 congelado
 
 ### Adicionado
