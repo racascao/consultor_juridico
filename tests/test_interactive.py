@@ -9,7 +9,6 @@ from typer.testing import CliRunner
 
 from consultor_juridico.cli.interactive.bootstrap import (
     BootstrapEvent,
-    pull_ollama_model,
     run_bootstrap,
 )
 from consultor_juridico.cli.interactive.readiness import (
@@ -133,8 +132,11 @@ def test_check_readiness_detects_models_and_index(monkeypatch):
     session = MagicMock()
     session.scalar.side_effect = [
         1,
-        SimpleNamespace(status="COMPLETED"),
+        SimpleNamespace(
+            id=uuid.uuid4(), source_document_id=uuid.uuid4(), status="COMPLETED"
+        ),
         3389,
+        2,
         3389,
     ]
     session.scalars.return_value.all.return_value = [
@@ -165,6 +167,7 @@ def test_run_bootstrap_is_noop_when_ready(monkeypatch):
     assert len(events) == 1
     assert events[0].step == "all"
     assert events[0].state == "success"
+    assert "ALREADY_READY" in events[0].message
 
 
 def test_run_bootstrap_fails_when_database_is_offline(monkeypatch):
@@ -191,8 +194,8 @@ def test_run_bootstrap_applies_pending_steps(monkeypatch):
     states = [
         _ready(
             schema_ready=False,
-            llm_model_ready=False,
-            embedding_model_ready=False,
+            llm_model_ready=True,
+            embedding_model_ready=True,
             source_ready=False,
             parsing_ready=False,
             index_ready=False,
@@ -208,10 +211,6 @@ def test_run_bootstrap_applies_pending_steps(monkeypatch):
     monkeypatch.setattr(
         "consultor_juridico.cli.interactive.bootstrap.db_service.run_migrations",
         lambda: None,
-    )
-    monkeypatch.setattr(
-        "consultor_juridico.cli.interactive.bootstrap.pull_ollama_model",
-        lambda _name: None,
     )
     monkeypatch.setattr(
         "consultor_juridico.cli.interactive.bootstrap.run_planalto_ingestion",
@@ -244,23 +243,85 @@ def test_run_bootstrap_applies_pending_steps(monkeypatch):
     events = list(run_bootstrap())
     steps = [(event.step, event.state) for event in events]
     assert ("db", "success") in steps
-    assert ("models", "success") in steps
     assert ("ingest", "success") in steps
     assert ("parse", "success") in steps
     assert ("index", "success") in steps
     assert steps[-1] == ("all", "success")
 
 
-def test_pull_ollama_model_consumes_stream(monkeypatch):
-    response = MagicMock()
-    response.raise_for_status.return_value = None
-    response.iter_lines.return_value = iter(["{}", "{}"])
-    stream = _SessionContext(response)
+def test_run_bootstrap_resumes_after_ingestion(monkeypatch):
+    states = [
+        _ready(source_ready=True, parsing_ready=False, index_ready=False),
+        _ready(parsing_ready=False, index_ready=False),
+        _ready(index_ready=False),
+    ]
     monkeypatch.setattr(
-        "consultor_juridico.cli.interactive.bootstrap.httpx.stream",
-        lambda *_args, **_kwargs: stream,
+        "consultor_juridico.cli.interactive.bootstrap.check_readiness",
+        lambda: states.pop(0),
     )
-    pull_ollama_model("llama3.2")
+    ingestion = MagicMock()
+    monkeypatch.setattr(
+        "consultor_juridico.cli.interactive.bootstrap.run_planalto_ingestion",
+        ingestion,
+    )
+    session = MagicMock()
+    session.scalar.return_value = SimpleNamespace(id="doc-id")
+    monkeypatch.setattr(
+        "consultor_juridico.cli.interactive.bootstrap.SessionLocal",
+        lambda: _SessionContext(session),
+    )
+    monkeypatch.setattr(
+        "consultor_juridico.cli.interactive.bootstrap.materialize_constitution",
+        lambda *_args: SimpleNamespace(provision_count=4096),
+    )
+    monkeypatch.setattr(
+        "consultor_juridico.cli.interactive.bootstrap.build_search_index",
+        lambda *_args, **_kwargs: SimpleNamespace(chunks=3389, embeddings=3389),
+    )
+
+    events = list(run_bootstrap())
+
+    ingestion.assert_not_called()
+    assert ("parse", "success") in [(event.step, event.state) for event in events]
+
+
+def test_run_bootstrap_only_indexes_when_parsing_is_ready(monkeypatch):
+    states = [
+        _ready(index_ready=False),
+        _ready(index_ready=False),
+        _ready(index_ready=False),
+    ]
+    monkeypatch.setattr(
+        "consultor_juridico.cli.interactive.bootstrap.check_readiness",
+        lambda: states.pop(0),
+    )
+    ingestion = MagicMock()
+    parsing = MagicMock()
+    indexing = MagicMock(return_value=SimpleNamespace(chunks=3389, embeddings=3389))
+    monkeypatch.setattr(
+        "consultor_juridico.cli.interactive.bootstrap.run_planalto_ingestion",
+        ingestion,
+    )
+    session = MagicMock()
+    session.scalar.return_value = SimpleNamespace(id="doc-id")
+    monkeypatch.setattr(
+        "consultor_juridico.cli.interactive.bootstrap.SessionLocal",
+        lambda: _SessionContext(session),
+    )
+    monkeypatch.setattr(
+        "consultor_juridico.cli.interactive.bootstrap.materialize_constitution",
+        parsing,
+    )
+    monkeypatch.setattr(
+        "consultor_juridico.cli.interactive.bootstrap.build_search_index", indexing
+    )
+
+    events = list(run_bootstrap())
+
+    ingestion.assert_not_called()
+    parsing.assert_not_called()
+    indexing.assert_called_once()
+    assert ("index", "success") in [(event.step, event.state) for event in events]
 
 
 def test_interactive_non_tty(cli_runner: CliRunner, cli_app, monkeypatch):
@@ -495,7 +556,7 @@ def test_interactive_status_and_diagnostics(
 
 
 def test_aliases_portuguese_ingest(cli_runner: CliRunner, cli_app, monkeypatch):
-    """Testa se o alias 'ingest constituicao' funciona como 'ingest constitution'."""
+    """Testa o comando público `ingest constituicao`."""
     download = SimpleNamespace(
         requested_url="https://example.test/doc",
         final_url="https://example.test/final",
@@ -520,7 +581,7 @@ def test_aliases_portuguese_ingest(cli_runner: CliRunner, cli_app, monkeypatch):
 
 
 def test_aliases_portuguese_parse(cli_runner: CliRunner, cli_app, monkeypatch):
-    """Testa se o alias 'parse constituicao' funciona como 'parse constitution'."""
+    """Testa o comando público `parse constituicao`."""
     value = SimpleNamespace(
         outcome=SimpleNamespace(value="CREATED"),
         parsing_run_id="run-uuid",
@@ -697,14 +758,10 @@ def test_run_bootstrap_fails_when_migration_fails(monkeypatch):
     assert any(event.step == "db" and event.state == "failed" for event in events)
 
 
-def test_run_bootstrap_fails_when_model_pull_fails(monkeypatch):
+def test_run_bootstrap_fails_when_required_model_is_missing(monkeypatch):
     monkeypatch.setattr(
         "consultor_juridico.cli.interactive.bootstrap.check_readiness",
-        lambda: _ready(llm_model_ready=False),
-    )
-    monkeypatch.setattr(
-        "consultor_juridico.cli.interactive.bootstrap.pull_ollama_model",
-        lambda _name: (_ for _ in ()).throw(RuntimeError("pull failed")),
+        lambda: _ready(embedding_model_ready=False),
     )
     events = list(run_bootstrap())
     assert any(event.step == "models" and event.state == "failed" for event in events)

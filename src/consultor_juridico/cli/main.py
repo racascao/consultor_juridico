@@ -10,6 +10,7 @@ from rich.console import Console
 from sqlalchemy import func, select
 
 from consultor_juridico import __version__
+from consultor_juridico.cli.interactive.bootstrap import run_bootstrap
 from consultor_juridico.config import settings
 from consultor_juridico.consultation import (
     EvidenceBoundControlledGenerator,
@@ -72,6 +73,25 @@ def version() -> None:
     )
 
 
+@app.command()
+def bootstrap() -> None:
+    """Prepara de forma idempotente a infraestrutura e o corpus do MVP1."""
+    failed = False
+    for event in run_bootstrap():
+        if event.state == "running":
+            console.print(f"[yellow]BOOTSTRAP_{event.step.upper()}:[/yellow] running")
+        elif event.state == "success":
+            console.print(f"[green]{event.message}[/green]")
+        else:
+            failed = True
+            console.print(
+                f"[bold red]BOOTSTRAP_FAILED: {event.step.upper()}[/bold red]\n"
+                f"{event.message}"
+            )
+    if failed:
+        raise typer.Exit(code=1)
+
+
 @db_app.command(name="migrate")
 def db_migrate() -> None:
     """Executa migrations pendentes no banco de dados."""
@@ -102,7 +122,6 @@ def db_status() -> None:
         raise typer.Exit(code=1)
 
 
-@ingest_app.command(name="constitution")
 @ingest_app.command(name="constituicao")
 def ingest_constitution() -> None:
     """Executa a ingestão da CF/88 e ADCT a partir da fonte oficial."""
@@ -150,7 +169,6 @@ def ingest_status() -> None:
         console.print(f"  URL: {document['url_source']}")
 
 
-@parse_app.command(name="constitution")
 @parse_app.command(name="constituicao")
 def parse_constitution_command(document_id: str | None = None) -> None:
     """Audita e materializa atomicamente CF/88 e ADCT."""

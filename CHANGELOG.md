@@ -9,7 +9,11 @@
   híbrido (FTS + pgvector);
 - EvidenceSet, citações, locator fidelity, polarity guard e validação semântica;
 - EBCG_V2 para respostas controladas por evidência, sem geração jurídica livre;
-- CLI de ingestão, parsing, indexação, retrieval, consulta e modo interativo.
+- CLI de ingestão, parsing, indexação, retrieval, consulta e modo interativo;
+- bootstrap inicial automático e idempotente baseado no PostgreSQL;
+- provisionamento automático dos modelos Ollama em volume persistente;
+- comandos constitucionais públicos em português (`constituicao`) e Quickstart
+  reduzido à entrada no container e execução de `consultor-juridico`.
 
 ### Segurança e qualidade
 

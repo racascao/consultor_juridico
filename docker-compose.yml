@@ -25,11 +25,21 @@ services:
       - "11435:11434"
     volumes:
       - ollama_data:/root/.ollama
+      - ./docker/ollama-entrypoint.sh:/usr/local/bin/mvp1-ollama-entrypoint:ro
+    environment:
+      EMBEDDING_MODEL: ${EMBEDDING_MODEL:-nomic-embed-text}
+      SEMANTIC_JUDGE_MODEL: ${SEMANTIC_JUDGE_MODEL:-ministral-3:8b}
+    entrypoint: ["/usr/local/bin/mvp1-ollama-entrypoint"]
     healthcheck:
-      test: ["CMD", "ollama", "list"]
+      test:
+        [
+          "CMD-SHELL",
+          "ollama show \"$$EMBEDDING_MODEL\" >/dev/null 2>&1 && ollama show \"$$SEMANTIC_JUDGE_MODEL\" >/dev/null 2>&1",
+        ]
       interval: 5s
-      timeout: 5s
-      retries: 5
+      timeout: 10s
+      retries: 180
+      start_period: 5s
 
   app:
     build:

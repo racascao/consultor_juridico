@@ -28,6 +28,7 @@ from consultor_juridico.models import (
 from consultor_juridico.services.db_service import (
     check_db_status,
     get_alembic_config,
+    get_alembic_head,
     run_migrations,
 )
 
@@ -192,6 +193,7 @@ def test_db_connection_and_status():
     assert "sources" in status["tables"]
     assert "legal_elements" in status["tables"]
     assert "embeddings" in status["tables"]
+    assert status["alembic_version"] == get_alembic_head()
 
 
 def test_alembic_migration_and_rollback():

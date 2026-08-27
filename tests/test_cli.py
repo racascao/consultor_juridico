@@ -46,7 +46,7 @@ def test_cli_ingest_status(cli_runner: CliRunner, cli_app, monkeypatch):
     assert "Status das Ingestões" in result.stdout
 
 
-def test_cli_ingest_constitution_delegates_to_service(
+def test_cli_ingest_constituicao_delegates_to_service(
     cli_runner: CliRunner, cli_app, monkeypatch
 ):
     """A CLI apresenta o resultado produzido pelo serviço de aplicação."""
@@ -66,13 +66,13 @@ def test_cli_ingest_constitution_delegates_to_service(
         "consultor_juridico.cli.main.run_planalto_ingestion", lambda: result_value
     )
 
-    result = cli_runner.invoke(cli_app, ["ingest", "constitution"])
+    result = cli_runner.invoke(cli_app, ["ingest", "constituicao"])
     assert result.exit_code == 0
     assert "CREATED" in result.stdout
     assert "a" * 64 in result.stdout
 
 
-def test_cli_parse_constitution_delegates_to_materialization(
+def test_cli_parse_constituicao_delegates_to_materialization(
     cli_runner: CliRunner, cli_app, monkeypatch
 ):
     document_id = uuid.uuid4()
@@ -92,12 +92,56 @@ def test_cli_parse_constitution_delegates_to_materialization(
     )
 
     result = cli_runner.invoke(
-        cli_app, ["parse", "constitution", "--document-id", str(document_id)]
+        cli_app, ["parse", "constituicao", "--document-id", str(document_id)]
     )
     assert result.exit_code == 0
     assert "CREATED" in result.stdout
     assert "4096" in result.stdout
     assert "6775" in result.stdout
+
+
+def test_cli_constituicao_help_is_public(cli_runner: CliRunner, cli_app):
+    ingest = cli_runner.invoke(cli_app, ["ingest", "constituicao", "--help"])
+    parse = cli_runner.invoke(cli_app, ["parse", "constituicao", "--help"])
+
+    assert ingest.exit_code == 0
+    assert parse.exit_code == 0
+
+
+def test_cli_rejects_legacy_constitution_command(cli_runner: CliRunner, cli_app):
+    ingest = cli_runner.invoke(cli_app, ["ingest", "constitution"])
+    parse = cli_runner.invoke(cli_app, ["parse", "constitution"])
+
+    assert ingest.exit_code != 0
+    assert parse.exit_code != 0
+
+
+def test_cli_bootstrap_reports_ready(cli_runner: CliRunner, cli_app, monkeypatch):
+    from consultor_juridico.cli.interactive.bootstrap import BootstrapEvent
+
+    monkeypatch.setattr(
+        "consultor_juridico.cli.main.run_bootstrap",
+        lambda: iter((BootstrapEvent("all", "success", "ALREADY_READY"),)),
+    )
+
+    result = cli_runner.invoke(cli_app, ["bootstrap"])
+
+    assert result.exit_code == 0
+    assert "ALREADY_READY" in result.stdout
+
+
+def test_cli_bootstrap_fails_closed(cli_runner: CliRunner, cli_app, monkeypatch):
+    from consultor_juridico.cli.interactive.bootstrap import BootstrapEvent
+
+    monkeypatch.setattr(
+        "consultor_juridico.cli.main.run_bootstrap",
+        lambda: iter((BootstrapEvent("index", "failed", "embedding offline"),)),
+    )
+
+    result = cli_runner.invoke(cli_app, ["bootstrap"])
+
+    assert result.exit_code == 1
+    assert "BOOTSTRAP_FAILED: INDEX" in result.stdout
 
 
 def test_cli_parse_status_is_read_only(cli_runner: CliRunner, cli_app, monkeypatch):

@@ -14,6 +14,8 @@ from consultor_juridico.models import (
     ParsingRun,
     SourceDocument,
 )
+from consultor_juridico.retrieval.chunking import CHUNK_STRATEGY
+from consultor_juridico.retrieval.indexing import MODEL_VERSION, PROVIDER_NAME
 from consultor_juridico.services import db_service
 
 
@@ -35,7 +37,6 @@ class SystemReadiness:
             self.database_connected
             and self.schema_ready
             and self.ollama_connected
-            and self.llm_model_ready
             and self.embedding_model_ready
             and self.semantic_judge_model_ready
             and self.source_ready
@@ -65,7 +66,9 @@ def check_readiness() -> SystemReadiness:
     if db_connected:
         tables = db_status.get("tables", [])
         if required_tables.issubset(set(tables)):
-            schema_ready = db_status.get("alembic_version") is not None
+            schema_ready = (
+                db_status.get("alembic_version") == db_service.get_alembic_head()
+            )
 
     # 2. Ollama e Modelos
     ollama_connected = False
@@ -115,28 +118,38 @@ def check_readiness() -> SystemReadiness:
     if db_connected and schema_ready:
         try:
             with SessionLocal() as session:
-                # Ingestão: existe pelo menos um SourceDocument
+                # Ingestão: existe captura não vazia com hash SHA-256 completo.
                 doc_count = int(
-                    session.scalar(select(func.count()).select_from(SourceDocument))
+                    session.scalar(
+                        select(func.count())
+                        .select_from(SourceDocument)
+                        .where(
+                            func.octet_length(SourceDocument.raw_bytes) > 0,
+                            func.length(SourceDocument.content_hash_sha256) == 64,
+                        )
+                    )
                     or 0
                 )
                 source_ready = doc_count > 0
 
-                # Parsing: existe ParsingRun concluído e 2 LegalVersion ativas
-                # (CF/88 e ADCT)
+                # Parsing: as duas versões ativas pertencem ao mesmo run
+                # concluído e à mesma captura processada.
                 parsing_completed = session.scalar(
                     select(ParsingRun)
                     .where(ParsingRun.status == "COMPLETED")
                     .order_by(ParsingRun.finished_at.desc())
                 )
-                active_versions = session.scalars(
-                    select(LegalVersion).where(
-                        LegalVersion.is_active_for_query.is_(True)
-                    )
-                ).all()
-                parsing_ready = (
-                    parsing_completed is not None and len(active_versions) == 2
-                )
+                active_versions = []
+                if parsing_completed is not None:
+                    active_versions = session.scalars(
+                        select(LegalVersion).where(
+                            LegalVersion.is_active_for_query.is_(True),
+                            LegalVersion.parsing_run_id == parsing_completed.id,
+                            LegalVersion.source_document_id
+                            == parsing_completed.source_document_id,
+                        )
+                    ).all()
+                parsing_ready = len(active_versions) == 2
 
                 # Indexação: chunks existem para as versões ativas e possuem
                 # embeddings correspondentes
@@ -147,6 +160,18 @@ def check_readiness() -> SystemReadiness:
                             select(func.count())
                             .select_from(Chunk)
                             .where(Chunk.legal_version_id.in_(active_version_ids))
+                            .where(Chunk.strategy_name == CHUNK_STRATEGY)
+                        )
+                        or 0
+                    )
+                    indexed_versions_count = int(
+                        session.scalar(
+                            select(
+                                func.count(func.distinct(Chunk.legal_version_id))
+                            ).where(
+                                Chunk.legal_version_id.in_(active_version_ids),
+                                Chunk.strategy_name == CHUNK_STRATEGY,
+                            )
                         )
                         or 0
                     )
@@ -157,12 +182,20 @@ def check_readiness() -> SystemReadiness:
                             .join(Chunk, Embedding.chunk_id == Chunk.id)
                             .where(
                                 Chunk.legal_version_id.in_(active_version_ids),
+                                Chunk.strategy_name == CHUNK_STRATEGY,
+                                Embedding.provider_name == PROVIDER_NAME,
                                 Embedding.model_name == settings.embedding_model,
+                                Embedding.model_version == MODEL_VERSION,
+                                Embedding.vector.is_not(None),
                             )
                         )
                         or 0
                     )
-                    index_ready = chunks_count > 0 and embeddings_count == chunks_count
+                    index_ready = (
+                        chunks_count > 0
+                        and indexed_versions_count == 2
+                        and embeddings_count == chunks_count
+                    )
         except Exception:
             pass
 

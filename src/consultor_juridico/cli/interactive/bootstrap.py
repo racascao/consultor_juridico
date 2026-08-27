@@ -2,7 +2,6 @@
 
 from collections.abc import Generator
 
-import httpx
 from sqlalchemy import select
 
 from consultor_juridico.cli.interactive.readiness import check_readiness
@@ -24,17 +23,6 @@ class BootstrapEvent:
         self.message = message
 
 
-def pull_ollama_model(model_name: str) -> None:
-    """Faz o download de um modelo no Ollama local usando a API /api/pull."""
-    url = f"{settings.ollama_base_url.rstrip('/')}/api/pull"
-    with httpx.stream(
-        "POST", url, json={"name": model_name}, timeout=600.0
-    ) as response:
-        response.raise_for_status()
-        for _line in response.iter_lines():
-            pass
-
-
 def _embedding_provider() -> OllamaEmbeddingProvider:
     return OllamaEmbeddingProvider(
         settings.ollama_base_url,
@@ -50,7 +38,7 @@ def run_bootstrap() -> Generator[BootstrapEvent]:
 
     if readiness.is_ready:
         yield BootstrapEvent(
-            "all", "success", "O ambiente já está totalmente preparado."
+            "all", "success", "ALREADY_READY: o ambiente já está preparado."
         )
         return
 
@@ -64,17 +52,7 @@ def run_bootstrap() -> Generator[BootstrapEvent]:
         )
         return
 
-    # 3. Ollama Offline
-    if not readiness.ollama_connected:
-        yield BootstrapEvent(
-            "ollama",
-            "failed",
-            "Serviço Ollama offline.\n"
-            f"Verifique se o Ollama está ativo em: {settings.ollama_base_url}",
-        )
-        return
-
-    # 4. Migrations do Banco
+    # 3. Migrations do Banco
     if not readiness.schema_ready:
         yield BootstrapEvent(
             "db", "running", "Aplicando migrations no banco de dados..."
@@ -88,76 +66,32 @@ def run_bootstrap() -> Generator[BootstrapEvent]:
             yield BootstrapEvent("db", "failed", f"Falha ao executar migrations: {exc}")
             return
 
-    # 5. Download dos modelos no Ollama
-    if not readiness.llm_model_ready:
+    # 4. O Compose provisiona os modelos antes de declarar o Ollama saudável.
+    if not readiness.ollama_connected:
         yield BootstrapEvent(
-            "models",
-            "running",
-            f"Baixando LLM '{settings.ollama_model}' no Ollama...",
+            "ollama",
+            "failed",
+            "Serviço Ollama offline.\n"
+            f"Verifique se o Ollama está ativo em: {settings.ollama_base_url}",
         )
-        try:
-            pull_ollama_model(settings.ollama_model)
-            yield BootstrapEvent(
-                "models",
-                "success",
-                f"Modelo LLM '{settings.ollama_model}' baixado com sucesso.",
-            )
-        except Exception as exc:
-            yield BootstrapEvent(
-                "models",
-                "failed",
-                f"Falha ao baixar o modelo LLM '{settings.ollama_model}': {exc}",
-            )
-            return
+        return
 
+    missing_models = []
     if not readiness.embedding_model_ready:
+        missing_models.append(settings.embedding_model)
+    if not readiness.semantic_judge_model_ready:
+        missing_models.append(settings.semantic_judge_model or settings.ollama_model)
+    if missing_models:
         yield BootstrapEvent(
             "models",
-            "running",
-            f"Baixando embeddings '{settings.embedding_model}'...",
+            "failed",
+            "Modelos obrigatórios ausentes no Ollama: "
+            f"{', '.join(dict.fromkeys(missing_models))}. "
+            "Consulte os logs do serviço Ollama.",
         )
-        try:
-            pull_ollama_model(settings.embedding_model)
-            yield BootstrapEvent(
-                "models",
-                "success",
-                f"Embeddings '{settings.embedding_model}' baixado com sucesso.",
-            )
-        except Exception as exc:
-            yield BootstrapEvent(
-                "models",
-                "failed",
-                f"Falha ao baixar embeddings '{settings.embedding_model}': {exc}",
-            )
-            return
+        return
 
-    # Juiz semântico independente quando configurado
-    judge_name = settings.semantic_judge_model
-    if judge_name and judge_name != settings.ollama_model:
-        # Reavalia readiness após possíveis pulls anteriores
-        judge_ready = check_readiness().semantic_judge_model_ready
-        if not judge_ready:
-            yield BootstrapEvent(
-                "models",
-                "running",
-                f"Baixando juiz semântico '{judge_name}'...",
-            )
-            try:
-                pull_ollama_model(judge_name)
-                yield BootstrapEvent(
-                    "models",
-                    "success",
-                    f"Juiz semântico '{judge_name}' baixado com sucesso.",
-                )
-            except Exception as exc:
-                yield BootstrapEvent(
-                    "models",
-                    "failed",
-                    f"Falha ao baixar juiz semântico '{judge_name}': {exc}",
-                )
-                return
-
-    # 6. Ingestão
+    # 5. Ingestão
     if not readiness.source_ready:
         yield BootstrapEvent(
             "ingest",
@@ -176,7 +110,7 @@ def run_bootstrap() -> Generator[BootstrapEvent]:
             yield BootstrapEvent("ingest", "failed", f"Falha na captura oficial: {exc}")
             return
 
-    # 7. Parsing e Materialização
+    # 6. Parsing e Materialização
     # Recalcula a prontidão dos dados porque a ingestão pode ter acabado de ocorrer
     with SessionLocal() as session:
         latest_doc = session.scalar(
@@ -209,7 +143,7 @@ def run_bootstrap() -> Generator[BootstrapEvent]:
             )
             return
 
-    # 8. Indexação (Chunks e Embeddings)
+    # 7. Indexação (Chunks e Embeddings)
     readiness = check_readiness()
     if not readiness.index_ready:
         yield BootstrapEvent(
@@ -236,5 +170,5 @@ def run_bootstrap() -> Generator[BootstrapEvent]:
             return
 
     yield BootstrapEvent(
-        "all", "success", "Sistema totalmente preparado para consultas!"
+        "all", "success", "PREPARED: sistema preparado para consultas."
     )

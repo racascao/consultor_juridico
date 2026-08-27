@@ -5,6 +5,7 @@ from typing import Any
 
 from alembic import command
 from alembic.config import Config
+from alembic.script import ScriptDirectory
 from sqlalchemy import inspect, text
 
 from consultor_juridico.db.session import engine, get_database_url
@@ -26,6 +27,11 @@ def run_migrations() -> None:
     """Executa as migrations pendentes no banco de dados para a versão 'head'."""
     config = get_alembic_config()
     command.upgrade(config, "head")
+
+
+def get_alembic_head() -> str | None:
+    """Retorna a revision head definida pelas migrations versionadas."""
+    return ScriptDirectory.from_config(get_alembic_config()).get_current_head()
 
 
 def check_db_status() -> dict[str, Any]:

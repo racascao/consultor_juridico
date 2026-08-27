@@ -14,13 +14,15 @@
 - [x] Dataset `real_world_short_v2`, taxonomia de falhas e reassessment offline.
 - [x] Freeze operacional 0.1.0: configuração de juiz semântico alinhada a
   `ministral-3:8b`; experimentos não integrados permanecem congelados.
+- [x] Primeiro uso: modelos, migrations, corpus e índice preparados
+  automaticamente; estado persistente no PostgreSQL orienta a idempotência.
 
 ## Qualidade aceita e limites explícitos
 
 - [x] Reassessment offline: 8/10 casos respondíveis corretos, 1/1 abstenção
   esperada e zero unsafe answers.
-- [ ] E2E nativo final contra `real_world_short_v2` ainda não executado
-  (`evaluation.e2e_single_model_91 --dataset-version v2 --output <novo-json>`).
+- [x] E2E nativo final contra `real_world_short_v2`: 8/10 respondíveis,
+  1/1 abstenção esperada e zero unsafe answers.
 - [ ] `Hit@10=0.900` não atingiu o threshold histórico `0.905`.
 - [ ] Qualifier preservation: `NOT_YET_MEASURED`.
 - [ ] Formal stability: `NOT_RUN`.
@@ -31,7 +33,7 @@
   perpétua, com validação fail-closed.
 - [ ] Investigar retrieval de estado de sítio (arts. 137/138) sem tuning por
   caso.
-- [ ] Executar E2E nativo final do dataset v2 e medir estabilidade formal.
+- [ ] Medir estabilidade formal do pipeline congelado.
 - [ ] Medir preservação de qualificadores materiais.
 - [ ] Ampliar corpus para legislação infraconstitucional somente após revisão
   de arquitetura e fonte oficial.

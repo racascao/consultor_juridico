@@ -66,34 +66,49 @@ SHA-256, metadados HTTP e proveniência até a URL oficial.
 ## Requisitos
 
 - Docker e Docker Compose;
-- `uv`;
-- Ollama acessível no modo de execução escolhido.
+- acesso à internet no primeiro bootstrap para a fonte oficial e os modelos.
 
-As dependências Python são instaladas exclusivamente na `.venv` local do
-projeto.
+O ambiente Python e o Ollama são preparados dentro dos containers. No
+desenvolvimento pelo host, as dependências Python continuam isoladas na
+`.venv` local do projeto.
 
-## Instalação e corpus
+## Início rápido
 
 ```bash
-uv sync --frozen
+git clone <repo>
+cd consultor_juridico
 cp .env.example .env
 docker compose up -d --build
-docker compose exec ollama ollama pull nomic-embed-text
-docker compose exec ollama ollama pull ministral-3:8b
-docker compose run --rm app db migrate
+docker compose run --rm app bash
 ```
 
-O Compose apenas configura os nomes dos modelos; o pull é uma etapa explícita.
-Depois de preparados banco e modelos, execute:
+Dentro do container, execute somente:
 
 ```bash
-docker compose run --rm app ingest constitution
-docker compose run --rm app parse constitution
-docker compose run --rm app index build
+consultor-juridico
 ```
 
-Esses comandos são idempotentes. A ingestão usa Conditional GET quando a fonte
-oferece validators HTTP; CF/88 e ADCT pertencem à mesma captura física.
+Para sair, use `exit`.
+
+Na primeira inicialização, o sistema prepara automaticamente os modelos locais,
+aplica migrations, captura a CF/88 e o ADCT da fonte oficial, materializa o
+corpus e cria chunks e embeddings. Essa preparação pode demorar, sobretudo no
+download inicial de `ministral-3:8b`. Em acessos seguintes, o bootstrap consulta
+o estado persistido no PostgreSQL e pula as etapas já concluídas.
+
+Os modelos `nomic-embed-text` e `ministral-3:8b` são provisionados pelo serviço
+Ollama e armazenados em volume persistente. Não é necessário executar
+`ollama pull` manualmente.
+
+Observabilidade opcional:
+
+```bash
+docker compose ps
+docker compose logs -f ollama
+```
+
+Checklist do primeiro acesso: containers saudáveis, modelos preparados,
+bootstrap concluído e `consultor-juridico` iniciado.
 
 ## Configuração
 
@@ -111,15 +126,19 @@ EMBEDDING_MODEL=nomic-embed-text
 consulta atual não existe Generator LLM livre. `SEMANTIC_JUDGE_MODEL` é o veto
 semântico local, depois de citation, locator fidelity e polarity validation.
 
-## CLI
+## Operações avançadas
 
-Consulte os comandos instalados em vez de depender desta lista:
+O bootstrap e os comandos internos permanecem disponíveis para manutenção e
+diagnóstico, mas não fazem parte do início rápido:
 
 ```bash
 consultor-juridico --help
+consultor-juridico bootstrap
 consultor-juridico db --help
 consultor-juridico ingest --help
+consultor-juridico ingest constituicao --help
 consultor-juridico parse --help
+consultor-juridico parse constituicao --help
 consultor-juridico index --help
 consultor-juridico retrieval --help
 consultor-juridico eval --help

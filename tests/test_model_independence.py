@@ -62,7 +62,7 @@ def test_readiness_semantic_judge_distinto(monkeypatch):
                 "chunks",
                 "embeddings",
             ],
-            "alembic_version": "005",
+            "alembic_version": "005_normative_identity_occurrences",
         },
     )
 
@@ -87,7 +87,15 @@ def test_readiness_semantic_judge_distinto(monkeypatch):
     from unittest.mock import MagicMock
 
     session = MagicMock()
-    session.scalar.side_effect = [1, SimpleNamespace(status="COMPLETED"), 3389, 3389]
+    session.scalar.side_effect = [
+        1,
+        SimpleNamespace(
+            id=uuid.uuid4(), source_document_id=uuid.uuid4(), status="COMPLETED"
+        ),
+        3389,
+        2,
+        3389,
+    ]
     session.scalars.return_value.all.return_value = [
         SimpleNamespace(id=uuid.uuid4()),
         SimpleNamespace(id=uuid.uuid4()),
