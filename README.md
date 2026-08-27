@@ -51,8 +51,58 @@ Claim -> Citation -> EvidenceItem -> Chunk -> LegalElement
       -> LegalProvision -> LegalVersion -> SourceDocument -> Source
 ```
 
+Cada entidade cumpre um papel específico nessa cadeia:
+
+- **Claim:** afirmação jurídica apresentada pela consulta.
+- **Citation:** vínculo entre uma Claim e a evidência que a fundamenta.
+- **EvidenceItem:** snapshot imutável da evidência efetivamente utilizada na
+  consulta.
+- **Chunk:** unidade textual indexada e recuperada pelo mecanismo de retrieval.
+- **LegalElement:** ocorrência concreta de um elemento normativo em uma versão
+  específica, como artigo, parágrafo, inciso, alínea ou item.
+- **LegalProvision:** identidade normativa estável da disposição jurídica,
+  independente de sua ocorrência em uma versão específica.
+- **LegalVersion:** versão materializada completa de um LegalAct em determinado
+  estado temporal.
+- **SourceDocument:** captura física do documento oficial ingerido, com
+  proveniência e hash do conteúdo.
+- **Source:** origem oficial do documento, como a fonte primária do Planalto.
+
+Essa cadeia permite rastrear uma afirmação da resposta até o documento oficial
+original, preservando a evidência utilizada, a versão normativa e a proveniência
+da captura.
+
 Os bytes brutos nunca são canonicalizados ou sobrescritos. Cada captura possui
 SHA-256, metadados HTTP e proveniência até a URL oficial.
+
+## EBCG_V2
+
+EBCG significa **Evidence-Bound Controlled Generation**. `EBCG_V2` é a segunda
+versão da arquitetura de geração controlada e vinculada à evidência usada pelo
+MVP1. O sistema não utiliza um LLM como gerador jurídico livre.
+
+O fluxo conceitual é:
+
+```text
+Pergunta
+  -> Retrieval
+  -> EvidenceItems
+  -> seleção da Core Evidence
+  -> Claim vinculada à evidência
+  -> validators
+  -> resposta ou abstention
+```
+
+A Core Evidence é determinada pela política ativa
+`QUERY_COVERAGE_MARGINAL_COVERAGE_BASE_RELEVANCE_SELECTED_POSITION`, que define
+qual evidência será usada como núcleo da resposta. Depois da seleção, são
+aplicadas validações de Attribution, Target Fidelity, Polarity, Locator,
+Semantic Support e Citation Validation.
+
+O Semantic Judge utiliza `ministral-3:8b` como componente fail-closed de
+validação, e não como gerador jurídico livre. Quando as evidências ou as
+validações são insuficientes, o sistema prefere abstention a produzir uma
+proposição jurídica não sustentada.
 
 ## Stack
 
