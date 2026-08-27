@@ -83,11 +83,11 @@ def run_consultation(
     session.refresh(evidence_set)
     if not sufficiency.is_sufficient or not evidence_set.items:
         return ConsultationResult(
-            ConsultationOutcome.ABSTAINED,
-            evidence_set.id,
-            ABSTENTION,
-            (),
-            (),
+            outcome=ConsultationOutcome.ABSTAINED,
+            evidence_set_id=evidence_set.id,
+            answer=ABSTENTION,
+            claims=(),
+            citations=(),
             sufficiency=sufficiency,
         )
 
@@ -145,11 +145,11 @@ def run_consultation(
                 }
                 session.commit()
                 return ConsultationResult(
-                    ConsultationOutcome.ABSTAINED,
-                    evidence_set.id,
-                    ABSTENTION,
-                    (),
-                    (),
+                    outcome=ConsultationOutcome.ABSTAINED,
+                    evidence_set_id=evidence_set.id,
+                    answer=ABSTENTION,
+                    claims=(),
+                    citations=(),
                     sufficiency=sufficiency,
                     attribution_diagnostics=attribution_diagnostics,
                 )
@@ -180,13 +180,13 @@ def run_consultation(
     }
     session.commit()
     return ConsultationResult(
-        ConsultationOutcome.ABSTAINED,
-        evidence_set.id,
-        ABSTENTION,
-        (),
-        (),
-        errors,
-        sufficiency,
+        outcome=ConsultationOutcome.ABSTAINED,
+        evidence_set_id=evidence_set.id,
+        answer=ABSTENTION,
+        claims=(),
+        citations=(),
+        validation_errors=errors,
+        sufficiency=sufficiency,
         attribution_diagnostics=attribution_diagnostics,
         validation_stage=validation_stage or "VALIDATION_ABSTENTION",
     )
@@ -255,11 +255,11 @@ def _persist_valid_response(
     }
     session.commit()
     return ConsultationResult(
-        ConsultationOutcome.ANSWERED,
-        evidence_set.id,
-        final_answer,
-        response.claims,
-        tuple(citation_pairs),
+        outcome=ConsultationOutcome.ANSWERED,
+        evidence_set_id=evidence_set.id,
+        answer=final_answer,
+        claims=response.claims,
+        citations=tuple(citation_pairs),
         sufficiency=sufficiency,
         semantic_support=semantic_support,
         attribution_diagnostics=attribution_diagnostics,
