@@ -14,11 +14,11 @@ until ollama list >/dev/null 2>&1; do
     sleep 1
 done
 
-echo "Preparando modelos congelados do MVP1..."
-ollama pull "$EMBEDDING_MODEL"
-if [ "$SEMANTIC_JUDGE_MODEL" != "$EMBEDDING_MODEL" ]; then
-    ollama pull "$SEMANTIC_JUDGE_MODEL"
+echo "Preparando modelos locais do MVP2..."
+ollama pull "$OLLAMA_EMBEDDING_MODEL"
+if [ "$OLLAMA_CONSULTATION_MODEL" != "$OLLAMA_EMBEDDING_MODEL" ]; then
+    ollama pull "$OLLAMA_CONSULTATION_MODEL"
 fi
-echo "Modelos do MVP1 prontos."
+echo "Modelos do MVP2 prontos."
 
 wait "$ollama_pid"

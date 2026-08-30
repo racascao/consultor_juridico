@@ -3,13 +3,12 @@
 from typing import NotRequired, TypedDict
 
 from consultor_juridico.domain import (
-    AnswerDecision,
     AnswerDraft,
     ClarificationTurn,
+    ConsultationModelOutcome,
     ConsultationResult,
     EvidenceCandidate,
     Question,
-    RelevanceDecision,
     SelectedEvidence,
 )
 
@@ -20,11 +19,8 @@ class ConsultationState(TypedDict):
     clarifications: tuple[ClarificationTurn, ...]
     candidates: tuple[EvidenceCandidate, ...]
     selected_evidence: tuple[SelectedEvidence, ...]
-    relevance_decision: NotRequired[RelevanceDecision]
+    consultation_outcome: NotRequired[ConsultationModelOutcome]
     draft_answer: NotRequired[AnswerDraft]
-    answer_decision: NotRequired[AnswerDecision]
-    retrieval_attempts: int
-    generation_attempts: int
     clarification_attempts: int
     final_result: NotRequired[ConsultationResult]
 
@@ -34,11 +30,8 @@ class ConsultationStateUpdate(TypedDict, total=False):
     clarifications: tuple[ClarificationTurn, ...]
     candidates: tuple[EvidenceCandidate, ...]
     selected_evidence: tuple[SelectedEvidence, ...]
-    relevance_decision: RelevanceDecision
+    consultation_outcome: ConsultationModelOutcome
     draft_answer: AnswerDraft
-    answer_decision: AnswerDecision
-    retrieval_attempts: int
-    generation_attempts: int
     clarification_attempts: int
     final_result: ConsultationResult
 
@@ -50,7 +43,5 @@ def initial_state(question: Question) -> ConsultationState:
         clarifications=(),
         candidates=(),
         selected_evidence=(),
-        retrieval_attempts=0,
-        generation_attempts=0,
         clarification_attempts=0,
     )

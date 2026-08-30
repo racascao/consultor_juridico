@@ -1,10 +1,10 @@
 """Validação criptográfica e decoding estrito da captura oficial."""
 
 from time import perf_counter
+from typing import Protocol
 from uuid import UUID
 
 from consultor_juridico.ingestion.hasher import sha256_hex
-from consultor_juridico.models import SourceDocument
 from consultor_juridico.parsing.errors import (
     SourceDocumentDecodingError,
     SourceDocumentIntegrityError,
@@ -14,8 +14,15 @@ from consultor_juridico.parsing.types import DecodedSourceDocument
 PLANALTO_CONSTITUTION_ENCODING = "windows-1252"
 
 
+class SourceDocumentLike(Protocol):
+    id: UUID
+    raw_bytes: bytes
+    content_hash_sha256: str
+    url_source: str
+
+
 def decode_source_document(
-    document: SourceDocument,
+    document: SourceDocumentLike,
     *,
     encoding: str = PLANALTO_CONSTITUTION_ENCODING,
 ) -> DecodedSourceDocument:

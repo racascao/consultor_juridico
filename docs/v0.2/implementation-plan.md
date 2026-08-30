@@ -1,23 +1,37 @@
-# Plano de implementação da v0.2
+# Plano do MVP2
 
-O roadmap segue o princípio **retrieval before generation**.
+## MVP2-F1 — Fundação Arquitetural
 
-1. **Fase 0.2.1 — Architecture foundation + LangGraph contracts:** domínio,
-   ports, estado, rotas, limites, interrupt/resume e testes com fakes.
-2. **Fase 0.2.2 — Novo corpus e SearchUnits contextualizadas:** representação
-   recuperável antes de escolher algoritmos de ranking.
-3. **Fase 0.2.3 — Retrieval lexical + vector + avaliação básica:** baseline de
-   localização e relevância sem geração.
-4. **Fase 0.2.4 — Evidence Relevance Judge + ambiguity detection:** julgamento
-   pergunta-evidência e clarificação tipada.
-5. **Fase 0.2.5 — Answer Generator:** geração estritamente sobre evidência já
-   aprovada.
-6. **Fase 0.2.6 — Answer Judge + retry loops reais:** avaliação conjunta de
-   pergunta, resposta e evidência.
-7. **Fase 0.2.7 — CLI interactive clarification:** ligar interrupt/resume à
-   interface, sem regras na CLI.
-8. **Fase 0.2.8 — Benchmark natural + hardening:** medir uso natural antes de
-   qualquer otimização adicional.
+**COMPLETE.** Clean Architecture, contratos tipados, workflow LangGraph,
+interrupt/resume, rotas e limites com fakes.
 
-Adapters de PostgreSQL e Ollama, prompts definitivos, embeddings e E2E não
-fazem parte da Fase 0.2.1.
+## MVP2-F2 — Core Funcional
+
+**IMPLEMENTATION COMPLETE; MANUAL ACCEPTANCE PENDING.**
+
+- Gate A — Corpus contextual: complete.
+- Gate B — Retrieval FTS/vector/RRF: complete.
+- Gate C — Consultation Model (`ANSWER | CLARIFY | ABSTAIN`): complete.
+- Gate D — fluxo CPU-first com uma inferência direta: complete.
+- Gate E — Citation/CLI vertical: complete.
+- Gate F — Manual Acceptance: preparado, pendente do usuário.
+
+As cinco regressões manuais mínimas são voto facultativo, alistamento militar,
+alistamento ambíguo, promulgação e inviolabilidade da casa. O evaluator
+`basic_direct_v1` mede o retrieval antes da avaliação científica da próxima
+fase.
+
+A aceitação manual da MVP2-F2 permanece aberta. A geração de candidatas passa a
+fundir pools lexical/vetorial mais profundos e a priorizar diversidade de
+famílias antes do top-10. Como essa mudança isolada não trouxe ganho material
+no reteste, a auditoria causal levou à projeção contextual v2: CAPUT regente,
+metadata rotulada e deduplicação exata ARTICLE/CAPUT. O rebuild e o benchmark
+real dessa projeção ainda devem ser executados pelo usuário. A MVP2-F3 não foi
+iniciada. O comando explícito de reprojeção por SHA de `SourceSnapshot` já está
+disponível e não faz aquisição HTTP; o rebuild real continua pendente e não foi
+executado pelo agente.
+
+## MVP2-F3 — Validação e Release
+
+**FUTURE.** Começa somente após aceitação explícita da MVP2-F2. Gates internos,
+modelos, prompts, bugs e reruns não criam novas fases.

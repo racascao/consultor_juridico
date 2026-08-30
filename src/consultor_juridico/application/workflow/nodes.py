@@ -1,15 +1,19 @@
-"""Nós coesos do workflow; decisões e I/O são delegados aos ports."""
+"""Nós do workflow CPU-first com uma inferência de consulta por pergunta."""
 
 from langgraph.runtime import Runtime
 from langgraph.types import interrupt
 
 from consultor_juridico.application.workflow.context import WorkflowContext
+from consultor_juridico.application.workflow.diagnostics import AbstentionCause
 from consultor_juridico.application.workflow.state import (
     ConsultationState,
     ConsultationStateUpdate,
 )
 from consultor_juridico.domain import (
-    AnswerDecisionKind,
+    AnswerDraft,
+    AnswerOutcome,
+    Citation,
+    ClarificationOutcome,
     ClarificationTurn,
     ConsultationOutcome,
     ConsultationResult,
@@ -24,74 +28,98 @@ ABSTENTION_MESSAGE = "Não há evidência oficial suficiente para responder com 
 def retrieve_candidates(
     state: ConsultationState, runtime: Runtime[WorkflowContext]
 ) -> ConsultationStateUpdate:
-    candidates = runtime.context.retriever.retrieve(
-        state["resolved_question"], runtime.context.candidate_limit
+    diagnostics = runtime.context.diagnostics
+    attempt = diagnostics.node_execution_counts.get("candidate_retrieval", 0) + 1
+    diagnostics.add_route("RETRIEVE")
+    with diagnostics.node("candidate_retrieval", attempt):
+        candidates = runtime.context.retriever.retrieve(
+            state["resolved_question"], runtime.context.candidate_limit
+        )
+    diagnostics.add_detail(
+        "candidate_retrieval",
+        attempt=attempt,
+        candidate_count=len(candidates),
+        candidates=tuple(
+            (item.candidate_id, item.stable_reference) for item in candidates
+        ),
     )
-    return {
-        "candidates": candidates,
-        "selected_evidence": (),
-        "retrieval_attempts": state["retrieval_attempts"] + 1,
-    }
+    return {"candidates": candidates, "selected_evidence": ()}
 
 
-def judge_evidence_relevance(
+def consult(
     state: ConsultationState, runtime: Runtime[WorkflowContext]
 ) -> ConsultationStateUpdate:
-    decision = runtime.context.relevance_judge.judge(
-        state["resolved_question"], state["candidates"]
+    diagnostics = runtime.context.diagnostics
+    attempt = diagnostics.node_execution_counts.get("consultation_model", 0) + 1
+    with diagnostics.node("consultation_model", attempt):
+        outcome = runtime.context.consultation_responder.respond(
+            state["resolved_question"], state["candidates"]
+        )
+    call = diagnostics.last_provider_call("consultation_model")
+    if call and call.error_kind:
+        diagnostics.abstention_cause = (
+            AbstentionCause.PROVIDER_FAILURE
+            if call.error_kind in {"PROVIDER_TIMEOUT", "PROVIDER_ERROR"}
+            else AbstentionCause.CONSULTATION_OUTPUT_INVALID
+        )
+    route_decision = outcome.kind.value
+    if call and call.error_kind in {"PROVIDER_TIMEOUT", "PROVIDER_ERROR"}:
+        route_decision = "PROVIDER_FAILURE"
+    elif call and call.error_kind == "INVALID_STRUCTURED_OUTPUT":
+        route_decision = "OUTPUT_INVALID"
+    diagnostics.add_route(f"CONSULTATION:{route_decision}")
+    selected = ()
+    draft = None
+    if isinstance(outcome, AnswerOutcome):
+        selected = _select_evidence(state, outcome.evidence_ids)
+        draft = AnswerDraft(
+            outcome.answer,
+            tuple(
+                Citation(item.candidate_id, item.citation_label, item.source_locator)
+                for item in selected
+            ),
+        )
+    diagnostics.add_detail(
+        "consultation_model",
+        attempt=attempt,
+        question=state["resolved_question"].text,
+        candidate_count=len(state["candidates"]),
+        selected_evidence_ids=tuple(item.candidate_id for item in selected),
+        decision=outcome.kind.value,
+        request_chars=call.request_chars if call else None,
+        output_validation=call.output_validation if call else "NOT_RECORDED",
     )
-    selected = _select_evidence(state, decision.selected_candidate_ids)
-    return {"relevance_decision": decision, "selected_evidence": selected}
+    update: ConsultationStateUpdate = {
+        "consultation_outcome": outcome,
+        "selected_evidence": selected,
+    }
+    if draft is not None:
+        update["draft_answer"] = draft
+    return update
 
 
 def clarify_user(
     state: ConsultationState, runtime: Runtime[WorkflowContext]
 ) -> ConsultationStateUpdate:
-    del runtime
-    decision = state.get("relevance_decision")
-    if decision is None or decision.clarification is None:
+    outcome = state.get("consultation_outcome")
+    if not isinstance(outcome, ClarificationOutcome):
         raise InvalidWorkflowState("Pedido de clarificação ausente.")
-
-    resumed = interrupt(decision.clarification.as_payload())
+    diagnostics = runtime.context.diagnostics
+    diagnostics.add_route("CLARIFY")
+    with diagnostics.node("clarification", state["clarification_attempts"] + 1):
+        resumed = interrupt(outcome.request.as_payload())
     answer = _clarification_answer(resumed)
-    turn = ClarificationTurn(decision.clarification, answer)
-    clarifications = (*state["clarifications"], turn)
-    resolved = _resolve_question(state["original_question"], clarifications)
+    clarifications = (
+        *state["clarifications"],
+        ClarificationTurn(outcome.request, answer),
+    )
     return {
         "clarifications": clarifications,
-        "resolved_question": resolved,
+        "resolved_question": _resolve_question(
+            state["original_question"], clarifications
+        ),
         "clarification_attempts": state["clarification_attempts"] + 1,
     }
-
-
-def generate_answer(
-    state: ConsultationState, runtime: Runtime[WorkflowContext]
-) -> ConsultationStateUpdate:
-    previous = state.get("answer_decision")
-    feedback = (
-        previous.reason
-        if previous is not None and previous.kind is AnswerDecisionKind.REWRITE
-        else None
-    )
-    draft = runtime.context.answer_generator.generate(
-        state["resolved_question"], state["selected_evidence"], feedback
-    )
-    return {
-        "draft_answer": draft,
-        "generation_attempts": state["generation_attempts"] + 1,
-    }
-
-
-def judge_answer(
-    state: ConsultationState, runtime: Runtime[WorkflowContext]
-) -> ConsultationStateUpdate:
-    draft = state.get("draft_answer")
-    if draft is None:
-        raise InvalidWorkflowState("Rascunho de resposta ausente.")
-    decision = runtime.context.answer_judge.judge(
-        state["resolved_question"], draft, state["selected_evidence"]
-    )
-    return {"answer_decision": decision}
 
 
 def validate_citations(
@@ -99,11 +127,22 @@ def validate_citations(
 ) -> ConsultationStateUpdate:
     draft = state.get("draft_answer")
     if draft is None:
-        raise InvalidWorkflowState("Rascunho de resposta ausente.")
-    validation = runtime.context.citation_validator.validate(
-        draft, state["selected_evidence"]
+        raise InvalidWorkflowState("Resposta fundamentada ausente.")
+    diagnostics = runtime.context.diagnostics
+    attempt = diagnostics.node_execution_counts.get("citation_validation", 0) + 1
+    with diagnostics.node("citation_validation", attempt):
+        validation = runtime.context.citation_validator.validate(
+            draft, state["selected_evidence"]
+        )
+    diagnostics.add_route("CITATION:PASS" if validation.valid else "CITATION:FAIL")
+    diagnostics.add_detail(
+        "citation_validation",
+        attempt=attempt,
+        valid=validation.valid,
+        reason=validation.reason,
     )
     if not validation.valid:
+        diagnostics.abstention_cause = AbstentionCause.CITATION_VALIDATION_FAILED
         return {}
     return {
         "final_result": ConsultationResult(
@@ -118,23 +157,23 @@ def validate_citations(
 def abstain(
     state: ConsultationState, runtime: Runtime[WorkflowContext]
 ) -> ConsultationStateUpdate:
-    del runtime
-    answer_decision = state.get("answer_decision")
-    relevance_decision = state.get("relevance_decision")
-    reason = (
-        answer_decision.reason
-        if answer_decision is not None
-        else relevance_decision.reason
-        if relevance_decision is not None
-        else "Limite seguro do workflow atingido."
-    )
+    diagnostics = runtime.context.diagnostics
+    if diagnostics.abstention_cause is None:
+        diagnostics.abstention_cause = (
+            AbstentionCause.WORKFLOW_LIMIT_REACHED
+            if isinstance(state.get("consultation_outcome"), ClarificationOutcome)
+            else AbstentionCause.NO_RELEVANT_EVIDENCE
+        )
+    diagnostics.add_route("ABSTAIN")
+    diagnostics.add_route("END")
+    diagnostics.add_detail("abstain", cause=diagnostics.abstention_cause.value)
     return {
         "final_result": ConsultationResult(
             outcome=ConsultationOutcome.ABSTAINED,
             answer=ABSTENTION_MESSAGE,
-            evidence=state["selected_evidence"],
+            evidence=(),
             citations=(),
-            reason=reason,
+            reason=diagnostics.abstention_cause.value,
         )
     }
 
@@ -142,7 +181,8 @@ def abstain(
 def finish(
     state: ConsultationState, runtime: Runtime[WorkflowContext]
 ) -> ConsultationStateUpdate:
-    del state, runtime
+    del state
+    runtime.context.diagnostics.add_route("END")
     return {}
 
 
@@ -153,7 +193,7 @@ def _select_evidence(
     missing = tuple(item_id for item_id in selected_ids if item_id not in candidates)
     if missing:
         raise InvalidWorkflowState(
-            f"Decisão selecionou candidatas inexistentes: {', '.join(missing)}"
+            f"Consulta selecionou candidatas inexistentes: {', '.join(missing)}"
         )
     return tuple(
         SelectedEvidence.from_candidate(candidates[item_id]) for item_id in selected_ids

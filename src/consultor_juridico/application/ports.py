@@ -3,12 +3,11 @@
 from typing import Protocol
 
 from consultor_juridico.domain import (
-    AnswerDecision,
     AnswerDraft,
     CitationValidation,
+    ConsultationModelOutcome,
     EvidenceCandidate,
     Question,
-    RelevanceDecision,
     SelectedEvidence,
 )
 
@@ -19,28 +18,10 @@ class CandidateRetriever(Protocol):
     ) -> tuple[EvidenceCandidate, ...]: ...
 
 
-class EvidenceRelevanceJudge(Protocol):
-    def judge(
+class ConsultationResponder(Protocol):
+    def respond(
         self, question: Question, candidates: tuple[EvidenceCandidate, ...]
-    ) -> RelevanceDecision: ...
-
-
-class AnswerGenerator(Protocol):
-    def generate(
-        self,
-        question: Question,
-        evidence: tuple[SelectedEvidence, ...],
-        feedback: str | None = None,
-    ) -> AnswerDraft: ...
-
-
-class AnswerJudge(Protocol):
-    def judge(
-        self,
-        question: Question,
-        answer: AnswerDraft,
-        evidence: tuple[SelectedEvidence, ...],
-    ) -> AnswerDecision: ...
+    ) -> ConsultationModelOutcome: ...
 
 
 class CitationValidator(Protocol):

@@ -1,0 +1,23 @@
+{
+  "version": "basic_direct_v1",
+  "cases": [
+    {"id":"BASIC-001","question":"O voto é facultativo?","expected_targets":["CF88/ARTICLE:14"]},
+    {"id":"BASIC-002","question":"Alistamento militar é obrigatório?","expected_targets":["CF88/ARTICLE:143"]},
+    {"id":"BASIC-003","question":"Quando a Constituição foi promulgada?","expected_targets":["CF88/METADATA:PROMULGATION_DATE"]},
+    {"id":"BASIC-004","question":"A casa é um asilo violável?","expected_targets":["CF88/ARTICLE:5/INCISO:XI","CF88/ARTICLE:5"]},
+    {"id":"BASIC-005","question":"Alistamento é obrigatório?","expected_targets":["CF88/ARTICLE:14","CF88/ARTICLE:143"],"expected_outcome":"AMBIGUOUS"},
+    {"id":"BASIC-006","question":"Tenho 17 anos. Preciso votar?","expected_targets":["CF88/ARTICLE:14"]},
+    {"id":"BASIC-007","question":"Uma pessoa com 72 anos é obrigada a votar?","expected_targets":["CF88/ARTICLE:14"]},
+    {"id":"BASIC-008","question":"Estrangeiro pode votar?","expected_targets":["CF88/ARTICLE:14"]},
+    {"id":"BASIC-009","question":"O serviço militar é obrigatório?","expected_targets":["CF88/ARTICLE:143"]},
+    {"id":"BASIC-010","question":"A polícia pode entrar na minha casa à noite?","expected_targets":["CF88/ARTICLE:5/INCISO:XI","CF88/ARTICLE:5"]},
+    {"id":"BASIC-011","question":"Existe prisão perpétua no Brasil?","expected_targets":["CF88/ARTICLE:5"]},
+    {"id":"BASIC-012","question":"A Constituição permite pena de morte?","expected_targets":["CF88/ARTICLE:5"]},
+    {"id":"BASIC-013","question":"Qual a idade mínima para ser presidente?","expected_targets":["CF88/ARTICLE:14"]},
+    {"id":"BASIC-014","question":"Posso manifestar minha religião livremente?","expected_targets":["CF88/ARTICLE:5"]},
+    {"id":"BASIC-015","question":"Todos são iguais perante a lei?","expected_targets":["CF88/ARTICLE:5"]},
+    {"id":"BASIC-016","question":"A saúde é direito de todos?","expected_targets":["CF88/ARTICLE:196"]},
+    {"id":"BASIC-017","question":"Quem são os Poderes da União?","expected_targets":["CF88/ARTICLE:2"]},
+    {"id":"BASIC-018","question":"Quem pode propor emenda à Constituição?","expected_targets":["CF88/ARTICLE:60"]}
+  ]
+}

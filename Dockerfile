@@ -31,5 +31,5 @@ RUN uv sync --frozen
 
 ENTRYPOINT ["app-entrypoint.sh"]
 
-# O entrypoint prepara o MVP1 antes de entregar o comando solicitado.
+# O entrypoint prepara o MVP2 no container CLI efêmero.
 CMD ["consultor-juridico"]

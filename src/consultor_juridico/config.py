@@ -25,20 +25,17 @@ class Settings(BaseSettings):
         alias="DATABASE_URL",
     )
 
-    # Ollama runtime. EBCG v2 does not use a free-form legal generator; these
-    # settings configure the conservative semantic judge and its fallback.
+    # Runtime local único do MVP2.
     ollama_base_url: str = Field(default="http://ollama:11434", alias="OLLAMA_BASE_URL")
-    ollama_model: str = Field(default="ministral-3:8b", alias="OLLAMA_MODEL")
-    semantic_judge_model: str | None = Field(default=None, alias="SEMANTIC_JUDGE_MODEL")
-    embedding_model: str = Field(default="nomic-embed-text", alias="EMBEDDING_MODEL")
-    embedding_timeout: float = Field(default=120.0, alias="EMBEDDING_TIMEOUT")
-    embedding_batch_size: int = Field(default=32, alias="EMBEDDING_BATCH_SIZE")
-    consultation_timeout: float = Field(default=180.0, alias="CONSULTATION_TIMEOUT")
-    consultation_top_k: int = Field(default=10, alias="CONSULTATION_TOP_K")
-    consultation_max_attempts: int = Field(default=2, alias="CONSULTATION_MAX_ATTEMPTS")
-    consultation_evidence_limit: int = Field(
-        default=3, alias="CONSULTATION_EVIDENCE_LIMIT"
+    ollama_consultation_model: str = Field(
+        default="ministral-3:3b", alias="OLLAMA_CONSULTATION_MODEL"
     )
+    ollama_embedding_model: str = Field(
+        default="nomic-embed-text", alias="OLLAMA_EMBEDDING_MODEL"
+    )
+    ollama_timeout: float = Field(default=180.0, alias="OLLAMA_TIMEOUT")
+    embedding_dimensions: int = Field(default=768, alias="EMBEDDING_DIMENSIONS")
+    retrieval_limit: int = Field(default=10, alias="RETRIEVAL_LIMIT")
 
     # Aquisição documental HTTP
     ingestion_connect_timeout: float = Field(

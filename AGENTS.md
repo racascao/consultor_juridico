@@ -88,3 +88,46 @@ Ela deve ser adaptada, não copiada literalmente.
 - Atualizar o README após cada fase que altere arquitetura ou comportamento.
 - Nunca executar `uv run ruff format .`; formatar somente arquivos tocados e
   sempre validar com `uv run ruff format --check .`.
+- `SearchUnit.search_text` contém somente contexto derivado deterministicamente
+  da fonte; nunca interpretação gerada.
+- `Provision.citation_text` preserva texto oficial e não recebe contexto de
+  retrieval.
+- metadata documental somente pode ser materializada quando extraída da fonte
+  com proveniência.
+- o banco v0.2 é incompatível com o v0.1 e nunca deve ser apagado ou recriado
+  automaticamente.
+- Dentro de uma `ActVersion`, `Provision.stable_key` é única; colisões devem
+  ser resolvidas na interpretação da fonte ou rejeitadas antes da persistência,
+  nunca mascaradas no banco.
+- Builds de corpus devem ser idempotentes e recuperáveis: entidades compatíveis
+  são reutilizadas por identidade natural, conflitos reais falham explicitamente
+  e retry normal nunca exige reset destrutivo.
+- `SOURCE_REPROJECTION_INVARIANT`: uma nova projeção/parser deve poder ser
+  aplicada a um `SourceSnapshot` persistido sem nova aquisição remota; operações
+  explícitas de reprojeção nunca fazem fallback para HTTP.
+- `CPU_DIRECT_QUERY_INVARIANT`: uma consulta direta do MVP2 executa no máximo
+  uma inferência LLM de chat antes da validação determinística de citações. Uma
+  clarificação após nova entrada do usuário pode executar nova inferência.
+
+## Processo do MVP2
+
+- O MVP2 possui somente `MVP2-F1`, `MVP2-F2` e `MVP2-F3`; gates internos não
+  são fases e não se criam microfases para modelo, prompt, threshold, bug,
+  experimento ou rerun.
+- Um único commit manual corresponde a cada fase. O agente nunca cria commit.
+- O agente não executa inferência LLM real; testes de adapters usam mocks e a
+  aceitação com Ollama é feita manualmente pelo usuário.
+- Não há fine-tuning no MVP2.
+- README e documentação ativa devem refletir todo comportamento alterado.
+
+### MVP2_COMPLEXITY_RULE
+
+Nenhuma camada, validator, heurística, fallback ou estratégia de ranking pode
+ser criada sem falha concreta, camada responsável identificada, solução geral
+mínima e regressão que cubra a falha.
+
+### NO_EXPERIMENTAL_PHASE_EXPLOSION
+
+Experimentos e correções permanecem dentro da fase funcional corrente. Clean
+Architecture, SOLID, dependency inversion e baixa profundidade de decisões de
+negócio continuam obrigatórios.

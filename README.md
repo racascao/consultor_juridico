@@ -1,152 +1,111 @@
 # Consultor Jurídico
 
-Sistema CLI-first de consulta jurídica fundamentada em fontes oficiais,
-versionadas e rastreáveis. O MVP1 cobre exclusivamente a Constituição Federal
-de 1988 (CF/88) e o Ato das Disposições Constitucionais Transitórias (ADCT).
+Aplicação CLI-first de consulta à Constituição Federal de 1988 e ao ADCT,
+baseada em fonte oficial, execução local e rastreabilidade. A branch
+`mvp-v0.2` contém o MVP2 em `0.2.0.dev0`; a versão 0.1.0 permanece preservada
+em sua tag histórica.
 
-> O sistema não substitui análise profissional. Quando a cadeia de evidência
-> não é suficiente, ele responde por abstenção, e não por inferência jurídica.
+> O LLM não é fonte jurídica. Se a evidência oficial não for suficiente, o
+> sistema se abstém.
 
-## Objetivo
+## Estado do MVP2
 
-Oferecer consulta jurídica auditável sobre legislação oficial: o corpus é
-versionado, o retrieval produz evidências autorizadas e toda resposta mantém
-citações verificáveis até a fonte primária. O LLM local não é fonte jurídica.
+- **MVP2-F1 — Fundação Arquitetural:** completa.
+- **MVP2-F2 — Core Funcional:** implementação completa, aguardando aceitação
+  manual com os modelos locais. O primeiro reteste do retrieval não produziu
+  ganho material; a projeção contextual v2 foi implementada a partir da
+  auditoria causal. A rematerialização explícita a partir da captura persistida
+  está pronta, mas o rebuild/reteste real permanece manual. Retrieval e
+  latência ainda não atendem ao release.
+- **MVP2-F3 — Validação e Release:** futura.
 
-## Desenvolvimento v0.2
-
-A versão v0.1.0 permanece congelada e preserva o MVP1 histórico descrito neste
-README. A branch `mvp-v0.2` inicia uma reestruturação arquitetural; ela ainda
-não representa um novo pipeline funcional de consulta.
-
-O objetivo central da v0.2 é corrigir localização e relevância da evidência
-antes da geração. A fundação usa Clean Architecture e SOLID: o domínio é
-independente de frameworks, capacidades externas são ports injetáveis e o
-LangGraph coordena apenas estado, rotas, retries e clarificações.
-
-O workflow distinguirá um **Evidence Relevance Judge**, responsável pela
-relação pergunta-evidência, de um **Answer Judge**, responsável pela relação
-pergunta-resposta-evidência. Evidência ambígua poderá suspender o fluxo para
-pedir esclarecimento ao usuário. Não haverá fine-tuning; as próximas etapas
-implementarão primeiro corpus contextual e retrieval, antes da geração.
-
-Documentação ativa: [arquitetura](docs/v0.2/architecture.md),
-[aprendizados da v0.1](docs/v0.2/lessons-from-v0.1.md) e
-[plano de implementação](docs/v0.2/implementation-plan.md).
-
-## Escopo do MVP1
-
-- aquisição da fonte oficial do Planalto, preservando os bytes recebidos;
-- parsing determinístico, versionamento e proveniência do corpus;
-- busca lexical PostgreSQL FTS, vetorial pgvector e híbrida;
-- EvidenceSet, citações e validações determinísticas;
-- geração controlada por evidência (`EBCG_V2`), sem geração jurídica livre;
-- juiz semântico local e conservador;
-- interface de linha de comando, inclusive modo interativo.
-
-Não fazem parte do MVP1: API HTTP, frontend, jurisprudência, doutrina,
-legislação infraconstitucional ou LLM como fonte de verdade.
+O MVP2 não utiliza `EBCG_V2`, guards ou fallback de consulta da v0.1. Seu core
+é uma implementação menor, orientada primeiro à localização e relevância da
+evidência.
 
 ## Arquitetura
 
 ```text
-Planalto
-  -> ingestão HTTP + raw_bytes + SHA-256
-  -> parsing/versionamento
-  -> LegalProvision + LegalElement
-  -> chunks + FTS + embeddings
-  -> retrieval híbrido + Evidence Selection
-  -> EBCG_V2 + validators + juiz semântico
+Fonte oficial
+  -> SourceSnapshot imutável
+  -> LegalAct / ActVersion
+  -> Provision
+  -> SearchUnit contextual
+  -> PostgreSQL FTS + pgvector (exact cosine)
+  -> RRF
+  -> Consultation Model
+       ANSWER -> Citation Validator determinístico
+       CLARIFY -> clarificação -> novo retrieval
+       ABSTAIN -> abstenção
   -> resposta fundamentada ou abstenção
 ```
 
-`EBCG_V2` determina a Core Claim a partir do texto factual da evidência já
-autorizada. Não há modelo redigindo livremente proposições jurídicas. O juiz
-semântico apenas veta de forma conservadora; ele não promove uma resposta a
-suportada.
+As `SearchUnit`s são `DOCUMENT_METADATA`, `ARTICLE` ou
+`CONTEXTUAL_PROVISION`. A projeção contextual v2 inclui o CAPUT regente nos
+descendentes, rotula fatos documentais de modo determinístico e não indexa um
+CAPUT separado quando sua projeção é exatamente igual à do ARTICLE. O ARTICLE
+continua completo para preservar perguntas amplas e listas normativas.
+`search_text` reúne somente contexto oficial derivado deterministicamente;
+`citation_text` preserva sem alteração o texto citável do dispositivo.
+As embeddings persistentes usam `nomic-embed-text`, 768 dimensões e prefixos de
+documento/query centralizados no adapter. A busca híbrida combina FTS em
+português (`websearch_to_tsquery`) e cosine exato com RRF (`k=60`), sem boosts
+por pergunta ou artigo. Cada modalidade busca um pool interno de 30 unidades;
+depois da fusão, uma passagem determinística preserva primeiro a unidade mais
+bem ranqueada de cada família de artigo e só então preenche o top-10 restante.
+
+### LangGraph e inferência única para CPU
+
+LangGraph coordena estado, rotas, limites e `interrupt/resume`. Ele não contém
+SQL, retrieval, HTTP, regras jurídicas ou acesso direto ao Ollama.
+
+O `Consultation Model` recebe pergunta e candidatas e retorna uma das variantes
+tipadas `ANSWER`, `CLARIFY` ou `ABSTAIN`. Em `ANSWER`, a cadeia de citação é
+validada deterministicamente; não há segundo Judge, rewrite ou retry automático.
+
+Uma pergunta como “Alistamento é obrigatório?” pode gerar clarificação entre
+alistamento eleitoral e serviço militar. A resposta do usuário é incorporada à
+pergunta resolvida e o retrieval é obrigatoriamente executado novamente.
+
+Uma pergunta direta usa no máximo uma inferência de chat. O modelo padrão é
+`ministral-3:3b`, com temperatura zero, schema discriminado e falha fechada.
+Uma nova inferência só ocorre após entrada humana em uma clarificação. Não há
+fine-tuning.
 
 ### Rastreabilidade
 
-```text
-Claim -> Citation -> EvidenceItem -> Chunk -> LegalElement
-      -> LegalProvision -> LegalVersion -> LegalAct
-      -> SourceDocument -> Source
-```
-
-Cada entidade cumpre um papel específico nessa cadeia:
-
-- **Claim:** afirmação jurídica apresentada pela consulta.
-- **Citation:** vínculo entre uma Claim e a evidência que a fundamenta.
-- **EvidenceItem:** snapshot imutável da evidência efetivamente utilizada na
-  consulta.
-- **Chunk:** unidade textual indexada e recuperada pelo mecanismo de retrieval.
-- **LegalElement:** ocorrência concreta de um elemento normativo em uma versão
-  específica, como artigo, parágrafo, inciso, alínea ou item.
-- **LegalProvision:** identidade normativa estável da disposição jurídica,
-  independente de sua ocorrência em uma versão específica.
-- **LegalVersion:** versão materializada de um `LegalAct` em determinado estado
-  temporal, representando o conteúdo normativo válido daquela versão.
-- **LegalAct:** identidade do ato normativo ao qual a versão pertence, como a
-  Constituição Federal de 1988 ou o ADCT.
-- **SourceDocument:** captura física do documento oficial ingerido, com
-  proveniência e hash do conteúdo.
-- **Source:** origem oficial do documento, como a fonte primária do Planalto.
-
-Essa cadeia permite rastrear uma afirmação da resposta até o documento oficial
-original, preservando a evidência utilizada, a versão normativa e a proveniência
-da captura. O diagrama representa a cadeia lógica de rastreabilidade até a fonte
-oficial, e não necessariamente uma sequência de relacionamentos 1:1 entre
-tabelas.
-
-Os bytes brutos nunca são canonicalizados ou sobrescritos. Cada captura possui
-SHA-256, metadados HTTP e proveniência até a URL oficial.
-
-## EBCG_V2
-
-EBCG significa **Evidence-Bound Controlled Generation**. `EBCG_V2` é a segunda
-versão da arquitetura de geração controlada e vinculada à evidência usada pelo
-MVP1. O sistema não utiliza um LLM como gerador jurídico livre.
-
-O fluxo conceitual é:
+Para conteúdo normativo:
 
 ```text
-Pergunta
-  -> Retrieval
-  -> EvidenceItems
-  -> seleção da Core Evidence
-  -> Claim vinculada à evidência
-  -> validators
-  -> resposta ou abstention
+Answer -> Evidence ID -> SearchUnit -> Provision
+       -> ActVersion -> SourceSnapshot -> Source
 ```
 
-A Core Evidence é determinada pela política ativa
-`QUERY_COVERAGE_MARGINAL_COVERAGE_BASE_RELEVANCE_SELECTED_POSITION`, que define
-qual evidência será usada como núcleo da resposta. Depois da seleção, são
-aplicadas validações de Attribution, Target Fidelity, Polarity, Locator,
-Semantic Support e Citation Validation.
+Para metadata documental, a cadeia omite `Provision`. IDs como `E1` são locais
+à requisição; referências como `CF88/ARTICLE:14` são estáveis. O
+`CitationValidator` confirma deterministamente que a evidência foi selecionada
+e possui referência, snapshot e fonte oficial rastreáveis.
 
-O Semantic Judge utiliza `ministral-3:8b` como componente fail-closed de
-validação, e não como gerador jurídico livre. Quando as evidências ou as
-validações são insuficientes, o sistema prefere abstention a produzir uma
-proposição jurídica não sustentada.
+### Aquisição e rematerialização da fonte
 
-## Stack
+`SourceSnapshot` é a captura física imutável da fonte oficial: seus bytes e
+SHA-256 são preservados no PostgreSQL. Aquisição e materialização são operações
+distintas. A aquisição HTTP cria uma nova captura; a rematerialização lê uma
+captura já persistida, valida novamente seu SHA-256 e aplica o parser/projeção
+atual sem acessar o Planalto. Isso permite comparar projeções diferentes sobre
+exatamente a mesma fonte documental.
 
-- Python 3.13, `uv`, Typer, Rich e Pydantic;
+## Stack e escopo
+
+- Python 3.13, uv, Typer, Rich, Pydantic e LangGraph;
 - PostgreSQL 16 + pgvector, SQLAlchemy e Alembic;
-- httpx para aquisição; Beautiful Soup para parsing determinístico;
-- Ollama local: `nomic-embed-text` para embeddings e `ministral-3:8b` como
-  juiz semântico;
-- Docker Compose para PostgreSQL, Ollama e aplicação.
+- Beautiful Soup e parser determinístico para CF/88 + ADCT;
+- Ollama local com `nomic-embed-text` e `ministral-3:3b` para consulta;
+- Docker Compose.
 
-## Requisitos
-
-- Docker e Docker Compose;
-- acesso à internet no primeiro bootstrap para a fonte oficial e os modelos.
-
-O ambiente Python e o Ollama são preparados dentro dos containers. No
-desenvolvimento pelo host, as dependências Python continuam isoladas na
-`.venv` local do projeto.
+Não fazem parte deste MVP: API HTTP, frontend, jurisprudência, doutrina,
+legislação infraconstitucional, fine-tuning ou persistência de consultas.
+Clarificações usam `InMemorySaver` e são perdidas ao encerrar o processo.
 
 ## Início rápido
 
@@ -158,142 +117,116 @@ docker compose up -d --build
 docker compose run --rm app bash
 ```
 
-Dentro do container, execute somente:
+Dentro do container:
 
 ```bash
 consultor-juridico
 ```
 
-Para sair, use `exit`.
+O bootstrap aplica migrations e prepara corpus e embeddings de modo
+idempotente, usando o PostgreSQL como fonte de estado. O primeiro acesso exige
+internet e pode demorar por causa da captura oficial e dos modelos; os acessos
+seguintes atualizam somente o que estiver ausente ou obsoleto.
 
-Na primeira inicialização, o sistema prepara automaticamente os modelos locais,
-aplica migrations, captura a CF/88 e o ADCT da fonte oficial, materializa o
-corpus e cria chunks e embeddings. Essa preparação pode demorar, sobretudo no
-download inicial de `ministral-3:8b`. Em acessos seguintes, o bootstrap consulta
-o estado persistido no PostgreSQL e pula as etapas já concluídas.
+Builds concorrentes ou interrompidos podem ser repetidos sem limpar o banco:
+Source, snapshot e identidades jurídicas compatíveis são reutilizados por suas
+chaves naturais, enquanto conflitos reais interrompem o processo com diagnóstico.
+A MVP2-F2 continua em aceitação manual; a MVP2-F3 ainda não foi iniciada.
 
-Os modelos `nomic-embed-text` e `ministral-3:8b` são provisionados pelo serviço
-Ollama e armazenados em volume persistente. Não é necessário executar
-`ollama pull` manualmente.
+O `docker compose up -d --build` prepara DB, Ollama e a imagem da aplicação,
+mas não inicia uma segunda indexação em background. O bootstrap pertence ao
+container efêmero aberto por `docker compose run --rm app bash`. Na primeira
+indexação em CPU, o progresso é exibido periodicamente; embeddings são salvas
+em lotes e uma nova execução retoma somente itens ausentes ou obsoletos.
 
-Observabilidade opcional:
-
-```bash
-docker compose ps
-docker compose logs -f ollama
-```
-
-Checklist do primeiro acesso: containers saudáveis, modelos preparados,
-bootstrap concluído e `consultor-juridico` iniciado.
-
-## Configuração
-
-O arquivo [`.env.example`](.env.example) documenta os defaults. Os valores
-relevantes para o runtime do MVP1 são:
+Configuração principal:
 
 ```dotenv
 OLLAMA_BASE_URL=http://ollama:11434
-OLLAMA_MODEL=ministral-3:8b
-SEMANTIC_JUDGE_MODEL=ministral-3:8b
-EMBEDDING_MODEL=nomic-embed-text
+OLLAMA_CONSULTATION_MODEL=ministral-3:3b
+OLLAMA_EMBEDDING_MODEL=nomic-embed-text
+OLLAMA_TIMEOUT=180
+EMBEDDING_DIMENSIONS=768
+RETRIEVAL_LIMIT=10
 ```
-
-`OLLAMA_MODEL` é o fallback de compatibilidade do runtime; no pipeline de
-consulta atual não existe Generator LLM livre. `SEMANTIC_JUDGE_MODEL` é o veto
-semântico local, depois de citation, locator fidelity e polarity validation.
 
 ## Operações avançadas
 
-O bootstrap e os comandos internos permanecem disponíveis para manutenção e
-diagnóstico, mas não fazem parte do início rápido:
-
-```bash
-consultor-juridico --help
-consultor-juridico bootstrap
-consultor-juridico db --help
-consultor-juridico ingest --help
-consultor-juridico ingest constituicao --help
-consultor-juridico parse --help
-consultor-juridico parse constituicao --help
-consultor-juridico index --help
-consultor-juridico retrieval --help
-consultor-juridico eval --help
-```
-
-Exemplos usuais:
-
 ```bash
 consultor-juridico db status
-consultor-juridico ingest status
-consultor-juridico parse status
-consultor-juridico retrieval search "direitos fundamentais" --mode hybrid
-consultor-juridico consult "Qual é a regra constitucional sobre voto obrigatório?"
-consultor-juridico
+consultor-juridico corpus status
+consultor-juridico corpus construir
+consultor-juridico corpus rematerializar --snapshot-sha <sha256>
+consultor-juridico indice construir
+consultor-juridico retrieval rastrear "O voto é facultativo?"
+consultor-juridico eval retrieval \
+  --dataset evaluation/datasets/basic_direct_v1.json \
+  --output evaluation/results/mvp2_retrieval_baseline.json
 ```
 
-O último comando inicia o menu interativo em terminal TTY. O modo normal evita
-mostrar SQL, vetores e payloads extensos.
+`corpus rematerializar` é uma operação avançada e explícita: ela nunca faz
+fallback para HTTP nem altera o `SourceSnapshot`. Snapshot ausente ou payload
+incompatível com o hash encerram a operação antes do parser.
 
-## Estado da avaliação do MVP1
+O dataset funcional `basic_direct_v1` possui 18 perguntas. Seus targets devem
+ser alterados somente em uma nova versão. A medição real inicial obteve
+Hit@1 `0,333`, Hit@3 `0,444`, Hit@10 `0,500` e MRR `0,391`; o baseline de
+retrieval está reprovado. A geração de candidatas foi corrigida para evitar
+truncamento antes do RRF e desperdício do top-10 por famílias repetidas, mas o
+reteste não mostrou ganho material. O rebuild e o benchmark da projeção
+contextual v2 permanecem pendentes do usuário. Quatro consultas iniciais
+resultaram em abstenção e
+levaram aproximadamente 2–3 minutos cada em CPU, latência ainda inaceitável
+para release.
 
-O benchmark de produto é `real_world_short_v2`: dez casos respondíveis e uma
-abstenção esperada. O E2E nativo final foi executado contra esse dataset e
-reproduziu exatamente o reassessment offline anterior:
+Para diagnosticar uma consulta sem expor prompts nem raciocínio oculto:
 
-- 8/10 respostas respondíveis corretas (80% de acurácia estrita);
-- 1/1 abstenção esperada correta;
-- 1 falsa abstenção;
-- 1 resposta com alvo jurídico incorreto;
-- 0 respostas inseguras.
+```bash
+consultor-juridico consultar "Alistamento militar é obrigatório?" --verbose
+```
 
-O artefato final é
-`evaluation/results/mvp1_v0_1_0_final_e2e/e2e_real_world_short_v2.json`
-(`SHA-256 3175c5e3d5cda4f3baf7220a42ce9b47073250c31a6e6af7035765c65a84202d`).
-O dataset v2 permanece identificado por
-`a6ef0c9e0f3a95a44637c80d061c854a9848aaea5aad1443e7f9f0ee9b710a89`.
+O modo verbose mostra rota do LangGraph, tempos e contagens por nó, decisões
+estruturadas, IDs selecionados, tamanhos aproximados das entradas, chamadas ao
+Ollama e a causa técnica de eventual abstenção. Ele não altera a decisão nem o
+comportamento público seguro do pipeline.
 
-A cronologia científica preservada é: E2E histórico v1 com 6/10, reassessment
-offline v2 com 8/10 e E2E nativo final v2 com 8/10. O retrieval do benchmark
-congelado permaneceu em `Hit@10 = 0.900`, abaixo do threshold histórico de
-`0.905`; portanto esse gate está em **FAIL**. O MVP1 0.1.0 foi congelado com
-essa limitação conscientemente aceita, sem redefinir o threshold.
+Os diagnósticos mostraram que o workflow anterior consumia cerca de 155 s no
+Relevance Judge 8B e 71 s no 3B, além de recusar uma evidência correta em rank
+1. Esse pipeline multi-LLM foi removido. O contrato atual usa variantes
+discriminadas e IDs request-scoped para `ANSWER`, `CLARIFY` e `ABSTAIN`; o modo
+verbose mostra modelo, métricas nativas, total de chamadas e falhas sanitizadas
+do provider sem expor prompts. O workflow simplificado e o retrieval revisado
+aguardam reteste manual da MVP2-F2; a consulta direta continua usando uma única
+inferência LLM.
 
-**MVP1_READY=YES:** o produto está pronto para o fechamento da versão 0.1.0,
-sem declarar que todos os gates históricos de qualidade foram aprovados.
+## Banco local anterior
 
-Também permanecem `QUALIFIER_PRESERVATION=NOT_YET_MEASURED` e
-`FORMAL_STABILITY=NOT_RUN`.
+A baseline `001_v02_initial_schema` é deliberadamente incompatível com bancos
+v0.1. A migration recusa a revision antiga sem apagar dados. Somente o usuário,
+se quiser descartar seus volumes locais, deve executar:
 
-## Limitações conhecidas
+```bash
+docker compose down -v
+```
 
-- **Prisão perpétua:** a Core Evidence foi correta, mas o Polarity Guard
-  abortou conservadoramente porque o snapshot `de caráter perpétuo;` não traz
-  isoladamente a negação do contexto estrutural pai. Classificação:
-  `FALSE_ABSTENTION`; estágio: `POLARITY_VALIDATION`.
-- **Estado de sítio:** os arts. 137/138 não alcançaram o top-10 do benchmark;
-  foi usada evidência do art. 21, V. Target Fidelity classificou o resultado
-  como `WRONG_TARGET`; estágio: `TARGET_FIDELITY`.
-- O corpus do MVP1 continua restrito à CF/88 e ao ADCT.
+Esse comando é destrutivo e nunca é executado automaticamente.
 
 ## Desenvolvimento
 
 ```bash
+uv sync --frozen
 uv run ruff format --check .
 uv run ruff check .
 uv run pytest -q
 git diff --check
+docker compose config
 ```
 
-Há testes de integração opt-in para Planalto, parsing, retrieval e consulta;
-eles exigem a infraestrutura e/ou modelos locais correspondentes. Consulte
-[docs/README.md](docs/README.md) para a documentação por tema e
-[docs/mvp1-freeze.md](docs/mvp1-freeze.md) para o estado congelado.
+Testes de adapters usam HTTP mockado. A avaliação real de embeddings e as
+cinco consultas manuais obrigatórias ficam a cargo do usuário; a implementação
+não anuncia qualidade ainda não medida.
 
-## Roadmap pós-MVP1
-
-- contexto parent/ancestor para validators;
-- recuperação de estado de sítio;
-- medição de preservação de qualificadores e estabilidade formal;
-- benchmark e corpus mais amplos;
-- legislação infraconstitucional; API ou frontend somente após nova decisão de
-  escopo.
+Documentação ativa: [arquitetura](docs/v0.2/architecture.md),
+[plano](docs/v0.2/implementation-plan.md),
+[fonte e rastreabilidade](docs/v0.2/source-and-traceability.md) e
+[avaliação](docs/v0.2/evaluation.md).
