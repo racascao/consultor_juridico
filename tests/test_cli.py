@@ -1,222 +1,155 @@
-"""Contrato público da CLI do MVP2, sem rede ou inferência."""
+"""Testes para os comandos da CLI."""
 
-from io import StringIO
+import uuid
 from types import SimpleNamespace
 
-from rich.console import Console
+from typer.testing import CliRunner
 
 from consultor_juridico import __version__
-from consultor_juridico.application.workflow import ProviderCall, WorkflowDiagnostics
-from consultor_juridico.domain import EvidenceCandidate, SourceSnapshotNotFound
+from consultor_juridico.consultation.types import (
+    CitationReference,
+    ConsultationOutcome,
+    ConsultationResult,
+    GeneratedClaim,
+)
+from consultor_juridico.ingestion.types import IngestionOutcome
+from consultor_juridico.parsing.materialization import ParsingOutcome
 
 
-def test_cli_version(cli_runner, cli_app):
+class _SessionContext:
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *_args):
+        return None
+
+
+def test_cli_version(cli_runner: CliRunner, cli_app):
+    """Testa se o comando `version` exibe a versão correta."""
     result = cli_runner.invoke(cli_app, ["version"])
     assert result.exit_code == 0
     assert __version__ in result.stdout
 
 
-def test_cli_db_status(cli_runner, cli_app, monkeypatch):
-    monkeypatch.setattr(
-        "consultor_juridico.cli.main.db_service.check_db_status",
-        lambda: {
-            "connected": True,
-            "alembic_version": "001_v02_initial_schema",
-            "tables": ["sources", "search_units"],
-        },
-    )
+def test_cli_db_status(cli_runner: CliRunner, cli_app):
+    """Testa se o subcomando `db status` executa sem erros."""
     result = cli_runner.invoke(cli_app, ["db", "status"])
     assert result.exit_code == 0
-    assert "001_v02_initial_schema" in result.stdout
+    assert "Status do Banco de Dados" in result.stdout
 
 
-def test_cli_corpus_status(cli_runner, cli_app, monkeypatch):
-    status = SimpleNamespace(
-        ready=True,
-        active_snapshot_sha256="a" * 64,
-        provisions_by_act=(("CF88", 20),),
-        search_units_by_type=(("ARTICLE", 20),),
-    )
-    monkeypatch.setattr(
-        "consultor_juridico.cli.main.corpus_repository",
-        lambda: SimpleNamespace(status=lambda: status),
-    )
-    result = cli_runner.invoke(cli_app, ["corpus", "status"])
+def test_cli_ingest_status(cli_runner: CliRunner, cli_app, monkeypatch):
+    """Testa se o subcomando `ingest status` executa sem erros."""
+    monkeypatch.setattr("consultor_juridico.cli.main.get_ingestion_status", lambda: [])
+    result = cli_runner.invoke(cli_app, ["ingest", "status"])
     assert result.exit_code == 0
-    assert "READY" in result.stdout
-    assert "Provisions CF88: 20" in result.stdout
+    assert "Status das Ingestões" in result.stdout
 
 
-def test_cli_rematerializes_persisted_snapshot_without_http(
-    cli_runner, cli_app, monkeypatch
+def test_cli_ingest_constitution_delegates_to_service(
+    cli_runner: CliRunner, cli_app, monkeypatch
 ):
-    snapshot_sha = "a" * 64
-    calls = []
-    monkeypatch.setattr(
-        "consultor_juridico.cli.main.db_service.run_migrations", lambda: None
+    """A CLI apresenta o resultado produzido pelo serviço de aplicação."""
+    download = SimpleNamespace(
+        requested_url="https://example.test/doc",
+        final_url="https://example.test/final",
+        status_code=200,
+        canonical_bytes=b"payload",
+    )
+    result_value = SimpleNamespace(
+        outcome=IngestionOutcome.CREATED,
+        document_id=uuid.uuid4(),
+        sha256="a" * 64,
+        download=download,
     )
     monkeypatch.setattr(
-        "consultor_juridico.cli.main.corpus_rematerializer",
-        lambda: SimpleNamespace(
-            execute=lambda value: (
-                calls.append(value)
-                or SimpleNamespace(
-                    outcome=SimpleNamespace(value="CREATED"),
-                    snapshot_sha256=value,
-                    provisions=12,
-                    search_units=21,
-                )
-            )
-        ),
+        "consultor_juridico.cli.main.run_planalto_ingestion", lambda: result_value
     )
 
-    result = cli_runner.invoke(
-        cli_app, ["corpus", "rematerializar", "--snapshot-sha", snapshot_sha]
-    )
-
+    result = cli_runner.invoke(cli_app, ["ingest", "constitution"])
     assert result.exit_code == 0
-    assert calls == [snapshot_sha]
     assert "CREATED" in result.stdout
-    assert snapshot_sha in result.stdout
+    assert "a" * 64 in result.stdout
 
 
-def test_cli_rematerialization_fails_explicitly_for_unknown_snapshot(
-    cli_runner, cli_app, monkeypatch
+def test_cli_parse_constitution_delegates_to_materialization(
+    cli_runner: CliRunner, cli_app, monkeypatch
 ):
-    snapshot_sha = "f" * 64
-    monkeypatch.setattr(
-        "consultor_juridico.cli.main.db_service.run_migrations", lambda: None
+    document_id = uuid.uuid4()
+    run_id = uuid.uuid4()
+    value = SimpleNamespace(
+        outcome=ParsingOutcome.CREATED,
+        parsing_run_id=run_id,
+        legal_version_ids=(uuid.uuid4(), uuid.uuid4()),
+        provision_count=4096,
+        element_count=6775,
+        audit_fingerprint="d" * 64,
     )
+    monkeypatch.setattr("consultor_juridico.cli.main.SessionLocal", _SessionContext)
     monkeypatch.setattr(
-        "consultor_juridico.cli.main.corpus_rematerializer",
-        lambda: SimpleNamespace(
-            execute=lambda _value: (_ for _ in ()).throw(
-                SourceSnapshotNotFound(snapshot_sha)
-            )
+        "consultor_juridico.cli.main.materialize_constitution",
+        lambda _session, selected_id: value if selected_id == document_id else None,
+    )
+
+    result = cli_runner.invoke(
+        cli_app, ["parse", "constitution", "--document-id", str(document_id)]
+    )
+    assert result.exit_code == 0
+    assert "CREATED" in result.stdout
+    assert "4096" in result.stdout
+    assert "6775" in result.stdout
+
+
+def test_cli_parse_status_is_read_only(cli_runner: CliRunner, cli_app, monkeypatch):
+    monkeypatch.setattr("consultor_juridico.cli.main.SessionLocal", _SessionContext)
+    monkeypatch.setattr(
+        "consultor_juridico.cli.main.materialization_status",
+        lambda _session: {"parsing_runs": 1, "latest_status": "COMPLETED"},
+    )
+
+    result = cli_runner.invoke(cli_app, ["parse", "status"])
+    assert result.exit_code == 0
+    assert "parsing_runs=1" in result.stdout
+    assert "latest_status=COMPLETED" in result.stdout
+
+
+def test_cli_document_list(cli_runner: CliRunner, cli_app):
+    """Testa se o subcomando `document list` executa sem erros."""
+    result = cli_runner.invoke(cli_app, ["document", "list"])
+    assert result.exit_code == 0
+    assert "Documentos armazenados" in result.stdout
+
+
+def test_cli_search(cli_runner: CliRunner, cli_app):
+    """Testa o comando `search`."""
+    result = cli_runner.invoke(cli_app, ["search", "direitos fundamentais"])
+    assert result.exit_code == 0
+    assert "Buscando por" in result.stdout
+
+
+def test_cli_consult(cli_runner: CliRunner, cli_app, monkeypatch):
+    """Testa o comando `consult`."""
+    evidence_set_id = uuid.uuid4()
+    value = ConsultationResult(
+        ConsultationOutcome.ANSWERED,
+        evidence_set_id,
+        "A manifestação do pensamento é livre.",
+        (GeneratedClaim("C1", "A manifestação é livre.", ("EV001",)),),
+        (
+            CitationReference(
+                "C1",
+                "EV001",
+                "CF/88, INCISO IV",
+                "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+            ),
         ),
     )
-
-    result = cli_runner.invoke(
-        cli_app, ["corpus", "rematerializar", "--snapshot-sha", snapshot_sha]
-    )
-
-    assert result.exit_code == 1
-    assert "SNAPSHOT_NOT_FOUND" in result.stdout
-
-
-def test_cli_rematerialization_help_explains_persisted_source_and_no_http(
-    cli_runner, cli_app
-):
-    result = cli_runner.invoke(cli_app, ["corpus", "rematerializar", "--help"])
-
-    assert result.exit_code == 0
-    assert "persistida" in result.stdout
-    assert "sem acessar" in result.stdout
-    assert "Planalto" in result.stdout
-
-
-def test_cli_index_build(cli_runner, cli_app, monkeypatch):
+    monkeypatch.setattr("consultor_juridico.cli.main.SessionLocal", _SessionContext)
     monkeypatch.setattr(
-        "consultor_juridico.cli.main.index_builder",
-        lambda: SimpleNamespace(
-            execute=lambda: SimpleNamespace(
-                embedded=3, model="nomic-embed-text", dimensions=768
-            )
-        ),
+        "consultor_juridico.cli.main.run_consultation", lambda *_args, **_kwargs: value
     )
-    result = cli_runner.invoke(cli_app, ["indice", "construir"])
+    result = cli_runner.invoke(cli_app, ["consult", "Quais os direitos fundamentais?"])
     assert result.exit_code == 0
-    assert "3" in result.stdout
-    assert "768" in result.stdout
-
-
-def test_cli_retrieval_trace_shows_all_ranks(cli_runner, cli_app, monkeypatch):
-    candidate = EvidenceCandidate(
-        "E1",
-        "Texto constitucional.",
-        "CF88/ARTICLE:14",
-        "block:1",
-        search_unit_type="ARTICLE",
-        legal_act_code="CF88",
-        stable_reference="CF88/ARTICLE:14",
-        lexical_rank=2,
-        vector_rank=1,
-        fused_rank=1,
-    )
-    monkeypatch.setattr(
-        "consultor_juridico.cli.main.candidate_retriever",
-        lambda: SimpleNamespace(retrieve=lambda _question, _limit: (candidate,)),
-    )
-    result = cli_runner.invoke(
-        cli_app, ["retrieval", "rastrear", "O voto é facultativo?"]
-    )
-    assert result.exit_code == 0
-    assert "CF88/ARTICLE:14" in result.stdout
-    assert "ARTICLE" in result.stdout
-
-
-def test_cli_has_no_v01_public_pipeline(cli_runner, cli_app):
-    for legacy in ("ingest", "parse", "index", "consult"):
-        result = cli_runner.invoke(cli_app, [legacy, "--help"])
-        assert result.exit_code != 0
-
-
-def test_cli_consultar_verbose_uses_real_diagnostic_entrypoint(
-    cli_runner, cli_app, monkeypatch
-):
-    calls = []
-    monkeypatch.setattr(
-        "consultor_juridico.cli.interactive.app.run_question",
-        lambda question, *, verbose=False: calls.append((question, verbose)),
-    )
-
-    result = cli_runner.invoke(
-        cli_app,
-        ["consultar", "Alistamento militar é obrigatório?", "--verbose"],
-    )
-
-    assert result.exit_code == 0
-    assert calls == [("Alistamento militar é obrigatório?", True)]
-
-
-def test_verbose_diagnostics_never_exposes_prompts(monkeypatch):
-    from consultor_juridico.cli.interactive import app as interactive_app
-
-    output = StringIO()
-    diagnostics = WorkflowDiagnostics()
-    diagnostics.add_provider_call(
-        ProviderCall(
-            "chat",
-            "consultation_model",
-            1.0,
-            321,
-            "VALID",
-            "PROVIDER_ERROR",
-            model="ministral-3:3b",
-            provider_error_category="HTTP_ERROR",
-            provider_http_status=400,
-            provider_message="Failed to initialize samplers: bad grammar",
-        )
-    )
-    diagnostics.add_detail(
-        "consultation_model", decision="ANSWER", selected_evidence_ids=("E1",)
-    )
-    monkeypatch.setattr(
-        interactive_app,
-        "console",
-        Console(file=output, force_terminal=False, width=200),
-    )
-
-    interactive_app._show_diagnostics(diagnostics, "Pergunta de teste?")
-
-    rendered = output.getvalue()
-    assert "decision=ANSWER" in rendered
-    assert "Ollama native" in rendered
-    assert "consultation_model" in rendered
-    assert "ministral-3:3b" in rendered
-    assert "category=HTTP_ERROR" in rendered
-    assert "status=400" in rendered
-    assert "Failed to initialize samplers: bad grammar" in rendered
-    assert "total=N/A" in rendered
-    assert "Julgue somente se as evidências" not in rendered
-    assert "system prompt" not in rendered.lower()
+    assert "ANSWERED" in result.stdout
+    assert str(evidence_set_id) in result.stdout
+    assert "EV001" in result.stdout

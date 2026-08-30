@@ -24,12 +24,10 @@ RUN uv sync --frozen --no-install-project
 # Copia o código-fonte
 COPY src/ ./src/
 COPY evaluation/ ./evaluation/
-COPY --chmod=755 docker/app-entrypoint.sh /usr/local/bin/app-entrypoint.sh
 
 # Instala a aplicação no ambiente do container
 RUN uv sync --frozen
 
-ENTRYPOINT ["app-entrypoint.sh"]
-
-# O entrypoint prepara o MVP2 no container CLI efêmero.
+# Sem ENTRYPOINT fixo: `docker compose run --rm app bash` abre o shell;
+# o comando padrão inicia a CLI (menu interativo em TTY).
 CMD ["consultor-juridico"]

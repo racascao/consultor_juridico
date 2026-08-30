@@ -132,8 +132,8 @@ preservar ocorrências repetidas.
 ## CLI
 
 ```bash
-consultor-juridico ingest constituicao
-consultor-juridico ingest status
+uv run consultor-juridico ingest constitution
+uv run consultor-juridico ingest status
 ```
 
 A CLI delega toda a operação ao serviço de aplicação. `ingest status` descreve

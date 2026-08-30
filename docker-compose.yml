@@ -25,28 +25,17 @@ services:
       - "11435:11434"
     volumes:
       - ollama_data:/root/.ollama
-      - ./docker/ollama-entrypoint.sh:/usr/local/bin/mvp1-ollama-entrypoint:ro
-    environment:
-      OLLAMA_EMBEDDING_MODEL: ${OLLAMA_EMBEDDING_MODEL:-nomic-embed-text}
-      OLLAMA_CONSULTATION_MODEL: ${OLLAMA_CONSULTATION_MODEL:-ministral-3:3b}
-    entrypoint: ["/usr/local/bin/mvp1-ollama-entrypoint"]
     healthcheck:
-      test:
-        [
-          "CMD-SHELL",
-          "ollama show \"$$OLLAMA_EMBEDDING_MODEL\" >/dev/null 2>&1 && ollama show \"$$OLLAMA_CONSULTATION_MODEL\" >/dev/null 2>&1",
-        ]
+      test: ["CMD", "ollama", "list"]
       interval: 5s
-      timeout: 10s
-      retries: 180
-      start_period: 5s
+      timeout: 5s
+      retries: 5
 
   app:
     build:
       context: .
       dockerfile: Dockerfile
     container_name: consultor_juridico_app
-    command: ["standby"]
     environment:
       - ENV=development
       - DEBUG=true
@@ -57,16 +46,25 @@ services:
       - POSTGRES_PORT=5432
       - DATABASE_URL=postgresql+psycopg://consultor:consultor_pass@db:5432/consultor_juridico
       - OLLAMA_BASE_URL=http://ollama:11434
-      - OLLAMA_CONSULTATION_MODEL=${OLLAMA_CONSULTATION_MODEL:-ministral-3:3b}
-      - OLLAMA_EMBEDDING_MODEL=${OLLAMA_EMBEDDING_MODEL:-nomic-embed-text}
-      - OLLAMA_TIMEOUT=180
-      - EMBEDDING_DIMENSIONS=768
-      - RETRIEVAL_LIMIT=10
+      - OLLAMA_MODEL=ministral-3:8b
+      - SEMANTIC_JUDGE_MODEL=ministral-3:8b
+      - EMBEDDING_MODEL=nomic-embed-text
+      - EMBEDDING_TIMEOUT=120
+      - EMBEDDING_BATCH_SIZE=32
+      - CONSULTATION_TIMEOUT=180
+      - CONSULTATION_TOP_K=10
+      - CONSULTATION_MAX_ATTEMPTS=2
+      - CONSULTATION_EVIDENCE_LIMIT=3
     depends_on:
       db:
         condition: service_healthy
       ollama:
         condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "consultor-juridico version || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
 
 volumes:
   postgres_data:

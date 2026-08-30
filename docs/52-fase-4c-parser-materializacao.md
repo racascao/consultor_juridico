@@ -50,7 +50,7 @@ O retry reutiliza a mesma run lógica e pode concluir.
 
 ## Idempotência e CLI
 
-`consultor-juridico parse constituicao` seleciona a captura mais recente ou
+`consultor-juridico parse constitution` seleciona a captura mais recente ou
 aceita `document_id`. A primeira execução real retornou `CREATED`; a segunda
 retornou `ALREADY_PARSED`, sem alterar contagens.
 
