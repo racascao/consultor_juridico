@@ -5,8 +5,8 @@ from logging.config import fileConfig
 from alembic import context
 from sqlalchemy import engine_from_config, pool
 
-# Importa os modelos para registrar os metadados no Base.metadata
-import consultor_juridico.models  # noqa: F401
+# Importa somente o schema ativo do MVP2 no Base.metadata.
+import consultor_juridico.infrastructure.corpus.models  # noqa: F401
 from consultor_juridico.db.base import Base
 from consultor_juridico.db.session import get_database_url
 

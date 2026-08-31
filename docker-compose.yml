@@ -1,32 +1,20 @@
+name: consultor_juridico_v02
+
 services:
   db:
     image: pgvector/pgvector:pg16
-    container_name: consultor_juridico_db
+    container_name: consultor_juridico_v02_db
     restart: always
     environment:
       POSTGRES_USER: consultor
       POSTGRES_PASSWORD: consultor_pass
-      POSTGRES_DB: consultor_juridico
+      POSTGRES_DB: consultor_juridico_v02
     ports:
-      - "5433:5432"
+      - "5434:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - consultor_juridico_v02_pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U consultor -d consultor_juridico"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
-
-  ollama:
-    image: ollama/ollama:latest
-    container_name: consultor_juridico_ollama
-    restart: always
-    ports:
-      - "11435:11434"
-    volumes:
-      - ollama_data:/root/.ollama
-    healthcheck:
-      test: ["CMD", "ollama", "list"]
+      test: ["CMD-SHELL", "pg_isready -U consultor -d consultor_juridico_v02"]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -35,30 +23,18 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: consultor_juridico_app
+    container_name: consultor_juridico_v02_app
     environment:
       - ENV=development
       - DEBUG=true
       - POSTGRES_USER=consultor
       - POSTGRES_PASSWORD=consultor_pass
-      - POSTGRES_DB=consultor_juridico
+      - POSTGRES_DB=consultor_juridico_v02
       - POSTGRES_HOST=db
       - POSTGRES_PORT=5432
-      - DATABASE_URL=postgresql+psycopg://consultor:consultor_pass@db:5432/consultor_juridico
-      - OLLAMA_BASE_URL=http://ollama:11434
-      - OLLAMA_MODEL=ministral-3:8b
-      - SEMANTIC_JUDGE_MODEL=ministral-3:8b
-      - EMBEDDING_MODEL=nomic-embed-text
-      - EMBEDDING_TIMEOUT=120
-      - EMBEDDING_BATCH_SIZE=32
-      - CONSULTATION_TIMEOUT=180
-      - CONSULTATION_TOP_K=10
-      - CONSULTATION_MAX_ATTEMPTS=2
-      - CONSULTATION_EVIDENCE_LIMIT=3
+      - DATABASE_URL=postgresql+psycopg://consultor:consultor_pass@db:5432/consultor_juridico_v02
     depends_on:
       db:
-        condition: service_healthy
-      ollama:
         condition: service_healthy
     healthcheck:
       test: ["CMD-SHELL", "consultor-juridico version || exit 1"]
@@ -67,5 +43,5 @@ services:
       retries: 3
 
 volumes:
-  postgres_data:
-  ollama_data:
+  consultor_juridico_v02_pgdata:
+    name: consultor_juridico_v02_pgdata

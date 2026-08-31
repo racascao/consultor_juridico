@@ -8,12 +8,9 @@ def test_default_settings():
     settings = Settings(_env_file=None)
     assert settings.env in ("development", "test", "production")
     assert settings.postgres_port == 5432
+    assert settings.postgres_db == "consultor_juridico_v02"
     assert "postgresql+psycopg" in settings.database_url
-    assert settings.ollama_base_url.startswith("http")
-    assert settings.ollama_model == "ministral-3:8b"
-    assert settings.semantic_judge_model or settings.ollama_model == "ministral-3:8b"
-    assert settings.embedding_model == "nomic-embed-text"
-    assert settings.embedding_batch_size == 32
+    assert settings.ingestion_read_timeout == 30
     assert settings.planalto_user_agent == (
         "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/151 Safari/537.36"
     )
@@ -24,11 +21,9 @@ def test_planalto_user_agent_can_be_overridden(monkeypatch):
     assert Settings().planalto_user_agent == "custom-agent"
 
 
-def test_embedding_settings_can_be_overridden(monkeypatch):
-    monkeypatch.setenv("EMBEDDING_MODEL", "custom-embedding")
-    monkeypatch.setenv("EMBEDDING_TIMEOUT", "45")
-    monkeypatch.setenv("EMBEDDING_BATCH_SIZE", "8")
+def test_ingestion_settings_can_be_overridden(monkeypatch):
+    monkeypatch.setenv("INGESTION_READ_TIMEOUT", "45")
+    monkeypatch.setenv("INGESTION_MAX_BYTES", "2048")
     configured = Settings()
-    assert configured.embedding_model == "custom-embedding"
-    assert configured.embedding_timeout == 45
-    assert configured.embedding_batch_size == 8
+    assert configured.ingestion_read_timeout == 45
+    assert configured.ingestion_max_bytes == 2048

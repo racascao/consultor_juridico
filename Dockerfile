@@ -23,11 +23,9 @@ RUN uv sync --frozen --no-install-project
 
 # Copia o código-fonte
 COPY src/ ./src/
-COPY evaluation/ ./evaluation/
 
 # Instala a aplicação no ambiente do container
 RUN uv sync --frozen
 
-# Sem ENTRYPOINT fixo: `docker compose run --rm app bash` abre o shell;
-# o comando padrão inicia a CLI (menu interativo em TTY).
+# Sem ENTRYPOINT fixo: `docker compose run --rm app bash` abre o shell.
 CMD ["consultor-juridico"]

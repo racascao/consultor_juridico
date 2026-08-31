@@ -12,7 +12,7 @@ from consultor_juridico.config import settings
 def get_database_url() -> str:
     """Retorna a URL formatada para conexão com o banco de dados.
 
-    Ajusta a porta para 5433 se a aplicação estiver rodando fora do container Docker
+    Ajusta a porta para 5434 se a aplicação estiver rodando fora do container Docker
     e o host 'db' não for resolvível localmente.
     """
     url = settings.database_url
@@ -20,7 +20,7 @@ def get_database_url() -> str:
         try:
             socket.gethostbyname("db")
         except socket.gaierror:
-            url = url.replace("db:5432", "localhost:5433")
+            url = url.replace("db:5432", "localhost:5434")
     return url
 
 
