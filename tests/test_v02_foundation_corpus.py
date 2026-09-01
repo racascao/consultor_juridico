@@ -254,10 +254,11 @@ def test_reprojection_is_offline_and_has_no_source_acquirer_dependency():
     assert unavailable.calls == 0
 
 
-def test_cli_exposes_only_foundation_groups():
+def test_cli_exposes_foundation_and_phase_one_groups():
     runner = CliRunner()
     result = runner.invoke(app, ["--help"])
     assert result.exit_code == 0
     assert "corpus" in result.stdout
-    assert "retrieval" not in result.stdout
+    assert "retrieval" in result.stdout
+    assert "eval" in result.stdout
     assert "Executa consulta" not in result.stdout

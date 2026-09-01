@@ -1,0 +1,3976 @@
+{
+  "metadata": {
+    "dataset_id": "lei_9784_retrieval_dev_v1",
+    "dataset_sha256": "bc47eb6e7364931767fb2305cc9ce5a55ce7763e9f88cb6bbf224609dbe221aa",
+    "legal_act_code": "BR-FED-LEI-9784-1999",
+    "version_hash": "298028477a55a61cdd1df94bda3aec784e6fe94d17c485ae6a2f6c77fe2b7a74",
+    "act_version_id": "11cb507e-b2af-40ab-a8eb-6e50fbc67bd0",
+    "source_snapshot_sha256": "face6f55eb86aa7e13f31e03ce6f8f0854a95647c235a29dd661ea83b64ce355",
+    "parser_name": "planalto-lei-structural",
+    "parser_version": "1",
+    "projection_name": "provision-text",
+    "projection_version": "1",
+    "retrieval_implementation": "POSTGRESQL_FTS_RELAXED_OR",
+    "retrieval_config": {
+      "text_search_config": "portuguese",
+      "query_function": "websearch_to_tsquery",
+      "rank_function": "ts_rank_cd",
+      "max_rank": 10,
+      "tie_break": "unit_key ASC"
+    },
+    "executed_at": "2026-09-01T00:54:45.018109+00:00",
+    "case_count": 40,
+    "category_counts": {
+      "COMPETENCE": 5,
+      "DEADLINE": 5,
+      "DIRECT_RULE": 5,
+      "ENUMERATION": 5,
+      "EXCEPTION": 5,
+      "NEGATIVE": 5,
+      "PARAPHRASE": 5,
+      "PROCEDURE": 5
+    }
+  },
+  "overall": {
+    "case_count": 40,
+    "hit_at_1": 0.425,
+    "hit_at_3": 0.675,
+    "hit_at_5": 0.725,
+    "hit_at_10": 0.8,
+    "mrr": 0.5486408730158729
+  },
+  "by_category": {
+    "COMPETENCE": {
+      "case_count": 5,
+      "hit_at_1": 0.4,
+      "hit_at_3": 0.4,
+      "hit_at_5": 0.6,
+      "hit_at_10": 1.0,
+      "mrr": 0.49079365079365084
+    },
+    "DEADLINE": {
+      "case_count": 5,
+      "hit_at_1": 0.8,
+      "hit_at_3": 1.0,
+      "hit_at_5": 1.0,
+      "hit_at_10": 1.0,
+      "mrr": 0.9
+    },
+    "DIRECT_RULE": {
+      "case_count": 5,
+      "hit_at_1": 0.0,
+      "hit_at_3": 0.4,
+      "hit_at_5": 0.4,
+      "hit_at_10": 0.4,
+      "mrr": 0.16666666666666666
+    },
+    "ENUMERATION": {
+      "case_count": 5,
+      "hit_at_1": 0.4,
+      "hit_at_3": 0.8,
+      "hit_at_5": 0.8,
+      "hit_at_10": 0.8,
+      "mrr": 0.5666666666666667
+    },
+    "EXCEPTION": {
+      "case_count": 5,
+      "hit_at_1": 0.4,
+      "hit_at_3": 0.6,
+      "hit_at_5": 0.8,
+      "hit_at_10": 0.8,
+      "mrr": 0.54
+    },
+    "NEGATIVE": {
+      "case_count": 5,
+      "hit_at_1": 0.6,
+      "hit_at_3": 0.6,
+      "hit_at_5": 0.6,
+      "hit_at_10": 0.6,
+      "mrr": 0.6
+    },
+    "PARAPHRASE": {
+      "case_count": 5,
+      "hit_at_1": 0.2,
+      "hit_at_3": 1.0,
+      "hit_at_5": 1.0,
+      "hit_at_10": 1.0,
+      "mrr": 0.5
+    },
+    "PROCEDURE": {
+      "case_count": 5,
+      "hit_at_1": 0.6,
+      "hit_at_3": 0.6,
+      "hit_at_5": 0.6,
+      "hit_at_10": 0.8,
+      "mrr": 0.625
+    }
+  },
+  "latency_ms": {
+    "p50": 4.36699249985395,
+    "p95": 6.413479997718241
+  },
+  "cases": [
+    {
+      "case_id": "DEV-001",
+      "category": "DIRECT_RULE",
+      "question": "Quem é considerado autoridade para fins do processo administrativo federal?",
+      "expected_provisions": [
+        "ARTICLE:1/PARAGRAPH:2/INCISO:III"
+      ],
+      "first_target_rank": null,
+      "reciprocal_rank": 0.0,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "hit_at_10": false,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.7,
+          "unit_key": "ARTICLE:1/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:1/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.5,
+          "unit_key": "ARTICLE:49-A/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:49-A/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.4,
+          "unit_key": "ARTICLE:18/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:18/CAPUT"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.4,
+          "unit_key": "ARTICLE:64-B/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:64-B/CAPUT"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.4,
+          "unit_key": "PREAMBLE",
+          "provision_stable_keys": [
+            "PREAMBLE"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.3,
+          "unit_key": "ARTICLE:10/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:10/CAPUT"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.3,
+          "unit_key": "ARTICLE:17/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:17/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.3,
+          "unit_key": "ARTICLE:24/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:24/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.3,
+          "unit_key": "ARTICLE:37/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:37/CAPUT"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.3,
+          "unit_key": "ARTICLE:48/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:48/CAPUT"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-002",
+      "category": "DIRECT_RULE",
+      "question": "O interessado pode ser assistido por advogado no processo administrativo?",
+      "expected_provisions": [
+        "ARTICLE:3/CAPUT/INCISO:IV"
+      ],
+      "first_target_rank": null,
+      "reciprocal_rank": 0.0,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "hit_at_10": false,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.5,
+          "unit_key": "ARTICLE:1/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:1/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.5,
+          "unit_key": "ARTICLE:31/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:31/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.5,
+          "unit_key": "ARTICLE:35/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:35/CAPUT"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.4,
+          "unit_key": "ARTICLE:26/PARAGRAPH:3",
+          "provision_stable_keys": [
+            "ARTICLE:26/PARAGRAPH:3"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.4,
+          "unit_key": "ARTICLE:37/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:37/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.4,
+          "unit_key": "ARTICLE:42/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:42/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.4,
+          "unit_key": "ARTICLE:49-A/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:49-A/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.4,
+          "unit_key": "ARTICLE:5/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:5/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.4,
+          "unit_key": "ARTICLE:65/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:65/CAPUT"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.3,
+          "unit_key": "ARTICLE:17/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:17/CAPUT"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-003",
+      "category": "DIRECT_RULE",
+      "question": "O processo administrativo pode começar por iniciativa da própria Administração?",
+      "expected_provisions": [
+        "ARTICLE:5/CAPUT"
+      ],
+      "first_target_rank": 3,
+      "reciprocal_rank": 0.3333333333333333,
+      "hit_at_1": false,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.5,
+          "unit_key": "ARTICLE:1/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:1/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.4,
+          "unit_key": "ARTICLE:37/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:37/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.4,
+          "unit_key": "ARTICLE:5/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:5/CAPUT"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.3,
+          "unit_key": "ARTICLE:17/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:17/CAPUT"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.3,
+          "unit_key": "ARTICLE:31/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:31/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.3,
+          "unit_key": "ARTICLE:33/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:33/CAPUT"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.3,
+          "unit_key": "ARTICLE:35/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:35/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.3,
+          "unit_key": "ARTICLE:48/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:48/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.3,
+          "unit_key": "ARTICLE:49-A/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:49-A/CAPUT"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.3,
+          "unit_key": "ARTICLE:49/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:49/CAPUT"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-004",
+      "category": "DIRECT_RULE",
+      "question": "A competência administrativa pode ser renunciada?",
+      "expected_provisions": [
+        "ARTICLE:11/CAPUT"
+      ],
+      "first_target_rank": null,
+      "reciprocal_rank": 0.0,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "hit_at_10": false,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.5,
+          "unit_key": "ARTICLE:35/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:35/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.4,
+          "unit_key": "ARTICLE:1/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:1/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.4,
+          "unit_key": "ARTICLE:49-A/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:49-A/CAPUT"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.3,
+          "unit_key": "ARTICLE:12/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:12/CAPUT"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.3,
+          "unit_key": "ARTICLE:17/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:17/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.3,
+          "unit_key": "ARTICLE:22/PARAGRAPH:3",
+          "provision_stable_keys": [
+            "ARTICLE:22/PARAGRAPH:3"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.3,
+          "unit_key": "ARTICLE:31/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:31/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.3,
+          "unit_key": "ARTICLE:33/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:33/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.3,
+          "unit_key": "ARTICLE:37/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:37/CAPUT"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.3,
+          "unit_key": "ARTICLE:42/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:42/PARAGRAPH:2"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-005",
+      "category": "DIRECT_RULE",
+      "question": "A apresentação de recurso administrativo depende de caução?",
+      "expected_provisions": [
+        "ARTICLE:56/PARAGRAPH:2"
+      ],
+      "first_target_rank": 2,
+      "reciprocal_rank": 0.5,
+      "hit_at_1": false,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.4,
+          "unit_key": "ARTICLE:1/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:1/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.3,
+          "unit_key": "ARTICLE:56/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:56/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.3,
+          "unit_key": "ARTICLE:57/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:57/CAPUT"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.3,
+          "unit_key": "ARTICLE:63/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:63/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.3,
+          "unit_key": "ARTICLE:64-B/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:64-B/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.2,
+          "unit_key": "ARTICLE:13/CAPUT/INCISO:II",
+          "provision_stable_keys": [
+            "ARTICLE:13/CAPUT/INCISO:II"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.2,
+          "unit_key": "ARTICLE:1/PARAGRAPH:2/INCISO:I",
+          "provision_stable_keys": [
+            "ARTICLE:1/PARAGRAPH:2/INCISO:I"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.2,
+          "unit_key": "ARTICLE:22/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:22/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.2,
+          "unit_key": "ARTICLE:2/PARAGRAPH:UNIQUE/INCISO:X",
+          "provision_stable_keys": [
+            "ARTICLE:2/PARAGRAPH:UNIQUE/INCISO:X"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.2,
+          "unit_key": "ARTICLE:33/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:33/CAPUT"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-006",
+      "category": "PARAPHRASE",
+      "question": "Várias pessoas com pedidos e fundamentos iguais podem apresentar um só requerimento?",
+      "expected_provisions": [
+        "ARTICLE:8/CAPUT"
+      ],
+      "first_target_rank": 3,
+      "reciprocal_rank": 0.3333333333333333,
+      "hit_at_1": false,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.3,
+          "unit_key": "ARTICLE:31/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:31/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.3,
+          "unit_key": "ARTICLE:60/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:60/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.3,
+          "unit_key": "ARTICLE:8/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:8/CAPUT"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.2,
+          "unit_key": "ARTICLE:14/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:14/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.2,
+          "unit_key": "ARTICLE:31/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:31/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.2,
+          "unit_key": "ARTICLE:38/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:38/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.2,
+          "unit_key": "ARTICLE:40/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:40/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.2,
+          "unit_key": "ARTICLE:49-G/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:49-G/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.2,
+          "unit_key": "ARTICLE:50/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:50/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.2,
+          "unit_key": "ARTICLE:50/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:50/PARAGRAPH:2"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-007",
+      "category": "PARAPHRASE",
+      "question": "A Administração pode recusar sem justificativa documentos apresentados com falhas?",
+      "expected_provisions": [
+        "ARTICLE:6/PARAGRAPH:UNIQUE"
+      ],
+      "first_target_rank": 3,
+      "reciprocal_rank": 0.3333333333333333,
+      "hit_at_1": false,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.4,
+          "unit_key": "ARTICLE:1/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:1/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.4,
+          "unit_key": "ARTICLE:37/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:37/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.4,
+          "unit_key": "ARTICLE:6/PARAGRAPH:UNIQUE",
+          "provision_stable_keys": [
+            "ARTICLE:6/PARAGRAPH:UNIQUE"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.3,
+          "unit_key": "ARTICLE:22/PARAGRAPH:3",
+          "provision_stable_keys": [
+            "ARTICLE:22/PARAGRAPH:3"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.3,
+          "unit_key": "ARTICLE:33/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:33/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.3,
+          "unit_key": "ARTICLE:40/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:40/CAPUT"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.3,
+          "unit_key": "ARTICLE:49-A/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:49-A/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.3,
+          "unit_key": "ARTICLE:55/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:55/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.3,
+          "unit_key": "ARTICLE:65/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:65/CAPUT"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.2,
+          "unit_key": "ARTICLE:12/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:12/CAPUT"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-008",
+      "category": "PARAPHRASE",
+      "question": "Quem não abriu o processo, mas pode ser afetado pela decisão, pode participar como interessado?",
+      "expected_provisions": [
+        "ARTICLE:9/CAPUT/INCISO:II"
+      ],
+      "first_target_rank": 2,
+      "reciprocal_rank": 0.5,
+      "hit_at_1": false,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.5,
+          "unit_key": "ARTICLE:35/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:35/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.5,
+          "unit_key": "ARTICLE:9/CAPUT/INCISO:II",
+          "provision_stable_keys": [
+            "ARTICLE:9/CAPUT/INCISO:II"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.4,
+          "unit_key": "ARTICLE:26/PARAGRAPH:3",
+          "provision_stable_keys": [
+            "ARTICLE:26/PARAGRAPH:3"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.4,
+          "unit_key": "ARTICLE:31/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:31/CAPUT"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.4,
+          "unit_key": "ARTICLE:31/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:31/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.4,
+          "unit_key": "ARTICLE:32/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:32/CAPUT"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.4,
+          "unit_key": "ARTICLE:38/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:38/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.4,
+          "unit_key": "ARTICLE:38/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:38/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.4,
+          "unit_key": "ARTICLE:42/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:42/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.4,
+          "unit_key": "ARTICLE:49-A/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:49-A/CAPUT"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-009",
+      "category": "PARAPHRASE",
+      "question": "Uma autoridade pode chamar temporariamente para si atribuição de órgão hierarquicamente inferior?",
+      "expected_provisions": [
+        "ARTICLE:15/CAPUT"
+      ],
+      "first_target_rank": 3,
+      "reciprocal_rank": 0.3333333333333333,
+      "hit_at_1": false,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.4,
+          "unit_key": "ARTICLE:12/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:12/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.3,
+          "unit_key": "ARTICLE:14/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:14/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.3,
+          "unit_key": "ARTICLE:15/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:15/CAPUT"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.3,
+          "unit_key": "ARTICLE:35/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:35/CAPUT"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.3,
+          "unit_key": "ARTICLE:43/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:43/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.3,
+          "unit_key": "ARTICLE:49-G/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:49-G/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.2,
+          "unit_key": "ARTICLE:13/CAPUT/INCISO:III",
+          "provision_stable_keys": [
+            "ARTICLE:13/CAPUT/INCISO:III"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.2,
+          "unit_key": "ARTICLE:19/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:19/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.2,
+          "unit_key": "ARTICLE:1/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:1/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.2,
+          "unit_key": "ARTICLE:1/PARAGRAPH:2/INCISO:III",
+          "provision_stable_keys": [
+            "ARTICLE:1/PARAGRAPH:2/INCISO:III"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-010",
+      "category": "PARAPHRASE",
+      "question": "O órgão de instrução deve obter por conta própria documentos que já estejam na Administração?",
+      "expected_provisions": [
+        "ARTICLE:37/CAPUT"
+      ],
+      "first_target_rank": 1,
+      "reciprocal_rank": 1.0,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.8,
+          "unit_key": "ARTICLE:37/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:37/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.7,
+          "unit_key": "ARTICLE:43/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:43/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.4,
+          "unit_key": "ARTICLE:1/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:1/CAPUT"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.4,
+          "unit_key": "ARTICLE:35/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:35/CAPUT"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.4,
+          "unit_key": "ARTICLE:3/CAPUT/INCISO:II",
+          "provision_stable_keys": [
+            "ARTICLE:3/CAPUT/INCISO:II"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.4,
+          "unit_key": "ARTICLE:64-B/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:64-B/CAPUT"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.3,
+          "unit_key": "ARTICLE:11/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:11/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.3,
+          "unit_key": "ARTICLE:12/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:12/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.3,
+          "unit_key": "ARTICLE:1/PARAGRAPH:2/INCISO:I",
+          "provision_stable_keys": [
+            "ARTICLE:1/PARAGRAPH:2/INCISO:I"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.3,
+          "unit_key": "ARTICLE:22/PARAGRAPH:3",
+          "provision_stable_keys": [
+            "ARTICLE:22/PARAGRAPH:3"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-011",
+      "category": "NEGATIVE",
+      "question": "A Administração pode cobrar despesas processuais sem previsão em lei?",
+      "expected_provisions": [
+        "ARTICLE:2/PARAGRAPH:UNIQUE/INCISO:XI"
+      ],
+      "first_target_rank": null,
+      "reciprocal_rank": 0.0,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "hit_at_10": false,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.5,
+          "unit_key": "ARTICLE:1/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:1/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.4,
+          "unit_key": "ARTICLE:49-A/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:49-A/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.4,
+          "unit_key": "PREAMBLE",
+          "provision_stable_keys": [
+            "PREAMBLE"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.3,
+          "unit_key": "ARTICLE:1/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:1/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.3,
+          "unit_key": "ARTICLE:33/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:33/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.3,
+          "unit_key": "ARTICLE:49-A/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:49-A/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.3,
+          "unit_key": "ARTICLE:49-B/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:49-B/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.3,
+          "unit_key": "ARTICLE:64-B/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:64-B/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.3,
+          "unit_key": "ARTICLE:69/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:69/CAPUT"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.2,
+          "unit_key": "ARTICLE:10/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:10/CAPUT"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-012",
+      "category": "NEGATIVE",
+      "question": "Provas obtidas por meios ilícitos podem ser aceitas no processo administrativo?",
+      "expected_provisions": [
+        "ARTICLE:30/CAPUT"
+      ],
+      "first_target_rank": 1,
+      "reciprocal_rank": 1.0,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.6,
+          "unit_key": "ARTICLE:30/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:30/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.5,
+          "unit_key": "ARTICLE:1/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:1/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.5,
+          "unit_key": "ARTICLE:33/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:33/CAPUT"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.5,
+          "unit_key": "ARTICLE:35/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:35/CAPUT"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.4,
+          "unit_key": "ARTICLE:26/PARAGRAPH:3",
+          "provision_stable_keys": [
+            "ARTICLE:26/PARAGRAPH:3"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.4,
+          "unit_key": "ARTICLE:31/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:31/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.4,
+          "unit_key": "ARTICLE:37/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:37/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.4,
+          "unit_key": "ARTICLE:38/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:38/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.4,
+          "unit_key": "ARTICLE:42/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:42/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.4,
+          "unit_key": "ARTICLE:49-A/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:49-A/CAPUT"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-013",
+      "category": "NEGATIVE",
+      "question": "Deixar de atender uma intimação significa admitir que os fatos são verdadeiros?",
+      "expected_provisions": [
+        "ARTICLE:27/CAPUT"
+      ],
+      "first_target_rank": 1,
+      "reciprocal_rank": 1.0,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.3,
+          "unit_key": "ARTICLE:27/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:27/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.2,
+          "unit_key": "ARTICLE:39/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:39/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.2,
+          "unit_key": "ARTICLE:39/PARAGRAPH:UNIQUE",
+          "provision_stable_keys": [
+            "ARTICLE:39/PARAGRAPH:UNIQUE"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.2,
+          "unit_key": "ARTICLE:42/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:42/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.2,
+          "unit_key": "ARTICLE:4/CAPUT/INCISO:I",
+          "provision_stable_keys": [
+            "ARTICLE:4/CAPUT/INCISO:I"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.1,
+          "unit_key": "ARTICLE:11/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:11/CAPUT"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.1,
+          "unit_key": "ARTICLE:19/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:19/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.1,
+          "unit_key": "ARTICLE:26/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:26/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.1,
+          "unit_key": "ARTICLE:26/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:26/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.1,
+          "unit_key": "ARTICLE:26/PARAGRAPH:1/INCISO:I",
+          "provision_stable_keys": [
+            "ARTICLE:26/PARAGRAPH:1/INCISO:I"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-014",
+      "category": "NEGATIVE",
+      "question": "O recurso administrativo suspende automaticamente os efeitos da decisão?",
+      "expected_provisions": [
+        "ARTICLE:61/CAPUT"
+      ],
+      "first_target_rank": null,
+      "reciprocal_rank": 0.0,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "hit_at_10": false,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.4,
+          "unit_key": "ARTICLE:1/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:1/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.4,
+          "unit_key": "ARTICLE:56/PARAGRAPH:3",
+          "provision_stable_keys": [
+            "ARTICLE:56/PARAGRAPH:3"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.3,
+          "unit_key": "ARTICLE:13/CAPUT/INCISO:II",
+          "provision_stable_keys": [
+            "ARTICLE:13/CAPUT/INCISO:II"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.3,
+          "unit_key": "ARTICLE:48/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:48/CAPUT"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.3,
+          "unit_key": "ARTICLE:49-A/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:49-A/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.3,
+          "unit_key": "ARTICLE:54/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:54/CAPUT"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.3,
+          "unit_key": "ARTICLE:57/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:57/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.3,
+          "unit_key": "ARTICLE:59/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:59/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.3,
+          "unit_key": "ARTICLE:63/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:63/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.3,
+          "unit_key": "ARTICLE:64-B/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:64-B/CAPUT"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-015",
+      "category": "NEGATIVE",
+      "question": "A revisão de processo sancionador pode agravar a penalidade aplicada?",
+      "expected_provisions": [
+        "ARTICLE:65/PARAGRAPH:UNIQUE"
+      ],
+      "first_target_rank": 1,
+      "reciprocal_rank": 1.0,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.4,
+          "unit_key": "ARTICLE:65/PARAGRAPH:UNIQUE",
+          "provision_stable_keys": [
+            "ARTICLE:65/PARAGRAPH:UNIQUE"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.3,
+          "unit_key": "ARTICLE:65/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:65/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.2,
+          "unit_key": "ARTICLE:14/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:14/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.2,
+          "unit_key": "ARTICLE:1/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:1/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.2,
+          "unit_key": "ARTICLE:23/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:23/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.2,
+          "unit_key": "ARTICLE:26/PARAGRAPH:3",
+          "provision_stable_keys": [
+            "ARTICLE:26/PARAGRAPH:3"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.2,
+          "unit_key": "ARTICLE:31/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:31/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.2,
+          "unit_key": "ARTICLE:31/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:31/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.2,
+          "unit_key": "ARTICLE:32/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:32/CAPUT"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.2,
+          "unit_key": "ARTICLE:35/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:35/CAPUT"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-016",
+      "category": "DEADLINE",
+      "question": "Qual é a antecedência mínima da intimação para comparecimento?",
+      "expected_provisions": [
+        "ARTICLE:26/PARAGRAPH:2"
+      ],
+      "first_target_rank": 1,
+      "reciprocal_rank": 1.0,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.4,
+          "unit_key": "ARTICLE:26/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:26/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.3,
+          "unit_key": "ARTICLE:41/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:41/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.2,
+          "unit_key": "ARTICLE:26/PARAGRAPH:1/INCISO:IV",
+          "provision_stable_keys": [
+            "ARTICLE:26/PARAGRAPH:1/INCISO:IV"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.2,
+          "unit_key": "ARTICLE:26/PARAGRAPH:5",
+          "provision_stable_keys": [
+            "ARTICLE:26/PARAGRAPH:5"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.1,
+          "unit_key": "ARTICLE:11/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:11/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.1,
+          "unit_key": "ARTICLE:14/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:14/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.1,
+          "unit_key": "ARTICLE:18/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:18/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.1,
+          "unit_key": "ARTICLE:26/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:26/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.1,
+          "unit_key": "ARTICLE:26/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:26/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.1,
+          "unit_key": "ARTICLE:26/PARAGRAPH:1/INCISO:I",
+          "provision_stable_keys": [
+            "ARTICLE:26/PARAGRAPH:1/INCISO:I"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-017",
+      "category": "DEADLINE",
+      "question": "Sem prazo específico, em quantos dias devem ser praticados os atos do processo?",
+      "expected_provisions": [
+        "ARTICLE:24/CAPUT"
+      ],
+      "first_target_rank": 1,
+      "reciprocal_rank": 1.0,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.8,
+          "unit_key": "ARTICLE:24/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:24/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.7,
+          "unit_key": "ARTICLE:42/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:42/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.6,
+          "unit_key": "ARTICLE:28/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:28/CAPUT"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.5,
+          "unit_key": "ARTICLE:23/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:23/CAPUT"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.5,
+          "unit_key": "ARTICLE:59/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:59/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.4,
+          "unit_key": "ARTICLE:17/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:17/CAPUT"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.4,
+          "unit_key": "ARTICLE:22/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:22/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.4,
+          "unit_key": "ARTICLE:42/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:42/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.4,
+          "unit_key": "ARTICLE:43/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:43/CAPUT"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.3,
+          "unit_key": "ARTICLE:25/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:25/CAPUT"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-018",
+      "category": "DEADLINE",
+      "question": "Em quanto tempo deve ser emitido o parecer obrigatório de um órgão consultivo?",
+      "expected_provisions": [
+        "ARTICLE:42/CAPUT"
+      ],
+      "first_target_rank": 1,
+      "reciprocal_rank": 1.0,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.8,
+          "unit_key": "ARTICLE:42/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:42/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.6,
+          "unit_key": "ARTICLE:43/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:43/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.4,
+          "unit_key": "ARTICLE:35/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:35/CAPUT"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.4,
+          "unit_key": "ARTICLE:42/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:42/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.3,
+          "unit_key": "ARTICLE:24/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:24/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.3,
+          "unit_key": "ARTICLE:28/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:28/CAPUT"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.3,
+          "unit_key": "ARTICLE:34/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:34/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.3,
+          "unit_key": "ARTICLE:42/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:42/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.3,
+          "unit_key": "ARTICLE:50/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:50/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.3,
+          "unit_key": "ARTICLE:59/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:59/PARAGRAPH:1"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-019",
+      "category": "DEADLINE",
+      "question": "Depois de encerrada a instrução, qual é o prazo para o interessado se manifestar?",
+      "expected_provisions": [
+        "ARTICLE:44/CAPUT"
+      ],
+      "first_target_rank": 1,
+      "reciprocal_rank": 1.0,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.6,
+          "unit_key": "ARTICLE:44/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:44/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.2,
+          "unit_key": "ARTICLE:29/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:29/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.2,
+          "unit_key": "ARTICLE:29/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:29/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.2,
+          "unit_key": "ARTICLE:31/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:31/CAPUT"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.2,
+          "unit_key": "ARTICLE:36/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:36/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.2,
+          "unit_key": "ARTICLE:37/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:37/CAPUT"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.2,
+          "unit_key": "ARTICLE:39/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:39/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.2,
+          "unit_key": "ARTICLE:40/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:40/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.2,
+          "unit_key": "ARTICLE:42/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:42/CAPUT"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.2,
+          "unit_key": "ARTICLE:43/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:43/CAPUT"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-020",
+      "category": "DEADLINE",
+      "question": "Qual é o prazo para interpor recurso administrativo?",
+      "expected_provisions": [
+        "ARTICLE:59/CAPUT"
+      ],
+      "first_target_rank": 2,
+      "reciprocal_rank": 0.5,
+      "hit_at_1": false,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.4,
+          "unit_key": "ARTICLE:1/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:1/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.4,
+          "unit_key": "ARTICLE:59/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:59/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.4,
+          "unit_key": "ARTICLE:59/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:59/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.3,
+          "unit_key": "ARTICLE:49/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:49/CAPUT"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.3,
+          "unit_key": "ARTICLE:57/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:57/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.3,
+          "unit_key": "ARTICLE:58/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:58/CAPUT"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.3,
+          "unit_key": "ARTICLE:63/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:63/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.3,
+          "unit_key": "ARTICLE:64-B/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:64-B/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.2,
+          "unit_key": "ARTICLE:11/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:11/CAPUT"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.2,
+          "unit_key": "ARTICLE:13/CAPUT/INCISO:II",
+          "provision_stable_keys": [
+            "ARTICLE:13/CAPUT/INCISO:II"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-021",
+      "category": "COMPETENCE",
+      "question": "Um órgão pode delegar parte de sua competência a autoridade sem subordinação hierárquica?",
+      "expected_provisions": [
+        "ARTICLE:12/CAPUT"
+      ],
+      "first_target_rank": 1,
+      "reciprocal_rank": 1.0,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.7,
+          "unit_key": "ARTICLE:12/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:12/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.6,
+          "unit_key": "ARTICLE:14/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:14/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.4,
+          "unit_key": "ARTICLE:31/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:31/CAPUT"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.4,
+          "unit_key": "ARTICLE:35/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:35/CAPUT"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.4,
+          "unit_key": "ARTICLE:47/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:47/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.4,
+          "unit_key": "ARTICLE:49-G/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:49-G/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.4,
+          "unit_key": "ARTICLE:64/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:64/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.3,
+          "unit_key": "ARTICLE:11/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:11/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.3,
+          "unit_key": "ARTICLE:12/PARAGRAPH:UNIQUE",
+          "provision_stable_keys": [
+            "ARTICLE:12/PARAGRAPH:UNIQUE"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.3,
+          "unit_key": "ARTICLE:13/CAPUT/INCISO:III",
+          "provision_stable_keys": [
+            "ARTICLE:13/CAPUT/INCISO:III"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-022",
+      "category": "COMPETENCE",
+      "question": "A decisão de recurso administrativo pode ser delegada?",
+      "expected_provisions": [
+        "ARTICLE:13/CAPUT/INCISO:II"
+      ],
+      "first_target_rank": 9,
+      "reciprocal_rank": 0.1111111111111111,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.7,
+          "unit_key": "ARTICLE:14/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:14/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.5,
+          "unit_key": "ARTICLE:49-A/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:49-A/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.4,
+          "unit_key": "ARTICLE:1/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:1/CAPUT"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.4,
+          "unit_key": "ARTICLE:35/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:35/CAPUT"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.4,
+          "unit_key": "ARTICLE:55/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:55/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.4,
+          "unit_key": "ARTICLE:56/PARAGRAPH:3",
+          "provision_stable_keys": [
+            "ARTICLE:56/PARAGRAPH:3"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.3,
+          "unit_key": "ARTICLE:12/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:12/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.3,
+          "unit_key": "ARTICLE:13/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:13/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.3,
+          "unit_key": "ARTICLE:13/CAPUT/INCISO:II",
+          "provision_stable_keys": [
+            "ARTICLE:13/CAPUT/INCISO:II"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.3,
+          "unit_key": "ARTICLE:21/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:21/CAPUT"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-023",
+      "category": "COMPETENCE",
+      "question": "Perante qual autoridade o processo deve começar quando não existe competência legal específica?",
+      "expected_provisions": [
+        "ARTICLE:17/CAPUT"
+      ],
+      "first_target_rank": 1,
+      "reciprocal_rank": 1.0,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.7,
+          "unit_key": "ARTICLE:17/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:17/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.4,
+          "unit_key": "ARTICLE:19/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:19/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.4,
+          "unit_key": "ARTICLE:24/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:24/CAPUT"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.4,
+          "unit_key": "ARTICLE:47/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:47/CAPUT"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.3,
+          "unit_key": "ARTICLE:22/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:22/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.3,
+          "unit_key": "ARTICLE:23/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:23/CAPUT"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.3,
+          "unit_key": "ARTICLE:26/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:26/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.3,
+          "unit_key": "ARTICLE:28/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:28/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.3,
+          "unit_key": "ARTICLE:48/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:48/CAPUT"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.3,
+          "unit_key": "ARTICLE:49-E/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:49-E/CAPUT"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-024",
+      "category": "COMPETENCE",
+      "question": "O que deve fazer o órgão de instrução que não tem competência para decidir definitivamente?",
+      "expected_provisions": [
+        "ARTICLE:47/CAPUT"
+      ],
+      "first_target_rank": 5,
+      "reciprocal_rank": 0.2,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.6,
+          "unit_key": "ARTICLE:43/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:43/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.4,
+          "unit_key": "ARTICLE:35/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:35/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.4,
+          "unit_key": "ARTICLE:36/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:36/CAPUT"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.4,
+          "unit_key": "ARTICLE:37/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:37/CAPUT"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.4,
+          "unit_key": "ARTICLE:47/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:47/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.4,
+          "unit_key": "ARTICLE:59/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:59/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.4,
+          "unit_key": "ARTICLE:64/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:64/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.3,
+          "unit_key": "ARTICLE:12/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:12/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.3,
+          "unit_key": "ARTICLE:17/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:17/CAPUT"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.3,
+          "unit_key": "ARTICLE:29/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:29/PARAGRAPH:1"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-025",
+      "category": "COMPETENCE",
+      "question": "A qual autoridade o recurso administrativo deve ser dirigido inicialmente?",
+      "expected_provisions": [
+        "ARTICLE:56/PARAGRAPH:1"
+      ],
+      "first_target_rank": 7,
+      "reciprocal_rank": 0.14285714285714285,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.5,
+          "unit_key": "ARTICLE:64-B/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:64-B/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.4,
+          "unit_key": "ARTICLE:17/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:17/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.4,
+          "unit_key": "ARTICLE:1/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:1/CAPUT"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.4,
+          "unit_key": "ARTICLE:24/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:24/CAPUT"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.4,
+          "unit_key": "ARTICLE:42/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:42/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.4,
+          "unit_key": "ARTICLE:43/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:43/CAPUT"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.4,
+          "unit_key": "ARTICLE:56/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:56/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.4,
+          "unit_key": "ARTICLE:56/PARAGRAPH:3",
+          "provision_stable_keys": [
+            "ARTICLE:56/PARAGRAPH:3"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.4,
+          "unit_key": "ARTICLE:59/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:59/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.4,
+          "unit_key": "ARTICLE:69-A/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:69-A/PARAGRAPH:1"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-026",
+      "category": "ENUMERATION",
+      "question": "Quais informações devem constar do requerimento inicial apresentado por escrito?",
+      "expected_provisions": [
+        "ARTICLE:6/CAPUT",
+        "ARTICLE:6/CAPUT/INCISO:I",
+        "ARTICLE:6/CAPUT/INCISO:II",
+        "ARTICLE:6/CAPUT/INCISO:III",
+        "ARTICLE:6/CAPUT/INCISO:IV",
+        "ARTICLE:6/CAPUT/INCISO:V"
+      ],
+      "first_target_rank": 1,
+      "reciprocal_rank": 1.0,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.3,
+          "unit_key": "ARTICLE:6/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:6/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.2,
+          "unit_key": "ARTICLE:22/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:22/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.2,
+          "unit_key": "ARTICLE:28/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:28/CAPUT"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.2,
+          "unit_key": "ARTICLE:34/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:34/CAPUT"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.2,
+          "unit_key": "ARTICLE:39/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:39/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.2,
+          "unit_key": "ARTICLE:3/CAPUT/INCISO:III",
+          "provision_stable_keys": [
+            "ARTICLE:3/CAPUT/INCISO:III"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.2,
+          "unit_key": "ARTICLE:42/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:42/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.2,
+          "unit_key": "ARTICLE:43/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:43/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.2,
+          "unit_key": "ARTICLE:49-G/PARAGRAPH:3",
+          "provision_stable_keys": [
+            "ARTICLE:49-G/PARAGRAPH:3"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.2,
+          "unit_key": "ARTICLE:50/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:50/PARAGRAPH:1"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-027",
+      "category": "ENUMERATION",
+      "question": "Quais situações impedem um servidor ou autoridade de atuar no processo administrativo?",
+      "expected_provisions": [
+        "ARTICLE:18/CAPUT",
+        "ARTICLE:18/CAPUT/INCISO:I",
+        "ARTICLE:18/CAPUT/INCISO:II",
+        "ARTICLE:18/CAPUT/INCISO:III"
+      ],
+      "first_target_rank": 1,
+      "reciprocal_rank": 1.0,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.6,
+          "unit_key": "ARTICLE:18/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:18/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.5,
+          "unit_key": "ARTICLE:19/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:19/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.5,
+          "unit_key": "ARTICLE:1/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:1/CAPUT"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.4,
+          "unit_key": "ARTICLE:49-A/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:49-A/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.3,
+          "unit_key": "ARTICLE:17/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:17/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.3,
+          "unit_key": "ARTICLE:24/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:24/CAPUT"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.3,
+          "unit_key": "ARTICLE:37/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:37/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.3,
+          "unit_key": "ARTICLE:48/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:48/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.3,
+          "unit_key": "ARTICLE:49/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:49/CAPUT"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.3,
+          "unit_key": "ARTICLE:56/PARAGRAPH:3",
+          "provision_stable_keys": [
+            "ARTICLE:56/PARAGRAPH:3"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-028",
+      "category": "ENUMERATION",
+      "question": "Quais informações a intimação do interessado deve conter?",
+      "expected_provisions": [
+        "ARTICLE:26/PARAGRAPH:1",
+        "ARTICLE:26/PARAGRAPH:1/INCISO:I",
+        "ARTICLE:26/PARAGRAPH:1/INCISO:II",
+        "ARTICLE:26/PARAGRAPH:1/INCISO:III",
+        "ARTICLE:26/PARAGRAPH:1/INCISO:IV",
+        "ARTICLE:26/PARAGRAPH:1/INCISO:V",
+        "ARTICLE:26/PARAGRAPH:1/INCISO:VI"
+      ],
+      "first_target_rank": 2,
+      "reciprocal_rank": 0.5,
+      "hit_at_1": false,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.4,
+          "unit_key": "ARTICLE:28/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:28/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.3,
+          "unit_key": "ARTICLE:26/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:26/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.3,
+          "unit_key": "ARTICLE:26/PARAGRAPH:4",
+          "provision_stable_keys": [
+            "ARTICLE:26/PARAGRAPH:4"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.3,
+          "unit_key": "ARTICLE:39/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:39/CAPUT"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.3,
+          "unit_key": "ARTICLE:62/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:62/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.3,
+          "unit_key": "ARTICLE:6/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:6/CAPUT"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.2,
+          "unit_key": "ARTICLE:25/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:25/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.2,
+          "unit_key": "ARTICLE:26/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:26/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.2,
+          "unit_key": "ARTICLE:26/PARAGRAPH:1/INCISO:IV",
+          "provision_stable_keys": [
+            "ARTICLE:26/PARAGRAPH:1/INCISO:IV"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.2,
+          "unit_key": "ARTICLE:26/PARAGRAPH:3",
+          "provision_stable_keys": [
+            "ARTICLE:26/PARAGRAPH:3"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-029",
+      "category": "ENUMERATION",
+      "question": "Quem tem legitimidade para apresentar recurso administrativo?",
+      "expected_provisions": [
+        "ARTICLE:58/CAPUT",
+        "ARTICLE:58/CAPUT/INCISO:I",
+        "ARTICLE:58/CAPUT/INCISO:II",
+        "ARTICLE:58/CAPUT/INCISO:III",
+        "ARTICLE:58/CAPUT/INCISO:IV"
+      ],
+      "first_target_rank": 3,
+      "reciprocal_rank": 0.3333333333333333,
+      "hit_at_1": false,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.4,
+          "unit_key": "ARTICLE:1/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:1/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.3,
+          "unit_key": "ARTICLE:57/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:57/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.3,
+          "unit_key": "ARTICLE:58/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:58/CAPUT"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.3,
+          "unit_key": "ARTICLE:63/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:63/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.3,
+          "unit_key": "ARTICLE:64-B/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:64-B/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.2,
+          "unit_key": "ARTICLE:13/CAPUT/INCISO:II",
+          "provision_stable_keys": [
+            "ARTICLE:13/CAPUT/INCISO:II"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.2,
+          "unit_key": "ARTICLE:1/PARAGRAPH:2/INCISO:I",
+          "provision_stable_keys": [
+            "ARTICLE:1/PARAGRAPH:2/INCISO:I"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.2,
+          "unit_key": "ARTICLE:2/PARAGRAPH:UNIQUE/INCISO:X",
+          "provision_stable_keys": [
+            "ARTICLE:2/PARAGRAPH:UNIQUE/INCISO:X"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.2,
+          "unit_key": "ARTICLE:33/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:33/CAPUT"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.2,
+          "unit_key": "ARTICLE:34/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:34/CAPUT"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-030",
+      "category": "ENUMERATION",
+      "question": "Em quais hipóteses um recurso administrativo não será conhecido?",
+      "expected_provisions": [
+        "ARTICLE:63/CAPUT",
+        "ARTICLE:63/CAPUT/INCISO:I",
+        "ARTICLE:63/CAPUT/INCISO:II",
+        "ARTICLE:63/CAPUT/INCISO:III",
+        "ARTICLE:63/CAPUT/INCISO:IV"
+      ],
+      "first_target_rank": null,
+      "reciprocal_rank": 0.0,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "hit_at_10": false,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.4,
+          "unit_key": "ARTICLE:1/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:1/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.4,
+          "unit_key": "ARTICLE:63/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:63/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.3,
+          "unit_key": "ARTICLE:57/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:57/CAPUT"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.3,
+          "unit_key": "ARTICLE:64-B/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:64-B/CAPUT"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.2,
+          "unit_key": "ARTICLE:13/CAPUT/INCISO:II",
+          "provision_stable_keys": [
+            "ARTICLE:13/CAPUT/INCISO:II"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.2,
+          "unit_key": "ARTICLE:1/PARAGRAPH:2/INCISO:I",
+          "provision_stable_keys": [
+            "ARTICLE:1/PARAGRAPH:2/INCISO:I"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.2,
+          "unit_key": "ARTICLE:33/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:33/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.2,
+          "unit_key": "ARTICLE:37/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:37/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.2,
+          "unit_key": "ARTICLE:3/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:3/CAPUT"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.2,
+          "unit_key": "ARTICLE:3/CAPUT/INCISO:II",
+          "provision_stable_keys": [
+            "ARTICLE:3/CAPUT/INCISO:II"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-031",
+      "category": "EXCEPTION",
+      "question": "Em que situação o reconhecimento de firma pode ser exigido no processo administrativo?",
+      "expected_provisions": [
+        "ARTICLE:22/PARAGRAPH:2"
+      ],
+      "first_target_rank": null,
+      "reciprocal_rank": 0.0,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "hit_at_10": false,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.5,
+          "unit_key": "ARTICLE:1/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:1/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.5,
+          "unit_key": "ARTICLE:35/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:35/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.4,
+          "unit_key": "ARTICLE:22/PARAGRAPH:3",
+          "provision_stable_keys": [
+            "ARTICLE:22/PARAGRAPH:3"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.4,
+          "unit_key": "ARTICLE:31/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:31/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.4,
+          "unit_key": "ARTICLE:33/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:33/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.4,
+          "unit_key": "ARTICLE:42/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:42/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.4,
+          "unit_key": "ARTICLE:49-A/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:49-A/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.4,
+          "unit_key": "ARTICLE:65/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:65/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.3,
+          "unit_key": "ARTICLE:17/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:17/CAPUT"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.3,
+          "unit_key": "ARTICLE:22/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:22/CAPUT"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-032",
+      "category": "EXCEPTION",
+      "question": "Quando um ato processual já iniciado pode ser concluído depois do horário normal?",
+      "expected_provisions": [
+        "ARTICLE:23/PARAGRAPH:UNIQUE"
+      ],
+      "first_target_rank": 2,
+      "reciprocal_rank": 0.5,
+      "hit_at_1": false,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.3,
+          "unit_key": "ARTICLE:14/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:14/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.3,
+          "unit_key": "ARTICLE:23/PARAGRAPH:UNIQUE",
+          "provision_stable_keys": [
+            "ARTICLE:23/PARAGRAPH:UNIQUE"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.3,
+          "unit_key": "ARTICLE:35/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:35/CAPUT"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.3,
+          "unit_key": "ARTICLE:42/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:42/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.3,
+          "unit_key": "ARTICLE:50/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:50/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.3,
+          "unit_key": "ARTICLE:9/CAPUT/INCISO:II",
+          "provision_stable_keys": [
+            "ARTICLE:9/CAPUT/INCISO:II"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.2,
+          "unit_key": "ARTICLE:13/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:13/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.2,
+          "unit_key": "ARTICLE:14/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:14/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.2,
+          "unit_key": "ARTICLE:17/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:17/CAPUT"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.2,
+          "unit_key": "ARTICLE:20/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:20/CAPUT"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-033",
+      "category": "EXCEPTION",
+      "question": "Em que condição o prazo geral de cinco dias pode ser ampliado?",
+      "expected_provisions": [
+        "ARTICLE:24/PARAGRAPH:UNIQUE"
+      ],
+      "first_target_rank": 5,
+      "reciprocal_rank": 0.2,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.5,
+          "unit_key": "ARTICLE:42/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:42/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.4,
+          "unit_key": "ARTICLE:24/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:24/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.4,
+          "unit_key": "ARTICLE:42/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:42/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.4,
+          "unit_key": "ARTICLE:59/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:59/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.3,
+          "unit_key": "ARTICLE:24/PARAGRAPH:UNIQUE",
+          "provision_stable_keys": [
+            "ARTICLE:24/PARAGRAPH:UNIQUE"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.3,
+          "unit_key": "ARTICLE:31/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:31/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.3,
+          "unit_key": "ARTICLE:35/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:35/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.3,
+          "unit_key": "ARTICLE:44/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:44/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.3,
+          "unit_key": "ARTICLE:56/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:56/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.3,
+          "unit_key": "ARTICLE:59/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:59/PARAGRAPH:2"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-034",
+      "category": "EXCEPTION",
+      "question": "Quando a autoridade pode conceder efeito suspensivo a um recurso administrativo?",
+      "expected_provisions": [
+        "ARTICLE:61/PARAGRAPH:UNIQUE"
+      ],
+      "first_target_rank": 1,
+      "reciprocal_rank": 1.0,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.5,
+          "unit_key": "ARTICLE:61/PARAGRAPH:UNIQUE",
+          "provision_stable_keys": [
+            "ARTICLE:61/PARAGRAPH:UNIQUE"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.4,
+          "unit_key": "ARTICLE:1/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:1/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.4,
+          "unit_key": "ARTICLE:21/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:21/CAPUT"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.4,
+          "unit_key": "ARTICLE:56/PARAGRAPH:3",
+          "provision_stable_keys": [
+            "ARTICLE:56/PARAGRAPH:3"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.4,
+          "unit_key": "ARTICLE:64-B/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:64-B/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.3,
+          "unit_key": "ARTICLE:14/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:14/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.3,
+          "unit_key": "ARTICLE:33/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:33/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.3,
+          "unit_key": "ARTICLE:49-A/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:49-A/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.3,
+          "unit_key": "ARTICLE:54/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:54/CAPUT"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.3,
+          "unit_key": "ARTICLE:56/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:56/PARAGRAPH:1"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-035",
+      "category": "EXCEPTION",
+      "question": "Em que situação a Administração pode adotar providência cautelar antes de ouvir o interessado?",
+      "expected_provisions": [
+        "ARTICLE:45/CAPUT"
+      ],
+      "first_target_rank": 1,
+      "reciprocal_rank": 1.0,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.5,
+          "unit_key": "ARTICLE:45/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:45/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.4,
+          "unit_key": "ARTICLE:1/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:1/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.3,
+          "unit_key": "ARTICLE:31/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:31/CAPUT"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.3,
+          "unit_key": "ARTICLE:31/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:31/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.3,
+          "unit_key": "ARTICLE:33/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:33/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.3,
+          "unit_key": "ARTICLE:37/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:37/CAPUT"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.3,
+          "unit_key": "ARTICLE:38/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:38/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.3,
+          "unit_key": "ARTICLE:49-A/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:49-A/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.3,
+          "unit_key": "ARTICLE:5/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:5/CAPUT"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.3,
+          "unit_key": "ARTICLE:69-A/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:69-A/PARAGRAPH:1"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-036",
+      "category": "PROCEDURE",
+      "question": "Como deve ser feita a intimação de interessado desconhecido ou com domicílio indefinido?",
+      "expected_provisions": [
+        "ARTICLE:26/PARAGRAPH:4"
+      ],
+      "first_target_rank": 1,
+      "reciprocal_rank": 1.0,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.6,
+          "unit_key": "ARTICLE:26/PARAGRAPH:4",
+          "provision_stable_keys": [
+            "ARTICLE:26/PARAGRAPH:4"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.5,
+          "unit_key": "ARTICLE:28/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:28/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.4,
+          "unit_key": "ARTICLE:42/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:42/CAPUT"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.3,
+          "unit_key": "ARTICLE:26/PARAGRAPH:3",
+          "provision_stable_keys": [
+            "ARTICLE:26/PARAGRAPH:3"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.3,
+          "unit_key": "ARTICLE:43/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:43/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.3,
+          "unit_key": "ARTICLE:49-D/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:49-D/CAPUT"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.3,
+          "unit_key": "ARTICLE:62/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:62/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.3,
+          "unit_key": "ARTICLE:69-A/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:69-A/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.3,
+          "unit_key": "ARTICLE:6/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:6/CAPUT"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.2,
+          "unit_key": "ARTICLE:14/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:14/CAPUT"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-037",
+      "category": "PROCEDURE",
+      "question": "O que acontece quando documentos essenciais solicitados ao interessado não são apresentados no prazo?",
+      "expected_provisions": [
+        "ARTICLE:40/CAPUT"
+      ],
+      "first_target_rank": 1,
+      "reciprocal_rank": 1.0,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.5,
+          "unit_key": "ARTICLE:40/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:40/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.3,
+          "unit_key": "ARTICLE:37/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:37/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.3,
+          "unit_key": "ARTICLE:39/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:39/CAPUT"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.3,
+          "unit_key": "ARTICLE:44/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:44/CAPUT"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.3,
+          "unit_key": "ARTICLE:46/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:46/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.3,
+          "unit_key": "ARTICLE:62/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:62/CAPUT"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.2,
+          "unit_key": "ARTICLE:38/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:38/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.2,
+          "unit_key": "ARTICLE:3/CAPUT/INCISO:II",
+          "provision_stable_keys": [
+            "ARTICLE:3/CAPUT/INCISO:II"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.2,
+          "unit_key": "ARTICLE:3/CAPUT/INCISO:III",
+          "provision_stable_keys": [
+            "ARTICLE:3/CAPUT/INCISO:III"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.2,
+          "unit_key": "ARTICLE:42/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:42/CAPUT"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-038",
+      "category": "PROCEDURE",
+      "question": "O processo pode continuar sem um parecer obrigatório que não seja vinculante?",
+      "expected_provisions": [
+        "ARTICLE:42/PARAGRAPH:2"
+      ],
+      "first_target_rank": 1,
+      "reciprocal_rank": 1.0,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.4,
+          "unit_key": "ARTICLE:42/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:42/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.3,
+          "unit_key": "ARTICLE:38/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:38/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.3,
+          "unit_key": "ARTICLE:42/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:42/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.2,
+          "unit_key": "ARTICLE:14/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:14/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.2,
+          "unit_key": "ARTICLE:23/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:23/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.2,
+          "unit_key": "ARTICLE:26/PARAGRAPH:1/INCISO:V",
+          "provision_stable_keys": [
+            "ARTICLE:26/PARAGRAPH:1/INCISO:V"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.2,
+          "unit_key": "ARTICLE:26/PARAGRAPH:3",
+          "provision_stable_keys": [
+            "ARTICLE:26/PARAGRAPH:3"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.2,
+          "unit_key": "ARTICLE:31/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:31/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.2,
+          "unit_key": "ARTICLE:31/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:31/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.2,
+          "unit_key": "ARTICLE:32/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:32/CAPUT"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-039",
+      "category": "PROCEDURE",
+      "question": "Como são contados o dia inicial e o dia do vencimento de um prazo administrativo?",
+      "expected_provisions": [
+        "ARTICLE:66/CAPUT"
+      ],
+      "first_target_rank": 8,
+      "reciprocal_rank": 0.125,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "hit_at_10": true,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.6,
+          "unit_key": "ARTICLE:66/PARAGRAPH:3",
+          "provision_stable_keys": [
+            "ARTICLE:66/PARAGRAPH:3"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.4,
+          "unit_key": "ARTICLE:1/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:1/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.4,
+          "unit_key": "ARTICLE:66/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:66/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.3,
+          "unit_key": "ARTICLE:49/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:49/CAPUT"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.3,
+          "unit_key": "ARTICLE:54/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:54/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.3,
+          "unit_key": "ARTICLE:59/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:59/CAPUT"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.3,
+          "unit_key": "ARTICLE:59/PARAGRAPH:1",
+          "provision_stable_keys": [
+            "ARTICLE:59/PARAGRAPH:1"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.3,
+          "unit_key": "ARTICLE:66/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:66/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.2,
+          "unit_key": "ARTICLE:1/PARAGRAPH:2/INCISO:I",
+          "provision_stable_keys": [
+            "ARTICLE:1/PARAGRAPH:2/INCISO:I"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.2,
+          "unit_key": "ARTICLE:24/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:24/CAPUT"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DEV-040",
+      "category": "PROCEDURE",
+      "question": "O que a pessoa deve fazer para obter prioridade na tramitação do processo administrativo?",
+      "expected_provisions": [
+        "ARTICLE:69-A/PARAGRAPH:1"
+      ],
+      "first_target_rank": null,
+      "reciprocal_rank": 0.0,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "hit_at_10": false,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "score": 0.5,
+          "unit_key": "ARTICLE:1/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:1/CAPUT"
+          ]
+        },
+        {
+          "rank": 2,
+          "score": 0.4,
+          "unit_key": "ARTICLE:23/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:23/CAPUT"
+          ]
+        },
+        {
+          "rank": 3,
+          "score": 0.4,
+          "unit_key": "ARTICLE:3/CAPUT/INCISO:II",
+          "provision_stable_keys": [
+            "ARTICLE:3/CAPUT/INCISO:II"
+          ]
+        },
+        {
+          "rank": 4,
+          "score": 0.4,
+          "unit_key": "ARTICLE:48/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:48/CAPUT"
+          ]
+        },
+        {
+          "rank": 5,
+          "score": 0.3,
+          "unit_key": "ARTICLE:17/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:17/CAPUT"
+          ]
+        },
+        {
+          "rank": 6,
+          "score": 0.3,
+          "unit_key": "ARTICLE:24/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:24/CAPUT"
+          ]
+        },
+        {
+          "rank": 7,
+          "score": 0.3,
+          "unit_key": "ARTICLE:26/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:26/CAPUT"
+          ]
+        },
+        {
+          "rank": 8,
+          "score": 0.3,
+          "unit_key": "ARTICLE:28/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:28/CAPUT"
+          ]
+        },
+        {
+          "rank": 9,
+          "score": 0.3,
+          "unit_key": "ARTICLE:31/PARAGRAPH:2",
+          "provision_stable_keys": [
+            "ARTICLE:31/PARAGRAPH:2"
+          ]
+        },
+        {
+          "rank": 10,
+          "score": 0.3,
+          "unit_key": "ARTICLE:37/CAPUT",
+          "provision_stable_keys": [
+            "ARTICLE:37/CAPUT"
+          ]
+        }
+      ]
+    }
+  ]
+}

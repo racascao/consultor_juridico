@@ -1,10 +1,12 @@
-"""CLI da fundação documental do MVP2."""
+"""CLI do corpus auditável e retrieval lexical do MVP2."""
 
+from pathlib import Path
 from typing import Annotated
 
 import httpx
 import typer
 from rich.console import Console
+from rich.table import Table
 
 from consultor_juridico import __version__
 from consultor_juridico.application.corpus.audit import (
@@ -19,14 +21,23 @@ from consultor_juridico.application.corpus.services import (
     AcquireOfficialSource,
     MaterializeFromSnapshot,
 )
+from consultor_juridico.application.retrieval.ports import SearchUnitRetriever
+from consultor_juridico.application.retrieval.services import RetrieveSearchUnits
 from consultor_juridico.config import settings
 from consultor_juridico.db.session import SessionLocal
+from consultor_juridico.domain.retrieval import RetrievalMode, RetrievalRequest
+from consultor_juridico.evaluation.retrieval_baseline import run_retrieval_baseline
 from consultor_juridico.infrastructure.corpus.http import HttpxSourceAcquirer
 from consultor_juridico.infrastructure.corpus.materializer import (
     SqlAlchemyCorpusMaterializer,
 )
 from consultor_juridico.infrastructure.corpus.repositories import (
     SqlAlchemySnapshotRepository,
+)
+from consultor_juridico.infrastructure.retrieval import (
+    PostgresFullTextSearchRetriever,
+    PostgresRelaxedOrCoverageFullTextSearchRetriever,
+    PostgresRelaxedOrFullTextSearchRetriever,
 )
 from consultor_juridico.services import db_service
 
@@ -37,9 +48,21 @@ app = typer.Typer(
 )
 db_app = typer.Typer(help="Banco de dados e migrations.")
 corpus_app = typer.Typer(help="Aquisição, materialização e auditoria do corpus.")
+retrieval_app = typer.Typer(help="Busca lexical isolada em versão explícita.")
+eval_app = typer.Typer(help="Avaliações reproduzíveis no filesystem.")
 app.add_typer(db_app, name="db")
 app.add_typer(corpus_app, name="corpus")
+app.add_typer(retrieval_app, name="retrieval")
+app.add_typer(eval_app, name="eval")
 console = Console()
+
+
+def _compose_retriever(session, mode: RetrievalMode) -> SearchUnitRetriever:
+    if mode is RetrievalMode.RELAXED_OR_COVERAGE:
+        return PostgresRelaxedOrCoverageFullTextSearchRetriever(session)
+    if mode is RetrievalMode.RELAXED_OR:
+        return PostgresRelaxedOrFullTextSearchRetriever(session)
+    return PostgresFullTextSearchRetriever(session)
 
 
 @app.command()
@@ -175,6 +198,62 @@ def corpus_trace(
         result = trace_unit(session, version_hash, unit_key)
     for key, value in result.items():
         console.print(f"{key}={value}")
+
+
+@retrieval_app.command("buscar")
+def retrieval_search(
+    question: Annotated[str, typer.Argument(help="Pergunta jurídica")],
+    version_hash: Annotated[str, typer.Option("--version-hash")],
+    limit: Annotated[int, typer.Option("--limit", min=1, max=100)] = 10,
+    mode: Annotated[RetrievalMode, typer.Option("--mode")] = RetrievalMode.STRICT,
+) -> None:
+    """Busca SearchUnits com PostgreSQL FTS, sem geração de resposta."""
+    request = RetrievalRequest(question, version_hash, limit)
+    with SessionLocal() as session:
+        retriever = _compose_retriever(session, mode)
+        candidates = RetrieveSearchUnits(retriever).execute(request)
+    console.print(f"version_hash={version_hash}")
+    console.print(f"retrieval_implementation={retriever.implementation_name}")
+    table = Table("rank", "score", "unit_key", "provisions", "search_text")
+    for candidate in candidates:
+        excerpt = candidate.search_text.replace("\n", " ")
+        if len(excerpt) > 140:
+            excerpt = excerpt[:137] + "..."
+        table.add_row(
+            str(candidate.rank),
+            f"{candidate.score:.6f}",
+            candidate.unit_key,
+            ", ".join(candidate.provision_stable_keys),
+            excerpt,
+        )
+    console.print(table)
+
+
+@eval_app.command("retrieval")
+def evaluate_retrieval(
+    dataset: Annotated[Path, typer.Option("--dataset")],
+    version_hash: Annotated[str, typer.Option("--version-hash")],
+    output: Annotated[Path, typer.Option("--output")],
+    mode: Annotated[RetrievalMode, typer.Option("--mode")] = RetrievalMode.STRICT,
+) -> None:
+    """Executa uma avaliação lexical e grava um artefato JSON novo."""
+    with SessionLocal() as session:
+        retriever = _compose_retriever(session, mode)
+        result = run_retrieval_baseline(
+            retriever,
+            dataset_path=dataset,
+            version_hash=version_hash,
+            output_path=output,
+        )
+    overall = result["overall"]
+    console.print(f"dataset={result['metadata']['dataset_id']}")
+    console.print(f"version_hash={version_hash}")
+    console.print(f"hit_at_1={overall['hit_at_1']:.6f}")
+    console.print(f"hit_at_3={overall['hit_at_3']:.6f}")
+    console.print(f"hit_at_5={overall['hit_at_5']:.6f}")
+    console.print(f"hit_at_10={overall['hit_at_10']:.6f}")
+    console.print(f"mrr={overall['mrr']:.6f}")
+    console.print(f"output={output}")
 
 
 if __name__ == "__main__":

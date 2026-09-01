@@ -102,5 +102,12 @@ locators, chaves, ordem, pais, links e contagens materializadas. O locator é
 um objeto tipado com intervalo zero-based de parágrafos e anchor opcional.
 
 O comando `corpus rastrear` mostra a cadeia da SearchUnit para a Provision,
-ActVersion, SourceSnapshot e URL oficial. A aceitação da Fase 0 permanece
-pendente até o usuário conferir cinco amostras distribuídas na ordem documental.
+ActVersion, SourceSnapshot e URL oficial.
+
+## Gate manual de proveniência
+
+`MANUAL_PROVENANCE_CHECK: PASS`. O usuário conferiu `PREAMBLE`,
+`ARTICLE:13/CAPUT/INCISO:III`, `ARTICLE:38/PARAGRAPH:2`, `ARTICLE:51/CAPUT` e
+`ARTICLE:70/CAPUT`. Todas as amostras passaram quanto a `citation_text`, limite
+estrutural, hierarquia, proveniência, SourceSnapshot e URL oficial. A Fase 0
+está concluída.

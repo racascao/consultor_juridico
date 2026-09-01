@@ -8,11 +8,13 @@ from sqlalchemy import (
     BigInteger,
     DateTime,
     ForeignKey,
+    Index,
     Integer,
     LargeBinary,
     String,
     Text,
     func,
+    text,
 )
 from sqlalchemy.dialects.postgresql import JSONB, UUID
 from sqlalchemy.orm import Mapped, mapped_column
@@ -112,6 +114,13 @@ class ProvisionModel(Base):
 
 class SearchUnitModel(Base):
     __tablename__ = "search_units"
+    __table_args__ = (
+        Index(
+            "ix_search_units_fts_portuguese",
+            text("to_tsvector('portuguese'::regconfig, search_text)"),
+            postgresql_using="gin",
+        ),
+    )
     id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True), primary_key=True, default=uuid.uuid4
     )

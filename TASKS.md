@@ -11,13 +11,28 @@
 - [x] Implementar parser determinístico, cobertura fail-closed e fixtures.
 - [x] Implementar projeção, materialização, reprojeção e auditoria.
 - [x] Validar automaticamente o corpus real e a proveniência mecânica.
-- [ ] Concluir a validação manual de proveniência das cinco amostras.
+- [x] Concluir a validação manual de proveniência das cinco amostras.
 
-Estado: implementação automática concluída; aceitação humana pendente.
+Estado: concluída e aceita após validação manual de proveniência.
 
 ## MVP2 — Fase 1: Retrieval isolado
 
-- [ ] Não iniciada.
+- [x] Criar, validar e congelar o DEV lexical com 40 casos.
+- [x] Implementar o baseline PostgreSQL FTS com ActVersion explícita.
+- [x] Executar uma única medição e congelar seu artefato.
+- [x] Classificar genericamente as 40 falhas observadas.
+- [x] Validar o strict com controle positivo 3/3.
+- [x] Implementar e medir uma única vez a variante RELAXED_OR.
+- [x] Classificar os oito misses restantes como diluição de ranking.
+- [x] Diagnosticar os oito misses com lexemas PostgreSQL e cobertura lexical.
+- [x] Implementar e medir uma única vez `RELAXED_OR_COVERAGE`.
+- [ ] Revisar o baseline com o usuário antes de escolher outra hipótese.
+
+Estado: strict `Hit@10=0,000`/`MRR=0,000`; RELAXED_OR
+`Hit@10=0,800`/`MRR=0,549`; RELAXED_OR_COVERAGE
+`Hit@10=0,875`/`MRR=0,661`. Coverage recuperou três misses, não perdeu hits
+top-10 e teve uma regressão de rank 5 para 6. Runtime, dataset e projeção estão
+congelados após a medição; a Fase 1 aguarda revisão humana.
 
 As etapas posteriores ainda não foram especificadas formalmente. A tag
 `v0.1.0` permanece congelada, e a primeira tentativa do MVP2 está preservada
