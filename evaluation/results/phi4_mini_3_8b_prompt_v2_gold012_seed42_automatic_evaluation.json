@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "dataset_id": "lei_9784_gold_evidence_dev_v1",
+    "dataset_sha256": "68a319031b7ca3f9da912761ab5328ef6bf37251f8750b3e24207c7258622f65",
+    "responses_sha256": "365889ead7b487a71ed71124c641ae272cc3c8573aa2e386219e6d9354f4f862",
+    "version_hash": "298028477a55a61cdd1df94bda3aec784e6fe94d17c485ae6a2f6c77fe2b7a74",
+    "prompt_name": "gold-evidence-answering",
+    "prompt_version": "2",
+    "evaluated_at": "2026-09-04T02:57:20.172933+00:00",
+    "case_count": 1
+  },
+  "cases": [
+    {
+      "case_id": "GOLD-012",
+      "category": "SINGLE_SUPPORT",
+      "question": "Os prazos processuais administrativos ficam suspensos normalmente?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:67/CAPUT"
+      ],
+      "required_provisions": [
+        "ARTICLE:67/CAPUT"
+      ],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"Os prazos processuais não se suspendem normalmente, exceto por motivo de força maior devidamente comprovado.\",\"citations\":[\"ARTICLE:67/CAPUT\"]}",
+      "latency_ms": 5976.485757,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "Os prazos processuais não se suspendem normalmente, exceto por motivo de força maior devidamente comprovado.",
+        "citations": [
+          "ARTICLE:67/CAPUT"
+        ]
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PENDING_HUMAN_REVIEW"
+    }
+  ]
+}

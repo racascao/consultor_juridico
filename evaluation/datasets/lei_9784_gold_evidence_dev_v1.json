@@ -1,0 +1,343 @@
+{
+  "dataset_id": "lei_9784_gold_evidence_dev_v1",
+  "legal_act_code": "BR-FED-LEI-9784-1999",
+  "cases": [
+    {
+      "case_id": "GOLD-001",
+      "category": "SINGLE_SUPPORT",
+      "question": "De que formas um processo administrativo pode ser iniciado?",
+      "gold_provisions": ["ARTICLE:5/CAPUT"],
+      "required_provisions": ["ARTICLE:5/CAPUT"],
+      "expected_decision": "ANSWER"
+    },
+    {
+      "case_id": "GOLD-002",
+      "category": "SINGLE_SUPPORT",
+      "question": "Quem é considerado capaz para fins de processo administrativo?",
+      "gold_provisions": ["ARTICLE:10/CAPUT"],
+      "required_provisions": ["ARTICLE:10/CAPUT"],
+      "expected_decision": "ANSWER"
+    },
+    {
+      "case_id": "GOLD-003",
+      "category": "SINGLE_SUPPORT",
+      "question": "A competência administrativa pode ser renunciada?",
+      "gold_provisions": ["ARTICLE:11/CAPUT"],
+      "required_provisions": ["ARTICLE:11/CAPUT"],
+      "expected_decision": "ANSWER"
+    },
+    {
+      "case_id": "GOLD-004",
+      "category": "SINGLE_SUPPORT",
+      "question": "Quando pode ser exigido o reconhecimento de firma no processo administrativo?",
+      "gold_provisions": ["ARTICLE:22/PARAGRAPH:2"],
+      "required_provisions": ["ARTICLE:22/PARAGRAPH:2"],
+      "expected_decision": "ANSWER"
+    },
+    {
+      "case_id": "GOLD-005",
+      "category": "SINGLE_SUPPORT",
+      "question": "Qual é o prazo geral para a prática de atos no processo quando não há disposição específica?",
+      "gold_provisions": ["ARTICLE:24/CAPUT"],
+      "required_provisions": ["ARTICLE:24/CAPUT"],
+      "expected_decision": "ANSWER"
+    },
+    {
+      "case_id": "GOLD-006",
+      "category": "SINGLE_SUPPORT",
+      "question": "Provas obtidas por meios ilícitos são admitidas no processo administrativo?",
+      "gold_provisions": ["ARTICLE:30/CAPUT"],
+      "required_provisions": ["ARTICLE:30/CAPUT"],
+      "expected_decision": "ANSWER"
+    },
+    {
+      "case_id": "GOLD-007",
+      "category": "SINGLE_SUPPORT",
+      "question": "A Administração deve emitir decisão explícita sobre solicitações de sua competência?",
+      "gold_provisions": ["ARTICLE:48/CAPUT"],
+      "required_provisions": ["ARTICLE:48/CAPUT"],
+      "expected_decision": "ANSWER"
+    },
+    {
+      "case_id": "GOLD-008",
+      "category": "SINGLE_SUPPORT",
+      "question": "Em quanto tempo decai o direito da Administração de anular atos favoráveis ao destinatário, salvo má-fé?",
+      "gold_provisions": ["ARTICLE:54/CAPUT"],
+      "required_provisions": ["ARTICLE:54/CAPUT"],
+      "expected_decision": "ANSWER"
+    },
+    {
+      "case_id": "GOLD-009",
+      "category": "SINGLE_SUPPORT",
+      "question": "Quando um ato com defeito sanável pode ser convalidado pela Administração?",
+      "gold_provisions": ["ARTICLE:55/CAPUT"],
+      "required_provisions": ["ARTICLE:55/CAPUT"],
+      "expected_decision": "ANSWER"
+    },
+    {
+      "case_id": "GOLD-010",
+      "category": "SINGLE_SUPPORT",
+      "question": "Por quantas instâncias administrativas um recurso pode tramitar, como regra geral?",
+      "gold_provisions": ["ARTICLE:57/CAPUT"],
+      "required_provisions": ["ARTICLE:57/CAPUT"],
+      "expected_decision": "ANSWER"
+    },
+    {
+      "case_id": "GOLD-011",
+      "category": "SINGLE_SUPPORT",
+      "question": "O que o recorrente deve expor no requerimento de recurso administrativo?",
+      "gold_provisions": ["ARTICLE:60/CAPUT"],
+      "required_provisions": ["ARTICLE:60/CAPUT"],
+      "expected_decision": "ANSWER"
+    },
+    {
+      "case_id": "GOLD-012",
+      "category": "SINGLE_SUPPORT",
+      "question": "Os prazos processuais administrativos ficam suspensos normalmente?",
+      "gold_provisions": ["ARTICLE:67/CAPUT"],
+      "required_provisions": ["ARTICLE:67/CAPUT"],
+      "expected_decision": "ANSWER"
+    },
+    {
+      "case_id": "GOLD-013",
+      "category": "COMPOSITE_SUPPORT",
+      "question": "Quais dados devem constar de um requerimento inicial escrito apresentado pelo interessado?",
+      "gold_provisions": [
+        "ARTICLE:6/CAPUT",
+        "ARTICLE:6/CAPUT/INCISO:I",
+        "ARTICLE:6/CAPUT/INCISO:II",
+        "ARTICLE:6/CAPUT/INCISO:III",
+        "ARTICLE:6/CAPUT/INCISO:IV",
+        "ARTICLE:6/CAPUT/INCISO:V"
+      ],
+      "required_provisions": [
+        "ARTICLE:6/CAPUT",
+        "ARTICLE:6/CAPUT/INCISO:I",
+        "ARTICLE:6/CAPUT/INCISO:II",
+        "ARTICLE:6/CAPUT/INCISO:III",
+        "ARTICLE:6/CAPUT/INCISO:IV",
+        "ARTICLE:6/CAPUT/INCISO:V"
+      ],
+      "expected_decision": "ANSWER"
+    },
+    {
+      "case_id": "GOLD-014",
+      "category": "COMPOSITE_SUPPORT",
+      "question": "Com qual antecedência deve ocorrer a intimação para comparecimento e por quais meios ela pode ser feita?",
+      "gold_provisions": [
+        "ARTICLE:26/PARAGRAPH:2",
+        "ARTICLE:26/PARAGRAPH:3"
+      ],
+      "required_provisions": [
+        "ARTICLE:26/PARAGRAPH:2",
+        "ARTICLE:26/PARAGRAPH:3"
+      ],
+      "expected_decision": "ANSWER"
+    },
+    {
+      "case_id": "GOLD-015",
+      "category": "COMPOSITE_SUPPORT",
+      "question": "Qual é o prazo para parecer obrigatório e o que ocorre se um parecer vinculante ou não vinculante atrasar?",
+      "gold_provisions": [
+        "ARTICLE:42/CAPUT",
+        "ARTICLE:42/PARAGRAPH:1",
+        "ARTICLE:42/PARAGRAPH:2"
+      ],
+      "required_provisions": [
+        "ARTICLE:42/CAPUT",
+        "ARTICLE:42/PARAGRAPH:1",
+        "ARTICLE:42/PARAGRAPH:2"
+      ],
+      "expected_decision": "ANSWER"
+    },
+    {
+      "case_id": "GOLD-016",
+      "category": "COMPOSITE_SUPPORT",
+      "question": "A Administração tem dever de decidir e qual é o prazo após a conclusão da instrução?",
+      "gold_provisions": ["ARTICLE:48/CAPUT", "ARTICLE:49/CAPUT"],
+      "required_provisions": ["ARTICLE:48/CAPUT", "ARTICLE:49/CAPUT"],
+      "expected_decision": "ANSWER"
+    },
+    {
+      "case_id": "GOLD-017",
+      "category": "COMPOSITE_SUPPORT",
+      "question": "Por quais razões cabe recurso administrativo e como ele é encaminhado após eventual reconsideração?",
+      "gold_provisions": [
+        "ARTICLE:56/CAPUT",
+        "ARTICLE:56/PARAGRAPH:1"
+      ],
+      "required_provisions": [
+        "ARTICLE:56/CAPUT",
+        "ARTICLE:56/PARAGRAPH:1"
+      ],
+      "expected_decision": "ANSWER"
+    },
+    {
+      "case_id": "GOLD-018",
+      "category": "COMPOSITE_SUPPORT",
+      "question": "O recurso administrativo tem efeito suspensivo e em que situação esse efeito pode ser concedido?",
+      "gold_provisions": [
+        "ARTICLE:61/CAPUT",
+        "ARTICLE:61/PARAGRAPH:UNIQUE"
+      ],
+      "required_provisions": [
+        "ARTICLE:61/CAPUT",
+        "ARTICLE:61/PARAGRAPH:UNIQUE"
+      ],
+      "expected_decision": "ANSWER"
+    },
+    {
+      "case_id": "GOLD-019",
+      "category": "COMPOSITE_SUPPORT",
+      "question": "Quando um processo administrativo sancionador pode ser revisto e qual limite existe para o resultado da revisão?",
+      "gold_provisions": [
+        "ARTICLE:65/CAPUT",
+        "ARTICLE:65/PARAGRAPH:UNIQUE"
+      ],
+      "required_provisions": [
+        "ARTICLE:65/CAPUT",
+        "ARTICLE:65/PARAGRAPH:UNIQUE"
+      ],
+      "expected_decision": "ANSWER"
+    },
+    {
+      "case_id": "GOLD-020",
+      "category": "COMPOSITE_SUPPORT",
+      "question": "Como se contam os prazos administrativos em dias e o que ocorre se o vencimento cair sem expediente normal?",
+      "gold_provisions": [
+        "ARTICLE:66/CAPUT",
+        "ARTICLE:66/PARAGRAPH:1",
+        "ARTICLE:66/PARAGRAPH:2"
+      ],
+      "required_provisions": [
+        "ARTICLE:66/CAPUT",
+        "ARTICLE:66/PARAGRAPH:1",
+        "ARTICLE:66/PARAGRAPH:2"
+      ],
+      "expected_decision": "ANSWER"
+    },
+    {
+      "case_id": "GOLD-021",
+      "category": "INSUFFICIENT_EVIDENCE",
+      "question": "Qual é o prazo para a Administração concluir uma licitação pública?",
+      "gold_provisions": [],
+      "required_provisions": [],
+      "expected_decision": "ABSTAIN"
+    },
+    {
+      "case_id": "GOLD-022",
+      "category": "INSUFFICIENT_EVIDENCE",
+      "question": "Qual é a pena criminal por falsificar documento apresentado em processo administrativo?",
+      "gold_provisions": [],
+      "required_provisions": [],
+      "expected_decision": "ABSTAIN"
+    },
+    {
+      "case_id": "GOLD-023",
+      "category": "INSUFFICIENT_EVIDENCE",
+      "question": "Qual é o prazo para ajuizar ação judicial contra uma decisão administrativa?",
+      "gold_provisions": [],
+      "required_provisions": [],
+      "expected_decision": "ABSTAIN"
+    },
+    {
+      "case_id": "GOLD-024",
+      "category": "INSUFFICIENT_EVIDENCE",
+      "question": "Qual valor deve ser pago a título de dano moral causado pela Administração?",
+      "gold_provisions": [],
+      "required_provisions": [],
+      "expected_decision": "ABSTAIN"
+    },
+    {
+      "case_id": "GOLD-025",
+      "category": "INSUFFICIENT_EVIDENCE",
+      "question": "Quais são os requisitos para aposentadoria de servidor público federal?",
+      "gold_provisions": [],
+      "required_provisions": [],
+      "expected_decision": "ABSTAIN"
+    },
+    {
+      "case_id": "GOLD-026",
+      "category": "INSUFFICIENT_EVIDENCE",
+      "question": "Em quais hipóteses dados pessoais podem ser compartilhados entre órgãos públicos?",
+      "gold_provisions": [],
+      "required_provisions": [],
+      "expected_decision": "ABSTAIN"
+    },
+    {
+      "case_id": "GOLD-027",
+      "category": "AMBIGUOUS",
+      "question": "A Administração já está atrasada para decidir o meu processo?",
+      "gold_provisions": ["ARTICLE:49/CAPUT"],
+      "required_provisions": [],
+      "expected_decision": "CLARIFY"
+    },
+    {
+      "case_id": "GOLD-028",
+      "category": "AMBIGUOUS",
+      "question": "A intimação que recebi no processo administrativo é válida?",
+      "gold_provisions": [
+        "ARTICLE:26/PARAGRAPH:1",
+        "ARTICLE:26/PARAGRAPH:2",
+        "ARTICLE:26/PARAGRAPH:3",
+        "ARTICLE:26/PARAGRAPH:5"
+      ],
+      "required_provisions": [],
+      "expected_decision": "CLARIFY"
+    },
+    {
+      "case_id": "GOLD-029",
+      "category": "AMBIGUOUS",
+      "question": "A autoridade pode delegar a competência mencionada no meu caso?",
+      "gold_provisions": [
+        "ARTICLE:12/CAPUT",
+        "ARTICLE:13/CAPUT",
+        "ARTICLE:13/CAPUT/INCISO:I",
+        "ARTICLE:13/CAPUT/INCISO:II",
+        "ARTICLE:13/CAPUT/INCISO:III"
+      ],
+      "required_provisions": [],
+      "expected_decision": "CLARIFY"
+    },
+    {
+      "case_id": "GOLD-030",
+      "category": "AMBIGUOUS",
+      "question": "Ainda estou no prazo para recorrer da decisão administrativa?",
+      "gold_provisions": [
+        "ARTICLE:59/CAPUT",
+        "ARTICLE:66/CAPUT",
+        "ARTICLE:66/PARAGRAPH:1"
+      ],
+      "required_provisions": [],
+      "expected_decision": "CLARIFY"
+    },
+    {
+      "case_id": "GOLD-031",
+      "category": "AMBIGUOUS",
+      "question": "O servidor designado pode atuar no meu processo administrativo?",
+      "gold_provisions": [
+        "ARTICLE:18/CAPUT",
+        "ARTICLE:18/CAPUT/INCISO:I",
+        "ARTICLE:18/CAPUT/INCISO:II",
+        "ARTICLE:18/CAPUT/INCISO:III",
+        "ARTICLE:20/CAPUT"
+      ],
+      "required_provisions": [],
+      "expected_decision": "CLARIFY"
+    },
+    {
+      "case_id": "GOLD-032",
+      "category": "AMBIGUOUS",
+      "question": "Meu processo tem direito à tramitação prioritária?",
+      "gold_provisions": [
+        "ARTICLE:69-A/CAPUT",
+        "ARTICLE:69-A/CAPUT/INCISO:I",
+        "ARTICLE:69-A/CAPUT/INCISO:II",
+        "ARTICLE:69-A/CAPUT/INCISO:IV",
+        "ARTICLE:69-A/PARAGRAPH:1"
+      ],
+      "required_provisions": [],
+      "expected_decision": "CLARIFY"
+    }
+  ]
+}

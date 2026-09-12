@@ -1,0 +1,293 @@
+{
+  "scorecard_name": "gold-evidence-candidate-risk-scorecard",
+  "scorecard_version": "1",
+  "candidate": {
+    "model": "phi4-mini:3.8b-q4_K_M",
+    "digest": "78fad5d182a7c33065e153a5f8ba210754207ba9d91973f57dffa7f487363753",
+    "quantization": "Q4_K_M",
+    "thinking_mode": "auto_no_native_capability",
+    "prompt_name": "gold-evidence-answering",
+    "prompt_version": "2"
+  },
+  "source_artifacts": {
+    "cross_model_manifest": {
+      "path": "evaluation/runs/gold_evidence_cross_model_manifest_v1.json",
+      "sha256": "f9f57938f4ffd6b29e4bd1eab2922aada847e5d344a4ad9c6451e21d97910639"
+    },
+    "full_automatic_evaluation": {
+      "path": "evaluation/results/phi4_mini_3_8b_prompt_v2_full_automatic_evaluation.json",
+      "sha256": "bde01fb435ac343a1001eda54e51043f0b95cee605baca9ecd55f4f0305d22ac"
+    },
+    "stability_summary": {
+      "path": "evaluation/results/phi4_mini_3_8b_prompt_v2_stability_v1.json",
+      "sha256": "d8f0846907691cd3d0462c5d9eabd51e0ab2daac102b25cc0b5e81d0c5debb4d"
+    },
+    "gold012_seed42_evaluation": {
+      "path": "evaluation/results/phi4_mini_3_8b_prompt_v2_gold012_seed42_automatic_evaluation.json",
+      "sha256": "8dace9d4b33ea5a27c22f4dbaa5a8b1aa219b5013fe7d6a335e2cfc1a6ed4ed9"
+    },
+    "gold012_seed43_evaluation": {
+      "path": "evaluation/results/phi4_mini_3_8b_prompt_v2_gold012_seed43_automatic_evaluation.json",
+      "sha256": "b79230e88f5050776cd29b1ad63ca709c24d548f236877b62c89be65332141da"
+    },
+    "gold012_seed44_evaluation": {
+      "path": "evaluation/results/phi4_mini_3_8b_prompt_v2_gold012_seed44_automatic_evaluation.json",
+      "sha256": "30ffb67df0a0d7ea6cf82de0e47726ae29f942927e3263bf45e1c6c3cc638c61"
+    },
+    "gold012_material_review": {
+      "path": "evaluation/results/phi4_mini_3_8b_prompt_v2_gold012_material_review.json",
+      "sha256": "1f408a2034e9d394100220cd20d8676efafcac474c67785dd05189336671f7a8"
+    },
+    "human_review": {
+      "path": "evaluation/results/phi4_mini_3_8b_prompt_v2_full_automatic_evaluation_human_review.json",
+      "sha256": "04c35670fd6ff994757064c5f117120293a70e13b9e8ff04ebea71efacb29286"
+    },
+    "final_review": {
+      "path": "evaluation/results/phi4_mini_3_8b_prompt_v2_full_final_review.json",
+      "sha256": "41e464b27919783cb3f9af456d019ab1501c737c3ee4a667f63332e627793dee"
+    }
+  },
+  "automatic_summary": {
+    "automatic_pass": "21/32",
+    "json_valid": "27/32",
+    "output_schema_valid": "25/32",
+    "decision_payload_valid": "25/32",
+    "expected_decision_match": "21/32",
+    "false_abstention": 2,
+    "unsafe_answer_on_insufficient": 0,
+    "invalid_citations": 0,
+    "out_of_evidence_citations": 0,
+    "missed_clarifications": 6,
+    "missed_clarification_cases": [
+      "GOLD-027",
+      "GOLD-028",
+      "GOLD-029",
+      "GOLD-030",
+      "GOLD-031",
+      "GOLD-032"
+    ],
+    "required_citation_coverage_failures": 5
+  },
+  "stability_summary": {
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "decision_stable": "7/12",
+    "decision_unstable": "5/12",
+    "unstable_cases": [
+      "GOLD-011",
+      "GOLD-014",
+      "GOLD-018",
+      "GOLD-020",
+      "GOLD-030"
+    ],
+    "automatic_pass_by_seed": {
+      "42": "8/12",
+      "43": "5/12",
+      "44": "6/12"
+    },
+    "required_citation_coverage_unstable": "0/12",
+    "citation_set_variation": "5/12",
+    "insufficient_evidence_decisions": "9/9_ABSTAIN",
+    "unsafe_answer_on_insufficient": 0,
+    "invalid_citations": 0,
+    "out_of_evidence_citations": 0,
+    "partial_namespace_ambiguity": false
+  },
+  "gold012_summary": {
+    "decisions": {
+      "42": "ANSWER",
+      "43": "ANSWER",
+      "44": "ANSWER"
+    },
+    "citation_all_seeds": "ARTICLE:67/CAPUT",
+    "automatic_result": "FORMAL_PASS_3_OF_3",
+    "human_full": {
+      "legal_correctness": "PASS",
+      "groundedness": "PASS",
+      "completeness": "PASS"
+    },
+    "human_material_by_seed": {
+      "42": "PASS_PASS_PASS",
+      "43": "FAIL_FAIL_PASS",
+      "44": "PASS_PASS_PASS"
+    },
+    "human_material_result": "CORRECT_2_OF_3_WITH_POLARITY_FAILURE_SEED43"
+  },
+  "human_summary": {
+    "legal_correctness": "26/32",
+    "groundedness": "28/32",
+    "completeness": "18/32",
+    "all_three_criteria": "17/32",
+    "strict_automatic_plus_human": "16/32",
+    "human_failure_cases": [
+      "GOLD-002",
+      "GOLD-004",
+      "GOLD-007",
+      "GOLD-015",
+      "GOLD-016",
+      "GOLD-017",
+      "GOLD-018",
+      "GOLD-019",
+      "GOLD-020",
+      "GOLD-027",
+      "GOLD-028",
+      "GOLD-029",
+      "GOLD-030",
+      "GOLD-031",
+      "GOLD-032"
+    ],
+    "formal_material_divergence": {
+      "case_id": "GOLD-013",
+      "automatic": "FAIL",
+      "human": "PASS_PASS_PASS"
+    }
+  },
+  "risk_scorecard": [
+    {
+      "risk_id": "RISK-01",
+      "name": "PREMATURE_FACTUAL_APPLICATION",
+      "status": "SAMPLING_SENSITIVE",
+      "severity": "HIGH",
+      "references": [
+        "GOLD-029",
+        "GOLD-030"
+      ],
+      "rationale": "Raw apparent decisions varied between ANSWER and CLARIFY across the frozen stability seeds. The full run avoided a conclusive factual application but produced incomplete clarification questions."
+    },
+    {
+      "risk_id": "RISK-02",
+      "name": "EVIDENCE_COMPREHENSION_NEGATION_POLARITY_FAILURE",
+      "status": "OBSERVED",
+      "severity": "HIGH",
+      "references": [
+        "GOLD-012"
+      ],
+      "rationale": "All three probes passed the formal automatic checks, but human material review found a polarity inversion on seed 43. Material correctness was 2/3, demonstrating a sampling-sensitive legal rule inversion."
+    },
+    {
+      "risk_id": "RISK-03",
+      "name": "MATERIAL_QUALIFIER_OR_EXCEPTION_OMISSION",
+      "status": "OBSERVED",
+      "references": [
+        "GOLD-015",
+        "GOLD-018"
+      ],
+      "rationale": "GOLD-015 omitted material qualifications and part of the non-binding-opinion rule; GOLD-018 failed to answer despite sufficient evidence and omitted the applicable rule and exception."
+    },
+    {
+      "risk_id": "RISK-04",
+      "name": "MULTI_PART_QUESTION_INCOMPLETENESS",
+      "status": "OBSERVED",
+      "references": [
+        "GOLD-016"
+      ],
+      "rationale": "GOLD-016 correctly stated the time limit but omitted the Administration's explicit duty to decide, failing human completeness."
+    },
+    {
+      "risk_id": "RISK-05",
+      "name": "CLARIFICATION_CONTENT_INCOMPLETENESS",
+      "status": "OBSERVED",
+      "references": [
+        "GOLD-027"
+      ],
+      "contextual_references": [
+        "GOLD-028",
+        "GOLD-029",
+        "GOLD-030",
+        "GOLD-031",
+        "GOLD-032"
+      ],
+      "rationale": "GOLD-027 and the contextual ambiguous cases did not consistently request the concrete facts needed to resolve the ambiguity, despite often avoiding an immediate conclusion."
+    },
+    {
+      "risk_id": "RISK-06",
+      "name": "CITATION_VALUE_FORMAT_ERROR",
+      "status": "NOT_OBSERVED",
+      "references": [
+        "GOLD-004",
+        "GOLD-014"
+      ],
+      "rationale": "No invalid or out-of-evidence citation value occurred in the full or stability evaluations."
+    },
+    {
+      "risk_id": "RISK-07",
+      "name": "FORMAL_CITATION_COVERAGE_VS_MATERIAL_COMPLETENESS",
+      "status": "OBSERVED_AS_EVALUATOR_CONTRACT_PHENOMENON",
+      "references": [
+        "GOLD-013"
+      ],
+      "rationale": "GOLD-013 failed automatic parsing and citation coverage because of a Markdown fence while passing all three human material criteria; this is not classified as a material legal failure."
+    },
+    {
+      "risk_id": "RISK-08",
+      "name": "COMPOSITE_CITATION_SAMPLING_VARIABILITY",
+      "status": "OBSERVED",
+      "references": [
+        "GOLD-018",
+        "GOLD-020"
+      ],
+      "rationale": "Both reference cases varied their citation sets across seeds; the stability summary observed citation-set variation in five cases globally."
+    }
+  ],
+  "comparison_with_previous_candidates": {
+    "qwen3_4b": {
+      "human_all_three": "25/32",
+      "legal_correctness": "29/32",
+      "groundedness": "29/32",
+      "completeness": "25/32",
+      "strict_automatic_plus_human": "22/32",
+      "insufficient_evidence": "6/6",
+      "risk_01": "CONFIRMED_REPRODUCIBLE",
+      "risk_02": "REPRODUCIBLE_FALSE_ABSTENTION_3_OF_3"
+    },
+    "qwen3_5": {
+      "human_all_three": "26/32",
+      "legal_correctness": "29/32",
+      "groundedness": "29/32",
+      "completeness": "26/32",
+      "strict_automatic_plus_human": "25/32",
+      "insufficient_evidence": "6/6_FULL_AND_9/9_SELECTED_STABILITY",
+      "risk_01": "CONFIRMED_REPRODUCIBLE",
+      "risk_02": "NOT_OBSERVED_ON_CURRENT_FULL_AND_PROBE"
+    },
+    "phi4_mini": {
+      "human_all_three": "17/32",
+      "legal_correctness": "26/32",
+      "groundedness": "28/32",
+      "completeness": "18/32",
+      "strict_automatic_plus_human": "16/32",
+      "insufficient_evidence": "6/6_FULL_AND_9/9_SELECTED_STABILITY",
+      "risk_01": "SAMPLING_SENSITIVE",
+      "risk_02": "OBSERVED"
+    },
+    "interpretation": "Phi-4-mini preserved safe abstention on insufficient evidence but had lower material and strict results and produced a human-confirmed polarity inversion under sampling."
+  },
+  "verdict": {
+    "gold_evidence_capability": "PARTIALLY_CAPABLE",
+    "candidate_verdict": "REJECT",
+    "final_legal_answerer": "REJECTED",
+    "primary_rejection_reason": "RISK_02_EVIDENCE_COMPREHENSION_NEGATION_POLARITY_FAILURE_OBSERVED",
+    "secondary_observed_risks": [
+      "RISK-01",
+      "RISK-03",
+      "RISK-04",
+      "RISK-05",
+      "RISK-08"
+    ],
+    "next_candidate": "gemma3:4b",
+    "scope": "The candidate does not satisfy the Phase 2 criterion for the final legal answerer of MVP2; this is not a general model capability judgment."
+  },
+  "invariants": {
+    "aggregate_risk_score_created": false,
+    "prompt_changed": false,
+    "dataset_changed": false,
+    "evaluator_changed": false,
+    "cross_model_manifest_changed": false,
+    "llm_inference_executed_by_codex": false,
+    "holdout_read": false,
+    "live_corpus_status": "UNRESOLVED"
+  }
+}

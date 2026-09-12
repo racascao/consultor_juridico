@@ -28,6 +28,9 @@ class Settings(BaseSettings):
         alias="DATABASE_URL",
     )
 
+    # Provider local isolado no Docker Compose; sem fallback para o host.
+    ollama_base_url: str = Field(default="http://ollama:11434", alias="OLLAMA_BASE_URL")
+
     # Aquisição documental HTTP
     ingestion_connect_timeout: float = Field(
         default=10.0, alias="INGESTION_CONNECT_TIMEOUT"

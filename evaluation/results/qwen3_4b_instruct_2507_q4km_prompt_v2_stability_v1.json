@@ -1,0 +1,426 @@
+{
+  "metadata": {
+    "summary_name": "gold-evidence-stability",
+    "summary_version": "1",
+    "dataset_id": "lei_9784_gold_evidence_dev_v1",
+    "dataset_sha256": "68a319031b7ca3f9da912761ab5328ef6bf37251f8750b3e24207c7258622f65",
+    "prompt_name": "gold-evidence-answering",
+    "prompt_version": "2",
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "cases_per_category": 3,
+    "selection_method": "DATASET_SHA_CASE_ID_HASH",
+    "source_evaluations": {
+      "42": {
+        "path": "evaluation/results/qwen3_4b_instruct_2507_q4km_prompt_v2_stability_seed42_automatic_evaluation.json",
+        "sha256": "180fc59f4b36baa03669fc9cdc6f24a6f7afe66a0ef8ea184cb616afb5a067bf"
+      },
+      "43": {
+        "path": "evaluation/results/qwen3_4b_instruct_2507_q4km_prompt_v2_stability_seed43_automatic_evaluation.json",
+        "sha256": "459e2460892854c4c291f11aa4b81bbefcca5327622f4047f3f03405cc20a99a"
+      },
+      "44": {
+        "path": "evaluation/results/qwen3_4b_instruct_2507_q4km_prompt_v2_stability_seed44_automatic_evaluation.json",
+        "sha256": "63a346c8eb305c5e8ef8c0a827e38aca5b5c3a140097e53c3c08dcd66bf47ad0"
+      }
+    }
+  },
+  "metrics": {
+    "total_cases": 12,
+    "decision_stable_cases": 12,
+    "decision_unstable_cases": 0,
+    "decision_stability_rate": 1.0,
+    "decision_stability_fraction": "12/12",
+    "decision_unstable_by_category": {
+      "SINGLE_SUPPORT": 0,
+      "COMPOSITE_SUPPORT": 0,
+      "INSUFFICIENT_EVIDENCE": 0,
+      "AMBIGUOUS": 0
+    },
+    "required_citation_coverage_unstable_cases": 2,
+    "citation_set_variation_cases": 3,
+    "automatic_pass_by_seed": {
+      "42": 9,
+      "43": 7,
+      "44": 9
+    },
+    "false_abstention_by_seed": {
+      "42": 0,
+      "43": 0,
+      "44": 0
+    },
+    "missed_clarification_by_seed": {
+      "42": 2,
+      "43": 2,
+      "44": 2
+    },
+    "unsafe_answer_on_insufficient_by_seed": {
+      "42": 0,
+      "43": 0,
+      "44": 0
+    },
+    "invalid_citation_cases_by_seed": {
+      "42": 1,
+      "43": 1,
+      "44": 1
+    },
+    "out_of_evidence_citation_cases_by_seed": {
+      "42": 0,
+      "43": 0,
+      "44": 0
+    }
+  },
+  "cases": [
+    {
+      "case_id": "GOLD-005",
+      "category": "SINGLE_SUPPORT",
+      "seed_42_decision": "ANSWER",
+      "seed_43_decision": "ANSWER",
+      "seed_44_decision": "ANSWER",
+      "decision_stable": true,
+      "seed_42_required_citations_covered": true,
+      "seed_43_required_citations_covered": true,
+      "seed_44_required_citations_covered": true,
+      "required_citation_coverage_stable": true,
+      "citation_sets": {
+        "42": [
+          "ARTICLE:24/CAPUT"
+        ],
+        "43": [
+          "ARTICLE:24/CAPUT"
+        ],
+        "44": [
+          "ARTICLE:24/CAPUT"
+        ]
+      },
+      "citation_set_varied": false,
+      "automatic_pass_by_seed": {
+        "42": true,
+        "43": true,
+        "44": true
+      }
+    },
+    {
+      "case_id": "GOLD-011",
+      "category": "SINGLE_SUPPORT",
+      "seed_42_decision": "ANSWER",
+      "seed_43_decision": "ANSWER",
+      "seed_44_decision": "ANSWER",
+      "decision_stable": true,
+      "seed_42_required_citations_covered": true,
+      "seed_43_required_citations_covered": true,
+      "seed_44_required_citations_covered": true,
+      "required_citation_coverage_stable": true,
+      "citation_sets": {
+        "42": [
+          "ARTICLE:60/CAPUT"
+        ],
+        "43": [
+          "ARTICLE:60/CAPUT"
+        ],
+        "44": [
+          "ARTICLE:60/CAPUT"
+        ]
+      },
+      "citation_set_varied": false,
+      "automatic_pass_by_seed": {
+        "42": true,
+        "43": true,
+        "44": true
+      }
+    },
+    {
+      "case_id": "GOLD-001",
+      "category": "SINGLE_SUPPORT",
+      "seed_42_decision": "ANSWER",
+      "seed_43_decision": "ANSWER",
+      "seed_44_decision": "ANSWER",
+      "decision_stable": true,
+      "seed_42_required_citations_covered": true,
+      "seed_43_required_citations_covered": true,
+      "seed_44_required_citations_covered": true,
+      "required_citation_coverage_stable": true,
+      "citation_sets": {
+        "42": [
+          "ARTICLE:5/CAPUT"
+        ],
+        "43": [
+          "ARTICLE:5/CAPUT"
+        ],
+        "44": [
+          "ARTICLE:5/CAPUT"
+        ]
+      },
+      "citation_set_varied": false,
+      "automatic_pass_by_seed": {
+        "42": true,
+        "43": true,
+        "44": true
+      }
+    },
+    {
+      "case_id": "GOLD-014",
+      "category": "COMPOSITE_SUPPORT",
+      "seed_42_decision": "ANSWER",
+      "seed_43_decision": "ANSWER",
+      "seed_44_decision": "ANSWER",
+      "decision_stable": true,
+      "seed_42_required_citations_covered": false,
+      "seed_43_required_citations_covered": false,
+      "seed_44_required_citations_covered": false,
+      "required_citation_coverage_stable": true,
+      "citation_sets": {
+        "42": [
+          "EVIDENCE_ID: ARTICLE:26/PARAGRAPH:2",
+          "EVIDENCE_ID: ARTICLE:26/PARAGRAPH:3"
+        ],
+        "43": [
+          "EVIDENCE_ID: ARTICLE:26/PARAGRAPH:2",
+          "EVIDENCE_ID: ARTICLE:26/PARAGRAPH:3"
+        ],
+        "44": [
+          "EVIDENCE_ID: ARTICLE:26/PARAGRAPH:2",
+          "EVIDENCE_ID: ARTICLE:26/PARAGRAPH:3"
+        ]
+      },
+      "citation_set_varied": false,
+      "automatic_pass_by_seed": {
+        "42": false,
+        "43": false,
+        "44": false
+      }
+    },
+    {
+      "case_id": "GOLD-018",
+      "category": "COMPOSITE_SUPPORT",
+      "seed_42_decision": "ANSWER",
+      "seed_43_decision": "ANSWER",
+      "seed_44_decision": "ANSWER",
+      "decision_stable": true,
+      "seed_42_required_citations_covered": true,
+      "seed_43_required_citations_covered": false,
+      "seed_44_required_citations_covered": true,
+      "required_citation_coverage_stable": false,
+      "citation_sets": {
+        "42": [
+          "ARTICLE:61/CAPUT",
+          "ARTICLE:61/PARAGRAPH:UNIQUE"
+        ],
+        "43": [
+          "ARTICLE:61/PARAGRAPH:UNIQUE"
+        ],
+        "44": [
+          "ARTICLE:61/CAPUT",
+          "ARTICLE:61/PARAGRAPH:UNIQUE"
+        ]
+      },
+      "citation_set_varied": true,
+      "automatic_pass_by_seed": {
+        "42": true,
+        "43": false,
+        "44": true
+      }
+    },
+    {
+      "case_id": "GOLD-020",
+      "category": "COMPOSITE_SUPPORT",
+      "seed_42_decision": "ANSWER",
+      "seed_43_decision": "ANSWER",
+      "seed_44_decision": "ANSWER",
+      "decision_stable": true,
+      "seed_42_required_citations_covered": true,
+      "seed_43_required_citations_covered": false,
+      "seed_44_required_citations_covered": true,
+      "required_citation_coverage_stable": false,
+      "citation_sets": {
+        "42": [
+          "ARTICLE:66/CAPUT",
+          "ARTICLE:66/PARAGRAPH:1",
+          "ARTICLE:66/PARAGRAPH:2"
+        ],
+        "43": [
+          "ARTICLE:66/CAPUT",
+          "ARTICLE:66/PARAGRAPH:1"
+        ],
+        "44": [
+          "ARTICLE:66/CAPUT",
+          "ARTICLE:66/PARAGRAPH:1",
+          "ARTICLE:66/PARAGRAPH:2"
+        ]
+      },
+      "citation_set_varied": true,
+      "automatic_pass_by_seed": {
+        "42": true,
+        "43": false,
+        "44": true
+      }
+    },
+    {
+      "case_id": "GOLD-025",
+      "category": "INSUFFICIENT_EVIDENCE",
+      "seed_42_decision": "ABSTAIN",
+      "seed_43_decision": "ABSTAIN",
+      "seed_44_decision": "ABSTAIN",
+      "decision_stable": true,
+      "seed_42_required_citations_covered": null,
+      "seed_43_required_citations_covered": null,
+      "seed_44_required_citations_covered": null,
+      "required_citation_coverage_stable": "not_applicable",
+      "citation_sets": {
+        "42": [],
+        "43": [],
+        "44": []
+      },
+      "citation_set_varied": false,
+      "automatic_pass_by_seed": {
+        "42": true,
+        "43": true,
+        "44": true
+      }
+    },
+    {
+      "case_id": "GOLD-026",
+      "category": "INSUFFICIENT_EVIDENCE",
+      "seed_42_decision": "ABSTAIN",
+      "seed_43_decision": "ABSTAIN",
+      "seed_44_decision": "ABSTAIN",
+      "decision_stable": true,
+      "seed_42_required_citations_covered": null,
+      "seed_43_required_citations_covered": null,
+      "seed_44_required_citations_covered": null,
+      "required_citation_coverage_stable": "not_applicable",
+      "citation_sets": {
+        "42": [],
+        "43": [],
+        "44": []
+      },
+      "citation_set_varied": false,
+      "automatic_pass_by_seed": {
+        "42": true,
+        "43": true,
+        "44": true
+      }
+    },
+    {
+      "case_id": "GOLD-022",
+      "category": "INSUFFICIENT_EVIDENCE",
+      "seed_42_decision": "ABSTAIN",
+      "seed_43_decision": "ABSTAIN",
+      "seed_44_decision": "ABSTAIN",
+      "decision_stable": true,
+      "seed_42_required_citations_covered": null,
+      "seed_43_required_citations_covered": null,
+      "seed_44_required_citations_covered": null,
+      "required_citation_coverage_stable": "not_applicable",
+      "citation_sets": {
+        "42": [],
+        "43": [],
+        "44": []
+      },
+      "citation_set_varied": false,
+      "automatic_pass_by_seed": {
+        "42": true,
+        "43": true,
+        "44": true
+      }
+    },
+    {
+      "case_id": "GOLD-032",
+      "category": "AMBIGUOUS",
+      "seed_42_decision": "CLARIFY",
+      "seed_43_decision": "CLARIFY",
+      "seed_44_decision": "CLARIFY",
+      "decision_stable": true,
+      "seed_42_required_citations_covered": null,
+      "seed_43_required_citations_covered": null,
+      "seed_44_required_citations_covered": null,
+      "required_citation_coverage_stable": "not_applicable",
+      "citation_sets": {
+        "42": [],
+        "43": [],
+        "44": []
+      },
+      "citation_set_varied": false,
+      "automatic_pass_by_seed": {
+        "42": true,
+        "43": true,
+        "44": true
+      }
+    },
+    {
+      "case_id": "GOLD-030",
+      "category": "AMBIGUOUS",
+      "seed_42_decision": "ANSWER",
+      "seed_43_decision": "ANSWER",
+      "seed_44_decision": "ANSWER",
+      "decision_stable": true,
+      "seed_42_required_citations_covered": true,
+      "seed_43_required_citations_covered": true,
+      "seed_44_required_citations_covered": true,
+      "required_citation_coverage_stable": true,
+      "citation_sets": {
+        "42": [
+          "ARTICLE:59/CAPUT",
+          "ARTICLE:66/CAPUT"
+        ],
+        "43": [
+          "ARTICLE:59/CAPUT",
+          "ARTICLE:66/CAPUT"
+        ],
+        "44": [
+          "ARTICLE:59/CAPUT",
+          "ARTICLE:66/CAPUT"
+        ]
+      },
+      "citation_set_varied": false,
+      "automatic_pass_by_seed": {
+        "42": false,
+        "43": false,
+        "44": false
+      }
+    },
+    {
+      "case_id": "GOLD-029",
+      "category": "AMBIGUOUS",
+      "seed_42_decision": "ANSWER",
+      "seed_43_decision": "ANSWER",
+      "seed_44_decision": "ANSWER",
+      "decision_stable": true,
+      "seed_42_required_citations_covered": true,
+      "seed_43_required_citations_covered": true,
+      "seed_44_required_citations_covered": true,
+      "required_citation_coverage_stable": true,
+      "citation_sets": {
+        "42": [
+          "ARTICLE:12/CAPUT",
+          "ARTICLE:13/CAPUT/INCISO:I",
+          "ARTICLE:13/CAPUT/INCISO:II",
+          "ARTICLE:13/CAPUT/INCISO:III"
+        ],
+        "43": [
+          "ARTICLE:12/CAPUT",
+          "ARTICLE:13/CAPUT",
+          "ARTICLE:13/CAPUT/INCISO:I",
+          "ARTICLE:13/CAPUT/INCISO:II",
+          "ARTICLE:13/CAPUT/INCISO:III"
+        ],
+        "44": [
+          "ARTICLE:12/CAPUT",
+          "ARTICLE:13/CAPUT",
+          "ARTICLE:13/CAPUT/INCISO:I",
+          "ARTICLE:13/CAPUT/INCISO:II",
+          "ARTICLE:13/CAPUT/INCISO:III"
+        ]
+      },
+      "citation_set_varied": true,
+      "automatic_pass_by_seed": {
+        "42": false,
+        "43": false,
+        "44": false
+      }
+    }
+  ]
+}

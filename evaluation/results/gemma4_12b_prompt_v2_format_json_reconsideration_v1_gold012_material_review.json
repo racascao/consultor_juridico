@@ -1,0 +1,34 @@
+{
+  "model": "gemma4:12b",
+  "experiment": "GEMMA4_FORMAT_JSON_RECONSIDERATION_V1",
+  "case_id": "GOLD-012",
+  "formal_automatic_result": "PASS_3_OF_3",
+  "human_material_review": {
+    "42": {
+      "responses_sha256": "1c4a45c4e9992d2c7be330bcbe362653710478b4993f4b78f092528ca955c79e",
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"Os prazos processuais não se suspendem, salvo em casos de motivo de força maior devidamente comprovado.\",\"citations\":[\"ARTICLE:67/CAPUT\"]}",
+      "legal_correctness": "PASS",
+      "groundedness": "PASS",
+      "completeness": "PASS",
+      "comments": "A resposta preserva corretamente a polaridade: os prazos processuais não se suspendem, salvo motivo de força maior devidamente comprovado."
+    },
+    "43": {
+      "responses_sha256": "49c241cebe341265867a88882e4598864940fae2a6fe3aa8b8a4575fb8f47e04",
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"Os prazos processuais não se suspendem, salvo em caso de motivo de força maior devidamente comprovado.\", \"citations\":[\"ARTICLE:67/CAPUT\"]}",
+      "legal_correctness": "PASS",
+      "groundedness": "PASS",
+      "completeness": "PASS",
+      "comments": "A resposta preserva corretamente a polaridade: os prazos processuais não se suspendem, salvo motivo de força maior devidamente comprovado."
+    },
+    "44": {
+      "responses_sha256": "affbc7206bd7b24ccd2871939280437085c8b383b65f9c07d253de9f9479deee",
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"Os prazos processuais não se suspendem, salvo em casos de motivo de força maior devidamente comprovado.\",\"citations\":[\"ARTICLE:67/CAPUT\"]}",
+      "legal_correctness": "PASS",
+      "groundedness": "PASS",
+      "completeness": "PASS",
+      "comments": "A resposta preserva corretamente a polaridade: os prazos processuais não se suspendem, salvo motivo de força maior devidamente comprovado."
+    }
+  },
+  "material_result": "PASS_3_OF_3",
+  "material_polarity_result": "CORRECT_3_OF_3"
+}

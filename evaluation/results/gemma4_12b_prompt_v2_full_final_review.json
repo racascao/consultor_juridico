@@ -1,0 +1,1376 @@
+{
+  "metadata": {
+    "dataset_id": "lei_9784_gold_evidence_dev_v1",
+    "dataset_sha256": "68a319031b7ca3f9da912761ab5328ef6bf37251f8750b3e24207c7258622f65",
+    "responses_sha256": "701f9fd3036028f41ba6f70c838ac63cdaed1a31c93b7888e05153fc99ea6879",
+    "version_hash": "298028477a55a61cdd1df94bda3aec784e6fe94d17c485ae6a2f6c77fe2b7a74",
+    "prompt_name": "gold-evidence-answering",
+    "prompt_version": "2",
+    "evaluated_at": "2026-09-11T12:11:36.602040+00:00",
+    "case_count": 32
+  },
+  "metrics": {
+    "total_cases": 32,
+    "pass_rate": 0.375,
+    "decision_accuracy": 0.375,
+    "answer_case_pass_rate": 0.3,
+    "composite_case_pass_rate": 0.0,
+    "insufficient_evidence_abstention_rate": 0.8333333333333334,
+    "ambiguity_clarification_rate": 0.16666666666666666,
+    "false_abstention_rate": 0.0,
+    "unsafe_answer_rate": 0.0,
+    "invalid_citation_rate": 0.0,
+    "out_of_evidence_citation_rate": 0.0
+  },
+  "cases": [
+    {
+      "case_id": "GOLD-001",
+      "category": "SINGLE_SUPPORT",
+      "question": "De que formas um processo administrativo pode ser iniciado?",
+      "expected_decision": "ANSWER",
+      "model_decision": null,
+      "gold_provisions": [
+        "ARTICLE:5/CAPUT"
+      ],
+      "required_provisions": [
+        "ARTICLE:5/CAPUT"
+      ],
+      "raw_response": "```json\n{\"decision\":\"ANSWER\",\"answer\":\"O processo administrativo pode iniciar-se de ofício ou a pedido de interessado.\",\"citations\":[\"ARTICLE:5/CAPUT\"]}\n```",
+      "latency_ms": 54342.022415,
+      "parsed_response": null,
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": false,
+        "decision_valid": false,
+        "output_schema_valid": false,
+        "decision_payload_valid": false,
+        "expected_decision_match": false,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": false,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "Resposta materialmente correta, sustentada pela evidência e suficiente para a pergunta."
+      }
+    },
+    {
+      "case_id": "GOLD-002",
+      "category": "SINGLE_SUPPORT",
+      "question": "Quem é considerado capaz para fins de processo administrativo?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:10/CAPUT"
+      ],
+      "required_provisions": [
+        "ARTICLE:10/CAPUT"
+      ],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"São capazes, para fins de processo administrativo, os maiores de dezoito anos, ressalvada previsão especial em ato normativo próprio.\",\"citations\":[\"ARTICLE:10/CAPUT\"]}",
+      "latency_ms": 44252.024992,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "São capazes, para fins de processo administrativo, os maiores de dezoito anos, ressalvada previsão especial em ato normativo próprio.",
+        "citations": [
+          "ARTICLE:10/CAPUT"
+        ]
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PASS",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "Resposta materialmente correta, sustentada pela evidência e suficiente para a pergunta."
+      }
+    },
+    {
+      "case_id": "GOLD-003",
+      "category": "SINGLE_SUPPORT",
+      "question": "A competência administrativa pode ser renunciada?",
+      "expected_decision": "ANSWER",
+      "model_decision": null,
+      "gold_provisions": [
+        "ARTICLE:11/CAPUT"
+      ],
+      "required_provisions": [
+        "ARTICLE:11/CAPUT"
+      ],
+      "raw_response": "```json\n{\"decision\":\"ANSWER\",\"answer\":\"Não, a competência é irrenunciável, sendo exercida pelos órgãos administrativos a que foi atribuída como própria, salvo nos casos de delegação e avocação legalmente admitidos.\",\"citations\":[\"ARTICLE:11/CAPUT\"]}\n```",
+      "latency_ms": 48960.384336,
+      "parsed_response": null,
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": false,
+        "decision_valid": false,
+        "output_schema_valid": false,
+        "decision_payload_valid": false,
+        "expected_decision_match": false,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": false,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "Resposta materialmente correta, sustentada pela evidência e suficiente para a pergunta."
+      }
+    },
+    {
+      "case_id": "GOLD-004",
+      "category": "SINGLE_SUPPORT",
+      "question": "Quando pode ser exigido o reconhecimento de firma no processo administrativo?",
+      "expected_decision": "ANSWER",
+      "model_decision": null,
+      "gold_provisions": [
+        "ARTICLE:22/PARAGRAPH:2"
+      ],
+      "required_provisions": [
+        "ARTICLE:22/PARAGRAPH:2"
+      ],
+      "raw_response": "```json\n{\"decision\":\"ANSWER\",\"answer\":\"O reconhecimento de firma só será exigido quando houver dúvida de autenticidade, salvo imposição legal.\", \"citations\":[\"ARTICLE:22/PARAGRAPH:2\"]}\n```",
+      "latency_ms": 44599.695619,
+      "parsed_response": null,
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": false,
+        "decision_valid": false,
+        "output_schema_valid": false,
+        "decision_payload_valid": false,
+        "expected_decision_match": false,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": false,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "Resposta materialmente correta, sustentada pela evidência e suficiente para a pergunta."
+      }
+    },
+    {
+      "case_id": "GOLD-005",
+      "category": "SINGLE_SUPPORT",
+      "question": "Qual é o prazo geral para a prática de atos no processo quando não há disposição específica?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:24/CAPUT"
+      ],
+      "required_provisions": [
+        "ARTICLE:24/CAPUT"
+      ],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"Inexistindo disposição específica, os atos do órgão ou autoridade responsável pelo processo e dos administrados que dele participem devem ser praticados no prazo de cinco dias, salvo motivo de força maior.\",\"citations\":[\"ARTICLE:24/CAPUT\"]}",
+      "latency_ms": 48092.602072,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "Inexistindo disposição específica, os atos do órgão ou autoridade responsável pelo processo e dos administrados que dele participem devem ser praticados no prazo de cinco dias, salvo motivo de força maior.",
+        "citations": [
+          "ARTICLE:24/CAPUT"
+        ]
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PASS",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "Resposta materialmente correta, sustentada pela evidência e suficiente para a pergunta."
+      }
+    },
+    {
+      "case_id": "GOLD-006",
+      "category": "SINGLE_SUPPORT",
+      "question": "Provas obtidas por meios ilícitos são admitidas no processo administrativo?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:30/CAPUT"
+      ],
+      "required_provisions": [
+        "ARTICLE:30/CAPUT"
+      ],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"Não, as provas obtidas por meios ilícitos são inadmissíveis no processo administrativo.\",\"citations\":[\"ARTICLE:30/CAPUT\"]}",
+      "latency_ms": 41996.627075,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "Não, as provas obtidas por meios ilícitos são inadmissíveis no processo administrativo.",
+        "citations": [
+          "ARTICLE:30/CAPUT"
+        ]
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PASS",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "Resposta materialmente correta, sustentada pela evidência e suficiente para a pergunta."
+      }
+    },
+    {
+      "case_id": "GOLD-007",
+      "category": "SINGLE_SUPPORT",
+      "question": "A Administração deve emitir decisão explícita sobre solicitações de sua competência?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:48/CAPUT"
+      ],
+      "required_provisions": [
+        "ARTICLE:48/CAPUT"
+      ],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"Sim, a Administração tem o dever de explicitamente emitir decisão nos processos administrativos e sobre solicitações ou reclamações, em matéria de sua competência.\",\"citations\":[\"ARTICLE:48/CAPUT\"]}",
+      "latency_ms": 46414.895482,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "Sim, a Administração tem o dever de explicitamente emitir decisão nos processos administrativos e sobre solicitações ou reclamações, em matéria de sua competência.",
+        "citations": [
+          "ARTICLE:48/CAPUT"
+        ]
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PASS",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "Resposta materialmente correta, sustentada pela evidência e suficiente para a pergunta."
+      }
+    },
+    {
+      "case_id": "GOLD-008",
+      "category": "SINGLE_SUPPORT",
+      "question": "Em quanto tempo decai o direito da Administração de anular atos favoráveis ao destinatário, salvo má-fé?",
+      "expected_decision": "ANSWER",
+      "model_decision": null,
+      "gold_provisions": [
+        "ARTICLE:54/CAPUT"
+      ],
+      "required_provisions": [
+        "ARTICLE:54/CAPUT"
+      ],
+      "raw_response": "```json\n{\"decision\":\"ANSWER\",\"answer\":\"O direito da Administração de anular os atos administrativos com efeitos favoráveis para os destinatários decai em cinco anos, contados da data em que foram praticados, salvo comprovada má-fé.\",\"citations\":[\"ARTICLE:54/CAPUT\"]}\n```",
+      "latency_ms": 51280.373508,
+      "parsed_response": null,
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": false,
+        "decision_valid": false,
+        "output_schema_valid": false,
+        "decision_payload_valid": false,
+        "expected_decision_match": false,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": false,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "Resposta materialmente correta, sustentada pela evidência e suficiente para a pergunta."
+      }
+    },
+    {
+      "case_id": "GOLD-009",
+      "category": "SINGLE_SUPPORT",
+      "question": "Quando um ato com defeito sanável pode ser convalidado pela Administração?",
+      "expected_decision": "ANSWER",
+      "model_decision": null,
+      "gold_provisions": [
+        "ARTICLE:55/CAPUT"
+      ],
+      "required_provisions": [
+        "ARTICLE:55/CAPUT"
+      ],
+      "raw_response": "```json\n{\"decision\":\"ANSWER\",\"answer\":\"Os atos com defeitos sanáveis podem ser convalidados pela própria Administração em decisão na qual se evidencie não acarretarem lesão ao interesse público nem prejuízo a terceiros.\",\"citations\":[\"ARTICLE:55/CAPUT\"]}\n```",
+      "latency_ms": 49860.298463,
+      "parsed_response": null,
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": false,
+        "decision_valid": false,
+        "output_schema_valid": false,
+        "decision_payload_valid": false,
+        "expected_decision_match": false,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": false,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "Resposta materialmente correta, sustentada pela evidência e suficiente para a pergunta."
+      }
+    },
+    {
+      "case_id": "GOLD-010",
+      "category": "SINGLE_SUPPORT",
+      "question": "Por quantas instâncias administrativas um recurso pode tramitar, como regra geral?",
+      "expected_decision": "ANSWER",
+      "model_decision": null,
+      "gold_provisions": [
+        "ARTICLE:57/CAPUT"
+      ],
+      "required_provisions": [
+        "ARTICLE:57/CAPUT"
+      ],
+      "raw_response": "```json\n{\"decision\":\"ANSWER\",\"answer\":\"O recurso administrativo tramitará no máximo por três instâncias administrativas, salvo disposição legal diversa.\",\"citations\":[\"ARTICLE:57/CAPUT\"]}\n```",
+      "latency_ms": 43616.96451,
+      "parsed_response": null,
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": false,
+        "decision_valid": false,
+        "output_schema_valid": false,
+        "decision_payload_valid": false,
+        "expected_decision_match": false,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": false,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "Resposta materialmente correta, sustentada pela evidência e suficiente para a pergunta."
+      }
+    },
+    {
+      "case_id": "GOLD-011",
+      "category": "SINGLE_SUPPORT",
+      "question": "O que o recorrente deve expor no requerimento de recurso administrativo?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:60/CAPUT"
+      ],
+      "required_provisions": [
+        "ARTICLE:60/CAPUT"
+      ],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"O recorrente deve expor os fundamentos do pedido de reexame, podendo juntar os documentos que julgar convenientes.\",\"citations\":[\"ARTICLE:60/CAPUT\"]}",
+      "latency_ms": 45135.106041,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "O recorrente deve expor os fundamentos do pedido de reexame, podendo juntar os documentos que julgar convenientes.",
+        "citations": [
+          "ARTICLE:60/CAPUT"
+        ]
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PASS",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "Resposta materialmente correta, sustentada pela evidência e suficiente para a pergunta."
+      }
+    },
+    {
+      "case_id": "GOLD-012",
+      "category": "SINGLE_SUPPORT",
+      "question": "Os prazos processuais administrativos ficam suspensos normalmente?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:67/CAPUT"
+      ],
+      "required_provisions": [
+        "ARTICLE:67/CAPUT"
+      ],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"Os prazos processuais não se suspendem, salvo em casos de motivo de força maior devidamente comprovado.\",\"citations\":[\"ARTICLE:67/CAPUT\"]}",
+      "latency_ms": 43248.968735,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "Os prazos processuais não se suspendem, salvo em casos de motivo de força maior devidamente comprovado.",
+        "citations": [
+          "ARTICLE:67/CAPUT"
+        ]
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PASS",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "Resposta materialmente correta, sustentada pela evidência e suficiente para a pergunta."
+      }
+    },
+    {
+      "case_id": "GOLD-013",
+      "category": "COMPOSITE_SUPPORT",
+      "question": "Quais dados devem constar de um requerimento inicial escrito apresentado pelo interessado?",
+      "expected_decision": "ANSWER",
+      "model_decision": null,
+      "gold_provisions": [
+        "ARTICLE:6/CAPUT",
+        "ARTICLE:6/CAPUT/INCISO:I",
+        "ARTICLE:6/CAPUT/INCISO:II",
+        "ARTICLE:6/CAPUT/INCISO:III",
+        "ARTICLE:6/CAPUT/INCISO:IV",
+        "ARTICLE:6/CAPUT/INCISO:V"
+      ],
+      "required_provisions": [
+        "ARTICLE:6/CAPUT",
+        "ARTICLE:6/CAPUT/INCISO:I",
+        "ARTICLE:6/CAPUT/INCISO:II",
+        "ARTICLE:6/CAPUT/INCISO:III",
+        "ARTICLE:6/CAPUT/INCISO:IV",
+        "ARTICLE:6/CAPUT/INCISO:V"
+      ],
+      "raw_response": "```json\n{\"decision\":\"ANSWER\",\"answer\":\"O requerimento inicial do interessado deve conter: I - órgão ou autoridade administrativa a que se dirige; II - identificação do interessado ou de quem o represente; III - domicílio do requerente ou local para recebimento de comunicações; IV - formulação do pedido, com exposição dos fatos e de seus fundamentos; e V - data e assinatura do requerente ou de seu representante.\",\"citations\":[\"ARTICLE:6/CAPUT\",\"ARTICLE:6/CAPUT/INCISO:I\",\"ARTICLE:6/CAPUT/INCISO:II\",\"ARTICLE:6/CAPUT/INCISO:III\",\"ARTICLE:6/CAPUT/INCISO:IV\",\"ARTICLE:6/CAPUT/INCISO:V\"]}\n```",
+      "latency_ms": 121607.583582,
+      "parsed_response": null,
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": false,
+        "decision_valid": false,
+        "output_schema_valid": false,
+        "decision_payload_valid": false,
+        "expected_decision_match": false,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": false,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "Resposta materialmente correta, sustentada pela evidência e suficiente para a pergunta."
+      }
+    },
+    {
+      "case_id": "GOLD-014",
+      "category": "COMPOSITE_SUPPORT",
+      "question": "Com qual antecedência deve ocorrer a intimação para comparecimento e por quais meios ela pode ser feita?",
+      "expected_decision": "ANSWER",
+      "model_decision": null,
+      "gold_provisions": [
+        "ARTICLE:26/PARAGRAPH:2",
+        "ARTICLE:26/PARAGRAPH:3"
+      ],
+      "required_provisions": [
+        "ARTICLE:26/PARAGRAPH:2",
+        "ARTICLE:26/PARAGRAPH:3"
+      ],
+      "raw_response": "```json\n{\"decision\":\"ANSWER\",\"answer\":\"A intimação deve observar a antecedência mínima de três dias úteis quanto à data de comparecimento e pode ser efetuada por ciência no processo, por via postal com aviso de recebimento, por telegrama ou outro meio que assegure a certeza da ciência do interessado.\", \"citations\":[\"ARTICLE:26/PARAGRAPH:2\",\"ARTICLE:26/PARAGRAPH:3\"]}\n```",
+      "latency_ms": 65051.11362,
+      "parsed_response": null,
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": false,
+        "decision_valid": false,
+        "output_schema_valid": false,
+        "decision_payload_valid": false,
+        "expected_decision_match": false,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": false,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "Resposta materialmente correta, sustentada pela evidência e suficiente para a pergunta."
+      }
+    },
+    {
+      "case_id": "GOLD-015",
+      "category": "COMPOSITE_SUPPORT",
+      "question": "Qual é o prazo para parecer obrigatório e o que ocorre se um parecer vinculante ou não vinculante atrasar?",
+      "expected_decision": "ANSWER",
+      "model_decision": null,
+      "gold_provisions": [
+        "ARTICLE:42/CAPUT",
+        "ARTICLE:42/PARAGRAPH:1",
+        "ARTICLE:42/PARAGRAPH:2"
+      ],
+      "required_provisions": [
+        "ARTICLE:42/CAPUT",
+        "ARTICLE:42/PARAGRAPH:1",
+        "ARTICLE:42/PARAGRAPH:2"
+      ],
+      "raw_response": "```json\n{\"decision\":\"ANSWER\",\"answer\":\"O parecer obrigatório deve ser emitido no prazo máximo de quinze dias, salvo norma especial ou comprovada necessidade de maior prazo. Se um parecer obrigatório e vinculante atrasar, o processo não terá seguimento até sua apresentação, com responsabilização de quem deu causa ao atraso. Se um parecer obrigatório e não vinculante atrasar, o processo poderá prosseguir e ser decidido com sua dispensa, sem prejuízo da responsabilidade de quem se omitiu.\",\"citations\":[\"ARTICLE:42/CAPUT\",\"ARTICLE:42/PARAGRAPH:1\",\"ARTICLE:42/PARAGRAPH:2\"]}\n```",
+      "latency_ms": 92697.54638,
+      "parsed_response": null,
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": false,
+        "decision_valid": false,
+        "output_schema_valid": false,
+        "decision_payload_valid": false,
+        "expected_decision_match": false,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": false,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "Prazo de quinze dias, ressalvas, consequência do atraso do parecer vinculante, responsabilização e possibilidade de prosseguimento sem parecer não vinculante foram preservados."
+      }
+    },
+    {
+      "case_id": "GOLD-016",
+      "category": "COMPOSITE_SUPPORT",
+      "question": "A Administração tem dever de decidir e qual é o prazo após a conclusão da instrução?",
+      "expected_decision": "ANSWER",
+      "model_decision": null,
+      "gold_provisions": [
+        "ARTICLE:48/CAPUT",
+        "ARTICLE:49/CAPUT"
+      ],
+      "required_provisions": [
+        "ARTICLE:48/CAPUT",
+        "ARTICLE:49/CAPUT"
+      ],
+      "raw_response": "```json\n{\"decision\":\"ANSWER\",\"answer\":\"A Administração tem o dever de emitir decisão nos processos administrativos e sobre solicitações ou reclamações em matéria de sua competência. Concluída a instrução do processo, o prazo para decisão é de até trinta dias, salvo prorrogação por igual período expressamente motivada.\",\"citations\":[\"ARTICLE:48/CAPUT\",\"ARTICLE:49/CAPUT\"]}\n```",
+      "latency_ms": 65826.981515,
+      "parsed_response": null,
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": false,
+        "decision_valid": false,
+        "output_schema_valid": false,
+        "decision_payload_valid": false,
+        "expected_decision_match": false,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": false,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "Dever de decidir, prazo de até trinta dias e prorrogação por igual período expressamente motivada foram integralmente preservados."
+      }
+    },
+    {
+      "case_id": "GOLD-017",
+      "category": "COMPOSITE_SUPPORT",
+      "question": "Por quais razões cabe recurso administrativo e como ele é encaminhado após eventual reconsideração?",
+      "expected_decision": "ANSWER",
+      "model_decision": null,
+      "gold_provisions": [
+        "ARTICLE:56/CAPUT",
+        "ARTICLE:56/PARAGRAPH:1"
+      ],
+      "required_provisions": [
+        "ARTICLE:56/CAPUT",
+        "ARTICLE:56/PARAGRAPH:1"
+      ],
+      "raw_response": "```json\n{\"decision\":\"ANSWER\",\"answer\":\"Cabe recurso administrativo por razões de legalidade e de mérito. Caso a autoridade que proferiu a decisão não o reconsidere no prazo de cinco dias, o recurso será encaminhado à autoridade superior.\",\"citations\":[\"ARTICLE:56/CAPUT\",\"ARTICLE:56/PARAGRAPH:1\"]}\n```",
+      "latency_ms": 63854.674937,
+      "parsed_response": null,
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": false,
+        "decision_valid": false,
+        "output_schema_valid": false,
+        "decision_payload_valid": false,
+        "expected_decision_match": false,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": false,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "Razões de legalidade e mérito e encaminhamento à autoridade superior se não houver reconsideração em cinco dias foram corretamente apresentados."
+      }
+    },
+    {
+      "case_id": "GOLD-018",
+      "category": "COMPOSITE_SUPPORT",
+      "question": "O recurso administrativo tem efeito suspensivo e em que situação esse efeito pode ser concedido?",
+      "expected_decision": "ANSWER",
+      "model_decision": null,
+      "gold_provisions": [
+        "ARTICLE:61/CAPUT",
+        "ARTICLE:61/PARAGRAPH:UNIQUE"
+      ],
+      "required_provisions": [
+        "ARTICLE:61/CAPUT",
+        "ARTICLE:61/PARAGRAPH:UNIQUE"
+      ],
+      "raw_response": "```json\n{\"decision\":\"ANSWER\",\"answer\":\"Salvo disposição legal em contrário, o recurso não tem efeito suspensivo. Contudo, ele poderá receber efeito suspensivo, de ofício ou a pedido, quando houver justo receio de prejuízo de difícil ou incerta reparação decorrente da execução.\",\"citations\":[\"ARTICLE:61/CAPUT\",\"ARTICLE:61/PARAGRAPH:UNIQUE\"]}\n```",
+      "latency_ms": 65466.191429,
+      "parsed_response": null,
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": false,
+        "decision_valid": false,
+        "output_schema_valid": false,
+        "decision_payload_valid": false,
+        "expected_decision_match": false,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": false,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "Regra geral de ausência de efeito suspensivo, ressalva legal e hipótese de concessão por justo receio de prejuízo de difícil ou incerta reparação foram corretamente apresentadas."
+      }
+    },
+    {
+      "case_id": "GOLD-019",
+      "category": "COMPOSITE_SUPPORT",
+      "question": "Quando um processo administrativo sancionador pode ser revisto e qual limite existe para o resultado da revisão?",
+      "expected_decision": "ANSWER",
+      "model_decision": null,
+      "gold_provisions": [
+        "ARTICLE:65/CAPUT",
+        "ARTICLE:65/PARAGRAPH:UNIQUE"
+      ],
+      "required_provisions": [
+        "ARTICLE:65/CAPUT",
+        "ARTICLE:65/PARAGRAPH:UNIQUE"
+      ],
+      "raw_response": "```json\n{\"decision\":\"ANSWER\",\"answer\":\"Os processos administrativos que resultem em sanções podem ser revistos a qualquer tempo, a pedido ou de ofício, quando surgirem fatos novos ou circunstâncias relevantes que justifiquem a inadequação da sanção. O resultado dessa revisão não pode agravar a sanção aplicada.\",\"citations\":[\"ARTICLE:65/CAPUT\",\"ARTICLE:65/PARAGRAPH:UNIQUE\"]}\n```",
+      "latency_ms": 66975.824084,
+      "parsed_response": null,
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": false,
+        "decision_valid": false,
+        "output_schema_valid": false,
+        "decision_payload_valid": false,
+        "expected_decision_match": false,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": false,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "Revisão a qualquer tempo, a pedido ou de ofício, por fatos novos/circunstâncias relevantes e vedação de agravamento da sanção foram corretamente apresentadas."
+      }
+    },
+    {
+      "case_id": "GOLD-020",
+      "category": "COMPOSITE_SUPPORT",
+      "question": "Como se contam os prazos administrativos em dias e o que ocorre se o vencimento cair sem expediente normal?",
+      "expected_decision": "ANSWER",
+      "model_decision": null,
+      "gold_provisions": [
+        "ARTICLE:66/CAPUT",
+        "ARTICLE:66/PARAGRAPH:1",
+        "ARTICLE:66/PARAGRAPH:2"
+      ],
+      "required_provisions": [
+        "ARTICLE:66/CAPUT",
+        "ARTICLE:66/PARAGRAPH:1",
+        "ARTICLE:66/PARAGRAPH:2"
+      ],
+      "raw_response": "```json\n{\"decision\":\"ANSWER\",\"answer\":\"Os prazos expressos em dias são contados de modo contínuo, iniciando-se na data da cientificação oficial, excluindo-se o dia do começo e incluindo-se o do vencimento. Caso o vencimento ocorra em dia sem expediente ou com encerramento antes do horário normal, o prazo é prorrogado até o primeiro dia útil seguinte.\",\"citations\":[\"ARTICLE:66/CAPUT\",\"ARTICLE:66/PARAGRAPH:1\",\"ARTICLE:66/PARAGRAPH:2\"]}\n```",
+      "latency_ms": 84975.859438,
+      "parsed_response": null,
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": false,
+        "decision_valid": false,
+        "output_schema_valid": false,
+        "decision_payload_valid": false,
+        "expected_decision_match": false,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": false,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "Resposta materialmente correta, sustentada pela evidência e suficiente para a pergunta."
+      }
+    },
+    {
+      "case_id": "GOLD-021",
+      "category": "INSUFFICIENT_EVIDENCE",
+      "question": "Qual é o prazo para a Administração concluir uma licitação pública?",
+      "expected_decision": "ABSTAIN",
+      "model_decision": null,
+      "gold_provisions": [],
+      "required_provisions": [],
+      "raw_response": "{\"decision\":\"ABSTAIN\",\"answer\":\"A EVIDENCE fornecida é insuficiente para responder a essa pergunta.\",\"citations\":[]}}",
+      "latency_ms": 29788.974536,
+      "parsed_response": null,
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": false,
+        "decision_valid": false,
+        "output_schema_valid": false,
+        "decision_payload_valid": false,
+        "expected_decision_match": false,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "Materialmente, a abstenção é correta diante de ausência de evidência pertinente. O caractere extra que torna o JSON inválido é falha formal, não jurídica."
+      }
+    },
+    {
+      "case_id": "GOLD-022",
+      "category": "INSUFFICIENT_EVIDENCE",
+      "question": "Qual é a pena criminal por falsificar documento apresentado em processo administrativo?",
+      "expected_decision": "ABSTAIN",
+      "model_decision": "ABSTAIN",
+      "gold_provisions": [],
+      "required_provisions": [],
+      "raw_response": "{\"decision\":\"ABSTAIN\",\"answer\":\"A EVIDENCE fornecida é insuficiente para responder a essa pergunta.\",\"citations\":[]}",
+      "latency_ms": 28769.079726,
+      "parsed_response": {
+        "decision": "ABSTAIN",
+        "answer": "A EVIDENCE fornecida é insuficiente para responder a essa pergunta.",
+        "citations": []
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PASS",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "Resposta materialmente correta, sustentada pela evidência e suficiente para a pergunta."
+      }
+    },
+    {
+      "case_id": "GOLD-023",
+      "category": "INSUFFICIENT_EVIDENCE",
+      "question": "Qual é o prazo para ajuizar ação judicial contra uma decisão administrativa?",
+      "expected_decision": "ABSTAIN",
+      "model_decision": "ABSTAIN",
+      "gold_provisions": [],
+      "required_provisions": [],
+      "raw_response": "{\"decision\":\"ABSTAIN\",\"answer\":\"A EVIDENCE fornecida é insuficiente para responder a essa pergunta.\",\"citations\":[]}",
+      "latency_ms": 29100.756279,
+      "parsed_response": {
+        "decision": "ABSTAIN",
+        "answer": "A EVIDENCE fornecida é insuficiente para responder a essa pergunta.",
+        "citations": []
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PASS",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "Resposta materialmente correta, sustentada pela evidência e suficiente para a pergunta."
+      }
+    },
+    {
+      "case_id": "GOLD-024",
+      "category": "INSUFFICIENT_EVIDENCE",
+      "question": "Qual valor deve ser pago a título de dano moral causado pela Administração?",
+      "expected_decision": "ABSTAIN",
+      "model_decision": "ABSTAIN",
+      "gold_provisions": [],
+      "required_provisions": [],
+      "raw_response": "{\"decision\":\"ABSTAIN\",\"answer\":\"A EVIDENCE fornecida é insuficiente para determinar o valor do dano moral.\", \"citations\":[]}",
+      "latency_ms": 29787.189519,
+      "parsed_response": {
+        "decision": "ABSTAIN",
+        "answer": "A EVIDENCE fornecida é insuficiente para determinar o valor do dano moral.",
+        "citations": []
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PASS",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "Resposta materialmente correta, sustentada pela evidência e suficiente para a pergunta."
+      }
+    },
+    {
+      "case_id": "GOLD-025",
+      "category": "INSUFFICIENT_EVIDENCE",
+      "question": "Quais são os requisitos para aposentadoria de servidor público federal?",
+      "expected_decision": "ABSTAIN",
+      "model_decision": "ABSTAIN",
+      "gold_provisions": [],
+      "required_provisions": [],
+      "raw_response": "{\"decision\":\"ABSTAIN\",\"answer\":\"A EVIDENCE fornecida é insuficiente para responder a essa pergunta.\",\"citations\":[]}",
+      "latency_ms": 29493.011755,
+      "parsed_response": {
+        "decision": "ABSTAIN",
+        "answer": "A EVIDENCE fornecida é insuficiente para responder a essa pergunta.",
+        "citations": []
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PASS",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "Resposta materialmente correta, sustentada pela evidência e suficiente para a pergunta."
+      }
+    },
+    {
+      "case_id": "GOLD-026",
+      "category": "INSUFFICIENT_EVIDENCE",
+      "question": "Em quais hipóteses dados pessoais podem ser compartilhados entre órgãos públicos?",
+      "expected_decision": "ABSTAIN",
+      "model_decision": "ABSTAIN",
+      "gold_provisions": [],
+      "required_provisions": [],
+      "raw_response": "{\"decision\":\"ABSTAIN\",\"answer\":\"A EVIDENCE fornecida é insuficiente para responder a essa pergunta.\",\"citations\":[]}",
+      "latency_ms": 29155.199707,
+      "parsed_response": {
+        "decision": "ABSTAIN",
+        "answer": "A EVIDENCE fornecida é insuficiente para responder a essa pergunta.",
+        "citations": []
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PASS",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "Resposta materialmente correta, sustentada pela evidência e suficiente para a pergunta."
+      }
+    },
+    {
+      "case_id": "GOLD-027",
+      "category": "AMBIGUOUS",
+      "question": "A Administração já está atrasada para decidir o meu processo?",
+      "expected_decision": "CLARIFY",
+      "model_decision": null,
+      "gold_provisions": [
+        "ARTICLE:49/CAPUT"
+      ],
+      "required_provisions": [],
+      "raw_response": "{\"decision\":\"CLARIFY\",\"answer\":\"Para verificar se a Administração está atrasada, você poderia informar há quantos dias a instrução do seu processo foi concluída?\",\"citations_ids\":[\"ARTICLE:49/CAPUT\"]}",
+      "latency_ms": 45694.819144,
+      "parsed_response": null,
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": false,
+        "decision_payload_valid": false,
+        "expected_decision_match": false,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": true
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "FAIL",
+        "comments": "A resposta corretamente pede a data/tempo desde a conclusão da instrução, mas não pergunta se houve prorrogação por igual período expressamente motivada; esse fato também é necessário para decidir se há atraso."
+      }
+    },
+    {
+      "case_id": "GOLD-028",
+      "category": "AMBIGUOUS",
+      "question": "A intimação que recebi no processo administrativo é válida?",
+      "expected_decision": "CLARIFY",
+      "model_decision": null,
+      "gold_provisions": [
+        "ARTICLE:26/PARAGRAPH:1",
+        "ARTICLE:26/PARAGRAPH:2",
+        "ARTICLE:26/PARAGRAPH:3",
+        "ARTICLE:26/PARAGRAPH:5"
+      ],
+      "required_provisions": [],
+      "raw_response": "```json\n{\n \"decision\": \"ABSTAIN\",\n \"answer\": \"A EVIDENCE fornecida não contém os detalhes da intimação recebida para que possa ser validada, mas estabelece que a intimação deve conter requisitos específicos, observar antecedência mínima de três dias úteis e pode ser nula se não seguir as prescrições legais.\",\n \"citations\": [\n  \"ARTICLE:26/PARAGRAPH:1\",\n  \"ARTICLE:26/PARAGRAPH:2\",\n  \"ARTICLE:26/PARAGRAPH:3\",\n  \"ARTICLE:26/PARAGRAPH:5\"\n ]\n}\n```",
+      "latency_ms": 99419.314491,
+      "parsed_response": null,
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": false,
+        "decision_valid": false,
+        "output_schema_valid": false,
+        "decision_payload_valid": false,
+        "expected_decision_match": false,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": true
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "FAIL",
+        "comments": "A resposta reconhece corretamente que faltam os dados concretos da intimação e resume regras pertinentes, mas usa ABSTAIN e não solicita os elementos da intimação necessários para verificar a validade."
+      }
+    },
+    {
+      "case_id": "GOLD-029",
+      "category": "AMBIGUOUS",
+      "question": "A autoridade pode delegar a competência mencionada no meu caso?",
+      "expected_decision": "CLARIFY",
+      "model_decision": "CLARIFY",
+      "gold_provisions": [
+        "ARTICLE:12/CAPUT",
+        "ARTICLE:13/CAPUT",
+        "ARTICLE:13/CAPUT/INCISO:I",
+        "ARTICLE:13/CAPUT/INCISO:II",
+        "ARTICLE:13/CAPUT/INCISO:III"
+      ],
+      "required_provisions": [],
+      "raw_response": "{\"decision\":\"CLARIFY\",\"answer\":\"Para responder se a competência pode ser delegada, por favor, especifique qual é a natureza da competência ou o ato específico ao qual você se refere.\", \"citations\": []}",
+      "latency_ms": 78785.34745,
+      "parsed_response": {
+        "decision": "CLARIFY",
+        "answer": "Para responder se a competência pode ser delegada, por favor, especifique qual é a natureza da competência ou o ato específico ao qual você se refere.",
+        "citations": []
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PASS",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "A resposta evita aplicação factual prematura e solicita qual competência/ato concreto está em discussão, que é a informação necessária para verificar as hipóteses de delegação e suas vedações."
+      }
+    },
+    {
+      "case_id": "GOLD-030",
+      "category": "AMBIGUOUS",
+      "question": "Ainda estou no prazo para recorrer da decisão administrativa?",
+      "expected_decision": "CLARIFY",
+      "model_decision": null,
+      "gold_provisions": [
+        "ARTICLE:59/CAPUT",
+        "ARTICLE:66/CAPUT",
+        "ARTICLE:66/PARAGRAPH:1"
+      ],
+      "required_provisions": [],
+      "raw_response": "```json\n{\"decision\":\"CLARIFY\",\"answer\":\"Para determinar se você ainda está no prazo, por favor, informe a data em que você tomou ciência ou houve a divulgação oficial da decisão recorrida.\", \"citations\":[]}\n```",
+      "latency_ms": 54168.93831,
+      "parsed_response": null,
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": false,
+        "decision_valid": false,
+        "output_schema_valid": false,
+        "decision_payload_valid": false,
+        "expected_decision_match": false,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": true
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "A resposta evita concluir sobre o prazo sem fatos e solicita a data da ciência ou divulgação oficial da decisão, necessária para a contagem."
+      }
+    },
+    {
+      "case_id": "GOLD-031",
+      "category": "AMBIGUOUS",
+      "question": "O servidor designado pode atuar no meu processo administrativo?",
+      "expected_decision": "CLARIFY",
+      "model_decision": null,
+      "gold_provisions": [
+        "ARTICLE:18/CAPUT",
+        "ARTICLE:18/CAPUT/INCISO:I",
+        "ARTICLE:18/CAPUT/INCISO:II",
+        "ARTICLE:18/CAPUT/INCISO:III",
+        "ARTICLE:20/CAPUT"
+      ],
+      "required_provisions": [],
+      "raw_response": "```json\n{\"decision\":\"ABSTAIN\",\"answer\":\"A EVIDENCE é insuficiente para confirmar se o servidor pode atuar, pois o texto estabelece apenas as condições de impedimento (interesse direto ou indireto, participação como perito/testemunha ou litígio com o interessado) e a possibilidade de arguição de suspeição (amizade íntima ou inimizade notória).\",\"citations:[]}\n```",
+      "latency_ms": 99759.546243,
+      "parsed_response": null,
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": false,
+        "decision_valid": false,
+        "output_schema_valid": false,
+        "decision_payload_valid": false,
+        "expected_decision_match": false,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": true
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "FAIL",
+        "comments": "Materialmente, reconhece a insuficiência factual e descreve hipóteses de impedimento/suspeição, mas não solicita os fatos concretos necessários; o JSON malformado é tratado separadamente como falha formal."
+      }
+    },
+    {
+      "case_id": "GOLD-032",
+      "category": "AMBIGUOUS",
+      "question": "Meu processo tem direito à tramitação prioritária?",
+      "expected_decision": "CLARIFY",
+      "model_decision": null,
+      "gold_provisions": [
+        "ARTICLE:69-A/CAPUT",
+        "ARTICLE:69-A/CAPUT/INCISO:I",
+        "ARTICLE:69-A/CAPUT/INCISO:II",
+        "ARTICLE:69-A/CAPUT/INCISO:IV",
+        "ARTICLE:69-A/PARAGRAPH:1"
+      ],
+      "required_provisions": [],
+      "raw_response": "```json\n{\"decision\":\"CLARIFY\",\"answer\":\"Para determinar se o seu processo tem direito à tramitação prioritária, você possui idade igual ou superior a 60 anos, é portador de deficiência ou possui alguma doença grave conforme listado na lei?\",\"citations\":[\"ARTICLE:69-A/CAPUT\",\"ARTICLE:69-A/CAPUT/INCISO:I\",\"ARTICLE:69-A/CAPUT/INCISO:II\",\"ARTICLE:69-A/CAPUT/INCISO:IV\"]}\n```",
+      "latency_ms": 101264.249777,
+      "parsed_response": null,
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": false,
+        "decision_valid": false,
+        "output_schema_valid": false,
+        "decision_payload_valid": false,
+        "expected_decision_match": false,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": true
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL",
+      "human_review": {
+        "legal_correctness": "PASS",
+        "groundedness": "PASS",
+        "completeness": "PASS",
+        "comments": "A resposta solicita as condições pessoais relevantes para verificar a prioridade e não aplica prematuramente a regra ao caso concreto."
+      }
+    }
+  ]
+}

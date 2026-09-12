@@ -1,5 +1,6 @@
 """CLI do corpus auditável e retrieval lexical do MVP2."""
 
+from enum import StrEnum
 from pathlib import Path
 from typing import Annotated
 
@@ -24,9 +25,32 @@ from consultor_juridico.application.corpus.services import (
 from consultor_juridico.application.retrieval.ports import SearchUnitRetriever
 from consultor_juridico.application.retrieval.services import RetrieveSearchUnits
 from consultor_juridico.config import settings
-from consultor_juridico.db.session import SessionLocal
 from consultor_juridico.domain.retrieval import RetrievalMode, RetrievalRequest
+from consultor_juridico.evaluation.frozen_gold_bundle import (
+    FrozenGoldBundleRepository,
+)
+from consultor_juridico.evaluation.gold_evidence import (
+    export_gold_bundle,
+    summarize_gold_review,
+    validate_gold_responses,
+)
+from consultor_juridico.evaluation.gold_stability import (
+    export_stability_bundle,
+    stability_subset_contract,
+    summarize_gold_stability,
+)
+from consultor_juridico.evaluation.ollama_gold_runner import (
+    MAX_GENERATION_TIME_SECONDS,
+    OllamaGoldRunError,
+    OllamaModelNotAvailableError,
+    ThinkingMode,
+    run_ollama_gold_bundle,
+)
 from consultor_juridico.evaluation.retrieval_baseline import run_retrieval_baseline
+from consultor_juridico.evaluation.selected_answerer import (
+    DEFAULT_FREEZE_PATH,
+    validate_selected_answerer_freeze,
+)
 from consultor_juridico.infrastructure.corpus.http import HttpxSourceAcquirer
 from consultor_juridico.infrastructure.corpus.materializer import (
     SqlAlchemyCorpusMaterializer,
@@ -34,12 +58,20 @@ from consultor_juridico.infrastructure.corpus.materializer import (
 from consultor_juridico.infrastructure.corpus.repositories import (
     SqlAlchemySnapshotRepository,
 )
+from consultor_juridico.infrastructure.gold_evidence import (
+    SqlAlchemyGoldEvidenceRepository,
+)
 from consultor_juridico.infrastructure.retrieval import (
     PostgresFullTextSearchRetriever,
     PostgresRelaxedOrCoverageFullTextSearchRetriever,
     PostgresRelaxedOrFullTextSearchRetriever,
 )
-from consultor_juridico.services import db_service
+
+
+class GoldEvidenceSource(StrEnum):
+    DATABASE = "database"
+    FROZEN_BUNDLE = "frozen-bundle"
+
 
 app = typer.Typer(
     name="consultor-juridico",
@@ -50,11 +82,19 @@ db_app = typer.Typer(help="Banco de dados e migrations.")
 corpus_app = typer.Typer(help="Aquisição, materialização e auditoria do corpus.")
 retrieval_app = typer.Typer(help="Busca lexical isolada em versão explícita.")
 eval_app = typer.Typer(help="Avaliações reproduzíveis no filesystem.")
+gold_eval_app = typer.Typer(help="Capacidade de modelo com Gold Evidence explícita.")
 app.add_typer(db_app, name="db")
 app.add_typer(corpus_app, name="corpus")
 app.add_typer(retrieval_app, name="retrieval")
 app.add_typer(eval_app, name="eval")
+eval_app.add_typer(gold_eval_app, name="gold")
 console = Console()
+
+
+def _session_factory():
+    from consultor_juridico.db.session import SessionLocal
+
+    return SessionLocal
 
 
 def _compose_retriever(session, mode: RetrievalMode) -> SearchUnitRetriever:
@@ -74,6 +114,8 @@ def version() -> None:
 @db_app.command("migrate")
 def db_migrate() -> None:
     """Aplica migrations pendentes."""
+    from consultor_juridico.services import db_service
+
     db_service.run_migrations()
     console.print("[green]Migrations aplicadas.[/green]")
 
@@ -81,6 +123,8 @@ def db_migrate() -> None:
 @db_app.command("status")
 def db_status() -> None:
     """Exibe conexão, revision e tabelas."""
+    from consultor_juridico.services import db_service
+
     status = db_service.check_db_status()
     if not status.get("connected"):
         console.print(f"[red]Banco indisponível: {status.get('error')}[/red]")
@@ -99,7 +143,7 @@ def corpus_acquire() -> None:
         write=settings.ingestion_write_timeout,
         pool=settings.ingestion_pool_timeout,
     )
-    with httpx.Client(timeout=timeout) as client, SessionLocal() as session:
+    with httpx.Client(timeout=timeout) as client, _session_factory()() as session:
         use_case = AcquireOfficialSource(
             HttpxSourceAcquirer(client, user_agent=settings.planalto_user_agent),
             SqlAlchemySnapshotRepository(session),
@@ -120,10 +164,11 @@ def corpus_acquire() -> None:
 
 
 def _materialize(snapshot_sha: str):
-    with SessionLocal() as read_session:
+    session_factory = _session_factory()
+    with session_factory() as read_session:
         use_case = MaterializeFromSnapshot(
             SqlAlchemySnapshotRepository(read_session),
-            SqlAlchemyCorpusMaterializer(SessionLocal),
+            SqlAlchemyCorpusMaterializer(session_factory),
             PlanaltoLeiParser(),
             ProvisionTextProjection(),
         )
@@ -164,7 +209,7 @@ def corpus_reproject(
 @corpus_app.command("versoes")
 def corpus_versions() -> None:
     """Lista versões explícitas do corpus, sem conceito de versão ativa."""
-    with SessionLocal() as session:
+    with _session_factory()() as session:
         rows = list_versions(session)
     for row in rows:
         console.print(" | ".join(f"{key}={value}" for key, value in row.items()))
@@ -175,7 +220,7 @@ def corpus_audit(
     version_hash: Annotated[str, typer.Option("--version-hash")],
 ) -> None:
     """Audita integridade, conteúdo, projeção e proveniência."""
-    with SessionLocal() as session:
+    with _session_factory()() as session:
         report = CorpusAuditor(
             session, PlanaltoLeiParser(), ProvisionTextProjection()
         ).audit(version_hash, encoding=LEI_9784_SOURCE.encoding)
@@ -194,7 +239,7 @@ def corpus_trace(
     unit_key: Annotated[str, typer.Option("--unit-key")],
 ) -> None:
     """Mostra a cadeia de uma SearchUnit até a fonte oficial."""
-    with SessionLocal() as session:
+    with _session_factory()() as session:
         result = trace_unit(session, version_hash, unit_key)
     for key, value in result.items():
         console.print(f"{key}={value}")
@@ -209,7 +254,7 @@ def retrieval_search(
 ) -> None:
     """Busca SearchUnits com PostgreSQL FTS, sem geração de resposta."""
     request = RetrievalRequest(question, version_hash, limit)
-    with SessionLocal() as session:
+    with _session_factory()() as session:
         retriever = _compose_retriever(session, mode)
         candidates = RetrieveSearchUnits(retriever).execute(request)
     console.print(f"version_hash={version_hash}")
@@ -237,7 +282,7 @@ def evaluate_retrieval(
     mode: Annotated[RetrievalMode, typer.Option("--mode")] = RetrievalMode.STRICT,
 ) -> None:
     """Executa uma avaliação lexical e grava um artefato JSON novo."""
-    with SessionLocal() as session:
+    with _session_factory()() as session:
         retriever = _compose_retriever(session, mode)
         result = run_retrieval_baseline(
             retriever,
@@ -254,6 +299,244 @@ def evaluate_retrieval(
     console.print(f"hit_at_10={overall['hit_at_10']:.6f}")
     console.print(f"mrr={overall['mrr']:.6f}")
     console.print(f"output={output}")
+
+
+@gold_eval_app.command("export")
+def export_gold_evidence(
+    dataset: Annotated[Path, typer.Option("--dataset")],
+    version_hash: Annotated[str, typer.Option("--version-hash")],
+    output: Annotated[Path, typer.Option("--output")],
+    prompt_version: Annotated[str, typer.Option("--prompt-version")] = "1",
+) -> None:
+    """Exporta prompts Gold Evidence sem chamar retriever ou modelo."""
+    with _session_factory()() as session:
+        result = export_gold_bundle(
+            SqlAlchemyGoldEvidenceRepository(session),
+            dataset_path=dataset,
+            version_hash=version_hash,
+            output_path=output,
+            prompt_version=prompt_version,
+        )
+    console.print(f"dataset={result['dataset_id']}")
+    console.print(f"dataset_sha256={result['dataset_sha256']}")
+    console.print(f"version_hash={version_hash}")
+    console.print(f"cases={result['case_count']}")
+    console.print(f"prompt={result['prompt_name']}/{result['prompt_version']}")
+    console.print(f"output={output}")
+
+
+@gold_eval_app.command("stability-export")
+def export_gold_evidence_stability(
+    dataset: Annotated[Path, typer.Option("--dataset")],
+    input_bundle: Annotated[Path, typer.Option("--input")],
+    output: Annotated[Path, typer.Option("--output")],
+    prompt_version: Annotated[str, typer.Option("--prompt-version")] = "2",
+) -> None:
+    """Recorta deterministicamente o subset congelado de estabilidade."""
+    result = export_stability_bundle(
+        dataset_path=dataset,
+        input_bundle_path=input_bundle,
+        output_path=output,
+        prompt_version=prompt_version,
+    )
+    console.print(f"dataset={result['dataset_id']}")
+    console.print(f"dataset_sha256={result['dataset_sha256']}")
+    console.print(f"cases={result['case_count']}")
+    console.print(f"prompt={result['prompt_name']}/{result['prompt_version']}")
+    console.print(f"output={output}")
+
+
+@gold_eval_app.command("validate-responses")
+def validate_gold_evidence_responses(
+    dataset: Annotated[Path, typer.Option("--dataset")],
+    version_hash: Annotated[str, typer.Option("--version-hash")],
+    responses: Annotated[Path, typer.Option("--responses")],
+    output: Annotated[Path, typer.Option("--output")],
+    case_subset: Annotated[Path | None, typer.Option("--case-subset")] = None,
+    case_id: Annotated[str | None, typer.Option("--case-id")] = None,
+    prompt_version: Annotated[str | None, typer.Option("--prompt-version")] = None,
+    gold_evidence_source: Annotated[
+        GoldEvidenceSource, typer.Option("--gold-evidence-source")
+    ] = GoldEvidenceSource.DATABASE,
+    gold_bundle: Annotated[Path | None, typer.Option("--gold-bundle")] = None,
+    gold_bundle_sha256: Annotated[
+        str | None, typer.Option("--gold-bundle-sha256")
+    ] = None,
+) -> None:
+    """Valida respostas estruturais e cria review humano ainda vazio."""
+    if case_subset is not None and case_id is not None:
+        raise typer.BadParameter("--case-subset e --case-id são mutuamente exclusivos")
+    case_ids = None
+    selected_prompt_version = prompt_version
+    if case_subset is not None:
+        case_ids, subset_prompt_version = stability_subset_contract(
+            case_subset,
+            dataset_path=dataset,
+        )
+        if (
+            selected_prompt_version is not None
+            and selected_prompt_version != subset_prompt_version
+        ):
+            raise typer.BadParameter(
+                "--prompt-version diverge do prompt do --case-subset"
+            )
+        selected_prompt_version = subset_prompt_version
+    elif case_id is not None:
+        case_ids = frozenset({case_id})
+    validation_kwargs = {
+        "dataset_path": dataset,
+        "version_hash": version_hash,
+        "responses_path": responses,
+        "output_path": output,
+        "case_ids": case_ids,
+        **(
+            {"prompt_version": selected_prompt_version}
+            if selected_prompt_version
+            else {}
+        ),
+    }
+    if gold_evidence_source is GoldEvidenceSource.FROZEN_BUNDLE:
+        if gold_bundle is None or gold_bundle_sha256 is None:
+            raise typer.BadParameter(
+                "frozen-bundle exige --gold-bundle e --gold-bundle-sha256"
+            )
+        repository = FrozenGoldBundleRepository(
+            dataset_path=dataset,
+            bundle_path=gold_bundle,
+            expected_bundle_sha256=gold_bundle_sha256,
+        )
+        result, review_path = validate_gold_responses(
+            repository,
+            **validation_kwargs,
+        )
+    else:
+        if gold_bundle is not None or gold_bundle_sha256 is not None:
+            raise typer.BadParameter(
+                "--gold-bundle só pode ser usado com "
+                "--gold-evidence-source frozen-bundle"
+            )
+        with _session_factory()() as session:
+            result, review_path = validate_gold_responses(
+                SqlAlchemyGoldEvidenceRepository(session),
+                **validation_kwargs,
+            )
+    console.print(f"cases={result['metadata']['case_count']}")
+    console.print(f"automatic_evaluation={output}")
+    console.print(f"human_review={review_path}")
+
+
+@gold_eval_app.command("run-ollama")
+def run_gold_evidence_ollama(
+    input_bundle: Annotated[Path, typer.Option("--input")],
+    model: Annotated[str, typer.Option("--model")],
+    output: Annotated[Path, typer.Option("--output")],
+    metadata: Annotated[Path, typer.Option("--metadata")],
+    base_url: Annotated[str, typer.Option("--base-url")] = settings.ollama_base_url,
+    seed: Annotated[int, typer.Option("--seed")] = 42,
+    thinking_mode: Annotated[
+        ThinkingMode, typer.Option("--thinking-mode")
+    ] = ThinkingMode.AUTO,
+    ollama_format: Annotated[str | None, typer.Option("--ollama-format")] = None,
+) -> None:
+    """Executa manualmente um bundle no Ollama, sem avaliar ou reparar outputs."""
+    timeout = httpx.Timeout(
+        connect=10.0,
+        read=MAX_GENERATION_TIME_SECONDS,
+        write=30.0,
+        pool=10.0,
+    )
+    try:
+        with httpx.Client(timeout=timeout) as client:
+            result = run_ollama_gold_bundle(
+                input_path=input_bundle,
+                model=model,
+                base_url=base_url,
+                output_path=output,
+                metadata_path=metadata,
+                client=client,
+                seed=seed,
+                thinking_mode=thinking_mode,
+                ollama_format=ollama_format,
+            )
+    except (OllamaModelNotAvailableError, OllamaGoldRunError) as error:
+        console.print(f"[red]{error}[/red]")
+        raise typer.Exit(1) from error
+    console.print(f"run_id={result['run_id']}")
+    console.print(f"status={result['status']}")
+    console.print(f"completed_cases={result['completed_case_count']}")
+    console.print(f"responses={output}")
+    console.print(f"metadata={metadata}")
+
+
+@gold_eval_app.command("stability-summarize")
+def summarize_gold_evidence_stability(
+    dataset: Annotated[Path, typer.Option("--dataset")],
+    seed42_evaluation: Annotated[Path, typer.Option("--seed42-evaluation")],
+    seed43_evaluation: Annotated[Path, typer.Option("--seed43-evaluation")],
+    seed44_evaluation: Annotated[Path, typer.Option("--seed44-evaluation")],
+    output: Annotated[Path, typer.Option("--output")],
+) -> None:
+    """Resume as três avaliações do protocolo congelado de estabilidade."""
+    result = summarize_gold_stability(
+        dataset_path=dataset,
+        evaluations_by_seed={
+            42: seed42_evaluation,
+            43: seed43_evaluation,
+            44: seed44_evaluation,
+        },
+        output_path=output,
+    )
+    metrics = result["metrics"]
+    console.print(f"cases={metrics['total_cases']}")
+    console.print(f"decision_stability={metrics['decision_stability_fraction']}")
+    console.print(f"output={output}")
+
+
+@gold_eval_app.command("summarize")
+def summarize_gold_evidence_review(
+    automatic_evaluation: Annotated[Path, typer.Option("--automatic-evaluation")],
+    human_review: Annotated[Path, typer.Option("--human-review")],
+    output: Annotated[Path, typer.Option("--output")],
+) -> None:
+    """Resume checks e review preenchido, recusando avaliações pendentes."""
+    result = summarize_gold_review(
+        automatic_evaluation_path=automatic_evaluation,
+        human_review_path=human_review,
+        output_path=output,
+    )
+    console.print(f"total_cases={result['metrics']['total_cases']}")
+    console.print(f"pass_rate={result['metrics']['pass_rate']:.6f}")
+    console.print(f"output={output}")
+
+
+@gold_eval_app.command("selected-answerer-status")
+def selected_answerer_status(
+    freeze: Annotated[Path, typer.Option("--freeze")] = DEFAULT_FREEZE_PATH,
+) -> None:
+    """Valida localmente o freeze do answerer, sem rede ou inferência."""
+    report = validate_selected_answerer_freeze(freeze)
+    console.print(f"FREEZE_ID: {report.freeze_id}")
+    console.print(f"MODEL: {report.model}")
+    console.print(
+        f"MODEL_DIGEST_MATCH: {'YES' if report.checks['model_digest_match'] else 'NO'}"
+    )
+    prompt_matches = (
+        report.checks["prompt_identity_match"] and report.checks["prompt_sha256_match"]
+    )
+    console.print(f"PROMPT_MATCH: {'YES' if prompt_matches else 'NO'}")
+    console.print(
+        "GENERATION_CONFIG_MATCH: "
+        f"{'YES' if report.checks['generation_config_match'] else 'NO'}"
+    )
+    console.print(f"OLLAMA_FORMAT: {report.ollama_format}")
+    console.print(
+        "SELECTION_EVIDENCE_MATCH: "
+        f"{'YES' if report.checks['artifact_hashes_match'] else 'NO'}"
+    )
+    console.print("HOLDOUT_READ: NO")
+    console.print(f"STATUS: {'VALID' if report.valid else 'INVALID'}")
+    if not report.valid:
+        raise typer.Exit(1)
 
 
 if __name__ == "__main__":

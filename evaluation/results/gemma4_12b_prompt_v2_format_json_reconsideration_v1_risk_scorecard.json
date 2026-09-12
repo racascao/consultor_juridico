@@ -1,0 +1,208 @@
+{
+  "scorecard_name": "gold-evidence-candidate-risk-scorecard",
+  "scorecard_version": "1",
+  "candidate": {
+    "model": "gemma4:12b",
+    "digest": "4eb23ef187e2c5462566d6a1d3bbbc2f1346d0b4327cbb66d58fffbcc9b2b05c",
+    "quantization": "Q4_K_M",
+    "thinking_mode": "disabled",
+    "ollama_format": "json",
+    "experiment": "GEMMA4_FORMAT_JSON_RECONSIDERATION_V1",
+    "prompt_name": "gold-evidence-answering",
+    "prompt_version": "2"
+  },
+  "source_artifacts": {
+    "cross_model_manifest": {
+      "path": "evaluation/runs/gold_evidence_cross_model_manifest_v1.json",
+      "sha256": "f9f57938f4ffd6b29e4bd1eab2922aada847e5d344a4ad9c6451e21d97910639"
+    },
+    "full_automatic_evaluation": {
+      "path": "evaluation/results/gemma4_12b_prompt_v2_format_json_reconsideration_v1_full_automatic_evaluation.json",
+      "sha256": "d981d447380994af500934ace09af84889bccba9f64a2ea0c6ea85f67297bbbf"
+    },
+    "stability_summary": {
+      "path": "evaluation/results/gemma4_12b_prompt_v2_format_json_reconsideration_v1_stability_v1.json",
+      "sha256": "27e00f3f8327b65c5249a4524b8dcb3c155495824a0c24a99faef8a1e9049e8d"
+    },
+    "gold012_summary": {
+      "path": "evaluation/results/gemma4_12b_prompt_v2_format_json_reconsideration_v1_gold012_summary.json",
+      "sha256": "010f75a18f016cfa834cb31a9eceb78060d71d7b960fe2cc54a178d2acdf42a4"
+    },
+    "gold012_material_review": {
+      "path": "evaluation/results/gemma4_12b_prompt_v2_format_json_reconsideration_v1_gold012_material_review.json",
+      "sha256": "8120024c0135b6fad4ad0c1ebf20ecfd204839a507452cfa4ba43ea628e5f96a"
+    },
+    "human_review_source": {
+      "path": "evaluation/runs/gemma4_12b_prompt_v2_format_json_reconsideration_v1_full_human_review_preenchido.json",
+      "sha256": "8b24c98f76e6c0ded909b808d4678a067633ae6af1b4ce4e84a3bd83717ac9c2"
+    },
+    "final_review": {
+      "path": "evaluation/results/gemma4_12b_prompt_v2_format_json_reconsideration_v1_full_final_review.json",
+      "sha256": "e743e5f868b7bcfd7464999e1b4bcc53eed9f4f3aee98ce6f185252d187a864a"
+    }
+  },
+  "automatic_summary": {
+    "automatic_pass": "30/32",
+    "json_valid": "32/32",
+    "output_schema_valid": "31/32",
+    "decision_payload_valid": "31/32",
+    "expected_decision_match": "30/32",
+    "false_abstention": 0,
+    "unsafe_answer_on_insufficient": 0,
+    "invalid_citations_formally_parsed": 0,
+    "out_of_evidence_citations": 0,
+    "missed_clarifications": 2,
+    "missed_clarification_cases": ["GOLD-027", "GOLD-031"],
+    "required_citations_covered": "32/32",
+    "automatic_failure_cases": ["GOLD-027", "GOLD-031"]
+  },
+  "stability_summary": {
+    "seeds": [42, 43, 44],
+    "decision_stable": "12/12",
+    "decision_unstable": "0/12",
+    "unstable_cases": [],
+    "automatic_pass_by_seed": {
+      "42": "12/12",
+      "43": "12/12",
+      "44": "12/12"
+    },
+    "required_citation_coverage_unstable": "0/12",
+    "citation_set_variation": "0/12",
+    "unsafe_answer_on_insufficient": 0,
+    "invalid_citations_formally_parsed": 0,
+    "out_of_evidence_citations": 0
+  },
+  "gold012_summary": {
+    "decisions": {
+      "42": "ANSWER",
+      "43": "ANSWER",
+      "44": "ANSWER"
+    },
+    "automatic_result": "CORRECT_ANSWER_3_OF_3",
+    "human_full": {
+      "legal_correctness": "PASS",
+      "groundedness": "PASS",
+      "completeness": "PASS"
+    },
+    "human_material_by_seed": {
+      "42": "PASS_PASS_PASS",
+      "43": "PASS_PASS_PASS",
+      "44": "PASS_PASS_PASS"
+    },
+    "human_material_result": "CORRECT_3_OF_3"
+  },
+  "human_summary": {
+    "legal_correctness": "32/32",
+    "groundedness": "32/32",
+    "completeness": "29/32",
+    "all_three_criteria": "29/32",
+    "strict_automatic_plus_human": "29/32",
+    "human_failure_cases": ["GOLD-027", "GOLD-028", "GOLD-031"],
+    "formal_material_divergence": {
+      "automatic_pass": "30/32",
+      "human_all_three": "29/32",
+      "strict_intersection": "29/32",
+      "cause": "GOLD-027 has a preserved output-schema failure, GOLD-031 has a decision mismatch, and GOLD-028 passes formally but remains materially incomplete."
+    }
+  },
+  "risk_scorecard": [
+    {
+      "risk_id": "RISK-01",
+      "name": "PREMATURE_FACTUAL_APPLICATION",
+      "status": "NOT_OBSERVED_ON_REFERENCE_CASES",
+      "severity": "HIGH",
+      "references": ["GOLD-029", "GOLD-030"],
+      "rationale": "Both full responses passed all human criteria and all three stability seeds returned materially appropriate CLARIFY responses without applying the law prematurely to unresolved facts."
+    },
+    {
+      "risk_id": "RISK-02",
+      "name": "EVIDENCE_COMPREHENSION_NEGATION_POLARITY_FAILURE",
+      "status": "NOT_OBSERVED_ON_CURRENT_FULL_AND_PROBE",
+      "references": ["GOLD-012"],
+      "rationale": "The full case and all three probes passed automatic and material review with the correct negation, exception and citation."
+    },
+    {
+      "risk_id": "RISK-03",
+      "name": "MATERIAL_QUALIFIER_OR_EXCEPTION_OMISSION",
+      "status": "NOT_OBSERVED_ON_REFERENCE_CASES",
+      "references": ["GOLD-015", "GOLD-018"],
+      "rationale": "Both full cases passed all human criteria. GOLD-018 preserved its rule, exception and identical required citation set in all three stability seeds."
+    },
+    {
+      "risk_id": "RISK-04",
+      "name": "MULTI_PART_QUESTION_INCOMPLETENESS",
+      "status": "NOT_OBSERVED_IN_FULL",
+      "references": ["GOLD-016"],
+      "rationale": "GOLD-016 passed legal correctness, groundedness and completeness, including the decision duty, deadline and reasoned equal-period extension."
+    },
+    {
+      "risk_id": "RISK-05",
+      "name": "CLARIFICATION_CONTENT_INCOMPLETENESS",
+      "status": "OBSERVED",
+      "references": ["GOLD-027"],
+      "contextual_references": ["GOLD-028", "GOLD-031"],
+      "rationale": "The three cases were legally correct and grounded but materially incomplete in requesting all facts needed for a conclusive answer. GOLD-031 also used ABSTAIN instead of the expected CLARIFY decision."
+    },
+    {
+      "risk_id": "RISK-06",
+      "name": "CITATION_VALUE_FORMAT_ERROR",
+      "status": "NOT_OBSERVED",
+      "references": ["GOLD-004", "GOLD-014"],
+      "rationale": "Both reference cases used valid stable evidence identifiers. GOLD-027's citations_ids field is a schema-key failure and is not reclassified as a citation value error."
+    },
+    {
+      "risk_id": "RISK-07",
+      "name": "FORMAL_CITATION_COVERAGE_VS_MATERIAL_COMPLETENESS",
+      "status": "NOT_OBSERVED",
+      "references": ["GOLD-013"],
+      "rationale": "GOLD-013 passed formal required-citation coverage and all three human material criteria; the baseline contract divergence did not recur under format=json."
+    },
+    {
+      "risk_id": "RISK-08",
+      "name": "COMPOSITE_CITATION_SAMPLING_VARIABILITY",
+      "status": "NOT_OBSERVED_ON_REFERENCE_CASES",
+      "references": ["GOLD-018", "GOLD-020"],
+      "rationale": "Both reference cases preserved their decisions and exact citation sets in all three stability seeds."
+    }
+  ],
+  "comparison_with_previous_candidates": {
+    "gemma4_baseline": {
+      "candidate_verdict": "RECONSIDER",
+      "human_all_three": "29/32",
+      "strict_automatic_plus_human": "12/32",
+      "output_contract_valid": "12/32",
+      "decision_stable": "5/12"
+    },
+    "gemma4_format_json": {
+      "candidate_verdict": "ACCEPT",
+      "human_all_three": "29/32",
+      "strict_automatic_plus_human": "29/32",
+      "output_contract_valid": "30/32",
+      "decision_stable": "12/12"
+    },
+    "interpretation": "Structured JSON output removed the dominant envelope failure, materially improved formal compliance and stability, and preserved the baseline's strongest material result without reintroducing the high-severity reference risks."
+  },
+  "verdict": {
+    "gold_evidence_capability": "CAPABLE",
+    "candidate_verdict": "ACCEPT",
+    "final_legal_answerer": "ACCEPTED",
+    "primary_verdict_reason": "STRUCTURED_OUTPUT_RESOLVED_PRIMARY_OPERATIONAL_BLOCKER_WITHOUT_MATERIAL_REGRESSION",
+    "residual_known_limitations": [
+      "GOLD-027_OUTPUT_SCHEMA_FAILURE_CITATIONS_IDS",
+      "GOLD-031_CLARIFICATION_DECISION_FAILURE",
+      "RISK-05_CLARIFICATION_CONTENT_INCOMPLETENESS"
+    ],
+    "next_gate": "FREEZE_SELECTED_MODEL_CONFIGURATION_AND_RUNTIME_BEFORE_RAG_INTEGRATION_OR_HOLDOUT",
+    "scope": "Acceptance applies to the frozen Gemma4 configuration with generic ollama_format=json on the Phase 2 DEV Gold Evidence protocol; it does not authorize opening HOLDOUT or starting RAG integration in this task."
+  },
+  "invariants": {
+    "aggregate_risk_score_created": false,
+    "prompt_changed": false,
+    "dataset_changed": false,
+    "evaluator_changed": false,
+    "cross_model_manifest_changed": false,
+    "llm_inference_executed_by_codex": false,
+    "holdout_read": false,
+    "live_corpus_status": "UNRESOLVED"
+  }
+}

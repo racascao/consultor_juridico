@@ -1,0 +1,118 @@
+{
+  "run_id": "a454dc49-ee65-45b2-8287-680b6147dda8",
+  "status": "COMPLETED",
+  "provider": "ollama",
+  "provider_version": "0.33.2",
+  "model": "phi4-mini:3.8b-q4_K_M",
+  "model_digest": "78fad5d182a7c33065e153a5f8ba210754207ba9d91973f57dffa7f487363753",
+  "quantization": "Q4_K_M",
+  "dataset_sha256": "68a319031b7ca3f9da912761ab5328ef6bf37251f8750b3e24207c7258622f65",
+  "input_bundle_sha256": "88dcfeef9eccadcff745f6e2ddaa1caa8c274c35d03b720d5d44462012686ea8",
+  "prompt_name": "gold-evidence-answering",
+  "prompt_version": "2",
+  "act_version_hash": "298028477a55a61cdd1df94bda3aec784e6fe94d17c485ae6a2f6c77fe2b7a74",
+  "generation_config": {
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "seed": 42,
+    "repeat_penalty": 1.0,
+    "num_predict": 1024,
+    "num_ctx": 8192,
+    "stream": false
+  },
+  "thinking_mode": "auto",
+  "max_generation_time_seconds": 180.0,
+  "started_at": "2026-09-04T02:43:36.104527+00:00",
+  "finished_at": "2026-09-04T02:45:34.709729+00:00",
+  "case_count": 12,
+  "completed_case_count": 12,
+  "semantic_retries": 0,
+  "case_metrics": [
+    {
+      "case_id": "GOLD-005",
+      "latency_ms": 15910.270449,
+      "total_duration_ns": 15910270449,
+      "prompt_eval_count": 580,
+      "eval_count": 48
+    },
+    {
+      "case_id": "GOLD-011",
+      "latency_ms": 6995.254569,
+      "total_duration_ns": 6995254569,
+      "prompt_eval_count": 575,
+      "eval_count": 52
+    },
+    {
+      "case_id": "GOLD-001",
+      "latency_ms": 6550.20962,
+      "total_duration_ns": 6550209620,
+      "prompt_eval_count": 548,
+      "eval_count": 52
+    },
+    {
+      "case_id": "GOLD-014",
+      "latency_ms": 12222.536344,
+      "total_duration_ns": 12222536344,
+      "prompt_eval_count": 712,
+      "eval_count": 89
+    },
+    {
+      "case_id": "GOLD-018",
+      "latency_ms": 7112.459189,
+      "total_duration_ns": 7112459189,
+      "prompt_eval_count": 717,
+      "eval_count": 27
+    },
+    {
+      "case_id": "GOLD-020",
+      "latency_ms": 16145.410431,
+      "total_duration_ns": 16145410431,
+      "prompt_eval_count": 854,
+      "eval_count": 106
+    },
+    {
+      "case_id": "GOLD-025",
+      "latency_ms": 2428.534913,
+      "total_duration_ns": 2428534913,
+      "prompt_eval_count": 427,
+      "eval_count": 24
+    },
+    {
+      "case_id": "GOLD-026",
+      "latency_ms": 2403.615277,
+      "total_duration_ns": 2403615277,
+      "prompt_eval_count": 429,
+      "eval_count": 24
+    },
+    {
+      "case_id": "GOLD-022",
+      "latency_ms": 2389.857372,
+      "total_duration_ns": 2389857372,
+      "prompt_eval_count": 428,
+      "eval_count": 24
+    },
+    {
+      "case_id": "GOLD-032",
+      "latency_ms": 18640.016053,
+      "total_duration_ns": 18640016053,
+      "prompt_eval_count": 1278,
+      "eval_count": 48
+    },
+    {
+      "case_id": "GOLD-030",
+      "latency_ms": 11344.030204,
+      "total_duration_ns": 11344030204,
+      "prompt_eval_count": 865,
+      "eval_count": 37
+    },
+    {
+      "case_id": "GOLD-029",
+      "latency_ms": 16449.046674,
+      "total_duration_ns": 16449046674,
+      "prompt_eval_count": 1083,
+      "eval_count": 51
+    }
+  ],
+  "failure": null
+}

@@ -1,0 +1,244 @@
+{
+  "manifest_name": "gold-evidence-cross-model",
+  "manifest_version": "1",
+  "status": "FROZEN_BEFORE_FIRST_CANDIDATE_RUN",
+  "prepared_on": "2026-09-03",
+  "provider": {
+    "name": "ollama",
+    "version": "0.33.2",
+    "deployment": "DOCKER_COMPOSE_ONLY",
+    "compose_service": "ollama",
+    "host_cli_url": "http://localhost:11435",
+    "compose_internal_url": "http://ollama:11434",
+    "host_native_ollama_allowed": false
+  },
+  "hardware": {
+    "cpu_model": "Intel(R) Core(TM) Ultra 7 255HX",
+    "logical_cpus": 20,
+    "threads_per_core": 1,
+    "cores_per_socket": 20,
+    "sockets": 1,
+    "host_memory_total_reported": "14 GiB",
+    "host_swap_total_reported": "15 GiB",
+    "docker_cpus": 20,
+    "docker_memory_bytes": 15624507392,
+    "compose_resource_limits": null
+  },
+  "dataset": {
+    "path": "evaluation/datasets/lei_9784_gold_evidence_dev_v1.json",
+    "id": "lei_9784_gold_evidence_dev_v1",
+    "sha256": "68a319031b7ca3f9da912761ab5328ef6bf37251f8750b3e24207c7258622f65",
+    "case_count": 32,
+    "act_version_hash": "298028477a55a61cdd1df94bda3aec784e6fe94d17c485ae6a2f6c77fe2b7a74"
+  },
+  "inputs": {
+    "full": {
+      "path": "evaluation/runs/gold_evidence_input_prompt_v2.jsonl",
+      "sha256": "dd91a0d68f5e7e78ec9739b8fcde333308362a246d934c5a38da6810af3bdd98",
+      "case_count": 32
+    },
+    "stability": {
+      "path": "evaluation/runs/gold_evidence_stability_prompt_v2_input.jsonl",
+      "sha256": "88dcfeef9eccadcff745f6e2ddaa1caa8c274c35d03b720d5d44462012686ea8",
+      "case_count": 12
+    },
+    "risk_02_gold_012": {
+      "path": "evaluation/runs/gold_evidence_posthoc_gold012_prompt_v2_input.jsonl",
+      "sha256": "56231c6a051a7093f3e1c2fb4cfc5af176b41021a064f3a601c7caa40c4fe319",
+      "case_count": 1
+    }
+  },
+  "prompt": {
+    "name": "gold-evidence-answering",
+    "version": "2",
+    "role": "CROSS_MODEL_CANONICAL_PROMPT",
+    "changes_during_protocol_allowed": false
+  },
+  "generation": {
+    "full_run_seed": 42,
+    "stability_seeds": [42, 43, 44],
+    "risk_02_probe_seeds": [42, 43, 44],
+    "options": {
+      "temperature": 0.7,
+      "top_p": 0.8,
+      "top_k": 20,
+      "repeat_penalty": 1.0,
+      "num_predict": 1024,
+      "num_ctx": 8192
+    },
+    "stream": false,
+    "max_generation_time_seconds": 180,
+    "semantic_retries": 0,
+    "one_generation_per_case": true,
+    "regime": "DIRECT_ANSWER"
+  },
+  "candidate_order": [
+    "qwen3.5:9b",
+    "phi4-mini:3.8b-q4_K_M",
+    "gemma3:4b",
+    "gemma4:12b"
+  ],
+  "models": [
+    {
+      "candidate": 2,
+      "slug": "qwen3_5_9b",
+      "requested_tag": "qwen3.5:9b",
+      "ollama_name": "qwen3.5:9b",
+      "digest": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+      "size_bytes": 6594474711,
+      "format": "gguf",
+      "family": "qwen35",
+      "parameter_count_reported": "9.7B",
+      "quantization": "Q4_K_M",
+      "context_capability": 262144,
+      "capabilities": ["completion", "vision", "tools", "thinking"],
+      "template_metadata": {
+        "renderer": "qwen3.5",
+        "parser": "qwen3.5"
+      },
+      "thinking_capability": true,
+      "runner_thinking_mode": "disabled",
+      "effective_regime": "DIRECT_ANSWER"
+    },
+    {
+      "candidate": 3,
+      "slug": "phi4_mini_3_8b",
+      "requested_tag": "phi4-mini:3.8b-q4_K_M",
+      "ollama_name": "phi4-mini:3.8b-q4_K_M",
+      "digest": "78fad5d182a7c33065e153a5f8ba210754207ba9d91973f57dffa7f487363753",
+      "size_bytes": 2491876774,
+      "format": "gguf",
+      "family": "phi3",
+      "parameter_count_reported": "3.8B",
+      "quantization": "Q4_K_M",
+      "context_capability": 131072,
+      "original_context_capability": 4096,
+      "capabilities": ["completion", "tools"],
+      "template_metadata": {
+        "renderer": null,
+        "parser": null,
+        "template_kind": "OLLAMA_CHAT_TEMPLATE"
+      },
+      "thinking_capability": false,
+      "runner_thinking_mode": "auto",
+      "effective_regime": "DIRECT_ANSWER"
+    },
+    {
+      "candidate": 4,
+      "slug": "gemma3_4b",
+      "requested_tag": "gemma3:4b",
+      "ollama_name": "gemma3:4b",
+      "digest": "a2af6cc3eb7fa8be8504abaf9b04e88f17a119ec3f04a3addf55f92841195f5a",
+      "size_bytes": 3338801804,
+      "format": "gguf",
+      "family": "gemma3",
+      "parameter_count_reported": "4.3B",
+      "quantization": "Q4_K_M",
+      "context_capability": 131072,
+      "capabilities": ["completion", "vision"],
+      "template_metadata": {
+        "renderer": null,
+        "parser": null,
+        "template_kind": "OLLAMA_CHAT_TEMPLATE"
+      },
+      "thinking_capability": false,
+      "runner_thinking_mode": "auto",
+      "effective_regime": "DIRECT_ANSWER"
+    },
+    {
+      "candidate": 5,
+      "slug": "gemma4_12b",
+      "requested_tag": "gemma4:12b",
+      "ollama_name": "gemma4:12b",
+      "digest": "4eb23ef187e2c5462566d6a1d3bbbc2f1346d0b4327cbb66d58fffbcc9b2b05c",
+      "size_bytes": 7556508396,
+      "format": "gguf",
+      "family": "gemma4",
+      "parameter_count_reported": "11.9B",
+      "quantization": "Q4_K_M",
+      "context_capability": 262144,
+      "capabilities": ["completion", "vision", "audio", "tools", "thinking"],
+      "template_metadata": {
+        "renderer": "gemma4",
+        "parser": "gemma4"
+      },
+      "thinking_capability": true,
+      "runner_thinking_mode": "disabled",
+      "effective_regime": "DIRECT_ANSWER"
+    }
+  ],
+  "evaluation_protocol": {
+    "automatic_evaluation_required": true,
+    "stability_required": true,
+    "risk_02_probe_required": true,
+    "human_review_required": true,
+    "risk_scorecard_required": true,
+    "early_stop_after_first_accept": false,
+    "all_four_candidates_planned": true
+  },
+  "human_review": {
+    "rubric": "SAME_AS_QWEN3_4B_BASELINE",
+    "fields": ["legal_correctness", "groundedness", "completeness", "comments"],
+    "llm_judge": false,
+    "automatic_fill": false
+  },
+  "risk_taxonomy": {
+    "RISK-01": {
+      "name": "PREMATURE_FACTUAL_APPLICATION",
+      "references": ["GOLD-029", "GOLD-030"],
+      "baseline": "CONFIRMED_REPRODUCIBLE"
+    },
+    "RISK-02": {
+      "name": "EVIDENCE_COMPREHENSION / NEGATION_POLARITY_FAILURE",
+      "references": ["GOLD-012"],
+      "baseline": "CONFIRMED_REPRODUCIBLE_UNDER_PROMPT_V2",
+      "cross_prompt_behavior": "PROMPT_SENSITIVE"
+    },
+    "RISK-03": {
+      "name": "MATERIAL_QUALIFIER_OR_EXCEPTION_OMISSION",
+      "references": ["GOLD-015", "GOLD-018"]
+    },
+    "RISK-04": {
+      "name": "MULTI_PART_QUESTION_INCOMPLETENESS",
+      "references": ["GOLD-016"]
+    },
+    "RISK-05": {
+      "name": "CLARIFICATION_CONTENT_INCOMPLETENESS",
+      "references": ["GOLD-027"]
+    },
+    "RISK-06": {
+      "name": "CITATION_VALUE_FORMAT_ERROR",
+      "references": ["GOLD-004", "GOLD-014"]
+    },
+    "RISK-07": {
+      "name": "FORMAL_CITATION_COVERAGE_VS_MATERIAL_COMPLETENESS",
+      "references": ["GOLD-013"]
+    },
+    "RISK-08": {
+      "name": "COMPOSITE_CITATION_SAMPLING_VARIABILITY",
+      "references": ["GOLD-018", "GOLD-020"]
+    }
+  },
+  "historical_baseline": {
+    "model": "qwen3:4b-instruct-2507-q4_K_M",
+    "capability": "PARTIALLY_CAPABLE",
+    "final_legal_answerer": "REJECTED",
+    "human_material_pass": "25/32",
+    "single_support": "11/12",
+    "composite_support": "5/8",
+    "insufficient_evidence": "6/6",
+    "ambiguous": "3/6",
+    "out_of_evidence_citations": 0,
+    "unsafe_answer_on_insufficient": 0,
+    "reexecute": false
+  },
+  "invariants": {
+    "prompt_changed": false,
+    "dataset_changed": false,
+    "evaluator_changed": false,
+    "holdout_read": false,
+    "rag_started": false,
+    "model_specific_prompt_or_parser": false,
+    "manifest_mutable_after_first_candidate_run": false
+  }
+}

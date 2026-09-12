@@ -1,0 +1,1302 @@
+{
+  "metadata": {
+    "dataset_id": "lei_9784_gold_evidence_dev_v1",
+    "dataset_sha256": "68a319031b7ca3f9da912761ab5328ef6bf37251f8750b3e24207c7258622f65",
+    "responses_sha256": "c0ce57d9309dc37fcec34b1a9ee9b1dc8fbf187b120717bd67978c117c68ac27",
+    "version_hash": "298028477a55a61cdd1df94bda3aec784e6fe94d17c485ae6a2f6c77fe2b7a74",
+    "prompt_name": "gold-evidence-answering",
+    "prompt_version": "2",
+    "evaluated_at": "2026-09-01T20:06:22.945752+00:00",
+    "case_count": 32
+  },
+  "cases": [
+    {
+      "case_id": "GOLD-001",
+      "category": "SINGLE_SUPPORT",
+      "question": "De que formas um processo administrativo pode ser iniciado?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:5/CAPUT"
+      ],
+      "required_provisions": [
+        "ARTICLE:5/CAPUT"
+      ],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"Um processo administrativo pode ser iniciado de ofício ou a pedido de interessado, conforme o Art. 5º, Caput, da Lei 9.784/1999.\",\"citations\":[\"ARTICLE:5/CAPUT\"]}",
+      "latency_ms": 22824.374886,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "Um processo administrativo pode ser iniciado de ofício ou a pedido de interessado, conforme o Art. 5º, Caput, da Lei 9.784/1999.",
+        "citations": [
+          "ARTICLE:5/CAPUT"
+        ]
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "GOLD-002",
+      "category": "SINGLE_SUPPORT",
+      "question": "Quem é considerado capaz para fins de processo administrativo?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:10/CAPUT"
+      ],
+      "required_provisions": [
+        "ARTICLE:10/CAPUT"
+      ],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"Os maiores de dezoito anos são considerados capazes para fins de processo administrativo, ressalvada previsão especial em ato normativo próprio.\",\"citations\":[\"ARTICLE:10/CAPUT\"]}",
+      "latency_ms": 7936.306446,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "Os maiores de dezoito anos são considerados capazes para fins de processo administrativo, ressalvada previsão especial em ato normativo próprio.",
+        "citations": [
+          "ARTICLE:10/CAPUT"
+        ]
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "GOLD-003",
+      "category": "SINGLE_SUPPORT",
+      "question": "A competência administrativa pode ser renunciada?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:11/CAPUT"
+      ],
+      "required_provisions": [
+        "ARTICLE:11/CAPUT"
+      ],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"Não, a competência administrativa não pode ser renunciada, pois é irrenunciável, conforme estabelecido no Art. 11, caput, da Lei nº 9.784/1999.\",\"citations\":[\"ARTICLE:11/CAPUT\"]}",
+      "latency_ms": 9458.219449,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "Não, a competência administrativa não pode ser renunciada, pois é irrenunciável, conforme estabelecido no Art. 11, caput, da Lei nº 9.784/1999.",
+        "citations": [
+          "ARTICLE:11/CAPUT"
+        ]
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "GOLD-004",
+      "category": "SINGLE_SUPPORT",
+      "question": "Quando pode ser exigido o reconhecimento de firma no processo administrativo?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:22/PARAGRAPH:2"
+      ],
+      "required_provisions": [
+        "ARTICLE:22/PARAGRAPH:2"
+      ],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"O reconhecimento de firma pode ser exigido no processo administrativo quando houver dúvida de autenticidade, salvo imposição legal (Art. 22/Parágrafo 2).\",\"citations\":[\"EVIDENCE_ID: ARTICLE:22/PARAGRAPH:2\"]}",
+      "latency_ms": 9479.325836,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "O reconhecimento de firma pode ser exigido no processo administrativo quando houver dúvida de autenticidade, salvo imposição legal (Art. 22/Parágrafo 2).",
+        "citations": [
+          "EVIDENCE_ID: ARTICLE:22/PARAGRAPH:2"
+        ]
+      },
+      "invalid_citations": [
+        "EVIDENCE_ID: ARTICLE:22/PARAGRAPH:2"
+      ],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": false,
+        "no_invalid_citations": false,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": false,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL"
+    },
+    {
+      "case_id": "GOLD-005",
+      "category": "SINGLE_SUPPORT",
+      "question": "Qual é o prazo geral para a prática de atos no processo quando não há disposição específica?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:24/CAPUT"
+      ],
+      "required_provisions": [
+        "ARTICLE:24/CAPUT"
+      ],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"O prazo geral para a prática de atos no processo, quando não há disposição específica, é de cinco dias, salvo motivo de força maior.\",\"citations\":[\"ARTICLE:24/CAPUT\"]}",
+      "latency_ms": 8467.538854,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "O prazo geral para a prática de atos no processo, quando não há disposição específica, é de cinco dias, salvo motivo de força maior.",
+        "citations": [
+          "ARTICLE:24/CAPUT"
+        ]
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "GOLD-006",
+      "category": "SINGLE_SUPPORT",
+      "question": "Provas obtidas por meios ilícitos são admitidas no processo administrativo?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:30/CAPUT"
+      ],
+      "required_provisions": [
+        "ARTICLE:30/CAPUT"
+      ],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"Não, provas obtidas por meios ilícitos são inadmissíveis no processo administrativo, conforme o Art. 30, Caput, da Lei 9.784/1999.\",\"citations\":[\"ARTICLE:30/CAPUT\"]}",
+      "latency_ms": 8902.644759,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "Não, provas obtidas por meios ilícitos são inadmissíveis no processo administrativo, conforme o Art. 30, Caput, da Lei 9.784/1999.",
+        "citations": [
+          "ARTICLE:30/CAPUT"
+        ]
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "GOLD-007",
+      "category": "SINGLE_SUPPORT",
+      "question": "A Administração deve emitir decisão explícita sobre solicitações de sua competência?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:48/CAPUT"
+      ],
+      "required_provisions": [
+        "ARTICLE:48/CAPUT"
+      ],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"Sim, a Administração deve emitir decisão explícita sobre solicitações de sua competência, conforme o Art. 48/Caput.\",\"citations\":[\"ARTICLE:48/CAPUT\"]}",
+      "latency_ms": 8473.389908,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "Sim, a Administração deve emitir decisão explícita sobre solicitações de sua competência, conforme o Art. 48/Caput.",
+        "citations": [
+          "ARTICLE:48/CAPUT"
+        ]
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "GOLD-008",
+      "category": "SINGLE_SUPPORT",
+      "question": "Em quanto tempo decai o direito da Administração de anular atos favoráveis ao destinatário, salvo má-fé?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:54/CAPUT"
+      ],
+      "required_provisions": [
+        "ARTICLE:54/CAPUT"
+      ],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"O direito da Administração de anular atos favoráveis ao destinatário decai em cinco anos, contados da data em que foram praticados, salvo comprovada má-fé.\",\"citations\":[\"ARTICLE:54/CAPUT\"]}",
+      "latency_ms": 9824.158019,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "O direito da Administração de anular atos favoráveis ao destinatário decai em cinco anos, contados da data em que foram praticados, salvo comprovada má-fé.",
+        "citations": [
+          "ARTICLE:54/CAPUT"
+        ]
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "GOLD-009",
+      "category": "SINGLE_SUPPORT",
+      "question": "Quando um ato com defeito sanável pode ser convalidado pela Administração?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:55/CAPUT"
+      ],
+      "required_provisions": [
+        "ARTICLE:55/CAPUT"
+      ],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"Quando os atos com defeitos sanáveis não acarretarem lesão ao interesse público nem prejuízo a terceiros, podem ser convalidados pela própria Administração, conforme o Art. 55/CP.\",\"citations\":[\"ARTICLE:55/CAPUT\"]}",
+      "latency_ms": 9705.823332,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "Quando os atos com defeitos sanáveis não acarretarem lesão ao interesse público nem prejuízo a terceiros, podem ser convalidados pela própria Administração, conforme o Art. 55/CP.",
+        "citations": [
+          "ARTICLE:55/CAPUT"
+        ]
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "GOLD-010",
+      "category": "SINGLE_SUPPORT",
+      "question": "Por quantas instâncias administrativas um recurso pode tramitar, como regra geral?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:57/CAPUT"
+      ],
+      "required_provisions": [
+        "ARTICLE:57/CAPUT"
+      ],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"Um recurso pode tramitar, como regra geral, por três instâncias administrativas, conforme o Art. 57/CP.\",\"citations\":[\"ARTICLE:57/CAPUT\"]}",
+      "latency_ms": 7675.827705,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "Um recurso pode tramitar, como regra geral, por três instâncias administrativas, conforme o Art. 57/CP.",
+        "citations": [
+          "ARTICLE:57/CAPUT"
+        ]
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "GOLD-011",
+      "category": "SINGLE_SUPPORT",
+      "question": "O que o recorrente deve expor no requerimento de recurso administrativo?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:60/CAPUT"
+      ],
+      "required_provisions": [
+        "ARTICLE:60/CAPUT"
+      ],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"O recorrente deve expor os fundamentos do pedido de reexame no requerimento de recurso administrativo, podendo juntar os documentos que julgar convenientes.\",\"citations\":[\"ARTICLE:60/CAPUT\"]}",
+      "latency_ms": 8498.25729,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "O recorrente deve expor os fundamentos do pedido de reexame no requerimento de recurso administrativo, podendo juntar os documentos que julgar convenientes.",
+        "citations": [
+          "ARTICLE:60/CAPUT"
+        ]
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "GOLD-012",
+      "category": "SINGLE_SUPPORT",
+      "question": "Os prazos processuais administrativos ficam suspensos normalmente?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ABSTAIN",
+      "gold_provisions": [
+        "ARTICLE:67/CAPUT"
+      ],
+      "required_provisions": [
+        "ARTICLE:67/CAPUT"
+      ],
+      "raw_response": "{\"decision\":\"ABSTAIN\",\"answer\":\"A EVIDENCE fornecida é insuficiente para responder sobre a suspensão de prazos processuais administrativos, pois o texto referente aos prazos processuais não menciona explicitamente a suspensão ou o contexto administrativo.\",\"citations\":[]}",
+      "latency_ms": 8827.336647,
+      "parsed_response": {
+        "decision": "ABSTAIN",
+        "answer": "A EVIDENCE fornecida é insuficiente para responder sobre a suspensão de prazos processuais administrativos, pois o texto referente aos prazos processuais não menciona explicitamente a suspensão ou o contexto administrativo.",
+        "citations": []
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": false,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": false,
+        "false_abstention": true,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL"
+    },
+    {
+      "case_id": "GOLD-013",
+      "category": "COMPOSITE_SUPPORT",
+      "question": "Quais dados devem constar de um requerimento inicial escrito apresentado pelo interessado?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:6/CAPUT",
+        "ARTICLE:6/CAPUT/INCISO:I",
+        "ARTICLE:6/CAPUT/INCISO:II",
+        "ARTICLE:6/CAPUT/INCISO:III",
+        "ARTICLE:6/CAPUT/INCISO:IV",
+        "ARTICLE:6/CAPUT/INCISO:V"
+      ],
+      "required_provisions": [
+        "ARTICLE:6/CAPUT",
+        "ARTICLE:6/CAPUT/INCISO:I",
+        "ARTICLE:6/CAPUT/INCISO:II",
+        "ARTICLE:6/CAPUT/INCISO:III",
+        "ARTICLE:6/CAPUT/INCISO:IV",
+        "ARTICLE:6/CAPUT/INCISO:V"
+      ],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"O requerimento inicial deve conter: I - órgão ou autoridade administrativa a que se dirige; II - identificação do interessado ou de quem o represente; III - domicílio do requerente ou local para recebimento de comunicações; IV - formulação do pedido, com exposição dos fatos e de seus fundamentos; V - data e assinatura do requerente ou de seu representante.\",\"citations\":[\"ARTICLE:6/CAPUT/INCISO:I\",\"ARTICLE:6/CAPUT/INCISO:II\",\"ARTICLE:6/CAPUT/INCISO:III\",\"ARTICLE:6/CAPUT/INCISO:IV\",\"ARTICLE:6/CAPUT/INCISO:V\"]}",
+      "latency_ms": 31512.296022,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "O requerimento inicial deve conter: I - órgão ou autoridade administrativa a que se dirige; II - identificação do interessado ou de quem o represente; III - domicílio do requerente ou local para recebimento de comunicações; IV - formulação do pedido, com exposição dos fatos e de seus fundamentos; V - data e assinatura do requerente ou de seu representante.",
+        "citations": [
+          "ARTICLE:6/CAPUT/INCISO:I",
+          "ARTICLE:6/CAPUT/INCISO:II",
+          "ARTICLE:6/CAPUT/INCISO:III",
+          "ARTICLE:6/CAPUT/INCISO:IV",
+          "ARTICLE:6/CAPUT/INCISO:V"
+        ]
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": false,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL"
+    },
+    {
+      "case_id": "GOLD-014",
+      "category": "COMPOSITE_SUPPORT",
+      "question": "Com qual antecedência deve ocorrer a intimação para comparecimento e por quais meios ela pode ser feita?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:26/PARAGRAPH:2",
+        "ARTICLE:26/PARAGRAPH:3"
+      ],
+      "required_provisions": [
+        "ARTICLE:26/PARAGRAPH:2",
+        "ARTICLE:26/PARAGRAPH:3"
+      ],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"A intimação deve ocorrer com antecedência mínima de três dias úteis e pode ser feita por ciência no processo, por via postal com aviso de recebimento, por telegrama ou outro meio que assegure a certeza da ciência do interessado.\",\"citations\":[\"EVIDENCE_ID: ARTICLE:26/PARAGRAPH:2\",\"EVIDENCE_ID: ARTICLE:26/PARAGRAPH:3\"]}",
+      "latency_ms": 15786.55857,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "A intimação deve ocorrer com antecedência mínima de três dias úteis e pode ser feita por ciência no processo, por via postal com aviso de recebimento, por telegrama ou outro meio que assegure a certeza da ciência do interessado.",
+        "citations": [
+          "EVIDENCE_ID: ARTICLE:26/PARAGRAPH:2",
+          "EVIDENCE_ID: ARTICLE:26/PARAGRAPH:3"
+        ]
+      },
+      "invalid_citations": [
+        "EVIDENCE_ID: ARTICLE:26/PARAGRAPH:2",
+        "EVIDENCE_ID: ARTICLE:26/PARAGRAPH:3"
+      ],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": false,
+        "no_invalid_citations": false,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": false,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL"
+    },
+    {
+      "case_id": "GOLD-015",
+      "category": "COMPOSITE_SUPPORT",
+      "question": "Qual é o prazo para parecer obrigatório e o que ocorre se um parecer vinculante ou não vinculante atrasar?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:42/CAPUT",
+        "ARTICLE:42/PARAGRAPH:1",
+        "ARTICLE:42/PARAGRAPH:2"
+      ],
+      "required_provisions": [
+        "ARTICLE:42/CAPUT",
+        "ARTICLE:42/PARAGRAPH:1",
+        "ARTICLE:42/PARAGRAPH:2"
+      ],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"O prazo para emitir um parecer obrigatório é de quinze dias, conforme o Art. 42, caput. Se o parecer obrigatório e vinculante atrasar, o processo não terá seguimento até a apresentação do parecer, com responsabilização do responsável pelo atraso. Se o parecer obrigatório e não vinculante atrasar, o processo poderá prosseguir e ser decidido com dispensa, sem prejuízo da responsabilidade do responsável pela omissão.\",\"citations\":[\"ARTICLE:42/CAPUT\",\"ARTICLE:42/PARAGRAPH:1\",\"ARTICLE:42/PARAGRAPH:2\"]}",
+      "latency_ms": 26536.33243,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "O prazo para emitir um parecer obrigatório é de quinze dias, conforme o Art. 42, caput. Se o parecer obrigatório e vinculante atrasar, o processo não terá seguimento até a apresentação do parecer, com responsabilização do responsável pelo atraso. Se o parecer obrigatório e não vinculante atrasar, o processo poderá prosseguir e ser decidido com dispensa, sem prejuízo da responsabilidade do responsável pela omissão.",
+        "citations": [
+          "ARTICLE:42/CAPUT",
+          "ARTICLE:42/PARAGRAPH:1",
+          "ARTICLE:42/PARAGRAPH:2"
+        ]
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "GOLD-016",
+      "category": "COMPOSITE_SUPPORT",
+      "question": "A Administração tem dever de decidir e qual é o prazo após a conclusão da instrução?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:48/CAPUT",
+        "ARTICLE:49/CAPUT"
+      ],
+      "required_provisions": [
+        "ARTICLE:48/CAPUT",
+        "ARTICLE:49/CAPUT"
+      ],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"O prazo após a conclusão da instrução é de até trinta dias, salvo prorrogação por igual período expressamente motivada, conforme o Art. 49/Caput.\",\"citations\":[\"ARTICLE:49/CAPUT\"]}",
+      "latency_ms": 13531.526178,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "O prazo após a conclusão da instrução é de até trinta dias, salvo prorrogação por igual período expressamente motivada, conforme o Art. 49/Caput.",
+        "citations": [
+          "ARTICLE:49/CAPUT"
+        ]
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": false,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL"
+    },
+    {
+      "case_id": "GOLD-017",
+      "category": "COMPOSITE_SUPPORT",
+      "question": "Por quais razões cabe recurso administrativo e como ele é encaminhado após eventual reconsideração?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:56/CAPUT",
+        "ARTICLE:56/PARAGRAPH:1"
+      ],
+      "required_provisions": [
+        "ARTICLE:56/CAPUT",
+        "ARTICLE:56/PARAGRAPH:1"
+      ],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"Cabe recurso administrativo por razões de legalidade e de mérito, conforme o Art. 56/Caput. Após reconsideração, se a autoridade não reajustar a decisão no prazo de cinco dias, encaminha o recurso à autoridade superior, conforme o § 1 do Art. 56.\",\"citations\":[\"ARTICLE:56/CAPUT\",\"ARTICLE:56/PARAGRAPH:1\"]}",
+      "latency_ms": 15659.445628,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "Cabe recurso administrativo por razões de legalidade e de mérito, conforme o Art. 56/Caput. Após reconsideração, se a autoridade não reajustar a decisão no prazo de cinco dias, encaminha o recurso à autoridade superior, conforme o § 1 do Art. 56.",
+        "citations": [
+          "ARTICLE:56/CAPUT",
+          "ARTICLE:56/PARAGRAPH:1"
+        ]
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "GOLD-018",
+      "category": "COMPOSITE_SUPPORT",
+      "question": "O recurso administrativo tem efeito suspensivo e em que situação esse efeito pode ser concedido?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:61/CAPUT",
+        "ARTICLE:61/PARAGRAPH:UNIQUE"
+      ],
+      "required_provisions": [
+        "ARTICLE:61/CAPUT",
+        "ARTICLE:61/PARAGRAPH:UNIQUE"
+      ],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"O recurso administrativo não tem efeito suspensivo salvo quando há justo receio de prejuízo de difícil ou incerta reparação decorrente da execução, conforme previsto no Parágrafo Único do Art. 61. Nessa situação, a autoridade recorrida ou a imediatamente superior poderá conceder o efeito suspensivo, seja de ofício ou por pedido.\",\"citations\":[\"ARTICLE:61/CAPUT\",\"ARTICLE:61/PARAGRAPH:UNIQUE\"]}",
+      "latency_ms": 17549.02731,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "O recurso administrativo não tem efeito suspensivo salvo quando há justo receio de prejuízo de difícil ou incerta reparação decorrente da execução, conforme previsto no Parágrafo Único do Art. 61. Nessa situação, a autoridade recorrida ou a imediatamente superior poderá conceder o efeito suspensivo, seja de ofício ou por pedido.",
+        "citations": [
+          "ARTICLE:61/CAPUT",
+          "ARTICLE:61/PARAGRAPH:UNIQUE"
+        ]
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "GOLD-019",
+      "category": "COMPOSITE_SUPPORT",
+      "question": "Quando um processo administrativo sancionador pode ser revisto e qual limite existe para o resultado da revisão?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:65/CAPUT",
+        "ARTICLE:65/PARAGRAPH:UNIQUE"
+      ],
+      "required_provisions": [
+        "ARTICLE:65/CAPUT",
+        "ARTICLE:65/PARAGRAPH:UNIQUE"
+      ],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"Um processo administrativo sancionador pode ser revisto a qualquer tempo, por pedido ou de ofício, quando surgirem fatos novos ou circunstâncias relevantes suscetíveis de justificar a inadequação da sanção aplicada. O limite da revisão é que o resultado da revisão não poderá resultar em agravamento da sanção.\",\"citations\":[\"ARTICLE:65/CAPUT\",\"ARTICLE:65/PARAGRAPH:UNIQUE\"]}",
+      "latency_ms": 17197.822267,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "Um processo administrativo sancionador pode ser revisto a qualquer tempo, por pedido ou de ofício, quando surgirem fatos novos ou circunstâncias relevantes suscetíveis de justificar a inadequação da sanção aplicada. O limite da revisão é que o resultado da revisão não poderá resultar em agravamento da sanção.",
+        "citations": [
+          "ARTICLE:65/CAPUT",
+          "ARTICLE:65/PARAGRAPH:UNIQUE"
+        ]
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "GOLD-020",
+      "category": "COMPOSITE_SUPPORT",
+      "question": "Como se contam os prazos administrativos em dias e o que ocorre se o vencimento cair sem expediente normal?",
+      "expected_decision": "ANSWER",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:66/CAPUT",
+        "ARTICLE:66/PARAGRAPH:1",
+        "ARTICLE:66/PARAGRAPH:2"
+      ],
+      "required_provisions": [
+        "ARTICLE:66/CAPUT",
+        "ARTICLE:66/PARAGRAPH:1",
+        "ARTICLE:66/PARAGRAPH:2"
+      ],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"Os prazos administrativos contam-se de modo contínuo, excluindo-se o dia de início e incluindo-se o dia do vencimento. Se o vencimento cair em dia sem expediente ou se o expediente for encerrado antes da hora normal, o prazo é considerado prorrogado até o primeiro dia útil seguinte. Isso está previsto no Art. 66, § 1º, e no Art. 66, caput.\",\"citations\":[\"ARTICLE:66/CAPUT\",\"ARTICLE:66/PARAGRAPH:1\",\"ARTICLE:66/PARAGRAPH:2\"]}",
+      "latency_ms": 23082.519327,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "Os prazos administrativos contam-se de modo contínuo, excluindo-se o dia de início e incluindo-se o dia do vencimento. Se o vencimento cair em dia sem expediente ou se o expediente for encerrado antes da hora normal, o prazo é considerado prorrogado até o primeiro dia útil seguinte. Isso está previsto no Art. 66, § 1º, e no Art. 66, caput.",
+        "citations": [
+          "ARTICLE:66/CAPUT",
+          "ARTICLE:66/PARAGRAPH:1",
+          "ARTICLE:66/PARAGRAPH:2"
+        ]
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "GOLD-021",
+      "category": "INSUFFICIENT_EVIDENCE",
+      "question": "Qual é o prazo para a Administração concluir uma licitação pública?",
+      "expected_decision": "ABSTAIN",
+      "model_decision": "ABSTAIN",
+      "gold_provisions": [],
+      "required_provisions": [],
+      "raw_response": "{\"decision\":\"ABSTAIN\",\"answer\":\"A EVIDENCE fornecida é insuficiente.\",\"citations\":[]}",
+      "latency_ms": 3129.836832,
+      "parsed_response": {
+        "decision": "ABSTAIN",
+        "answer": "A EVIDENCE fornecida é insuficiente.",
+        "citations": []
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "GOLD-022",
+      "category": "INSUFFICIENT_EVIDENCE",
+      "question": "Qual é a pena criminal por falsificar documento apresentado em processo administrativo?",
+      "expected_decision": "ABSTAIN",
+      "model_decision": "ABSTAIN",
+      "gold_provisions": [],
+      "required_provisions": [],
+      "raw_response": "{\"decision\":\"ABSTAIN\",\"answer\":\"A EVIDENCE fornecida é insuficiente.\",\"citations\":[]}",
+      "latency_ms": 2943.028623,
+      "parsed_response": {
+        "decision": "ABSTAIN",
+        "answer": "A EVIDENCE fornecida é insuficiente.",
+        "citations": []
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "GOLD-023",
+      "category": "INSUFFICIENT_EVIDENCE",
+      "question": "Qual é o prazo para ajuizar ação judicial contra uma decisão administrativa?",
+      "expected_decision": "ABSTAIN",
+      "model_decision": "ABSTAIN",
+      "gold_provisions": [],
+      "required_provisions": [],
+      "raw_response": "{\"decision\":\"ABSTAIN\",\"answer\":\"A EVIDENCE fornecida é insuficiente.\",\"citations\":[]}",
+      "latency_ms": 2888.836928,
+      "parsed_response": {
+        "decision": "ABSTAIN",
+        "answer": "A EVIDENCE fornecida é insuficiente.",
+        "citations": []
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "GOLD-024",
+      "category": "INSUFFICIENT_EVIDENCE",
+      "question": "Qual valor deve ser pago a título de dano moral causado pela Administração?",
+      "expected_decision": "ABSTAIN",
+      "model_decision": "ABSTAIN",
+      "gold_provisions": [],
+      "required_provisions": [],
+      "raw_response": "{\"decision\":\"ABSTAIN\",\"answer\":\"A EVIDENCE fornecida é insuficiente.\",\"citations\":[]}",
+      "latency_ms": 2922.064003,
+      "parsed_response": {
+        "decision": "ABSTAIN",
+        "answer": "A EVIDENCE fornecida é insuficiente.",
+        "citations": []
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "GOLD-025",
+      "category": "INSUFFICIENT_EVIDENCE",
+      "question": "Quais são os requisitos para aposentadoria de servidor público federal?",
+      "expected_decision": "ABSTAIN",
+      "model_decision": "ABSTAIN",
+      "gold_provisions": [],
+      "required_provisions": [],
+      "raw_response": "{\"decision\":\"ABSTAIN\",\"answer\":\"A EVIDENCE fornecida é insuficiente.\",\"citations\":[]}",
+      "latency_ms": 2865.839517,
+      "parsed_response": {
+        "decision": "ABSTAIN",
+        "answer": "A EVIDENCE fornecida é insuficiente.",
+        "citations": []
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "GOLD-026",
+      "category": "INSUFFICIENT_EVIDENCE",
+      "question": "Em quais hipóteses dados pessoais podem ser compartilhados entre órgãos públicos?",
+      "expected_decision": "ABSTAIN",
+      "model_decision": "ABSTAIN",
+      "gold_provisions": [],
+      "required_provisions": [],
+      "raw_response": "{\"decision\":\"ABSTAIN\",\"answer\":\"A EVIDENCE fornecida é insuficiente.\",\"citations\":[]}",
+      "latency_ms": 2990.154234,
+      "parsed_response": {
+        "decision": "ABSTAIN",
+        "answer": "A EVIDENCE fornecida é insuficiente.",
+        "citations": []
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "GOLD-027",
+      "category": "AMBIGUOUS",
+      "question": "A Administração já está atrasada para decidir o meu processo?",
+      "expected_decision": "CLARIFY",
+      "model_decision": "CLARIFY",
+      "gold_provisions": [
+        "ARTICLE:49/CAPUT"
+      ],
+      "required_provisions": [],
+      "raw_response": "{\"decision\":\"CLARIFY\",\"answer\":\"Qual é o prazo específico de início do processo administrativo que você está referenciando?\",\"citations\":[]}",
+      "latency_ms": 7089.080776,
+      "parsed_response": {
+        "decision": "CLARIFY",
+        "answer": "Qual é o prazo específico de início do processo administrativo que você está referenciando?",
+        "citations": []
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "GOLD-028",
+      "category": "AMBIGUOUS",
+      "question": "A intimação que recebi no processo administrativo é válida?",
+      "expected_decision": "CLARIFY",
+      "model_decision": "CLARIFY",
+      "gold_provisions": [
+        "ARTICLE:26/PARAGRAPH:1",
+        "ARTICLE:26/PARAGRAPH:2",
+        "ARTICLE:26/PARAGRAPH:3",
+        "ARTICLE:26/PARAGRAPH:5"
+      ],
+      "required_provisions": [],
+      "raw_response": "{\"decision\":\"CLARIFY\",\"answer\":\"Qual é o meio utilizado para a intimação e qual a data de recebimento da intimação?\",\"citations\":[]}",
+      "latency_ms": 15777.663256,
+      "parsed_response": {
+        "decision": "CLARIFY",
+        "answer": "Qual é o meio utilizado para a intimação e qual a data de recebimento da intimação?",
+        "citations": []
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "GOLD-029",
+      "category": "AMBIGUOUS",
+      "question": "A autoridade pode delegar a competência mencionada no meu caso?",
+      "expected_decision": "CLARIFY",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:12/CAPUT",
+        "ARTICLE:13/CAPUT",
+        "ARTICLE:13/CAPUT/INCISO:I",
+        "ARTICLE:13/CAPUT/INCISO:II",
+        "ARTICLE:13/CAPUT/INCISO:III"
+      ],
+      "required_provisions": [],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"Sim, a autoridade pode delegar a competência mencionada no caso, desde que não haja impedimento legal e a competência não seja de caráter exclusivo ou de edição de atos normativos ou decisão de recursos administrativos, conforme previsto no Art. 13, incisos I, II e III.\",\"citations\":[\"ARTICLE:12/CAPUT\",\"ARTICLE:13/CAPUT/INCISO:I\",\"ARTICLE:13/CAPUT/INCISO:II\",\"ARTICLE:13/CAPUT/INCISO:III\"]}",
+      "latency_ms": 26249.513799,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "Sim, a autoridade pode delegar a competência mencionada no caso, desde que não haja impedimento legal e a competência não seja de caráter exclusivo ou de edição de atos normativos ou decisão de recursos administrativos, conforme previsto no Art. 13, incisos I, II e III.",
+        "citations": [
+          "ARTICLE:12/CAPUT",
+          "ARTICLE:13/CAPUT/INCISO:I",
+          "ARTICLE:13/CAPUT/INCISO:II",
+          "ARTICLE:13/CAPUT/INCISO:III"
+        ]
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": false,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": true
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL"
+    },
+    {
+      "case_id": "GOLD-030",
+      "category": "AMBIGUOUS",
+      "question": "Ainda estou no prazo para recorrer da decisão administrativa?",
+      "expected_decision": "CLARIFY",
+      "model_decision": "ANSWER",
+      "gold_provisions": [
+        "ARTICLE:59/CAPUT",
+        "ARTICLE:66/CAPUT",
+        "ARTICLE:66/PARAGRAPH:1"
+      ],
+      "required_provisions": [],
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"Sim, ainda está dentro do prazo para recorrer, pois o artigo 59 do Código de Processo Administrativo estabelece um prazo de dez dias para interposição de recurso administrativo, contado a partir da ciência oficial da decisão recorrida, conforme o artigo 66, que define o início do prazo a partir da cientificação oficial, excluindo-se o dia do início e incluindo-se o do vencimento.\",\"citations\":[\"ARTICLE:59/CAPUT\",\"ARTICLE:66/CAPUT\"]}",
+      "latency_ms": 22946.303451,
+      "parsed_response": {
+        "decision": "ANSWER",
+        "answer": "Sim, ainda está dentro do prazo para recorrer, pois o artigo 59 do Código de Processo Administrativo estabelece um prazo de dez dias para interposição de recurso administrativo, contado a partir da ciência oficial da decisão recorrida, conforme o artigo 66, que define o início do prazo a partir da cientificação oficial, excluindo-se o dia do início e incluindo-se o do vencimento.",
+        "citations": [
+          "ARTICLE:59/CAPUT",
+          "ARTICLE:66/CAPUT"
+        ]
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": false,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": true
+      },
+      "automatic_pass": false,
+      "final_status": "FAIL"
+    },
+    {
+      "case_id": "GOLD-031",
+      "category": "AMBIGUOUS",
+      "question": "O servidor designado pode atuar no meu processo administrativo?",
+      "expected_decision": "CLARIFY",
+      "model_decision": "CLARIFY",
+      "gold_provisions": [
+        "ARTICLE:18/CAPUT",
+        "ARTICLE:18/CAPUT/INCISO:I",
+        "ARTICLE:18/CAPUT/INCISO:II",
+        "ARTICLE:18/CAPUT/INCISO:III",
+        "ARTICLE:20/CAPUT"
+      ],
+      "required_provisions": [],
+      "raw_response": "{\"decision\":\"CLARIFY\",\"answer\":\"Qual é o relacionamento ou interesse direto do servidor designado com o interessado ou seus familiares?\",\"citations\":[]}",
+      "latency_ms": 18206.476802,
+      "parsed_response": {
+        "decision": "CLARIFY",
+        "answer": "Qual é o relacionamento ou interesse direto do servidor designado com o interessado ou seus familiares?",
+        "citations": []
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "GOLD-032",
+      "category": "AMBIGUOUS",
+      "question": "Meu processo tem direito à tramitação prioritária?",
+      "expected_decision": "CLARIFY",
+      "model_decision": "CLARIFY",
+      "gold_provisions": [
+        "ARTICLE:69-A/CAPUT",
+        "ARTICLE:69-A/CAPUT/INCISO:I",
+        "ARTICLE:69-A/CAPUT/INCISO:II",
+        "ARTICLE:69-A/CAPUT/INCISO:IV",
+        "ARTICLE:69-A/PARAGRAPH:1"
+      ],
+      "required_provisions": [],
+      "raw_response": "{\"decision\":\"CLARIFY\",\"answer\":\"Qual é a natureza do seu processo (por exemplo, administrativo, civil, penal) e qual é a condição específica que você está apresentando (como idade, deficiência ou doença grave)?\",\"citations\":[]}",
+      "latency_ms": 24153.826555,
+      "parsed_response": {
+        "decision": "CLARIFY",
+        "answer": "Qual é a natureza do seu processo (por exemplo, administrativo, civil, penal) e qual é a condição específica que você está apresentando (como idade, deficiência ou doença grave)?",
+        "citations": []
+      },
+      "invalid_citations": [],
+      "out_of_evidence_citations": [],
+      "automatic_checks": {
+        "json_valid": true,
+        "decision_valid": true,
+        "output_schema_valid": true,
+        "decision_payload_valid": true,
+        "expected_decision_match": true,
+        "citations_exist_in_gold_evidence": true,
+        "no_invalid_citations": true,
+        "no_out_of_evidence_citations": true,
+        "required_citations_covered": true,
+        "false_abstention": false,
+        "unsafe_answer_on_insufficient": false,
+        "missed_clarification": false
+      },
+      "automatic_pass": true,
+      "final_status": "PENDING_HUMAN_REVIEW"
+    }
+  ]
+}

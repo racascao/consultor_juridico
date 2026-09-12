@@ -1,0 +1,43 @@
+{
+  "metadata": {
+    "model": "gemma4:12b",
+    "model_digest": "4eb23ef187e2c5462566d6a1d3bbbc2f1346d0b4327cbb66d58fffbcc9b2b05c",
+    "quantization": "Q4_K_M",
+    "thinking_mode": "disabled",
+    "prompt_name": "gold-evidence-answering",
+    "prompt_version": "2",
+    "review_scope": "GOLD-012 material review outside the 32-case full denominator",
+    "case_count": 3,
+    "source_auxiliary_review": "evaluation/runs/gemma4_12b_prompt_v2_gold012_material_review_preenchido.json",
+    "source_auxiliary_review_sha256": "d6deec3f6503d6eafccf36819ff17c5ed68b2fc1c540da78551fa28fc58231ec"
+  },
+  "cases": [
+    {
+      "seed": 42,
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"Os prazos processuais não se suspendem, salvo em caso de motivo de força maior devidamente comprovado.\",\"citations\":[\"ARTICLE:67/CAPUT\"]}",
+      "automatic_pass": true,
+      "legal_correctness": "PASS",
+      "groundedness": "PASS",
+      "completeness": "PASS",
+      "comments": "A resposta preserva corretamente a polaridade normativa: os prazos processuais não se suspendem, salvo motivo de força maior devidamente comprovado."
+    },
+    {
+      "seed": 43,
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"Os prazos processuais não se suspendem, salvo em casos de motivo de força maior devidamente comprovado.\", \"citations\":[\"ARTICLE:67/CAPUT\"]}",
+      "automatic_pass": true,
+      "legal_correctness": "PASS",
+      "groundedness": "PASS",
+      "completeness": "PASS",
+      "comments": "A resposta preserva corretamente a polaridade normativa: os prazos processuais não se suspendem, salvo motivo de força maior devidamente comprovado."
+    },
+    {
+      "seed": 44,
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"Os prazos processuais não se suspendem, salvo em casos de motivo de força maior devidamente comprovado.\",\"citations\":[\"ARTICLE:67/CAPUT\"]}",
+      "automatic_pass": true,
+      "legal_correctness": "PASS",
+      "groundedness": "PASS",
+      "completeness": "PASS",
+      "comments": "A resposta preserva corretamente a polaridade normativa: os prazos processuais não se suspendem, salvo motivo de força maior devidamente comprovado."
+    }
+  ]
+}

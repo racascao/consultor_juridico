@@ -1,0 +1,39 @@
+{
+  "run_id": "4e81c026-ff38-40b8-addd-25c4e4d0ab73",
+  "status": "COMPLETED",
+  "provider": "ollama",
+  "provider_version": "0.33.2",
+  "model": "qwen3:4b-instruct-2507-q4_K_M",
+  "model_digest": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+  "quantization": "Q4_K_M",
+  "dataset_sha256": "68a319031b7ca3f9da912761ab5328ef6bf37251f8750b3e24207c7258622f65",
+  "input_bundle_sha256": "56231c6a051a7093f3e1c2fb4cfc5af176b41021a064f3a601c7caa40c4fe319",
+  "prompt_name": "gold-evidence-answering",
+  "prompt_version": "2",
+  "act_version_hash": "298028477a55a61cdd1df94bda3aec784e6fe94d17c485ae6a2f6c77fe2b7a74",
+  "generation_config": {
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "seed": 42,
+    "repeat_penalty": 1.0,
+    "num_predict": 1024,
+    "num_ctx": 8192,
+    "stream": false
+  },
+  "started_at": "2026-09-03T02:44:17.155777+00:00",
+  "finished_at": "2026-09-03T02:44:39.648438+00:00",
+  "case_count": 1,
+  "completed_case_count": 1,
+  "semantic_retries": 0,
+  "case_metrics": [
+    {
+      "case_id": "GOLD-012",
+      "latency_ms": 22490.771619,
+      "total_duration_ns": 22490771619,
+      "prompt_eval_count": 684,
+      "eval_count": 72
+    }
+  ],
+  "failure": null
+}

@@ -1,0 +1,277 @@
+{
+  "scorecard_name": "gold-evidence-candidate-risk-scorecard",
+  "scorecard_version": "1",
+  "candidate": {
+    "model": "gemma4:12b",
+    "digest": "4eb23ef187e2c5462566d6a1d3bbbc2f1346d0b4327cbb66d58fffbcc9b2b05c",
+    "quantization": "Q4_K_M",
+    "thinking_mode": "disabled",
+    "prompt_name": "gold-evidence-answering",
+    "prompt_version": "2"
+  },
+  "source_artifacts": {
+    "cross_model_manifest": {
+      "path": "evaluation/runs/gold_evidence_cross_model_manifest_v1.json",
+      "sha256": "f9f57938f4ffd6b29e4bd1eab2922aada847e5d344a4ad9c6451e21d97910639"
+    },
+    "full_automatic_evaluation": {
+      "path": "evaluation/results/gemma4_12b_prompt_v2_full_automatic_evaluation.json",
+      "sha256": "329a88ebaad4600e5fc59148d31a970e24a897b9445ba0a6b34f4ccec52daa64"
+    },
+    "stability_summary": {
+      "path": "evaluation/results/gemma4_12b_prompt_v2_stability_v1.json",
+      "sha256": "b923b3e8e851ebd8000ca9d0563dae0225599ec527667a15b4e5c5687fcf929f"
+    },
+    "gold012_seed42_evaluation": {
+      "path": "evaluation/results/gemma4_12b_prompt_v2_gold012_seed42_automatic_evaluation.json",
+      "sha256": "d804b24522996c560b14716b5acb9266841f2a9fed44f134ef44d96b4abb24a0"
+    },
+    "gold012_seed43_evaluation": {
+      "path": "evaluation/results/gemma4_12b_prompt_v2_gold012_seed43_automatic_evaluation.json",
+      "sha256": "71a742182f72521edecb61286ae9e569799c839a29dc16f80e688f1fac5aeeb0"
+    },
+    "gold012_seed44_evaluation": {
+      "path": "evaluation/results/gemma4_12b_prompt_v2_gold012_seed44_automatic_evaluation.json",
+      "sha256": "ab43cc67e5781256ebf8ddf93facbe3697faeac4a4061d5ea097a57ebd7c84d1"
+    },
+    "gold012_material_review": {
+      "path": "evaluation/results/gemma4_12b_prompt_v2_gold012_material_review.json",
+      "sha256": "0e2df88f572310793e36015352b208ea329e8ba418c355627538bde1053ee4a9"
+    },
+    "human_review": {
+      "path": "evaluation/results/gemma4_12b_prompt_v2_full_automatic_evaluation_human_review.json",
+      "sha256": "cf94787e1962e33b619c46b19ac5be9cce8515b2855173336f1315220436c558"
+    },
+    "final_review": {
+      "path": "evaluation/results/gemma4_12b_prompt_v2_full_final_review.json",
+      "sha256": "3a5636758bbaf01dcc470fae6958d6004175a3246da7ae160a52d991b2126e7a"
+    }
+  },
+  "automatic_summary": {
+    "automatic_pass": "12/32",
+    "json_valid": "13/32",
+    "output_schema_valid": "12/32",
+    "decision_payload_valid": "12/32",
+    "expected_decision_match": "12/32",
+    "output_contract_failure": "20/32",
+    "false_abstention": 0,
+    "unsafe_answer_on_insufficient": 0,
+    "invalid_citations_formally_parsed": 0,
+    "out_of_evidence_citations": 0,
+    "missed_clarifications": 5,
+    "missed_clarification_cases": [
+      "GOLD-027",
+      "GOLD-028",
+      "GOLD-030",
+      "GOLD-031",
+      "GOLD-032"
+    ],
+    "required_citations_covered": "18/32",
+    "required_citation_coverage_failures": 14
+  },
+  "stability_summary": {
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "decision_stable": "5/12",
+    "decision_unstable": "7/12",
+    "unstable_cases": [
+      "GOLD-005",
+      "GOLD-011",
+      "GOLD-001",
+      "GOLD-014",
+      "GOLD-022",
+      "GOLD-030",
+      "GOLD-029"
+    ],
+    "automatic_pass_by_seed": {
+      "42": "6/12",
+      "43": "8/12",
+      "44": "6/12"
+    },
+    "required_citation_coverage_unstable": "0/12",
+    "citation_set_variation": "7/12",
+    "unsafe_answer_on_insufficient": 0,
+    "invalid_citations_formally_parsed": 0,
+    "out_of_evidence_citations": 0,
+    "interpretation_limit": "Invalid JSON produced null formal decisions in several runs; formal null equality or variation is not semantic robustness evidence."
+  },
+  "gold012_summary": {
+    "decisions": {
+      "42": "ANSWER",
+      "43": "ANSWER",
+      "44": "ANSWER"
+    },
+    "automatic_result": "CORRECT_ANSWER_3_OF_3",
+    "human_full": {
+      "legal_correctness": "PASS",
+      "groundedness": "PASS",
+      "completeness": "PASS"
+    },
+    "human_material_by_seed": {
+      "42": "PASS_PASS_PASS",
+      "43": "PASS_PASS_PASS",
+      "44": "PASS_PASS_PASS"
+    },
+    "human_material_result": "CORRECT_3_OF_3"
+  },
+  "human_summary": {
+    "legal_correctness": "32/32",
+    "groundedness": "32/32",
+    "completeness": "29/32",
+    "all_three_criteria": "29/32",
+    "strict_automatic_plus_human": "12/32",
+    "human_failure_cases": [
+      "GOLD-027",
+      "GOLD-028",
+      "GOLD-031"
+    ],
+    "formal_material_divergence": {
+      "automatic_pass": "12/32",
+      "human_all_three": "29/32",
+      "cause": "Output-contract failures, especially invalid or fenced JSON, materially reduced the formal pass rate while legal correctness and groundedness remained 32/32 under human review."
+    }
+  },
+  "risk_scorecard": [
+    {
+      "risk_id": "RISK-01",
+      "name": "PREMATURE_FACTUAL_APPLICATION",
+      "status": "NOT_OBSERVED_ON_REFERENCE_CASES",
+      "severity": "HIGH",
+      "references": [
+        "GOLD-029",
+        "GOLD-030"
+      ],
+      "rationale": "The full responses were materially valid CLARIFY responses. All three frozen seeds for each case also requested clarification materially; a null formal decision in seed 42 resulted from invalid JSON rather than premature factual application."
+    },
+    {
+      "risk_id": "RISK-02",
+      "name": "EVIDENCE_COMPREHENSION_NEGATION_POLARITY_FAILURE",
+      "status": "NOT_OBSERVED_ON_CURRENT_FULL_AND_PROBE",
+      "references": [
+        "GOLD-012"
+      ],
+      "rationale": "The full case and all three probes passed material human review, preserved the prohibition and exception, and passed the frozen automatic contract in 3/3 probes."
+    },
+    {
+      "risk_id": "RISK-03",
+      "name": "MATERIAL_QUALIFIER_OR_EXCEPTION_OMISSION",
+      "status": "NOT_OBSERVED_ON_REFERENCE_CASES",
+      "references": [
+        "GOLD-015",
+        "GOLD-018"
+      ],
+      "rationale": "Both full cases passed all human criteria. Across the frozen GOLD-018 seeds, the material responses preserved the general rule, exception, competent authority, conditions and citation set; formal invalidity from JSON fencing is classified separately."
+    },
+    {
+      "risk_id": "RISK-04",
+      "name": "MULTI_PART_QUESTION_INCOMPLETENESS",
+      "status": "NOT_OBSERVED_IN_FULL",
+      "references": [
+        "GOLD-016"
+      ],
+      "rationale": "GOLD-016 passed legal correctness, groundedness and completeness in the full human review."
+    },
+    {
+      "risk_id": "RISK-05",
+      "name": "CLARIFICATION_CONTENT_INCOMPLETENESS",
+      "status": "OBSERVED",
+      "references": [
+        "GOLD-027"
+      ],
+      "contextual_references": [
+        "GOLD-028",
+        "GOLD-031"
+      ],
+      "rationale": "GOLD-027, GOLD-028 and GOLD-031 were legally correct and grounded but failed human completeness because their clarification did not fully request or organize all material facts needed for a conclusive answer."
+    },
+    {
+      "risk_id": "RISK-06",
+      "name": "CITATION_VALUE_FORMAT_ERROR",
+      "status": "NOT_OBSERVED",
+      "references": [
+        "GOLD-004",
+        "GOLD-014"
+      ],
+      "rationale": "The citation values in the reference cases used stable evidence identifiers. No formally parsed invalid or out-of-evidence citation was observed in the full or stability evaluations."
+    },
+    {
+      "risk_id": "RISK-07",
+      "name": "FORMAL_CITATION_COVERAGE_VS_MATERIAL_COMPLETENESS",
+      "status": "OBSERVED_AS_EVALUATOR_CONTRACT_PHENOMENON",
+      "references": [
+        "GOLD-013"
+      ],
+      "rationale": "GOLD-013 failed the frozen automatic contract while passing legal correctness, groundedness and completeness in human review. This divergence is recorded as an evaluator/output-contract phenomenon, not a material legal failure."
+    },
+    {
+      "risk_id": "RISK-08",
+      "name": "COMPOSITE_CITATION_SAMPLING_VARIABILITY",
+      "status": "NOT_OBSERVED_ON_REFERENCE_CASES",
+      "references": [
+        "GOLD-018",
+        "GOLD-020"
+      ],
+      "rationale": "The raw citation sets for both reference cases were identical across seeds. Null formal decisions caused by invalid JSON do not establish material citation sampling variability."
+    }
+  ],
+  "comparison_with_previous_candidates": {
+    "qwen3_4b": {
+      "human_all_three": "25/32",
+      "strict_automatic_plus_human": "22/32",
+      "risk_01": "CONFIRMED_REPRODUCIBLE",
+      "final_legal_answerer": "REJECTED"
+    },
+    "qwen3_5": {
+      "human_all_three": "26/32",
+      "strict_automatic_plus_human": "25/32",
+      "risk_01": "CONFIRMED_REPRODUCIBLE",
+      "final_legal_answerer": "REJECTED"
+    },
+    "phi4_mini": {
+      "human_all_three": "17/32",
+      "strict_automatic_plus_human": "16/32",
+      "risk_01": "SAMPLING_SENSITIVE",
+      "risk_02": "OBSERVED",
+      "final_legal_answerer": "REJECTED"
+    },
+    "gemma3_4b": {
+      "human_all_three": "18/32",
+      "strict_automatic_plus_human": "1/32",
+      "output_contract_valid": "1/32",
+      "risk_01": "CONFIRMED_REPRODUCIBLE",
+      "final_legal_answerer": "REJECTED"
+    },
+    "gemma4_12b": {
+      "human_all_three": "29/32",
+      "strict_automatic_plus_human": "12/32",
+      "output_contract_valid": "12/32",
+      "risk_01": "NOT_OBSERVED_ON_REFERENCE_CASES",
+      "risk_02": "NOT_OBSERVED_ON_CURRENT_FULL_AND_PROBE"
+    },
+    "interpretation": "Gemma4 produced the strongest material human result among the frozen candidates and did not reproduce the two high-severity reference risks, but its 20/32 output-contract failure prevents acceptance without a separate architectural decision about contract enforcement."
+  },
+  "verdict": {
+    "gold_evidence_capability": "PARTIALLY_CAPABLE",
+    "candidate_verdict": "RECONSIDER",
+    "final_legal_answerer": "NOT_ACCEPTED_PENDING_OUTPUT_CONTRACT_REVIEW",
+    "primary_verdict_reason": "OUTPUT_CONTRACT_COMPLIANCE_FAILURE_20_OF_32",
+    "secondary_observed_risks": [
+      "RISK-05"
+    ],
+    "next_gate": "PHASE_2_FINAL_CROSS_MODEL_COMPARISON_AND_MODEL_SELECTION",
+    "scope": "The candidate remains under consideration because its material legal performance is the strongest observed, but it is not accepted as the final legal answerer while the frozen output contract fails in 20/32 full cases. This is not a general model capability judgment."
+  },
+  "invariants": {
+    "aggregate_risk_score_created": false,
+    "prompt_changed": false,
+    "dataset_changed": false,
+    "evaluator_changed": false,
+    "cross_model_manifest_changed": false,
+    "llm_inference_executed_by_codex": false,
+    "holdout_read": false,
+    "live_corpus_status": "UNRESOLVED"
+  }
+}

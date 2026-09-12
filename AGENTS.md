@@ -24,8 +24,12 @@ O novo MVP2 está em redesign e ainda não possui arquitetura ou fases definidas
   camada responsável identificada e regressão que cubra a falha.
 - Inferências LLM reais e benchmarks longos são executados manualmente pelo
   usuário.
+- Ollama é suportado somente pelo serviço `ollama` do Docker Compose; uma
+  instalação Ollama no host não integra nem serve de fallback ao projeto.
 - Durante uma medição, não alterar silenciosamente dataset, modelo, prompt,
   threshold ou variável experimental.
+- Fine-tuning é proibido no MVP, e prompts de avaliação LLM não podem ser
+  ajustados contra casos individuais do DEV.
 - Atualizar o README em toda implementação futura que altere arquitetura ou
   comportamento.
 - Preservar fontes oficiais, proveniência e conteúdo bruto; se a evidência for
@@ -35,7 +39,8 @@ O novo MVP2 está em redesign e ainda não possui arquitetura ou fases definidas
 
 Antes de implementar:
 
-1. consultar `README.md`, `TASKS.md`, `docs/` e ADRs aplicáveis;
+1. ler `docs/STATE.md` como checkpoint canônico e consultar `README.md`,
+   `TASKS.md`, `docs/` e ADRs aplicáveis;
 2. confirmar escopo, critérios de aceite e estado do working tree;
 3. implementar a menor mudança necessária;
 4. criar ou atualizar regressões;

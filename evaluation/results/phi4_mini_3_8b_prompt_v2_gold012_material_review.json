@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "model": "phi4-mini:3.8b-q4_K_M",
+    "model_digest": "78fad5d182a7c33065e153a5f8ba210754207ba9d91973f57dffa7f487363753",
+    "quantization": "Q4_K_M",
+    "thinking_mode": "auto_no_native_capability",
+    "prompt_name": "gold-evidence-answering",
+    "prompt_version": "2",
+    "review_scope": "GOLD-012 material review outside the 32-case full denominator",
+    "case_count": 3
+  },
+  "cases": [
+    {
+      "seed": 42,
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"Os prazos processuais não se suspendem normalmente, exceto por motivo de força maior devidamente comprovado.\",\"citations\":[\"ARTICLE:67/CAPUT\"]}",
+      "automatic_pass": true,
+      "legal_correctness": "PASS",
+      "groundedness": "PASS",
+      "completeness": "PASS",
+      "comments": "A resposta preserva corretamente a polaridade normativa: os prazos processuais não se suspendem normalmente, ressalvado motivo de força maior devidamente comprovado."
+    },
+    {
+      "seed": 43,
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"Os prazos processuais administrativos ficam suspensos normalmente, exceto por motivo de força maior devidamente comprovado.\",\"citations\":[\"ARTICLE:67/CAPUT\"]}",
+      "automatic_pass": true,
+      "legal_correctness": "FAIL",
+      "groundedness": "FAIL",
+      "completeness": "PASS",
+      "comments": "Falha material de polaridade. A resposta afirma que os prazos processuais administrativos ficam suspensos normalmente, enquanto a evidência estabelece exatamente o oposto: os prazos processuais NÃO se suspendem, salvo motivo de força maior devidamente comprovado. A resposta aborda a pergunta e menciona a exceção, portanto não há falha de completude estrutural da resposta; porém a regra jurídica principal foi invertida."
+    },
+    {
+      "seed": 44,
+      "raw_response": "{\"decision\":\"ANSWER\",\"answer\":\"Os prazos processuais administrativos não se suspendem normalmente, exceto por motivo de força maior devidamente comprovado.\", \"citations\": [\"ARTICLE:67/CAPUT\"]}",
+      "automatic_pass": true,
+      "legal_correctness": "PASS",
+      "groundedness": "PASS",
+      "completeness": "PASS",
+      "comments": "A resposta preserva corretamente a polaridade normativa: os prazos processuais administrativos não se suspendem normalmente, ressalvado motivo de força maior devidamente comprovado."
+    }
+  ]
+}

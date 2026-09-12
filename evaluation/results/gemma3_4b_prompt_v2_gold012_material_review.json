@@ -1,0 +1,43 @@
+{
+  "metadata": {
+    "model": "gemma3:4b",
+    "model_digest": "a2af6cc3eb7fa8be8504abaf9b04e88f17a119ec3f04a3addf55f92841195f5a",
+    "quantization": "Q4_K_M",
+    "thinking_mode": "auto_no_native_capability",
+    "prompt_name": "gold-evidence-answering",
+    "prompt_version": "2",
+    "review_scope": "GOLD-012 material review outside the 32-case full denominator",
+    "case_count": 3,
+    "source_auxiliary_review": "evaluation/results/gemma3_4b_prompt_v2_gold012_material_review_preenchido.json",
+    "source_auxiliary_review_sha256": "a14df71fb9352277489b86ca0e2288d77329591a3bd1433b1bd805548ba31e1e"
+  },
+  "cases": [
+    {
+      "seed": 42,
+      "raw_response": "```json\n{\"decision\":\"ANSWER\",\"answer\":\"Não, os prazos processuais administrativos não se suspendem, exceto por motivo de força maior devidamente comprovado.\",\"citations\":[\"EVIDENCE_ID: ARTICLE:67/CAPUT\"]}\n```",
+      "automatic_pass": false,
+      "legal_correctness": "PASS",
+      "groundedness": "PASS",
+      "completeness": "PASS",
+      "comments": "A resposta preserva corretamente a polaridade normativa: os prazos processuais administrativos não se suspendem normalmente, salvo motivo de força maior devidamente comprovado. A falha formal de JSON fenced/citation value é mantida separada do julgamento material."
+    },
+    {
+      "seed": 43,
+      "raw_response": "```json\n{\"decision\":\"ANSWER\",\"answer\":\"Não, os prazos processuais administrativos não se suspendem, exceto por motivo de força maior devidamente comprovado.\",\"citations\":[\"EVIDENCE_ID: ARTICLE:67/CAPUT\"]}\n```",
+      "automatic_pass": false,
+      "legal_correctness": "PASS",
+      "groundedness": "PASS",
+      "completeness": "PASS",
+      "comments": "A resposta preserva corretamente a polaridade normativa: os prazos processuais administrativos não se suspendem normalmente, salvo motivo de força maior devidamente comprovado. A falha formal de JSON fenced/citation value é mantida separada do julgamento material."
+    },
+    {
+      "seed": 44,
+      "raw_response": "```json\n{\"decision\":\"ANSWER\",\"answer\":\"Não, os prazos processuais administrativos não ficam suspensos normalmente, exceto em caso de força maior devidamente comprovado.\",\"citations\":[\"EVIDENCE_ID: ARTICLE:67/CAPUT\"]}\n```",
+      "automatic_pass": false,
+      "legal_correctness": "PASS",
+      "groundedness": "PASS",
+      "completeness": "PASS",
+      "comments": "A resposta preserva corretamente a polaridade normativa: os prazos processuais administrativos não se suspendem normalmente, salvo motivo de força maior devidamente comprovado. A falha formal de JSON fenced/citation value é mantida separada do julgamento material."
+    }
+  ]
+}
