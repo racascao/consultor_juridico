@@ -446,6 +446,76 @@ def test_integrated_dev_v2_applies_external_mode_mapping_without_llm_for_case(
     assert case["routing_reason"] == "CASE_APPLICATION_NOT_SUPPORTED_IN_MVP2"
 
 
+def test_blind_holdout_uses_case_mapping_and_holdout_artifact_names(tmp_path):
+    dataset = tmp_path / "holdout.json"
+    dataset.write_text(
+        json.dumps(
+            {
+                "schema_id": "blind-holdout-dataset/1",
+                "dataset_id": "private-test",
+                "legal_act_code": "BR-FED-LEI-9784-1999",
+                "cases": [
+                    {
+                        "case_id": "HOLDOUT-001",
+                        "category": "SINGLE_SUPPORT",
+                        "question": "Pergunta fictícia?",
+                        "gold_provisions": [KEY_A],
+                        "required_provisions": [KEY_A],
+                        "expected_decision": "ANSWER",
+                    },
+                    {
+                        "case_id": "HOLDOUT-002",
+                        "category": "AMBIGUOUS",
+                        "question": "Caso fictício?",
+                        "gold_provisions": [KEY_A],
+                        "required_provisions": [],
+                        "expected_decision": "CLARIFY",
+                    },
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+    mapping = tmp_path / "mapping.json"
+    mapping.write_text(
+        json.dumps(
+            {
+                "schema_id": "blind-holdout-query-mode-mapping/1",
+                "mapping_id": "blind-holdout-query-mode-mapping/1",
+                "dataset_sha256": sha256(dataset.read_bytes()).hexdigest(),
+                "case_modes": {
+                    "HOLDOUT-001": "LEGAL_RULE",
+                    "HOLDOUT-002": "CASE_APPLICATION",
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
+    answerer = FakeAnswerer(
+        {"decision": "ANSWER", "answer": "Resposta.", "citations": [KEY_A]}
+    )
+    result = run_integrated_dev(
+        FakeRetriever((_candidate(KEY_A),)),
+        FakeRepository(),
+        answerer,
+        dataset_path=dataset,
+        version_hash=VERSION,
+        output_dir=tmp_path / "holdout-results",
+        profile=IntegratedDevProfile.BLIND_HOLDOUT_V1,
+        query_mode_mapping_path=mapping,
+    )
+
+    assert len(answerer.calls) == 1
+    assert result["metrics"]["legal_rule_cases"] == 1
+    assert result["metrics"]["case_application_cases"] == 1
+    assert result["metrics"]["case_application_llm_calls"] == 0
+    assert result["metrics"]["risk_08"] == "NOT_MEASURED_SINGLE_RUN"
+    assert Path(result["paths"]["raw"]).name == "blind_holdout_raw_v1.json"
+    assert Path(result["paths"]["comparison"]).name == (
+        "blind_holdout_vs_integrated_dev_v2_v1.json"
+    )
+
+
 def test_empty_retrieval_abstains_without_calling_answerer():
     answerer = FakeAnswerer({})
     result = RunRagQuery(FakeRetriever(()), FakeRepository(), answerer).execute(

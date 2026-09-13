@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "blind-holdout-query-mode-mapping/1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_id", "mapping_id", "dataset_sha256", "case_modes"],
+  "properties": {
+    "schema_id": {"const": "blind-holdout-query-mode-mapping/1"},
+    "mapping_id": {"type": "string", "minLength": 1},
+    "dataset_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "case_modes": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {"pattern": "^HOLDOUT-[0-9]+$"},
+      "additionalProperties": {"enum": ["LEGAL_RULE", "CASE_APPLICATION"]}
+    }
+  }
+}

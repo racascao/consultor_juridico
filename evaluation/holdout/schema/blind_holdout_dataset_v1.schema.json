@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "blind-holdout-dataset/1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_id", "dataset_id", "legal_act_code", "cases"],
+  "properties": {
+    "schema_id": {"const": "blind-holdout-dataset/1"},
+    "dataset_id": {"type": "string", "minLength": 1},
+    "legal_act_code": {"type": "string", "minLength": 1},
+    "cases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "case_id",
+          "question",
+          "expected_decision",
+          "category",
+          "gold_provisions",
+          "required_provisions"
+        ],
+        "properties": {
+          "case_id": {"type": "string", "pattern": "^HOLDOUT-[0-9]+$"},
+          "question": {"type": "string", "minLength": 1},
+          "expected_decision": {"enum": ["ANSWER", "ABSTAIN", "CLARIFY"]},
+          "category": {
+            "enum": [
+              "SINGLE_SUPPORT",
+              "COMPOSITE_SUPPORT",
+              "INSUFFICIENT_EVIDENCE",
+              "AMBIGUOUS"
+            ]
+          },
+          "gold_provisions": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1},
+            "uniqueItems": true
+          },
+          "required_provisions": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1},
+            "uniqueItems": true
+          }
+        }
+      }
+    }
+  }
+}

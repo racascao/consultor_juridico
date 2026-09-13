@@ -56,5 +56,13 @@ Qualquer mudança de modelo, prompt, configuração,
 retrieval, corpus, expansão, modos ou validação invalida este freeze e exige nova
 avaliação.
 
-O HOLDOUT permanece fechado. O próximo passo, somente depois do commit manual
-desta fase, é executar o Blind Holdout contra este runtime imutável.
+O Blind HOLDOUT v1 foi posteriormente criado e selado pelo usuário e executado
+uma única vez contra este runtime imutável. O freeze permaneceu byte-identical,
+sem tuning, retry ou mudança de configuração. A primeira medição automática foi
+`25/36`; a revisão humana posterior obteve `34/36` em correção jurídica,
+`36/36` em groundedness, `32/36` em completude e `32/36` all-pass. Sem threshold
+formal pré-HOLDOUT, o MVP2 foi aceito com limitações conhecidas. Consulte
+[`blind-holdout-mvp2-v1.md`](blind-holdout-mvp2-v1.md).
+
+Essa decisão não altera o freeze. O HOLDOUT v1 não pode ser reutilizado como
+DEV; qualquer evolução requer uma fase metodológica pós-HOLDOUT.

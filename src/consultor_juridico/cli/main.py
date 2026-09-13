@@ -450,6 +450,36 @@ def evaluate_retrieval(
     console.print(f"output={output}")
 
 
+@eval_app.command("holdout-validate")
+def evaluate_holdout_package(
+    dataset: Annotated[Path, typer.Option("--dataset")],
+    query_mode_mapping: Annotated[Path, typer.Option("--query-mode-mapping")],
+    manifest: Annotated[Path, typer.Option("--manifest")],
+) -> None:
+    """Valida silenciosamente estrutura e identidade de um pacote HOLDOUT."""
+    from consultor_juridico.evaluation.holdout_custody import (
+        validate_holdout_package,
+    )
+
+    try:
+        result = validate_holdout_package(
+            dataset_path=dataset,
+            mapping_path=query_mode_mapping,
+            manifest_path=manifest,
+        )
+    except (OSError, ValueError) as error:
+        console.print("[red]HOLDOUT_PACKAGE_VALID=NO[/red]")
+        raise typer.Exit(1) from error
+    console.print("HOLDOUT_PACKAGE_VALID=YES")
+    console.print(f"DATASET_SHA256={result.dataset_sha256}")
+    console.print(f"QUERY_MODE_MAPPING_SHA256={result.query_mode_mapping_sha256}")
+    console.print(f"CASE_COUNT={result.case_count}")
+    console.print("CASE_ID_COVERAGE=PASS")
+    console.print("QUERY_MODE_VALUES=PASS")
+    console.print("FREEZE_IDENTITY=PASS")
+    console.print(f"MAPPING_ID={result.mapping_id}")
+
+
 @eval_app.command("rag-dev")
 def evaluate_integrated_rag_dev(
     dataset: Annotated[Path, typer.Option("--dataset")],
@@ -478,6 +508,46 @@ def evaluate_integrated_rag_dev(
             query_mode_mapping_path=query_mode_mapping,
         )
     console.print(f"INTEGRATED_DEV={evaluation_profile.value}")
+    for name, path in result["paths"].items():
+        console.print(f"{name}={path}")
+        console.print(f"{name}_sha256={result['sha256'][name]}")
+    for name, value in result["metrics"].items():
+        console.print(f"{name}={value}")
+
+
+@eval_app.command("rag-holdout")
+def evaluate_blind_holdout(
+    dataset: Annotated[Path, typer.Option("--dataset")],
+    version_hash: Annotated[str, typer.Option("--version-hash")],
+    output_dir: Annotated[Path, typer.Option("--output-dir")],
+    query_mode_mapping: Annotated[Path, typer.Option("--query-mode-mapping")],
+    manifest: Annotated[Path, typer.Option("--manifest")],
+    base_url: Annotated[str, typer.Option("--base-url")] = settings.ollama_base_url,
+) -> None:
+    """Executa uma única campanha Blind HOLDOUT contra o runtime congelado."""
+    from consultor_juridico.evaluation.holdout_custody import (
+        validate_holdout_package,
+    )
+
+    validate_holdout_package(
+        dataset_path=dataset,
+        mapping_path=query_mode_mapping,
+        manifest_path=manifest,
+    )
+    timeout = httpx.Timeout(connect=10.0, read=180.0, write=30.0, pool=10.0)
+    with _session_factory()() as session, httpx.Client(timeout=timeout) as client:
+        retriever = _compose_retriever(session, RetrievalMode.RELAXED_OR_COVERAGE)
+        result = run_integrated_dev(
+            retriever,
+            SqlAlchemyGoldEvidenceRepository(session),
+            OllamaSelectedAnswerer(client, base_url),
+            dataset_path=dataset,
+            version_hash=version_hash,
+            output_dir=output_dir,
+            profile=IntegratedDevProfile.BLIND_HOLDOUT_V1,
+            query_mode_mapping_path=query_mode_mapping,
+        )
+    console.print("BLIND_HOLDOUT_FIRST_MEASUREMENT=COMPLETE")
     for name, path in result["paths"].items():
         console.print(f"{name}={path}")
         console.print(f"{name}_sha256={result['sha256'][name]}")

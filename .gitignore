@@ -209,6 +209,9 @@ tempCodeRunnerFile.py
 # PyPI configuration file
 .pypirc
 
+# Blind HOLDOUT sob custódia externa; schemas e templates permanecem versionados.
+evaluation/holdout/private/*
+
 # Marimo
 marimo/_static/
 marimo/_lsp/

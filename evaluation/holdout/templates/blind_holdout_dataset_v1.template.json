@@ -1,0 +1,15 @@
+{
+  "schema_id": "blind-holdout-dataset/1",
+  "dataset_id": "blind_holdout_mvp2_v1",
+  "legal_act_code": "ACT-CODE-PLACEHOLDER",
+  "cases": [
+    {
+      "case_id": "HOLDOUT-001",
+      "question": "Pergunta de exemplo",
+      "expected_decision": "ANSWER",
+      "category": "SINGLE_SUPPORT",
+      "gold_provisions": ["PROVISION-PLACEHOLDER"],
+      "required_provisions": ["PROVISION-PLACEHOLDER"]
+    }
+  ]
+}

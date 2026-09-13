@@ -249,7 +249,23 @@ congelar o runtime integrado antes de abrir o HOLDOUT.
 - [x] Usuário executar a campanha Integrated DEV v2 uma única vez.
 - [x] Concluir a revisão humana v2 (`30/32` all pass).
 - [x] Congelar o runtime integrado antes de abrir o HOLDOUT.
-- [ ] Executar Blind Holdout contra o runtime integrado congelado.
+- [x] Preparar schemas, templates e validação estrutural do pacote Blind HOLDOUT.
+- [x] Usuário criar o dataset HOLDOUT sob custódia externa.
+- [x] Usuário criar o mapping explícito de modos por `case_id`.
+- [x] Usuário criar o manifest, calcular hashes e selar o pacote.
+- [x] Validar estruturalmente o pacote selado sem expor conteúdo.
+- [x] Executar uma única campanha Blind Holdout contra o runtime congelado.
+- [x] Concluir e consolidar a revisão humana do Blind Holdout (`32/36` all pass).
+- [x] Registrar a decisão final `MVP2_ACCEPTED_WITH_KNOWN_LIMITATIONS`.
+
+Blind HOLDOUT v1: primeira medição concluída em 36 casos, com `25/36`
+automatic pass, `30/36` decisões esperadas, zero citações inválidas ou fora da
+evidência e uma resposta insegura em evidência insuficiente. Não houve retry,
+tuning ou mutação do pacote. A revisão humana confirmou `34/36` em correção,
+`36/36` em groundedness, `32/36` em completude e `36/36` no boundary de modo.
+O risco automático em `HOLDOUT-027` não foi confirmado materialmente. Sem
+threshold formal prévio, o MVP2 foi aceito qualitativamente com limitações
+conhecidas. O HOLDOUT v1 não pode ser reutilizado como DEV.
 
 Estado: implementação end-to-end concluída sem inferência real. O artifact
 local versionado `b4abab2e...9261` foi materializado como `ActVersion`

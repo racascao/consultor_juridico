@@ -41,6 +41,12 @@ from consultor_juridico.evaluation.gold_evidence import (
     ModelDecision,
     load_gold_dataset,
 )
+from consultor_juridico.evaluation.holdout_custody import (
+    RUNTIME_FREEZE_SHA256,
+    HoldoutCase,
+    HoldoutDataset,
+    HoldoutModeMapping,
+)
 from consultor_juridico.evaluation.selected_answerer import (
     FREEZE_ID,
     SELECTED_MODEL,
@@ -52,6 +58,7 @@ from consultor_juridico.evaluation.selected_answerer import (
 class IntegratedDevProfile(StrEnum):
     V1 = "integrated-dev-v1"
     TWO_MODE_V2 = "integrated-dev-v2-two-mode"
+    BLIND_HOLDOUT_V1 = "blind-holdout-mvp2-v1"
 
 
 def _load_query_mode_mapping(
@@ -76,6 +83,20 @@ def _load_query_mode_mapping(
         for category, mode in raw_mapping.items()
     }
     return str(payload["mapping_id"]), mapping
+
+
+def _load_holdout_query_mode_mapping(
+    path: Path, *, dataset_sha256: str, case_ids: set[str]
+) -> tuple[str, dict[str, QueryMode]]:
+    mapping = HoldoutModeMapping.model_validate_json(path.read_text(encoding="utf-8"))
+    if mapping.dataset_sha256 != dataset_sha256:
+        raise ValueError("Query-mode mapping não corresponde ao dataset HOLDOUT")
+    if set(mapping.case_modes) != case_ids:
+        raise ValueError("Query-mode mapping não cobre exatamente os casos HOLDOUT")
+    return mapping.mapping_id, {
+        case_id: QueryMode(mode.lower().replace("_", "-"))
+        for case_id, mode in mapping.case_modes.items()
+    }
 
 
 def _write_new_json(path: Path, payload: dict[str, Any]) -> None:
@@ -114,7 +135,7 @@ def _failure_class(
 
 
 def _evaluate_case(
-    case: GoldEvidenceCase,
+    case: GoldEvidenceCase | HoldoutCase,
     *,
     version_hash: str,
     retriever: SearchUnitRetriever,
@@ -268,6 +289,9 @@ def _evaluate_case(
             SELECTED_MODEL_DIGEST if query_mode is QueryMode.LEGAL_RULE else None
         ),
         "freeze_id": FREEZE_ID if query_mode is QueryMode.LEGAL_RULE else None,
+        "freeze_sha256": (
+            RUNTIME_FREEZE_SHA256 if query_mode is QueryMode.LEGAL_RULE else None
+        ),
         "prompt_identity": (
             f"{PROMPT_NAME}/{PROMPT_VERSION_V2}"
             if query_mode is QueryMode.LEGAL_RULE
@@ -335,21 +359,37 @@ def run_integrated_dev(
     query_mode_mapping_path: Path | None = None,
 ) -> dict[str, Any]:
     """Executa uma campanha única e cria artifacts imutáveis."""
+    first_read_at = datetime.now(UTC).isoformat()
     dataset_bytes = dataset_path.read_bytes()
     dataset_sha256 = sha256(dataset_bytes).hexdigest()
-    dataset = load_gold_dataset(dataset_path)
+    dataset = (
+        HoldoutDataset.model_validate_json(dataset_bytes)
+        if profile is IntegratedDevProfile.BLIND_HOLDOUT_V1
+        else load_gold_dataset(dataset_path)
+    )
     context = repository.context(version_hash)
     if context.legal_act_code != dataset.legal_act_code:
         raise ValueError("ActVersion não corresponde ao ato do dataset DEV")
     retriever.context(version_hash)
 
-    if profile is IntegratedDevProfile.TWO_MODE_V2:
+    if profile is IntegratedDevProfile.BLIND_HOLDOUT_V1:
+        if query_mode_mapping_path is None:
+            raise ValueError("Blind HOLDOUT exige query-mode mapping explícito")
+        mapping_id, case_modes = _load_holdout_query_mode_mapping(
+            query_mode_mapping_path,
+            dataset_sha256=dataset_sha256,
+            case_ids={case.case_id for case in dataset.cases},
+        )
+        category_modes = None
+        suffix = "v1"
+    elif profile is IntegratedDevProfile.TWO_MODE_V2:
         if query_mode_mapping_path is None:
             raise ValueError("Integrated DEV v2 exige query-mode mapping explícito")
         mapping_id, category_modes = _load_query_mode_mapping(
             query_mode_mapping_path, dataset_sha256=dataset_sha256
         )
         suffix = "v2"
+        case_modes = None
     else:
         mapping_id = None
         category_modes = {
@@ -362,14 +402,22 @@ def run_integrated_dev(
             }
         }
         suffix = "v1"
+        case_modes = None
+    prefix = (
+        "blind_holdout"
+        if profile is IntegratedDevProfile.BLIND_HOLDOUT_V1
+        else "integrated_dev"
+    )
     paths = {
-        "raw": output_dir / f"integrated_dev_raw_{suffix}.json",
-        "automatic": output_dir / f"integrated_dev_automatic_{suffix}.json",
-        "diagnostic": output_dir / f"integrated_dev_retrieval_diagnostic_{suffix}.json",
-        "review": output_dir / f"integrated_dev_human_review_{suffix}.json",
+        "raw": output_dir / f"{prefix}_raw_{suffix}.json",
+        "automatic": output_dir / f"{prefix}_automatic_{suffix}.json",
+        "diagnostic": output_dir / f"{prefix}_retrieval_diagnostic_{suffix}.json",
+        "review": output_dir / f"{prefix}_human_review_{suffix}.json",
     }
     if profile is IntegratedDevProfile.TWO_MODE_V2:
         paths["comparison"] = output_dir / "integrated_dev_v1_vs_v2_comparison.json"
+    elif profile is IntegratedDevProfile.BLIND_HOLDOUT_V1:
+        paths["comparison"] = output_dir / "blind_holdout_vs_integrated_dev_v2_v1.json"
     existing = [str(path) for path in paths.values() if path.exists()]
     if existing:
         raise FileExistsError(f"Artifacts não podem ser sobrescritos: {existing}")
@@ -377,7 +425,11 @@ def run_integrated_dev(
     automatic_cases = []
     diagnostic_cases = []
     for case in dataset.cases:
-        query_mode = category_modes[case.category.value]
+        query_mode = (
+            case_modes[case.case_id]
+            if case_modes is not None
+            else category_modes[case.category.value]
+        )
         automatic, diagnostic = _evaluate_case(
             case,
             version_hash=version_hash,
@@ -391,9 +443,13 @@ def run_integrated_dev(
 
     metadata = {
         "evaluation": (
-            "INTEGRATED_DEV_V2_TWO_MODE_FIRST_MEASUREMENT"
-            if profile is IntegratedDevProfile.TWO_MODE_V2
-            else "INTEGRATED_DEV_FIRST_MEASUREMENT"
+            "BLIND_HOLDOUT_MVP2_V1_FIRST_MEASUREMENT"
+            if profile is IntegratedDevProfile.BLIND_HOLDOUT_V1
+            else (
+                "INTEGRATED_DEV_V2_TWO_MODE_FIRST_MEASUREMENT"
+                if profile is IntegratedDevProfile.TWO_MODE_V2
+                else "INTEGRATED_DEV_FIRST_MEASUREMENT"
+            )
         ),
         "evaluation_profile": profile.value,
         "query_mode_mapping_id": mapping_id,
@@ -413,9 +469,13 @@ def run_integrated_dev(
         "model": SELECTED_MODEL,
         "model_digest": SELECTED_MODEL_DIGEST,
         "freeze_id": FREEZE_ID,
+        "freeze_sha256": RUNTIME_FREEZE_SHA256,
         "prompt_identity": f"{PROMPT_NAME}/{PROMPT_VERSION_V2}",
         "ollama_format": SELECTED_OLLAMA_FORMAT,
-        "holdout_read": False,
+        "holdout_read": profile is IntegratedDevProfile.BLIND_HOLDOUT_V1,
+        "holdout_runtime_first_read_at": (
+            first_read_at if profile is IntegratedDevProfile.BLIND_HOLDOUT_V1 else None
+        ),
         "tuning_after_measurement": False,
         "source_kind": "LOCAL_VERSIONED",
         "runtime_web_fetch": "NOT_IMPLEMENTED",
@@ -465,27 +525,44 @@ def run_integrated_dev(
         _write_new_json(paths[name], payload)
 
     checks = [case["checks"] for case in automatic_cases]
-    required_total = sum(len(case.required_provisions) for case in dataset.cases)
-    retrieved_required = sum(
-        len(set(case.required_provisions) & set(result["retrieved_stable_keys"]))
-        for case, result in zip(dataset.cases, automatic_cases, strict=True)
-    )
-    assembled_required = sum(
-        len(
-            set(case.required_provisions)
-            & set(result["assembled_evidence_stable_keys"])
-        )
-        for case, result in zip(dataset.cases, automatic_cases, strict=True)
-    )
-    failure_counts = Counter(
-        case["failure_class"] for case in automatic_cases if case["failure_class"]
-    )
     legal_cases = [
         case for case in automatic_cases if case["query_mode"] == "LEGAL_RULE"
     ]
     case_application_cases = [
         case for case in automatic_cases if case["query_mode"] == "CASE_APPLICATION"
     ]
+    legal_case_ids = {case["case_id"] for case in legal_cases}
+    retrieval_metric_cases = (
+        [case for case in dataset.cases if case.case_id in legal_case_ids]
+        if profile is IntegratedDevProfile.BLIND_HOLDOUT_V1
+        else list(dataset.cases)
+    )
+    retrieval_metric_results = [
+        result
+        for result in automatic_cases
+        if result["case_id"] in {case.case_id for case in retrieval_metric_cases}
+    ]
+    required_total = sum(
+        len(case.required_provisions) for case in retrieval_metric_cases
+    )
+    retrieved_required = sum(
+        len(set(case.required_provisions) & set(result["retrieved_stable_keys"]))
+        for case, result in zip(
+            retrieval_metric_cases, retrieval_metric_results, strict=True
+        )
+    )
+    assembled_required = sum(
+        len(
+            set(case.required_provisions)
+            & set(result["assembled_evidence_stable_keys"])
+        )
+        for case, result in zip(
+            retrieval_metric_cases, retrieval_metric_results, strict=True
+        )
+    )
+    failure_counts = Counter(
+        case["failure_class"] for case in automatic_cases if case["failure_class"]
+    )
     legal_latencies = [case["latency_ms"] for case in legal_cases]
     case_latencies = [case["latency_ms"] for case in case_application_cases]
     metrics = {
@@ -504,7 +581,12 @@ def run_integrated_dev(
         "invalid_citations": sum(bool(check["invalid_citations"]) for check in checks),
         "out_of_evidence": sum(bool(check["out_of_evidence"]) for check in checks),
         "required_citation_covered": sum(
-            check["required_citation_covered"] for check in checks
+            case["checks"]["required_citation_covered"]
+            for case in (
+                legal_cases
+                if profile is IntegratedDevProfile.BLIND_HOLDOUT_V1
+                else automatic_cases
+            )
         ),
         "retrieval_required_citation_recall": (
             retrieved_required / required_total if required_total else 1.0
@@ -567,6 +649,33 @@ def run_integrated_dev(
         ),
         "failure_classes": dict(sorted(failure_counts.items())),
     }
+    if profile is IntegratedDevProfile.BLIND_HOLDOUT_V1:
+        classified = (
+            metrics["unsafe_insufficient"]
+            + metrics["missed_clarification"]
+            + metrics["invalid_citations"]
+            + sum(
+                not case["checks"]["required_citation_covered"] for case in legal_cases
+            )
+        )
+        metrics.update(
+            {
+                "risk_01": metrics["unsafe_insufficient"],
+                "risk_02": "PENDING_HUMAN_REVIEW",
+                "risk_03": "PENDING_HUMAN_REVIEW",
+                "risk_04": "PENDING_HUMAN_REVIEW",
+                "risk_05": metrics["missed_clarification"],
+                "risk_06": metrics["invalid_citations"],
+                "risk_07": sum(
+                    not case["checks"]["required_citation_covered"]
+                    for case in legal_cases
+                ),
+                "risk_08": "NOT_MEASURED_SINGLE_RUN",
+                "unclassified_holdout_failures": max(
+                    0, len(automatic_cases) - metrics["automatic_pass"] - classified
+                ),
+            }
+        )
     if profile is IntegratedDevProfile.TWO_MODE_V2:
         v1_path = Path(
             "evaluation/results/integrated_dev_mvp2_v1/integrated_dev_automatic_v1.json"
@@ -606,9 +715,102 @@ def run_integrated_dev(
             },
         }
         _write_new_json(paths["comparison"], comparison)
+    elif profile is IntegratedDevProfile.BLIND_HOLDOUT_V1:
+        dev_path = Path(
+            "evaluation/results/integrated_dev_mvp2_v2/integrated_dev_automatic_v2.json"
+        )
+        dev_payload = json.loads(dev_path.read_text(encoding="utf-8"))
+        comparison = {
+            "metadata": metadata,
+            "integrated_dev_v2_artifact": str(dev_path),
+            "integrated_dev_v2_sha256": _sha(dev_path),
+            "integrated_dev_v2": dev_payload.get("metrics")
+            or _aggregate_comparison_metrics(dev_payload["cases"]),
+            "blind_holdout_v1": metrics,
+            "purpose": "AGGREGATE_COMPARISON_ONLY_NO_TUNING",
+        }
+        _write_new_json(paths["comparison"], comparison)
 
     return {
         "paths": {name: str(path) for name, path in paths.items()},
         "sha256": {name: _sha(path) for name, path in paths.items()},
         "metrics": metrics,
+    }
+
+
+def _aggregate_comparison_metrics(cases: list[dict[str, Any]]) -> dict[str, Any]:
+    checks = [case["checks"] for case in cases]
+    legal = [case for case in cases if case.get("query_mode") == "LEGAL_RULE"]
+    case_application = [
+        case for case in cases if case.get("query_mode") == "CASE_APPLICATION"
+    ]
+    legal_required_total = sum(len(case["required_provisions"]) for case in legal)
+    retrieved_required = sum(
+        len(set(case["required_provisions"]) & set(case["retrieved_stable_keys"]))
+        for case in legal
+    )
+    assembled_required = sum(
+        len(
+            set(case["required_provisions"])
+            & set(case["assembled_evidence_stable_keys"])
+        )
+        for case in legal
+    )
+    legal_latencies = [case["latency_ms"] for case in legal]
+    case_latencies = [case["latency_ms"] for case in case_application]
+    return {
+        "case_count": len(cases),
+        "expected_decision_match": sum(
+            check["expected_decision_match"] for check in checks
+        ),
+        "automatic_pass": sum(case["automatic_pass"] for case in cases),
+        "false_abstention": sum(check["false_abstention"] for check in checks),
+        "unsafe_insufficient": sum(check["unsafe_insufficient"] for check in checks),
+        "missed_clarification": sum(check["missed_clarification"] for check in checks),
+        "invalid_citations": sum(bool(check["invalid_citations"]) for check in checks),
+        "out_of_evidence": sum(bool(check["out_of_evidence"]) for check in checks),
+        "retrieval_required_citation_recall": (
+            retrieved_required / legal_required_total if legal_required_total else 1.0
+        ),
+        "evidence_assembly_required_citation_recall": (
+            assembled_required / legal_required_total if legal_required_total else 1.0
+        ),
+        "legal_rule_full_evidence_coverage": sum(
+            case["checks"]["assembly_required_evidence_covered"] for case in legal
+        ),
+        "legal_rule_cases": len(legal),
+        "case_application_cases": len(case_application),
+        "case_application_expected_decision_match": sum(
+            case["checks"]["expected_decision_match"] for case in case_application
+        ),
+        "case_application_clarify_rate": sum(
+            case["parsed_decision"] == "CLARIFY" for case in case_application
+        ),
+        "case_application_retrieval_calls": sum(
+            case["retrieval_executed"] for case in case_application
+        ),
+        "case_application_llm_calls": sum(
+            case["answerer_executed"] for case in case_application
+        ),
+        "case_application_non_empty_citations": sum(
+            bool(case["citations"]) for case in case_application
+        ),
+        "legal_rule_mean_latency_ms": (
+            sum(legal_latencies) / len(legal_latencies) if legal_latencies else None
+        ),
+        "legal_rule_median_latency_ms": (
+            median(legal_latencies) if legal_latencies else None
+        ),
+        "legal_rule_max_latency_ms": max(legal_latencies, default=None),
+        "case_application_mean_latency_ms": (
+            sum(case_latencies) / len(case_latencies) if case_latencies else None
+        ),
+        "case_application_median_latency_ms": (
+            median(case_latencies) if case_latencies else None
+        ),
+        "case_application_max_latency_ms": max(case_latencies, default=None),
+        "total_llm_generation_time_ms": sum(
+            case["latency_ms"] for case in legal if case["answerer_executed"]
+        ),
+        "timeouts": sum("TIMEOUT" in (case["error_category"] or "") for case in cases),
     }

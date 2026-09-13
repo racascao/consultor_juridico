@@ -1,0 +1,70 @@
+{
+  "schema_id": "blind-holdout-human-review-final/1",
+  "consolidated_at": "2026-09-13T19:56:15Z",
+  "human_review_input": "evaluation/results/blind_holdout_mvp2_v1/blind_holdout_human_review_v1_preenchido.json",
+  "human_review_input_sha256": "0ce5772b49435c1845afd487654fc96199ccde4aebddfd6d72ab448a267a5eae",
+  "runtime_freeze_id": "integrated-runtime-mvp2/1",
+  "runtime_freeze_sha256": "5f0df6b41f0d35fcba0a514777a2370385620007ff3e6122473ca6793067514d",
+  "dataset_sha256": "c9136a1f359e1c4e697defa4b7a3957aa0c1559f3e8b233cd2618f2b848014c0",
+  "query_mode_mapping_sha256": "eca28c6ebe828ecd963325059c9b3dcbb3eb38fcdca14f3f3058ea7ee89837c9",
+  "case_count": 36,
+  "metrics": {
+    "legal_correctness": {"pass": 34, "fail": 2, "total": 36},
+    "groundedness": {"pass": 36, "fail": 0, "total": 36},
+    "completeness": {"pass": 32, "fail": 4, "total": 36},
+    "mode_boundary_correctness": {"pass": 36, "fail": 0, "total": 36},
+    "human_all_pass": {"pass": 32, "fail": 4, "total": 36}
+  },
+  "human_failure_cases": [
+    {
+      "case_id": "HOLDOUT-003",
+      "failed_dimensions": ["LEGAL_CORRECTNESS", "COMPLETENESS"],
+      "interpretation": "A resposta não enfrentou substantivamente a questão jurídica e permaneceu em insuficiência da evidência."
+    },
+    {
+      "case_id": "HOLDOUT-014",
+      "failed_dimensions": ["COMPLETENESS"],
+      "interpretation": "A afirmação jurídica produzida é correta, mas não responde diretamente à formulação da pergunta."
+    },
+    {
+      "case_id": "HOLDOUT-024",
+      "failed_dimensions": ["LEGAL_CORRECTNESS", "COMPLETENESS"],
+      "interpretation": "O payload registrou answer nulo em pergunta classificada como ANSWER."
+    },
+    {
+      "case_id": "HOLDOUT-029",
+      "failed_dimensions": ["COMPLETENESS"],
+      "interpretation": "A abstenção é materialmente adequada, mas answer nulo não fornece explicação ao usuário."
+    }
+  ],
+  "automatic_human_divergences": {
+    "count": 9,
+    "automatic_fail_human_all_pass": [
+      "HOLDOUT-002",
+      "HOLDOUT-006",
+      "HOLDOUT-008",
+      "HOLDOUT-019",
+      "HOLDOUT-022",
+      "HOLDOUT-023",
+      "HOLDOUT-025",
+      "HOLDOUT-027"
+    ],
+    "automatic_pass_human_fail": ["HOLDOUT-014"]
+  },
+  "holdout_027_reconciliation": {
+    "automatic_risk_01": "OBSERVED",
+    "human_confirmed_risk_01": "NO",
+    "automatic_gold_decision_disagreement_with_human_substantive_review": true,
+    "gold_changed": false,
+    "human_result": "PASS_ALL_DIMENSIONS"
+  },
+  "false_abstention_reconciliation": {
+    "automatic_cases": ["HOLDOUT-003", "HOLDOUT-006", "HOLDOUT-008"],
+    "human_all_pass_cases": ["HOLDOUT-006", "HOLDOUT-008"],
+    "human_failure_cases": ["HOLDOUT-003"],
+    "principle": "AUTOMATIC_DECISION_METRIC_IS_DISTINCT_FROM_HUMAN_SUBSTANTIVE_METRIC"
+  },
+  "human_review_method": "HUMAN_ONLY_NO_LLM_JUDGE",
+  "notes_preserved_in_input_artifact": true,
+  "holdout_tuning": false
+}

@@ -1,0 +1,8 @@
+{
+  "schema_id": "blind-holdout-query-mode-mapping/1",
+  "mapping_id": "blind-holdout-query-mode-mapping/1",
+  "dataset_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "case_modes": {
+    "HOLDOUT-001": "LEGAL_RULE"
+  }
+}

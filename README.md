@@ -530,8 +530,16 @@ alternativa geral testada não os corrigiu e degradou o baseline.
 
 O runtime integrado está congelado como `integrated-runtime-mvp2/1`, incluindo
 corpus local versionado, FTS, expansão estrutural, answerer, prompt, configuração,
-contrato de modos e validators. O HOLDOUT permanece fechado; o próximo passo é
-o Blind Holdout contra esse estado imutável.
+contrato de modos e validators. O usuário criou e selou externamente o Blind
+HOLDOUT v1, e sua primeira campanha única foi executada sem alterar o runtime.
+O resultado automático foi `25/36`, com `30/36` decisões esperadas, zero
+citações inválidas ou fora da evidência e uma resposta insegura em evidência
+insuficiente. Não houve retry nem tuning. A revisão humana concluiu `34/36` em
+correção jurídica, `36/36` em groundedness, `32/36` em completude, `36/36` no
+boundary de modo e `32/36` all-pass. O risco automático de `HOLDOUT-027` não foi
+confirmado pelo julgamento substantivo, sem alterar o gold ou apagar a
+divergência. Como não existia threshold formal pré-HOLDOUT, a decisão qualitativa
+é `MVP2_ACCEPTED_WITH_KNOWN_LIMITATIONS`.
 
 Use `--trace` para inspecionar ranks, scores, `unit_key`, evidências montadas,
 citações e identidades de modelo/freeze/prompt, sem expor raciocínio interno.
@@ -656,15 +664,27 @@ Fase 0: Fundação e Corpus (concluída)
   → Contrato LEGAL_RULE | CASE_APPLICATION (implementado; smoke aprovado)
   → Integrated DEV v2 + revisão humana (concluídos; 30/32 all pass)
   → Runtime integrado congelado (integrated-runtime-mvp2/1)
-  → Blind Holdout (próximo; ainda fechado)
-  → HOLDOUT
-  → Teste manual
+  → Contrato de custódia Blind Holdout (concluído)
+  → Pacote privado criado e selado pelo usuário (concluído)
+  → Primeira campanha Blind Holdout (concluída; 25/36 automático)
+  → Revisão humana do HOLDOUT (concluída; 32/36 all pass)
+  → MVP2 aceito com limitações conhecidas
+  → [opcional] nova fase metodológica pós-HOLDOUT
 ```
 
 A governança do HOLDOUT está documentada em
-[`docs/governance/holdout.md`](docs/governance/holdout.md), mas nenhum dataset
-HOLDOUT foi criado ou lido nesta fase. O DEV conhecido da Fase 1 não é um
-HOLDOUT. Não há alegação atual de qualidade ou prontidão do consultor.
+[`docs/governance/holdout.md`](docs/governance/holdout.md), e o procedimento de
+custódia em
+[`docs/governance/blind-holdout-custody-mvp2.md`](docs/governance/blind-holdout-custody-mvp2.md).
+O HOLDOUT real foi criado sob custódia externa, permaneceu fora do Git e foi
+executado uma única vez contra o freeze. O DEV conhecido da Fase 1 não é um
+HOLDOUT. A campanha está documentada em
+[`docs/evaluation/blind-holdout-mvp2-v1.md`](docs/evaluation/blind-holdout-mvp2-v1.md).
+A revisão humana está concluída. O boundary `CASE_APPLICATION` foi validado com
+`5/5` decisões esperadas, zero retrieval, zero LLM e `36/36` em correção humana
+do limite de modo. Em `LEGAL_RULE`, permanecem limitações de retrieval
+(`26/44` provisions obrigatórias no primeiro estágio), output contract e
+completude. O HOLDOUT v1 está encerrado e não pode ser usado para desenvolvimento.
 
 ## Seleção do answerer do MVP2
 

@@ -1,0 +1,91 @@
+{
+  "schema_id": "blind-holdout-final-assessment/1",
+  "assessed_at": "2026-09-13T19:56:15Z",
+  "mvp": "MVP2",
+  "runtime_freeze": {
+    "id": "integrated-runtime-mvp2/1",
+    "sha256": "5f0df6b41f0d35fcba0a514777a2370385620007ff3e6122473ca6793067514d",
+    "baseline_git_commit": "ea888a5f70d570e0ab4d505e4b3f5d695eb78cd5",
+    "changed_after_freeze": false
+  },
+  "holdout": {
+    "case_count": 36,
+    "dataset_sha256": "c9136a1f359e1c4e697defa4b7a3957aa0c1559f3e8b233cd2618f2b848014c0",
+    "query_mode_mapping_sha256": "eca28c6ebe828ecd963325059c9b3dcbb3eb38fcdca14f3f3058ea7ee89837c9",
+    "unchanged": true,
+    "first_measurement_complete": true,
+    "human_review_complete": true,
+    "tuning": false
+  },
+  "source_artifacts": {
+    "raw": {"path": "evaluation/results/blind_holdout_mvp2_v1/blind_holdout_raw_v1.json", "sha256": "be2a543b47cb0cd1637501f7bb32d8db58ac5773457ec0374a460826fa819d2e"},
+    "automatic": {"path": "evaluation/results/blind_holdout_mvp2_v1/blind_holdout_automatic_v1.json", "sha256": "c2e877a14b9dd49e6a5690e5d08c83db67bc967bdc3e4b06a8129a94fff8ed98"},
+    "retrieval_diagnostic": {"path": "evaluation/results/blind_holdout_mvp2_v1/blind_holdout_retrieval_diagnostic_v1.json", "sha256": "96484436282f84ba7652e23ea418919ccc824f9cf4666e27e9ba5c83aaaa29c4"},
+    "human_review_template": {"path": "evaluation/results/blind_holdout_mvp2_v1/blind_holdout_human_review_v1.json", "sha256": "93b4f4d18975a36331d58ffa2884294eda979d1782ec7b001dc28a8bce35da68"},
+    "human_review_input": {"path": "evaluation/results/blind_holdout_mvp2_v1/blind_holdout_human_review_v1_preenchido.json", "sha256": "0ce5772b49435c1845afd487654fc96199ccde4aebddfd6d72ab448a267a5eae"},
+    "dev_v2_comparison": {"path": "evaluation/results/blind_holdout_mvp2_v1/blind_holdout_vs_integrated_dev_v2_v1.json", "sha256": "97784166aba23036f3e6e4c8167e74275f85964e6f9dd49ec3cd7509175f40c2"}
+  },
+  "automatic_metrics": {
+    "json_valid": "36/36",
+    "output_schema_valid": "34/36",
+    "decision_payload_valid": "34/36",
+    "expected_decision_match": "30/36",
+    "automatic_pass": "25/36",
+    "false_abstention": 3,
+    "unsafe_insufficient": 1,
+    "missed_clarification": 0,
+    "invalid_citations": 0,
+    "out_of_evidence": 0,
+    "retrieval_required_citation_recall": "26/44",
+    "evidence_assembly_required_citation_recall": "40/44",
+    "legal_rule_full_evidence_coverage": "27/31"
+  },
+  "human_metrics": {
+    "legal_correctness": "34/36",
+    "groundedness": "36/36",
+    "completeness": "32/36",
+    "mode_boundary_correctness": "36/36",
+    "all_pass": "32/36"
+  },
+  "system_dimensions": {
+    "retrieval_generalization": "LIMITED_26_OF_44_REQUIRED_PROVISIONS_IN_FIRST_STAGE",
+    "evidence_assembly": "STRONGER_40_OF_44_AFTER_STRUCTURAL_EXPANSION",
+    "answerer_generalization": "MIXED_WITH_THREE_FALSE_ABSTENTIONS_AND_ONE_OUTPUT_CONTRACT_FAILURE",
+    "query_mode_boundary": "VALIDATED",
+    "output_contract": "34_OF_36_VALID",
+    "human_legal_quality": "34_OF_36_LEGALLY_CORRECT_36_OF_36_GROUNDED",
+    "human_completeness": "32_OF_36_COMPLETE"
+  },
+  "case_application_boundary": {
+    "validated": true,
+    "expected_decision_match": "5/5",
+    "clarify_rate": "5/5",
+    "retrieval_calls": 0,
+    "llm_calls": 0,
+    "non_empty_citations": 0,
+    "policy_violations": 0,
+    "human_mode_boundary_correctness": "36/36"
+  },
+  "risks": {
+    "RISK-01": {"automatic": "OBSERVED_1", "human": "NOT_CONFIRMED"},
+    "RISK-02": {"automatic": "NOT_DETERMINED", "human": "NOT_OBSERVED"},
+    "RISK-03": {"automatic": "NOT_DETERMINED", "human": "RESIDUAL_COMPLETENESS_LIMITATIONS"},
+    "RISK-04": {"automatic": "NOT_DETERMINED", "human": "RESIDUAL_COMPLETENESS_LIMITATIONS"},
+    "RISK-05": {"automatic": "NOT_OBSERVED", "human": "NOT_OBSERVED"},
+    "RISK-06": {"automatic": "NOT_OBSERVED", "human": "NOT_OBSERVED"},
+    "RISK-07": {"automatic": "OBSERVED", "human": "AUTOMATIC_AND_SUBSTANTIVE_METRICS_DIVERGED"},
+    "RISK-08": {"automatic": "NOT_MEASURED_SINGLE_RUN", "human": "NOT_MEASURED_SINGLE_RUN"}
+  },
+  "formal_predefined_acceptance_threshold": "ABSENT",
+  "final_decision": "MVP2_ACCEPTED_WITH_KNOWN_LIMITATIONS",
+  "decision_rationale": "O objetivo arquitetural foi demonstrado com proveniência e groundedness humano de 36/36, boundary CASE_APPLICATION validado e runtime imutável. A aceitação é limitada: retrieval inicial cobriu 26/44 targets, houve duas falhas de correção, quatro de completude e duas falhas de contrato. Sem threshold pré-HOLDOUT, a decisão é qualitativa e não redefine sucesso retroativamente.",
+  "known_limitations": [
+    "RETRIEVAL_REQUIRED_CITATION_RECALL_26_OF_44",
+    "OUTPUT_CONTRACT_VALID_34_OF_36",
+    "HUMAN_LEGAL_CORRECTNESS_34_OF_36",
+    "HUMAN_COMPLETENESS_32_OF_36",
+    "AUTOMATIC_HUMAN_DISAGREEMENT_REQUIRES_SEPARATE_REPORTING"
+  ],
+  "next_action": "CLOSE_MVP2_WITH_KNOWN_LIMITATIONS",
+  "holdout_v1_may_be_used_as_development_dataset": false
+}

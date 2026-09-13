@@ -155,4 +155,11 @@ Os dois modos passaram no smoke manual. O evaluator
 campanha de 26 inferências normativas foi executada manualmente, revisada e
 congelada como `integrated-runtime-mvp2/1`. O resultado humano foi `30/32` all
 pass; `GOLD-003` e `GOLD-016` permanecem riscos residuais aceitos de retrieval.
-O HOLDOUT continua fechado.
+O runtime foi posteriormente congelado e executado uma única vez no Blind
+HOLDOUT v1. A campanha automática obteve `25/36`, sem citações inválidas ou fora
+da evidência, e preservou cinco casos `CASE_APPLICATION` sem retrieval ou LLM.
+Uma resposta insegura em evidência insuficiente foi registrada automaticamente,
+mas não confirmada pela revisão humana substantiva. A revisão foi concluída em
+`32/36` all-pass, sem tuning, e o MVP2 foi aceito com limitações conhecidas;
+consulte
+[`blind-holdout-mvp2-v1.md`](evaluation/blind-holdout-mvp2-v1.md).

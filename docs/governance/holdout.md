@@ -4,8 +4,19 @@
 
 ```text
 HOLDOUT_CUSTODIAN: USER
-HOLDOUT_CREATED: NO
-HOLDOUT_READ: NO
+HOLDOUT_CREATED: YES
+HOLDOUT_SEALED: YES
+HOLDOUT_RUNTIME_FIRST_READ: YES
+HOLDOUT_RUNTIME_FIRST_READ_AT: 2026-09-13T19:37:36.652025+00:00
+HOLDOUT_RUNTIME_EXECUTED: YES
+HOLDOUT_PACKAGE_CONTRACT: READY
+HOLDOUT_QUERY_MODE_CONTRACT: READY
+RUNTIME_FREEZE: integrated-runtime-mvp2/1
+BLIND_HOLDOUT_FIRST_MEASUREMENT: COMPLETE
+HOLDOUT_TUNING: NO
+HUMAN_REVIEW_HOLDOUT: COMPLETE
+MVP2_FINAL_DECISION: MVP2_ACCEPTED_WITH_KNOWN_LIMITATIONS
+NEXT_ACTION: CLOSE_MVP2_WITH_KNOWN_LIMITATIONS
 ```
 
 Este documento define somente a governança futura do conjunto HOLDOUT. Ele não
@@ -28,6 +39,11 @@ poderá conhecer somente:
 Perguntas, targets, respostas esperadas e resultados individuais permanecem sob
 custódia exclusiva do usuário.
 
+A validação estrutural local do pacote é uma `CUSTODY_VALIDATION_READ`: ela
+confere formato, hashes e cobertura do mapping, sem imprimir o conteúdo. Essa
+leitura de custódia não é a `HOLDOUT_RUNTIME_FIRST_READ`, que somente ocorre
+quando o runtime congelado recebe o conjunto para a medição cega final.
+
 ## Condições para uso
 
 O conteúdo real do HOLDOUT somente poderá ser apresentado quando todas estas
@@ -44,8 +60,22 @@ Qualquer mudança no runtime depois da abertura do HOLDOUT invalida o caráter
 cego da medição e exige um novo conjunto independente, novamente congelado sob
 esta governança.
 
-## Fase 0
+## Contrato público e pacote privado
 
-Na Fase 0 não existem DEV, HOLDOUT de conteúdo, retrieval evaluation ou answer
-evaluation. A única entrega deste documento é registrar antecipadamente a
-separação de responsabilidades.
+Schemas e templates sem casos reais são versionados em `evaluation/holdout/`.
+O pacote real foi criado e selado pelo usuário em `evaluation/holdout/private/`,
+caminho ignorado pelo Git. O procedimento de criação, selagem e validação está em
+`docs/governance/blind-holdout-custody-mvp2.md`.
+
+## Primeira campanha
+
+A primeira leitura pelo runtime e a campanha oficial única foram concluídas
+contra o freeze `integrated-runtime-mvp2/1`. O pacote permaneceu byte-identical,
+não houve retry nem tuning. A revisão humana foi concluída em `32/36` all-pass;
+o risco automático em evidência insuficiente não foi confirmado materialmente.
+O MVP2 foi aceito com limitações conhecidas. Métricas e hashes estão em
+`docs/evaluation/blind-holdout-mvp2-v1.md`.
+
+O HOLDOUT v1 está definitivamente encerrado como instrumento cego e não pode ser
+convertido em dataset de desenvolvimento. Evoluções futuras exigem fase
+metodológica pós-HOLDOUT, novo baseline e novos datasets DEV.

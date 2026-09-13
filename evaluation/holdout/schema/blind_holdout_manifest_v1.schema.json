@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "blind-holdout-manifest/1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "manifest_id",
+    "created_at",
+    "custodian",
+    "dataset_path",
+    "dataset_sha256",
+    "query_mode_mapping_path",
+    "query_mode_mapping_sha256",
+    "case_count",
+    "dataset_schema_id",
+    "query_mode_mapping_schema_id",
+    "runtime_freeze_id",
+    "runtime_freeze_sha256",
+    "baseline_git_commit",
+    "sealed_at",
+    "holdout_read_by_runtime"
+  ],
+  "properties": {
+    "schema_id": {"const": "blind-holdout-manifest/1"},
+    "manifest_id": {"type": "string", "minLength": 1},
+    "created_at": {"type": "string", "format": "date-time"},
+    "custodian": {"type": "string", "minLength": 1},
+    "dataset_path": {"const": "evaluation/holdout/private/blind_holdout_mvp2_v1.json"},
+    "dataset_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "query_mode_mapping_path": {"const": "evaluation/holdout/private/blind_holdout_query_mode_mapping_v1.json"},
+    "query_mode_mapping_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "case_count": {"type": "integer", "minimum": 1},
+    "dataset_schema_id": {"const": "blind-holdout-dataset/1"},
+    "query_mode_mapping_schema_id": {"const": "blind-holdout-query-mode-mapping/1"},
+    "runtime_freeze_id": {"const": "integrated-runtime-mvp2/1"},
+    "runtime_freeze_sha256": {"const": "5f0df6b41f0d35fcba0a514777a2370385620007ff3e6122473ca6793067514d"},
+    "baseline_git_commit": {"const": "ea888a5f70d570e0ab4d505e4b3f5d695eb78cd5"},
+    "sealed_at": {"type": "string", "format": "date-time"},
+    "holdout_read_by_runtime": {"const": false}
+  }
+}
