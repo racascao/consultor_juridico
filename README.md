@@ -500,6 +500,13 @@ input atual não representa fatos ausentes de modo que permita um gate de
 clarificação determinístico. Nenhum runtime foi alterado e o HOLDOUT continua
 fechado.
 
+A reconsideração arquitetural selecionou, para a próxima implementação, um
+contrato explícito de dois modos: `LEGAL_RULE` continuará usando o pipeline
+congelado; `CASE_APPLICATION` deverá falhar fechadamente com `CLARIFY`, sem
+chamar o modelo, enquanto não existir um contrato verificável de fatos. Essa
+decisão contém `RISK-01` sem heurísticas, segundo LLM ou mudança do prompt. Ela
+ainda não foi integrada ao runtime.
+
 Use `--trace` para inspecionar ranks, scores, `unit_key`, evidências montadas,
 citações e identidades de modelo/freeze/prompt, sem expor raciocínio interno.
 Dentro do Compose a URL Ollama é `http://ollama:11434`; no host, use somente

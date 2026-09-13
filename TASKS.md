@@ -240,7 +240,9 @@ congelar o runtime integrado antes de abrir o HOLDOUT.
 - [x] Analisar classes gerais de falha sem tuning oportunista.
 - [x] Rejeitar a fusão lexical experimental por regressão global sem recuperar os misses.
 - [x] Concluir que o gate factual determinístico não é justificável com o input atual.
-- [ ] Reconsiderar uma correção geral antes de alterar o runtime integrado.
+- [x] Reconsiderar a arquitetura de factual sufficiency antes do freeze.
+- [x] Selecionar `TWO_MODE_CONTRACT` como limite explícito e fail-closed do MVP2.
+- [ ] Implementar `LEGAL_RULE | CASE_APPLICATION` sem alterar o answerer congelado.
 - [ ] Congelar o runtime integrado antes de abrir o HOLDOUT.
 
 Estado: implementação end-to-end concluída sem inferência real. O artifact

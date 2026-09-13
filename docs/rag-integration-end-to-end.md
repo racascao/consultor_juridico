@@ -136,3 +136,13 @@ rejeitada; nenhum gate factual determinístico mostrou-se seguro com o input
 atual. Não houve tuning nem alteração do runtime. A evidência completa está em
 [`integrated-dev-general-failure-analysis-v1.md`](evaluation/integrated-dev-general-failure-analysis-v1.md).
 O runtime ainda não foi congelado e o HOLDOUT permanece fechado.
+
+## Decisão de factual sufficiency
+
+A revisão arquitetural posterior selecionou um contrato explícito de dois modos.
+`LEGAL_RULE` preservará o pipeline atual; `CASE_APPLICATION` deverá retornar
+`CLARIFY` deterministicamente e sem LLM enquanto o projeto não possuir contrato
+verificável de fatos necessários. A decisão evita inferência por pronomes,
+segundo judge e alteração do prompt congelado. Ela está documentada em
+[`factual-sufficiency-architecture-reconsideration-v1.md`](evaluation/factual-sufficiency-architecture-reconsideration-v1.md)
+e ainda não foi implementada.

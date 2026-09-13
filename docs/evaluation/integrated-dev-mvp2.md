@@ -96,3 +96,9 @@ passo é reconsiderar uma solução geral: o experimento lexical mínimo regredi
 DEV, e um gate factual determinístico não é confiável sem representação
 estruturada dos fatos. O runtime integrado ainda não foi congelado e o HOLDOUT
 continua fechado.
+
+A reconsideração seguinte selecionou `TWO_MODE_CONTRACT`: intenção normativa ou
+aplicação concreta será declarada explicitamente, e aplicações concretas ficarão
+fail-closed no MVP2. A decisão está em
+[`factual-sufficiency-architecture-reconsideration-v1.md`](factual-sufficiency-architecture-reconsideration-v1.md)
+e ainda não alterou o runtime.

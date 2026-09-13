@@ -70,3 +70,9 @@ O runtime não deve ser congelado com `RISK-01` ainda presente. A próxima decis
 arquitetural deve escolher entre enriquecer deterministicamente a representação
 da consulta/fatos ou autorizar um mecanismo semântico próprio, e tratar a lacuna
 lexical/multipart do retrieval em experimento separado.
+
+A reconsideração posterior escolheu o menor limite seguro: um contrato explícito
+`LEGAL_RULE | CASE_APPLICATION`. O primeiro modo reutilizará o pipeline; o
+segundo retornará clarificação local enquanto factual sufficiency completa não
+for verificável. Consulte
+[`factual-sufficiency-architecture-reconsideration-v1.md`](factual-sufficiency-architecture-reconsideration-v1.md).
