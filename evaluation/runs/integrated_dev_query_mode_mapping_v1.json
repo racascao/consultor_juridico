@@ -1,0 +1,11 @@
+{
+  "mapping_id": "integrated-dev-query-mode-mapping/1",
+  "dataset": "evaluation/datasets/lei_9784_gold_evidence_dev_v1.json",
+  "dataset_sha256": "68a319031b7ca3f9da912761ab5328ef6bf37251f8750b3e24207c7258622f65",
+  "category_to_mode": {
+    "SINGLE_SUPPORT": "LEGAL_RULE",
+    "COMPOSITE_SUPPORT": "LEGAL_RULE",
+    "INSUFFICIENT_EVIDENCE": "LEGAL_RULE",
+    "AMBIGUOUS": "CASE_APPLICATION"
+  }
+}

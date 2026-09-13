@@ -1,0 +1,212 @@
+{
+  "freeze_id": "integrated-runtime-mvp2/1",
+  "created_at": "2026-09-13T04:37:51Z",
+  "mvp": "MVP2",
+  "status": "FROZEN_AFTER_INTEGRATED_DEV_V2_HUMAN_REVIEW",
+  "answerer": {
+    "model": "gemma4:12b",
+    "model_digest": "4eb23ef187e2c5462566d6a1d3bbbc2f1346d0b4327cbb66d58fffbcc9b2b05c",
+    "freeze_id": "gold-evidence-selected-answerer/1",
+    "freeze_artifact": "evaluation/model_selection/gold_evidence_selected_answerer_freeze_v1.json",
+    "freeze_artifact_sha256": "d07d5b3ca9feb9c16193a400609215c55ecd5e04f8e26429a035ee51f950e12a",
+    "prompt_identity": "gold-evidence-answering/2",
+    "ollama_format": "json",
+    "thinking": "disabled",
+    "generation_config": {
+      "temperature": 0.7,
+      "top_p": 0.8,
+      "top_k": 20,
+      "repeat_penalty": 1.0,
+      "num_predict": 1024,
+      "num_ctx": 8192,
+      "stream": false,
+      "timeout_seconds": 180
+    }
+  },
+  "corpus": {
+    "act_code": "BR-FED-LEI-9784-1999",
+    "act_version_hash": "bfa031c3e55bb8ff5e9349a9b8b278dcc5f84e64dcb918488ea9bf8316778cc6",
+    "source_kind": "LOCAL_VERSIONED",
+    "source_path": "docs/corpus/artifacts/lei-9784-1999-planalto-2026-08-31.raw.html",
+    "source_url": "https://www.planalto.gov.br/ccivil_03/leis/l9784.htm",
+    "source_document_sha256": "b4abab2e47732f76a16a99e8b00311dcb420b378f89e99c096b609ae84529261",
+    "parser_version": "planalto-lei-structural/1",
+    "projection_version": "provision-text/1",
+    "current_corpus_ready": true,
+    "live_corpus_status": "UNRESOLVED"
+  },
+  "retrieval": {
+    "strategy": "POSTGRESQL_FTS_RELAXED_OR_WEIGHTED_COVERAGE",
+    "baseline": {
+      "hit_at_1": 0.65,
+      "hit_at_3": 0.8,
+      "hit_at_5": 0.85,
+      "hit_at_10": 0.9,
+      "mrr": 0.740625
+    },
+    "structural_evidence_expansion": {
+      "enabled": true,
+      "mode": "DIRECT_CHILDREN_ONLY",
+      "max_children_per_parent": 8,
+      "max_evidence_items": 24,
+      "parent_relation": "parent_id",
+      "ordering": "document_order",
+      "deduplication": true
+    }
+  },
+  "query_mode_contract": {
+    "modes": ["LEGAL_RULE", "CASE_APPLICATION"],
+    "explicit": true,
+    "automatic_inference": false,
+    "cli_mode_required": true,
+    "legal_rule": "FROZEN_RAG_PIPELINE",
+    "case_application": {
+      "decision": "CLARIFY",
+      "retrieval": "NOT_EXECUTED",
+      "answerer": "NOT_EXECUTED",
+      "citations": [],
+      "reason": "CASE_APPLICATION_NOT_SUPPORTED_IN_MVP2"
+    }
+  },
+  "runtime_implementation": {
+    "domain_contract": {
+      "path": "src/consultor_juridico/domain/rag.py",
+      "sha256": "f1244c6f0b20c1da4647173e3b0e69baaea2028a92d86aac342bf6dea3ee7b88"
+    },
+    "rag_services": {
+      "path": "src/consultor_juridico/application/rag/services.py",
+      "sha256": "518c25af895c921ea8aaefb7c4c837bd7096a2d3f0984df5fde7570fdb9ca131"
+    },
+    "rag_result_contract": {
+      "path": "src/consultor_juridico/application/rag/types.py",
+      "sha256": "135900e00a02d612a018bf56f93022e30dbab990700883078de39d5cfd9a491c"
+    },
+    "prompt": {
+      "path": "src/consultor_juridico/application/gold_evidence/prompt.py",
+      "sha256": "eeba032d7218efdb6d18bb41c205459279d833e1262d3fb070af8e7f53172859"
+    },
+    "retrieval_adapter": {
+      "path": "src/consultor_juridico/infrastructure/retrieval.py",
+      "sha256": "b2c3b447b3cf1225988158b12625eb91cbc1a4013e1fbd68d34e58cec1998d50"
+    },
+    "evidence_repository": {
+      "path": "src/consultor_juridico/infrastructure/gold_evidence.py",
+      "sha256": "0abc324899545e0916fb69cf9bd39a230d181f16398ba98c884e3176477496b6"
+    },
+    "answerer_adapter": {
+      "path": "src/consultor_juridico/infrastructure/ollama/selected_answerer.py",
+      "sha256": "1686dcd6a1d290dcbe9ed2c08dbf4329525b2abb5bc39c8d943edbc1a0c89639"
+    }
+  },
+  "artifacts": {
+    "factual_sufficiency_architecture": {
+      "path": "evaluation/results/integrated_dev_mvp2_v1/factual_sufficiency_architecture_reconsideration_v1.json",
+      "sha256": "b3b5d1d95053601cdd88ea454fb6b13120317ae3408756edb221db54dee49fce"
+    },
+    "two_mode_validation": {
+      "path": "evaluation/results/integrated_dev_mvp2_v1/two_mode_query_contract_validation_v1.json",
+      "sha256": "02f5bad33bd7cf1ca9d89dde576b978189cf78d0a9e1e891f5e52f88f9c1464a"
+    },
+    "dataset": {
+      "path": "evaluation/datasets/lei_9784_gold_evidence_dev_v1.json",
+      "sha256": "68a319031b7ca3f9da912761ab5328ef6bf37251f8750b3e24207c7258622f65"
+    },
+    "query_mode_mapping": {
+      "path": "evaluation/runs/integrated_dev_query_mode_mapping_v1.json",
+      "sha256": "04e30095178b634438c0f2af5b5dc6b286122756c63b1e1d3d94e8733d3a6ea1"
+    },
+    "integrated_dev_v2_raw": {
+      "path": "evaluation/results/integrated_dev_mvp2_v2/integrated_dev_raw_v2.json",
+      "sha256": "646d5404edd70922328121f33a403b8f4a7817c6c2c316d5334d112f27a94a0a"
+    },
+    "integrated_dev_v2_automatic": {
+      "path": "evaluation/results/integrated_dev_mvp2_v2/integrated_dev_automatic_v2.json",
+      "sha256": "e7261db352d6a88e9f97d85105a6f8a439be439e4df28e6aa6cee2359641aba4"
+    },
+    "integrated_dev_v2_diagnostic": {
+      "path": "evaluation/results/integrated_dev_mvp2_v2/integrated_dev_retrieval_diagnostic_v2.json",
+      "sha256": "0307705bb39bba54ef40a6cd542bda5a0a938f180228c6c7d190e2852cf1f907"
+    },
+    "integrated_dev_v2_review_template": {
+      "path": "evaluation/results/integrated_dev_mvp2_v2/integrated_dev_human_review_v2.json",
+      "sha256": "71949f7e90bf9e3af00937d4c2f04334c7545d3d0f7fc6a668affd5ab62b4f6b"
+    },
+    "integrated_dev_v1_v2_comparison": {
+      "path": "evaluation/results/integrated_dev_mvp2_v2/integrated_dev_v1_vs_v2_comparison.json",
+      "sha256": "8dee1962b70bde5fbba57b46b13e694de70d6fddf0c1d63a728200b10cb1f29b"
+    },
+    "integrated_dev_v2_human_review": {
+      "path": "evaluation/results/integrated_dev_mvp2_v2/integrated_dev_human_review_v2_preenchido.json",
+      "sha256": "ce7860aae0e0855d134d0b299924e16c0595249a45676afb0af3aa18b62a81e3"
+    }
+  },
+  "automatic_metrics": {
+    "json_valid": "32/32",
+    "output_schema_valid": "32/32",
+    "decision_payload_valid": "32/32",
+    "expected_decision_match": "31/32",
+    "automatic_pass": "30/32",
+    "false_abstention": 1,
+    "unsafe_insufficient": 0,
+    "missed_clarification": 0,
+    "invalid_citations": 0,
+    "out_of_evidence": 0,
+    "required_citation_covered": "30/32",
+    "retrieval_required_citation_recall": {"covered": 27, "total": 34, "rate": 0.7941176470588235},
+    "evidence_assembly_required_citation_recall": {"covered": 32, "total": 34, "rate": 0.9411764705882353},
+    "legal_rule_full_evidence_coverage": "24/26",
+    "case_application_expected_decision_match": "6/6",
+    "case_application_clarify_rate": "6/6",
+    "case_application_retrieval_calls": 0,
+    "case_application_llm_calls": 0,
+    "case_application_non_empty_citations": 0,
+    "query_mode_policy_violations": 0,
+    "timeouts": 0
+  },
+  "human_review_metrics": {
+    "legal_correctness": "31/32",
+    "groundedness": "32/32",
+    "completeness": "30/32",
+    "mode_boundary_correctness": "32/32",
+    "all_pass": "30/32",
+    "fail_cases": ["GOLD-003", "GOLD-016"]
+  },
+  "performance_ms": {
+    "legal_rule_mean": 9160.23264026923,
+    "legal_rule_median": 8209.695347999968,
+    "legal_rule_max": 16009.234584000296,
+    "case_application_mean": 0.2589878331491491,
+    "case_application_median": 0.004996499683329603,
+    "case_application_max": 1.5270800004145713,
+    "total_llm_generation": 238166.04864700002
+  },
+  "residual_risks": {
+    "classification": "HETEROGENEOUS_LEXICAL_AND_MULTIPART_RANKING_MISSES",
+    "accepted": true,
+    "cases": ["GOLD-003", "GOLD-016"],
+    "general_fix_justified": false,
+    "general_fix_implemented": false
+  },
+  "risk_scorecard": {
+    "RISK-01": "CONTAINED_BY_EXPLICIT_QUERY_MODE_CONTRACT",
+    "RISK-02": "NOT_OBSERVED",
+    "RISK-03": "NOT_OBSERVED_ON_REFERENCE_CASES",
+    "RISK-04": "OBSERVED_AT_SYSTEM_LEVEL_WITH_RETRIEVAL_CAUSE",
+    "RISK-05": "CONTAINED_BY_EXPLICIT_QUERY_MODE_CONTRACT",
+    "RISK-06": "NOT_OBSERVED",
+    "RISK-07": "NOT_OBSERVED_ON_REFERENCE_CASE",
+    "RISK-08": "NOT_MEASURED_SINGLE_RUN"
+  },
+  "runtime_web_fetch": "NOT_IMPLEMENTED",
+  "source_url_semantics": "PROVENANCE_ONLY_NOT_PROOF_OF_RUNTIME_NETWORK_ISOLATION",
+  "tuning_after_measurement": false,
+  "holdout": {
+    "status": "CLOSED_UNTIL_RUNTIME_FREEZE_COMPLETE",
+    "read": false,
+    "freeze_precedes_blind_holdout": true
+  },
+  "change_policy": {
+    "on_runtime_identity_change": "INVALIDATE_FREEZE_AND_REQUIRE_REEVALUATION",
+    "silent_changes_allowed": false
+  }
+}

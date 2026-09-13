@@ -242,8 +242,14 @@ congelar o runtime integrado antes de abrir o HOLDOUT.
 - [x] Concluir que o gate factual determinístico não é justificável com o input atual.
 - [x] Reconsiderar a arquitetura de factual sufficiency antes do freeze.
 - [x] Selecionar `TWO_MODE_CONTRACT` como limite explícito e fail-closed do MVP2.
-- [ ] Implementar `LEGAL_RULE | CASE_APPLICATION` sem alterar o answerer congelado.
-- [ ] Congelar o runtime integrado antes de abrir o HOLDOUT.
+- [x] Implementar `LEGAL_RULE | CASE_APPLICATION` sem alterar o answerer congelado.
+- [x] Validar `GOLD-027..032` como `CLARIFY` determinístico, sem retrieval/LLM.
+- [x] Executar os dois smoke tests manuais do contrato de modos.
+- [x] Preparar evaluator e mapping externo do Integrated DEV v2.
+- [x] Usuário executar a campanha Integrated DEV v2 uma única vez.
+- [x] Concluir a revisão humana v2 (`30/32` all pass).
+- [x] Congelar o runtime integrado antes de abrir o HOLDOUT.
+- [ ] Executar Blind Holdout contra o runtime integrado congelado.
 
 Estado: implementação end-to-end concluída sem inferência real. O artifact
 local versionado `b4abab2e...9261` foi materializado como `ActVersion`

@@ -20,6 +20,7 @@ Docker Compose pela rede interna do serviço `app`.
 ```bash
 docker compose --profile llm run --rm app consultor-juridico ask \
   "Quais são os requisitos para delegação de competência?" \
+  --mode legal-rule \
   --version-hash bfa031c3e55bb8ff5e9349a9b8b278dcc5f84e64dcb918488ea9bf8316778cc6
 ```
 
@@ -28,6 +29,7 @@ docker compose --profile llm run --rm app consultor-juridico ask \
 ```bash
 docker compose --profile llm run --rm app consultor-juridico ask \
   "Quais atos não podem ser delegados e em que condições a avocação é permitida?" \
+  --mode legal-rule \
   --version-hash bfa031c3e55bb8ff5e9349a9b8b278dcc5f84e64dcb918488ea9bf8316778cc6
 ```
 
@@ -36,6 +38,7 @@ docker compose --profile llm run --rm app consultor-juridico ask \
 ```bash
 docker compose --profile llm run --rm app consultor-juridico ask \
   "Qual é a pena para o crime de furto?" \
+  --mode legal-rule \
   --version-hash bfa031c3e55bb8ff5e9349a9b8b278dcc5f84e64dcb918488ea9bf8316778cc6
 ```
 
@@ -65,6 +68,7 @@ cinco comandos devem agora ser repetidos pelo usuário.
 ```bash
 docker compose --profile llm run --rm app consultor-juridico ask \
   "A intimação que recebi no processo administrativo é válida?" \
+  --mode case-application \
   --version-hash bfa031c3e55bb8ff5e9349a9b8b278dcc5f84e64dcb918488ea9bf8316778cc6
 ```
 
@@ -73,6 +77,7 @@ docker compose --profile llm run --rm app consultor-juridico ask \
 ```bash
 docker compose --profile llm run --rm app consultor-juridico ask \
   "Quais são os requisitos para delegação de competência?" \
+  --mode legal-rule \
   --version-hash bfa031c3e55bb8ff5e9349a9b8b278dcc5f84e64dcb918488ea9bf8316778cc6 \
   --trace
 ```

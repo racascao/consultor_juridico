@@ -484,8 +484,24 @@ Nos smoke tests manuais, consulte informando a identidade da versão:
 ```bash
 consultor-juridico ask \
   "Quais são os requisitos para delegação de competência?" \
+  --mode legal-rule \
   --version-hash bfa031c3e55bb8ff5e9349a9b8b278dcc5f84e64dcb918488ea9bf8316778cc6
 ```
+
+O modo é obrigatório e nunca é inferido do texto. `legal-rule` explica a regra
+jurídica pelo pipeline RAG congelado. Para uma consulta que peça aplicação a
+fatos concretos, declare `case-application`:
+
+```bash
+consultor-juridico ask \
+  "A autoridade pode delegar essa competência no meu caso?" \
+  --mode case-application \
+  --version-hash bfa031c3e55bb8ff5e9349a9b8b278dcc5f84e64dcb918488ea9bf8316778cc6
+```
+
+No MVP2, esse segundo modo retorna `CLARIFY` deterministicamente, sem retrieval,
+evidências ou LLM. O produto ainda não coleta nem valida um contrato estruturado
+de fatos suficiente para aplicar conclusivamente a lei a um caso individual.
 
 Os cinco cenários e os comandos exatos estão em
 [`docs/evaluation/rag-smoke-tests-mvp2.md`](docs/evaluation/rag-smoke-tests-mvp2.md).
@@ -500,12 +516,22 @@ input atual não representa fatos ausentes de modo que permita um gate de
 clarificação determinístico. Nenhum runtime foi alterado e o HOLDOUT continua
 fechado.
 
-A reconsideração arquitetural selecionou, para a próxima implementação, um
-contrato explícito de dois modos: `LEGAL_RULE` continuará usando o pipeline
-congelado; `CASE_APPLICATION` deverá falhar fechadamente com `CLARIFY`, sem
-chamar o modelo, enquanto não existir um contrato verificável de fatos. Essa
-decisão contém `RISK-01` sem heurísticas, segundo LLM ou mudança do prompt. Ela
-ainda não foi integrada ao runtime.
+A reconsideração arquitetural foi implementada como contrato explícito de dois
+modos: `LEGAL_RULE` usa o pipeline congelado; `CASE_APPLICATION` falha
+fechadamente com `CLARIFY`, sem retrieval ou modelo, enquanto não existir um
+contrato verificável de fatos. Isso contém `RISK-01` e `RISK-05` sem heurísticas,
+segundo LLM, mudança de prompt ou invalidação do freeze.
+
+O Integrated DEV v2 mediu esse runtime em 32 casos: `31/32` decisões esperadas,
+`30/32` automatic pass e, na revisão humana, `30/32` all pass. Os seis casos de
+aplicação concreta retornaram `CLARIFY` sem retrieval ou LLM. Permanecem dois
+resíduos conhecidos de retrieval (`GOLD-003` e `GOLD-016`), aceitos porque a
+alternativa geral testada não os corrigiu e degradou o baseline.
+
+O runtime integrado está congelado como `integrated-runtime-mvp2/1`, incluindo
+corpus local versionado, FTS, expansão estrutural, answerer, prompt, configuração,
+contrato de modos e validators. O HOLDOUT permanece fechado; o próximo passo é
+o Blind Holdout contra esse estado imutável.
 
 Use `--trace` para inspecionar ranks, scores, `unit_key`, evidências montadas,
 citações e identidades de modelo/freeze/prompt, sem expor raciocínio interno.
@@ -626,7 +652,11 @@ Fase 0: Fundação e Corpus (concluída)
   → Fase 2: Gold Evidence (concluída; answerer selecionado e congelado)
   → Integração RAG end-to-end (implementada; corpus local pronto)
   → Smoke tests RAG manuais (concluídos o suficiente para DEV)
-  → Integrated DEV (primeira medição concluída; revisão humana pendente)
+  → Integrated DEV v1 (medição e revisão humana concluídas)
+  → Contrato LEGAL_RULE | CASE_APPLICATION (implementado; smoke aprovado)
+  → Integrated DEV v2 + revisão humana (concluídos; 30/32 all pass)
+  → Runtime integrado congelado (integrated-runtime-mvp2/1)
+  → Blind Holdout (próximo; ainda fechado)
   → HOLDOUT
   → Teste manual
 ```

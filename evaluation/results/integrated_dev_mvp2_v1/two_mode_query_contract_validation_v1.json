@@ -1,0 +1,51 @@
+{
+  "artifact_type": "TWO_MODE_QUERY_CONTRACT_VALIDATION",
+  "artifact_version": "1",
+  "architecture_decision": "F_TWO_MODE_CONTRACT",
+  "architecture_decision_artifact": "evaluation/results/integrated_dev_mvp2_v1/factual_sufficiency_architecture_reconsideration_v1.json",
+  "architecture_decision_sha256": "b3b5d1d95053601cdd88ea454fb6b13120317ae3408756edb221db54dee49fce",
+  "implementation_identity": "two-mode-query-contract/1",
+  "query_mode_explicit": true,
+  "query_mode_automatic_inference": false,
+  "modes": {
+    "LEGAL_RULE": {
+      "behavior": "EXISTING_FROZEN_RAG_PIPELINE",
+      "retrieval": "POSTGRESQL_FTS_RELAXED_OR_WEIGHTED_COVERAGE",
+      "structural_evidence": "DIRECT_CHILDREN_ONLY_MAX_8_GLOBAL_MAX_24"
+    },
+    "CASE_APPLICATION": {
+      "behavior": "DETERMINISTIC_CLARIFY",
+      "reason": "CASE_APPLICATION_NOT_SUPPORTED_IN_MVP2",
+      "retrieval_calls": 0,
+      "llm_calls": 0,
+      "citations": []
+    }
+  },
+  "ambiguous_case_validation": [
+    {"case_id": "GOLD-027", "mode": "CASE_APPLICATION", "decision": "CLARIFY"},
+    {"case_id": "GOLD-028", "mode": "CASE_APPLICATION", "decision": "CLARIFY"},
+    {"case_id": "GOLD-029", "mode": "CASE_APPLICATION", "decision": "CLARIFY"},
+    {"case_id": "GOLD-030", "mode": "CASE_APPLICATION", "decision": "CLARIFY"},
+    {"case_id": "GOLD-031", "mode": "CASE_APPLICATION", "decision": "CLARIFY"},
+    {"case_id": "GOLD-032", "mode": "CASE_APPLICATION", "decision": "CLARIFY"}
+  ],
+  "ambiguous_expected_decision_match": "6/6",
+  "external_calls": {"retrieval": 0, "llm": 0},
+  "freeze_identity": {
+    "model": "gemma4:12b",
+    "model_digest": "4eb23ef187e2c5462566d6a1d3bbbc2f1346d0b4327cbb66d58fffbcc9b2b05c",
+    "freeze": "gold-evidence-selected-answerer/1",
+    "prompt": "gold-evidence-answering/2",
+    "changed": false
+  },
+  "tests": {
+    "case_application_content_independence": "PASS",
+    "case_application_zero_external_calls": "PASS",
+    "legal_rule_existing_pipeline": "PASS",
+    "cli_mode_required": "PASS",
+    "ambiguous_cases": "PASS_6_OF_6"
+  },
+  "integrated_dev_v2": "NOT_RUN",
+  "holdout_read": false,
+  "real_llm_inference_executed": false
+}

@@ -112,6 +112,7 @@ Consulta, depois da preparação explícita do corpus:
 
 ```bash
 consultor-juridico ask "<pergunta>" \
+  --mode legal-rule \
   --version-hash bfa031c3e55bb8ff5e9349a9b8b278dcc5f84e64dcb918488ea9bf8316778cc6 \
   [--trace]
 ```
@@ -145,4 +146,13 @@ A revisão arquitetural posterior selecionou um contrato explícito de dois modo
 verificável de fatos necessários. A decisão evita inferência por pronomes,
 segundo judge e alteração do prompt congelado. Ela está documentada em
 [`factual-sufficiency-architecture-reconsideration-v1.md`](evaluation/factual-sufficiency-architecture-reconsideration-v1.md)
-e ainda não foi implementada.
+e foi implementada sem alterar retrieval, prompt, answerer ou freeze. O modo é
+obrigatório na CLI e na API de aplicação; não existe inferência pelo texto.
+`CASE_APPLICATION` retorna `CLARIFY` antes de abrir banco ou cliente HTTP, com
+citações vazias e trace `retrieval=NOT_EXECUTED`/`answerer=NOT_EXECUTED`.
+Os dois modos passaram no smoke manual. O evaluator
+`integrated-dev-v2-two-mode` está preparado com mapping externo imutável; a
+campanha de 26 inferências normativas foi executada manualmente, revisada e
+congelada como `integrated-runtime-mvp2/1`. O resultado humano foi `30/32` all
+pass; `GOLD-003` e `GOLD-016` permanecem riscos residuais aceitos de retrieval.
+O HOLDOUT continua fechado.

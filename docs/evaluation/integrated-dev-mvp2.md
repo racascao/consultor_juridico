@@ -101,4 +101,13 @@ A reconsideração seguinte selecionou `TWO_MODE_CONTRACT`: intenção normativa
 aplicação concreta será declarada explicitamente, e aplicações concretas ficarão
 fail-closed no MVP2. A decisão está em
 [`factual-sufficiency-architecture-reconsideration-v1.md`](factual-sufficiency-architecture-reconsideration-v1.md)
-e ainda não alterou o runtime.
+e foi implementada no runtime. Os seis casos ambíguos, mapeados externamente
+para `CASE_APPLICATION`, retornam `6/6 CLARIFY` sem retrieval ou LLM. Isso é uma
+validação determinística do contrato, não uma nova campanha Integrated DEV; a
+v2 permanece pendente.
+
+O evaluator v2 foi preparado posteriormente sem modificar este resultado v1.
+Ele usa mapping externo por categoria e artifacts em diretório separado. A
+campanha foi executada manualmente pelo usuário e obteve `30/32` automatic e
+human all pass; o runtime resultante foi congelado como
+`integrated-runtime-mvp2/1`.

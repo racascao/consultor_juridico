@@ -1,6 +1,8 @@
 """Regressões do fluxo RAG integrado do MVP2, sem inferência real."""
 
 import json
+from hashlib import sha256
+from pathlib import Path
 from uuid import UUID
 
 import httpx
@@ -20,13 +22,21 @@ from consultor_juridico.application.rag.services import (
     parse_answer_contract,
 )
 from consultor_juridico.cli.main import app
-from consultor_juridico.domain.rag import CitationStatus, RagDecision
+from consultor_juridico.domain.rag import (
+    CitationStatus,
+    QueryMode,
+    RagDecision,
+    RagQueryRequest,
+)
 from consultor_juridico.domain.retrieval import (
     RetrievalCandidate,
     RetrievalContext,
-    RetrievalRequest,
 )
-from consultor_juridico.evaluation.integrated_rag import run_integrated_dev
+from consultor_juridico.evaluation.gold_evidence import load_gold_dataset
+from consultor_juridico.evaluation.integrated_rag import (
+    IntegratedDevProfile,
+    run_integrated_dev,
+)
 from consultor_juridico.evaluation.selected_answerer import (
     SELECTED_MODEL,
     SELECTED_MODEL_DIGEST,
@@ -240,14 +250,18 @@ def test_integrated_answer_preserves_prompt_trace_and_valid_citation():
     )
     result = RunRagQuery(
         FakeRetriever((_candidate(KEY_A),)), FakeRepository(), answerer
-    ).execute(RetrievalRequest("Pergunta?", VERSION))
+    ).execute(RagQueryRequest("Pergunta?", VERSION, QueryMode.LEGAL_RULE))
     assert result.output.decision is RagDecision.ANSWER
     assert result.citation_validation.status is CitationStatus.VALID
     assert result.evidence[0].stable_key == KEY_A
     assert answerer.calls[0][0] == SYSTEM_PROMPT_V2
     assert "QUESTION:\nPergunta?" in answerer.calls[0][1]
     assert f"EVIDENCE_ID: {KEY_A}" in answerer.calls[0][1]
+    assert result.identity is not None
     assert result.identity.model == SELECTED_MODEL
+    assert result.query_mode is QueryMode.LEGAL_RULE
+    assert result.retrieval_executed is True
+    assert result.answerer_executed is True
 
 
 @pytest.mark.parametrize("decision", ["ABSTAIN", "CLARIFY"])
@@ -255,8 +269,63 @@ def test_integrated_non_answer_decisions(decision):
     answerer = FakeAnswerer({"decision": decision, "answer": "Texto.", "citations": []})
     result = RunRagQuery(
         FakeRetriever((_candidate(KEY_A),)), FakeRepository(), answerer
-    ).execute(RetrievalRequest("Pergunta?", VERSION))
+    ).execute(RagQueryRequest("Pergunta?", VERSION, QueryMode.LEGAL_RULE))
     assert result.output.decision.value == decision
+
+
+class ExplodingDependency:
+    def __getattr__(self, name):
+        raise AssertionError(f"CASE_APPLICATION acessou dependência externa: {name}")
+
+
+@pytest.mark.parametrize(
+    "question",
+    ["Posso fazer X?", "Quais são as condições para X?", "texto arbitrário"],
+)
+def test_case_application_clarifies_without_retrieval_or_answerer(question):
+    result = RunRagQuery(
+        ExplodingDependency(), ExplodingDependency(), ExplodingDependency()
+    ).execute(RagQueryRequest(question, VERSION, QueryMode.CASE_APPLICATION))
+
+    assert result.output.decision is RagDecision.CLARIFY
+    assert result.output.citations == ()
+    assert result.retrieved == ()
+    assert result.evidence == ()
+    assert result.identity is None
+    assert result.retrieval_executed is False
+    assert result.answerer_executed is False
+    assert result.routing_reason == "CASE_APPLICATION_NOT_SUPPORTED_IN_MVP2"
+
+
+def test_rag_query_request_rejects_untyped_or_missing_mode():
+    with pytest.raises(ValueError, match="QueryMode explícito"):
+        RagQueryRequest("Pergunta?", VERSION, "legal-rule")  # type: ignore[arg-type]
+
+
+def test_all_ambiguous_dev_cases_clarify_without_external_calls():
+    dataset = load_gold_dataset(
+        Path("evaluation/datasets/lei_9784_gold_evidence_dev_v1.json")
+    )
+    ambiguous = tuple(case for case in dataset.cases if case.category == "AMBIGUOUS")
+
+    results = [
+        RunRagQuery(
+            ExplodingDependency(), ExplodingDependency(), ExplodingDependency()
+        ).execute(RagQueryRequest(case.question, VERSION, QueryMode.CASE_APPLICATION))
+        for case in ambiguous
+    ]
+
+    assert [case.case_id for case in ambiguous] == [
+        "GOLD-027",
+        "GOLD-028",
+        "GOLD-029",
+        "GOLD-030",
+        "GOLD-031",
+        "GOLD-032",
+    ]
+    assert all(result.output.decision is RagDecision.CLARIFY for result in results)
+    assert all(result.retrieval_executed is False for result in results)
+    assert all(result.answerer_executed is False for result in results)
 
 
 def test_integrated_dev_uses_retrieved_evidence_and_creates_frozen_artifacts(
@@ -302,10 +371,85 @@ def test_integrated_dev_uses_retrieved_evidence_and_creates_frozen_artifacts(
     assert raw["cases"][0]["raw_model_response"]
 
 
+def test_integrated_dev_v2_applies_external_mode_mapping_without_llm_for_case(
+    tmp_path,
+):
+    dataset = tmp_path / "dataset.json"
+    dataset.write_text(
+        json.dumps(
+            {
+                "dataset_id": "dev",
+                "legal_act_code": "BR-FED-LEI-9784-1999",
+                "cases": [
+                    {
+                        "case_id": "RULE",
+                        "category": "SINGLE_SUPPORT",
+                        "question": "Qual é a regra?",
+                        "gold_provisions": [KEY_A],
+                        "required_provisions": [KEY_A],
+                        "expected_decision": "ANSWER",
+                    },
+                    {
+                        "case_id": "CASE",
+                        "category": "AMBIGUOUS",
+                        "question": "A regra se aplica ao meu caso?",
+                        "gold_provisions": [KEY_A],
+                        "required_provisions": [],
+                        "expected_decision": "CLARIFY",
+                    },
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+    mapping = tmp_path / "mapping.json"
+    mapping.write_text(
+        json.dumps(
+            {
+                "mapping_id": "test/two-mode",
+                "dataset_sha256": sha256(dataset.read_bytes()).hexdigest(),
+                "category_to_mode": {
+                    "SINGLE_SUPPORT": "LEGAL_RULE",
+                    "COMPOSITE_SUPPORT": "LEGAL_RULE",
+                    "INSUFFICIENT_EVIDENCE": "LEGAL_RULE",
+                    "AMBIGUOUS": "CASE_APPLICATION",
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
+    answerer = FakeAnswerer(
+        {"decision": "ANSWER", "answer": "Resposta.", "citations": [KEY_A]}
+    )
+    result = run_integrated_dev(
+        FakeRetriever((_candidate(KEY_A),)),
+        FakeRepository(),
+        answerer,
+        dataset_path=dataset,
+        version_hash=VERSION,
+        output_dir=tmp_path / "v2",
+        profile=IntegratedDevProfile.TWO_MODE_V2,
+        query_mode_mapping_path=mapping,
+    )
+
+    assert len(answerer.calls) == 1
+    assert result["metrics"]["legal_rule_cases"] == 1
+    assert result["metrics"]["case_application_cases"] == 1
+    assert result["metrics"]["case_application_clarify_rate"] == 1
+    assert result["metrics"]["case_application_retrieval_calls"] == 0
+    assert result["metrics"]["case_application_llm_calls"] == 0
+    raw = json.loads((tmp_path / "v2/integrated_dev_raw_v2.json").read_text())
+    case = next(item for item in raw["cases"] if item["case_id"] == "CASE")
+    assert case["raw_model_response"] is None
+    assert case["retrieved_stable_keys"] == []
+    assert case["citations"] == []
+    assert case["routing_reason"] == "CASE_APPLICATION_NOT_SUPPORTED_IN_MVP2"
+
+
 def test_empty_retrieval_abstains_without_calling_answerer():
     answerer = FakeAnswerer({})
     result = RunRagQuery(FakeRetriever(()), FakeRepository(), answerer).execute(
-        RetrievalRequest("Pergunta?", VERSION)
+        RagQueryRequest("Pergunta?", VERSION, QueryMode.LEGAL_RULE)
     )
     assert result.output.decision is RagDecision.ABSTAIN
     assert answerer.calls == []
@@ -325,7 +469,7 @@ def test_integrated_citation_failure_is_explicit(citation, status):
     with pytest.raises(CitationValidationError) as captured:
         RunRagQuery(
             FakeRetriever((_candidate(KEY_A),)), FakeRepository(), answerer
-        ).execute(RetrievalRequest("Pergunta?", VERSION))
+        ).execute(RagQueryRequest("Pergunta?", VERSION, QueryMode.LEGAL_RULE))
     assert captured.value.validation.status is status
 
 
@@ -417,5 +561,39 @@ def test_rag_cli_commands_are_exposed_without_external_services():
     status = CliRunner().invoke(app, ["rag", "status", "--help"])
     assert ask.exit_code == 0
     assert "--version-hash" in ask.output
+    assert "--mode" in ask.output
+    assert "required" in ask.output.lower()
     assert "--trace" in ask.output
     assert status.exit_code == 0
+
+
+def test_rag_cli_rejects_missing_mode_before_external_services():
+    result = CliRunner().invoke(app, ["ask", "Pergunta?", "--version-hash", VERSION])
+    assert result.exit_code != 0
+    assert "--mode" in result.output
+
+
+def test_case_application_cli_returns_before_database_or_ollama(monkeypatch):
+    monkeypatch.setattr(
+        "consultor_juridico.cli.main._session_factory",
+        lambda: (_ for _ in ()).throw(AssertionError("database accessed")),
+    )
+    result = CliRunner().invoke(
+        app,
+        [
+            "ask",
+            "A autoridade pode fazer isso no meu caso?",
+            "--mode",
+            "case-application",
+            "--version-hash",
+            VERSION,
+            "--trace",
+        ],
+    )
+
+    assert result.exit_code == 0
+    assert "Decisão: CLARIFY" in result.output
+    assert "query_mode=CASE_APPLICATION" in result.output
+    assert "retrieval=NOT_EXECUTED" in result.output
+    assert "answerer=NOT_EXECUTED" in result.output
+    assert "CASE_APPLICATION_NOT_SUPPORTED_IN_MVP2" in result.output

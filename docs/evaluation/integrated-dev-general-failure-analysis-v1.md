@@ -76,3 +76,13 @@ A reconsideração posterior escolheu o menor limite seguro: um contrato explíc
 segundo retornará clarificação local enquanto factual sufficiency completa não
 for verificável. Consulte
 [`factual-sufficiency-architecture-reconsideration-v1.md`](factual-sufficiency-architecture-reconsideration-v1.md).
+
+O contrato foi implementado posteriormente: `LEGAL_RULE` preserva o pipeline e
+`CASE_APPLICATION` retorna `CLARIFY` local, sem retrieval ou LLM. Assim, os
+riscos `RISK-01` e `RISK-05` ficam contidos por intenção explicitamente declarada,
+sem alegar factual sufficiency automática.
+
+Os smokes manuais confirmaram ambos os caminhos. O evaluator da nova medição
+foi preparado com mapping externo e sem alterar este diagnóstico v1. A execução
+manual e revisão do DEV v2 confirmaram a contenção dos riscos de modo; os misses
+heterogêneos `GOLD-003` e `GOLD-016` foram conscientemente aceitos no freeze.

@@ -84,10 +84,16 @@ Recomenda-se `F_TWO_MODE_CONTRACT` como limite de escopo fail-closed:
 7. adaptar o harness DEV com modo declarado, sem inferência heurística.
 
 Essa solução contém `RISK-01`, mas não afirma implementar factual sufficiency
-completa. Ela não exige novo prompt, invalidação do freeze ou segundo LLM. Exige
-uma pequena mudança de CLI/contrato, a ser implementada somente na próxima task.
+completa. Ela não exige novo prompt, invalidação do freeze ou segundo LLM. A
+mudança de CLI/contrato foi implementada com modo obrigatório e sem inferência
+automática. `CASE_APPLICATION` desvia antes de banco, retrieval e cliente Ollama;
+`LEGAL_RULE` preserva o fluxo congelado.
 
 ## Próximo passo
 
-`IMPLEMENT_SELECTED_FACTUAL_SUFFICIENCY_ARCHITECTURE`. Depois da implementação,
-executar Integrated DEV v2 antes de qualquer freeze. O HOLDOUT permanece fechado.
+Executar os smoke tests manuais dos dois modos e, depois, Integrated DEV v2 antes
+de qualquer freeze. O HOLDOUT permanece fechado.
+
+Os smokes foram aprovados e o DEV v2 foi executado manualmente com mapping
+externo. Os seis casos concretos retornaram `CLARIFY` sem retrieval ou LLM, e o
+contrato passou a integrar o freeze `integrated-runtime-mvp2/1`.

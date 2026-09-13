@@ -24,8 +24,10 @@ from consultor_juridico.domain.rag import (
     AnswerContract,
     CitationStatus,
     CitationValidation,
+    QueryMode,
     RagDecision,
     RagIdentity,
+    RagQueryRequest,
 )
 from consultor_juridico.domain.retrieval import RetrievalRequest
 from consultor_juridico.evaluation.ollama_gold_runner import GENERATION_CONFIG
@@ -40,6 +42,13 @@ class RagError(RuntimeError):
     """Falha rastreável e fechada do pipeline RAG."""
 
 
+CASE_APPLICATION_CLARIFICATION = (
+    "Para aplicar uma regra jurídica a um caso concreto, são necessários fatos "
+    "estruturados e verificáveis que o MVP2 ainda não coleta nem valida. Posso "
+    "explicar a regra jurídica no modo legal-rule."
+)
+
+
 class InvalidAnswerContractError(RagError):
     pass
 
@@ -48,6 +57,24 @@ class CitationValidationError(RagError):
     def __init__(self, validation: CitationValidation) -> None:
         super().__init__(validation.status.value)
         self.validation = validation
+
+
+def case_application_result(request: RagQueryRequest) -> RagResult:
+    """Retorna a contenção determinística do modo de aplicação concreta."""
+    if request.mode is not QueryMode.CASE_APPLICATION:
+        raise ValueError("CASE_APPLICATION_MODE_REQUIRED")
+    return RagResult(
+        request.question,
+        (),
+        (),
+        AnswerContract(RagDecision.CLARIFY, CASE_APPLICATION_CLARIFICATION, ()),
+        CitationValidation(CitationStatus.VALID),
+        None,
+        request.mode,
+        False,
+        False,
+        "CASE_APPLICATION_NOT_SUPPORTED_IN_MVP2",
+    )
 
 
 class _StructuredOutput(BaseModel):
@@ -142,10 +169,16 @@ class RunRagQuery:
         self._evidence_repository = evidence_repository
         self._answerer = answerer
 
-    def execute(self, request: RetrievalRequest) -> RagResult:
+    def execute(self, request: RagQueryRequest) -> RagResult:
+        if request.mode is QueryMode.CASE_APPLICATION:
+            return case_application_result(request)
+
+        retrieval_request = RetrievalRequest(
+            request.question, request.version_hash, request.limit
+        )
         self._retriever.context(request.version_hash)
         self._evidence_repository.context(request.version_hash)
-        candidates = self._retriever.search(request)
+        candidates = self._retriever.search(retrieval_request)
         evidence = EvidenceAssembler(self._evidence_repository).assemble(
             request.version_hash, candidates
         )
@@ -177,6 +210,9 @@ class RunRagQuery:
                 output,
                 CitationValidation(CitationStatus.VALID),
                 identity,
+                request.mode,
+                True,
+                False,
             )
         raw = self._answerer.generate(
             system_prompt=system_prompt_for(PROMPT_VERSION_V2),
@@ -192,5 +228,13 @@ class RunRagQuery:
         if not validation.valid:
             raise CitationValidationError(validation)
         return RagResult(
-            request.question, candidates, evidence, output, validation, identity
+            request.question,
+            candidates,
+            evidence,
+            output,
+            validation,
+            identity,
+            request.mode,
+            True,
+            True,
         )

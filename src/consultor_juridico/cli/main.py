@@ -27,10 +27,12 @@ from consultor_juridico.application.corpus.services import (
 from consultor_juridico.application.rag.services import (
     RagError,
     RunRagQuery,
+    case_application_result,
 )
 from consultor_juridico.application.retrieval.ports import SearchUnitRetriever
 from consultor_juridico.application.retrieval.services import RetrieveSearchUnits
 from consultor_juridico.config import settings
+from consultor_juridico.domain.rag import QueryMode, RagQueryRequest
 from consultor_juridico.domain.retrieval import RetrievalMode, RetrievalRequest
 from consultor_juridico.evaluation.frozen_gold_bundle import (
     FrozenGoldBundleRepository,
@@ -45,7 +47,10 @@ from consultor_juridico.evaluation.gold_stability import (
     stability_subset_contract,
     summarize_gold_stability,
 )
-from consultor_juridico.evaluation.integrated_rag import run_integrated_dev
+from consultor_juridico.evaluation.integrated_rag import (
+    IntegratedDevProfile,
+    run_integrated_dev,
+)
 from consultor_juridico.evaluation.ollama_gold_runner import (
     MAX_GENERATION_TIME_SECONDS,
     OllamaGoldRunError,
@@ -335,6 +340,10 @@ def rag_status() -> None:
         )
     console.print("chunks=NOT_APPLICABLE_SEARCH_UNITS_ARE_RETRIEVAL_UNITS")
     console.print("embeddings=NOT_IMPLEMENTED_VECTOR_NOT_JUSTIFIED")
+    console.print(
+        "query_mode_LEGAL_RULE=READY" if ready else "query_mode_LEGAL_RULE=NOT_READY"
+    )
+    console.print("query_mode_CASE_APPLICATION=DETERMINISTIC_CLARIFY")
     console.print(f"RAG_READINESS={'READY' if ready else 'NOT_READY'}")
     if not ready:
         raise typer.Exit(1)
@@ -344,28 +353,38 @@ def rag_status() -> None:
 def rag_ask(
     question: Annotated[str, typer.Argument(help="Pergunta jurídica")],
     version_hash: Annotated[str, typer.Option("--version-hash")],
+    mode: Annotated[QueryMode, typer.Option("--mode")],
     limit: Annotated[int, typer.Option("--limit", min=1, max=10)] = 10,
     trace: Annotated[bool, typer.Option("--trace")] = False,
     base_url: Annotated[str, typer.Option("--base-url")] = settings.ollama_base_url,
 ) -> None:
     """Consulta o corpus local com geração vinculada às evidências recuperadas."""
-    timeout = httpx.Timeout(connect=10.0, read=180.0, write=30.0, pool=10.0)
-    try:
-        with _session_factory()() as session, httpx.Client(timeout=timeout) as client:
-            audit = CorpusAuditor(
-                session, PlanaltoLeiParser(), ProvisionTextProjection()
-            ).audit(version_hash, encoding=LEI_9784_SOURCE.encoding)
-            if not audit.passed:
-                raise RagError("CORPUS_NOT_READY")
-            retriever = _compose_retriever(session, RetrievalMode.RELAXED_OR_COVERAGE)
-            result = RunRagQuery(
-                retriever,
-                SqlAlchemyGoldEvidenceRepository(session),
-                OllamaSelectedAnswerer(client, base_url),
-            ).execute(RetrievalRequest(question, version_hash, limit))
-    except (LookupError, RagError, SelectedAnswererError, SQLAlchemyError) as error:
-        console.print(f"[red]RAG_FAILED: {error}[/red]")
-        raise typer.Exit(1) from error
+    request = RagQueryRequest(question, version_hash, mode, limit)
+    if mode is QueryMode.CASE_APPLICATION:
+        result = case_application_result(request)
+    else:
+        timeout = httpx.Timeout(connect=10.0, read=180.0, write=30.0, pool=10.0)
+        try:
+            with (
+                _session_factory()() as session,
+                httpx.Client(timeout=timeout) as client,
+            ):
+                audit = CorpusAuditor(
+                    session, PlanaltoLeiParser(), ProvisionTextProjection()
+                ).audit(version_hash, encoding=LEI_9784_SOURCE.encoding)
+                if not audit.passed:
+                    raise RagError("CORPUS_NOT_READY")
+                retriever = _compose_retriever(
+                    session, RetrievalMode.RELAXED_OR_COVERAGE
+                )
+                result = RunRagQuery(
+                    retriever,
+                    SqlAlchemyGoldEvidenceRepository(session),
+                    OllamaSelectedAnswerer(client, base_url),
+                ).execute(request)
+        except (LookupError, RagError, SelectedAnswererError, SQLAlchemyError) as error:
+            console.print(f"[red]RAG_FAILED: {error}[/red]")
+            raise typer.Exit(1) from error
 
     console.print(f"[bold]Decisão:[/bold] {result.output.decision.value}")
     console.print(f"\n[bold]Resposta:[/bold]\n{result.output.answer}")
@@ -377,6 +396,15 @@ def rag_ask(
             console.print(f"- {citation} — {item.official_url}")
     if trace:
         console.print("\n[bold]Trace:[/bold]")
+        console.print(f"query_mode={result.query_mode.name}")
+        console.print(
+            f"retrieval={'EXECUTED' if result.retrieval_executed else 'NOT_EXECUTED'}"
+        )
+        console.print(
+            f"answerer={'EXECUTED' if result.answerer_executed else 'NOT_EXECUTED'}"
+        )
+        if result.routing_reason:
+            console.print(f"reason={result.routing_reason}")
         for candidate in result.retrieved:
             console.print(
                 f"rank={candidate.rank} score={candidate.score:.6f} "
@@ -389,9 +417,10 @@ def rag_ask(
         )
         console.print(f"citations={','.join(result.output.citations)}")
         console.print(f"citation_validation={result.citation_validation.status.value}")
-        console.print(f"model={result.identity.model}")
-        console.print(f"freeze={result.identity.freeze_id}")
-        console.print(f"prompt={result.identity.prompt_identity}")
+        if result.identity is not None:
+            console.print(f"model={result.identity.model}")
+            console.print(f"freeze={result.identity.freeze_id}")
+            console.print(f"prompt={result.identity.prompt_identity}")
 
 
 @eval_app.command("retrieval")
@@ -426,6 +455,12 @@ def evaluate_integrated_rag_dev(
     dataset: Annotated[Path, typer.Option("--dataset")],
     version_hash: Annotated[str, typer.Option("--version-hash")],
     output_dir: Annotated[Path, typer.Option("--output-dir")],
+    evaluation_profile: Annotated[
+        IntegratedDevProfile, typer.Option("--evaluation-profile")
+    ] = IntegratedDevProfile.V1,
+    query_mode_mapping: Annotated[
+        Path | None, typer.Option("--query-mode-mapping")
+    ] = None,
     base_url: Annotated[str, typer.Option("--base-url")] = settings.ollama_base_url,
 ) -> None:
     """Executa uma campanha Integrated DEV pelo pipeline RAG real."""
@@ -439,8 +474,10 @@ def evaluate_integrated_rag_dev(
             dataset_path=dataset,
             version_hash=version_hash,
             output_dir=output_dir,
+            profile=evaluation_profile,
+            query_mode_mapping_path=query_mode_mapping,
         )
-    console.print("INTEGRATED_DEV=COMPLETE_FIRST_MEASUREMENT")
+    console.print(f"INTEGRATED_DEV={evaluation_profile.value}")
     for name, path in result["paths"].items():
         console.print(f"{name}={path}")
         console.print(f"{name}_sha256={result['sha256'][name]}")
