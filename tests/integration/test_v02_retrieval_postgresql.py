@@ -360,6 +360,25 @@ def test_coverage_ranking_uses_unit_key_for_complete_tie(session_factory):
     assert [item.unit_key for item in results] == ["UNIT:A", "UNIT:B"]
 
 
+def test_weighted_coverage_prioritizes_rarer_query_lexeme(session_factory):
+    with session_factory() as session, session.begin():
+        version_hash, _ = _seed_version(
+            session,
+            suffix="IDF",
+            unit_texts=(
+                ("UNIT:COMMON-A", "procedimento procedimento"),
+                ("UNIT:COMMON-B", "procedimento administrativo"),
+                ("UNIT:COMMON-C", "procedimento decisório"),
+                ("UNIT:RARE", "avocação"),
+            ),
+        )
+    with session_factory() as session:
+        results = PostgresRelaxedOrCoverageFullTextSearchRetriever(session).search(
+            RetrievalRequest("procedimento avocação", version_hash)
+        )
+    assert results[0].unit_key == "UNIT:RARE"
+
+
 def test_coverage_ranking_returns_empty_for_query_without_lexemes(session_factory):
     with session_factory() as session, session.begin():
         version_hash, _ = _seed_version(

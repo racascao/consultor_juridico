@@ -8,6 +8,8 @@ import httpx
 import typer
 from rich.console import Console
 from rich.table import Table
+from sqlalchemy import func, select
+from sqlalchemy.exc import SQLAlchemyError
 
 from consultor_juridico import __version__
 from consultor_juridico.application.corpus.audit import (
@@ -21,6 +23,10 @@ from consultor_juridico.application.corpus.projection import ProvisionTextProjec
 from consultor_juridico.application.corpus.services import (
     AcquireOfficialSource,
     MaterializeFromSnapshot,
+)
+from consultor_juridico.application.rag.services import (
+    RagError,
+    RunRagQuery,
 )
 from consultor_juridico.application.retrieval.ports import SearchUnitRetriever
 from consultor_juridico.application.retrieval.services import RetrieveSearchUnits
@@ -39,6 +45,7 @@ from consultor_juridico.evaluation.gold_stability import (
     stability_subset_contract,
     summarize_gold_stability,
 )
+from consultor_juridico.evaluation.integrated_rag import run_integrated_dev
 from consultor_juridico.evaluation.ollama_gold_runner import (
     MAX_GENERATION_TIME_SECONDS,
     OllamaGoldRunError,
@@ -55,11 +62,20 @@ from consultor_juridico.infrastructure.corpus.http import HttpxSourceAcquirer
 from consultor_juridico.infrastructure.corpus.materializer import (
     SqlAlchemyCorpusMaterializer,
 )
+from consultor_juridico.infrastructure.corpus.models import (
+    ActVersionModel,
+    ProvisionModel,
+    SearchUnitModel,
+)
 from consultor_juridico.infrastructure.corpus.repositories import (
     SqlAlchemySnapshotRepository,
 )
 from consultor_juridico.infrastructure.gold_evidence import (
     SqlAlchemyGoldEvidenceRepository,
+)
+from consultor_juridico.infrastructure.ollama.selected_answerer import (
+    OllamaSelectedAnswerer,
+    SelectedAnswererError,
 )
 from consultor_juridico.infrastructure.retrieval import (
     PostgresFullTextSearchRetriever,
@@ -81,11 +97,13 @@ app = typer.Typer(
 db_app = typer.Typer(help="Banco de dados e migrations.")
 corpus_app = typer.Typer(help="Aquisição, materialização e auditoria do corpus.")
 retrieval_app = typer.Typer(help="Busca lexical isolada em versão explícita.")
+rag_app = typer.Typer(help="Consulta RAG rastreável com o answerer congelado.")
 eval_app = typer.Typer(help="Avaliações reproduzíveis no filesystem.")
 gold_eval_app = typer.Typer(help="Capacidade de modelo com Gold Evidence explícita.")
 app.add_typer(db_app, name="db")
 app.add_typer(corpus_app, name="corpus")
 app.add_typer(retrieval_app, name="retrieval")
+app.add_typer(rag_app, name="rag")
 app.add_typer(eval_app, name="eval")
 eval_app.add_typer(gold_eval_app, name="gold")
 console = Console()
@@ -274,6 +292,108 @@ def retrieval_search(
     console.print(table)
 
 
+@rag_app.command("status")
+def rag_status() -> None:
+    """Exibe readiness do corpus RAG sem chamar Ollama."""
+    freeze = validate_selected_answerer_freeze()
+    try:
+        with _session_factory()() as session:
+            available_versions = list_versions(session)
+            auditor = CorpusAuditor(
+                session, PlanaltoLeiParser(), ProvisionTextProjection()
+            )
+            version_readiness = {
+                str(version["version_hash"]): auditor.audit(
+                    str(version["version_hash"]),
+                    encoding=LEI_9784_SOURCE.encoding,
+                ).passed
+                for version in available_versions
+            }
+            versions = session.scalar(select(func.count()).select_from(ActVersionModel))
+            provisions = session.scalar(
+                select(func.count()).select_from(ProvisionModel)
+            )
+            search_units = session.scalar(
+                select(func.count()).select_from(SearchUnitModel)
+            )
+    except SQLAlchemyError as error:
+        console.print(f"[red]RAG_READINESS=DATABASE_UNAVAILABLE: {error}[/red]")
+        raise typer.Exit(1) from error
+    ready = freeze.valid and any(version_readiness.values())
+    console.print(f"selected_answerer_freeze={'VALID' if freeze.valid else 'INVALID'}")
+    console.print(f"act_versions={versions or 0}")
+    console.print(f"provisions={provisions or 0}")
+    console.print(f"search_units={search_units or 0}")
+    for version in available_versions:
+        version_ready = version_readiness[str(version["version_hash"])]
+        console.print(
+            f"version_hash={version['version_hash']} "
+            f"act={version['act_code']} "
+            f"snapshot={version['source_snapshot_sha256']} "
+            f"parser={version['parser']} projection={version['projection']} "
+            f"ready={'YES' if version_ready else 'NO'}"
+        )
+    console.print("chunks=NOT_APPLICABLE_SEARCH_UNITS_ARE_RETRIEVAL_UNITS")
+    console.print("embeddings=NOT_IMPLEMENTED_VECTOR_NOT_JUSTIFIED")
+    console.print(f"RAG_READINESS={'READY' if ready else 'NOT_READY'}")
+    if not ready:
+        raise typer.Exit(1)
+
+
+@app.command("ask")
+def rag_ask(
+    question: Annotated[str, typer.Argument(help="Pergunta jurídica")],
+    version_hash: Annotated[str, typer.Option("--version-hash")],
+    limit: Annotated[int, typer.Option("--limit", min=1, max=10)] = 10,
+    trace: Annotated[bool, typer.Option("--trace")] = False,
+    base_url: Annotated[str, typer.Option("--base-url")] = settings.ollama_base_url,
+) -> None:
+    """Consulta o corpus local com geração vinculada às evidências recuperadas."""
+    timeout = httpx.Timeout(connect=10.0, read=180.0, write=30.0, pool=10.0)
+    try:
+        with _session_factory()() as session, httpx.Client(timeout=timeout) as client:
+            audit = CorpusAuditor(
+                session, PlanaltoLeiParser(), ProvisionTextProjection()
+            ).audit(version_hash, encoding=LEI_9784_SOURCE.encoding)
+            if not audit.passed:
+                raise RagError("CORPUS_NOT_READY")
+            retriever = _compose_retriever(session, RetrievalMode.RELAXED_OR_COVERAGE)
+            result = RunRagQuery(
+                retriever,
+                SqlAlchemyGoldEvidenceRepository(session),
+                OllamaSelectedAnswerer(client, base_url),
+            ).execute(RetrievalRequest(question, version_hash, limit))
+    except (LookupError, RagError, SelectedAnswererError, SQLAlchemyError) as error:
+        console.print(f"[red]RAG_FAILED: {error}[/red]")
+        raise typer.Exit(1) from error
+
+    console.print(f"[bold]Decisão:[/bold] {result.output.decision.value}")
+    console.print(f"\n[bold]Resposta:[/bold]\n{result.output.answer}")
+    if result.output.citations:
+        console.print("\n[bold]Fontes:[/bold]")
+        evidence = {item.stable_key: item for item in result.evidence}
+        for citation in result.output.citations:
+            item = evidence[citation]
+            console.print(f"- {citation} — {item.official_url}")
+    if trace:
+        console.print("\n[bold]Trace:[/bold]")
+        for candidate in result.retrieved:
+            console.print(
+                f"rank={candidate.rank} score={candidate.score:.6f} "
+                f"unit={candidate.unit_key} "
+                f"evidence={','.join(candidate.provision_stable_keys)}"
+            )
+        console.print(
+            "assembled_evidence="
+            + ",".join(item.stable_key for item in result.evidence)
+        )
+        console.print(f"citations={','.join(result.output.citations)}")
+        console.print(f"citation_validation={result.citation_validation.status.value}")
+        console.print(f"model={result.identity.model}")
+        console.print(f"freeze={result.identity.freeze_id}")
+        console.print(f"prompt={result.identity.prompt_identity}")
+
+
 @eval_app.command("retrieval")
 def evaluate_retrieval(
     dataset: Annotated[Path, typer.Option("--dataset")],
@@ -299,6 +419,33 @@ def evaluate_retrieval(
     console.print(f"hit_at_10={overall['hit_at_10']:.6f}")
     console.print(f"mrr={overall['mrr']:.6f}")
     console.print(f"output={output}")
+
+
+@eval_app.command("rag-dev")
+def evaluate_integrated_rag_dev(
+    dataset: Annotated[Path, typer.Option("--dataset")],
+    version_hash: Annotated[str, typer.Option("--version-hash")],
+    output_dir: Annotated[Path, typer.Option("--output-dir")],
+    base_url: Annotated[str, typer.Option("--base-url")] = settings.ollama_base_url,
+) -> None:
+    """Executa uma campanha Integrated DEV pelo pipeline RAG real."""
+    timeout = httpx.Timeout(connect=10.0, read=180.0, write=30.0, pool=10.0)
+    with _session_factory()() as session, httpx.Client(timeout=timeout) as client:
+        retriever = _compose_retriever(session, RetrievalMode.RELAXED_OR_COVERAGE)
+        result = run_integrated_dev(
+            retriever,
+            SqlAlchemyGoldEvidenceRepository(session),
+            OllamaSelectedAnswerer(client, base_url),
+            dataset_path=dataset,
+            version_hash=version_hash,
+            output_dir=output_dir,
+        )
+    console.print("INTEGRATED_DEV=COMPLETE_FIRST_MEASUREMENT")
+    for name, path in result["paths"].items():
+        console.print(f"{name}={path}")
+        console.print(f"{name}_sha256={result['sha256'][name]}")
+    for name, value in result["metrics"].items():
+        console.print(f"{name}={value}")
 
 
 @gold_eval_app.command("export")

@@ -213,7 +213,66 @@ congelar o runtime integrado antes de abrir o HOLDOUT.
 
 ## MVP2 — Integração RAG
 
-Não iniciada.
+- [x] Integrar o retrieval `RELAXED_OR_COVERAGE` selecionado.
+- [x] Montar Gold Evidence preservando ordem e `stable_key`.
+- [x] Integrar e validar o freeze do answerer `gemma4:12b`.
+- [x] Validar estritamente o contrato `ANSWER|ABSTAIN|CLARIFY`.
+- [x] Rejeitar citações inválidas ou fora da evidência.
+- [x] Expor resposta rastreável e trace opcional na CLI.
+- [x] Criar diagnóstico read-only de readiness.
+- [x] Cobrir o pipeline ponta a ponta com answerer mockado.
+- [x] Preparar o corpus local versionado para smoke tests manuais.
+- [x] Confirmar idempotência da materialização (`322` provisions; `242` SearchUnits).
+- [x] Preparar cinco comandos de smoke test sem executar inferência.
+- [x] Diagnosticar os primeiros smoke tests sem nova inferência.
+- [x] Ponderar cobertura lexical pela raridade documental da `ActVersion`.
+- [x] Expandir filhos normativos diretos com limites determinísticos.
+- [x] Melhorar a categoria de erro do answerer sem retry automático.
+- [x] Invalidar o smoke original de CLARIFY e preparar substituto apropriado.
+- [x] Inspecionar GPU NVIDIA, driver e NVIDIA Container Toolkit do host.
+- [x] Expor a GPU ao Ollama com `gpus: all`, preservando profile, porta e volume.
+- [x] Confirmar acesso à GPU no container e detecção do backend CUDA pelo Ollama.
+- [x] Revalidar tag/digest, freeze do answerer e readiness após a mudança de infraestrutura.
+- [x] Usuário repetir os cinco smoke tests RAG manuais.
+- [x] Executar a primeira medição Integrated DEV, sem Gold Evidence como input.
+- [x] Congelar raw, avaliação automática, diagnóstico e template de revisão.
+- [x] Concluir a revisão material humana do Integrated DEV (`24/32` all pass).
+- [x] Analisar classes gerais de falha sem tuning oportunista.
+- [x] Rejeitar a fusão lexical experimental por regressão global sem recuperar os misses.
+- [x] Concluir que o gate factual determinístico não é justificável com o input atual.
+- [ ] Reconsiderar uma correção geral antes de alterar o runtime integrado.
+- [ ] Congelar o runtime integrado antes de abrir o HOLDOUT.
+
+Estado: implementação end-to-end concluída sem inferência real. O artifact
+local versionado `b4abab2e...9261` foi materializado como `ActVersion`
+`bfa031c3...8cc6`, com 322 provisions e 242 SearchUnits. A repetição foi
+idempotente e o runtime reporta `RAG_READINESS=READY`. A identidade do snapshot
+histórico perdido `face6f55...` permanece não verificada. Smoke tests, Integrated
+DEV e HOLDOUT ainda não foram executados; o HOLDOUT continua fechado e não lido.
+Nos primeiros smokes, delegação passou após uma falha transitória, a pergunta
+fora do corpus absteve corretamente e o trace passou. O caso composto expôs
+CAPUT sem incisos e termo discriminativo fora do top-10; o recurso intempestivo
+expôs a mesma diluição lexical. A correção geral elevou o DEV lexical conhecido
+para `Hit@10=0,900` e `MRR=0,740625`, sem LLM. O reteste permanece pendente.
+
+O host NVIDIA e o NVIDIA Container Toolkit foram validados, e o serviço Ollama
+agora recebe a GPU por `gpus: all`. O container detectou CUDA sem geração. O
+timeout permaneceu em 180 segundos, sem retry; antes do reteste, o novo smoke de
+clarificação estava `INCONCLUSIVE_DUE_TO_TIMEOUT`.
+
+Com CUDA ativo, os smokes ficaram suficientes para o próximo gate. A primeira
+campanha Integrated DEV executou os 32 casos uma vez: `24/32` automatic pass,
+`25/32` decisões esperadas, zero citação inválida, zero citação fora da evidência
+e zero resposta insegura nos casos insuficientes. Foram isolados dois
+`RETRIEVAL_MISS` e seis `ANSWERER_DECISION_FAILURE` nos casos ambíguos. Naquele
+checkpoint, a revisão material humana e o freeze ainda estavam pendentes.
+
+A revisão humana confirmou `30/32` em correção jurídica, `32/32` em grounding,
+`24/32` em completude e `24/32` all pass. A análise causal mostrou um mismatch
+lexical em `GOLD-003` e diluição multipart em `GOLD-016`. A fusão lexical geral
+testada piorou Hit@10/MRR e não recuperou os alvos. Para clarificação, não há no
+input atual um modelo estrutural de fatos necessários/ausentes; nenhuma
+heurística frágil foi adicionada. O runtime permanece sem fix e sem freeze.
 
 A tag `v0.1.0` permanece congelada, e a primeira tentativa do MVP2 está
 preservada somente no histórico Git.

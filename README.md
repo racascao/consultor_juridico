@@ -3,8 +3,8 @@
 Mecanismo CLI-first de consulta jurídica baseado em fontes oficiais,
 versionadas e rastreáveis. O MVP2 está sendo reconstruído com escopo reduzido;
 nesta etapa existem um corpus funcional e auditável, um retrieval lexical
-selecionado para o piloto e o harness de capacidade do modelo com Gold Evidence.
-Ainda não existe geração integrada de consulta jurídica.
+selecionado para o piloto, um answerer congelado e o fluxo RAG integrado.
+O corpus piloto local está materializado e pronto para smoke tests manuais.
 
 ## Estado do projeto
 
@@ -13,11 +13,11 @@ versão `0.2.0.dev0`, concluiu a Fase 0 e mediu a Fase 1 com a Lei nº
 9.784/1999 como ato piloto.
 
 ```text
-MVP2_STATUS: PHASE_2_COMPLETE_READY_FOR_RAG_INTEGRATION
+MVP2_STATUS: INTEGRATED_DEV_GENERAL_FAILURE_ANALYSIS_COMPLETE_NO_FIX_JUSTIFIED
 PILOT_LEGAL_ACT: BR-FED-LEI-9784-1999
 PARSER: IMPLEMENTED
 CORPUS_IMPLEMENTATION: MATERIALIZED_AND_AUDITABLE
-CORPUS_PERSISTED_STATE: REBUILD_BLOCKED_SOURCE_SHA_DRIFT
+CORPUS_PERSISTED_STATE: LOCAL_VERSIONED_CORPUS_READY
 RETRIEVAL: POSTGRESQL_FTS_STRICT_RELAXED_OR_AND_COVERAGE
 FTS: IMPLEMENTED_AND_MEASURED
 EMBEDDINGS: NOT_IMPLEMENTED
@@ -32,7 +32,7 @@ STABILITY_RUNS: COMPLETE_DECISION_STABLE_12_OF_12
 HUMAN_REVIEW: COMPLETE
 CROSS_MODEL_CANDIDATES: QWEN3.5_9B_PHI4_MINI_GEMMA3_4B_GEMMA4_12B
 CROSS_MODEL_RUNS: QWEN3_5_REJECTED_PHI4_MINI_REJECTED_GEMMA3_REJECTED_GEMMA4_NEXT
-LLM_RUNTIME: NOT_INTEGRATED
+LLM_RUNTIME: GEMMA4_12B_FROZEN_RAG_INTEGRATED
 ```
 
 O checkpoint factual para retomadas está em
@@ -55,9 +55,18 @@ cirurgicamente e o contrato acima foi restaurado. O volume vazio incorreto
 `consultor_juridico_pgdata` foi preservado. A aquisição canônica realizada para
 reconstruir o novo volume v0.2 retornou 74.941 bytes com SHA-256 `c69120fb...`,
 divergente do snapshot histórico congelado `face6f55...`; por isso a
-reconstrução fiel do corpus vivo permanece bloqueada. Esse incidente não foi
+reconstrução fiel do corpus histórico permanece bloqueada. Esse incidente não foi
 tratado como substituição de fonte: a identidade raw histórica continua
 indisponível e sua equivalência semântica não foi afirmada.
+
+Para habilitar o RAG sem alegar essa identidade histórica, o corpus piloto foi
+materializado a partir do artifact local versionado
+`docs/corpus/artifacts/lei-9784-1999-planalto-2026-08-31.raw.html`, SHA-256
+`b4abab2e47732f76a16a99e8b00311dcb420b378f89e99c096b609ae84529261`.
+Ele produziu a `ActVersion`
+`bfa031c3e55bb8ff5e9349a9b8b278dcc5f84e64dcb918488ea9bf8316778cc6`,
+com 322 provisions e 242 SearchUnits. A repetição do mesmo fluxo confirmou
+idempotência sem duplicar snapshot, versão ou unidades.
 
 ## Retrieval lexical da Fase 1
 
@@ -409,8 +418,95 @@ docker compose exec ollama \
   ollama pull qwen3:4b-instruct-2507-q4_K_M
 ```
 
-Não há `ollama pull` em Dockerfile, entrypoint ou startup. O provider permanece
-restrito à avaliação Gold Evidence; a integração RAG não foi iniciada.
+Não há `ollama pull` em Dockerfile, entrypoint ou startup. O provider atende a
+avaliação manual e o runtime RAG; nenhum fallback para Ollama nativo do host é
+permitido.
+
+### GPU NVIDIA
+
+Em hosts Linux com GPU NVIDIA, o runtime atual requer driver NVIDIA funcional e
+NVIDIA Container Toolkit configurado no Docker. O serviço `ollama` recebe as
+GPUs disponíveis pela diretiva Compose `gpus: all`; isso é uma propriedade
+operacional do runtime e não altera modelo, digest, prompt ou configuração do
+answerer congelado.
+
+Verificações úteis, sem executar inferência:
+
+```bash
+nvidia-smi
+docker compose --profile llm up -d ollama
+docker compose exec ollama nvidia-smi
+docker compose logs ollama
+```
+
+Nos logs, o Ollama deve identificar um backend CUDA. O endpoint interno continua
+`http://ollama:11434` e o acesso ao mesmo container pelo host continua
+`http://localhost:11435`. O timeout congelado permanece em 180 segundos. O
+smoke de clarificação anterior ficou inconclusivo por timeout e deve ser repetido
+manualmente depois desta validação de GPU.
+
+## Consulta RAG integrada
+
+O runtime usa `RELAXED_OR_WEIGHTED_COVERAGE`: os lexemas da pergunta são
+ponderados pela raridade documental na `ActVersion`, evitando que termos comuns
+ocultem termos discriminativos. Ele converte as `SearchUnit` recuperadas em
+evidências canônicas identificadas por
+`Provision.stable_key` e monta exatamente o prompt
+`gold-evidence-answering/2`. O answerer é o freeze
+`gold-evidence-selected-answerer/1`: `gemma4:12b`, digest congelado,
+`format=json`, thinking desabilitado e configuração validada antes da chamada.
+JSON inválido, drift do freeze/modelo, citação desconhecida ou citação fora do
+conjunto fornecido falham fechadamente.
+
+Quando uma SearchUnit recuperada representa um pai textual com filhos normativos
+diretos, o assembly inclui esses filhos em ordem documental, limitado a oito por
+pai e 24 evidências no total. A expansão é estrutural, determinística e não usa
+número de artigo, pergunta ou dataset.
+
+O freeze é uma dependência crítica do runtime. A imagem `app` empacota somente
+o artifact canônico e os 13 arquivos cujos hashes ele valida, preservando os
+caminhos relativos em `/app/evaluation`. A árvore de avaliações não é copiada
+integralmente e nenhum artifact de HOLDOUT entra na imagem. Assim, os comandos
+`consultor-juridico eval gold selected-answerer-status` e
+`consultor-juridico rag status` funcionam também dentro do container.
+
+O banco local contém uma `ActVersion` materializada da Lei nº 9.784/1999 e
+`consultor-juridico rag status` reporta `RAG_READINESS=READY`. Confira o estado,
+sem chamar o modelo, com:
+
+```bash
+consultor-juridico rag status
+consultor-juridico corpus versoes
+```
+
+Nos smoke tests manuais, consulte informando a identidade da versão:
+
+```bash
+consultor-juridico ask \
+  "Quais são os requisitos para delegação de competência?" \
+  --version-hash bfa031c3e55bb8ff5e9349a9b8b278dcc5f84e64dcb918488ea9bf8316778cc6
+```
+
+Os cinco cenários e os comandos exatos estão em
+[`docs/evaluation/rag-smoke-tests-mvp2.md`](docs/evaluation/rag-smoke-tests-mvp2.md).
+O reteste confirmou quatro fluxos seguros e funcionais; o caso de clarificação
+respondeu condicionalmente, mas não pediu os fatos faltantes. A primeira campanha
+Integrated DEV foi então executada em 32 casos: 24 passaram automaticamente,
+sem citação inválida ou resposta insegura em evidência insuficiente. Permanecem
+dois misses de retrieval e `RISK-05` nos seis casos ambíguos. A revisão jurídica
+material confirmou `24/32` casos integralmente aprovados. A análise geral não
+encontrou um fix mínimo único e seguro: os misses têm causas distintas, e o
+input atual não representa fatos ausentes de modo que permita um gate de
+clarificação determinístico. Nenhum runtime foi alterado e o HOLDOUT continua
+fechado.
+
+Use `--trace` para inspecionar ranks, scores, `unit_key`, evidências montadas,
+citações e identidades de modelo/freeze/prompt, sem expor raciocínio interno.
+Dentro do Compose a URL Ollama é `http://ollama:11434`; no host, use somente
+`--base-url http://localhost:11435`. Retrieval vazio produz `ABSTAIN` local sem
+chamar o modelo. O MVP2 não possui tabelas de chunk ou embedding: `SearchUnit`
+é a unidade recuperável, e busca vetorial/RRF permanecem `NOT_JUSTIFIED` pela
+Fase 1.
 
 ## Desenvolvimento
 
@@ -506,7 +602,8 @@ prompt `gold-evidence-answering/2`, thinking desabilitado e
 fail-closed e aceita somente JSON com `decision`, `answer` e `citations`. O
 artifact e a política de mudança estão descritos no
 [`freeze do answerer`](docs/evaluation/selected-answerer-freeze-v1.md). O risco
-residual é `RISK-05`; o HOLDOUT segue fechado e a integração RAG não começou.
+residual é `RISK-05`; o HOLDOUT segue fechado. A integração RAG foi
+implementada posteriormente, sem modificar esse freeze.
 
 A revisão final confirmou todos os gates canônicos e encerrou formalmente a
 Fase 2. O answerer selecionado permanece a configuração completa congelada —
@@ -520,8 +617,9 @@ em DEV e congelado.
 Fase 0: Fundação e Corpus (concluída)
   → Fase 1: Retrieval isolado (RELAXED_OR_COVERAGE selecionado)
   → Fase 2: Gold Evidence (concluída; answerer selecionado e congelado)
-  → Integração RAG end-to-end (próximo bloco; não iniciada)
-  → DEV
+  → Integração RAG end-to-end (implementada; corpus local pronto)
+  → Smoke tests RAG manuais (concluídos o suficiente para DEV)
+  → Integrated DEV (primeira medição concluída; revisão humana pendente)
   → HOLDOUT
   → Teste manual
 ```

@@ -28,6 +28,9 @@ SELECTED_THINKING_MODE = "disabled"
 DEFAULT_FREEZE_PATH = Path(
     "evaluation/model_selection/gold_evidence_selected_answerer_freeze_v1.json"
 )
+SELECTED_FREEZE_SHA256 = (
+    "d07d5b3ca9feb9c16193a400609215c55ecd5e04f8e26429a035ee51f950e12a"
+)
 
 _EXPECTED_GENERATION_CONFIG = {
     key: value for key, value in GENERATION_CONFIG.items() if key != "seed"
@@ -119,6 +122,7 @@ def validate_selected_answerer_freeze(
                 break
 
     checks = {
+        "freeze_sha256_match": _sha256(resolved_path) == SELECTED_FREEZE_SHA256,
         "freeze_id_match": payload.get("freeze_id") == FREEZE_ID,
         "selection_status_match": payload.get("selection_status") == "FROZEN",
         "model_match": payload.get("model") == SELECTED_MODEL,

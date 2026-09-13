@@ -4,7 +4,7 @@ import os
 from hashlib import sha256
 
 import pytest
-from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine, select, text
 from sqlalchemy.orm import sessionmaker
 
 from consultor_juridico.infrastructure.corpus.models import (
@@ -142,3 +142,28 @@ def test_gold_evidence_requires_explicit_existing_version(session_factory):
     with session_factory() as session:
         with pytest.raises(LookupError, match="ActVersion não encontrada"):
             SqlAlchemyGoldEvidenceRepository(session).context("f" * 64)
+
+
+def test_direct_children_are_version_scoped_ordered_and_limited(session_factory):
+    with session_factory() as session, session.begin():
+        version_hash = _seed(session)
+        session.flush()
+        parent = session.scalar(
+            select(ProvisionModel).where(ProvisionModel.stable_key == "ARTICLE:1/CAPUT")
+        )
+        child = session.scalar(
+            select(ProvisionModel).where(
+                ProvisionModel.stable_key == "ARTICLE:1/PARAGRAPH:1"
+            )
+        )
+        child.parent_id = parent.id
+    with session_factory() as session:
+        children = SqlAlchemyGoldEvidenceRepository(session).direct_children(
+            version_hash,
+            ("ARTICLE:1/CAPUT",),
+            max_children_per_parent=1,
+        )
+    assert tuple(children) == ("ARTICLE:1/CAPUT",)
+    assert [item.stable_key for item in children["ARTICLE:1/CAPUT"]] == [
+        "ARTICLE:1/PARAGRAPH:1"
+    ]

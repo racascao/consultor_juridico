@@ -1,6 +1,6 @@
 """Leitura SQLAlchemy de Provisions para Gold Evidence explícita."""
 
-from sqlalchemy import select
+from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from consultor_juridico.application.gold_evidence.types import (
@@ -96,6 +96,61 @@ class SqlAlchemyGoldEvidenceRepository:
                 .where(ActVersionModel.version_hash == version_hash)
             )
         )
+
+    def direct_children(
+        self,
+        version_hash: str,
+        parent_keys: tuple[str, ...],
+        *,
+        max_children_per_parent: int,
+    ) -> dict[str, tuple[GoldEvidenceItem, ...]]:
+        if not parent_keys:
+            return {}
+        context = self.context(version_hash)
+        parent = ProvisionModel.__table__.alias("parent")
+        ranked = (
+            select(
+                parent.c.stable_key.label("parent_key"),
+                ProvisionModel.stable_key,
+                ProvisionModel.provision_type,
+                ProvisionModel.citation_text,
+                ProvisionModel.source_locator,
+                ProvisionModel.document_order,
+                func.row_number()
+                .over(
+                    partition_by=ProvisionModel.parent_id,
+                    order_by=ProvisionModel.document_order.asc(),
+                )
+                .label("child_position"),
+            )
+            .join(parent, parent.c.id == ProvisionModel.parent_id)
+            .join(ActVersionModel, ActVersionModel.id == ProvisionModel.act_version_id)
+            .where(
+                ActVersionModel.version_hash == version_hash,
+                parent.c.stable_key.in_(parent_keys),
+                ProvisionModel.citation_text.is_not(None),
+            )
+            .subquery()
+        )
+        rows = self._session.execute(
+            select(ranked)
+            .where(ranked.c.child_position <= max_children_per_parent)
+            .order_by(ranked.c.parent_key, ranked.c.document_order)
+        ).mappings()
+        grouped: dict[str, list[GoldEvidenceItem]] = {}
+        for row in rows:
+            grouped.setdefault(row["parent_key"], []).append(
+                GoldEvidenceItem(
+                    stable_key=row["stable_key"],
+                    provision_type=row["provision_type"],
+                    citation_text=row["citation_text"] or "",
+                    source_locator=dict(row["source_locator"]),
+                    source_snapshot_sha256=context.source_snapshot_sha256,
+                    official_url=context.official_url,
+                    document_order=row["document_order"],
+                )
+            )
+        return {key: tuple(items) for key, items in grouped.items()}
 
     def validate_citation_namespace(self, citations: frozenset[str]) -> None:
         """O PostgreSQL possui o namespace integral da ActVersion."""

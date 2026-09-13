@@ -91,31 +91,73 @@ _RELAXED_OR_COVERAGE_SEARCH_SQL = text(
             ) AS value
         FROM normalized
     ),
-    ranked_units AS (
+    corpus_units AS (
         SELECT
             su.id AS search_unit_id,
             su.unit_key,
             su.search_text,
+            to_tsvector('portuguese', su.search_text) AS search_vector
+        FROM search_units AS su
+        JOIN act_versions AS av ON av.id = su.act_version_id
+        WHERE av.version_hash = :version_hash
+    ),
+    corpus_size AS (
+        SELECT count(*)::double precision AS value
+        FROM corpus_units
+    ),
+    lexeme_stats AS (
+        SELECT
+            query_lexeme,
+            count(*) FILTER (
+                WHERE query_lexeme = ANY(
+                    tsvector_to_array(corpus.search_vector)
+                )
+            )::double precision AS document_frequency
+        FROM query
+        CROSS JOIN LATERAL unnest(query.lexemes)
+            AS lexeme(query_lexeme)
+        CROSS JOIN corpus_units AS corpus
+        GROUP BY query_lexeme
+    ),
+    weighted_query AS (
+        SELECT
+            stats.query_lexeme,
+            ln(
+                (corpus_size.value + 1.0)
+                / (stats.document_frequency + 1.0)
+            ) AS weight
+        FROM lexeme_stats AS stats
+        CROSS JOIN corpus_size
+    ),
+    ranked_units AS (
+        SELECT
+            corpus.search_unit_id,
+            corpus.unit_key,
+            corpus.search_text,
             ts_rank_cd(
-                to_tsvector('portuguese', su.search_text),
+                corpus.search_vector,
                 query.value
             ) AS score,
             (
                 SELECT count(DISTINCT query_lexeme)
                 FROM unnest(query.lexemes) AS lexeme(query_lexeme)
                 WHERE query_lexeme = ANY(
-                    tsvector_to_array(
-                        to_tsvector('portuguese', su.search_text)
-                    )
+                    tsvector_to_array(corpus.search_vector)
                 )
             )::double precision / NULLIF(query.lexeme_count, 0)
-                AS query_coverage
-        FROM search_units AS su
-        JOIN act_versions AS av ON av.id = su.act_version_id
+                AS query_coverage,
+            (
+                SELECT sum(weight)
+                FROM weighted_query
+                WHERE query_lexeme = ANY(
+                    tsvector_to_array(corpus.search_vector)
+                )
+            ) / NULLIF((SELECT sum(weight) FROM weighted_query), 0.0)
+                AS weighted_query_coverage
+        FROM corpus_units AS corpus
         CROSS JOIN query
-        WHERE av.version_hash = :version_hash
-          AND query.lexeme_count > 0
-          AND to_tsvector('portuguese', su.search_text) @@ query.value
+        WHERE query.lexeme_count > 0
+          AND corpus.search_vector @@ query.value
     )
     SELECT
         ranked.search_unit_id,
@@ -133,8 +175,10 @@ _RELAXED_OR_COVERAGE_SEARCH_SQL = text(
         ranked.unit_key,
         ranked.search_text,
         ranked.score,
-        ranked.query_coverage
+        ranked.query_coverage,
+        ranked.weighted_query_coverage
     ORDER BY
+        ranked.weighted_query_coverage DESC,
         ranked.query_coverage DESC,
         ranked.score DESC,
         ranked.unit_key ASC
@@ -259,17 +303,18 @@ class PostgresRelaxedOrFullTextSearchRetriever(_PostgresFullTextSearchRetriever)
 class PostgresRelaxedOrCoverageFullTextSearchRetriever(
     _PostgresFullTextSearchRetriever
 ):
-    """Variante OR ordenada por cobertura lexical distinta da pergunta."""
+    """Variante OR com cobertura ponderada pela raridade no corpus."""
 
-    implementation_name = "POSTGRESQL_FTS_RELAXED_OR_COVERAGE"
+    implementation_name = "POSTGRESQL_FTS_RELAXED_OR_WEIGHTED_COVERAGE"
     search_sql = _RELAXED_OR_COVERAGE_SEARCH_SQL
     retrieval_config = {
         "text_search_config": "portuguese",
         "query_function": "websearch_to_tsquery",
         "candidate_generation": "RELAXED_OR",
         "rank_function": "ts_rank_cd",
-        "ranking_primary": "query_coverage DESC",
-        "ranking_secondary": "ts_rank_cd DESC",
+        "ranking_primary": "weighted_query_coverage DESC",
+        "ranking_secondary": "query_coverage DESC, ts_rank_cd DESC",
+        "weighted_query_coverage": "IDF_WEIGHTED_MATCHED_QUERY_LEXEMES",
         "query_coverage": ("DISTINCT_MATCHED_QUERY_LEXEMES / DISTINCT_QUERY_LEXEMES"),
         "max_rank": 10,
         "tie_break": "unit_key ASC",
