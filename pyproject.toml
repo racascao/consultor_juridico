@@ -17,7 +17,7 @@ dependencies = [
 ]
 
 [project.scripts]
-consultor-juridico = "consultor_juridico.cli.main:app"
+consultor_juridico = "consultor_juridico.cli.main:app"
 
 [build-system]
 requires = ["hatchling"]

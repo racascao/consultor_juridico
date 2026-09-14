@@ -52,7 +52,7 @@ substituem nenhum artifact do baseline.
 ### 1. Full — 32 casos, seed 42
 
 ```bash
-.venv/bin/consultor-juridico eval gold run-ollama \
+.venv/bin/consultor_juridico eval gold run-ollama \
   --input evaluation/runs/gold_evidence_input_prompt_v2.jsonl \
   --model gemma4:12b \
   --base-url http://localhost:11435 \
@@ -66,7 +66,7 @@ substituem nenhum artifact do baseline.
 ### 2. Stability — seed 42
 
 ```bash
-.venv/bin/consultor-juridico eval gold run-ollama \
+.venv/bin/consultor_juridico eval gold run-ollama \
   --input evaluation/runs/gold_evidence_stability_prompt_v2_input.jsonl \
   --model gemma4:12b \
   --base-url http://localhost:11435 \
@@ -80,7 +80,7 @@ substituem nenhum artifact do baseline.
 ### 3. Stability — seed 43
 
 ```bash
-.venv/bin/consultor-juridico eval gold run-ollama \
+.venv/bin/consultor_juridico eval gold run-ollama \
   --input evaluation/runs/gold_evidence_stability_prompt_v2_input.jsonl \
   --model gemma4:12b \
   --base-url http://localhost:11435 \
@@ -94,7 +94,7 @@ substituem nenhum artifact do baseline.
 ### 4. Stability — seed 44
 
 ```bash
-.venv/bin/consultor-juridico eval gold run-ollama \
+.venv/bin/consultor_juridico eval gold run-ollama \
   --input evaluation/runs/gold_evidence_stability_prompt_v2_input.jsonl \
   --model gemma4:12b \
   --base-url http://localhost:11435 \
@@ -108,7 +108,7 @@ substituem nenhum artifact do baseline.
 ### 5. GOLD-012 — seed 42
 
 ```bash
-.venv/bin/consultor-juridico eval gold run-ollama \
+.venv/bin/consultor_juridico eval gold run-ollama \
   --input evaluation/runs/gold_evidence_posthoc_gold012_prompt_v2_input.jsonl \
   --model gemma4:12b \
   --base-url http://localhost:11435 \
@@ -122,7 +122,7 @@ substituem nenhum artifact do baseline.
 ### 6. GOLD-012 — seed 43
 
 ```bash
-.venv/bin/consultor-juridico eval gold run-ollama \
+.venv/bin/consultor_juridico eval gold run-ollama \
   --input evaluation/runs/gold_evidence_posthoc_gold012_prompt_v2_input.jsonl \
   --model gemma4:12b \
   --base-url http://localhost:11435 \
@@ -136,7 +136,7 @@ substituem nenhum artifact do baseline.
 ### 7. GOLD-012 — seed 44
 
 ```bash
-.venv/bin/consultor-juridico eval gold run-ollama \
+.venv/bin/consultor_juridico eval gold run-ollama \
   --input evaluation/runs/gold_evidence_posthoc_gold012_prompt_v2_input.jsonl \
   --model gemma4:12b \
   --base-url http://localhost:11435 \

@@ -9,3 +9,6 @@
 
 Os artifacts congelados de avaliação permanecem nos paths canônicos em
 `evaluation/`.
+
+O comando operacional oficial é `consultor_juridico`; bootstrap e interface
+Rich estão descritos no README principal.

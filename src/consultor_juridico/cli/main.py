@@ -1,5 +1,6 @@
 """CLI do corpus auditável e retrieval lexical do MVP2."""
 
+import sys
 from enum import StrEnum
 from pathlib import Path
 from typing import Annotated
@@ -7,6 +8,8 @@ from typing import Annotated
 import httpx
 import typer
 from rich.console import Console
+from rich.markdown import Markdown
+from rich.panel import Panel
 from rich.table import Table
 from sqlalchemy import func, select
 from sqlalchemy.exc import SQLAlchemyError
@@ -31,6 +34,7 @@ from consultor_juridico.application.rag.services import (
 )
 from consultor_juridico.application.retrieval.ports import SearchUnitRetriever
 from consultor_juridico.application.retrieval.services import RetrieveSearchUnits
+from consultor_juridico.cli.display import active_model_label, run_with_query_feedback
 from consultor_juridico.config import settings
 from consultor_juridico.domain.rag import QueryMode, RagQueryRequest
 from consultor_juridico.domain.retrieval import RetrievalMode, RetrievalRequest
@@ -95,9 +99,10 @@ class GoldEvidenceSource(StrEnum):
 
 
 app = typer.Typer(
-    name="consultor-juridico",
-    help="Fundação documental auditável do Consultor Jurídico MVP2.",
+    name="consultor_juridico",
+    help="Consulta local e auditável à Lei nº 9.784/1999.",
     add_completion=False,
+    no_args_is_help=False,
 )
 db_app = typer.Typer(help="Banco de dados e migrations.")
 corpus_app = typer.Typer(help="Aquisição, materialização e auditoria do corpus.")
@@ -112,6 +117,38 @@ app.add_typer(rag_app, name="rag")
 app.add_typer(eval_app, name="eval")
 eval_app.add_typer(gold_eval_app, name="gold")
 console = Console()
+
+
+@app.callback(invoke_without_command=True)
+def main(ctx: typer.Context) -> None:
+    """Abre a aplicação interativa quando nenhum subcomando é informado."""
+    if ctx.invoked_subcommand is not None:
+        return
+    if not sys.stdin.isatty():
+        console.print(
+            "[yellow]A interface interativa requer um terminal.[/yellow]\n"
+            "Use [bold]consultor_juridico --help[/bold] em execução scriptável."
+        )
+        raise typer.Exit(2)
+    from consultor_juridico.cli.interactive.app import run_interactive_cli
+    from consultor_juridico.cli.interactive.readiness import check_readiness
+
+    run_interactive_cli(
+        console=console,
+        readiness=check_readiness,
+        consult=lambda question, mode: _run_consult(
+            question=question,
+            mode=mode,
+            version_hash=(
+                "0" * 64
+                if mode is QueryMode.CASE_APPLICATION
+                else _current_version_hash()
+            ),
+            limit=10,
+            trace=False,
+            base_url=settings.ollama_base_url,
+        ),
+    )
 
 
 def _session_factory():
@@ -132,6 +169,78 @@ def _compose_retriever(session, mode: RetrievalMode) -> SearchUnitRetriever:
 def version() -> None:
     """Exibe a versão do pacote."""
     console.print(f"Consultor Jurídico {__version__}")
+
+
+@app.command()
+def bootstrap() -> None:
+    """Prepara migrations, corpus, FTS e modelo local de forma idempotente."""
+    from consultor_juridico.cli.interactive.app import show_status
+    from consultor_juridico.cli.interactive.bootstrap import compose_bootstrap
+    from consultor_juridico.cli.interactive.readiness import check_readiness
+    from consultor_juridico.services.bootstrap import BootstrapFailure, BootstrapState
+
+    console.print(Panel.fit("[bold]Preparação do Consultor Jurídico MVP2[/bold]"))
+    try:
+        events = iter(compose_bootstrap().run())
+        for event in events:
+            if event.state is BootstrapState.RUNNING:
+                title = {
+                    "migrations": "MIGRATIONS",
+                    "corpus": "CORPUS · LEI 9.784/1999",
+                    "model": f"MODELO · {active_model_label()}",
+                    "system": "SISTEMA",
+                }[event.step]
+                console.rule(f"[bold cyan]{title}[/bold cyan]")
+                with console.status(f"[cyan]{event.message}...[/cyan]", spinner="dots"):
+                    completed = next(events)
+                console.print(f"[green]✓[/green] {completed.message}")
+            else:
+                console.print(f"[green]✓[/green] {event.message}")
+    except BootstrapFailure as error:
+        console.print(
+            Panel(
+                f"{error}\n\nTente novamente com:\n"
+                "[bold]consultor_juridico bootstrap[/bold]",
+                title="Bootstrap incompleto",
+                border_style="red",
+            )
+        )
+        raise typer.Exit(1) from error
+
+    readiness = check_readiness()
+    show_status(console, readiness)
+    console.print(
+        Panel(
+            "[bold green]✓ Preparação concluída[/bold green]\n\n"
+            "O bootstrap terminou normalmente. O container [bold]app[/bold] "
+            "será encerrado com código 0; isso não é uma falha.\n"
+            "PostgreSQL e Ollama permanecem disponíveis.\n\n"
+            "Para abrir a aplicação:\n"
+            "[bold]docker compose run --rm app consultor_juridico[/bold]",
+            title="CONSULTOR JURÍDICO PRONTO",
+            border_style="green",
+        )
+    )
+
+
+@app.command()
+def status() -> None:
+    """Exibe a prontidão operacional sem executar bootstrap ou inferência."""
+    from consultor_juridico.cli.interactive.app import show_status
+    from consultor_juridico.cli.interactive.readiness import check_readiness
+
+    readiness = check_readiness()
+    show_status(console, readiness)
+    if not readiness.ready:
+        raise typer.Exit(1)
+
+
+@app.command()
+def tutorial() -> None:
+    """Explica os modos de consulta e as limitações atuais."""
+    from consultor_juridico.cli.interactive.app import TUTORIAL
+
+    console.print(Markdown(TUTORIAL))
 
 
 @db_app.command("migrate")
@@ -349,16 +458,27 @@ def rag_status() -> None:
         raise typer.Exit(1)
 
 
-@app.command("ask")
-def rag_ask(
-    question: Annotated[str, typer.Argument(help="Pergunta jurídica")],
-    version_hash: Annotated[str, typer.Option("--version-hash")],
-    mode: Annotated[QueryMode, typer.Option("--mode")],
-    limit: Annotated[int, typer.Option("--limit", min=1, max=10)] = 10,
-    trace: Annotated[bool, typer.Option("--trace")] = False,
-    base_url: Annotated[str, typer.Option("--base-url")] = settings.ollama_base_url,
+def _current_version_hash() -> str:
+    with _session_factory()() as session:
+        versions = [
+            item
+            for item in list_versions(session)
+            if item["act_code"] == LEI_9784_ACT.act_code
+        ]
+    if not versions:
+        raise RagError("CORPUS_NOT_READY")
+    return str(versions[-1]["version_hash"])
+
+
+def _run_consult(
+    *,
+    question: str,
+    version_hash: str,
+    mode: QueryMode,
+    limit: int,
+    trace: bool,
+    base_url: str,
 ) -> None:
-    """Consulta o corpus local com geração vinculada às evidências recuperadas."""
     request = RagQueryRequest(question, version_hash, mode, limit)
     if mode is QueryMode.CASE_APPLICATION:
         result = case_application_result(request)
@@ -421,6 +541,57 @@ def rag_ask(
             console.print(f"model={result.identity.model}")
             console.print(f"freeze={result.identity.freeze_id}")
             console.print(f"prompt={result.identity.prompt_identity}")
+
+
+@app.command("consult")
+def consult(
+    question: Annotated[str, typer.Argument(help="Pergunta jurídica")],
+    mode: Annotated[QueryMode, typer.Option("--mode")],
+    version_hash: Annotated[str | None, typer.Option("--version-hash")] = None,
+    limit: Annotated[int, typer.Option("--limit", min=1, max=10)] = 10,
+    trace: Annotated[bool, typer.Option("--trace")] = False,
+    base_url: Annotated[str, typer.Option("--base-url")] = settings.ollama_base_url,
+) -> None:
+    """Consulta o runtime congelado com QueryMode explicitamente informado."""
+    try:
+        selected_version = version_hash or (
+            "0" * 64 if mode is QueryMode.CASE_APPLICATION else _current_version_hash()
+        )
+        run_with_query_feedback(
+            console,
+            mode,
+            lambda: _run_consult(
+                question=question,
+                version_hash=selected_version,
+                mode=mode,
+                limit=limit,
+                trace=trace,
+                base_url=base_url,
+            ),
+        )
+    except (LookupError, RagError, SQLAlchemyError) as error:
+        console.print(f"[red]CONSULT_FAILED: {error}[/red]")
+        raise typer.Exit(1) from error
+
+
+@app.command("ask", hidden=True)
+def rag_ask(
+    question: Annotated[str, typer.Argument(help="Pergunta jurídica")],
+    version_hash: Annotated[str, typer.Option("--version-hash")],
+    mode: Annotated[QueryMode, typer.Option("--mode")],
+    limit: Annotated[int, typer.Option("--limit", min=1, max=10)] = 10,
+    trace: Annotated[bool, typer.Option("--trace")] = False,
+    base_url: Annotated[str, typer.Option("--base-url")] = settings.ollama_base_url,
+) -> None:
+    """Compatibilidade interna do subcomando anterior; use consult."""
+    _run_consult(
+        question=question,
+        version_hash=version_hash,
+        mode=mode,
+        limit=limit,
+        trace=trace,
+        base_url=base_url,
+    )
 
 
 @eval_app.command("retrieval")

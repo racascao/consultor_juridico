@@ -23,12 +23,20 @@ services:
     image: ollama/ollama:latest
     container_name: consultor_juridico_ollama
     restart: always
-    profiles: ["llm"]
+
     gpus: all
+
     ports:
       - "${OLLAMA_HOST_PORT:-11435}:11434"
+
     volumes:
       - consultor_juridico_ollama:/root/.ollama
+
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
 
   app:
     build:
@@ -48,11 +56,9 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    healthcheck:
-      test: ["CMD-SHELL", "consultor-juridico version || exit 1"]
-      interval: 10s
-      timeout: 5s
-      retries: 3
+      ollama:
+        condition: service_healthy
+    command: ["consultor_juridico", "bootstrap"]
 
 volumes:
   consultor_juridico_v02_pgdata:

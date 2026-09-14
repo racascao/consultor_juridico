@@ -48,4 +48,4 @@ COPY evaluation/results/gemma4_12b_prompt_v2_full_final_review.json \
 RUN uv sync --frozen
 
 # Sem ENTRYPOINT fixo: `docker compose run --rm app bash` abre o shell.
-CMD ["consultor-juridico"]
+CMD ["consultor_juridico", "bootstrap"]

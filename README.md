@@ -21,8 +21,9 @@ textuais e responde consultas normativas usando somente as evidências
 recuperadas. A resposta possui citações verificadas e trace auditável. O modelo
 de linguagem não é tratado como fonte jurídica.
 
-O produto é local e executado por CLI. Não há frontend, API web, busca vetorial,
-embeddings ou acesso web durante a consulta. A URL oficial é proveniência.
+O produto é local e executado por CLI. Não há frontend, API web, busca vetorial
+ou embeddings. O bootstrap pode acessar o Planalto para obter o corpus ausente;
+uma consulta nunca acessa a web e usa somente o snapshot persistido.
 
 ## Escopo atual
 
@@ -68,7 +69,7 @@ O modo é informado pelo caller e nunca inferido automaticamente. Consulte a
 - contrato de saída válido em `34/36` casos;
 - correção jurídica humana `34/36` e completude `32/36`;
 - `CASE_APPLICATION` apenas solicita esclarecimento, sem aplicar fatos;
-- nenhum runtime web fetch, vetor, embedding ou RRF.
+- nenhum web fetch durante consultas, vetor, embedding ou RRF.
 
 ## Requisitos
 
@@ -77,47 +78,63 @@ O modo é informado pelo caller e nunca inferido automaticamente. Consulte a
 - PostgreSQL 16 via Compose;
 - Ollama via Compose, publicado no host em `localhost:11435`.
 
-Ollama nativo no host em `localhost:11434` não é suportado. O download do
-modelo é manual e seu armazenamento usa volume Docker.
+Ollama nativo no host em `localhost:11434` não é suportado. O modelo é preparado
+automaticamente no primeiro bootstrap e armazenado em volume Docker.
 
-## Instalação e ambiente
+## Início rápido
 
 ```bash
 cp .env.example .env
-uv sync --frozen
-docker compose up -d db
-docker compose --profile llm up -d ollama
-docker compose exec ollama ollama pull gemma4:12b
+docker compose up --build
 ```
 
+O Compose sobe PostgreSQL e Ollama, aplica migrations, baixa a Lei nº 9.784/1999
+do Planalto se o snapshot ainda não existir, materializa o corpus/FTS e prepara
+`gemma4:12b`. O container `app` encerra com código zero ao concluir; banco e
+Ollama permanecem disponíveis. A primeira execução requer internet e pode ser
+demorada por causa do download do modelo.
+
+O texto `app exited with code 0` é esperado: `app` é um bootstrap one-shot, não
+um servidor. Antes de encerrar, ele mostra um resumo `READY` e o comando para
+abrir a interface. PostgreSQL e Ollama continuam executando.
+
+Em outro terminal, execute a aplicação pela imagem:
+
 ```bash
-.venv/bin/consultor-juridico --help
-docker compose build app
-docker compose run --rm app consultor-juridico --help
+docker compose run --rm app consultor_juridico
 ```
 
-## Execução
+O cabeçalho informa o modelo ativo (`Gemma4:12b`). Consultas de regra jurídica
+mostram um indicador Rich enquanto retrieval, assembly, geração e validação são
+executados. Esse indicador não é streaming do modelo: o contrato congelado usa
+`stream=false` e exibe somente a resposta final validada.
+
+Execução scriptável:
 
 ```bash
-.venv/bin/consultor-juridico db migrate
-.venv/bin/consultor-juridico db status
-.venv/bin/consultor-juridico corpus --help
-.venv/bin/consultor-juridico retrieval --help
-.venv/bin/consultor-juridico rag status
+docker compose run --rm app consultor_juridico --help
+docker compose run --rm app consultor_juridico status
+docker compose run --rm app consultor_juridico bootstrap
 ```
 
-Uma consulta normativa exige o hash explícito da versão materializada:
+Uma consulta normativa usa a versão materializada mais recente do ato, salvo se
+`--version-hash` for informado explicitamente:
 
 ```bash
-.venv/bin/consultor-juridico ask \
+docker compose run --rm app consultor_juridico consult \
   "Qual é o prazo para a Administração decidir o recurso?" \
-  --version-hash <VERSION_HASH> \
   --mode legal-rule \
-  --base-url http://localhost:11435
+  --base-url http://ollama:11434
 ```
 
-Use `--trace` para ranks, evidências, citações e identidades congeladas. Os
-grupos da CLI expõem ajuda para aquisição, materialização, auditoria e avaliação.
+Para uma situação concreta, use `--mode case-application`; esse modo retorna
+`CLARIFY` deterministicamente, sem retrieval, LLM ou citações. Use `--trace`
+para detalhes técnicos já suportados. Depois do bootstrap, toda consulta usa o
+banco e o modelo locais, sem acessar o Planalto.
+
+No host, o desenvolvimento continua disponível com `uv sync --frozen` e
+ativação de `.venv` seguida de `consultor_juridico`. Os grupos `db`, `corpus`,
+`retrieval`, `rag` e `eval` são operações avançadas.
 
 ## Testes e qualidade
 

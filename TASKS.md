@@ -16,6 +16,7 @@ FINAL_DECISION: MVP2_ACCEPTED_WITH_KNOWN_LIMITATIONS
 - [x] Integrated DEV, freeze do runtime e Blind HOLDOUT único.
 - [x] Revisão humana e decisão final com limitações conhecidas.
 - [x] Consolidação e empacotamento documental do MVP2.
+- [x] Bootstrap idempotente, packaging e interface interativa Rich.
 
 ## Pós-HOLDOUT / MVP3
 

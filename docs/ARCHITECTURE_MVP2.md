@@ -5,8 +5,8 @@
 O MVP2 é uma aplicação CLI-first de RAG jurídico local. Responde perguntas
 normativas a partir de corpus oficial versionado, com evidências e citações
 auditáveis, sem tratar o modelo como fonte jurídica. PostgreSQL e Ollama são
-serviços locais do Docker Compose; não há frontend, API web ou acesso web na
-consulta.
+serviços locais do Docker Compose; não há frontend ou API web. O bootstrap pode
+adquirir a fonte oficial, mas não há acesso web durante consultas.
 
 ## 2. Escopo do corpus
 
@@ -17,7 +17,8 @@ O corpus contém a Lei nº 9.784/1999, ato `BR-FED-LEI-9784-1999`, com
 O parser `planalto-lei-structural/1` usa `windows-1252` estrito e a projeção
 `provision-text/1` cria SearchUnits. O `version_hash` congelado é
 `bfa031c3e55bb8ff5e9349a9b8b278dcc5f84e64dcb918488ea9bf8316778cc6`.
-A URL do Planalto é proveniência, não acesso web em runtime.
+A URL do Planalto é proveniência. `BOOTSTRAP_WEB_FETCH=ENABLED` somente quando o
+snapshot esperado está ausente; `QUERY_TIME_WEB_FETCH=DISABLED`.
 
 ## 3. Arquitetura de alto nível
 
@@ -51,6 +52,10 @@ não auditável; por isso o caller deve informar o modo.
 - **Contrato:** JSON com `decision`, `answer` e `citations`; falha fechada.
 - **Citation Validation:** somente `stable_key` presente na evidência da consulta.
 - **CLI/trace:** administração, consulta e ranks/evidências/identidades auditáveis.
+- **Bootstrap:** orquestrador idempotente sobre migrations, aquisição,
+  materialização, auditoria e provisionamento do modelo; não altera o motor RAG.
+- **Interface Rich:** apresenta modelo, readiness e indicador de processamento;
+  não altera o payload `stream=false` nem simula streaming do answerer.
 
 ## 5. Retrieval congelado
 
@@ -150,3 +155,9 @@ MVP2_FINAL_DECISION: MVP2_ACCEPTED_WITH_KNOWN_LIMITATIONS
 
 O runtime é `integrated-runtime-mvp2/1`, SHA-256
 `5f0df6b41f0d35fcba0a514777a2370385620007ff3e6122473ca6793067514d`.
+
+A camada de packaging, bootstrap e interface Rich foi finalizada depois desse
+freeze. Ela não fazia parte da medição HOLDOUT e não modifica retrieval,
+answerer, prompt, validação ou contrato de modos. O serviço `app` é um bootstrap
+one-shot: seu encerramento com código zero é sucesso; PostgreSQL e Ollama
+permanecem ativos para execuções posteriores da CLI.
