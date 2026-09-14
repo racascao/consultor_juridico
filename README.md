@@ -166,6 +166,8 @@ consultor_juridico/
 O site MkDocs separa o caminho recomendado de construção, a referência do
 runtime congelado e a história experimental:
 
+- [Documentação pública](https://racascao.github.io/consultor_juridico/)
+
 - [Curso — construindo o MVP2](docs/course/index.md)
 - [Referência de arquitetura](docs/reference/architecture.md)
 - [Experimentos e decisões](docs/experiments/index.md)
@@ -183,8 +185,9 @@ Para validar a fotografia documental:
 uv run mkdocs build --strict
 ```
 
-O diretório `site/` é artifact local e não deve ser versionado. Esta task não
-publica GitHub Pages.
+O diretório `site/` é artifact local e não deve ser versionado. A documentação
+é publicada automaticamente no GitHub Pages após cada push para `main`; o
+workflow também permite execução manual.
 
 ## MVP1
 

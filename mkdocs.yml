@@ -1,5 +1,8 @@
 site_name: Consultor Jurídico — MVP2
 site_description: Curso e referência técnica do MVP2 congelado
+site_url: https://racascao.github.io/consultor_juridico/
+repo_url: https://github.com/racascao/consultor_juridico
+repo_name: racascao/consultor_juridico
 docs_dir: docs
 site_dir: site
 exclude_docs: |

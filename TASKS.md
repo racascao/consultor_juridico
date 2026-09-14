@@ -19,6 +19,8 @@ FINAL_DECISION: MVP2_ACCEPTED_WITH_KNOWN_LIMITATIONS
 - [x] Bootstrap idempotente, packaging e interface interativa Rich.
 - [x] Site MkDocs Material com guia incremental de reimplementação, referência
   e experimentos do MVP2.
+- [x] Publicação automática do MkDocs no GitHub Pages configurada via GitHub
+  Actions.
 
 ## Pós-HOLDOUT / MVP3
 
