@@ -136,7 +136,8 @@ estruturada de fatos necessários. Uma fusão lexical geral regrediu o DEV e foi
 rejeitada; nenhum gate factual determinístico mostrou-se seguro com o input
 atual. Não houve tuning nem alteração do runtime. A evidência completa está em
 [`integrated-dev-general-failure-analysis-v1.md`](evaluation/integrated-dev-general-failure-analysis-v1.md).
-O runtime ainda não foi congelado e o HOLDOUT permanece fechado.
+Naquele checkpoint, o runtime ainda não havia sido congelado e o HOLDOUT
+permanecia fechado.
 
 ## Decisão de factual sufficiency
 
@@ -163,3 +164,7 @@ mas não confirmada pela revisão humana substantiva. A revisão foi concluída 
 `32/36` all-pass, sem tuning, e o MVP2 foi aceito com limitações conhecidas;
 consulte
 [`blind-holdout-mvp2-v1.md`](evaluation/blind-holdout-mvp2-v1.md).
+
+O ciclo do MVP2 está formalmente encerrado. O HOLDOUT v1 permanece
+`CLOSED_FOR_DEVELOPMENT`; qualquer evolução pertence a uma fase metodológica
+pós-HOLDOUT independente, com novo baseline e datasets DEV próprios.

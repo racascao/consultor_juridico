@@ -7,6 +7,16 @@
 Integrated DEV v2 e de sua revisão humana, e antes de qualquer leitura do
 HOLDOUT.
 
+```text
+RUNTIME_CHANGED_AFTER_FREEZE: NO
+MODEL_CHANGED: NO
+PROMPT_CHANGED: NO
+RETRIEVAL_CHANGED: NO
+QUERY_MODE_CHANGED: NO
+STRUCTURAL_EXPANSION_CHANGED: NO
+CORPUS_CHANGED: NO
+```
+
 O modo `LEGAL_RULE` usa PostgreSQL FTS
 `RELAXED_OR_WEIGHTED_COVERAGE`, expansão de filhos diretos (máximo 8 por pai e
 24 evidências), o answerer congelado `gemma4:12b`, prompt

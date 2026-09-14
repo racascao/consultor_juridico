@@ -1,19 +1,25 @@
 # Consultor Jurídico
 
 Mecanismo CLI-first de consulta jurídica baseado em fontes oficiais,
-versionadas e rastreáveis. O MVP2 está sendo reconstruído com escopo reduzido;
-nesta etapa existem um corpus funcional e auditável, um retrieval lexical
-selecionado para o piloto, um answerer congelado e o fluxo RAG integrado.
-O corpus piloto local está materializado e pronto para smoke tests manuais.
+versionadas e rastreáveis. O MVP2 foi formalmente encerrado com um corpus
+funcional e auditável, retrieval lexical, answerer congelado e fluxo RAG
+integrado. Sua decisão final é `MVP2_ACCEPTED_WITH_KNOWN_LIMITATIONS`.
 
 ## Estado do projeto
 
 A tag `v0.1.0` preserva o MVP1 e permanece imutável. A branch `mvp-v0.2`, na
-versão `0.2.0.dev0`, concluiu a Fase 0 e mediu a Fase 1 com a Lei nº
-9.784/1999 como ato piloto.
+versão `0.2.0.dev0`, concluiu o ciclo do MVP2 com a Lei nº 9.784/1999 como ato
+piloto.
 
 ```text
-MVP2_STATUS: INTEGRATED_DEV_GENERAL_FAILURE_ANALYSIS_COMPLETE_NO_FIX_JUSTIFIED
+MVP2_STATUS: CLOSED
+MVP2_FINAL_DECISION: MVP2_ACCEPTED_WITH_KNOWN_LIMITATIONS
+INTEGRATED_RUNTIME_FREEZE: COMPLETE
+BLIND_HOLDOUT_FIRST_MEASUREMENT: COMPLETE
+HUMAN_REVIEW_HOLDOUT: COMPLETE
+HOLDOUT_STATUS: CLOSED_FOR_DEVELOPMENT
+HOLDOUT_TUNING: NO
+CASE_APPLICATION_BOUNDARY: VALIDATED
 PILOT_LEGAL_ACT: BR-FED-LEI-9784-1999
 PARSER: IMPLEMENTED
 CORPUS_IMPLEMENTATION: MATERIALIZED_AND_AUDITABLE
@@ -539,7 +545,12 @@ correção jurídica, `36/36` em groundedness, `32/36` em completude, `36/36` no
 boundary de modo e `32/36` all-pass. O risco automático de `HOLDOUT-027` não foi
 confirmado pelo julgamento substantivo, sem alterar o gold ou apagar a
 divergência. Como não existia threshold formal pré-HOLDOUT, a decisão qualitativa
-é `MVP2_ACCEPTED_WITH_KNOWN_LIMITATIONS`.
+é `MVP2_ACCEPTED_WITH_KNOWN_LIMITATIONS`. O MVP2 está formalmente fechado. As
+limitações aceitas incluem generalização lexical abaixo do DEV, recall inicial
+de provisions obrigatórias de `26/44`, cobertura integral de evidência em
+`27/31` casos `LEGAL_RULE`, contrato de saída válido em `34/36`, correção
+jurídica humana em `34/36`, completude em `32/36` e divergências entre métricas
+automáticas e revisão humana. Não houve tuning pós-HOLDOUT.
 
 Use `--trace` para inspecionar ranks, scores, `unit_key`, evidências montadas,
 citações e identidades de modelo/freeze/prompt, sem expor raciocínio interno.
@@ -646,13 +657,10 @@ artifact e a política de mudança estão descritos no
 residual é `RISK-05`; o HOLDOUT segue fechado. A integração RAG foi
 implementada posteriormente, sem modificar esse freeze.
 
-A revisão final confirmou todos os gates canônicos e encerrou formalmente a
-Fase 2. O answerer selecionado permanece a configuração completa congelada —
-não apenas a tag do modelo — e nenhuma limitação residual foi ocultada. O
-próximo bloco é a integração RAG end-to-end: retrieval, evidence assembly,
-answerer congelado, validação de citações e resposta rastreável. O HOLDOUT só
-poderá ser aberto depois que esse runtime integrado for implementado, avaliado
-em DEV e congelado.
+A revisão final da Fase 2 confirmou seus gates canônicos e encerrou aquela
+etapa. Naquele checkpoint, o próximo bloco era a integração RAG end-to-end e o
+HOLDOUT ainda não podia ser aberto. Ambas as etapas foram posteriormente
+concluídas, culminando no fechamento formal registrado abaixo.
 
 ```text
 Fase 0: Fundação e Corpus (concluída)
@@ -668,8 +676,8 @@ Fase 0: Fundação e Corpus (concluída)
   → Pacote privado criado e selado pelo usuário (concluído)
   → Primeira campanha Blind Holdout (concluída; 25/36 automático)
   → Revisão humana do HOLDOUT (concluída; 32/36 all pass)
-  → MVP2 aceito com limitações conhecidas
-  → [opcional] nova fase metodológica pós-HOLDOUT
+  → MVP2 formalmente fechado e aceito com limitações conhecidas
+  → [futuro, não iniciado] fase metodológica pós-HOLDOUT independente
 ```
 
 A governança do HOLDOUT está documentada em
@@ -685,6 +693,9 @@ A revisão humana está concluída. O boundary `CASE_APPLICATION` foi validado c
 do limite de modo. Em `LEGAL_RULE`, permanecem limitações de retrieval
 (`26/44` provisions obrigatórias no primeiro estágio), output contract e
 completude. O HOLDOUT v1 está encerrado e não pode ser usado para desenvolvimento.
+Qualquer evolução posterior deve usar novo baseline e datasets DEV independentes;
+o HOLDOUT v1 permanece disponível apenas para auditoria histórica, comparação
+documental e rastreabilidade da decisão final.
 
 ## Seleção do answerer do MVP2
 

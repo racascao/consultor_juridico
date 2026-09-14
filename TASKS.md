@@ -257,6 +257,7 @@ congelar o runtime integrado antes de abrir o HOLDOUT.
 - [x] Executar uma única campanha Blind Holdout contra o runtime congelado.
 - [x] Concluir e consolidar a revisão humana do Blind Holdout (`32/36` all pass).
 - [x] Registrar a decisão final `MVP2_ACCEPTED_WITH_KNOWN_LIMITATIONS`.
+- [x] Fechar formalmente o MVP2 com suas limitações conhecidas documentadas.
 
 Blind HOLDOUT v1: primeira medição concluída em 36 casos, com `25/36`
 automatic pass, `30/36` decisões esperadas, zero citações inválidas ou fora da
@@ -267,12 +268,22 @@ O risco automático em `HOLDOUT-027` não foi confirmado materialmente. Sem
 threshold formal prévio, o MVP2 foi aceito qualitativamente com limitações
 conhecidas. O HOLDOUT v1 não pode ser reutilizado como DEV.
 
-Estado: implementação end-to-end concluída sem inferência real. O artifact
+### Pós-HOLDOUT / trabalho futuro
+
+- [ ] Iniciar, somente em nova task, uma fase metodológica pós-HOLDOUT com novo
+  baseline, hipóteses gerais e datasets DEV independentes.
+
+O MVP2 não possui tarefas pendentes. O Blind HOLDOUT v1 permanece proibido para
+tuning, seleção de thresholds, depuração por caso, iteração de prompt ou uso como
+DEV.
+
+Histórico anterior ao fechamento: a implementação end-to-end foi concluída
+inicialmente sem inferência real. O artifact
 local versionado `b4abab2e...9261` foi materializado como `ActVersion`
 `bfa031c3...8cc6`, com 322 provisions e 242 SearchUnits. A repetição foi
 idempotente e o runtime reporta `RAG_READINESS=READY`. A identidade do snapshot
-histórico perdido `face6f55...` permanece não verificada. Smoke tests, Integrated
-DEV e HOLDOUT ainda não foram executados; o HOLDOUT continua fechado e não lido.
+histórico perdido `face6f55...` permanece não verificada. Naquele checkpoint,
+smoke tests, Integrated DEV e HOLDOUT ainda não haviam sido executados.
 Nos primeiros smokes, delegação passou após uma falha transitória, a pergunta
 fora do corpus absteve corretamente e o trace passou. O caso composto expôs
 CAPUT sem incisos e termo discriminativo fora do top-10; o recurso intempestivo

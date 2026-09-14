@@ -15,8 +15,9 @@ RUNTIME_FREEZE: integrated-runtime-mvp2/1
 BLIND_HOLDOUT_FIRST_MEASUREMENT: COMPLETE
 HOLDOUT_TUNING: NO
 HUMAN_REVIEW_HOLDOUT: COMPLETE
+HOLDOUT_STATUS: CLOSED_FOR_DEVELOPMENT
 MVP2_FINAL_DECISION: MVP2_ACCEPTED_WITH_KNOWN_LIMITATIONS
-NEXT_ACTION: CLOSE_MVP2_WITH_KNOWN_LIMITATIONS
+NEXT_ACTION: NONE_FOR_MVP2
 ```
 
 Este documento define somente a governança futura do conjunto HOLDOUT. Ele não
@@ -79,3 +80,8 @@ O MVP2 foi aceito com limitações conhecidas. Métricas e hashes estão em
 O HOLDOUT v1 está definitivamente encerrado como instrumento cego e não pode ser
 convertido em dataset de desenvolvimento. Evoluções futuras exigem fase
 metodológica pós-HOLDOUT, novo baseline e novos datasets DEV.
+
+Seu uso futuro é proibido para tuning, DEV, seleção de thresholds, depuração por
+caso, iteração de prompt ou ajuste de retrieval. Ele pode ser consultado somente
+para auditoria histórica, comparação documental e rastreabilidade da decisão
+final.
