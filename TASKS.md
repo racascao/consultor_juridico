@@ -17,6 +17,8 @@ FINAL_DECISION: MVP2_ACCEPTED_WITH_KNOWN_LIMITATIONS
 - [x] Revisão humana e decisão final com limitações conhecidas.
 - [x] Consolidação e empacotamento documental do MVP2.
 - [x] Bootstrap idempotente, packaging e interface interativa Rich.
+- [x] Site MkDocs Material com guia incremental de reimplementação, referência
+  e experimentos do MVP2.
 
 ## Pós-HOLDOUT / MVP3
 

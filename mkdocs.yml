@@ -1,0 +1,76 @@
+site_name: Consultor Jurídico — MVP2
+site_description: Curso e referência técnica do MVP2 congelado
+docs_dir: docs
+site_dir: site
+exclude_docs: |
+  corpus/artifacts/
+theme:
+  name: material
+  language: pt-BR
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Usar tema escuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Usar tema claro
+  features:
+    - navigation.top
+    - navigation.tabs
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+nav:
+  - Início: index.md
+  - Curso — Construindo o MVP2:
+      - Visão geral: course/index.md
+      - 01. Bootstrap do projeto: course/01-project-bootstrap.md
+      - 02. Infraestrutura: course/02-infrastructure.md
+      - 03. Modelo de dados: course/03-data-model.md
+      - 04. Corpus jurídico: course/04-corpus.md
+      - 05. Parser estrutural: course/05-structural-parser.md
+      - 06. SearchUnits: course/06-search-units.md
+      - 07. PostgreSQL FTS: course/07-postgresql-fts.md
+      - 08. Evidence Assembly: course/08-evidence-assembly.md
+      - 09. Answerer local: course/09-local-answerer.md
+      - 10. Structured Output: course/10-structured-output.md
+      - 11. Citation Validation: course/11-citation-validation.md
+      - 12. Query Modes: course/12-query-modes.md
+      - 13. CLI, Bootstrap e Packaging: course/13-cli-bootstrap-packaging.md
+      - 14. Avaliação: course/14-evaluation.md
+      - 15. Freeze e Blind HOLDOUT: course/15-freeze-and-holdout.md
+  - Referência:
+      - Arquitetura: reference/architecture.md
+      - Runtime: reference/runtime.md
+      - Modelo de dados: reference/data-model.md
+      - Seleção do modelo: reference/model-selection.md
+      - CLI: reference/cli.md
+      - Configuração: reference/configuration.md
+      - Limitações: reference/limitations.md
+      - Estado atual: STATE.md
+  - Experimentos:
+      - Visão geral: experiments/index.md
+      - Retrieval: experiments/retrieval.md
+      - Modelos: experiments/models.md
+      - Prompts: experiments/prompts.md
+      - Query Modes: experiments/query-modes.md
+      - Avaliação e HOLDOUT: experiments/evaluation-and-holdout.md
+  - Apêndices:
+      - Runbook Gemma4 format=json: evaluation/gemma4-format-json-reconsideration-v1.md

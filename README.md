@@ -47,7 +47,7 @@ Pergunta → CLARIFY determinístico
 ```
 
 O modo é informado pelo caller e nunca inferido automaticamente. Consulte a
-[arquitetura completa](docs/ARCHITECTURE_MVP2.md).
+[arquitetura completa](docs/reference/architecture.md).
 
 ## Principais capacidades
 
@@ -163,16 +163,34 @@ consultor_juridico/
 
 ## Documentação
 
-- [Arquitetura do MVP2](docs/ARCHITECTURE_MVP2.md)
-- [Experimentos e decisões](docs/EXPERIMENTS_MVP2.md)
+O site MkDocs separa o caminho recomendado de construção, a referência do
+runtime congelado e a história experimental:
+
+- [Curso — construindo o MVP2](docs/course/index.md)
+- [Referência de arquitetura](docs/reference/architecture.md)
+- [Experimentos e decisões](docs/experiments/index.md)
 - [Estado canônico](docs/STATE.md)
-- [Índice documental](docs/README.md)
+
+Para abrir localmente:
+
+```bash
+uv run mkdocs serve
+```
+
+Para validar a fotografia documental:
+
+```bash
+uv run mkdocs build --strict
+```
+
+O diretório `site/` é artifact local e não deve ser versionado. Esta task não
+publica GitHub Pages.
 
 ## MVP1
 
 O MVP1 é preservado pela tag imutável `v0.1.0` apenas como referência histórica.
-As lições relevantes estão em `EXPERIMENTS_MVP2.md`; esta branch representa o
-MVP2.
+As lições relevantes estão nos [experimentos](docs/experiments/index.md).
+A tag `0.2.0` preserva o MVP2; a `main` recebe esta documentação pós-freeze.
 
 ## Próxima evolução
 
