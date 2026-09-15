@@ -3,6 +3,42 @@
 Mecanismo CLI-first de consulta jurídica local, baseado em corpus oficial
 versionado, evidências rastreáveis e citações validadas.
 
+## O que torna este RAG diferente?
+
+O Consultor Jurídico é um **RAG jurídico estruturado e auditável**. Em vez de
+simplesmente dividir legislação em chunks e entregar os resultados mais
+semelhantes a um LLM, ele representa a norma como uma estrutura versionada,
+recupera unidades jurídicas, expande relações estruturais, monta um
+`EvidenceSet` explícito e rastreável e restringe a geração a essas evidências.
+As citações produzidas são então validadas deterministicamente contra o
+conjunto autorizado.
+
+```text
+RAG tradicional
+documento → chunks → retrieval → Top-K chunks → LLM → resposta
+
+Consultor Jurídico
+fonte oficial → ato jurídico → versão → estrutura normativa → SearchUnits
+→ PostgreSQL FTS → candidatos → expansão estrutural → Evidence Assembly
+→ EvidenceSet → answerer estruturado → Citation Validation
+→ RagResult auditável
+```
+
+O sistema continua sendo um RAG. O diferencial está nas camadas adicionais de
+estrutura jurídica, proveniência, separação entre candidato recuperado e
+evidência autorizada, saída estruturada e validação fail-closed. Esses
+mecanismos aumentam controle e auditabilidade, mas não garantem correção ou
+completude jurídica e não tornam o MVP2 apto a decidir casos concretos.
+
+## Fluxo end-to-end
+
+![Fluxograma resumido end-to-end do Consultor Jurídico MVP2](docs/assets/diagrams/mvp2-end-to-end-summary.png)
+
+O retrieval produz candidatos; o Evidence Assembly transforma esses candidatos
+em um conjunto explícito e rastreável de evidências antes da geração e da
+validação final. Veja o
+[fluxo detalhado na documentação de arquitetura](docs/reference/architecture.md#fluxo-end-to-end).
+
 ## Status
 
 ```text

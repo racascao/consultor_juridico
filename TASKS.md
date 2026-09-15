@@ -21,6 +21,7 @@ FINAL_DECISION: MVP2_ACCEPTED_WITH_KNOWN_LIMITATIONS
   e experimentos do MVP2.
 - [x] Publicação automática do MkDocs no GitHub Pages configurada via GitHub
   Actions.
+- [x] Fluxogramas end-to-end resumido e detalhado incorporados à documentação.
 
 ## Pós-HOLDOUT / MVP3
 

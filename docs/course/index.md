@@ -6,12 +6,37 @@ O público-alvo conhece Python, terminal, Docker e SQL em nível básico; os
 conceitos específicos de SQLAlchemy, Alembic, FTS, RAG, Typer e Ollama são
 introduzidos quando passam a ser necessários.
 
+## A arquitetura que será construída
+
+Este não é apenas um exercício de conectar chunking, busca e LLM. O resultado
+é um **RAG jurídico estruturado e auditável**: a fonte oficial é preservada e
+versionada, a lei é materializada como hierarquia normativa, retrieval produz
+candidatos e uma etapa separada os transforma em evidências autorizadas. O
+answerer recebe esse conjunto explícito, responde sob contrato estruturado e
+suas citações são verificadas antes da entrega.
+
+```text
+RAG tradicional
+documento → chunks → retrieval → LLM → resposta
+
+MVP2 deste curso
+fonte oficial → versão → provisions hierárquicas → SearchUnits → retrieval
+→ expansão estrutural → Evidence Assembly → EvidenceSet → answerer estruturado
+→ Citation Validation → resultado auditável
+```
+
+Ao longo dos capítulos, essa separação permite observar onde termina a busca e
+onde começa a evidência, preservar proveniência e testar contrato técnico
+separadamente de qualidade jurídica. Ela reduz graus de liberdade do modelo,
+mas não garante correção nem completude.
+
 ## O que você construirá
 
 ```text
 Planalto → snapshot imutável → parser jurídico → provisions hierárquicas
          → SearchUnits → PostgreSQL FTS → expansão estrutural
-         → EvidenceItems → Gemma4:12b → JSON estrito
+         → Evidence Assembly → EvidenceSet/EvidenceItems
+         → Gemma4:12b → JSON estrito
          → Citation Validation → CLI Rich
 ```
 
